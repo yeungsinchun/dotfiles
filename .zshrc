@@ -1,4 +1,12 @@
 typeset -U path PATH
+
+# Inside tmux, iTerm keeps TERM=xterm-256color; sync with tmux default-terminal.
+if [[ -n "$TMUX" ]]; then
+  _tmux_term="$(tmux show-option -gv default-terminal 2>/dev/null)"
+  [[ -n "$_tmux_term" ]] && export TERM="$_tmux_term"
+  unset _tmux_term
+fi
+
 path=(
   # CLI tools
   $HOME/.cargo/bin
@@ -35,6 +43,17 @@ path=(
   $path
 )
 export PATH
+
+# nvm node binaries (pyright-langserver, etc.) - nvm itself stays lazy-loaded below
+export NVM_DIR="$HOME/.nvm"
+if [[ -d "$NVM_DIR/versions/node" ]]; then
+  _latest_node_bin="$NVM_DIR/versions/node/$(command ls -1 "$NVM_DIR/versions/node" | sort -V | tail -1)/bin"
+  if [[ -d "$_latest_node_bin" ]]; then
+    path=("$_latest_node_bin" $path)
+    export PATH
+  fi
+  unset _latest_node_bin
+fi
 
 # source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 # source /opt/homebrew/opt/chruby/share/chruby/auto.sh
