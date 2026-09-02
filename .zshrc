@@ -135,4 +135,3 @@ bindkey '^[[1;3D' backward-word
 bindkey '^[[1;3C' forward-word
 bindkey '\eb' backward-word
 bindkey '\ef' forward-word
-
