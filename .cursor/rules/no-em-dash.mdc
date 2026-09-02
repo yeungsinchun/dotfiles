@@ -1,0 +1,20 @@
+---
+description: Use plain dashes instead of em-dashes in all writing
+alwaysApply: true
+---
+
+# No Em-Dashes
+
+Never use the em-dash character (—). Use a plain hyphen-minus (-) instead.
+
+## Examples
+
+```
+? BAD:  This is important — read it carefully.
+? GOOD: This is important - read it carefully.
+
+? BAD:  The result — as expected — was positive.
+? GOOD: The result - as expected - was positive.
+```
+
+Applies to chat replies, markdown, comments, commit messages, and any other text you write.
