@@ -1,22 +1,7 @@
-# Dotfiles repo: track portable Cursor config only.
-# Machine-local data (extensions, chats, projects, etc.) stays on disk but is not committed.
+# Dotfiles repo: track global Cursor rules only.
+# Everything else (skills, plans, extensions, chats, etc.) stays on disk but is not committed.
 
 *
 !.gitignore
-
-# User rules and skills
 !rules/
 !rules/**
-!skills-cursor/
-!skills-cursor/**
-!skills/
-!skills/**
-!commands/
-!commands/**
-
-# CLI preferences
-!cli-config.json
-
-# Agent plan files
-!plans/
-!plans/**

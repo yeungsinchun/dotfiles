@@ -1,4 +1,3 @@
 .zshenv
 
-# .cursor symlink target - portable config tracked via .cursor/.gitignore allowlist
-# (extensions, chats, projects, ai-tracking, etc. are excluded there)
+# .cursor symlink target - only rules/ is tracked (see .cursor/.gitignore)
