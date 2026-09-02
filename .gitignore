@@ -1,1 +1,3 @@
 .zshenv
+
+# .cursor symlink target - only rules/ is tracked (see .cursor/.gitignore)
