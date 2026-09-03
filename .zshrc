@@ -121,6 +121,7 @@ alias cursor='/Applications/Cursor.app/Contents/MacOS/Cursor'
 # <<< juliaup initialize <<<
 
 # fzf shell widgets (Ctrl+T / Alt+C) - separate from Neovim's fzf-lua (<C-p>)
+# Use fd so hidden dirs like ~/.config are included; include gitignored files too.
 if command -v fzf >/dev/null 2>&1; then
   if command -v fd >/dev/null 2>&1; then
     export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --no-ignore-vcs --exclude .git --exclude .jj'

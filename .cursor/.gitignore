@@ -1,6 +1,3 @@
-# Dotfiles repo: track global Cursor rules only.
-# Everything else (skills, plans, extensions, chats, etc.) stays on disk but is not committed.
-
 *
 !.gitignore
 !rules/
