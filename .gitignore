@@ -1,3 +1,7 @@
 .zshenv
 
-# .cursor symlink target - only rules/ is tracked (see .cursor/.gitignore)
+# .cursor symlink target - track rules/ only; ignore machine-local Cursor data
+.cursor/*
+!.cursor/.gitignore
+!.cursor/rules/
+!.cursor/rules/**

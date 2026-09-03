@@ -1,5 +1,6 @@
 # Dotfiles repo: track global Cursor rules only.
-# Everything else (skills, plans, extensions, chats, etc.) stays on disk but is not committed.
+# Cursor may overwrite this file with its managed block; dotfiles/.gitignore
+# also enforces the same policy at the repo root.
 
 *
 !.gitignore
