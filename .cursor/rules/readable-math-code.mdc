@@ -1,0 +1,22 @@
+---
+description: >-
+  Apply only when writing or refactoring algorithms, geometry, numerical
+  methods, or other math-heavy code. Prefer readable, math-aligned names and
+  structure over jargon and comment-heavy style.
+alwaysApply: false
+---
+
+# Readable, Math-Aligned Code
+
+When writing and algorithm, stick with math-style code and use functional programming style.
+
+## Example
+```
+BAD:
+  auto side = [&](auto& pt) { return ex * (pt[1] - ay) - ey * (pt[0] - ax); };
+
+GOOD:
+  inline double orient(const Vec2& a, const Vec2& b, const Vec2& p) {
+      return cross(sub(b, a), sub(p, a));
+  }
+```
