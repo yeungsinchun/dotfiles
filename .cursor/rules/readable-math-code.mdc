@@ -8,32 +8,14 @@ alwaysApply: false
 
 # Readable, Math-Aligned Code
 
-When writing or refactoring code relating to an algorithm, optimize for a human reading it against the underlying math or design.
-
-## Prefer code over comments
-
-- Make names, helpers, and structure carry the meaning.
-- Add a comment only when the code still cannot express intent (e.g. a non-obvious invariant or performance trick).
-- Do not leave jargon parameters (`P`, `Q`, `subj`, `in`, `out`) unexplained - rename them instead.
-
-## Match the math
-
-- Extract named primitives that mirror the formulation (`cross`, `orient`, `lerp`) instead of inlining opaque expressions.
-- Prefer small pure helpers; keep mutation localized (e.g. reusable buffers) when performance requires it.
-
-## Descriptive names
-
-- Name values by role in the algorithm (`current_polygon`, `cropping_polygon`), not by textbook shorthand or implementation accident.
-- If a name needs a comment to be understood, rename it.
+When writing and algorithm, stick with math-style code and use functional programming style.
 
 ## Example
-
 ```
 BAD:
   auto side = [&](auto& pt) { return ex * (pt[1] - ay) - ey * (pt[0] - ax); };
 
 GOOD:
-  // orient(a,b,p) = cross(b-a, p-a)
   inline double orient(const Vec2& a, const Vec2& b, const Vec2& p) {
       return cross(sub(b, a), sub(p, a));
   }
