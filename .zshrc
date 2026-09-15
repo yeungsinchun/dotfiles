@@ -1,3 +1,9 @@
+# Enable Powerlevel10k instant prompt. Must stay at the top of this file
+# (before anything that prints). Console-input init belongs above this block.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 typeset -U path PATH
 
 # Inside tmux, iTerm keeps TERM=xterm-256color; sync with tmux default-terminal.
@@ -85,14 +91,6 @@ conda() {
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-function _update_ps1()
-{
-    export PROMPT="$(python ~/dev/powerline-zsh/powerline-zsh.py $?)"
-}
-precmd()
-{
-	_update_ps1
-}
 # export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 # export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
@@ -136,3 +134,12 @@ bindkey '^[[1;3D' backward-word
 bindkey '^[[1;3C' forward-word
 bindkey '\eb' backward-word
 bindkey '\ef' forward-word
+
+# Powerlevel10k: theme + repo-tracked config (instant prompt is at the top of this file)
+_p10k_theme="$(brew --prefix 2>/dev/null)/share/powerlevel10k/powerlevel10k.zsh-theme"
+if [[ -r "$_p10k_theme" ]]; then
+  POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+  source "$_p10k_theme"
+  [[ -r "${${(%):-%N}:A:h}/.p10k.zsh" ]] && source "${${(%):-%N}:A:h}/.p10k.zsh"
+fi
+unset _p10k_theme
