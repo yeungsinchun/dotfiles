@@ -1,7 +1,9 @@
 .zshenv
 
-# .cursor symlink target - track rules/ only; ignore machine-local Cursor data
+# track only the agent rules for cursor
 .cursor/*
 !.cursor/.gitignore
 !.cursor/rules/
 !.cursor/rules/**
+
+.DS_store
