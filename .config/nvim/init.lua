@@ -12,7 +12,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
 require('lazy').setup({
   spec = 'plugins',
   install = { colorscheme = { 'catppuccin' } },
@@ -64,7 +63,13 @@ vim.api.nvim_create_autocmd({ 'VimEnter', 'WinEnter' }, {
   end,
 })
 
+-- warning: this overwrites <C-b> for scrolling a full page down,
+-- to ensure consistency with tmux
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+vim.keymap.set('n', '<C-b>h', '<C-w>h', { desc = 'Go to left window' })
+vim.keymap.set('n', '<C-b>j', '<C-w>j', { desc = 'Go to lower window' })
+vim.keymap.set('n', '<C-b>k', '<C-w>k', { desc = 'Go to upper window' })
+vim.keymap.set('n', '<C-b>l', '<C-w>l', { desc = 'Go to right window' })
 
 -- autocmd FileType plaintex,tex,context setlocal indentexpr=
 
@@ -86,3 +91,12 @@ vim.keymap.set('n', '<localleader>v', '<plug>(vimtex-view)')
 
 -- OCaml indentation
 vim.opt.rtp:prepend('/Users/sinchunyeung/.opam/default/share/ocp-indent/vim')
+
+-- LSP diagnostics
+vim.diagnostic.config({
+  virtual_text = true,
+  underline = true,
+  signs = true,
+  update_in_insert = false,
+})
+
