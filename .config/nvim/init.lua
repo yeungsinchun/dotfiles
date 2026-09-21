@@ -20,7 +20,7 @@ require('lazy').setup({
   },
 })
 
-require('config')
+-- require('config')
 
 local function plain_syntax()
   for _, group in ipairs({

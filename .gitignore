@@ -7,3 +7,4 @@
 !.cursor/rules/**
 
 .DS_store
+.config/nvim/nvim.log
