@@ -1,0 +1,546 @@
+global !p
+def math():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+endglobal
+
+# ===============================
+# 	       miscellaneous	
+# ===============================
+priority 100
+snippet ... "ldots" iA
+\ldots
+endsnippet
+
+# ===============================
+# 			 preamble	
+# ===============================
+snippet package "\usepackage{}" bA
+\usepackage{$1}$0
+endsnippet
+
+# ===============================
+# 		 quick environment
+# ===============================
+snippet env "\begin{}\end{}" A
+\begin{$1}
+	$2
+\end{$1}$0
+endsnippet
+
+snippet aln "\begin{align*}\end{align*}" bA
+\begin{align*}
+	$1
+\end{align*}$0
+endsnippet
+
+snippet eqn "equation" bA
+\begin{equation*}
+	$1
+\end{equation*}$0
+endsnippet
+
+snippet cases "simultaneous equation" bA
+\begin{equation*}
+	\begin{cases}
+		$1 \\
+		$2
+	\end{cases}
+\end{equation*}$0
+endsnippet
+
+snippet ss "\section{}" bA
+\section{$1}$0
+endsnippet
+
+snippet sb "\subsection{}" bA
+\subsection{$1}$0
+endsnippet
+
+snippet enum "Enumerate" bA
+\begin{enumerate}
+	\item $1
+\end{enumerate}$0
+endsnippet
+
+snippet item "Itemize" bA
+\begin{itemize}
+	\item $1
+\end{itemize}$0
+endsnippet
+
+snippet desc "Description" bA
+\begin{description}
+	\item[$1] $2
+\end{description}$0
+endsnippet
+
+# ===============================
+# 			   math	
+# ===============================
+snippet mk "Math" wA
+$$1$
+endsnippet
+
+snippet dm "Math" wA
+\[
+	$1
+\]. $0
+endsnippet
+
+context "math()"
+snippet '([A-Za-z])(\d)' "auto subscript" wrA
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+
+context "math()"
+snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
+`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+endsnippet
+
+context "math()"
+snippet ivs "\mathscr{L}" iA
+^{-1}
+endsnippet
+
+context "math()"
+snippet sr "^2" iA
+^2
+endsnippet
+
+context "math()"
+snippet cb "^3" iA
+^3
+endsnippet
+
+context "math()"
+snippet inv "^{-1}" iA
+^{-1}
+endsnippet
+
+context "math()"
+snippet compl "complement" iA
+^{c}
+endsnippet
+
+context "math()"
+snippet td "superscript" iA
+^{$1}$0
+endsnippet
+
+context "math()"
+snippet // "Fraction" iA
+\\frac{$1}{$2}$0
+endsnippet
+
+snippet / "Fraction" i
+\\frac{${VISUAL}}{$1}$0
+endsnippet
+
+context "math()"
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "symbol frac" wrA
+\\frac{`!p snip.rv = match.group(1)`}{$1}$0
+endsnippet
+
+priority 1000
+context "math()"
+snippet '^.*\)/' "() frac" wrA
+`!p
+stripped = match.string[:-1]
+depth = 0
+i = len(stripped) - 1
+while True:
+	if stripped[i] == ')': depth += 1
+	if stripped[i] == '(': depth -= 1
+	if depth == 0: break;
+	i-=1
+snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}"
+`{$1}$0
+endsnippet
+
+context "math()"
+snippet iff "iff" iA
+\iff
+endsnippet
+
+context "math()"
+snippet sum "sum" iA
+\sum
+endsnippet
+
+context "math()"
+snippet ceil "ceil" iA
+\left\lceil $1 \right\rceil$0
+endsnippet
+
+context "math()"
+snippet set "{}" iA
+\\{$1\\}$0
+endsnippet
+
+context "math()"
+snippet neq "\neq" A
+\neq
+endsnippet
+
+context "math()"
+snippet to "implies" iA
+\to$0
+endsnippet
+
+context "math()"
+snippet mapst "implies" iA
+\mapsto$0
+endsnippet
+
+context "math()"
+snippet leq "\leq" iA
+\leq$0
+endsnippet
+
+context "math()"
+snippet geq "\geq" iA
+\geq$0
+endsnippet
+
+context "math()"
+snippet impliedby "impliedby" iA
+\impliedby
+endsnippet
+
+context "math()"
+snippet implies "implies" iA
+\implies
+endsnippet
+
+context "math()"
+snippet floor "floor" iA
+\left\lfloor $1 \right\rfloor$0
+endsnippet
+
+context "math()"
+snippet () "left( right)" iA
+\left( ${1:${VISUAL}} \right)$0
+endsnippet
+
+snippet lr( "left( right)" iA
+\left( ${1:${VISUAL}} \right)$0
+endsnippet
+
+snippet lr| "left| right|" iA
+\left| ${1:${VISUAL}} \right|$0
+endsnippet
+
+snippet lr{ "left\{ right\}" iA
+\left\\{ ${1:${VISUAL}} \right\\}$0
+endsnippet
+
+snippet lr[ "left[ right]" iA
+\left[ ${1:${VISUAL}} \right]$0
+endsnippet
+
+snippet lra "leftangle rightangle" iA
+\left<${1:${VISUAL}} \right>$0
+endsnippet
+
+context "math()"
+snippet conj "conjugate" iA
+\overline{$1}$0
+endsnippet
+
+context "math()"
+snippet sum "sum" w
+\sum_{n=${1:1}}^{${2:\infty}} ${3:a_n z^n}
+endsnippet
+
+context "math()"
+snippet taylor "taylor" w
+\sum_{${1:k}=${2:0}}^{${3:\infty}} ${4:c_$1} (x-a)^$1$0
+endsnippet
+
+context "math()"
+snippet lim "limit" w
+\lim_{${1:n} \to ${2:\infty}} 
+endsnippet
+
+context "math()"
+snippet limsup "limsup" w
+\limsup_{${1:n} \to ${2:\infty}} 
+endsnippet
+
+context "math()"
+snippet prod "product" w
+\prod_{${1:n=${2:1}}}^{${3:\infty}} ${4:${VISUAL}}$0
+endsnippet
+
+context "math()"
+snippet part "d/dx" w
+\frac{\partial ${1:V}}{\partial ${2:x}}$0
+endsnippet
+
+context "math()"
+snippet sq "\sqrt{}" iA
+\sqrt{${1:${VISUAL}}}$0
+endsnippet
+
+context "math()"
+snippet sbt "\subset" iA
+\subseteq$0
+endsnippet
+
+context "math()"
+snippet in "\in" A
+\in$0
+endsnippet
+
+context "math()"
+snippet sm "set minus" iA
+\setminus$0
+endsnippet
+
+context "math()"
+snippet mcal "\mathcal" iA
+\mathcal$0
+endsnippet
+
+context "math()"
+snippet forall "forall" iA
+\forall$0
+endsnippet
+
+context "math()"
+snippet exists "there exists" iA
+\exists$0
+endsnippet
+
+context "math()"
+snippet cdots "\cdots" iA
+\cdots$0
+endsnippet
+
+context "math()"
+snippet vdots "\cdots" iA
+\vdots$0
+endsnippet
+
+context "math()"
+snippet cdots "\cdots" iA
+\cdots$0
+endsnippet
+
+context "math()"
+snippet cup "\cup" iA
+\cup$0
+endsnippet
+
+context "math()"
+snippet cap "\cap" iA
+\cap$0
+endsnippet
+
+context "math()"
+snippet alpha "\alpha" iA
+\alpha$0
+endsnippet
+
+context "math()"
+snippet beta "\beta" iA
+\beta$0
+endsnippet
+
+context "math()"
+snippet epsilon "\epsilon" iA
+\varepsilon$0
+endsnippet
+
+context "math()"
+snippet delta "\epsilon" iA
+\delta$0
+endsnippet
+
+context "math()"
+snippet omega "\epsilon" iA
+\omega$0
+endsnippet
+
+context "math()"
+snippet sigma "\epsilon" iA
+\sigma$0
+endsnippet
+
+context "math()"
+snippet Sigma "\epsilon" iA
+\Sigma$0
+endsnippet
+
+context "math()"
+snippet Gamma "\epsilon" iA
+\Gamma$0
+endsnippet
+
+context "math()"
+snippet Delta "\epsilon" iA
+\Delta$0
+endsnippet
+
+context "math()"
+snippet Real "\mathbb{R}" iA
+\mathbb{R}$0
+endsnippet
+
+context "math()"
+snippet mll "\mathscr{L}" iA
+\mathscr{L}
+endsnippet
+
+snippet addsvg "add figure with inkscape" bA
+\begin{figure}[H]
+	\centering
+	\includesvg[width=0.8\textwidth]{figures/$1}
+	\caption{$2}
+	\label{$3}
+\end{figure}
+endsnippet
+
+snippet addfig "add figure with inkscape" bA
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/$1}
+	\caption{$2}
+	\label{$3}
+\end{figure}$0
+endsnippet
+
+snippet plot "plot functions in a non-float environment" bA
+\begin{minipage}{\linewidth}
+\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			axis y line = center,
+			axis x line = middle,
+			xmin=$1,xmax=$2,
+			ytick=\empty,xtick=\empty]
+		]
+		\addplot[mark=none]{$3};
+		% \node[label={180:{$B(0,b)$}},circle,fill,inner sep=2pt] at (axis cs:0,3) {};
+	\end{axis}
+	\end{tikzpicture}
+\end{minipage}$0
+endsnippet
+
+snippet dfn "create a definition environment that uses amsthm" bA 
+\begin{tcolorbox}[colback=blue!20]
+	\begin{definition}
+		$1
+	\end{definition}
+\end{tcolorbox}$0
+endsnippet
+
+snippet thm "create a theorem environment that uses amsthm" bA
+\begin{tcolorbox}[colback=cyan!10]
+	\begin{theorem}
+		$1
+	\end{theorem}
+	\begin{proof}
+		$2
+	\end{proof}
+\end{tcolorbox}$0
+endsnippet
+
+snippet cor "create a corollary environment that uses amsthm" bA
+\begin{tcolorbox}[colback=orange!20]
+	\begin{corollary}
+		$1
+	\end{corollary}
+	\begin{proof}
+		$2
+	\end{proof}
+\end{tcolorbox}$0
+endsnippet
+
+snippet lem "create a lemma environment that uses amsthm" bA
+\begin{tcolorbox}
+	\begin{lemma}
+		$1
+	\end{lemma}
+	\begin{proof}
+		$2
+	\end{proof}
+\end{tcolorbox}$0
+endsnippet
+
+snippet prop "create a proposition environment that uses amsthm" bA
+\begin{tcolorbox}[colback=yellow!20]
+	\begin{proposition}
+		$1
+	\end{proposition}
+	\begin{proof}
+		$2
+	\end{proof}
+\end{tcolorbox}$0
+endsnippet
+
+snippet pf "create a proof environment that uses amsthm" bA
+\begin{proof}
+	$1
+\end{proof}$0
+endsnippet
+
+snippet nt "create a note environment" bA
+\begin{tcolorbox}[colback=pink!50]
+	\textbf{Note.} $1	
+\end{tcolorbox}$0
+endsnippet
+
+snippet rdr "create a reminder environment" bA
+\begin{tcolorbox}[colback=green!20]
+	\textbf{Reminder.} $1	
+\end{tcolorbox}$0
+endsnippet
+
+snippet ex "create a example environment that uses amsthm" bA
+\begin{tcolorbox}[colback=green!20]
+	\textbf{Example: } $1
+\end{tcolorbox}$0
+endsnippet
+
+context "math()"
+snippet pmatt "pmatrix" A
+\begin{pmatrix}
+	$1
+\end{pmatrix}
+endsnippet
+
+# Number Theory
+context "math()"
+snippet dle "display legendre symbol" iA
+\dlegendre{$1}{$2}$0
+endsnippet
+
+context "math()"
+snippet leg "legendre symbol" iA
+\legendre{$1}{$2}$0
+endsnippet
+
+# Probability
+context "math()"
+snippet Pro "probability" iA
+\mathbf{P}\left[$1\right]$0
+endsnippet
+
+context "math()"
+snippet Exp "expectation" iA
+\mathbf{E}\left[$1\right]$0
+endsnippet
+
+snippet LP "linear programming" i
+\begin{align*}
+&\text{minimize } \sum_{i=1}^{m} w_ix_i \\\\
+	&\begin{aligned}
+\text{subject to} \\\\
+	&& \sum_{u \in S_i} x_i &\geq 1 && \forall  u \in U \\\\
+	&& x_i &\geq 0 &&\forall  i \in \\{1,\ldots,n\\} \\\\
+	\end{aligned}	
+\end{align*}
+endsnippet
+
+

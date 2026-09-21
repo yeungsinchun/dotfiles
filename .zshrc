@@ -140,6 +140,6 @@ _p10k_theme="$(brew --prefix 2>/dev/null)/share/powerlevel10k/powerlevel10k.zsh-
 if [[ -r "$_p10k_theme" ]]; then
   POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
   source "$_p10k_theme"
-  [[ -r "${${(%):-%N}:A:h}/.p10k.zsh" ]] && source "${${(%):-%N}:A:h}/.p10k.zsh"
+  [[ -r ~/.p10k.zsh ]] && source ~/.p10k.zsh
 fi
 unset _p10k_theme
