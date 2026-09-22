@@ -1,0 +1,24 @@
+---
+pid: 70575
+cwd: "/Users/sinchunyeung/.config/nvim"
+command: "ls ~/Applications/iTerm.app/Contents/MacOS/; ~/Applications/iTerm.app/Contents/MacOS/iTerm2 --version 2>&1 | head -3"
+title: "Verify iTerm2 app in user Applications"
+status: succeeded
+started_at: 2026-09-02T04:43:24.027Z
+running_for_ms: 48180    
+---
+iTerm2
+iterm2-bitwarden-adapter
+iterm2-keepassxc-adapter
+iterm2-keeper-adapter
+iterm2-test-adapter
+iTerm2ImportStatus.app
+iTermServer
+ShellLauncher
+2026-09-02 12:43:24.883 iTerm2[70583:11169283] Orphan server adopter: Failed to connect to /Users/sinchunyeung/Library/Application Support/iTerm2/iterm2-daemon-1.socket
+
+---
+exit_code: 0
+elapsed_ms: 48180
+ended_at: 2026-09-02T04:44:12.207Z
+---

@@ -1,0 +1,316 @@
+tmux from generic status bar, split screen, remote to multi-agent division of labor | JonesHong
+
+3 Months of Stacked Records
+
+# tmux from generic status bar, split screen, remote
+
+# to multi-agent division of labor
+
+I was inspired by openclaw to start using tmux in February 2026, and have stacked it all the way from status bar, split screen, and remote development to multi-agent division of labor.
+
+Origin
+
+## Let's get the status bar right.#
+
+February 2026 by openclaw Inspired to start using tmux, follow YouTube on tmux use and basic configuration from the introduction to overtime a video all set! All the way through knocking instructions to familiarize yourself with the feel of the hand.
+
+At that point I was already using a bunch of AI agent CLIs at the same time - fixed shifts with occasional swaps - and opening a few more terminal windows made a mess. tmux was the tool to clean up the mess.
+
+Claude Code Codex CLI Gemini CLI Copilot CLI opencode qwen-code Hermes agent
+
+I'm not a "figure out the whole architecture and then start" type of guy, I'm a step-by-step stacker. The first step is to look at the status of each CLI - starting with Claude Code's statusline.
+
+`~/.claude/settings.json` set up`statusLine.command` Point to what you've written.`statusline.sh`::
+
+"statusLine": { "type": "command", "command": "~/.claude/statusline.sh", "padding": 2 }
+
+`statusline.sh` It's a lot of work - grab session ID, cwd, git branch + changed files, model display name, session cost, context percentage, all in one jq (to avoid 15 fork per second). overhead):
+
+🔖 p25418 │ 📁 blog │ ⎇ main*10?2 🤖 Opus 4.7 │ 💰 $1.42 │ ✍️ 23%
+
+I want to see more after writing it - Claude / Codex / Gemini 5 hours, 7 days quota, CPU, MEM, DISK, NET, but the Claude Code statusline is only for the current session, not the cumulative quota across sessions. However, Claude Code statusline can only see the current session, not the cumulative amount across sessions. I pulled this layer out and put it into the tmux statusline.
+
+`~/.tmux.conf` Wrote a long`status-format[1]` I'm going to call for one of my own.`tmux_status.sh` Pulls information, matches catppuccin color scheme:
+
+Actual tmux status bar: cross CLI usage + system metrics + time
+
+set -g'status-format[1]' '... CLAUDE 5H #(tmux_status.sh cc-5h) 7D #(tmux_status.sh cc-7d) ...' set -g status-interval5
+
+`status-interval 5` Fork every 5 seconds. At first I used Python to write this script, every 5 seconds I forked one interpreter, 13 processes in 13 columns. tmux server crashed once, then I changed it to shell + jq to save the startup overhead of the interpreter.
+
+Up to this point, tmux was just a "pretty status bar container" for me. Then I started to use it for what it is supposed to be - a split screen.
+
+workflow
+
+## Three repetitive pane layouts#
+
+After learning the basic commands, we have converged on three repetitive layouts.
+
+### 1. Vertical four-column equalized width#
+
+Most commonly used - 4 AI agent CLIs are really running at the same time. Each column has an independent dialog, dispatching a task, and scanning through the four columns, you will know who has finished running, who is still thinking, and who wants to reply. The width is equally divided, and it takes one second to scan from left to right, so you don't need to remember which one is where.
+
+### 2. Center-cross tetrad#
+
+For larger screens - one fixed character in each of the four quadrants. My current arrangement is main dialog top left, code or file tree preview top right, comparison info bottom left (CLI capability table, provider/model specs), and secondary CLI (qwen or other) bottom right.
+
+Compared to the vertical four columns, there is more "vertical" information density - some pane are good for long strips (logs) and some are good for squares (tables, codes). A cross layout can accommodate both.
+
+### 3. main + subagent layout#
+
+Main+Sub scheduling layout - a big pane on the left runs the main agent (mostly Claude Code), and 4 small panes on the right cut horizontally to run a sub-agent or sub-task. main sends out the task, and the panes on the right run in parallel to see the status, and report back to the left after running. The pane on the right will run in parallel and see the status in parallel.
+
+This layout is the prototype of the later relay system - just replace "I manually dispatch" with "skill auto dispatch".
+
+Remote Development
+
+## It's stupid to start over when the connection drops.#
+
+The first time I stepped into tmux the second value was ssh into the developer to run a long build.
+
+When I didn't install tmux, ssh would break and build from scratch. After changing to this process, it has not been interrupted again:
+
+ssh dev-server tmux new-s build make all# Run slow # ... Mouse accidentally unplugged the network cable ssh dev-server tmux a-t build# build is still running
+
+At that moment I realized: tmux is not a split-screen tool, it's a container for process.
+
+After that, all the remote sessions will go to tmux: one default session per host, ssh first.`tmux a || tmux new -s default` Never run things directly from the bare shell.
+
+on top of that`tmux-resurrect`+`tmux-continuum` Two plugins that automatically snapshot the entire layout every 15 minutes, and tmux up after reboot to restore it automatically.`~/.tmux.conf` There's only two lines in there:
+
+set -g @continuum-save-interval'15' set -g @continuum-restore'on'
+
+I restarted my mac mini at home, and it came back with the session still in the same place.
+
+cross-display
+
+## Mac mini at home, MacBook on the go, iPhone on the road.#
+
+After this process was stabilized, the mac mini at home became the main developer.
+
+24/7 on, always have tmux running my default session. the need to sync files to the cloud is reduced - the source code is on there anyway. Took MacBook out → ssh home →`tmux a`→ Continue the prompt that was not finished in the morning.
+
+I think of an idea on my commute, and I don't need to take notes, I just type it into the session.
+
+The phrase "call directly into the session" is the key pain point.
+
+I'm used to looking at 4 agents in a vertical 4-column layout. ssh on my phone used to be too wide for me to look at any of the columns.`prefix + z` Zoom in to fill it up, then zoom out to cut to the next one. Every time I interact with an agent, there are two more procedures, and I get tired just doing something.
+
+Mobile Phone Interface
+
+## Made a tmux-webui#
+
+This idea predates Claude Code's own remote mode. Later, when remote came out, I still used tmux mostly - I've already stacked this path to the point where it's very natural, so let me start from the beginning.
+
+1
+
+### iSH#
+
+Free Linux shell on the iPhone, just enough for ssh attach a remote tmux, but not for long term work - just run Alpine with a few tools.
+
+2
+
+### Blink Shell(Self-translation)#
+
+The App Store version costs money, but GitHub has an open source version that can be self-compiled. I haven't touched iOS development at all, and the whole sideload process is assisted by Claude Code. free developer account needs to be re-signed every 7 days.
+
+3
+
+### mosh(Abandonment)#
+
+I want to keep the connection from dropping when I cut the network. Theoretically it's beautiful, but the main mac doesn't have enough memory, and when the mosh-server runs for a long time, it eats up all the memory, and the whole computer crashes.
+
+That's why I turned to tmux-webui - to move the tmux pane directly into the browser and skip all the ssh client / mosh tossing.
+
+The reasons for choosing the web over native iOS apps are realistic: no Xcode, no TestFlight, no $99 a year. You can use it on any device with a browser. The tradeoff is that you have to handle auth and traffic encryption yourself, which is left to Cloudflare Tunnel.
+
+It does a few things: lists all sessions/windows/panes, clicks on a pane to see which pane's output is live, swipes left/right with a touch gesture, zooms in/out with two fingers, and installs the main screen as an app in PWA. The touch control part is learned from Blink Shell - I've used it for a month or so, so I know which gestures I'll use every day, and which ones I'll use in the demo. On the typing side, there is a skill palette, so I can scan it and know what I can call.
+
+Accidentally the best thing to use instead is to upload pictures.Take a picture of your cell phone or a screenshot and drag it into the webui, then save it in the backend.`uploads/` Return a local path, I paste the path into the current agent pane, and the agent reads it directly. When I see interesting designs, buggy screenshots, or sketches on the whiteboard on the way to work, I can throw them to the agent and ask questions right away, so I don't have to wait until I get home.
+
+webui full view skill supplement palette Agent is running.
+
+Multi-agent scheduling
+
+## Back to multi-agent, this time using a tmux pane as a cell.#
+
+Think before you start: why multi-agent, rather than leaving everything to a single CLI?
+
+1
+
+### The main context is not compressed.#
+
+The details assigned to other agents (searching for data, running tests, writing boilerplates) will not fill up the main context, leaving room for the parts that really require reasoning by the main brain.
+
+2
+
+### No need to talk about the same requirement more than once#
+
+One place to give commands, and then each CLI will do its own work. You don't need to open three terminals and paste the same prompt to three CLIs.
+
+3
+
+### Parallel line acceleration (with git worktree)#
+
+The same task can be split into parallel sub-tasks (multi-branch trial and error, N PRs at the same time), and each pane is assigned a git worktree, so that the work directories do not interfere with each other. Flatten the original single-line timeline.
+
+4
+
+### Multi-view Debate#
+
+It's not a division of labor, it's a consensus. Let different CLIs (or the same CLI with different role prompts) each take a position on the same question, then cross-rebuttals, and finally pick or let one of them converge. This is most useful for decisions like "should we reorganize or not" and "which architecture should we choose", which have no standard answer.
+
+5
+
+### Fulfillment of each CLI's quota#
+
+Claude Code alone bottomed out in an afternoon; spread out to separate 5 hour / 7 day limits for each of Codex / Gemini / Copilot and it ran all day long.
+
+Once the rationale is clear, the limitations of the existing program are then summarized in three categories, from shallow to deep.
+
+1
+
+### Headless Mode#
+
+`claude-p`,`codex -p` The following are some examples of such things. Fast and good at writing scripts, but ability is compromised - skills don't load, MCPs don't pick up, and self-written agents don't get it. Each call starts from zero, there is no continuous dialog. Individual task is OK, but state collaboration is not enough.
+
+2
+
+### Claude Code sub agent#
+
+Task tool sends out sub-agents. typed schema, prompt/result structure, skill/MCP can be inherited. But the communication is one-way - the sub can't actively call back the main agent, and the main agent can only wait.
+
+3
+
+### Claude Code team agent#
+
+experimental. Multiple agents run in separate processes and communicate with each other using Anthropic's built-in message protocol. It's bidirectional, parallelizable, and can exchange messages in the middle of the process. Most like what I want, but tied to Claude Code itself - no other CLI can get in.
+
+What I want is.Multi-agent across CLIs in Full Installation Mode"-- The same task is assigned to whichever CLI specializes in the same task, and each uses its own skill / MCP, so that they can interoperate with each other. I couldn't do this with any of the three existing solutions, so I chose tmux pane as the base and made my own stack. I call this set`tmux-relay` This is the "relay system" mentioned in the following paragraphs.
+
+### There are three levels#
+
+At the bottom is a working window, the pane is not resident - the main agent sees which CLI is suitable for the task (the strong point is the community comments and my own preference from using it), and then opens the pane to activate that CLI. When it's done, it's kept for later use, and recycled if it's been idle for too long.
+
+The judgment of picking idle is based on the current state of the pane - agent is waiting for input or running, recognized from the output content. No locks are maintained, no history is kept, and the screen is revisited every time.
+
+This layer has only been verified on the Claude Code pane so far.The prompt and processing prompts are CLI-specific; to support other CLIs, you need to write your own rules.
+
+Instead of polling, tmux uses its own hook mechanism - it wakes up the block's dispatcher at the end of the pane.
+
+This set still lacks the last piece of team agent: there is no way for pane and pane to call each other directly. I've built a small publish/subscribe service.`session-channel` To supplement this layer, the pane interconnections rely on channels, so there is no need to go through an intermediary.
+
+### tmux becomes a bridge across CLI agents.#
+
+Messaging
+
+`send-keys`+`capture-pane`
+
+completion event
+
+`wait-for`+ Stop hook
+
+Observability
+
+The pane buffer can always see who's thinking what.
+
+cross-display
+
+`tmux a` Any device can be connected.
+
+Cross-pane communications
+
+publish/subscribe for session-channel
+
+### The trade-off must be clear.#
+
+- `send-keys` It's plain text, no typed schema - patch it with stdout JSON Lines.
+- The pane buffer has a history-limit (I set it to 10000 rows) - output is truncated in the middle of a long task.
+- tmux is not a natural message bus - message reliability has to be handled by itself (signal file + retry).
+- Fully loaded mode eats up more resources than headless - several pane's each running a fully loaded CLI, and the memory is quickly eaten up.
+
+### And here's a trick: handoff when the context is almost full.#
+
+This can only be done in a "multiple pane running at the same time" environment: a session context is used up to 70-80%, and if you keep writing compact, the quality will drop. At this point, open a new tmux pane, start the same CLI, and go back to the session that was almost full and tell it:
+
+# in a session where the context is almost full: The context is almost full. Write for me.handoff.md--Write down the current progress, unresolved issues, next steps. Wait to hand out[That new pane] Take over.
+
+Let the new pane read it when it's done.`handoff.md` The original session is naturally compacted or terminated when the work is continued. When a single CLI session compacts itself, there is no place to catch the lost nuance; in a multi-pane environment, there is someone who can catch it.
+
+The whole set is replaced by "TheI can always see who's doing what now."+"Not picking the CLI"+"context Relay never loses a hand."When multi-agent debug is stuck, open tmux and you can see at a glance which prompt line each agent is stuck on.
+
+everyday use
+
+## Resident QA agent, subscriptions not APIs.#
+
+The multi-agent approach is to "assign work when the task comes". However, there is another daily usage scenario, QA - it's not for the agent to do the work, it's for it to help me check, help me think, and organize the current state. If this layer goes through API (Anthropic / OpenAI / Google API), it will be charged by token, and the more you ask, the more you spend.
+
+So I have a pane in tmux running a subscription version of the CLI (Claude Code, Codex, Gemini all have monthly plans), and I type in questions on my phone through a dashboard widget I made myself. Behind the scenes is the same`send-keys` Go to that pane, but run "subscription quota" instead of "charge by token".
+
+① Dashboard Entrance② chat widget full view③ The problem is sent in, and the pane is running behind it.④ Answer (to be activated / task in progress)⑤ Answer (file + plugin synchronization)⑥ Answer (git status compilation)
+
+The standup drawing in the picture is made by Live2D - the view will follow the mouse movement, and the mouth of the agent will open and close when answering the streaming. It's purely a visual detail, but it does provide a sense of companionship after a long chat.
+
+### API paid vs subscription + tmux pane#
+
+- Go API: Each question is billed by token, so if you ask too many questions, your bill will fly up. Advantage: No time slot quota, unlimited parallelism.
+- Go tmux pane + CLI subscriptionFixed monthly fee, 5 hours / 7 days quota runs out, no surprise bills. Charge is a hard limit of quota and cannot be stacked in parallel indefinitely.
+
+For non-high-throughput scenarios like "everyday QA", subscriptions are a lot cheaper. tmux pane is the key to this - it turns the "interactive mode" of the CLI into an endpoint that can be remotely triggered by send-keys, and poked and prodded across devices.
+
+Retrospective
+
+## Now the stack looks like this.#
+
+The mac mini at home runs a default session 24/7: ssh attach in the morning, detach on the way out, PWA on the cell phone on the way to work, change the MacBook on the way out - all the way to the same session without interruption. The status bar lays out the cross CLI quota and the system status, and the multi-agent task is sent to the relay system for scheduling, and I just look at the results and make a decision myself.
+
+Looking back at the past 3 months, from status bar, split screen, remote to multi-agent scheduling, each layer is not planned out - the pain point of the moment to be solved, and then do it to see what the next pain point is. tmux has always been at the bottom of the never changed, because it is just enough to use every time.
+
+This set is for my own use only. It will be organized and open-sourced later--`tmux-webui`,`tmux-relay`,`session-channel`⋯ Cut each tool cleanly, write down the documents clearly, and rely on cutting until it can be installed separately. There is no specific timetable, so I'll put one after the other.
+
+Take this away.
+
+## Choose one line first, then move four at the same time.#
+
+The article lists 4 application lines. Most people get stuck importing all of them at once - the cost of choosing the wrong order is that you mess up your environment and then have trouble going back.
+
+Tell the AI about your development environment and your current pain points, and let it help you pick which ones are best to try first, as well as 3 specific things to do in the first week:
+
+I'm thinking of importing tmux, but not sure which application line to start with. My scenario: - Main machine: [e.g. MacBook / Mac mini / Linux server]. - Commonly used CLI tools: [e.g. Claude Code / Codex / Gemini CLI / ...]. - Are you used to SSHing to remote machines: [Yes / No] - Current Pain Points: [e.g. CLI switching is too much trouble / running agent waiting is a waste of time / device switching is disconnected / status bar keeps going to check] The article mentions 4 application lines: ① Unified status bar - centralize API quota and system indicators in one bar. SSH + tmux-resurrect connection - disconnect and reconnect without rerunning. ③ Mac mini mainstay + cross-device attach - one session shared across all devices ④ multi-agent scheduling - tmux pane acts as a bridge across CLI agents. Please help me: 1. based on my situation, determine which one is the most effective and least friction to import. 2. point out the other 3 reasons why it's not a good idea to touch them first. 3. list 3 specific things to do in the first week (command level, not conceptual)
+
+References
+
+## Extended Reading#
+
+Resources that were actually referenced and influenced design decisions during these three months.
+
+| Resources | Why is it important? |
+| --- | --- |
+| tmux man page | Reading through it from the beginning reveals so many features that you don't normally use.`pipe-pane`/`capture-pane -p`/`wait-for` These neglected primitives are the basis for later cross-CLI programming. |
+| tmux use and basic configuration from the introduction to overtime a video all set! | I'm this 3 months tmux foundation feel mainly from this branch. Chinese, practice-oriented, not verbose. |
+| openclaw | The starting point of my exposure to tmux. It uses process spawn, not tmux, but it gave me the "let's get multiple agents working together" thing. |
+| Blink Shell | iOS high quality SSH client + good touch gesture design, later moved into tmux-webui. |
+| iSH | Free Linux shell on the iPhone; ssh attach mac mini The first tool to try. |
+| mosh | I wanted to replace ssh to solve the problem of network disconnection; it requires a lot of memory, and the main machine did not run well, so I finally gave up. |
+
+### Recommended
+
+#### CCR + LiteLLM: Making Claude Code a Brain Dump
+
+Claude Code's 20x quota will be exhausted in about four days. Leaving the planning to Claude Code, batching small tasks to a cheap worker on LiteLLM, and double checking with Codex - this "replace the model, leave the interface" workflow, and by the way, let's see how well the other models are actually doing their job!LiteLLMClaude Code
+
+#### memvault panorama: three tracks × three levels of mindfulness
+
+The memvault trilogy omnibus - writing, organizing, and recalling into one map, complementing the CLT cognitive load, 4 Event Flows, and RxJS Reactive triple cross-track mindset.memvaultKnowledge Graph
+
+#### When I think about it - how AI Agent understands me better and better.
+
+Cross-session memory extraction, from "can save" to "can call back". Three contexts, one pipeline, and 11 layers of sorting.memvaultRead Track
+
+### Concepts mentioned
+
+multi-agent scheduling tmux Context Management Cross-Device Development Observability CLI AI Assisted Development AI Tool Chain
+
+### Knowledge Graph
+
+✦ Copy Prompt

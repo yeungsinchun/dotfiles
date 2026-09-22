@@ -1,0 +1,84 @@
+---
+pid: 73667
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db"
+command: "diff -rq /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db 2>/dev/null | head -40; ls /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/; find /Users/sinchunyeung/.treehouse/paper2db-41af0c -name 'processed' -type d 2>/dev/null; ls /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/.venv 2>/dev/null; cat requirements.txt; find /Users/sinchunyeung -path '*notes*Radiation*' -type d 2>/dev/null | head -20; find /Users/sinchunyeung/Documents /Users/sinchunyeung/Desktop /Users/sinchunyeung/Downloads -iname '*radiation*' -type d 2>/dev/null | head -20"
+title: "Compare copies and find Radiation notes"
+status: succeeded
+started_at: 2026-09-03T04:50:31.743Z
+running_for_ms: 779803   
+---
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/.git and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/.git differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2012/combined.pdf and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2012/combined.pdf differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2012/q36.png and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2012/q36.png differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2013/combined.pdf and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2013/combined.pdf differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2013/q36.png and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2013/q36.png differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2014/combined.pdf and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2014/combined.pdf differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2014/q33.png and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2014/q33.png differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2015/combined.pdf and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2015/combined.pdf differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2015/q33.png and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2015/q33.png differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2016/combined.pdf and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2016/combined.pdf differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2016/q33.png and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2016/q33.png differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2017/combined.pdf and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2017/combined.pdf differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2017/q33.png and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2017/q33.png differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2018/combined.pdf and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2018/combined.pdf differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2018/q33.png and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2018/q33.png differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2019/combined.pdf and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2019/combined.pdf differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2019/q33.png and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2019/q33.png differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2020/combined.pdf and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2020/combined.pdf differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2020/q33.png and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2020/q33.png differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2021/combined.pdf and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2021/combined.pdf differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2021/q33.png and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2021/q33.png differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2022/combined.pdf and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2022/combined.pdf differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2022/q33.png and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2022/q33.png differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2023/combined.pdf and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2023/combined.pdf differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2023/q33.png and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2023/q33.png differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2024/combined.pdf and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2024/combined.pdf differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2024/q33.png and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2024/q33.png differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2025/combined.pdf and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2025/combined.pdf differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2025/q33.png and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2025/q33.png differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2026/combined.pdf and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2026/combined.pdf differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/2026/q33.png and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/2026/q33.png differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/pp/combined.pdf and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/pp/combined.pdf differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/pp/q36.png and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/pp/q36.png differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/sap/combined.pdf and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/sap/combined.pdf differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/output/sap/q36.png and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/output/sap/q36.png differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/scripts/preprocess_mc.py and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/scripts/preprocess_mc.py differ
+Files /Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db/scripts/split_mc.py and /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db/scripts/split_mc.py differ
+answer
+output
+paper
+requirements.txt
+scripts
+segment
+pymupdf
+Pillow
+numpy
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation/Photoelectric effect and photons
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation/Photoelectric effect and photons/lq
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation/Photoelectric effect and photons/notes
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation/Photoelectric effect and photons/questions
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation/X-rays and radiation applications
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation/X-rays and radiation applications/lq
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation/X-rays and radiation applications/notes
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation/X-rays and radiation applications/questions
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation/Nuclear reactions and binding energy
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation/Nuclear reactions and binding energy/lq
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation/Nuclear reactions and binding energy/notes
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation/Nuclear reactions and binding energy/questions
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation/Atomic models
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation/Atomic models/lq
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation/Atomic models/notes
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation/Atomic models/questions
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation/Radioactivity and nuclear radiation
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation/Radioactivity and nuclear radiation/lq
+/Users/sinchunyeung/.Trash/Documents-local/Materials/Phy/notes/Radiation/Radioactivity and nuclear radiation/notes
+/Users/sinchunyeung/Documents/Materials/Phy/notes/Radiation
+/Users/sinchunyeung/Documents/Materials/Phy/notes/Radiation/X-rays and radiation applications
+/Users/sinchunyeung/Documents/Materials/Phy/notes/Radiation/Radioactivity and nuclear radiation
+
+---
+exit_code: 0
+elapsed_ms: 779801
+ended_at: 2026-09-03T05:03:31.544Z
+---

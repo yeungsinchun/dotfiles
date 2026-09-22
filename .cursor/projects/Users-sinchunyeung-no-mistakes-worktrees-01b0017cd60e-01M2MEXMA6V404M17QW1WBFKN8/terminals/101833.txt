@@ -1,0 +1,18 @@
+---
+pid: 50444
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/01b0017cd60e/01M2MEXMA6V404M17QW1WBFKN8"
+command: "ls /Users/sinchunyeung/.no-mistakes/worktrees/01b0017cd60e/ 2>/dev/null | head; echo \"====\"; find /Users/sinchunyeung -path '*notes/book5/_local/dse/mc/25*' -name '*.png' 2>/dev/null | head -20; echo \"====git\"; git check-ignore -v notes/book5/_local/dse 2>/dev/null; ls notes/book5/_local 2>/dev/null"
+title: "Find DSE scan images on disk"
+status: failed   
+started_at: 2026-09-16T17:45:01.988Z
+running_for_ms: 82073    
+---
+01M2JA3X1XZJ667HDDD7B5GRXH
+01M2MEXMA6V404M17QW1WBFKN8
+====
+
+---
+exit_code: unknown
+elapsed_ms: 82064
+ended_at: 2026-09-16T17:46:24.052Z
+---

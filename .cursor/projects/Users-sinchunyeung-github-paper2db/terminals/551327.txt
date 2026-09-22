@@ -1,0 +1,51 @@
+---
+pid: 37410
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && mkdir -p /tmp/paper2db-batch && python3 << 'PY'\nfrom pathlib import Path\nimport subprocess, shutil, sys, time\n\nroot = Path(\"/Users/sinchunyeung/github/paper2db\")\nlog = Path(\"/tmp/paper2db-batch/run.log\")\nmapping = {\n    \"2012p1a.pdf\": \"2012\",\n    \"2013p1a.pdf\": \"2013\",\n    \"2014p1a.pdf\": \"2014\",\n    \"2015p1a.pdf\": \"2015\",\n    \"2016p1a.pdf\": \"2016\",\n    \"2017p1a.pdf\": \"2017\",\n    \"2018p1a.pdf\": \"2018\",\n    \"2019p1a.pdf\": \"2019\",\n    \"2020p1a.pdf\": \"2020\",\n    \"2021p1a.pdf\": \"2021\",\n    \"2022p1a.pdf\": \"2022\",\n    \"2023p1a.pdf\": \"2023\",\n    \"2024p1a.pdf\": \"2024\",\n    \"2025p1a.pdf\": \"2025\",\n    \"2026p1a.pdf\": \"2026\",\n    \"ppp1a.pdf\": \"pp\",\n    \"sapp1a.pdf\": \"sap\",\n}\n# 2012 already matches the current pipeline\nskip = {\"2012\"}\njobs = [(pdf, dest) for pdf, dest in mapping.items() if dest not in skip]\n\ndef log_line(msg):\n    text = msg + \"\\n\"\n    sys.stdout.write(text)\n    sys.stdout.flush()\n    with log.open(\"a\") as f:\n        f.write(text)\n\nlog.write_text(\"\")\nlog_line(f\"jobs={len(jobs)}\")\nfailed = []\nfor pdf_name, dest in jobs:\n    pdf = root / \"paper\" / pdf_name\n    out = root / \"output\" / dest\n    inter = Path(\"/tmp/paper2db-batch\") / f\"inter-{dest}\"\n    if inter.exists():\n        shutil.rmtree(inter)\n    log_line(f\"=== START {dest} ({pdf_name}) ===\")\n    t0 = time.time()\n    result = subprocess.run(\n        [str(root / \"segment\"), str(pdf), str(out), \"--type\", \"mc\", \"--step\", \"all\", \"--intermediate\", str(inter)],\n        cwd=root,\n    )\n    elapsed = time.time() - t0\n    if inter.exists():\n        shutil.rmtree(inter, ignore_errors=True)\n    leftover = out / \"intermediate\"\n    if leftover.exists():\n        shutil.rmtree(leftover, ignore_errors=True)\n    pngs = list(out.glob(\"q*.png\"))\n    combined = out / \"combined.pdf\"\n    status = \"OK\" if result.returncode == 0 and combined.is_file() else \"FAIL\"\n    if status != \"OK\":\n        failed.append(dest)\n    log_line(f\"=== {status} {dest} rc={result.returncode} pngs={len(pngs)} combined={combined.is_file()} {elapsed:.0f}s ===\")\n\nlog_line(\"FAILED: \" + (\", \".join(failed) if failed else \"(none)\"))\nlog_line(\"DONE\")\nPY"
+title: "Batch-segment all MC years into output/"
+status: failed   
+started_at: 2026-09-02T10:04:47.857Z
+running_for_ms: 145617   
+---
+jobs=16
+=== START 2013 (2013p1a.pdf) ===
+Anchor is not next to the question number for: Q11. The number must sit immediately to the bottom-right of the blue dot.
+Paper type: MC (2013p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Traceback (most recent call last):
+  File "/Users/sinchunyeung/github/paper2db/segment", line 362, in <module>
+    main()
+    ~~~~^^
+  File "/Users/sinchunyeung/github/paper2db/segment", line 326, in main
+    count = segment_mc(
+        pdf,
+    ...<5 lines>...
+        overrides=overrides,
+    )
+  File "/Users/sinchunyeung/github/paper2db/segment", line 243, in segment_mc
+    anchor_mc(
+    ~~~~~~~~~^
+        source,
+        ^^^^^^^
+    ...<3 lines>...
+        overrides=overrides,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/sinchunyeung/github/paper2db/segment", line 166, in anchor_mc
+    subprocess.run(pre_cmd, check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/Users/sinchunyeung/github/paper2db/.venv/bin/python3', '/Users/sinchunyeung/github/paper2db/scripts/preprocess_mc.py', '/Users/sinchunyeung/github/paper2db/paper/2013p1a.pdf', '/private/tmp/paper2db-batch/inter-2013/anchor.pdf', '--questions', '36', '--cover-pages', '1']' returned non-zero exit status 1.
+=== FAIL 2013 rc=1 pngs=36 combined=False 124s ===
+=== START 2014 (2014p1a.pdf) ===
+=== FAIL 2014 rc=-15 pngs=36 combined=False 16s ===
+=== START 2015 (2015p1a.pdf) ===
+
+---
+exit_code: unknown
+elapsed_ms: 145617
+ended_at: 2026-09-02T10:07:13.474Z
+---

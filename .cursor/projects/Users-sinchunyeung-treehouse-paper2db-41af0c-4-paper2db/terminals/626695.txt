@@ -1,0 +1,12 @@
+---
+pid: 46353
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db"
+command: "npx -y lavish-axi poll /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/.lavish/pr6-lq-review/index.html --agent-reply \"That pair is page 0 of output/lq/2015/combined.pdf, the 2015 year review PDF. combined.pdf is the full Paper 1B walkthrough: booklet cover first, then every exam page. questions.pdf skips the cover and starts at Q1. A cover on combined.pdf page 0 is intended, not a miscrop. I labeled the heading with the full path and added a note at the top of the PDF pairs section.\""
+title: "Reply on Lavish and wait for next feedback"
+status: running  
+started_at: 2026-09-15T13:22:31.500Z
+running_for_ms: 5946146  
+---
+[lavish-axi] Long-polling for user feedback on /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/.lavish/pr6-lq-review/index.html. This stays silent until the user sends feedback or ends the session - leave it running. Detected layout issues do NOT return this poll: they wait in the user's Layout issues inbox until the user queues them as ordinary feedback. If it gets killed or times out before feedback arrives, re-run `lavish-axi poll /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/.lavish/pr6-lq-review/index.html` - feedback remains queued until delivery. Poll delivery consumes the response, so read it completely.
+
+[lavish-axi] Poll interrupted before user feedback arrived. The user may still be reviewing - re-run `lavish-axi poll /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/.lavish/pr6-lq-review/index.html` to keep waiting; feedback remains queued until delivery. Poll delivery consumes the response, so read it completely.

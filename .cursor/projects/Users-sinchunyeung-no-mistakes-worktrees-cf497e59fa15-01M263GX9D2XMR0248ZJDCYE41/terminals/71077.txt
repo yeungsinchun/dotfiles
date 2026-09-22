@@ -1,0 +1,15 @@
+---
+pid: 29973
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M263GX9D2XMR0248ZJDCYE41"
+command: "python3 -c \"\nfrom pathlib import Path\nfrom PIL import Image\n\np = Path('classified/mc/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/2012_q36.png')\nim = Image.open(p)\nprint('mc25 first', im.size)\n\nA4_H, A4_M, LABEL = 842.0, 36.0, 16.0\nfull_h = A4_H - 2*A4_M\ntitle_y = A4_M + 28\nremaining_after_title = A4_H - A4_M - title_y\nprint('remaining_after_title', remaining_after_title, 'max dest_h', full_h-LABEL)\n\noverflows = []\nmc = Path('classified/mc')\nfor png in mc.rglob('*.png'):\n    im = Image.open(png)\n    w,h = im.size\n    printable_w = 595-72\n    scale = min(printable_w/w, (full_h-LABEL)/h, 1.0)\n    dest_h = h*scale\n    if dest_h + LABEL > remaining_after_title + 0.5:\n        overflows.append((str(png.relative_to(mc)), w, h, round(dest_h,1)))\nprint('MC crops that would overflow as FIRST item after title:', len(overflows))\nfor row in overflows[:25]:\n    print(row)\n\na_over = []\nlq = Path('classified/lq')\nfor png in lq.rglob('*.png'):\n    if '-ans' not in png.name.lower() and 'q' in png.name.lower():\n        pass\n    im = Image.open(png)\n    w,h = im.size\n    printable_w = 595-72\n    scale = min(printable_w/w, (full_h-LABEL)/h, 1.0)\n    dest_h = h*scale\n    if dest_h + LABEL > remaining_after_title + 0.5:\n        a_over.append((str(png.relative_to(lq)), w, h, round(dest_h,1)))\nprint('LQ png overflows as first:', len(a_over))\nfor row in a_over[:20]:\n    print(row)\n\"\necho '--- pdf text ---'\n# try to find fitz\npython3 -c 'import sys; print(sys.path)'\nfind /Users/sinchunyeung -name 'fitz' -type d 2>/dev/null | head -5\npdftotext -f 1 -l 1 output/lq/2026/combined.pdf - 2>/dev/null | head -20\npdftotext -f 1 -l 1 output/2012/combined.pdf - 2>/dev/null | head -20\npdftotext -f 1 -l 1 classified/lq/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/questions.pdf - 2>/dev/null | head -30\n"
+title: "Measure crops and extract PDF labels"
+status: running  
+started_at: 2026-09-10T16:59:05.840Z
+running_for_ms: 483379   
+---
+Traceback (most recent call last):
+  File "<string>", line 3, in <module>
+    from PIL import Image
+ModuleNotFoundError: No module named 'PIL'
+--- pdf text ---
+['', '/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python314.zip', '/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14', '/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload', '/opt/homebrew/lib/python3.14/site-packages', '/opt/homebrew/Cellar/openvino/2026.1.0_1/libexec/lib/python3.14/site-packages']

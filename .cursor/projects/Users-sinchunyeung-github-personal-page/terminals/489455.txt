@@ -1,0 +1,39 @@
+---
+pid: 36204
+cwd: "/Users/sinchunyeung/github/FYP"
+command: "cd /Users/sinchunyeung/github/personal-page && python3 -m http.server 8765"
+title: "Start local server to test webpage"
+status: running  
+started_at: 2026-08-30T12:31:38.795Z
+running_for_ms: 5050867  
+---
+::1 - - [30/Aug/2026 20:31:40] "GET / HTTP/1.1" 200 -
+::1 - - [30/Aug/2026 20:31:40] "GET /main.js HTTP/1.1" 200 -
+::1 - - [30/Aug/2026 20:41:13] "GET / HTTP/1.1" 200 -
+::1 - - [30/Aug/2026 20:41:13] "GET /styles.css HTTP/1.1" 200 -
+::1 - - [30/Aug/2026 20:41:13] "GET /main.js HTTP/1.1" 200 -
+::1 - - [30/Aug/2026 20:41:13] code 404, message File not found
+::1 - - [30/Aug/2026 20:41:13] "GET /favicon.ico HTTP/1.1" 404 -
+::1 - - [30/Aug/2026 21:19:17] "GET /projects/sots.json HTTP/1.1" 200 -
+::1 - - [30/Aug/2026 21:19:17] "GET /projects/sots.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [30/Aug/2026 21:25:31] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [30/Aug/2026 21:25:31] "GET /styles.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [30/Aug/2026 21:25:31] "GET /main.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [30/Aug/2026 21:25:31] "GET /projects/sots.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [30/Aug/2026 21:25:31] code 404, message File not found
+::ffff:127.0.0.1 - - [30/Aug/2026 21:25:31] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [30/Aug/2026 21:25:33] "GET /assets/projects/sots-preview.svg HTTP/1.1" 200 -
+::1 - - [30/Aug/2026 21:26:09] "GET /assets/projects/sots-preview.svg HTTP/1.1" 200 -
+::1 - - [30/Aug/2026 21:26:09] "HEAD /assets/projects/sots-preview.svg HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [30/Aug/2026 21:26:23] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [30/Aug/2026 21:26:23] "GET /styles.css HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [30/Aug/2026 21:26:23] "GET /main.js HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [30/Aug/2026 21:26:23] "GET /projects/sots.json HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [30/Aug/2026 21:26:27] "GET /assets/projects/sots-preview.svg HTTP/1.1" 304 -
+::1 - - [30/Aug/2026 21:26:43] "GET /assets/projects/sots-preview.svg HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [30/Aug/2026 21:27:01] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [30/Aug/2026 21:32:09] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [30/Aug/2026 21:32:09] "GET /styles.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [30/Aug/2026 21:32:09] "GET /main.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [30/Aug/2026 21:32:09] "GET /projects/sots.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [30/Aug/2026 21:32:10] "GET /assets/projects/sots-preview.svg HTTP/1.1" 200 -

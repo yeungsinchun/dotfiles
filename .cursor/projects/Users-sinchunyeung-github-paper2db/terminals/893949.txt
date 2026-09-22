@@ -1,0 +1,18 @@
+---
+pid: 6457
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python scripts/build_lq_lavish_review.py && .venv/bin/python -c \"\nimport json\nd=json.load(open('.lavish/lq-classified-review/data.json'))\nfor s in d['sections']:\n  for it in s['items']:\n    if it['year']=='2022' and it['q'] in (1,2):\n      print(it['year'], it['q'], 'primary', it['primary'], 'secs', it['sections'], 'ans', bool(it['ans']), 'perf', len(it.get('performance','')))\n\"\n"
+title: "Rebuild Lavish; verify 2022 Q1/Q2 cards"
+status: succeeded
+started_at: 2026-09-05T02:14:07.209Z
+running_for_ms: 43277    
+---
+Wrote /Users/sinchunyeung/github/paper2db/.lavish/lq-classified-review/index.html (149 placements)
+2022 1 primary 1 secs 1 ans True perf 671
+2022 2 primary 4 secs 4 ans True perf 1170
+
+---
+exit_code: 0
+elapsed_ms: 43277
+ended_at: 2026-09-05T02:14:50.486Z
+---

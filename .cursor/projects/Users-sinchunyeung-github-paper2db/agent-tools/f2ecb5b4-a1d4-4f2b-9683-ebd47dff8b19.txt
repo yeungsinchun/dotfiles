@@ -1,0 +1,1125 @@
+ answer/2019ans.pdf             | Bin 1861698 -> 4145059 bytes
+ answer/2020ans.pdf             | Bin 1922260 -> 57 bytes
+ output/2012/q36.png            | Bin 84233 -> 77893 bytes
+ output/2013/combined.pdf       | Bin 2962117 -> 2964426 bytes
+ output/2013/q1.png             | Bin 90250 -> 90206 bytes
+ output/2013/q10.png            | Bin 90708 -> 89833 bytes
+ output/2013/q11.png            | Bin 129815 -> 131049 bytes
+ output/2013/q12.png            | Bin 114053 -> 113517 bytes
+ output/2013/q13.png            | Bin 127137 -> 125190 bytes
+ output/2013/q14.png            | Bin 119799 -> 117917 bytes
+ output/2013/q15.png            | Bin 61668 -> 61048 bytes
+ output/2013/q16.png            | Bin 87366 -> 86851 bytes
+ output/2013/q17.png            | Bin 202319 -> 203756 bytes
+ output/2013/q18.png            | Bin 125240 -> 124085 bytes
+ output/2013/q19.png            | Bin 85802 -> 86234 bytes
+ output/2013/q2.png             | Bin 91527 -> 91373 bytes
+ output/2013/q20.png            | Bin 160825 -> 167101 bytes
+ output/2013/q21.png            | Bin 93177 -> 93424 bytes
+ output/2013/q22.png            | Bin 139291 -> 140919 bytes
+ output/2013/q23.png            | Bin 105118 -> 105740 bytes
+ output/2013/q24.png            | Bin 103614 -> 102672 bytes
+ output/2013/q25.png            | Bin 80427 -> 81413 bytes
+ output/2013/q26.png            | Bin 121562 -> 121309 bytes
+ output/2013/q27.png            | Bin 86786 -> 84091 bytes
+ output/2013/q28.png            | Bin 179069 -> 180132 bytes
+ output/2013/q29.png            | Bin 75653 -> 75928 bytes
+ output/2013/q3.png             | Bin 70537 -> 70434 bytes
+ output/2013/q30.png            | Bin 36540 -> 36626 bytes
+ output/2013/q31.png            | Bin 72614 -> 73039 bytes
+ output/2013/q32.png            | Bin 71690 -> 71980 bytes
+ output/2013/q33.png            | Bin 43560 -> 43534 bytes
+ output/2013/q34.png            | Bin 43312 -> 43602 bytes
+ output/2013/q35.png            | Bin 58860 -> 59151 bytes
+ output/2013/q36.png            | Bin 70646 -> 65097 bytes
+ output/2013/q4.png             | Bin 146394 -> 146822 bytes
+ output/2013/q5.png             | Bin 71133 -> 70713 bytes
+ output/2013/q6.png             | Bin 88144 -> 87995 bytes
+ output/2013/q7.png             | Bin 80464 -> 81024 bytes
+ output/2013/q8.png             | Bin 60598 -> 59352 bytes
+ output/2013/q9.png             | Bin 114319 -> 116702 bytes
+ output/2014/combined.pdf       | Bin 2115186 -> 2181520 bytes
+ output/2014/q1.png             | Bin 191837 -> 194463 bytes
+ output/2014/q10.png            | Bin 64258 -> 65533 bytes
+ output/2014/q11.png            | Bin 87487 -> 88290 bytes
+ output/2014/q12.png            | Bin 44957 -> 45955 bytes
+ output/2014/q13.png            | Bin 113529 -> 116997 bytes
+ output/2014/q14.png            | Bin 85304 -> 89187 bytes
+ output/2014/q15.png            | Bin 51360 -> 54596 bytes
+ output/2014/q16.png            | Bin 144865 -> 145578 bytes
+ output/2014/q17.png            | Bin 114315 -> 116645 bytes
+ output/2014/q18.png            | Bin 104500 -> 103736 bytes
+ output/2014/q19.png            | Bin 52198 -> 55177 bytes
+ output/2014/q2.png             | Bin 106626 -> 109011 bytes
+ output/2014/q20.png            | Bin 103226 -> 105222 bytes
+ output/2014/q21.png            | Bin 65078 -> 68499 bytes
+ output/2014/q22.png            | Bin 83793 -> 87607 bytes
+ output/2014/q23.png            | Bin 45627 -> 40735 bytes
+ output/2014/q24.png            | Bin 55364 -> 55371 bytes
+ output/2014/q25.png            | Bin 88106 -> 90602 bytes
+ output/2014/q26.png            | Bin 81758 -> 86778 bytes
+ output/2014/q27.png            | Bin 103220 -> 102494 bytes
+ output/2014/q28.png            | Bin 102821 -> 99686 bytes
+ output/2014/q29.png            | Bin 77757 -> 80859 bytes
+ output/2014/q3.png             | Bin 79007 -> 81290 bytes
+ output/2014/q30.png            | Bin 55369 -> 57522 bytes
+ output/2014/q31.png            | Bin 62539 -> 67369 bytes
+ output/2014/q32.png            | Bin 110919 -> 117045 bytes
+ output/2014/q33.png            | Bin 60477 -> 59933 bytes
+ output/2014/q4.png             | Bin 94656 -> 94669 bytes
+ output/2014/q5.png             | Bin 39309 -> 40630 bytes
+ output/2014/q6.png             | Bin 93242 -> 96822 bytes
+ output/2014/q7.png             | Bin 80078 -> 84010 bytes
+ output/2014/q8.png             | Bin 68644 -> 68794 bytes
+ output/2014/q9.png             | Bin 67709 -> 76796 bytes
+ output/2015/combined.pdf       | Bin 2656551 -> 2673246 bytes
+ output/2015/q1.png             | Bin 109809 -> 109123 bytes
+ output/2015/q10.png            | Bin 102452 -> 104613 bytes
+ output/2015/q11.png            | Bin 65615 -> 67123 bytes
+ output/2015/q12.png            | Bin 255210 -> 255342 bytes
+ output/2015/q13.png            | Bin 148305 -> 150332 bytes
+ output/2015/q14.png            | Bin 79076 -> 79559 bytes
+ output/2015/q15.png            | Bin 127094 -> 127891 bytes
+ output/2015/q16.png            | Bin 88557 -> 88924 bytes
+ output/2015/q17.png            | Bin 108408 -> 108898 bytes
+ output/2015/q18.png            | Bin 136035 -> 137338 bytes
+ output/2015/q19.png            | Bin 80935 -> 82773 bytes
+ output/2015/q2.png             | Bin 76710 -> 76733 bytes
+ output/2015/q20.png            | Bin 49559 -> 50805 bytes
+ output/2015/q21.png            | Bin 79186 -> 79827 bytes
+ output/2015/q22.png            | Bin 62305 -> 61290 bytes
+ output/2015/q23.png            | Bin 83742 -> 82285 bytes
+ output/2015/q24.png            | Bin 180588 -> 180579 bytes
+ output/2015/q25.png            | Bin 137379 -> 138458 bytes
+ output/2015/q26.png            | Bin 99588 -> 100442 bytes
+ output/2015/q27.png            | Bin 53655 -> 53937 bytes
+ output/2015/q28.png            | Bin 70331 -> 70533 bytes
+ output/2015/q29.png            | Bin 63515 -> 63751 bytes
+ output/2015/q3.png             | Bin 50802 -> 50540 bytes
+ output/2015/q30.png            | Bin 124043 -> 124580 bytes
+ output/2015/q31.png            | Bin 51828 -> 53026 bytes
+ output/2015/q32.png            | Bin 57396 -> 58619 bytes
+ output/2015/q33.png            | Bin 101458 -> 96452 bytes
+ output/2015/q4.png             | Bin 43966 -> 44613 bytes
+ output/2015/q5.png             | Bin 68778 -> 68786 bytes
+ output/2015/q6.png             | Bin 85784 -> 86564 bytes
+ output/2015/q7.png             | Bin 86697 -> 86613 bytes
+ output/2015/q8.png             | Bin 118141 -> 118660 bytes
+ output/2015/q9.png             | Bin 143654 -> 143457 bytes
+ output/2016/combined.pdf       | Bin 1860889 -> 1907077 bytes
+ output/2016/q1.png             | Bin 57406 -> 58254 bytes
+ output/2016/q10.png            | Bin 100056 -> 102083 bytes
+ output/2016/q11.png            | Bin 97137 -> 97906 bytes
+ output/2016/q12.png            | Bin 108539 -> 110141 bytes
+ output/2016/q13.png            | Bin 57238 -> 57811 bytes
+ output/2016/q14.png            | Bin 36828 -> 37250 bytes
+ output/2016/q15.png            | Bin 61632 -> 62301 bytes
+ output/2016/q16.png            | Bin 83804 -> 84768 bytes
+ output/2016/q17.png            | Bin 101036 -> 101861 bytes
+ output/2016/q18.png            | Bin 73040 -> 73757 bytes
+ output/2016/q19.png            | Bin 27478 -> 31974 bytes
+ output/2016/q2.png             | Bin 48129 -> 48547 bytes
+ output/2016/q20.png            | Bin 47577 -> 48230 bytes
+ output/2016/q21.png            | Bin 112749 -> 113553 bytes
+ output/2016/q22.png            | Bin 97676 -> 97670 bytes
+ output/2016/q23.png            | Bin 55176 -> 57394 bytes
+ output/2016/q24.png            | Bin 58703 -> 58613 bytes
+ output/2016/q25.png            | Bin 69761 -> 71148 bytes
+ output/2016/q26.png            | Bin 108589 -> 110576 bytes
+ output/2016/q27.png            | Bin 56795 -> 58615 bytes
+ output/2016/q28.png            | Bin 78812 -> 80422 bytes
+ output/2016/q29.png            | Bin 131388 -> 133005 bytes
+ output/2016/q3.png             | Bin 28655 -> 29071 bytes
+ output/2016/q30.png            | Bin 49140 -> 51215 bytes
+ output/2016/q31.png            | Bin 65662 -> 67512 bytes
+ output/2016/q32.png            | Bin 86659 -> 89520 bytes
+ output/2016/q33.png            | Bin 66155 -> 63728 bytes
+ output/2016/q4.png             | Bin 43280 -> 45830 bytes
+ output/2016/q5.png             | Bin 48039 -> 48598 bytes
+ output/2016/q6.png             | Bin 76719 -> 77958 bytes
+ output/2016/q7.png             | Bin 65320 -> 65945 bytes
+ output/2016/q8.png             | Bin 62803 -> 63333 bytes
+ output/2016/q9.png             | Bin 82599 -> 84473 bytes
+ output/2017/combined.pdf       | Bin 3114814 -> 3152690 bytes
+ output/2017/q1.png             | Bin 66090 -> 66219 bytes
+ output/2017/q10.png            | Bin 237641 -> 238555 bytes
+ output/2017/q11.png            | Bin 153725 -> 155471 bytes
+ output/2017/q12.png            | Bin 523580 -> 529871 bytes
+ output/2017/q13.png            | Bin 89112 -> 86629 bytes
+ output/2017/q14.png            | Bin 149196 -> 150635 bytes
+ output/2017/q15.png            | Bin 110303 -> 111274 bytes
+ output/2017/q16.png            | Bin 150558 -> 152077 bytes
+ output/2017/q17.png            | Bin 67573 -> 70991 bytes
+ output/2017/q18.png            | Bin 46732 -> 48828 bytes
+ output/2017/q19.png            | Bin 84393 -> 83403 bytes
+ output/2017/q2.png             | Bin 97183 -> 98537 bytes
+ output/2017/q20.png            | Bin 131408 -> 133069 bytes
+ output/2017/q21.png            | Bin 42221 -> 42271 bytes
+ output/2017/q22.png            | Bin 126923 -> 128204 bytes
+ output/2017/q23.png            | Bin 97720 -> 99470 bytes
+ output/2017/q24.png            | Bin 39231 -> 39610 bytes
+ output/2017/q25.png            | Bin 39593 -> 40269 bytes
+ output/2017/q26.png            | Bin 175263 -> 175814 bytes
+ output/2017/q27.png            | Bin 407757 -> 413221 bytes
+ output/2017/q28.png            | Bin 92920 -> 93851 bytes
+ output/2017/q29.png            | Bin 59045 -> 59780 bytes
+ output/2017/q3.png             | Bin 56575 -> 57263 bytes
+ output/2017/q30.png            | Bin 46252 -> 46775 bytes
+ output/2017/q31.png            | Bin 55951 -> 57458 bytes
+ output/2017/q32.png            | Bin 50990 -> 51383 bytes
+ output/2017/q33.png            | Bin 115526 -> 110202 bytes
+ output/2017/q4.png             | Bin 37218 -> 37627 bytes
+ output/2017/q5.png             | Bin 53381 -> 53967 bytes
+ output/2017/q6.png             | Bin 61166 -> 61665 bytes
+ output/2017/q7.png             | Bin 100174 -> 101439 bytes
+ output/2017/q8.png             | Bin 267548 -> 256912 bytes
+ output/2017/q9.png             | Bin 109926 -> 113678 bytes
+ output/2018/combined.pdf       | Bin 3838267 -> 3850314 bytes
+ output/2018/q1.png             | Bin 159050 -> 159900 bytes
+ output/2018/q10.png            | Bin 82500 -> 83133 bytes
+ output/2018/q11.png            | Bin 118412 -> 118762 bytes
+ output/2018/q12.png            | Bin 112752 -> 113330 bytes
+ output/2018/q13.png            | Bin 61187 -> 61940 bytes
+ output/2018/q14.png            | Bin 92805 -> 92941 bytes
+ output/2018/q15.png            | Bin 208258 -> 209119 bytes
+ output/2018/q16.png            | Bin 93878 -> 94367 bytes
+ output/2018/q17.png            | Bin 122483 -> 124029 bytes
+ output/2018/q18.png            | Bin 110464 -> 111197 bytes
+ output/2018/q19.png            | Bin 71319 -> 72989 bytes
+ output/2018/q2.png             | Bin 130431 -> 227516 bytes
+ output/2018/q20.png            | Bin 242967 -> 244042 bytes
+ output/2018/q21.png            | Bin 60653 -> 61168 bytes
+ output/2018/q22.png            | Bin 126195 -> 126830 bytes
+ output/2018/q23.png            | Bin 144605 -> 145084 bytes
+ output/2018/q24.png            | Bin 75038 -> 75429 bytes
+ output/2018/q25.png            | Bin 85921 -> 86069 bytes
+ output/2018/q26.png            | Bin 58141 -> 58126 bytes
+ output/2018/q27.png            | Bin 231216 -> 231345 bytes
+ output/2018/q28.png            | Bin 191230 -> 192012 bytes
+ output/2018/q29.png            | Bin 144898 -> 145686 bytes
+ output/2018/q3.png             | Bin 41147 -> 133172 bytes
+ output/2018/q30.png            | Bin 124003 -> 124641 bytes
+ output/2018/q31.png            | Bin 69863 -> 70290 bytes
+ output/2018/q32.png            | Bin 94360 -> 94390 bytes
+ output/2018/q33.png            | Bin 91488 -> 86734 bytes
+ output/2018/q4.png             | Bin 58651 -> 91485 bytes
+ output/2018/q5.png             | Bin 383708 -> 157725 bytes
+ output/2018/q6.png             | Bin 132195 -> 132072 bytes
+ output/2018/q7.png             | Bin 136452 -> 136805 bytes
+ output/2018/q8.png             | Bin 136757 -> 136977 bytes
+ output/2018/q9.png             | Bin 90000 -> 90670 bytes
+ output/2019/combined.pdf       | Bin 4697184 -> 4880551 bytes
+ output/2019/q1.png             | Bin 153143 -> 154285 bytes
+ output/2019/q10.png            | Bin 155870 -> 152251 bytes
+ output/2019/q11.png            | Bin 138804 -> 138760 bytes
+ output/2019/q12.png            | Bin 142765 -> 144881 bytes
+ output/2019/q13.png            | Bin 145936 -> 146345 bytes
+ output/2019/q14.png            | Bin 191146 -> 192827 bytes
+ output/2019/q15.png            | Bin 168979 -> 170210 bytes
+ output/2019/q16.png            | Bin 152355 -> 152792 bytes
+ output/2019/q17.png            | Bin 188052 -> 188674 bytes
+ output/2019/q18.png            | Bin 123040 -> 124501 bytes
+ output/2019/q19.png            | Bin 177554 -> 179108 bytes
+ output/2019/q2.png             | Bin 67626 -> 213387 bytes
+ output/2019/q20.png            | Bin 163111 -> 163629 bytes
+ output/2019/q21.png            | Bin 133923 -> 134316 bytes
+ output/2019/q22.png            | Bin 76965 -> 77227 bytes
+ output/2019/q23.png            | Bin 116462 -> 117443 bytes
+ output/2019/q24.png            | Bin 85208 -> 86178 bytes
+ output/2019/q25.png            | Bin 172607 -> 174518 bytes
+ output/2019/q26.png            | Bin 202767 -> 202990 bytes
+ output/2019/q27.png            | Bin 203714 -> 204807 bytes
+ output/2019/q28.png            | Bin 217168 -> 216047 bytes
+ output/2019/q29.png            | Bin 148927 -> 151232 bytes
+ output/2019/q3.png             | Bin 113361 -> 172033 bytes
+ output/2019/q30.png            | Bin 116541 -> 118619 bytes
+ output/2019/q31.png            | Bin 201861 -> 202458 bytes
+ output/2019/q32.png            | Bin 170868 -> 168220 bytes
+ output/2019/q33.png            | Bin 90575 -> 81540 bytes
+ output/2019/q4.png             | Bin 19806 -> 152844 bytes
+ output/2019/q5.png             | Bin 9520 -> 93059 bytes
+ output/2019/q6.png             | Bin 6317 -> 76260 bytes
+ output/2019/q7.png             | Bin 496056 -> 172584 bytes
+ output/2019/q8.png             | Bin 145471 -> 146368 bytes
+ output/2019/q9.png             | Bin 119212 -> 119169 bytes
+ output/2020/combined.pdf       | Bin 3093403 -> 3199617 bytes
+ output/2020/q1.png             | Bin 101967 -> 104091 bytes
+ output/2020/q10.png            | Bin 63907 -> 65359 bytes
+ output/2020/q11.png            | Bin 331216 -> 336627 bytes
+ output/2020/q12.png            | Bin 86972 -> 135821 bytes
+ output/2020/q13.png            | Bin 48039 -> 213341 bytes
+ output/2020/q14.png            | Bin 211258 -> 81956 bytes
+ output/2020/q15.png            | Bin 118741 -> 119596 bytes
+ output/2020/q16.png            | Bin 75832 -> 76443 bytes
+ output/2020/q17.png            | Bin 91081 -> 92445 bytes
+ output/2020/q18.png            | Bin 64323 -> 65279 bytes
+ output/2020/q19.png            | Bin 63528 -> 64157 bytes
+ output/2020/q2.png             | Bin 146516 -> 146948 bytes
+ output/2020/q20.png            | Bin 137254 -> 138106 bytes
+ output/2020/q21.png            | Bin 74705 -> 77012 bytes
+ output/2020/q22.png            | Bin 197202 -> 198909 bytes
+ output/2020/q23.png            | Bin 100920 -> 101973 bytes
+ output/2020/q24.png            | Bin 160225 -> 162262 bytes
+ output/2020/q25.png            | Bin 110104 -> 105270 bytes
+ output/2020/q26.png            | Bin 133781 -> 136074 bytes
+ output/2020/q27.png            | Bin 170166 -> 171691 bytes
+ output/2020/q28.png            | Bin 151230 -> 153019 bytes
+ output/2020/q29.png            | Bin 100639 -> 97321 bytes
+ output/2020/q3.png             | Bin 78521 -> 78991 bytes
+ output/2020/q30.png            | Bin 65323 -> 66577 bytes
+ output/2020/q31.png            | Bin 98379 -> 99566 bytes
+ output/2020/q32.png            | Bin 56589 -> 57025 bytes
+ output/2020/q33.png            | Bin 61597 -> 55383 bytes
+ output/2020/q4.png             | Bin 67545 -> 68982 bytes
+ output/2020/q5.png             | Bin 166271 -> 168864 bytes
+ output/2020/q6.png             | Bin 99318 -> 98552 bytes
+ output/2020/q7.png             | Bin 158448 -> 159725 bytes
+ output/2020/q8.png             | Bin 120868 -> 122984 bytes
+ output/2020/q9.png             | Bin 110508 -> 111479 bytes
+ output/2021/combined.pdf       | Bin 1659823 -> 1681054 bytes
+ output/2021/q1.png             | Bin 79072 -> 82704 bytes
+ output/2021/q10.png            | Bin 41681 -> 42549 bytes
+ output/2021/q11.png            | Bin 44076 -> 43459 bytes
+ output/2021/q12.png            | Bin 75824 -> 79569 bytes
+ output/2021/q13.png            | Bin 64251 -> 60544 bytes
+ output/2021/q14.png            | Bin 127291 -> 132920 bytes
+ output/2021/q15.png            | Bin 89283 -> 91738 bytes
+ output/2021/q16.png            | Bin 80153 -> 82121 bytes
+ output/2021/q17.png            | Bin 77820 -> 74479 bytes
+ output/2021/q18.png            | Bin 77339 -> 78983 bytes
+ output/2021/q19.png            | Bin 19331 -> 20376 bytes
+ output/2021/q2.png             | Bin 62971 -> 62841 bytes
+ output/2021/q20.png            | Bin 51503 -> 51752 bytes
+ output/2021/q21.png            | Bin 49650 -> 50393 bytes
+ output/2021/q22.png            | Bin 59786 -> 61329 bytes
+ output/2021/q23.png            | Bin 48345 -> 50374 bytes
+ output/2021/q24.png            | Bin 35098 -> 37049 bytes
+ output/2021/q25.png            | Bin 86297 -> 83852 bytes
+ output/2021/q26.png            | Bin 90315 -> 92388 bytes
+ output/2021/q27.png            | Bin 86953 -> 89476 bytes
+ output/2021/q28.png            | Bin 65667 -> 70450 bytes
+ output/2021/q29.png            | Bin 62255 -> 64824 bytes
+ output/2021/q3.png             | Bin 45733 -> 47799 bytes
+ output/2021/q30.png            | Bin 64456 -> 69155 bytes
+ output/2021/q31.png            | Bin 32857 -> 34169 bytes
+ output/2021/q32.png            | Bin 25740 -> 26225 bytes
+ output/2021/q33.png            | Bin 37757 -> 33776 bytes
+ output/2021/q4.png             | Bin 67709 -> 69731 bytes
+ output/2021/q5.png             | Bin 101283 -> 103710 bytes
+ output/2021/q6.png             | Bin 67469 -> 68197 bytes
+ output/2021/q7.png             | Bin 62462 -> 63806 bytes
+ output/2021/q8.png             | Bin 76584 -> 77316 bytes
+ output/2021/q9.png             | Bin 68116 -> 70871 bytes
+ output/2022/combined.pdf       | Bin 2344793 -> 2414661 bytes
+ output/2022/q1.png             | Bin 55472 -> 56841 bytes
+ output/2022/q10.png            | Bin 94625 -> 96101 bytes
+ output/2022/q11.png            | Bin 100809 -> 102706 bytes
+ output/2022/q12.png            | Bin 132396 -> 134186 bytes
+ output/2022/q13.png            | Bin 113471 -> 115848 bytes
+ output/2022/q14.png            | Bin 119096 -> 121730 bytes
+ output/2022/q15.png            | Bin 103274 -> 104118 bytes
+ output/2022/q16.png            | Bin 74195 -> 70793 bytes
+ output/2022/q17.png            | Bin 205502 -> 205809 bytes
+ output/2022/q18.png            | Bin 127777 -> 129182 bytes
+ output/2022/q19.png            | Bin 79276 -> 80265 bytes
+ output/2022/q2.png             | Bin 56998 -> 57712 bytes
+ output/2022/q20.png            | Bin 68813 -> 69541 bytes
+ output/2022/q21.png            | Bin 163975 -> 168199 bytes
+ output/2022/q22.png            | Bin 52079 -> 54343 bytes
+ output/2022/q23.png            | Bin 110960 -> 113477 bytes
+ output/2022/q24.png            | Bin 89026 -> 89871 bytes
+ output/2022/q25.png            | Bin 37624 -> 38010 bytes
+ output/2022/q26.png            | Bin 69556 -> 70126 bytes
+ output/2022/q27.png            | Bin 49500 -> 54436 bytes
+ output/2022/q28.png            | Bin 168863 -> 173913 bytes
+ output/2022/q29.png            | Bin 138472 -> 139472 bytes
+ output/2022/q3.png             | Bin 45086 -> 45393 bytes
+ output/2022/q30.png            | Bin 60032 -> 60533 bytes
+ output/2022/q31.png            | Bin 57624 -> 59388 bytes
+ output/2022/q32.png            | Bin 54123 -> 54641 bytes
+ output/2022/q33.png            | Bin 27071 -> 24759 bytes
+ output/2022/q4.png             | Bin 70959 -> 71536 bytes
+ output/2022/q5.png             | Bin 129552 -> 130299 bytes
+ output/2022/q6.png             | Bin 69929 -> 70273 bytes
+ output/2022/q7.png             | Bin 89540 -> 89249 bytes
+ output/2022/q8.png             | Bin 88821 -> 90968 bytes
+ output/2022/q9.png             | Bin 116440 -> 121351 bytes
+ output/2023/combined.pdf       | Bin 4115023 -> 4191907 bytes
+ output/2023/q1.png             | Bin 113829 -> 114405 bytes
+ output/2023/q10.png            | Bin 157439 -> 158361 bytes
+ output/2023/q11.png            | Bin 196650 -> 198228 bytes
+ output/2023/q12.png            | Bin 106335 -> 106916 bytes
+ output/2023/q13.png            | Bin 182432 -> 183437 bytes
+ output/2023/q14.png            | Bin 71232 -> 71317 bytes
+ output/2023/q15.png            | Bin 170135 -> 172300 bytes
+ output/2023/q16.png            | Bin 99326 -> 99589 bytes
+ output/2023/q17.png            | Bin 109172 -> 109287 bytes
+ output/2023/q18.png            | Bin 126489 -> 128249 bytes
+ output/2023/q19.png            | Bin 99683 -> 101357 bytes
+ output/2023/q2.png             | Bin 125150 -> 124262 bytes
+ output/2023/q20.png            | Bin 57411 -> 62035 bytes
+ output/2023/q21.png            | Bin 387971 -> 394754 bytes
+ output/2023/q22.png            | Bin 209800 -> 211899 bytes
+ output/2023/q23.png            | Bin 188022 -> 189098 bytes
+ output/2023/q24.png            | Bin 102179 -> 98248 bytes
+ output/2023/q25.png            | Bin 83587 -> 88412 bytes
+ output/2023/q26.png            | Bin 81193 -> 83851 bytes
+ output/2023/q27.png            | Bin 150038 -> 152577 bytes
+ output/2023/q28.png            | Bin 121117 -> 120746 bytes
+ output/2023/q29.png            | Bin 120518 -> 120250 bytes
+ output/2023/q3.png             | Bin 122456 -> 122316 bytes
+ output/2023/q30.png            | Bin 154224 -> 154030 bytes
+ output/2023/q31.png            | Bin 151802 -> 153153 bytes
+ output/2023/q32.png            | Bin 97700 -> 100412 bytes
+ output/2023/q33.png            | Bin 83351 -> 78531 bytes
+ output/2023/q4.png             | Bin 47948 -> 52680 bytes
+ output/2023/q5.png             | Bin 122984 -> 123658 bytes
+ output/2023/q6.png             | Bin 114491 -> 115073 bytes
+ output/2023/q7.png             | Bin 134626 -> 135201 bytes
+ output/2023/q8.png             | Bin 109330 -> 110514 bytes
+ output/2023/q9.png             | Bin 161504 -> 162979 bytes
+ output/2024/combined.pdf       | Bin 2871673 -> 2881038 bytes
+ output/2024/q1.png             | Bin 64866 -> 127785 bytes
+ output/2024/q10.png            | Bin 199177 -> 202371 bytes
+ output/2024/q11.png            | Bin 109406 -> 111587 bytes
+ output/2024/q12.png            | Bin 78933 -> 68689 bytes
+ output/2024/q13.png            | Bin 62236 -> 62631 bytes
+ output/2024/q14.png            | Bin 119310 -> 119277 bytes
+ output/2024/q15.png            | Bin 168778 -> 166012 bytes
+ output/2024/q16.png            | Bin 235748 -> 238502 bytes
+ output/2024/q17.png            | Bin 114914 -> 115480 bytes
+ output/2024/q18.png            | Bin 114107 -> 115487 bytes
+ output/2024/q19.png            | Bin 69484 -> 70736 bytes
+ output/2024/q2.png             | Bin 120109 -> 57412 bytes
+ output/2024/q20.png            | Bin 41798 -> 42530 bytes
+ output/2024/q21.png            | Bin 64544 -> 65084 bytes
+ output/2024/q22.png            | Bin 159160 -> 161039 bytes
+ output/2024/q23.png            | Bin 120761 -> 121737 bytes
+ output/2024/q24.png            | Bin 72111 -> 73547 bytes
+ output/2024/q25.png            | Bin 81424 -> 82135 bytes
+ output/2024/q26.png            | Bin 105583 -> 95661 bytes
+ output/2024/q27.png            | Bin 136878 -> 138808 bytes
+ output/2024/q28.png            | Bin 74048 -> 74741 bytes
+ output/2024/q29.png            | Bin 111266 -> 112045 bytes
+ output/2024/q3.png             | Bin 44495 -> 45001 bytes
+ output/2024/q30.png            | Bin 71608 -> 67899 bytes
+ output/2024/q31.png            | Bin 84453 -> 84701 bytes
+ output/2024/q32.png            | Bin 58137 -> 59083 bytes
+ output/2024/q33.png            | Bin 108435 -> 103042 bytes
+ output/2024/q4.png             | Bin 60403 -> 61565 bytes
+ output/2024/q5.png             | Bin 90940 -> 91011 bytes
+ output/2024/q6.png             | Bin 119966 -> 120633 bytes
+ output/2024/q7.png             | Bin 180619 -> 183168 bytes
+ output/2024/q8.png             | Bin 107774 -> 109254 bytes
+ output/2024/q9.png             | Bin 114063 -> 114686 bytes
+ output/2025/combined.pdf       | Bin 2965729 -> 3044885 bytes
+ output/2025/q1.png             | Bin 70431 -> 71549 bytes
+ output/2025/q10.png            | Bin 134275 -> 134836 bytes
+ output/2025/q11.png            | Bin 80969 -> 79928 bytes
+ output/2025/q12.png            | Bin 52443 -> 80491 bytes
+ output/2025/q13.png            | Bin 191488 -> 199945 bytes
+ output/2025/q14.png            | Bin 116728 -> 116203 bytes
+ output/2025/q15.png            | Bin 170416 -> 171652 bytes
+ output/2025/q16.png            | Bin 116570 -> 118944 bytes
+ output/2025/q17.png            | Bin 65228 -> 65919 bytes
+ output/2025/q18.png            | Bin 158245 -> 125539 bytes
+ output/2025/q19.png            | Bin 79962 -> 114414 bytes
+ output/2025/q2.png             | Bin 190382 -> 193072 bytes
+ output/2025/q20.png            | Bin 116090 -> 117667 bytes
+ output/2025/q21.png            | Bin 58374 -> 59324 bytes
+ output/2025/q22.png            | Bin 92754 -> 94241 bytes
+ output/2025/q23.png            | Bin 108746 -> 109807 bytes
+ output/2025/q24.png            | Bin 97143 -> 102305 bytes
+ output/2025/q25.png            | Bin 86303 -> 88502 bytes
+ output/2025/q26.png            | Bin 98271 -> 99014 bytes
+ output/2025/q27.png            | Bin 103018 -> 101537 bytes
+ output/2025/q28.png            | Bin 185946 -> 189210 bytes
+ output/2025/q29.png            | Bin 95725 -> 97284 bytes
+ output/2025/q3.png             | Bin 115959 -> 116288 bytes
+ output/2025/q30.png            | Bin 58598 -> 59325 bytes
+ output/2025/q31.png            | Bin 37264 -> 37580 bytes
+ output/2025/q32.png            | Bin 153477 -> 155922 bytes
+ output/2025/q33.png            | Bin 87876 -> 81477 bytes
+ output/2025/q4.png             | Bin 98687 -> 100642 bytes
+ output/2025/q5.png             | Bin 94651 -> 95132 bytes
+ output/2025/q6.png             | Bin 119954 -> 120180 bytes
+ output/2025/q7.png             | Bin 109720 -> 112120 bytes
+ output/2025/q8.png             | Bin 125413 -> 126628 bytes
+ output/2025/q9.png             | Bin 96812 -> 97254 bytes
+ output/2026/combined.pdf       | Bin 3456781 -> 3514951 bytes
+ output/2026/q1.png             | Bin 86287 -> 141962 bytes
+ output/2026/q10.png            | Bin 128672 -> 129845 bytes
+ output/2026/q11.png            | Bin 188029 -> 191976 bytes
+ output/2026/q12.png            | Bin 186292 -> 187139 bytes
+ output/2026/q13.png            | Bin 177359 -> 176213 bytes
+ output/2026/q14.png            | Bin 103079 -> 103941 bytes
+ output/2026/q15.png            | Bin 341873 -> 347292 bytes
+ output/2026/q16.png            | Bin 99392 -> 101222 bytes
+ output/2026/q17.png            | Bin 67396 -> 68060 bytes
+ output/2026/q18.png            | Bin 104372 -> 105493 bytes
+ output/2026/q19.png            | Bin 69021 -> 68371 bytes
+ output/2026/q2.png             | Bin 43638 -> 58075 bytes
+ output/2026/q20.png            | Bin 106153 -> 107647 bytes
+ output/2026/q21.png            | Bin 59564 -> 60471 bytes
+ output/2026/q22.png            | Bin 74123 -> 74242 bytes
+ output/2026/q23.png            | Bin 131105 -> 131626 bytes
+ output/2026/q24.png            | Bin 128150 -> 129582 bytes
+ output/2026/q25.png            | Bin 83887 -> 84304 bytes
+ output/2026/q26.png            | Bin 59286 -> 63328 bytes
+ output/2026/q27.png            | Bin 118214 -> 123931 bytes
+ output/2026/q28.png            | Bin 60127 -> 62056 bytes
+ output/2026/q29.png            | Bin 222465 -> 224147 bytes
+ output/2026/q3.png             | Bin 14238 -> 158027 bytes
+ output/2026/q30.png            | Bin 159181 -> 158738 bytes
+ output/2026/q31.png            | Bin 195022 -> 196504 bytes
+ output/2026/q32.png            | Bin 52702 -> 53376 bytes
+ output/2026/q33.png            | Bin 86212 -> 80289 bytes
+ output/2026/q4.png             | Bin 54192 -> 128498 bytes
+ output/2026/q5.png             | Bin 438729 -> 155839 bytes
+ output/2026/q6.png             | Bin 151980 -> 152758 bytes
+ output/2026/q7.png             | Bin 157598 -> 158844 bytes
+ output/2026/q8.png             | Bin 169657 -> 171298 bytes
+ output/2026/q9.png             | Bin 106275 -> 105343 bytes
+ output/pp/combined.pdf         | Bin 1437615 -> 1373778 bytes
+ output/pp/q1.png               | Bin 87742 -> 89245 bytes
+ output/pp/q10.png              | Bin 52021 -> 53047 bytes
+ output/pp/q11.png              | Bin 33342 -> 26002 bytes
+ output/pp/q12.png              | Bin 24878 -> 25662 bytes
+ output/pp/q13.png              | Bin 56992 -> 58842 bytes
+ output/pp/q14.png              | Bin 31502 -> 32268 bytes
+ output/pp/q15.png              | Bin 42058 -> 42888 bytes
+ output/pp/q16.png              | Bin 14952 -> 15641 bytes
+ output/pp/q17.png              | Bin 164620 -> 168647 bytes
+ output/pp/q18.png              | Bin 118682 -> 119943 bytes
+ output/pp/q19.png              | Bin 23238 -> 23795 bytes
+ output/pp/q2.png               | Bin 247182 -> 251761 bytes
+ output/pp/q20.png              | Bin 21072 -> 29823 bytes
+ output/pp/q21.png              | Bin 51753 -> 53015 bytes
+ output/pp/q22.png              | Bin 20728 -> 21467 bytes
+ output/pp/q23.png              | Bin 12465 -> 12834 bytes
+ output/pp/q24.png              | Bin 23357 -> 24033 bytes
+ output/pp/q25.png              | Bin 17531 -> 17993 bytes
+ output/pp/q26.png              | Bin 13810 -> 14214 bytes
+ output/pp/q27.png              | Bin 22237 -> 22970 bytes
+ output/pp/q28.png              | Bin 21007 -> 21637 bytes
+ output/pp/q29.png              | Bin 22371 -> 22904 bytes
+ output/pp/q3.png               | Bin 15884 -> 16332 bytes
+ output/pp/q30.png              | Bin 30020 -> 30754 bytes
+ output/pp/q31.png              | Bin 31186 -> 22745 bytes
+ output/pp/q32.png              | Bin 22212 -> 22963 bytes
+ output/pp/q33.png              | Bin 27201 -> 28107 bytes
+ output/pp/q34.png              | Bin 88501 -> 93421 bytes
+ output/pp/q35.png              | Bin 146689 -> 47292 bytes
+ output/pp/q36.png              | Bin 110486 -> 105656 bytes
+ output/pp/q4.png               | Bin 39773 -> 40670 bytes
+ output/pp/q5.png               | Bin 26801 -> 27494 bytes
+ output/pp/q6.png               | Bin 21185 -> 15628 bytes
+ output/pp/q7.png               | Bin 11905 -> 10013 bytes
+ output/pp/q8.png               | Bin 29759 -> 30818 bytes
+ output/pp/q9.png               | Bin 33889 -> 34727 bytes
+ output/sap/combined.pdf        | Bin 1698827 -> 1706423 bytes
+ output/sap/q1.png              | Bin 88655 -> 89006 bytes
+ output/sap/q10.png             | Bin 48869 -> 49236 bytes
+ output/sap/q11.png             | Bin 51385 -> 51675 bytes
+ output/sap/q12.png             | Bin 28588 -> 28708 bytes
+ output/sap/q13.png             | Bin 52461 -> 52675 bytes
+ output/sap/q14.png             | Bin 53541 -> 53778 bytes
+ output/sap/q15.png             | Bin 50725 -> 50932 bytes
+ output/sap/q16.png             | Bin 120662 -> 120769 bytes
+ output/sap/q17.png             | Bin 48576 -> 48827 bytes
+ output/sap/q18.png             | Bin 47303 -> 47467 bytes
+ output/sap/q19.png             | Bin 70082 -> 70391 bytes
+ output/sap/q2.png              | Bin 63935 -> 64107 bytes
+ output/sap/q20.png             | Bin 48239 -> 48385 bytes
+ output/sap/q21.png             | Bin 18802 -> 18860 bytes
+ output/sap/q22.png             | Bin 34780 -> 36005 bytes
+ output/sap/q23.png             | Bin 53959 -> 54142 bytes
+ output/sap/q24.png             | Bin 42167 -> 42433 bytes
+ output/sap/q25.png             | Bin 45649 -> 46796 bytes
+ output/sap/q26.png             | Bin 39464 -> 39496 bytes
+ output/sap/q27.png             | Bin 34696 -> 34820 bytes
+ output/sap/q28.png             | Bin 105782 -> 106045 bytes
+ output/sap/q29.png             | Bin 63233 -> 63499 bytes
+ output/sap/q3.png              | Bin 47531 -> 47683 bytes
+ output/sap/q30.png             | Bin 130883 -> 130966 bytes
+ output/sap/q31.png             | Bin 74274 -> 74813 bytes
+ output/sap/q32.png             | Bin 43890 -> 44020 bytes
+ output/sap/q33.png             | Bin 49607 -> 49719 bytes
+ output/sap/q34.png             | Bin 19543 -> 20684 bytes
+ output/sap/q35.png             | Bin 33675 -> 34451 bytes
+ output/sap/q36.png             | Bin 56932 -> 52929 bytes
+ output/sap/q4.png              | Bin 42665 -> 42900 bytes
+ output/sap/q5.png              | Bin 33419 -> 33629 bytes
+ output/sap/q6.png              | Bin 28295 -> 28409 bytes
+ output/sap/q7.png              | Bin 46000 -> 46142 bytes
+ output/sap/q8.png              | Bin 53077 -> 53205 bytes
+ output/sap/q9.png              | Bin 45188 -> 45633 bytes
+ paper/ans/2019ans.pdf          | Bin 1861698 -> 4145059 bytes
+ paper/ans/2020ans.pdf          | Bin 1922260 -> 107943308 bytes
+ scripts/extract_answer_keys.py | 130 +++++++++++++++++++-----
+ scripts/preprocess_mc.py       | 122 ++++++++++++++++-------
+ scripts/split_mc.py            | 217 ++++++++++++++++++++++++++++++++++++++---
+ 561 files changed, 391 insertions(+), 78 deletions(-)
+==== STAGED ====
+==== FULL DIFF NAME-STATUS ====
+M	answer/2019ans.pdf
+T	answer/2020ans.pdf
+M	output/2012/q36.png
+M	output/2013/combined.pdf
+M	output/2013/q1.png
+M	output/2013/q10.png
+M	output/2013/q11.png
+M	output/2013/q12.png
+M	output/2013/q13.png
+M	output/2013/q14.png
+M	output/2013/q15.png
+M	output/2013/q16.png
+M	output/2013/q17.png
+M	output/2013/q18.png
+M	output/2013/q19.png
+M	output/2013/q2.png
+M	output/2013/q20.png
+M	output/2013/q21.png
+M	output/2013/q22.png
+M	output/2013/q23.png
+M	output/2013/q24.png
+M	output/2013/q25.png
+M	output/2013/q26.png
+M	output/2013/q27.png
+M	output/2013/q28.png
+M	output/2013/q29.png
+M	output/2013/q3.png
+M	output/2013/q30.png
+M	output/2013/q31.png
+M	output/2013/q32.png
+M	output/2013/q33.png
+M	output/2013/q34.png
+M	output/2013/q35.png
+M	output/2013/q36.png
+M	output/2013/q4.png
+M	output/2013/q5.png
+M	output/2013/q6.png
+M	output/2013/q7.png
+M	output/2013/q8.png
+M	output/2013/q9.png
+M	output/2014/combined.pdf
+M	output/2014/q1.png
+M	output/2014/q10.png
+M	output/2014/q11.png
+M	output/2014/q12.png
+M	output/2014/q13.png
+M	output/2014/q14.png
+M	output/2014/q15.png
+M	output/2014/q16.png
+M	output/2014/q17.png
+M	output/2014/q18.png
+M	output/2014/q19.png
+M	output/2014/q2.png
+M	output/2014/q20.png
+M	output/2014/q21.png
+M	output/2014/q22.png
+M	output/2014/q23.png
+M	output/2014/q24.png
+M	output/2014/q25.png
+M	output/2014/q26.png
+M	output/2014/q27.png
+M	output/2014/q28.png
+M	output/2014/q29.png
+M	output/2014/q3.png
+M	output/2014/q30.png
+M	output/2014/q31.png
+M	output/2014/q32.png
+M	output/2014/q33.png
+M	output/2014/q4.png
+M	output/2014/q5.png
+M	output/2014/q6.png
+M	output/2014/q7.png
+M	output/2014/q8.png
+M	output/2014/q9.png
+M	output/2015/combined.pdf
+M	output/2015/q1.png
+M	output/2015/q10.png
+M	output/2015/q11.png
+M	output/2015/q12.png
+M	output/2015/q13.png
+M	output/2015/q14.png
+M	output/2015/q15.png
+M	output/2015/q16.png
+M	output/2015/q17.png
+M	output/2015/q18.png
+M	output/2015/q19.png
+M	output/2015/q2.png
+M	output/2015/q20.png
+M	output/2015/q21.png
+M	output/2015/q22.png
+M	output/2015/q23.png
+M	output/2015/q24.png
+M	output/2015/q25.png
+M	output/2015/q26.png
+M	output/2015/q27.png
+M	output/2015/q28.png
+M	output/2015/q29.png
+M	output/2015/q3.png
+M	output/2015/q30.png
+M	output/2015/q31.png
+M	output/2015/q32.png
+M	output/2015/q33.png
+M	output/2015/q4.png
+M	output/2015/q5.png
+M	output/2015/q6.png
+M	output/2015/q7.png
+M	output/2015/q8.png
+M	output/2015/q9.png
+M	output/2016/combined.pdf
+M	output/2016/q1.png
+M	output/2016/q10.png
+M	output/2016/q11.png
+M	output/2016/q12.png
+M	output/2016/q13.png
+M	output/2016/q14.png
+M	output/2016/q15.png
+M	output/2016/q16.png
+M	output/2016/q17.png
+M	output/2016/q18.png
+M	output/2016/q19.png
+M	output/2016/q2.png
+M	output/2016/q20.png
+M	output/2016/q21.png
+M	output/2016/q22.png
+M	output/2016/q23.png
+M	output/2016/q24.png
+M	output/2016/q25.png
+M	output/2016/q26.png
+M	output/2016/q27.png
+M	output/2016/q28.png
+M	output/2016/q29.png
+M	output/2016/q3.png
+M	output/2016/q30.png
+M	output/2016/q31.png
+M	output/2016/q32.png
+M	output/2016/q33.png
+M	output/2016/q4.png
+M	output/2016/q5.png
+M	output/2016/q6.png
+M	output/2016/q7.png
+M	output/2016/q8.png
+M	output/2016/q9.png
+M	output/2017/combined.pdf
+M	output/2017/q1.png
+M	output/2017/q10.png
+M	output/2017/q11.png
+M	output/2017/q12.png
+M	output/2017/q13.png
+M	output/2017/q14.png
+M	output/2017/q15.png
+M	output/2017/q16.png
+M	output/2017/q17.png
+M	output/2017/q18.png
+M	output/2017/q19.png
+M	output/2017/q2.png
+M	output/2017/q20.png
+M	output/2017/q21.png
+M	output/2017/q22.png
+M	output/2017/q23.png
+M	output/2017/q24.png
+M	output/2017/q25.png
+M	output/2017/q26.png
+M	output/2017/q27.png
+M	output/2017/q28.png
+M	output/2017/q29.png
+M	output/2017/q3.png
+M	output/2017/q30.png
+M	output/2017/q31.png
+M	output/2017/q32.png
+M	output/2017/q33.png
+M	output/2017/q4.png
+M	output/2017/q5.png
+M	output/2017/q6.png
+M	output/2017/q7.png
+M	output/2017/q8.png
+M	output/2017/q9.png
+M	output/2018/combined.pdf
+M	output/2018/q1.png
+M	output/2018/q10.png
+M	output/2018/q11.png
+M	output/2018/q12.png
+M	output/2018/q13.png
+M	output/2018/q14.png
+M	output/2018/q15.png
+M	output/2018/q16.png
+M	output/2018/q17.png
+M	output/2018/q18.png
+M	output/2018/q19.png
+M	output/2018/q2.png
+M	output/2018/q20.png
+M	output/2018/q21.png
+M	output/2018/q22.png
+M	output/2018/q23.png
+M	output/2018/q24.png
+M	output/2018/q25.png
+M	output/2018/q26.png
+M	output/2018/q27.png
+M	output/2018/q28.png
+M	output/2018/q29.png
+M	output/2018/q3.png
+M	output/2018/q30.png
+M	output/2018/q31.png
+M	output/2018/q32.png
+M	output/2018/q33.png
+M	output/2018/q4.png
+M	output/2018/q5.png
+M	output/2018/q6.png
+M	output/2018/q7.png
+M	output/2018/q8.png
+M	output/2018/q9.png
+M	output/2019/combined.pdf
+M	output/2019/q1.png
+M	output/2019/q10.png
+M	output/2019/q11.png
+M	output/2019/q12.png
+M	output/2019/q13.png
+M	output/2019/q14.png
+M	output/2019/q15.png
+M	output/2019/q16.png
+M	output/2019/q17.png
+M	output/2019/q18.png
+M	output/2019/q19.png
+M	output/2019/q2.png
+M	output/2019/q20.png
+M	output/2019/q21.png
+M	output/2019/q22.png
+M	output/2019/q23.png
+M	output/2019/q24.png
+M	output/2019/q25.png
+M	output/2019/q26.png
+M	output/2019/q27.png
+M	output/2019/q28.png
+M	output/2019/q29.png
+M	output/2019/q3.png
+M	output/2019/q30.png
+M	output/2019/q31.png
+M	output/2019/q32.png
+M	output/2019/q33.png
+M	output/2019/q4.png
+M	output/2019/q5.png
+M	output/2019/q6.png
+M	output/2019/q7.png
+M	output/2019/q8.png
+M	output/2019/q9.png
+M	output/2020/combined.pdf
+M	output/2020/q1.png
+M	output/2020/q10.png
+M	output/2020/q11.png
+M	output/2020/q12.png
+M	output/2020/q13.png
+M	output/2020/q14.png
+M	output/2020/q15.png
+M	output/2020/q16.png
+M	output/2020/q17.png
+M	output/2020/q18.png
+M	output/2020/q19.png
+M	output/2020/q2.png
+M	output/2020/q20.png
+M	output/2020/q21.png
+M	output/2020/q22.png
+M	output/2020/q23.png
+M	output/2020/q24.png
+M	output/2020/q25.png
+M	output/2020/q26.png
+M	output/2020/q27.png
+M	output/2020/q28.png
+M	output/2020/q29.png
+M	output/2020/q3.png
+M	output/2020/q30.png
+M	output/2020/q31.png
+M	output/2020/q32.png
+M	output/2020/q33.png
+M	output/2020/q4.png
+M	output/2020/q5.png
+M	output/2020/q6.png
+M	output/2020/q7.png
+M	output/2020/q8.png
+M	output/2020/q9.png
+M	output/2021/combined.pdf
+M	output/2021/q1.png
+M	output/2021/q10.png
+M	output/2021/q11.png
+M	output/2021/q12.png
+M	output/2021/q13.png
+M	output/2021/q14.png
+M	output/2021/q15.png
+M	output/2021/q16.png
+M	output/2021/q17.png
+M	output/2021/q18.png
+M	output/2021/q19.png
+M	output/2021/q2.png
+M	output/2021/q20.png
+M	output/2021/q21.png
+M	output/2021/q22.png
+M	output/2021/q23.png
+M	output/2021/q24.png
+M	output/2021/q25.png
+M	output/2021/q26.png
+M	output/2021/q27.png
+M	output/2021/q28.png
+M	output/2021/q29.png
+M	output/2021/q3.png
+M	output/2021/q30.png
+M	output/2021/q31.png
+M	output/2021/q32.png
+M	output/2021/q33.png
+M	output/2021/q4.png
+M	output/2021/q5.png
+M	output/2021/q6.png
+M	output/2021/q7.png
+M	output/2021/q8.png
+M	output/2021/q9.png
+M	output/2022/combined.pdf
+M	output/2022/q1.png
+M	output/2022/q10.png
+M	output/2022/q11.png
+M	output/2022/q12.png
+M	output/2022/q13.png
+M	output/2022/q14.png
+M	output/2022/q15.png
+M	output/2022/q16.png
+M	output/2022/q17.png
+M	output/2022/q18.png
+M	output/2022/q19.png
+M	output/2022/q2.png
+M	output/2022/q20.png
+M	output/2022/q21.png
+M	output/2022/q22.png
+M	output/2022/q23.png
+M	output/2022/q24.png
+M	output/2022/q25.png
+M	output/2022/q26.png
+M	output/2022/q27.png
+M	output/2022/q28.png
+M	output/2022/q29.png
+M	output/2022/q3.png
+M	output/2022/q30.png
+M	output/2022/q31.png
+M	output/2022/q32.png
+M	output/2022/q33.png
+M	output/2022/q4.png
+M	output/2022/q5.png
+M	output/2022/q6.png
+M	output/2022/q7.png
+M	output/2022/q8.png
+M	output/2022/q9.png
+M	output/2023/combined.pdf
+M	output/2023/q1.png
+M	output/2023/q10.png
+M	output/2023/q11.png
+M	output/2023/q12.png
+M	output/2023/q13.png
+M	output/2023/q14.png
+M	output/2023/q15.png
+M	output/2023/q16.png
+M	output/2023/q17.png
+M	output/2023/q18.png
+M	output/2023/q19.png
+M	output/2023/q2.png
+M	output/2023/q20.png
+M	output/2023/q21.png
+M	output/2023/q22.png
+M	output/2023/q23.png
+M	output/2023/q24.png
+M	output/2023/q25.png
+M	output/2023/q26.png
+M	output/2023/q27.png
+M	output/2023/q28.png
+M	output/2023/q29.png
+M	output/2023/q3.png
+M	output/2023/q30.png
+M	output/2023/q31.png
+M	output/2023/q32.png
+M	output/2023/q33.png
+M	output/2023/q4.png
+M	output/2023/q5.png
+M	output/2023/q6.png
+M	output/2023/q7.png
+M	output/2023/q8.png
+M	output/2023/q9.png
+M	output/2024/combined.pdf
+M	output/2024/q1.png
+M	output/2024/q10.png
+M	output/2024/q11.png
+M	output/2024/q12.png
+M	output/2024/q13.png
+M	output/2024/q14.png
+M	output/2024/q15.png
+M	output/2024/q16.png
+M	output/2024/q17.png
+M	output/2024/q18.png
+M	output/2024/q19.png
+M	output/2024/q2.png
+M	output/2024/q20.png
+M	output/2024/q21.png
+M	output/2024/q22.png
+M	output/2024/q23.png
+M	output/2024/q24.png
+M	output/2024/q25.png
+M	output/2024/q26.png
+M	output/2024/q27.png
+M	output/2024/q28.png
+M	output/2024/q29.png
+M	output/2024/q3.png
+M	output/2024/q30.png
+M	output/2024/q31.png
+M	output/2024/q32.png
+M	output/2024/q33.png
+M	output/2024/q4.png
+M	output/2024/q5.png
+M	output/2024/q6.png
+M	output/2024/q7.png
+M	output/2024/q8.png
+M	output/2024/q9.png
+M	output/2025/combined.pdf
+M	output/2025/q1.png
+M	output/2025/q10.png
+M	output/2025/q11.png
+M	output/2025/q12.png
+M	output/2025/q13.png
+M	output/2025/q14.png
+M	output/2025/q15.png
+M	output/2025/q16.png
+M	output/2025/q17.png
+M	output/2025/q18.png
+M	output/2025/q19.png
+M	output/2025/q2.png
+M	output/2025/q20.png
+M	output/2025/q21.png
+M	output/2025/q22.png
+M	output/2025/q23.png
+M	output/2025/q24.png
+M	output/2025/q25.png
+M	output/2025/q26.png
+M	output/2025/q27.png
+M	output/2025/q28.png
+M	output/2025/q29.png
+M	output/2025/q3.png
+M	output/2025/q30.png
+M	output/2025/q31.png
+M	output/2025/q32.png
+M	output/2025/q33.png
+M	output/2025/q4.png
+M	output/2025/q5.png
+M	output/2025/q6.png
+M	output/2025/q7.png
+M	output/2025/q8.png
+M	output/2025/q9.png
+M	output/2026/combined.pdf
+M	output/2026/q1.png
+M	output/2026/q10.png
+M	output/2026/q11.png
+M	output/2026/q12.png
+M	output/2026/q13.png
+M	output/2026/q14.png
+M	output/2026/q15.png
+M	output/2026/q16.png
+M	output/2026/q17.png
+M	output/2026/q18.png
+M	output/2026/q19.png
+M	output/2026/q2.png
+M	output/2026/q20.png
+M	output/2026/q21.png
+M	output/2026/q22.png
+M	output/2026/q23.png
+M	output/2026/q24.png
+M	output/2026/q25.png
+M	output/2026/q26.png
+M	output/2026/q27.png
+M	output/2026/q28.png
+M	output/2026/q29.png
+M	output/2026/q3.png
+M	output/2026/q30.png
+M	output/2026/q31.png
+M	output/2026/q32.png
+M	output/2026/q33.png
+M	output/2026/q4.png
+M	output/2026/q5.png
+M	output/2026/q6.png
+M	output/2026/q7.png
+M	output/2026/q8.png
+M	output/2026/q9.png
+M	output/pp/combined.pdf
+M	output/pp/q1.png
+M	output/pp/q10.png
+M	output/pp/q11.png
+M	output/pp/q12.png
+M	output/pp/q13.png
+M	output/pp/q14.png
+M	output/pp/q15.png
+M	output/pp/q16.png
+M	output/pp/q17.png
+M	output/pp/q18.png
+M	output/pp/q19.png
+M	output/pp/q2.png
+M	output/pp/q20.png
+M	output/pp/q21.png
+M	output/pp/q22.png
+M	output/pp/q23.png
+M	output/pp/q24.png
+M	output/pp/q25.png
+M	output/pp/q26.png
+M	output/pp/q27.png
+M	output/pp/q28.png
+M	output/pp/q29.png
+M	output/pp/q3.png
+M	output/pp/q30.png
+M	output/pp/q31.png
+M	output/pp/q32.png
+M	output/pp/q33.png
+M	output/pp/q34.png
+M	output/pp/q35.png
+M	output/pp/q36.png
+M	output/pp/q4.png
+M	output/pp/q5.png
+M	output/pp/q6.png
+M	output/pp/q7.png
+M	output/pp/q8.png
+M	output/pp/q9.png
+M	output/sap/combined.pdf
+M	output/sap/q1.png
+M	output/sap/q10.png
+M	output/sap/q11.png
+M	output/sap/q12.png
+M	output/sap/q13.png
+M	output/sap/q14.png
+M	output/sap/q15.png
+M	output/sap/q16.png
+M	output/sap/q17.png
+M	output/sap/q18.png
+M	output/sap/q19.png
+M	output/sap/q2.png
+M	output/sap/q20.png
+M	output/sap/q21.png
+M	output/sap/q22.png
+M	output/sap/q23.png
+M	output/sap/q24.png
+M	output/sap/q25.png
+M	output/sap/q26.png
+M	output/sap/q27.png
+M	output/sap/q28.png
+M	output/sap/q29.png
+M	output/sap/q3.png
+M	output/sap/q30.png
+M	output/sap/q31.png
+M	output/sap/q32.png
+M	output/sap/q33.png
+M	output/sap/q34.png
+M	output/sap/q35.png
+M	output/sap/q36.png
+M	output/sap/q4.png
+M	output/sap/q5.png
+M	output/sap/q6.png
+M	output/sap/q7.png
+M	output/sap/q8.png
+M	output/sap/q9.png
+M	paper/ans/2019ans.pdf
+M	paper/ans/2020ans.pdf
+M	scripts/extract_answer_keys.py
+M	scripts/preprocess_mc.py
+M	scripts/split_mc.py

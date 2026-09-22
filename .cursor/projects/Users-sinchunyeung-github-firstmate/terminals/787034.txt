@@ -1,0 +1,19 @@
+---
+pid: 18117
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "export PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/usr/local/bin:/Users/sinchunyeung/.nvm/versions/node/v24.20.0/bin\"\nFM_HOME=/Users/sinchunyeung/github/firstmate /bin/bash /Users/sinchunyeung/github/firstmate/bin/fm-wake-drain.sh 2>&1\n"
+title: "Drain durable wake queue first"
+status: succeeded
+started_at: 2026-09-07T09:10:47.615Z
+running_for_ms: 1693     
+---
+OPEN DECISIONS (still open, folded from the durable status logs - not just the latest line):
+paper2db-pipeline [key=nm-review-ask-user-2] needs-decision: PR https://github.com/yeungsinchun/paper2db/pull/4 open with honest FAIL (MC 12.57% override_tuned, LQ 0%); Lavish .lavish/pipeline-review/index.h [truncated]
+tour-ux-polish needs-decision: PR #15 https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/pull/15 is correctly stacked on fm/web-tour-copy (#14 open), but .github workflows only run pull_req [truncated]
+OPEN DECISIONS: close one by answering it: bin/fm-send.sh <task> --resolve-key <key> '<answer>'
+
+---
+exit_code: 0
+elapsed_ms: 1693
+ended_at: 2026-09-07T09:10:49.308Z
+---

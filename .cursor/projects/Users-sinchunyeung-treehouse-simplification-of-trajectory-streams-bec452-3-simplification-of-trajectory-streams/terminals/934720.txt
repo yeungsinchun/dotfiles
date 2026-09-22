@@ -1,0 +1,77 @@
+---
+pid: 21228
+cwd: "/tmp/pwshot"
+command: "cd /tmp/pwshot && node ready-layout.mjs"
+title: "Verify dock/sidebar layout after CSS fix"
+status: failed   
+started_at: 2026-09-04T17:17:24.859Z
+running_for_ms: 32249    
+---
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('#mobilePanelClose')
+    - locator resolved to <button type="button" id="mobilePanelClose" class="mobile-panel-close" aria-label="Hide controls">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div id="mainContent">…</div> intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div id="mainContent">…</div> intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    58 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <div id="mainContent">…</div> intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+
+    at /private/tmp/pwshot/ready-layout.mjs:142:16 {
+  log: [
+    "  - waiting for locator('#mobilePanelClose')",
+    '    - locator resolved to <button type="button" id="mobilePanelClose" class="mobile-panel-close" aria-label="Hide controls">…</button>',
+    '  - attempting click action',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is visible, enabled and stable',
+    '      - scrolling into view if needed',
+    '      - done scrolling',
+    '      - <div id="mainContent">…</div> intercepts pointer events',
+    '    - retrying click action',
+    '    - waiting 20ms',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is visible, enabled and stable',
+    '      - scrolling into view if needed',
+    '      - done scrolling',
+    '      - <div id="mainContent">…</div> intercepts pointer events',
+    '    - retrying click action',
+    '      - waiting 100ms',
+    '    58 × waiting for element to be visible, enabled and stable',
+    '       - element is visible, enabled and stable',
+    '       - scrolling into view if needed',
+    '       - done scrolling',
+    '       - <div id="mainContent">…</div> intercepts pointer events',
+    '     - retrying click action',
+    '       - waiting 500ms'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.20.0
+
+---
+exit_code: 1
+elapsed_ms: 32249
+ended_at: 2026-09-04T17:17:57.108Z
+---

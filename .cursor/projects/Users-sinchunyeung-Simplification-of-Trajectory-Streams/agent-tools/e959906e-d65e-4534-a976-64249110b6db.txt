@@ -1,0 +1,1411 @@
+[  0%] Built target simplify_autogen_timestamp_deps
+[  2%] Automatic MOC for target simplify
+[  2%] Built target simplify_autogen
+[  5%] Building CXX object CMakeFiles/simplify.dir/simplify.cpp.o
+/Users/sinchunyeung/Simplification-of-Trajectory-Streams/simplify.cpp:221:20: error: invalid operands to binary expression ('const Point' (aka 'const Point_2<CGAL::Epick>') and 'int')
+  221 |             if (p0 == 0 && cur == 4 && i == 16) {
+      |                 ~~ ^  ~
+/opt/homebrew/include/CGAL/Kernel/global_functions_2.h:792:1: note: candidate function template not viable: no known conversion from 'int' to 'const Origin' for 2nd argument
+  792 | operator==(const Point_2<K> &p, const Origin& o)
+      | ^                               ~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Modular_arithmetic/Residue_type.h:289:13: note: candidate function not viable: no known conversion from 'const Point' (aka 'const Point_2<CGAL::Epick>') to 'const Residue' for 1st argument
+  289 | inline bool operator == (const Residue& p1, int p2)
+      |             ^            ~~~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpzf_type.h:565:6: note: candidate function not viable: no known conversion from 'const Point' (aka 'const Point_2<CGAL::Epick>') to 'const Gmpzf' for 1st argument
+  565 | bool operator==(const Gmpzf &a, int b)
+      |      ^          ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpfr_type.h:1267:6: note: candidate function not viable: no known conversion from 'const Point' (aka 'const Point_2<CGAL::Epick>') to 'const Gmpfr' for 1st argument
+ 1267 | bool operator==(const Gmpfr &a,int b){
+      |      ^          ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpfr_type.h:1237:6: note: candidate function not viable: no known conversion from 'const Point' (aka 'const Point_2<CGAL::Epick>') to 'const Gmpfr' for 1st argument
+ 1237 | bool operator==(const Gmpfr &a,long b){
+      |      ^          ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpfr_type.h:1252:6: note: candidate function not viable: no known conversion from 'const Point' (aka 'const Point_2<CGAL::Epick>') to 'const Gmpfr' for 1st argument
+ 1252 | bool operator==(const Gmpfr &a,unsigned long b){
+      |      ^          ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpfr_type.h:1282:6: note: candidate function not viable: no known conversion from 'const Point' (aka 'const Point_2<CGAL::Epick>') to 'const Gmpfr' for 1st argument
+ 1282 | bool operator==(const Gmpfr &a,double b){
+      |      ^          ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpfr_type.h:1314:6: note: candidate function not viable: no known conversion from 'const Point' (aka 'const Point_2<CGAL::Epick>') to 'const Gmpfr' for 1st argument
+ 1314 | bool operator==(const Gmpfr &a,long double b){
+      |      ^          ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Modular_arithmetic/Residue_type.h:287:13: note: candidate function not viable: no known conversion from 'const Point' (aka 'const Point_2<CGAL::Epick>') to 'const Residue' for 1st argument
+  287 | inline bool operator == (const Residue& p1, const Residue& p2)
+      |             ^            ~~~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Modular_arithmetic/Residue_type.h:289:13: note: candidate function (with reversed parameter order) not viable: no known conversion from 'const Point' (aka 'const Point_2<CGAL::Epick>') to 'int' for 1st argument
+  289 | inline bool operator == (const Residue& p1, int p2)
+      |             ^            ~~~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpzf_type.h:552:6: note: candidate function not viable: no known conversion from 'const Point' (aka 'const Point_2<CGAL::Epick>') to 'const Gmpzf' for 1st argument
+  552 | bool operator==(const Gmpzf &a, const Gmpzf &b)
+      |      ^          ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpzf_type.h:565:6: note: candidate function (with reversed parameter order) not viable: no known conversion from 'const Point' (aka 'const Point_2<CGAL::Epick>') to 'int' for 1st argument
+  565 | bool operator==(const Gmpzf &a, int b)
+      |      ^          ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpfr_type.h:1222:6: note: candidate function not viable: no known conversion from 'const Point' (aka 'const Point_2<CGAL::Epick>') to 'const Gmpfr' for 1st argument
+ 1222 | bool operator==(const Gmpfr &a,const Gmpfr &b){
+      |      ^          ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpfr_type.h:1237:6: note: candidate function (with reversed parameter order) not viable: no known conversion from 'const Point' (aka 'const Point_2<CGAL::Epick>') to 'long' for 1st argument
+ 1237 | bool operator==(const Gmpfr &a,long b){
+      |      ^          ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpfr_type.h:1252:6: note: candidate function (with reversed parameter order) not viable: no known conversion from 'const Point' (aka 'const Point_2<CGAL::Epick>') to 'unsigned long' for 1st argument
+ 1252 | bool operator==(const Gmpfr &a,unsigned long b){
+      |      ^          ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpfr_type.h:1267:6: note: candidate function (with reversed parameter order) not viable: no known conversion from 'const Point' (aka 'const Point_2<CGAL::Epick>') to 'int' for 1st argument
+ 1267 | bool operator==(const Gmpfr &a,int b){
+      |      ^          ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpfr_type.h:1282:6: note: candidate function (with reversed parameter order) not viable: no known conversion from 'const Point' (aka 'const Point_2<CGAL::Epick>') to 'double' for 1st argument
+ 1282 | bool operator==(const Gmpfr &a,double b){
+      |      ^          ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpfr_type.h:1314:6: note: candidate function (with reversed parameter order) not viable: no known conversion from 'const Point' (aka 'const Point_2<CGAL::Epick>') to 'long double' for 1st argument
+ 1314 | bool operator==(const Gmpfr &a,long double b){
+      |      ^          ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpfr_type.h:1330:6: note: candidate function not viable: no known conversion from 'const Point' (aka 'const Point_2<CGAL::Epick>') to 'const Gmpfr' for 1st argument
+ 1330 | bool operator==(const Gmpfr &a,const Gmpz &b){
+      |      ^          ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpfr_type.h:1330:6: note: candidate function (with reversed parameter order) not viable: no known conversion from 'const Point' (aka 'const Point_2<CGAL::Epick>') to 'const Gmpz' for 1st argument
+ 1330 | bool operator==(const Gmpfr &a,const Gmpz &b){
+      |      ^          ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Uncertain.h:340:17: note: candidate template ignored: could not match 'Uncertain' against 'Point_2'
+  340 | Uncertain<bool> operator==(Uncertain<T> a, Uncertain<T> b)
+      |                 ^
+/opt/homebrew/include/CGAL/Uncertain.h:351:17: note: candidate template ignored: could not match 'Uncertain' against 'Point_2'
+  351 | Uncertain<bool> operator==(Uncertain<T> a, T b)
+      |                 ^
+/opt/homebrew/include/CGAL/Uncertain.h:362:17: note: candidate template ignored: could not match 'Uncertain<T>' against 'int'
+  362 | Uncertain<bool> operator==(T a, Uncertain<T> b)
+      |                 ^
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr' against 'Point_2'
+ 3339 | __GMP_DEFINE_BINARY_TYPE_FUNCTION(bool, operator==, __gmp_binary_equal)
+      |                                         ^
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr' against 'Point_2'
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr<T, U>' against 'int'
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr' against 'Point_2'
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr<T, U>' against 'int'
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr' against 'Point_2'
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr<T, U>' against 'int'
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr' against 'Point_2'
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr<T, U>' against 'int'
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr' against 'Point_2'
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr<T, U>' against 'int'
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr' against 'Point_2'
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr<T, U>' against 'int'
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr' against 'Point_2'
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr<T, U>' against 'int'
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr' against 'Point_2'
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr<T, U>' against 'int'
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr' against 'Point_2'
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr<T, U>' against 'int'
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr' against 'Point_2'
+/opt/homebrew/include/gmpxx.h:3339:41: note: candidate template ignored: could not match '__gmp_expr<T, U>' against 'int'
+/opt/homebrew/include/CGAL/Kernel/global_functions_2.h:781:1: note: candidate template ignored: could not match 'Point_2<K>' against 'int'
+  781 | operator==(const Point_2<K>& p, const Point_2<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_2.h:799:1: note: candidate template ignored: could not match 'Point_2<K>' against 'int'
+  799 | operator==(const Origin& o, const Point_2<K> &p)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_2.h:821:1: note: candidate template ignored: could not match 'Weighted_point_2<K>' against 'int'
+  821 | operator==(const Origin& o, const Weighted_point_2<K>& p)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_2.h:834:1: note: candidate template ignored: could not match 'Weighted_point_2<K>' against 'int'
+  834 | operator==(const Point_2<K>& bp, const Weighted_point_2<K>& p)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_2.h:846:1: note: candidate template ignored: could not match 'Weighted_point_2' against 'Point_2'
+  846 | operator==(const Weighted_point_2<K>& p, const Point_2<K>& bp)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_2.h:858:1: note: candidate template ignored: could not match 'Weighted_point_2' against 'Point_2'
+  858 | operator==(const Weighted_point_2<K>& p, const Weighted_point_2<K>& p2)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_2.h:870:1: note: candidate template ignored: could not match 'Vector_2' against 'Point_2'
+  870 | operator==(const Vector_2<K>& v, const Vector_2<K>& w)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_2.h:882:1: note: candidate template ignored: could not match 'Vector_2' against 'Point_2'
+  882 | operator==(const Vector_2<K>& v, const Null_vector& n)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_2.h:890:1: note: candidate template ignored: could not match 'Vector_2<K>' against 'int'
+  890 | operator==(const Null_vector& n, const Vector_2<K>& v)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_2.h:914:1: note: candidate template ignored: could not match 'Circle_2' against 'Point_2'
+  914 | operator==(const Circle_2<K>& p, const Circle_2<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_2.h:930:1: note: candidate template ignored: could not match 'Direction_2' against 'Point_2'
+  930 | operator==(const Direction_2<K>& p, const Direction_2<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_2.h:946:1: note: candidate template ignored: could not match 'Iso_rectangle_2' against 'Point_2'
+  946 | operator==(const Iso_rectangle_2<K>& p, const Iso_rectangle_2<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_2.h:962:1: note: candidate template ignored: could not match 'Line_2' against 'Point_2'
+  962 | operator==(const Line_2<K>& p, const Line_2<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_2.h:978:1: note: candidate template ignored: could not match 'Ray_2' against 'Point_2'
+  978 | operator==(const Ray_2<K>& p, const Ray_2<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_2.h:994:1: note: candidate template ignored: could not match 'Segment_2' against 'Point_2'
+  994 | operator==(const Segment_2<K>& p, const Segment_2<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_2.h:1010:1: note: candidate template ignored: could not match 'Triangle_2' against 'Point_2'
+ 1010 | operator==(const Triangle_2<K>& p, const Triangle_2<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:792:1: note: candidate template ignored: could not match 'Point_3' against 'Point_2'
+  792 | operator==(const Point_3<K>& p, const Point_3<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:804:1: note: candidate template ignored: could not match 'Point_3' against 'Point_2'
+  804 | operator==(const Point_3<K>& p, const Origin& o)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:810:1: note: candidate template ignored: could not match 'Point_3<K>' against 'int'
+  810 | operator==(const Origin& o, const Point_3<K>& p)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:828:1: note: candidate template ignored: could not match 'Weighted_point_3<K>' against 'int'
+  828 | operator==(const Origin& o, const Weighted_point_3<K>& p)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:840:1: note: candidate template ignored: could not match 'Point_3' against 'Point_2'
+  840 | operator==(const Point_3<K>& bp, const Weighted_point_3<K>& p)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:852:1: note: candidate template ignored: could not match 'Weighted_point_3' against 'Point_2'
+  852 | operator==(const Weighted_point_3<K>& p, const Point_3<K>& bp)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:864:1: note: candidate template ignored: could not match 'Weighted_point_3' against 'Point_2'
+  864 | operator==(const Weighted_point_3<K>& p, const Weighted_point_3<K>& p2)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:876:1: note: candidate template ignored: could not match 'Circle_3' against 'Point_2'
+  876 | operator==(const Circle_3<K>& p, const Circle_3<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:884:1: note: candidate template ignored: could not match 'Iso_cuboid_3' against 'Point_2'
+  884 | operator==(const Iso_cuboid_3<K>& p, const Iso_cuboid_3<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:896:1: note: candidate template ignored: could not match 'Plane_3' against 'Point_2'
+  896 | operator==(const Plane_3<K>& p, const Plane_3<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:908:1: note: candidate template ignored: could not match 'Segment_3' against 'Point_2'
+  908 | operator==(const Segment_3<K>& p, const Segment_3<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:920:1: note: candidate template ignored: could not match 'Line_3' against 'Point_2'
+  920 | operator==(const Line_3<K>& p, const Line_3<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:932:1: note: candidate template ignored: could not match 'Ray_3' against 'Point_2'
+  932 | operator==(const Ray_3<K>& p, const Ray_3<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:944:1: note: candidate template ignored: could not match 'Triangle_3' against 'Point_2'
+  944 | operator==(const Triangle_3<K>& p, const Triangle_3<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:956:1: note: candidate template ignored: could not match 'Tetrahedron_3' against 'Point_2'
+  956 | operator==(const Tetrahedron_3<K>& p, const Tetrahedron_3<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:968:1: note: candidate template ignored: could not match 'Direction_3' against 'Point_2'
+  968 | operator==(const Direction_3<K>& p, const Direction_3<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:980:1: note: candidate template ignored: could not match 'Sphere_3' against 'Point_2'
+  980 | operator==(const Sphere_3<K>& p, const Sphere_3<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:992:1: note: candidate template ignored: could not match 'Vector_3' against 'Point_2'
+  992 | operator==(const Vector_3<K>& p, const Vector_3<K>& q)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:1004:1: note: candidate template ignored: could not match 'Vector_3' against 'Point_2'
+ 1004 | operator==(const Vector_3<K>& p, const Null_vector& o)
+      | ^
+/opt/homebrew/include/CGAL/Kernel/global_functions_3.h:1010:1: note: candidate template ignored: could not match 'Vector_3<K>' against 'int'
+ 1010 | operator==(const Null_vector& o, const Vector_3<K>& v)
+      | ^
+/opt/homebrew/include/CGAL/Cartesian/Vector_2.h:111:1: note: candidate template ignored: could not match 'VectorC2' against 'Point_2'
+  111 | operator==(const VectorC2<R> &v, const VectorC2<R> &w)
+      | ^
+/opt/homebrew/include/CGAL/Cartesian/Vector_2.h:127:1: note: candidate template ignored: could not match 'VectorC2' against 'Point_2'
+  127 | operator==(const VectorC2<R> &v, const Null_vector &)
+      | ^
+/opt/homebrew/include/CGAL/Cartesian/Vector_2.h:135:1: note: candidate template ignored: could not match 'VectorC2<R>' against 'int'
+  135 | operator==(const Null_vector &n, const VectorC2<R> &v)
+      | ^
+/opt/homebrew/include/CGAL/Cartesian/Vector_3.h:146:1: note: candidate template ignored: could not match 'VectorC3' against 'Point_2'
+  146 | operator==(const VectorC3<R> &v, const VectorC3<R> &w)
+      | ^
+/opt/homebrew/include/CGAL/Cartesian/Vector_3.h:162:1: note: candidate template ignored: could not match 'VectorC3' against 'Point_2'
+  162 | operator==(const VectorC3<R> &v, const Null_vector &)
+      | ^
+/opt/homebrew/include/CGAL/Cartesian/Vector_3.h:170:1: note: candidate template ignored: could not match 'VectorC3<R>' against 'int'
+  170 | operator==(const Null_vector &n, const VectorC3<R> &v)
+      | ^
+/opt/homebrew/include/CGAL/utility.h:153:13: note: candidate template ignored: could not match 'Triple' against 'Point_2'
+  153 | inline bool operator==(const Triple<T1, T2, T3>& x,
+      |             ^
+/opt/homebrew/include/CGAL/utility.h:253:1: note: candidate template ignored: could not match 'Quadruple' against 'Point_2'
+  253 | operator==(const Quadruple<T1, T2, T3, T4>& x,
+      | ^
+/opt/homebrew/include/CGAL/Polygon_2/Polygon_2_impl.h:37:6: note: candidate template ignored: could not match 'Polygon_2' against 'Point_2'
+   37 | bool operator==( const Polygon_2<Traits_P,Container1_P> &x,
+      |      ^
+/opt/homebrew/include/CGAL/Polygon_with_holes_2.h:213:6: note: candidate template ignored: could not match 'Polygon_with_holes_2' against 'Point_2'
+  213 | bool operator==(const Polygon_with_holes_2<Kernel_, Container_>& p1,
+      |      ^
+/opt/homebrew/include/CGAL/Polygon_with_holes_2.h:261:6: note: candidate template ignored: could not match 'Polygon_with_holes_2' against 'Point_2'
+  261 | bool operator==(const Polygon_with_holes_2<Kernel_, Container_>& p1,
+      |      ^
+/opt/homebrew/include/CGAL/Polygon_with_holes_2.h:268:13: note: candidate template ignored: could not match 'Polygon_2' against 'Point_2'
+  268 | inline bool operator==(const Polygon_2<Kernel_, Container_>& p1,
+      |             ^
+/opt/homebrew/include/CGAL/Lazy_exact_nt.h:599:1: note: candidate template ignored: could not match 'Lazy_exact_nt' against 'Point_2'
+  599 | operator==(const Lazy_exact_nt<ET1>& a, const Lazy_exact_nt<ET2>& b)
+      | ^
+/opt/homebrew/include/CGAL/iterator.h:655:6: note: candidate template ignored: could not match 'Filter_iterator' against 'Point_2'
+  655 | bool operator==(const Filter_iterator<I,P>& it1,
+      |      ^
+/opt/homebrew/include/CGAL/iterator.h:688:1: note: candidate template ignored: could not match 'Filter_iterator' against 'Point_2'
+  688 | operator==(const Filter_iterator<I1,P>& it1,
+      | ^
+/opt/homebrew/include/CGAL/Compact_container.h:872:6: note: candidate template ignored: could not match 'Compact_container' against 'Point_2'
+  872 | bool operator==(const Compact_container<T, Allocator, Increment_policy, TimeStamper> &lhs,
+      |      ^
+/opt/homebrew/include/CGAL/Compact_container.h:1165:8: note: candidate template ignored: could not match 'CC_iterator' against 'Point_2'
+ 1165 |   bool operator==(const CC_iterator<DSC, Const1> &rhs,
+      |        ^
+/opt/homebrew/include/CGAL/Compact_container.h:1182:8: note: candidate template ignored: could not match 'CC_iterator' against 'Point_2'
+ 1182 |   bool operator==(const CC_iterator<DSC, Const> &rhs,
+      |        ^
+/opt/homebrew/include/CGAL/Cartesian/Point_2.h:98:26: note: candidate function not viable: no known conversion from 'int' to 'const PointC2<CGAL::Epick>' for 1st argument
+   98 |   typename R_::Boolean   operator==(const PointC2 &p) const
+      |                          ^          ~~~~~~~~~~~~~~~~
+/Users/sinchunyeung/Simplification-of-Trajectory-Streams/simplify.cpp:224:43: error: invalid operands to binary expression ('basic_ostream<char, std::char_traits<char>>' and 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>'))
+  224 |                 std::cerr << "  S[16] = " << S[16] << "\n";
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~ ^  ~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:349:55: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'char' for 2nd argument
+  349 | _LIBCPP_HIDE_FROM_ABI basic_ostream<_CharT, _Traits>& operator<<(basic_ostream<_CharT, _Traits>& __os, char __cn) {
+      |                                                       ^                                                ~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:376:53: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'char' for 2nd argument
+  376 | _LIBCPP_HIDE_FROM_ABI basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>& __os, char __c) {
+      |                                                     ^                                              ~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:381:53: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'signed char' for 2nd argument
+  381 | _LIBCPP_HIDE_FROM_ABI basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>& __os, signed char __c) {
+      |                                                     ^                                              ~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:386:53: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'unsigned char' for 2nd argument
+  386 | _LIBCPP_HIDE_FROM_ABI basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>& __os, unsigned char __c) {
+      |                                                     ^                                              ~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:398:1: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const char *' for 2nd argument
+  398 | operator<<(basic_ostream<_CharT, _Traits>& __os, const char* __strn) {
+      | ^                                                ~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:437:53: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const char *' for 2nd argument
+  437 | _LIBCPP_HIDE_FROM_ABI basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>& __os, const char* __str) {
+      |                                                     ^                                              ~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:443:1: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const signed char *' for 2nd argument
+  443 | operator<<(basic_ostream<char, _Traits>& __os, const signed char* __str) {
+      | ^                                              ~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:450:1: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const unsigned char *' for 2nd argument
+  450 | operator<<(basic_ostream<char, _Traits>& __os, const unsigned char* __str) {
+      | ^                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:588:1: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const error_code' for 2nd argument
+  588 | operator<<(basic_ostream<_CharT, _Traits>& __os, const error_code& __ec) {
+      | ^                                                ~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:623:31: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'wchar_t' for 2nd argument
+  623 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, wchar_t) = delete;
+      |                               ^                                         ~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:626:31: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const wchar_t *' for 2nd argument
+  626 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, const wchar_t*) = delete;
+      |                               ^                                         ~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:644:31: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'char8_t' for 2nd argument
+  644 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, char8_t) = delete;
+      |                               ^                                         ~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:650:31: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const char8_t *' for 2nd argument
+  650 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, const char8_t*) = delete;
+      |                               ^                                         ~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:657:31: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'char16_t' for 2nd argument
+  657 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, char16_t) = delete;
+      |                               ^                                         ~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:660:31: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'char32_t' for 2nd argument
+  660 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, char32_t) = delete;
+      |                               ^                                         ~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:663:31: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const char16_t *' for 2nd argument
+  663 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, const char16_t*) = delete;
+      |                               ^                                         ~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:666:31: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const char32_t *' for 2nd argument
+  666 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, const char32_t*) = delete;
+      |                               ^                                         ~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/thread.h:131:1: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to '__thread_id' for 2nd argument
+  131 | operator<<(basic_ostream<_CharT, _Traits>& __os, __thread_id __id) {
+      | ^                                                ~~~~~~~~~~~~~~~~
+/opt/homebrew/include/gmp.h:2292:33: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'mpz_srcptr' (aka 'const __mpz_struct *') for 2nd argument
+ 2292 | __GMP_DECLSPEC_XX std::ostream& operator<< (std::ostream &, mpz_srcptr);
+      |                                 ^                           ~~~~~~~~~~
+/opt/homebrew/include/gmp.h:2293:33: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'mpq_srcptr' (aka 'const __mpq_struct *') for 2nd argument
+ 2293 | __GMP_DECLSPEC_XX std::ostream& operator<< (std::ostream &, mpq_srcptr);
+      |                                 ^                           ~~~~~~~~~~
+/opt/homebrew/include/gmp.h:2294:33: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'mpf_srcptr' (aka 'const __mpf_struct *') for 2nd argument
+ 2294 | __GMP_DECLSPEC_XX std::ostream& operator<< (std::ostream &, mpf_srcptr);
+      |                                 ^                           ~~~~~~~~~~
+/opt/homebrew/include/CGAL/Modular_arithmetic/Residue_type.h:300:22: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Residue' for 2nd argument
+  300 | inline std::ostream& operator << (std::ostream& os, const Residue& p) {
+      |                      ^                              ~~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Bbox_2.h:207:1: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Bbox_2' for 2nd argument
+  207 | operator<<(std::ostream &os, const Bbox_2 &b)
+      | ^                            ~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Bbox_3.h:244:1: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Bbox_3' for 2nd argument
+  244 | operator<<(std::ostream &os, const Bbox_3& b)
+      | ^                            ~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/MP_Float_impl.h:454:1: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const MP_Float' for 2nd argument
+  454 | operator<< (std::ostream & os, const MP_Float &b)
+      | ^                              ~~~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpz_type.h:270:1: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Gmpz' for 2nd argument
+  270 | operator<<(std::ostream& os, const Gmpz &z)
+      | ^                            ~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpzf_type.h:520:15: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Gmpzf' for 2nd argument
+  520 | std::ostream& operator<< (std::ostream& os, const Gmpzf& a)
+      |               ^                             ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpfr_type.h:1164:15: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Gmpfr' for 2nd argument
+ 1164 | std::ostream& operator<<(std::ostream& os,const Gmpfr &a){
+      |               ^                           ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpq_type.h:462:1: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Gmpq' for 2nd argument
+  462 | operator<<(std::ostream& os, const Gmpq &z)
+      | ^                            ~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Mpzf.h:1046:15: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Mpzf' for 2nd argument
+ 1046 | std::ostream& operator<< (std::ostream& os, const Mpzf& a)
+      |               ^                             ~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Arr_enums.h:42:15: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Arr_curve_end' for 2nd argument
+   42 | OutputStream& operator<<(
+      |               ^
+   43 |         OutputStream& os,
+   44 |         const Arr_curve_end& ce) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Arr_enums.h:74:15: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Arr_halfedge_direction' for 2nd argument
+   74 | OutputStream& operator<<(
+      |               ^
+   75 |         OutputStream& os,
+   76 |         const Arr_halfedge_direction& dir) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Arr_enums.h:107:15: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Arr_boundary_type' for 2nd argument
+  107 | OutputStream& operator<<(
+      |               ^
+  108 |         OutputStream& os,
+  109 |         const Arr_boundary_type& bt) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Arr_enums.h:154:15: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Arr_parameter_space' (aka 'const CGAL::Box_parameter_space_2') for 2nd argument
+  154 | OutputStream& operator<<(
+      |               ^
+  155 |         OutputStream& os,
+  156 |         const Arr_parameter_space& ps) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:344:55: note: candidate template ignored: deduced conflicting types for parameter '_CharT' ('char' vs. 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>'))
+  344 | _LIBCPP_HIDE_FROM_ABI basic_ostream<_CharT, _Traits>& operator<<(basic_ostream<_CharT, _Traits>& __os, _CharT __c) {
+      |                                                       ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__cstddef/byte.h:63:38: note: candidate template ignored: requirement 'is_integral<std::vector<CGAL::Point_2<CGAL::Epick>, std::allocator<CGAL::Point_2<CGAL::Epick>>>>::value' was not satisfied [with _Integer = value_type]
+   63 | _LIBCPP_HIDE_FROM_ABI constexpr byte operator<<(byte __lhs, _Integer __shift) noexcept {
+      |                                      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:392:1: note: candidate template ignored: could not match 'const _CharT *' against 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>')
+  392 | operator<<(basic_ostream<_CharT, _Traits>& __os, const _CharT* __str) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:569:33: note: candidate template ignored: requirement 'integral_constant<bool, false>::value' was not satisfied [with _Stream = basic_ostream<char, std::char_traits<char>> &, _Tp = value_type]
+  569 | _LIBCPP_HIDE_FROM_ABI _Stream&& operator<<(_Stream&& __os, const _Tp& __x) {
+      |                                 ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:576:1: note: candidate template ignored: could not match 'basic_string' against 'vector'
+  576 | operator<<(basic_ostream<_CharT, _Traits>& __os, const basic_string<_CharT, _Traits, _Allocator>& __str) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:582:1: note: candidate template ignored: could not match 'basic_string_view' against 'vector'
+  582 | operator<<(basic_ostream<_CharT, _Traits>& __os, basic_string_view<_CharT, _Traits> __sv) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:608:1: note: candidate template ignored: could not match 'unique_ptr' against 'vector'
+  608 | operator<<(basic_ostream<_CharT, _Traits>& __os, unique_ptr<_Yp, _Dp> const& __p) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:614:1: note: candidate template ignored: could not match 'bitset' against 'vector'
+  614 | operator<<(basic_ostream<_CharT, _Traits>& __os, const bitset<_Size>& __x) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:629:34: note: candidate template ignored: could not match 'wchar_t' against 'char'
+  629 | basic_ostream<wchar_t, _Traits>& operator<<(basic_ostream<wchar_t, _Traits>&, char16_t) = delete;
+      |                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:632:34: note: candidate template ignored: could not match 'wchar_t' against 'char'
+  632 | basic_ostream<wchar_t, _Traits>& operator<<(basic_ostream<wchar_t, _Traits>&, char32_t) = delete;
+      |                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:635:34: note: candidate template ignored: could not match 'wchar_t' against 'char'
+  635 | basic_ostream<wchar_t, _Traits>& operator<<(basic_ostream<wchar_t, _Traits>&, const char16_t*) = delete;
+      |                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:638:34: note: candidate template ignored: could not match 'wchar_t' against 'char'
+  638 | basic_ostream<wchar_t, _Traits>& operator<<(basic_ostream<wchar_t, _Traits>&, const char32_t*) = delete;
+      |                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:647:34: note: candidate template ignored: could not match 'wchar_t' against 'char'
+  647 | basic_ostream<wchar_t, _Traits>& operator<<(basic_ostream<wchar_t, _Traits>&, char8_t) = delete;
+      |                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:653:34: note: candidate template ignored: could not match 'wchar_t' against 'char'
+  653 | basic_ostream<wchar_t, _Traits>& operator<<(basic_ostream<wchar_t, _Traits>&, const char8_t*) = delete;
+      |                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip:293:1: note: candidate template ignored: could not match '__iom_t8' against 'vector'
+  293 | operator<<(basic_ostream<_CharT, _Traits>& __os, const __iom_t8<_MoneyT>& __x) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip:390:1: note: candidate template ignored: could not match '__iom_t10' against 'vector'
+  390 | operator<<(basic_ostream<_CharT, _Traits>& __os, const __iom_t10<_CharT>& __x) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:1478:1: note: candidate template ignored: could not match 'shared_ptr' against 'vector'
+ 1478 | operator<<(basic_ostream<_CharT, _Traits>& __os, shared_ptr<_Yp> const& __p);
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/uniform_int_distribution.h:234:1: note: candidate template ignored: could not match 'uniform_int_distribution' against 'vector'
+  234 | operator<<(basic_ostream<_CharT, _Traits>& __os, const uniform_int_distribution<_IT>& __x) {
+      | ^
+/opt/homebrew/include/gmpxx.h:2186:23: note: candidate template ignored: could not match '__gmp_expr' against 'vector'
+ 2186 | inline std::ostream & operator<<
+      |                       ^
+/opt/homebrew/include/gmpxx.h:3336:33: note: candidate template ignored: could not match '__gmp_expr' against 'basic_ostream'
+ 3336 | __GMP_DEFINE_BINARY_FUNCTION_UI(operator<<, __gmp_binary_lshift)
+      |                                 ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/complex:1377:1: note: candidate template ignored: could not match 'complex' against 'vector'
+ 1377 | operator<<(basic_ostream<_CharT, _Traits>& __os, const complex<_Tp>& __x) {
+      | ^
+/opt/homebrew/include/CGAL/IO/io.h:242:15: note: candidate template ignored: could not match 'Output_rep' against 'vector'
+  242 | std::ostream& operator<<( std::ostream& os, Output_rep<T,F> rep) { return rep(os); }
+      |               ^
+/opt/homebrew/include/CGAL/IO/io.h:493:15: note: candidate template ignored: could not match 'Benchmark_rep' against 'vector'
+  493 | std::ostream& operator<<( std::ostream& os, Benchmark_rep<T,F> rep) { return rep(os); }
+      |               ^
+/opt/homebrew/include/CGAL/Quotient.h:410:1: note: candidate template ignored: could not match 'Quotient' against 'vector'
+  410 | operator<<(std::ostream& s, const Quotient<NT>& r)
+      | ^
+/opt/homebrew/include/CGAL/Point_2.h:234:1: note: candidate template ignored: could not match 'Point_2' against 'vector'
+  234 | operator<<(std::ostream& os, const Point_2<R>& p)
+      | ^
+/opt/homebrew/include/CGAL/Weighted_point_2.h:220:1: note: candidate template ignored: could not match 'Weighted_point_2' against 'vector'
+  220 | operator<<(std::ostream& os, const Weighted_point_2<R>& p)
+      | ^
+/opt/homebrew/include/CGAL/Vector_2.h:297:1: note: candidate template ignored: could not match 'Vector_2' against 'vector'
+  297 | operator<<(std::ostream& os, const Vector_2<R>& v)
+      | ^
+/opt/homebrew/include/CGAL/Direction_2.h:205:1: note: candidate template ignored: could not match 'Direction_2' against 'vector'
+  205 | operator<<(std::ostream& os, const Direction_2<R>& d)
+      | ^
+/opt/homebrew/include/CGAL/Line_2.h:249:1: note: candidate template ignored: could not match 'Line_2' against 'vector'
+  249 | operator<<(std::ostream &os, const Line_2<R> &l)
+      | ^
+/opt/homebrew/include/CGAL/Ray_2.h:219:1: note: candidate template ignored: could not match 'Ray_2' against 'vector'
+  219 | operator<<(std::ostream& os, const Ray_2<R>& r)
+      | ^
+/opt/homebrew/include/CGAL/Segment_2.h:230:1: note: candidate template ignored: could not match 'Segment_2' against 'vector'
+  230 | operator<<(std::ostream &os, const Segment_2<R> &s)
+      | ^
+/opt/homebrew/include/CGAL/Triangle_2.h:165:1: note: candidate template ignored: could not match 'Triangle_2' against 'vector'
+  165 | operator<<(std::ostream &os, const Triangle_2<R> &t)
+      | ^
+/opt/homebrew/include/CGAL/Iso_rectangle_2.h:209:1: note: candidate template ignored: could not match 'Iso_rectangle_2' against 'vector'
+  209 | operator<<(std::ostream &os, const Iso_rectangle_2<R> &r)
+      | ^
+/opt/homebrew/include/CGAL/Circle_2.h:245:1: note: candidate template ignored: could not match 'Circle_2' against 'vector'
+  245 | operator<<(std::ostream &os, const Circle_2<R> &c)
+      | ^
+/opt/homebrew/include/CGAL/Conic_2.h:293:15: note: candidate template ignored: could not match 'Conic_2' against 'vector'
+  293 | std::ostream& operator << ( std::ostream& os, const Conic_2<R_>& c)
+      |               ^
+/opt/homebrew/include/CGAL/Aff_transformation_2.h:106:1: note: candidate template ignored: could not match 'CGAL::Aff_transformation_2' against 'vector'
+  106 | operator<<(std::ostream &os, const CGAL::Aff_transformation_2<R> &t)
+      | ^
+/opt/homebrew/include/CGAL/Point_3.h:248:1: note: candidate template ignored: could not match 'Point_3' against 'vector'
+  248 | operator<<(std::ostream& os, const Point_3<R>& p)
+      | ^
+/opt/homebrew/include/CGAL/Weighted_point_3.h:241:1: note: candidate template ignored: could not match 'Weighted_point_3' against 'vector'
+  241 | operator<<(std::ostream& os, const Weighted_point_3<R>& p)
+      | ^
+/opt/homebrew/include/CGAL/Plane_3.h:240:1: note: candidate template ignored: could not match 'Plane_3' against 'vector'
+  240 | operator<<(std::ostream &os, const Plane_3<R> &p)
+      | ^
+/opt/homebrew/include/CGAL/Vector_3.h:313:1: note: candidate template ignored: could not match 'Vector_3' against 'vector'
+  313 | operator<<(std::ostream& os, const Vector_3<R>& v)
+      | ^
+/opt/homebrew/include/CGAL/Direction_3.h:174:1: note: candidate template ignored: could not match 'Direction_3' against 'vector'
+  174 | operator<<(std::ostream& os, const Direction_3<R>& d)
+      | ^
+/opt/homebrew/include/CGAL/Line_3.h:141:1: note: candidate template ignored: could not match 'Line_3' against 'vector'
+  141 | operator<<(std::ostream &os, const Line_3<R> &l)
+      | ^
+/opt/homebrew/include/CGAL/Ray_3.h:199:1: note: candidate template ignored: could not match 'Ray_3' against 'vector'
+  199 | operator<<(std::ostream& os, const Ray_3<R>& r)
+      | ^
+/opt/homebrew/include/CGAL/Segment_3.h:174:1: note: candidate template ignored: could not match 'Segment_3' against 'vector'
+  174 | operator<<(std::ostream &os, const Segment_3<R> &s)
+      | ^
+/opt/homebrew/include/CGAL/Triangle_3.h:119:1: note: candidate template ignored: could not match 'Triangle_3' against 'vector'
+  119 | operator<<(std::ostream &os, const Triangle_3<R> &t)
+      | ^
+/opt/homebrew/include/CGAL/Tetrahedron_3.h:155:1: note: candidate template ignored: could not match 'Tetrahedron_3' against 'vector'
+  155 | operator<<(std::ostream &os, const Tetrahedron_3<R> &t)
+      | ^
+/opt/homebrew/include/CGAL/Iso_cuboid_3.h:237:1: note: candidate template ignored: could not match 'Iso_cuboid_3' against 'vector'
+  237 | operator<<(std::ostream& os, const Iso_cuboid_3<R>& r)
+      | ^
+/opt/homebrew/include/CGAL/Sphere_3.h:277:1: note: candidate template ignored: could not match 'Sphere_3' against 'vector'
+  277 | operator<<(std::ostream& os, const Sphere_3<R>& c)
+      | ^
+/opt/homebrew/include/CGAL/Circle_3.h:164:1: note: candidate template ignored: could not match 'Circle_3' against 'vector'
+  164 | operator<<(std::ostream & os, const Circle_3<R> &c)
+      | ^
+/opt/homebrew/include/CGAL/Aff_transformation_3.h:84:1: note: candidate template ignored: could not match 'CGAL::Aff_transformation_3' against 'vector'
+   84 | operator<<(std::ostream& os, const CGAL::Aff_transformation_3<R>& t)
+      | ^
+/opt/homebrew/include/CGAL/Cartesian/Weighted_point_2.h:80:1: note: candidate template ignored: could not match 'Weighted_pointC2' against 'vector'
+   80 | operator<<(std::ostream &os, const Weighted_pointC2<R_> &p)
+      | ^
+/opt/homebrew/include/CGAL/Cartesian/Aff_transformation_2.h:213:1: note: candidate template ignored: could not match 'Aff_transformationC2' against 'vector'
+  213 | operator<<(std::ostream& os, const Aff_transformationC2<R>& t)
+      | ^
+/opt/homebrew/include/CGAL/Cartesian/ConicCPA2.h:598:15: note: candidate template ignored: could not match 'ConicCPA2' against 'vector'
+  598 | std::ostream& operator << ( std::ostream& os, const ConicCPA2<_PT,_DA>& c)
+      |               ^
+/opt/homebrew/include/CGAL/Cartesian/Weighted_point_3.h:80:1: note: candidate template ignored: could not match 'Weighted_pointC3' against 'vector'
+   80 | operator<<(std::ostream &os, const Weighted_pointC3<R_> &p)
+      | ^
+/opt/homebrew/include/CGAL/Cartesian/Aff_transformation_3.h:202:1: note: candidate template ignored: could not match 'Aff_transformationC3' against 'vector'
+  202 | operator<<(std::ostream &os, const Aff_transformationC3<R> &t)
+      | ^
+/opt/homebrew/include/CGAL/Homogeneous/Aff_transformationH2.h:827:1: note: candidate template ignored: could not match 'Aff_transformationH2' against 'vector'
+  827 | operator<<(std::ostream& out, const Aff_transformationH2<R>& t)
+      | ^
+/opt/homebrew/include/CGAL/Homogeneous/Weighted_point_2.h:80:1: note: candidate template ignored: could not match 'Weighted_pointH2' against 'vector'
+   80 | operator<<(std::ostream &os, const Weighted_pointH2<R_> &p)
+      | ^
+/opt/homebrew/include/CGAL/Homogeneous/ConicHPA2.h:598:15: note: candidate template ignored: could not match 'ConicHPA2' against 'vector'
+  598 | std::ostream& operator << ( std::ostream& os, const ConicHPA2<_PT,_DA>& c)
+      |               ^
+/opt/homebrew/include/CGAL/Homogeneous/Aff_transformationH3.h:1078:1: note: candidate template ignored: could not match 'Aff_transformationH3' against 'vector'
+ 1078 | operator<< ( std::ostream & out,
+      | ^
+/opt/homebrew/include/CGAL/Homogeneous/Weighted_point_3.h:80:1: note: candidate template ignored: could not match 'Weighted_pointH3' against 'vector'
+   80 | operator<<(std::ostream &os, const Weighted_pointH3<R_> &p)
+      | ^
+/opt/homebrew/include/CGAL/Sqrt_extension/io.h:134:15: note: candidate template ignored: could not match 'Sqrt_extension' against 'vector'
+  134 | std::ostream& operator << (std::ostream& os,
+      |               ^
+/opt/homebrew/include/CGAL/Polygon_2/Polygon_2_impl.h:111:1: note: candidate template ignored: could not match 'Polygon_2' against 'vector'
+  111 | operator<<(std::ostream &os, const Polygon_2<Traits_P,Container_P>& p)
+      | ^
+/opt/homebrew/include/CGAL/General_polygon_with_holes_2.h:165:1: note: candidate template ignored: could not match 'General_polygon_with_holes_2' against 'vector'
+  165 | operator<<(std::ostream& os, const General_polygon_with_holes_2<Polygon_>& p) {
+      | ^
+/opt/homebrew/include/CGAL/Polygon_with_holes_2.h:128:15: note: candidate template ignored: could not match 'Polygon_with_holes_2' against 'vector'
+  128 | std::ostream& operator<<(std::ostream &os,
+      |               ^
+/opt/homebrew/include/CGAL/Lazy_exact_nt.h:1308:1: note: candidate template ignored: could not match 'Lazy_exact_nt' against 'vector'
+ 1308 | operator<< (std::ostream & os, const Lazy_exact_nt<ET> & a)
+      | ^
+/opt/homebrew/include/CGAL/Arr_segment_traits_2.h:1589:15: note: candidate template ignored: could not match 'Arr_segment_2' against 'vector'
+ 1589 | OutputStream& operator<<(OutputStream& os, const Arr_segment_2<Kernel>& seg)
+      |               ^
+/opt/homebrew/include/CGAL/IO/Arr_iostream.h:65:5: note: candidate template ignored: could not match 'Arrangement_on_surface_2' against 'vector'
+   65 |     operator<< (std::ostream& os,
+      |     ^
+/opt/homebrew/include/CGAL/General_polygon_2.h:193:2: note: candidate template ignored: could not match 'General_polygon_2' against 'vector'
+  193 | &operator<<(std::ostream &os, const General_polygon_2<Traits>& p)
+      |  ^
+/opt/homebrew/include/CGAL/Arr_geometry_traits/IO/Polycurve_2_iostream.h:73:15: note: candidate template ignored: could not match 'Polycurve_2' against 'vector'
+   73 | OutputStream& operator<<(OutputStream& os,
+      |               ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:79:56: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'ostream &(*)(ostream &)' for 1st argument
+   79 |   inline _LIBCPP_HIDE_FROM_ABI_AFTER_V1 basic_ostream& operator<<(basic_ostream& (*__pf)(basic_ostream&)) {
+      |                                                        ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:84:3: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'basic_ios<char_type, traits_type> &(*)(basic_ios<char_type, traits_type> &)' (aka 'basic_ios<char, std::char_traits<char>> &(*)(basic_ios<char, std::char_traits<char>> &)') for 1st argument
+   84 |   operator<<(basic_ios<char_type, traits_type>& (*__pf)(basic_ios<char_type, traits_type>&)) {
+      |   ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:89:56: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'ios_base &(*)(ios_base &)' for 1st argument
+   89 |   inline _LIBCPP_HIDE_FROM_ABI_AFTER_V1 basic_ostream& operator<<(ios_base& (*__pf)(ios_base&)) {
+      |                                                        ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:143:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'bool' for 1st argument
+  143 |   basic_ostream& operator<<(bool __n);
+      |                  ^          ~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:144:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'short' for 1st argument
+  144 |   basic_ostream& operator<<(short __n);
+      |                  ^          ~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:145:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'unsigned short' for 1st argument
+  145 |   basic_ostream& operator<<(unsigned short __n);
+      |                  ^          ~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:146:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'int' for 1st argument
+  146 |   basic_ostream& operator<<(int __n);
+      |                  ^          ~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:147:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'unsigned int' for 1st argument
+  147 |   basic_ostream& operator<<(unsigned int __n);
+      |                  ^          ~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:148:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'long' for 1st argument
+  148 |   basic_ostream& operator<<(long __n);
+      |                  ^          ~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:149:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'unsigned long' for 1st argument
+  149 |   basic_ostream& operator<<(unsigned long __n);
+      |                  ^          ~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:150:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'long long' for 1st argument
+  150 |   basic_ostream& operator<<(long long __n);
+      |                  ^          ~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:151:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'unsigned long long' for 1st argument
+  151 |   basic_ostream& operator<<(unsigned long long __n);
+      |                  ^          ~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:152:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'float' for 1st argument
+  152 |   basic_ostream& operator<<(float __f);
+      |                  ^          ~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:153:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'double' for 1st argument
+  153 |   basic_ostream& operator<<(double __f);
+      |                  ^          ~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:154:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'long double' for 1st argument
+  154 |   basic_ostream& operator<<(long double __f);
+      |                  ^          ~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:155:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const void *' for 1st argument; take the address of the argument with &
+  155 |   basic_ostream& operator<<(const void* __p);
+      |                  ^          ~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:158:40: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const volatile void *' for 1st argument; take the address of the argument with &
+  158 |   _LIBCPP_HIDE_FROM_ABI basic_ostream& operator<<(const volatile void* __p) {
+      |                                        ^          ~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:163:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'basic_streambuf<char_type, traits_type> *' (aka 'basic_streambuf<char, std::char_traits<char>> *') for 1st argument
+  163 |   basic_ostream& operator<<(basic_streambuf<char_type, traits_type>* __sb);
+      |                  ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:168:40: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'nullptr_t' (aka 'std::nullptr_t') for 1st argument
+  168 |   _LIBCPP_HIDE_FROM_ABI basic_ostream& operator<<(nullptr_t) { return *this << "nullptr"; }
+      |                                        ^          ~~~~~~~~~
+/Users/sinchunyeung/Simplification-of-Trajectory-Streams/simplify.cpp:225:43: error: invalid operands to binary expression ('basic_ostream<char, std::char_traits<char>>' and 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>'))
+  225 |                 std::cerr << "  F[16] = " << F[16] << "\n";
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~ ^  ~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:349:55: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'char' for 2nd argument
+  349 | _LIBCPP_HIDE_FROM_ABI basic_ostream<_CharT, _Traits>& operator<<(basic_ostream<_CharT, _Traits>& __os, char __cn) {
+      |                                                       ^                                                ~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:376:53: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'char' for 2nd argument
+  376 | _LIBCPP_HIDE_FROM_ABI basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>& __os, char __c) {
+      |                                                     ^                                              ~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:381:53: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'signed char' for 2nd argument
+  381 | _LIBCPP_HIDE_FROM_ABI basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>& __os, signed char __c) {
+      |                                                     ^                                              ~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:386:53: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'unsigned char' for 2nd argument
+  386 | _LIBCPP_HIDE_FROM_ABI basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>& __os, unsigned char __c) {
+      |                                                     ^                                              ~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:398:1: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const char *' for 2nd argument
+  398 | operator<<(basic_ostream<_CharT, _Traits>& __os, const char* __strn) {
+      | ^                                                ~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:437:53: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const char *' for 2nd argument
+  437 | _LIBCPP_HIDE_FROM_ABI basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>& __os, const char* __str) {
+      |                                                     ^                                              ~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:443:1: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const signed char *' for 2nd argument
+  443 | operator<<(basic_ostream<char, _Traits>& __os, const signed char* __str) {
+      | ^                                              ~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:450:1: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const unsigned char *' for 2nd argument
+  450 | operator<<(basic_ostream<char, _Traits>& __os, const unsigned char* __str) {
+      | ^                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:588:1: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const error_code' for 2nd argument
+  588 | operator<<(basic_ostream<_CharT, _Traits>& __os, const error_code& __ec) {
+      | ^                                                ~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:623:31: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'wchar_t' for 2nd argument
+  623 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, wchar_t) = delete;
+      |                               ^                                         ~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:626:31: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const wchar_t *' for 2nd argument
+  626 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, const wchar_t*) = delete;
+      |                               ^                                         ~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:644:31: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'char8_t' for 2nd argument
+  644 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, char8_t) = delete;
+      |                               ^                                         ~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:650:31: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const char8_t *' for 2nd argument
+  650 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, const char8_t*) = delete;
+      |                               ^                                         ~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:657:31: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'char16_t' for 2nd argument
+  657 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, char16_t) = delete;
+      |                               ^                                         ~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:660:31: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'char32_t' for 2nd argument
+  660 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, char32_t) = delete;
+      |                               ^                                         ~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:663:31: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const char16_t *' for 2nd argument
+  663 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, const char16_t*) = delete;
+      |                               ^                                         ~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:666:31: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const char32_t *' for 2nd argument
+  666 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, const char32_t*) = delete;
+      |                               ^                                         ~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/thread.h:131:1: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to '__thread_id' for 2nd argument
+  131 | operator<<(basic_ostream<_CharT, _Traits>& __os, __thread_id __id) {
+      | ^                                                ~~~~~~~~~~~~~~~~
+/opt/homebrew/include/gmp.h:2292:33: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'mpz_srcptr' (aka 'const __mpz_struct *') for 2nd argument
+ 2292 | __GMP_DECLSPEC_XX std::ostream& operator<< (std::ostream &, mpz_srcptr);
+      |                                 ^                           ~~~~~~~~~~
+/opt/homebrew/include/gmp.h:2293:33: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'mpq_srcptr' (aka 'const __mpq_struct *') for 2nd argument
+ 2293 | __GMP_DECLSPEC_XX std::ostream& operator<< (std::ostream &, mpq_srcptr);
+      |                                 ^                           ~~~~~~~~~~
+/opt/homebrew/include/gmp.h:2294:33: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'mpf_srcptr' (aka 'const __mpf_struct *') for 2nd argument
+ 2294 | __GMP_DECLSPEC_XX std::ostream& operator<< (std::ostream &, mpf_srcptr);
+      |                                 ^                           ~~~~~~~~~~
+/opt/homebrew/include/CGAL/Modular_arithmetic/Residue_type.h:300:22: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Residue' for 2nd argument
+  300 | inline std::ostream& operator << (std::ostream& os, const Residue& p) {
+      |                      ^                              ~~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Bbox_2.h:207:1: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Bbox_2' for 2nd argument
+  207 | operator<<(std::ostream &os, const Bbox_2 &b)
+      | ^                            ~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Bbox_3.h:244:1: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Bbox_3' for 2nd argument
+  244 | operator<<(std::ostream &os, const Bbox_3& b)
+      | ^                            ~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/MP_Float_impl.h:454:1: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const MP_Float' for 2nd argument
+  454 | operator<< (std::ostream & os, const MP_Float &b)
+      | ^                              ~~~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpz_type.h:270:1: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Gmpz' for 2nd argument
+  270 | operator<<(std::ostream& os, const Gmpz &z)
+      | ^                            ~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpzf_type.h:520:15: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Gmpzf' for 2nd argument
+  520 | std::ostream& operator<< (std::ostream& os, const Gmpzf& a)
+      |               ^                             ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpfr_type.h:1164:15: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Gmpfr' for 2nd argument
+ 1164 | std::ostream& operator<<(std::ostream& os,const Gmpfr &a){
+      |               ^                           ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpq_type.h:462:1: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Gmpq' for 2nd argument
+  462 | operator<<(std::ostream& os, const Gmpq &z)
+      | ^                            ~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Mpzf.h:1046:15: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Mpzf' for 2nd argument
+ 1046 | std::ostream& operator<< (std::ostream& os, const Mpzf& a)
+      |               ^                             ~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Arr_enums.h:42:15: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Arr_curve_end' for 2nd argument
+   42 | OutputStream& operator<<(
+      |               ^
+   43 |         OutputStream& os,
+   44 |         const Arr_curve_end& ce) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Arr_enums.h:74:15: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Arr_halfedge_direction' for 2nd argument
+   74 | OutputStream& operator<<(
+      |               ^
+   75 |         OutputStream& os,
+   76 |         const Arr_halfedge_direction& dir) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Arr_enums.h:107:15: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Arr_boundary_type' for 2nd argument
+  107 | OutputStream& operator<<(
+      |               ^
+  108 |         OutputStream& os,
+  109 |         const Arr_boundary_type& bt) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Arr_enums.h:154:15: note: candidate function template not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const Arr_parameter_space' (aka 'const CGAL::Box_parameter_space_2') for 2nd argument
+  154 | OutputStream& operator<<(
+      |               ^
+  155 |         OutputStream& os,
+  156 |         const Arr_parameter_space& ps) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:344:55: note: candidate template ignored: deduced conflicting types for parameter '_CharT' ('char' vs. 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>'))
+  344 | _LIBCPP_HIDE_FROM_ABI basic_ostream<_CharT, _Traits>& operator<<(basic_ostream<_CharT, _Traits>& __os, _CharT __c) {
+      |                                                       ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__cstddef/byte.h:63:38: note: candidate template ignored: requirement 'is_integral<std::vector<CGAL::Point_2<CGAL::Epick>, std::allocator<CGAL::Point_2<CGAL::Epick>>>>::value' was not satisfied [with _Integer = value_type]
+   63 | _LIBCPP_HIDE_FROM_ABI constexpr byte operator<<(byte __lhs, _Integer __shift) noexcept {
+      |                                      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:392:1: note: candidate template ignored: could not match 'const _CharT *' against 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>')
+  392 | operator<<(basic_ostream<_CharT, _Traits>& __os, const _CharT* __str) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:569:33: note: candidate template ignored: requirement 'integral_constant<bool, false>::value' was not satisfied [with _Stream = basic_ostream<char, std::char_traits<char>> &, _Tp = value_type]
+  569 | _LIBCPP_HIDE_FROM_ABI _Stream&& operator<<(_Stream&& __os, const _Tp& __x) {
+      |                                 ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:576:1: note: candidate template ignored: could not match 'basic_string' against 'vector'
+  576 | operator<<(basic_ostream<_CharT, _Traits>& __os, const basic_string<_CharT, _Traits, _Allocator>& __str) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:582:1: note: candidate template ignored: could not match 'basic_string_view' against 'vector'
+  582 | operator<<(basic_ostream<_CharT, _Traits>& __os, basic_string_view<_CharT, _Traits> __sv) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:608:1: note: candidate template ignored: could not match 'unique_ptr' against 'vector'
+  608 | operator<<(basic_ostream<_CharT, _Traits>& __os, unique_ptr<_Yp, _Dp> const& __p) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:614:1: note: candidate template ignored: could not match 'bitset' against 'vector'
+  614 | operator<<(basic_ostream<_CharT, _Traits>& __os, const bitset<_Size>& __x) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:629:34: note: candidate template ignored: could not match 'wchar_t' against 'char'
+  629 | basic_ostream<wchar_t, _Traits>& operator<<(basic_ostream<wchar_t, _Traits>&, char16_t) = delete;
+      |                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:632:34: note: candidate template ignored: could not match 'wchar_t' against 'char'
+  632 | basic_ostream<wchar_t, _Traits>& operator<<(basic_ostream<wchar_t, _Traits>&, char32_t) = delete;
+      |                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:635:34: note: candidate template ignored: could not match 'wchar_t' against 'char'
+  635 | basic_ostream<wchar_t, _Traits>& operator<<(basic_ostream<wchar_t, _Traits>&, const char16_t*) = delete;
+      |                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:638:34: note: candidate template ignored: could not match 'wchar_t' against 'char'
+  638 | basic_ostream<wchar_t, _Traits>& operator<<(basic_ostream<wchar_t, _Traits>&, const char32_t*) = delete;
+      |                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:647:34: note: candidate template ignored: could not match 'wchar_t' against 'char'
+  647 | basic_ostream<wchar_t, _Traits>& operator<<(basic_ostream<wchar_t, _Traits>&, char8_t) = delete;
+      |                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:653:34: note: candidate template ignored: could not match 'wchar_t' against 'char'
+  653 | basic_ostream<wchar_t, _Traits>& operator<<(basic_ostream<wchar_t, _Traits>&, const char8_t*) = delete;
+      |                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip:293:1: note: candidate template ignored: could not match '__iom_t8' against 'vector'
+  293 | operator<<(basic_ostream<_CharT, _Traits>& __os, const __iom_t8<_MoneyT>& __x) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip:390:1: note: candidate template ignored: could not match '__iom_t10' against 'vector'
+  390 | operator<<(basic_ostream<_CharT, _Traits>& __os, const __iom_t10<_CharT>& __x) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:1478:1: note: candidate template ignored: could not match 'shared_ptr' against 'vector'
+ 1478 | operator<<(basic_ostream<_CharT, _Traits>& __os, shared_ptr<_Yp> const& __p);
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/uniform_int_distribution.h:234:1: note: candidate template ignored: could not match 'uniform_int_distribution' against 'vector'
+  234 | operator<<(basic_ostream<_CharT, _Traits>& __os, const uniform_int_distribution<_IT>& __x) {
+      | ^
+/opt/homebrew/include/gmpxx.h:2186:23: note: candidate template ignored: could not match '__gmp_expr' against 'vector'
+ 2186 | inline std::ostream & operator<<
+      |                       ^
+/opt/homebrew/include/gmpxx.h:3336:33: note: candidate template ignored: could not match '__gmp_expr' against 'basic_ostream'
+ 3336 | __GMP_DEFINE_BINARY_FUNCTION_UI(operator<<, __gmp_binary_lshift)
+      |                                 ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/complex:1377:1: note: candidate template ignored: could not match 'complex' against 'vector'
+ 1377 | operator<<(basic_ostream<_CharT, _Traits>& __os, const complex<_Tp>& __x) {
+      | ^
+/opt/homebrew/include/CGAL/IO/io.h:242:15: note: candidate template ignored: could not match 'Output_rep' against 'vector'
+  242 | std::ostream& operator<<( std::ostream& os, Output_rep<T,F> rep) { return rep(os); }
+      |               ^
+/opt/homebrew/include/CGAL/IO/io.h:493:15: note: candidate template ignored: could not match 'Benchmark_rep' against 'vector'
+  493 | std::ostream& operator<<( std::ostream& os, Benchmark_rep<T,F> rep) { return rep(os); }
+      |               ^
+/opt/homebrew/include/CGAL/Quotient.h:410:1: note: candidate template ignored: could not match 'Quotient' against 'vector'
+  410 | operator<<(std::ostream& s, const Quotient<NT>& r)
+      | ^
+/opt/homebrew/include/CGAL/Point_2.h:234:1: note: candidate template ignored: could not match 'Point_2' against 'vector'
+  234 | operator<<(std::ostream& os, const Point_2<R>& p)
+      | ^
+/opt/homebrew/include/CGAL/Weighted_point_2.h:220:1: note: candidate template ignored: could not match 'Weighted_point_2' against 'vector'
+  220 | operator<<(std::ostream& os, const Weighted_point_2<R>& p)
+      | ^
+/opt/homebrew/include/CGAL/Vector_2.h:297:1: note: candidate template ignored: could not match 'Vector_2' against 'vector'
+  297 | operator<<(std::ostream& os, const Vector_2<R>& v)
+      | ^
+/opt/homebrew/include/CGAL/Direction_2.h:205:1: note: candidate template ignored: could not match 'Direction_2' against 'vector'
+  205 | operator<<(std::ostream& os, const Direction_2<R>& d)
+      | ^
+/opt/homebrew/include/CGAL/Line_2.h:249:1: note: candidate template ignored: could not match 'Line_2' against 'vector'
+  249 | operator<<(std::ostream &os, const Line_2<R> &l)
+      | ^
+/opt/homebrew/include/CGAL/Ray_2.h:219:1: note: candidate template ignored: could not match 'Ray_2' against 'vector'
+  219 | operator<<(std::ostream& os, const Ray_2<R>& r)
+      | ^
+/opt/homebrew/include/CGAL/Segment_2.h:230:1: note: candidate template ignored: could not match 'Segment_2' against 'vector'
+  230 | operator<<(std::ostream &os, const Segment_2<R> &s)
+      | ^
+/opt/homebrew/include/CGAL/Triangle_2.h:165:1: note: candidate template ignored: could not match 'Triangle_2' against 'vector'
+  165 | operator<<(std::ostream &os, const Triangle_2<R> &t)
+      | ^
+/opt/homebrew/include/CGAL/Iso_rectangle_2.h:209:1: note: candidate template ignored: could not match 'Iso_rectangle_2' against 'vector'
+  209 | operator<<(std::ostream &os, const Iso_rectangle_2<R> &r)
+      | ^
+/opt/homebrew/include/CGAL/Circle_2.h:245:1: note: candidate template ignored: could not match 'Circle_2' against 'vector'
+  245 | operator<<(std::ostream &os, const Circle_2<R> &c)
+      | ^
+/opt/homebrew/include/CGAL/Conic_2.h:293:15: note: candidate template ignored: could not match 'Conic_2' against 'vector'
+  293 | std::ostream& operator << ( std::ostream& os, const Conic_2<R_>& c)
+      |               ^
+/opt/homebrew/include/CGAL/Aff_transformation_2.h:106:1: note: candidate template ignored: could not match 'CGAL::Aff_transformation_2' against 'vector'
+  106 | operator<<(std::ostream &os, const CGAL::Aff_transformation_2<R> &t)
+      | ^
+/opt/homebrew/include/CGAL/Point_3.h:248:1: note: candidate template ignored: could not match 'Point_3' against 'vector'
+  248 | operator<<(std::ostream& os, const Point_3<R>& p)
+      | ^
+/opt/homebrew/include/CGAL/Weighted_point_3.h:241:1: note: candidate template ignored: could not match 'Weighted_point_3' against 'vector'
+  241 | operator<<(std::ostream& os, const Weighted_point_3<R>& p)
+      | ^
+/opt/homebrew/include/CGAL/Plane_3.h:240:1: note: candidate template ignored: could not match 'Plane_3' against 'vector'
+  240 | operator<<(std::ostream &os, const Plane_3<R> &p)
+      | ^
+/opt/homebrew/include/CGAL/Vector_3.h:313:1: note: candidate template ignored: could not match 'Vector_3' against 'vector'
+  313 | operator<<(std::ostream& os, const Vector_3<R>& v)
+      | ^
+/opt/homebrew/include/CGAL/Direction_3.h:174:1: note: candidate template ignored: could not match 'Direction_3' against 'vector'
+  174 | operator<<(std::ostream& os, const Direction_3<R>& d)
+      | ^
+/opt/homebrew/include/CGAL/Line_3.h:141:1: note: candidate template ignored: could not match 'Line_3' against 'vector'
+  141 | operator<<(std::ostream &os, const Line_3<R> &l)
+      | ^
+/opt/homebrew/include/CGAL/Ray_3.h:199:1: note: candidate template ignored: could not match 'Ray_3' against 'vector'
+  199 | operator<<(std::ostream& os, const Ray_3<R>& r)
+      | ^
+/opt/homebrew/include/CGAL/Segment_3.h:174:1: note: candidate template ignored: could not match 'Segment_3' against 'vector'
+  174 | operator<<(std::ostream &os, const Segment_3<R> &s)
+      | ^
+/opt/homebrew/include/CGAL/Triangle_3.h:119:1: note: candidate template ignored: could not match 'Triangle_3' against 'vector'
+  119 | operator<<(std::ostream &os, const Triangle_3<R> &t)
+      | ^
+/opt/homebrew/include/CGAL/Tetrahedron_3.h:155:1: note: candidate template ignored: could not match 'Tetrahedron_3' against 'vector'
+  155 | operator<<(std::ostream &os, const Tetrahedron_3<R> &t)
+      | ^
+/opt/homebrew/include/CGAL/Iso_cuboid_3.h:237:1: note: candidate template ignored: could not match 'Iso_cuboid_3' against 'vector'
+  237 | operator<<(std::ostream& os, const Iso_cuboid_3<R>& r)
+      | ^
+/opt/homebrew/include/CGAL/Sphere_3.h:277:1: note: candidate template ignored: could not match 'Sphere_3' against 'vector'
+  277 | operator<<(std::ostream& os, const Sphere_3<R>& c)
+      | ^
+/opt/homebrew/include/CGAL/Circle_3.h:164:1: note: candidate template ignored: could not match 'Circle_3' against 'vector'
+  164 | operator<<(std::ostream & os, const Circle_3<R> &c)
+      | ^
+/opt/homebrew/include/CGAL/Aff_transformation_3.h:84:1: note: candidate template ignored: could not match 'CGAL::Aff_transformation_3' against 'vector'
+   84 | operator<<(std::ostream& os, const CGAL::Aff_transformation_3<R>& t)
+      | ^
+/opt/homebrew/include/CGAL/Cartesian/Weighted_point_2.h:80:1: note: candidate template ignored: could not match 'Weighted_pointC2' against 'vector'
+   80 | operator<<(std::ostream &os, const Weighted_pointC2<R_> &p)
+      | ^
+/opt/homebrew/include/CGAL/Cartesian/Aff_transformation_2.h:213:1: note: candidate template ignored: could not match 'Aff_transformationC2' against 'vector'
+  213 | operator<<(std::ostream& os, const Aff_transformationC2<R>& t)
+      | ^
+/opt/homebrew/include/CGAL/Cartesian/ConicCPA2.h:598:15: note: candidate template ignored: could not match 'ConicCPA2' against 'vector'
+  598 | std::ostream& operator << ( std::ostream& os, const ConicCPA2<_PT,_DA>& c)
+      |               ^
+/opt/homebrew/include/CGAL/Cartesian/Weighted_point_3.h:80:1: note: candidate template ignored: could not match 'Weighted_pointC3' against 'vector'
+   80 | operator<<(std::ostream &os, const Weighted_pointC3<R_> &p)
+      | ^
+/opt/homebrew/include/CGAL/Cartesian/Aff_transformation_3.h:202:1: note: candidate template ignored: could not match 'Aff_transformationC3' against 'vector'
+  202 | operator<<(std::ostream &os, const Aff_transformationC3<R> &t)
+      | ^
+/opt/homebrew/include/CGAL/Homogeneous/Aff_transformationH2.h:827:1: note: candidate template ignored: could not match 'Aff_transformationH2' against 'vector'
+  827 | operator<<(std::ostream& out, const Aff_transformationH2<R>& t)
+      | ^
+/opt/homebrew/include/CGAL/Homogeneous/Weighted_point_2.h:80:1: note: candidate template ignored: could not match 'Weighted_pointH2' against 'vector'
+   80 | operator<<(std::ostream &os, const Weighted_pointH2<R_> &p)
+      | ^
+/opt/homebrew/include/CGAL/Homogeneous/ConicHPA2.h:598:15: note: candidate template ignored: could not match 'ConicHPA2' against 'vector'
+  598 | std::ostream& operator << ( std::ostream& os, const ConicHPA2<_PT,_DA>& c)
+      |               ^
+/opt/homebrew/include/CGAL/Homogeneous/Aff_transformationH3.h:1078:1: note: candidate template ignored: could not match 'Aff_transformationH3' against 'vector'
+ 1078 | operator<< ( std::ostream & out,
+      | ^
+/opt/homebrew/include/CGAL/Homogeneous/Weighted_point_3.h:80:1: note: candidate template ignored: could not match 'Weighted_pointH3' against 'vector'
+   80 | operator<<(std::ostream &os, const Weighted_pointH3<R_> &p)
+      | ^
+/opt/homebrew/include/CGAL/Sqrt_extension/io.h:134:15: note: candidate template ignored: could not match 'Sqrt_extension' against 'vector'
+  134 | std::ostream& operator << (std::ostream& os,
+      |               ^
+/opt/homebrew/include/CGAL/Polygon_2/Polygon_2_impl.h:111:1: note: candidate template ignored: could not match 'Polygon_2' against 'vector'
+  111 | operator<<(std::ostream &os, const Polygon_2<Traits_P,Container_P>& p)
+      | ^
+/opt/homebrew/include/CGAL/General_polygon_with_holes_2.h:165:1: note: candidate template ignored: could not match 'General_polygon_with_holes_2' against 'vector'
+  165 | operator<<(std::ostream& os, const General_polygon_with_holes_2<Polygon_>& p) {
+      | ^
+/opt/homebrew/include/CGAL/Polygon_with_holes_2.h:128:15: note: candidate template ignored: could not match 'Polygon_with_holes_2' against 'vector'
+  128 | std::ostream& operator<<(std::ostream &os,
+      |               ^
+/opt/homebrew/include/CGAL/Lazy_exact_nt.h:1308:1: note: candidate template ignored: could not match 'Lazy_exact_nt' against 'vector'
+ 1308 | operator<< (std::ostream & os, const Lazy_exact_nt<ET> & a)
+      | ^
+/opt/homebrew/include/CGAL/Arr_segment_traits_2.h:1589:15: note: candidate template ignored: could not match 'Arr_segment_2' against 'vector'
+ 1589 | OutputStream& operator<<(OutputStream& os, const Arr_segment_2<Kernel>& seg)
+      |               ^
+/opt/homebrew/include/CGAL/IO/Arr_iostream.h:65:5: note: candidate template ignored: could not match 'Arrangement_on_surface_2' against 'vector'
+   65 |     operator<< (std::ostream& os,
+      |     ^
+/opt/homebrew/include/CGAL/General_polygon_2.h:193:2: note: candidate template ignored: could not match 'General_polygon_2' against 'vector'
+  193 | &operator<<(std::ostream &os, const General_polygon_2<Traits>& p)
+      |  ^
+/opt/homebrew/include/CGAL/Arr_geometry_traits/IO/Polycurve_2_iostream.h:73:15: note: candidate template ignored: could not match 'Polycurve_2' against 'vector'
+   73 | OutputStream& operator<<(OutputStream& os,
+      |               ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:79:56: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'ostream &(*)(ostream &)' for 1st argument
+   79 |   inline _LIBCPP_HIDE_FROM_ABI_AFTER_V1 basic_ostream& operator<<(basic_ostream& (*__pf)(basic_ostream&)) {
+      |                                                        ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:84:3: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'basic_ios<char_type, traits_type> &(*)(basic_ios<char_type, traits_type> &)' (aka 'basic_ios<char, std::char_traits<char>> &(*)(basic_ios<char, std::char_traits<char>> &)') for 1st argument
+   84 |   operator<<(basic_ios<char_type, traits_type>& (*__pf)(basic_ios<char_type, traits_type>&)) {
+      |   ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:89:56: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'ios_base &(*)(ios_base &)' for 1st argument
+   89 |   inline _LIBCPP_HIDE_FROM_ABI_AFTER_V1 basic_ostream& operator<<(ios_base& (*__pf)(ios_base&)) {
+      |                                                        ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:143:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'bool' for 1st argument
+  143 |   basic_ostream& operator<<(bool __n);
+      |                  ^          ~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:144:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'short' for 1st argument
+  144 |   basic_ostream& operator<<(short __n);
+      |                  ^          ~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:145:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'unsigned short' for 1st argument
+  145 |   basic_ostream& operator<<(unsigned short __n);
+      |                  ^          ~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:146:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'int' for 1st argument
+  146 |   basic_ostream& operator<<(int __n);
+      |                  ^          ~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:147:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'unsigned int' for 1st argument
+  147 |   basic_ostream& operator<<(unsigned int __n);
+      |                  ^          ~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:148:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'long' for 1st argument
+  148 |   basic_ostream& operator<<(long __n);
+      |                  ^          ~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:149:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'unsigned long' for 1st argument
+  149 |   basic_ostream& operator<<(unsigned long __n);
+      |                  ^          ~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:150:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'long long' for 1st argument
+  150 |   basic_ostream& operator<<(long long __n);
+      |                  ^          ~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:151:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'unsigned long long' for 1st argument
+  151 |   basic_ostream& operator<<(unsigned long long __n);
+      |                  ^          ~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:152:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'float' for 1st argument
+  152 |   basic_ostream& operator<<(float __f);
+      |                  ^          ~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:153:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'double' for 1st argument
+  153 |   basic_ostream& operator<<(double __f);
+      |                  ^          ~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:154:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'long double' for 1st argument
+  154 |   basic_ostream& operator<<(long double __f);
+      |                  ^          ~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:155:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const void *' for 1st argument; take the address of the argument with &
+  155 |   basic_ostream& operator<<(const void* __p);
+      |                  ^          ~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:158:40: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'const volatile void *' for 1st argument; take the address of the argument with &
+  158 |   _LIBCPP_HIDE_FROM_ABI basic_ostream& operator<<(const volatile void* __p) {
+      |                                        ^          ~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:163:18: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'basic_streambuf<char_type, traits_type> *' (aka 'basic_streambuf<char, std::char_traits<char>> *') for 1st argument
+  163 |   basic_ostream& operator<<(basic_streambuf<char_type, traits_type>* __sb);
+      |                  ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:168:40: note: candidate function not viable: no known conversion from 'value_type' (aka 'std::vector<CGAL::Point_2<CGAL::Epick>>') to 'nullptr_t' (aka 'std::nullptr_t') for 1st argument
+  168 |   _LIBCPP_HIDE_FROM_ABI basic_ostream& operator<<(nullptr_t) { return *this << "nullptr"; }
+      |                                        ^          ~~~~~~~~~
+/Users/sinchunyeung/Simplification-of-Trajectory-Streams/simplify.cpp:226:40: error: invalid operands to binary expression ('basic_ostream<char, std::char_traits<char>>' and 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>'))
+  226 |                 std::cerr << "  Gi = " << Gi << "\n";
+      |                 ~~~~~~~~~~~~~~~~~~~~~~ ^  ~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:349:55: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'char' for 2nd argument
+  349 | _LIBCPP_HIDE_FROM_ABI basic_ostream<_CharT, _Traits>& operator<<(basic_ostream<_CharT, _Traits>& __os, char __cn) {
+      |                                                       ^                                                ~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:376:53: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'char' for 2nd argument
+  376 | _LIBCPP_HIDE_FROM_ABI basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>& __os, char __c) {
+      |                                                     ^                                              ~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:381:53: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'signed char' for 2nd argument
+  381 | _LIBCPP_HIDE_FROM_ABI basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>& __os, signed char __c) {
+      |                                                     ^                                              ~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:386:53: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'unsigned char' for 2nd argument
+  386 | _LIBCPP_HIDE_FROM_ABI basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>& __os, unsigned char __c) {
+      |                                                     ^                                              ~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:398:1: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const char *' for 2nd argument
+  398 | operator<<(basic_ostream<_CharT, _Traits>& __os, const char* __strn) {
+      | ^                                                ~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:437:53: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const char *' for 2nd argument
+  437 | _LIBCPP_HIDE_FROM_ABI basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>& __os, const char* __str) {
+      |                                                     ^                                              ~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:443:1: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const signed char *' for 2nd argument
+  443 | operator<<(basic_ostream<char, _Traits>& __os, const signed char* __str) {
+      | ^                                              ~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:450:1: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const unsigned char *' for 2nd argument
+  450 | operator<<(basic_ostream<char, _Traits>& __os, const unsigned char* __str) {
+      | ^                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:588:1: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const error_code' for 2nd argument
+  588 | operator<<(basic_ostream<_CharT, _Traits>& __os, const error_code& __ec) {
+      | ^                                                ~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:623:31: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'wchar_t' for 2nd argument
+  623 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, wchar_t) = delete;
+      |                               ^                                         ~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:626:31: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const wchar_t *' for 2nd argument
+  626 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, const wchar_t*) = delete;
+      |                               ^                                         ~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:644:31: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'char8_t' for 2nd argument
+  644 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, char8_t) = delete;
+      |                               ^                                         ~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:650:31: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const char8_t *' for 2nd argument
+  650 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, const char8_t*) = delete;
+      |                               ^                                         ~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:657:31: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'char16_t' for 2nd argument
+  657 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, char16_t) = delete;
+      |                               ^                                         ~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:660:31: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'char32_t' for 2nd argument
+  660 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, char32_t) = delete;
+      |                               ^                                         ~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:663:31: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const char16_t *' for 2nd argument
+  663 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, const char16_t*) = delete;
+      |                               ^                                         ~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:666:31: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const char32_t *' for 2nd argument
+  666 | basic_ostream<char, _Traits>& operator<<(basic_ostream<char, _Traits>&, const char32_t*) = delete;
+      |                               ^                                         ~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/thread.h:131:1: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to '__thread_id' for 2nd argument
+  131 | operator<<(basic_ostream<_CharT, _Traits>& __os, __thread_id __id) {
+      | ^                                                ~~~~~~~~~~~~~~~~
+/opt/homebrew/include/gmp.h:2292:33: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'mpz_srcptr' (aka 'const __mpz_struct *') for 2nd argument
+ 2292 | __GMP_DECLSPEC_XX std::ostream& operator<< (std::ostream &, mpz_srcptr);
+      |                                 ^                           ~~~~~~~~~~
+/opt/homebrew/include/gmp.h:2293:33: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'mpq_srcptr' (aka 'const __mpq_struct *') for 2nd argument
+ 2293 | __GMP_DECLSPEC_XX std::ostream& operator<< (std::ostream &, mpq_srcptr);
+      |                                 ^                           ~~~~~~~~~~
+/opt/homebrew/include/gmp.h:2294:33: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'mpf_srcptr' (aka 'const __mpf_struct *') for 2nd argument
+ 2294 | __GMP_DECLSPEC_XX std::ostream& operator<< (std::ostream &, mpf_srcptr);
+      |                                 ^                           ~~~~~~~~~~
+/opt/homebrew/include/CGAL/Modular_arithmetic/Residue_type.h:300:22: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const Residue' for 2nd argument
+  300 | inline std::ostream& operator << (std::ostream& os, const Residue& p) {
+      |                      ^                              ~~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Bbox_2.h:207:1: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const Bbox_2' for 2nd argument
+  207 | operator<<(std::ostream &os, const Bbox_2 &b)
+      | ^                            ~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Bbox_3.h:244:1: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const Bbox_3' for 2nd argument
+  244 | operator<<(std::ostream &os, const Bbox_3& b)
+      | ^                            ~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/MP_Float_impl.h:454:1: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const MP_Float' for 2nd argument
+  454 | operator<< (std::ostream & os, const MP_Float &b)
+      | ^                              ~~~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpz_type.h:270:1: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const Gmpz' for 2nd argument
+  270 | operator<<(std::ostream& os, const Gmpz &z)
+      | ^                            ~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpzf_type.h:520:15: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const Gmpzf' for 2nd argument
+  520 | std::ostream& operator<< (std::ostream& os, const Gmpzf& a)
+      |               ^                             ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpfr_type.h:1164:15: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const Gmpfr' for 2nd argument
+ 1164 | std::ostream& operator<<(std::ostream& os,const Gmpfr &a){
+      |               ^                           ~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/GMP/Gmpq_type.h:462:1: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const Gmpq' for 2nd argument
+  462 | operator<<(std::ostream& os, const Gmpq &z)
+      | ^                            ~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Mpzf.h:1046:15: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const Mpzf' for 2nd argument
+ 1046 | std::ostream& operator<< (std::ostream& os, const Mpzf& a)
+      |               ^                             ~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Arr_enums.h:42:15: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const Arr_curve_end' for 2nd argument
+   42 | OutputStream& operator<<(
+      |               ^
+   43 |         OutputStream& os,
+   44 |         const Arr_curve_end& ce) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Arr_enums.h:74:15: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const Arr_halfedge_direction' for 2nd argument
+   74 | OutputStream& operator<<(
+      |               ^
+   75 |         OutputStream& os,
+   76 |         const Arr_halfedge_direction& dir) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Arr_enums.h:107:15: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const Arr_boundary_type' for 2nd argument
+  107 | OutputStream& operator<<(
+      |               ^
+  108 |         OutputStream& os,
+  109 |         const Arr_boundary_type& bt) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/homebrew/include/CGAL/Arr_enums.h:154:15: note: candidate function template not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const Arr_parameter_space' (aka 'const CGAL::Box_parameter_space_2') for 2nd argument
+  154 | OutputStream& operator<<(
+      |               ^
+  155 |         OutputStream& os,
+  156 |         const Arr_parameter_space& ps) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:344:55: note: candidate template ignored: deduced conflicting types for parameter '_CharT' ('char' vs. 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>'))
+  344 | _LIBCPP_HIDE_FROM_ABI basic_ostream<_CharT, _Traits>& operator<<(basic_ostream<_CharT, _Traits>& __os, _CharT __c) {
+      |                                                       ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__cstddef/byte.h:63:38: note: candidate template ignored: requirement 'is_integral<std::vector<CGAL::Point_2<CGAL::Epick>, std::allocator<CGAL::Point_2<CGAL::Epick>>>>::value' was not satisfied [with _Integer = std::vector<Point>]
+   63 | _LIBCPP_HIDE_FROM_ABI constexpr byte operator<<(byte __lhs, _Integer __shift) noexcept {
+      |                                      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:392:1: note: candidate template ignored: could not match 'const _CharT *' against 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>')
+  392 | operator<<(basic_ostream<_CharT, _Traits>& __os, const _CharT* __str) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:569:33: note: candidate template ignored: requirement 'integral_constant<bool, false>::value' was not satisfied [with _Stream = basic_ostream<char, std::char_traits<char>> &, _Tp = std::vector<Point>]
+  569 | _LIBCPP_HIDE_FROM_ABI _Stream&& operator<<(_Stream&& __os, const _Tp& __x) {
+      |                                 ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:576:1: note: candidate template ignored: could not match 'basic_string' against 'std::vector'
+  576 | operator<<(basic_ostream<_CharT, _Traits>& __os, const basic_string<_CharT, _Traits, _Allocator>& __str) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:582:1: note: candidate template ignored: could not match 'basic_string_view' against 'std::vector'
+  582 | operator<<(basic_ostream<_CharT, _Traits>& __os, basic_string_view<_CharT, _Traits> __sv) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:608:1: note: candidate template ignored: could not match 'unique_ptr' against 'std::vector'
+  608 | operator<<(basic_ostream<_CharT, _Traits>& __os, unique_ptr<_Yp, _Dp> const& __p) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:614:1: note: candidate template ignored: could not match 'bitset' against 'std::vector'
+  614 | operator<<(basic_ostream<_CharT, _Traits>& __os, const bitset<_Size>& __x) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:629:34: note: candidate template ignored: could not match 'wchar_t' against 'char'
+  629 | basic_ostream<wchar_t, _Traits>& operator<<(basic_ostream<wchar_t, _Traits>&, char16_t) = delete;
+      |                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:632:34: note: candidate template ignored: could not match 'wchar_t' against 'char'
+  632 | basic_ostream<wchar_t, _Traits>& operator<<(basic_ostream<wchar_t, _Traits>&, char32_t) = delete;
+      |                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:635:34: note: candidate template ignored: could not match 'wchar_t' against 'char'
+  635 | basic_ostream<wchar_t, _Traits>& operator<<(basic_ostream<wchar_t, _Traits>&, const char16_t*) = delete;
+      |                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:638:34: note: candidate template ignored: could not match 'wchar_t' against 'char'
+  638 | basic_ostream<wchar_t, _Traits>& operator<<(basic_ostream<wchar_t, _Traits>&, const char32_t*) = delete;
+      |                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:647:34: note: candidate template ignored: could not match 'wchar_t' against 'char'
+  647 | basic_ostream<wchar_t, _Traits>& operator<<(basic_ostream<wchar_t, _Traits>&, char8_t) = delete;
+      |                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:653:34: note: candidate template ignored: could not match 'wchar_t' against 'char'
+  653 | basic_ostream<wchar_t, _Traits>& operator<<(basic_ostream<wchar_t, _Traits>&, const char8_t*) = delete;
+      |                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip:293:1: note: candidate template ignored: could not match '__iom_t8' against 'std::vector'
+  293 | operator<<(basic_ostream<_CharT, _Traits>& __os, const __iom_t8<_MoneyT>& __x) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip:390:1: note: candidate template ignored: could not match '__iom_t10' against 'std::vector'
+  390 | operator<<(basic_ostream<_CharT, _Traits>& __os, const __iom_t10<_CharT>& __x) {
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:1478:1: note: candidate template ignored: could not match 'shared_ptr' against 'std::vector'
+ 1478 | operator<<(basic_ostream<_CharT, _Traits>& __os, shared_ptr<_Yp> const& __p);
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/uniform_int_distribution.h:234:1: note: candidate template ignored: could not match 'uniform_int_distribution' against 'std::vector'
+  234 | operator<<(basic_ostream<_CharT, _Traits>& __os, const uniform_int_distribution<_IT>& __x) {
+      | ^
+/opt/homebrew/include/gmpxx.h:2186:23: note: candidate template ignored: could not match '__gmp_expr' against 'std::vector'
+ 2186 | inline std::ostream & operator<<
+      |                       ^
+/opt/homebrew/include/gmpxx.h:3336:33: note: candidate template ignored: could not match '__gmp_expr' against 'basic_ostream'
+ 3336 | __GMP_DEFINE_BINARY_FUNCTION_UI(operator<<, __gmp_binary_lshift)
+      |                                 ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/complex:1377:1: note: candidate template ignored: could not match 'complex' against 'std::vector'
+ 1377 | operator<<(basic_ostream<_CharT, _Traits>& __os, const complex<_Tp>& __x) {
+      | ^
+/opt/homebrew/include/CGAL/IO/io.h:242:15: note: candidate template ignored: could not match 'Output_rep' against 'std::vector'
+  242 | std::ostream& operator<<( std::ostream& os, Output_rep<T,F> rep) { return rep(os); }
+      |               ^
+/opt/homebrew/include/CGAL/IO/io.h:493:15: note: candidate template ignored: could not match 'Benchmark_rep' against 'std::vector'
+  493 | std::ostream& operator<<( std::ostream& os, Benchmark_rep<T,F> rep) { return rep(os); }
+      |               ^
+/opt/homebrew/include/CGAL/Quotient.h:410:1: note: candidate template ignored: could not match 'Quotient' against 'std::vector'
+  410 | operator<<(std::ostream& s, const Quotient<NT>& r)
+      | ^
+/opt/homebrew/include/CGAL/Point_2.h:234:1: note: candidate template ignored: could not match 'Point_2' against 'std::vector'
+  234 | operator<<(std::ostream& os, const Point_2<R>& p)
+      | ^
+/opt/homebrew/include/CGAL/Weighted_point_2.h:220:1: note: candidate template ignored: could not match 'Weighted_point_2' against 'std::vector'
+  220 | operator<<(std::ostream& os, const Weighted_point_2<R>& p)
+      | ^
+/opt/homebrew/include/CGAL/Vector_2.h:297:1: note: candidate template ignored: could not match 'Vector_2' against 'std::vector'
+  297 | operator<<(std::ostream& os, const Vector_2<R>& v)
+      | ^
+/opt/homebrew/include/CGAL/Direction_2.h:205:1: note: candidate template ignored: could not match 'Direction_2' against 'std::vector'
+  205 | operator<<(std::ostream& os, const Direction_2<R>& d)
+      | ^
+/opt/homebrew/include/CGAL/Line_2.h:249:1: note: candidate template ignored: could not match 'Line_2' against 'std::vector'
+  249 | operator<<(std::ostream &os, const Line_2<R> &l)
+      | ^
+/opt/homebrew/include/CGAL/Ray_2.h:219:1: note: candidate template ignored: could not match 'Ray_2' against 'std::vector'
+  219 | operator<<(std::ostream& os, const Ray_2<R>& r)
+      | ^
+/opt/homebrew/include/CGAL/Segment_2.h:230:1: note: candidate template ignored: could not match 'Segment_2' against 'std::vector'
+  230 | operator<<(std::ostream &os, const Segment_2<R> &s)
+      | ^
+/opt/homebrew/include/CGAL/Triangle_2.h:165:1: note: candidate template ignored: could not match 'Triangle_2' against 'std::vector'
+  165 | operator<<(std::ostream &os, const Triangle_2<R> &t)
+      | ^
+/opt/homebrew/include/CGAL/Iso_rectangle_2.h:209:1: note: candidate template ignored: could not match 'Iso_rectangle_2' against 'std::vector'
+  209 | operator<<(std::ostream &os, const Iso_rectangle_2<R> &r)
+      | ^
+/opt/homebrew/include/CGAL/Circle_2.h:245:1: note: candidate template ignored: could not match 'Circle_2' against 'std::vector'
+  245 | operator<<(std::ostream &os, const Circle_2<R> &c)
+      | ^
+/opt/homebrew/include/CGAL/Conic_2.h:293:15: note: candidate template ignored: could not match 'Conic_2' against 'std::vector'
+  293 | std::ostream& operator << ( std::ostream& os, const Conic_2<R_>& c)
+      |               ^
+/opt/homebrew/include/CGAL/Aff_transformation_2.h:106:1: note: candidate template ignored: could not match 'CGAL::Aff_transformation_2' against 'std::vector'
+  106 | operator<<(std::ostream &os, const CGAL::Aff_transformation_2<R> &t)
+      | ^
+/opt/homebrew/include/CGAL/Point_3.h:248:1: note: candidate template ignored: could not match 'Point_3' against 'std::vector'
+  248 | operator<<(std::ostream& os, const Point_3<R>& p)
+      | ^
+/opt/homebrew/include/CGAL/Weighted_point_3.h:241:1: note: candidate template ignored: could not match 'Weighted_point_3' against 'std::vector'
+  241 | operator<<(std::ostream& os, const Weighted_point_3<R>& p)
+      | ^
+/opt/homebrew/include/CGAL/Plane_3.h:240:1: note: candidate template ignored: could not match 'Plane_3' against 'std::vector'
+  240 | operator<<(std::ostream &os, const Plane_3<R> &p)
+      | ^
+/opt/homebrew/include/CGAL/Vector_3.h:313:1: note: candidate template ignored: could not match 'Vector_3' against 'std::vector'
+  313 | operator<<(std::ostream& os, const Vector_3<R>& v)
+      | ^
+/opt/homebrew/include/CGAL/Direction_3.h:174:1: note: candidate template ignored: could not match 'Direction_3' against 'std::vector'
+  174 | operator<<(std::ostream& os, const Direction_3<R>& d)
+      | ^
+/opt/homebrew/include/CGAL/Line_3.h:141:1: note: candidate template ignored: could not match 'Line_3' against 'std::vector'
+  141 | operator<<(std::ostream &os, const Line_3<R> &l)
+      | ^
+/opt/homebrew/include/CGAL/Ray_3.h:199:1: note: candidate template ignored: could not match 'Ray_3' against 'std::vector'
+  199 | operator<<(std::ostream& os, const Ray_3<R>& r)
+      | ^
+/opt/homebrew/include/CGAL/Segment_3.h:174:1: note: candidate template ignored: could not match 'Segment_3' against 'std::vector'
+  174 | operator<<(std::ostream &os, const Segment_3<R> &s)
+      | ^
+/opt/homebrew/include/CGAL/Triangle_3.h:119:1: note: candidate template ignored: could not match 'Triangle_3' against 'std::vector'
+  119 | operator<<(std::ostream &os, const Triangle_3<R> &t)
+      | ^
+/opt/homebrew/include/CGAL/Tetrahedron_3.h:155:1: note: candidate template ignored: could not match 'Tetrahedron_3' against 'std::vector'
+  155 | operator<<(std::ostream &os, const Tetrahedron_3<R> &t)
+      | ^
+/opt/homebrew/include/CGAL/Iso_cuboid_3.h:237:1: note: candidate template ignored: could not match 'Iso_cuboid_3' against 'std::vector'
+  237 | operator<<(std::ostream& os, const Iso_cuboid_3<R>& r)
+      | ^
+/opt/homebrew/include/CGAL/Sphere_3.h:277:1: note: candidate template ignored: could not match 'Sphere_3' against 'std::vector'
+  277 | operator<<(std::ostream& os, const Sphere_3<R>& c)
+      | ^
+/opt/homebrew/include/CGAL/Circle_3.h:164:1: note: candidate template ignored: could not match 'Circle_3' against 'std::vector'
+  164 | operator<<(std::ostream & os, const Circle_3<R> &c)
+      | ^
+/opt/homebrew/include/CGAL/Aff_transformation_3.h:84:1: note: candidate template ignored: could not match 'CGAL::Aff_transformation_3' against 'std::vector'
+   84 | operator<<(std::ostream& os, const CGAL::Aff_transformation_3<R>& t)
+      | ^
+/opt/homebrew/include/CGAL/Cartesian/Weighted_point_2.h:80:1: note: candidate template ignored: could not match 'Weighted_pointC2' against 'std::vector'
+   80 | operator<<(std::ostream &os, const Weighted_pointC2<R_> &p)
+      | ^
+/opt/homebrew/include/CGAL/Cartesian/Aff_transformation_2.h:213:1: note: candidate template ignored: could not match 'Aff_transformationC2' against 'std::vector'
+  213 | operator<<(std::ostream& os, const Aff_transformationC2<R>& t)
+      | ^
+/opt/homebrew/include/CGAL/Cartesian/ConicCPA2.h:598:15: note: candidate template ignored: could not match 'ConicCPA2' against 'std::vector'
+  598 | std::ostream& operator << ( std::ostream& os, const ConicCPA2<_PT,_DA>& c)
+      |               ^
+/opt/homebrew/include/CGAL/Cartesian/Weighted_point_3.h:80:1: note: candidate template ignored: could not match 'Weighted_pointC3' against 'std::vector'
+   80 | operator<<(std::ostream &os, const Weighted_pointC3<R_> &p)
+      | ^
+/opt/homebrew/include/CGAL/Cartesian/Aff_transformation_3.h:202:1: note: candidate template ignored: could not match 'Aff_transformationC3' against 'std::vector'
+  202 | operator<<(std::ostream &os, const Aff_transformationC3<R> &t)
+      | ^
+/opt/homebrew/include/CGAL/Homogeneous/Aff_transformationH2.h:827:1: note: candidate template ignored: could not match 'Aff_transformationH2' against 'std::vector'
+  827 | operator<<(std::ostream& out, const Aff_transformationH2<R>& t)
+      | ^
+/opt/homebrew/include/CGAL/Homogeneous/Weighted_point_2.h:80:1: note: candidate template ignored: could not match 'Weighted_pointH2' against 'std::vector'
+   80 | operator<<(std::ostream &os, const Weighted_pointH2<R_> &p)
+      | ^
+/opt/homebrew/include/CGAL/Homogeneous/ConicHPA2.h:598:15: note: candidate template ignored: could not match 'ConicHPA2' against 'std::vector'
+  598 | std::ostream& operator << ( std::ostream& os, const ConicHPA2<_PT,_DA>& c)
+      |               ^
+/opt/homebrew/include/CGAL/Homogeneous/Aff_transformationH3.h:1078:1: note: candidate template ignored: could not match 'Aff_transformationH3' against 'std::vector'
+ 1078 | operator<< ( std::ostream & out,
+      | ^
+/opt/homebrew/include/CGAL/Homogeneous/Weighted_point_3.h:80:1: note: candidate template ignored: could not match 'Weighted_pointH3' against 'std::vector'
+   80 | operator<<(std::ostream &os, const Weighted_pointH3<R_> &p)
+      | ^
+/opt/homebrew/include/CGAL/Sqrt_extension/io.h:134:15: note: candidate template ignored: could not match 'Sqrt_extension' against 'std::vector'
+  134 | std::ostream& operator << (std::ostream& os,
+      |               ^
+/opt/homebrew/include/CGAL/Polygon_2/Polygon_2_impl.h:111:1: note: candidate template ignored: could not match 'Polygon_2' against 'std::vector'
+  111 | operator<<(std::ostream &os, const Polygon_2<Traits_P,Container_P>& p)
+      | ^
+/opt/homebrew/include/CGAL/General_polygon_with_holes_2.h:165:1: note: candidate template ignored: could not match 'General_polygon_with_holes_2' against 'std::vector'
+  165 | operator<<(std::ostream& os, const General_polygon_with_holes_2<Polygon_>& p) {
+      | ^
+/opt/homebrew/include/CGAL/Polygon_with_holes_2.h:128:15: note: candidate template ignored: could not match 'Polygon_with_holes_2' against 'std::vector'
+  128 | std::ostream& operator<<(std::ostream &os,
+      |               ^
+/opt/homebrew/include/CGAL/Lazy_exact_nt.h:1308:1: note: candidate template ignored: could not match 'Lazy_exact_nt' against 'std::vector'
+ 1308 | operator<< (std::ostream & os, const Lazy_exact_nt<ET> & a)
+      | ^
+/opt/homebrew/include/CGAL/Arr_segment_traits_2.h:1589:15: note: candidate template ignored: could not match 'Arr_segment_2' against 'std::vector'
+ 1589 | OutputStream& operator<<(OutputStream& os, const Arr_segment_2<Kernel>& seg)
+      |               ^
+/opt/homebrew/include/CGAL/IO/Arr_iostream.h:65:5: note: candidate template ignored: could not match 'Arrangement_on_surface_2' against 'std::vector'
+   65 |     operator<< (std::ostream& os,
+      |     ^
+/opt/homebrew/include/CGAL/General_polygon_2.h:193:2: note: candidate template ignored: could not match 'General_polygon_2' against 'std::vector'
+  193 | &operator<<(std::ostream &os, const General_polygon_2<Traits>& p)
+      |  ^
+/opt/homebrew/include/CGAL/Arr_geometry_traits/IO/Polycurve_2_iostream.h:73:15: note: candidate template ignored: could not match 'Polycurve_2' against 'std::vector'
+   73 | OutputStream& operator<<(OutputStream& os,
+      |               ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:79:56: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'ostream &(*)(ostream &)' for 1st argument
+   79 |   inline _LIBCPP_HIDE_FROM_ABI_AFTER_V1 basic_ostream& operator<<(basic_ostream& (*__pf)(basic_ostream&)) {
+      |                                                        ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:84:3: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'basic_ios<char_type, traits_type> &(*)(basic_ios<char_type, traits_type> &)' (aka 'basic_ios<char, std::char_traits<char>> &(*)(basic_ios<char, std::char_traits<char>> &)') for 1st argument
+   84 |   operator<<(basic_ios<char_type, traits_type>& (*__pf)(basic_ios<char_type, traits_type>&)) {
+      |   ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:89:56: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'ios_base &(*)(ios_base &)' for 1st argument
+   89 |   inline _LIBCPP_HIDE_FROM_ABI_AFTER_V1 basic_ostream& operator<<(ios_base& (*__pf)(ios_base&)) {
+      |                                                        ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:143:18: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'bool' for 1st argument
+  143 |   basic_ostream& operator<<(bool __n);
+      |                  ^          ~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:144:18: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'short' for 1st argument
+  144 |   basic_ostream& operator<<(short __n);
+      |                  ^          ~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:145:18: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'unsigned short' for 1st argument
+  145 |   basic_ostream& operator<<(unsigned short __n);
+      |                  ^          ~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:146:18: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'int' for 1st argument
+  146 |   basic_ostream& operator<<(int __n);
+      |                  ^          ~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:147:18: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'unsigned int' for 1st argument
+  147 |   basic_ostream& operator<<(unsigned int __n);
+      |                  ^          ~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:148:18: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'long' for 1st argument
+  148 |   basic_ostream& operator<<(long __n);
+      |                  ^          ~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:149:18: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'unsigned long' for 1st argument
+  149 |   basic_ostream& operator<<(unsigned long __n);
+      |                  ^          ~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:150:18: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'long long' for 1st argument
+  150 |   basic_ostream& operator<<(long long __n);
+      |                  ^          ~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:151:18: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'unsigned long long' for 1st argument
+  151 |   basic_ostream& operator<<(unsigned long long __n);
+      |                  ^          ~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:152:18: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'float' for 1st argument
+  152 |   basic_ostream& operator<<(float __f);
+      |                  ^          ~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:153:18: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'double' for 1st argument
+  153 |   basic_ostream& operator<<(double __f);
+      |                  ^          ~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:154:18: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'long double' for 1st argument
+  154 |   basic_ostream& operator<<(long double __f);
+      |                  ^          ~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:155:18: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const void *' for 1st argument; take the address of the argument with &
+  155 |   basic_ostream& operator<<(const void* __p);
+      |                  ^          ~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:158:40: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'const volatile void *' for 1st argument; take the address of the argument with &
+  158 |   _LIBCPP_HIDE_FROM_ABI basic_ostream& operator<<(const volatile void* __p) {
+      |                                        ^          ~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:163:18: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'basic_streambuf<char_type, traits_type> *' (aka 'basic_streambuf<char, std::char_traits<char>> *') for 1st argument
+  163 |   basic_ostream& operator<<(basic_streambuf<char_type, traits_type>* __sb);
+      |                  ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:168:40: note: candidate function not viable: no known conversion from 'std::vector<Point>' (aka 'vector<Point_2<CGAL::Epick>>') to 'nullptr_t' (aka 'std::nullptr_t') for 1st argument
+  168 |   _LIBCPP_HIDE_FROM_ABI basic_ostream& operator<<(nullptr_t) { return *this << "nullptr"; }
+      |                                        ^          ~~~~~~~~~
+4 errors generated.
+make[2]: *** [CMakeFiles/simplify.dir/simplify.cpp.o] Error 1
+make[1]: *** [CMakeFiles/simplify.dir/all] Error 2
+make: *** [all] Error 2

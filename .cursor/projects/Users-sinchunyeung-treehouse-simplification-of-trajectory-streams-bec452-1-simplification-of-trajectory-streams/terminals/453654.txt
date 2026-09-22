@@ -1,0 +1,165 @@
+---
+pid: 19544
+cwd: "/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams"
+command: "mkdir -p results\n/tmp/simplify-bench-venv/bin/python scripts/perf_compare_50.py \\\n  --baseline-bin /tmp/simplify-baseline/simplify \\\n  --baseline-cwd /tmp/simplify-baseline \\\n  --opt-bin /tmp/simplify-opt/simplify \\\n  --opt-cwd /tmp/simplify-opt \\\n  --a 1 --b 50 --repeats 3 \\\n  --epsilon 0.5 299 \\\n  --delta 200 1 \\\n  --out-dir results \\\n  2>&1 | tee results/perf_compare_50_run.log\necho EXIT:$?\nls -la results/perf_compare_50_*"
+title: "Run 50-ID perf compare at two fixed param pairs"
+status: succeeded
+started_at: 2026-09-04T16:18:05.108Z
+running_for_ms: 62043    
+---
+Matplotlib is building the font cache; this may take a moment.
+
+=== e=0.5 d=200.0 over IDs 1..50 (3 repeats, median) ===
+  id=  1 n=  588  base=  25.014  opt=  22.815  ratio= 0.912
+  id=  2 n= 1674  base=  56.954  opt=  49.069  ratio= 0.862
+  id=  3 n= 1371  base=  52.785  opt=  49.516  ratio= 0.938
+  id=  4 n=  672  base=  30.529  opt=  28.509  ratio= 0.934
+  id=  5 n=  798  base=  32.023  opt=  28.719  ratio= 0.897
+  id=  6 n=  792  base=  22.768  opt=  21.316  ratio= 0.936
+  id=  7 n=  454  base=  16.329  opt=  14.605  ratio= 0.894
+  id=  8 n=    5  base=   0.238  opt=   0.217  ratio= 0.913
+  id=  9 n=  643  base=  22.018  opt=  19.840  ratio= 0.901
+  id= 10 n= 5617  base= 210.642  opt= 196.377  ratio= 0.932
+  id= 11 n=  703  base=  25.260  opt=  22.635  ratio= 0.896
+  id= 12 n=  814  base=  54.415  opt=  52.365  ratio= 0.962
+  id= 13 n=  368  base=  12.053  opt=  10.425  ratio= 0.865
+  id= 14 n=  661  base=  23.400  opt=  21.507  ratio= 0.919
+  id= 15 n= 1131  base=  38.286  opt=  35.662  ratio= 0.931
+  id= 16 n= 4463  base= 525.015  opt= 502.273  ratio= 0.957
+  id= 17 n= 1979  base=  97.722  opt=  92.471  ratio= 0.946
+  id= 18 n= 1615  base= 118.030  opt= 122.912  ratio= 1.041
+  id= 19 n=  808  base=  47.952  opt=  45.096  ratio= 0.940
+  id= 20 n= 1520  base=  68.487  opt=  65.069  ratio= 0.950
+  id= 21 n= 1491  base=  73.652  opt=  67.779  ratio= 0.920
+  id= 22 n=    2  base=   0.152  opt=   0.157  ratio= 1.035
+  id= 23 n=  865  base=  33.435  opt=  30.381  ratio= 0.909
+  id= 24 n= 2030  base=  79.559  opt=  76.623  ratio= 0.963
+  id= 25 n= 2260  base=  81.873  opt=  77.608  ratio= 0.948
+  id= 26 n= 1544  base= 104.905  opt= 101.420  ratio= 0.967
+  id= 27 n= 1974  base=  68.971  opt=  62.938  ratio= 0.913
+  id= 28 n= 6023  base= 265.755  opt= 240.613  ratio= 0.905
+  id= 29 n= 1404  base=  45.886  opt=  39.859  ratio= 0.869
+  id= 30 n= 1966  base=  66.917  opt=  60.720  ratio= 0.907
+  id= 31 n= 3602  base= 160.579  opt= 159.948  ratio= 0.996
+  id= 32 n=  550  base=  19.351  opt=  17.503  ratio= 0.904
+  id= 33 n=  975  base=  33.638  opt=  34.077  ratio= 1.013
+  id= 34 n= 4594  base= 182.249  opt= 173.802  ratio= 0.954
+  id= 35 n= 5621  base= 281.006  opt= 270.386  ratio= 0.962
+  id= 36 n=  464  base=  19.550  opt=  17.352  ratio= 0.888
+  id= 37 n=  426  base=  22.299  opt=  20.896  ratio= 0.937
+  id= 38 n= 1446  base=  59.377  opt=  53.213  ratio= 0.896
+  id= 39 n= 1890  base=  65.309  opt=  61.096  ratio= 0.936
+  id= 40 n=    7  base=   0.372  opt=   0.323  ratio= 0.868
+  id= 41 n= 1792  base=  75.396  opt=  69.376  ratio= 0.920
+  id= 42 n= 1575  base=  96.397  opt=  90.763  ratio= 0.942
+  id= 43 n=    5  base=   0.237  opt=   0.211  ratio= 0.890
+  id= 44 n= 1603  base=  67.440  opt=  85.181  ratio= 1.263
+  id= 45 n=    3  base=   0.304  opt=   0.461  ratio= 1.516
+  id= 46 n= 1693  base=  95.687  opt=  76.272  ratio= 0.797
+  id= 47 n=    8  base=   0.445  opt=   0.403  ratio= 0.905
+  id= 48 n=  905  base=  31.864  opt=  28.778  ratio= 0.903
+  id= 49 n=  763  base=  28.283  opt=  25.672  ratio= 0.908
+  id= 50 n=  576  base=  20.297  opt=  17.921  ratio= 0.883
+CSV: results/perf_compare_50_e0p5_d200p0.csv
+PNG: results/perf_compare_50_e0p5_d200p0.png
+STATS e=0.5 d=200.0: n=50  mean_ratio=0.943  median_ratio=0.920  geomean=0.938  faster=88%  slower=8%  flat=4%  total_base=3561.1ms  total_opt=3363.1ms  saved=198.0ms
+
+=== e=299.0 d=1.0 over IDs 1..50 (3 repeats, median) ===
+  id=  1 n=  588  base=   4.479  opt=   3.895  ratio= 0.870
+  id=  2 n= 1674  base=  10.223  opt=   8.692  ratio= 0.850
+  id=  3 n= 1371  base=   8.517  opt=   7.514  ratio= 0.882
+  id=  4 n=  672  base=   5.199  opt=   4.599  ratio= 0.885
+  id=  5 n=  798  base=   4.895  opt=   4.145  ratio= 0.847
+  id=  6 n=  792  base=   4.606  opt=   4.202  ratio= 0.912
+  id=  7 n=  454  base=   2.855  opt=   2.445  ratio= 0.856
+  id=  8 n=    5  base=   0.084  opt=   0.059  ratio= 0.706
+  id=  9 n=  643  base=   3.982  opt=   3.660  ratio= 0.919
+  id= 10 n= 5617  base=  38.922  opt=  35.977  ratio= 0.924
+  id= 11 n=  703  base=   4.437  opt=   3.743  ratio= 0.844
+  id= 12 n=  814  base=  10.532  opt=   9.550  ratio= 0.907
+  id= 13 n=  368  base=   2.364  opt=   1.888  ratio= 0.799
+  id= 14 n=  661  base=   4.232  opt=   3.761  ratio= 0.889
+  id= 15 n= 1131  base=   7.283  opt=   6.427  ratio= 0.882
+  id= 16 n= 4463  base=  90.306  opt=  81.584  ratio= 0.903
+  id= 17 n= 1979  base=  15.467  opt=  14.020  ratio= 0.906
+  id= 18 n= 1615  base=  17.887  opt=  17.247  ratio= 0.964
+  id= 19 n=  808  base=   8.445  opt=   7.546  ratio= 0.894
+  id= 20 n= 1520  base=  15.357  opt=  10.787  ratio= 0.702
+  id= 21 n= 1491  base=  12.246  opt=  10.542  ratio= 0.861
+  id= 22 n=    2  base=   0.040  opt=   0.039  ratio= 0.982
+  id= 23 n=  865  base=   6.269  opt=   5.588  ratio= 0.891
+  id= 24 n= 2030  base=  17.045  opt=  15.869  ratio= 0.931
+  id= 25 n= 2260  base=  15.099  opt=  14.328  ratio= 0.949
+  id= 26 n= 1544  base=  14.751  opt=  14.037  ratio= 0.952
+  id= 27 n= 1974  base=  11.747  opt=  10.291  ratio= 0.876
+  id= 28 n= 6023  base=  41.755  opt=  37.630  ratio= 0.901
+  id= 29 n= 1404  base=   8.594  opt=   7.394  ratio= 0.860
+  id= 30 n= 1966  base=  12.233  opt=  10.970  ratio= 0.897
+  id= 31 n= 3602  base=  29.912  opt=  27.169  ratio= 0.908
+  id= 32 n=  550  base=   3.350  opt=   2.938  ratio= 0.877
+  id= 33 n=  975  base=   5.744  opt=   4.800  ratio= 0.836
+  id= 34 n= 4594  base=  32.351  opt=  30.769  ratio= 0.951
+  id= 35 n= 5621  base=  50.708  opt=  46.471  ratio= 0.916
+  id= 36 n=  464  base=   3.394  opt=   2.846  ratio= 0.838
+  id= 37 n=  426  base=   3.554  opt=   3.274  ratio= 0.921
+  id= 38 n= 1446  base=  10.141  opt=   8.828  ratio= 0.871
+  id= 39 n= 1890  base=  11.460  opt=   9.969  ratio= 0.870
+  id= 40 n=    7  base=   0.088  opt=   0.082  ratio= 0.928
+  id= 41 n= 1792  base=  11.470  opt=  10.011  ratio= 0.873
+  id= 42 n= 1575  base=  15.486  opt=  13.910  ratio= 0.898
+  id= 43 n=    5  base=   0.065  opt=   0.053  ratio= 0.824
+  id= 44 n= 1603  base=  11.245  opt=  10.153  ratio= 0.903
+  id= 45 n=    3  base=   0.047  opt=   0.049  ratio= 1.041
+  id= 46 n= 1693  base=  10.629  opt=   9.787  ratio= 0.921
+  id= 47 n=    8  base=   0.087  opt=   0.076  ratio= 0.870
+  id= 48 n=  905  base=   5.705  opt=   4.952  ratio= 0.868
+  id= 49 n=  763  base=   4.855  opt=   4.199  ratio= 0.865
+  id= 50 n=  576  base=   3.494  opt=   2.920  ratio= 0.836
+CSV: results/perf_compare_50_e299p0_d1p0.csv
+PNG: results/perf_compare_50_e299p0_d1p0.png
+STATS e=299.0 d=1.0: n=50  mean_ratio=0.885  median_ratio=0.887  geomean=0.883  faster=96%  slower=2%  flat=2%  total_base=613.6ms  total_opt=551.7ms  saved=62.0ms
+
+Summary: results/perf_compare_50_summary.txt
+Performance comparison: baseline (main) vs optimized (wedge prune + Gi dedup/skip to_ccw)
+IDs 1-50, repeats=3 (median)
+
+e=0.5 d=200.0
+  n=50
+  mean_ratio=0.9429
+  median_ratio=0.9203
+  geomean_ratio=0.9383
+  stdev=0.1048  min=0.7971  max=1.5156
+  pct_faster(<0.98)=88.0%
+  pct_slower(>1.02)=8.0%
+  pct_flat=[0.98,1.02]=4.0%
+  total_base_ms=3561.10
+  total_opt_ms=3363.13
+  total_saved_ms=197.97
+
+e=299.0 d=1.0
+  n=50
+  mean_ratio=0.8851
+  median_ratio=0.8867
+  geomean_ratio=0.8832
+  stdev=0.0569  min=0.7024  max=1.0405
+  pct_faster(<0.98)=96.0%
+  pct_slower(>1.02)=2.0%
+  pct_flat=[0.98,1.02]=2.0%
+  total_base_ms=613.64
+  total_opt_ms=551.68
+  total_saved_ms=61.95
+
+
+EXIT:0
+-rw-r--r--@ 1 sinchunyeung  staff    2453  5 Sep 00:18 results/perf_compare_50_e0p5_d200p0.csv
+-rw-r--r--@ 1 sinchunyeung  staff  161802  5 Sep 00:19 results/perf_compare_50_e0p5_d200p0.png
+-rw-r--r--@ 1 sinchunyeung  staff    2379  5 Sep 00:19 results/perf_compare_50_e299p0_d1p0.csv
+-rw-r--r--@ 1 sinchunyeung  staff  166817  5 Sep 00:19 results/perf_compare_50_e299p0_d1p0.png
+-rw-r--r--@ 1 sinchunyeung  staff    7406  5 Sep 00:19 results/perf_compare_50_run.log
+-rw-r--r--@ 1 sinchunyeung  staff     669  5 Sep 00:19 results/perf_compare_50_summary.txt
+
+---
+exit_code: 0
+elapsed_ms: 62038
+ended_at: 2026-09-04T16:19:07.146Z
+---

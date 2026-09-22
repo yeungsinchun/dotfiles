@@ -1,0 +1,25 @@
+---
+pid: 33669
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "/usr/bin/env -i PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/usr/local/bin:/Users/sinchunyeung/.local/bin:/Users/sinchunyeung/.nvm/versions/node/v24.20.0/bin\" HOME=\"/Users/sinchunyeung\" FM_HOME=\"/Users/sinchunyeung/github/firstmate\" /bin/bash <<'SCRIPT'\nset -euo pipefail\ntmux kill-window -t firstmate:fm-perf-pr-keep 2>/dev/null || true\n\n# Probe network then warm remotes\nfor i in 1 2 3; do\n  if curl -sI --max-time 15 https://github.com >/dev/null; then\n    echo \"github reachable try $i\"\n    break\n  fi\n  echo \"github unreachable try $i\"\n  sleep 2\ndone\n\nPROJ=/Users/sinchunyeung/github/firstmate/projects/simplification-of-trajectory-streams\ngit -C \"$PROJ\" fetch origin main 2>&1\n\n# Pre-create/warm treehouse slot if possible\ntreehouse get simplification-of-trajectory-streams 2>&1 | head -20 || true\ntreehouse status 2>&1 | head -30\n\n/Users/sinchunyeung/github/firstmate/bin/fm-spawn.sh perf-pr-keep \"$PROJ\" --scout --harness cursor --effort xhigh 2>&1\nSCRIPT\n"
+status: succeeded
+started_at: 2026-09-07T15:20:44.621Z
+running_for_ms: 85418    
+---
+github reachable try 1
+From https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams
+ * branch            main       -> FETCH_HEAD
+🌳 Setting up worktree...
+🌳 Entered worktree at ~/.treehouse/firstmate-7bab20/1/firstmate. Type 'exit' to return.
+1     in-use       ~/.treehouse/firstmate-7bab20/1/firstmate
+                   bash (33721), treehouse (33722), head (33723), treehouse (33724)
+fatal: unable to access 'https://github.com/kunchenguid/firstmate/': Failed to connect to github.com port 443 after 75003 ms: Couldn't connect to server
+error: could not fetch origin for pooled worktree '/Users/sinchunyeung/.treehouse/firstmate-7bab20/2/firstmate'; refusing to launch from a potentially stale base
+🌳 Terminated lingering processes: zsh (34152), treehouse (34183)
+🌳 Worktree returned to pool.
+
+---
+exit_code: 0
+elapsed_ms: 85417
+ended_at: 2026-09-07T15:22:10.038Z
+---

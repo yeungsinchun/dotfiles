@@ -1,0 +1,69 @@
+---
+pid: 14019
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "export PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/usr/local/bin:/Users/sinchunyeung/.nvm/versions/node/v24.20.0/bin\"\nFM_HOME=/Users/sinchunyeung/github/firstmate /bin/bash /Users/sinchunyeung/github/firstmate/bin/fm-wake-drain.sh 2>&1\n/opt/homebrew/bin/rg -n -i 'saved.?[Mm]atch|Match error saved|saved match' /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/web /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/web /Users/sinchunyeung/github/simplification-of-trajectory-streams/web 2>/dev/null | /usr/bin/head -40\nFM_HOME=/Users/sinchunyeung/github/firstmate /bin/bash /Users/sinchunyeung/github/firstmate/bin/fm-crew-state.sh boundary-lr-fix 2>&1\nFM_HOME=/Users/sinchunyeung/github/firstmate /bin/bash /Users/sinchunyeung/github/firstmate/bin/fm-crew-state.sh tour-ux-polish 2>&1\n/usr/bin/tail -8 /Users/sinchunyeung/github/firstmate/state/boundary-lr-fix.status\n/usr/bin/tail -5 /Users/sinchunyeung/github/firstmate/state/tour-ux-polish.status\n"
+title: "Drain wakes; find saved Match; check task states"
+status: succeeded
+started_at: 2026-09-07T09:10:34.097Z
+running_for_ms: 1957     
+---
+OPEN DECISIONS (still open, folded from the durable status logs - not just the latest line):
+paper2db-pipeline [key=nm-review-ask-user-2] needs-decision: PR https://github.com/yeungsinchun/paper2db/pull/4 open with honest FAIL (MC 12.57% override_tuned, LQ 0%); Lavish .lavish/pipeline-review/index.h [truncated]
+tour-ux-polish needs-decision: PR #15 https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/pull/15 is correctly stacked on fm/web-tour-copy (#14 open), but .github workflows only run pull_req [truncated]
+OPEN DECISIONS: close one by answering it: bin/fm-send.sh <task> --resolve-key <key> '<answer>'
+/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/USABILITY.md:957:**Problem:** After Match / Grid / grid cell / saved Match landed, the radius chip still said `search radius` while Map overlays said `Search circle`. Circle tooltips also claimed the size was “from Grid”, so skip-tour users could not map the chip number to the purple/pink overlays.
+/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/USABILITY.md:970:**Problem:** After Match / Grid / match limit landed, chips still said `cell size` and `file match`. Skip-tour users could not tell that the first is a Grid-derived length, or that the second is a saved Match error (distinct from the live Match error chip).
+/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/USABILITY.md:972:**Fix:** Chips read `grid cell` and `saved Match` with Grid- and Match-aligned tooltips. Fixture `scrollWidth` stays within 900.
+/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/USABILITY.md:976:- Before/after fixture: `web/usability/saved-match-grid-cell.html`
+/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/USABILITY.md:977:- Fixture screenshot (900px): `web/usability/saved-match-grid-cell.png`
+/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/usability/params-chip-plain-labels.html:74:    Novices could not tell file-saved match error from the live Match error chip.
+/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/usability/params-chip-plain-labels.html:105:        <span id="fileChip" class="actual" title="Match error saved in this preloaded trajectory file">file match <b>0.41</b></span>
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/web/usability/params-chip-plain-labels.html:74:    Novices could not tell file-saved match error from the live Match error chip.
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/web/usability/params-chip-plain-labels.html:105:        <span id="fileChip" class="actual" title="Match error saved in this preloaded trajectory file">file match <b>0.41</b></span>
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/web/usability/params-chip-plain-labels.html:74:    Novices could not tell file-saved match error from the live Match error chip.
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/web/usability/params-chip-plain-labels.html:105:        <span id="fileChip" class="actual" title="Match error saved in this preloaded trajectory file">file match <b>0.41</b></span>
+/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:6:<title>Saved Match and grid cell chips</title>
+/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:74:  <h1>Saved Match + grid cell</h1>
+/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:88:        <span class="chip saved" title="Match error saved in this preloaded trajectory file">file match <b>0.41</b></span>
+/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:102:        <span class="chip saved" title="Match error saved with this preloaded trajectory (may differ slightly from the live Match error above).">saved Match <b>0.41</b></span>
+/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:115:    const hasSavedMatch = after.includes("saved Match") && !after.includes("file match");
+/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:118:      && afterTips.some((t) => t.includes("Match error saved"));
+/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:120:    const ok = beforeOld && hasGridCell && hasSavedMatch && tipOk && scroll <= 900;
+/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:122:      `ok=${ok} scrollWidth=${scroll} beforeOld=${beforeOld} gridCell=${hasGridCell} savedMatch=${hasSavedMatch} tipOk=${tipOk}`;
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:6:<title>Saved Match and grid cell chips</title>
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:74:  <h1>Saved Match + grid cell</h1>
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:88:        <span class="chip saved" title="Match error saved in this preloaded trajectory file">file match <b>0.41</b></span>
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:102:        <span class="chip saved" title="Match error saved with this preloaded trajectory (may differ slightly from the live Match error above).">saved Match <b>0.41</b></span>
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:115:    const hasSavedMatch = after.includes("saved Match") && !after.includes("file match");
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:118:      && afterTips.some((t) => t.includes("Match error saved"));
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:120:    const ok = beforeOld && hasGridCell && hasSavedMatch && tipOk && scroll <= 900;
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:122:      `ok=${ok} scrollWidth=${scroll} beforeOld=${beforeOld} gridCell=${hasGridCell} savedMatch=${hasSavedMatch} tipOk=${tipOk}`;
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/web/viewer.js:1208:        "saved Match",
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/web/viewer.js:1210:        "Match error saved with this preloaded trajectory (may differ slightly from the live Match error above).",
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/web/USABILITY.md:950:**Problem:** After Match / Grid / grid cell / saved Match landed, the radius chip still said `search radius` while Map overlays said `Search circle`. Circle tooltips also claimed the size was “from Grid”, so skip-tour users could not map the chip number to the purple/pink overlays.
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/web/USABILITY.md:963:**Problem:** After Match / Grid / match limit landed, chips still said `cell size` and `file match`. Skip-tour users could not tell that the first is a Grid-derived length, or that the second is a saved Match error (distinct from the live Match error chip).
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/web/USABILITY.md:965:**Fix:** Chips read `grid cell` and `saved Match` with Grid- and Match-aligned tooltips. Fixture `scrollWidth` stays within 900.
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/web/USABILITY.md:969:- Before/after fixture: `web/usability/saved-match-grid-cell.html`
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/web/USABILITY.md:970:- Fixture screenshot (900px): `web/usability/saved-match-grid-cell.png`
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:6:<title>Saved Match and grid cell chips</title>
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:74:  <h1>Saved Match + grid cell</h1>
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:88:        <span class="chip saved" title="Match error saved in this preloaded trajectory file">file match <b>0.41</b></span>
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:102:        <span class="chip saved" title="Match error saved with this preloaded trajectory (may differ slightly from the live Match error above).">saved Match <b>0.41</b></span>
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:115:    const hasSavedMatch = after.includes("saved Match") && !after.includes("file match");
+/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/web/usability/saved-match-grid-cell.html:118:      && afterTips.some((t) => t.includes("Match error saved"));
+state: working · source: pane · harness busy (cursor-transcript)
+state: paused · source: status-log · waiting on captain for stacked-pr-ci a retarget main / c after #14 merge / b empty CI / d broaden workflows
+working: setup - branch created, diagnosing boundary L/R fix
+done: boundary L/R per y-row; statusGloss removed; committed on fm/boundary-lr-fix
+working: starting no-mistakes validation
+working: local viewer up at http://127.0.0.1:5051 (PR head b5dc2c6)
+working: removed first-page Format hint; refresh http://127.0.0.1:5051/
+working: tour step 2 is preloaded-only (no desktop Upload mention)
+working: tour pad+Back+ε/δ labels; refresh http://127.0.0.1:5051/
+paused: waiting on captain for stacked-pr-ci a retarget main / c after #14 merge / b empty CI / d broaden workflows
+
+---
+exit_code: 0
+elapsed_ms: 1957
+ended_at: 2026-09-07T09:10:36.054Z
+---

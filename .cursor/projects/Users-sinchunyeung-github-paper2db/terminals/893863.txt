@@ -1,0 +1,97 @@
+---
+pid: 83080
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python - <<'PY'\nimport sys, json\nsys.path.insert(0, 'scripts')\nimport pymupdf as fitz\nfrom preprocess_mc import detect_labels\nfrom PIL import Image\nimport numpy as np\n\ndef find_number_y(page, number, scale=2.0):\n    \"\"\"Fallback: OCR left strip for 'N.' or '*N.' \"\"\"\n    import subprocess, io\n    pix = page.get_pixmap(matrix=fitz.Matrix(scale, scale), clip=fitz.Rect(30, 0, 120, page.rect.height), alpha=False)\n    img = Image.frombytes('RGB', (pix.width, pix.height), pix.samples)\n    buf = io.BytesIO(); img.save(buf, format='PNG')\n    r = subprocess.run(['tesseract', 'stdin', 'stdout', '--psm', '6'], input=buf.getvalue(),\n                       stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)\n    text = r.stdout.decode('utf-8', errors='ignore')\n    # also try image_to find via simple pattern in words with positions\n    return text\n\nfor year in (2019, 2020):\n    doc = fitz.open(f'paper/mc/{year}p1a.pdf')\n    labels = {}\n    for pi in range(1, doc.page_count):\n        hits = detect_labels(doc[pi], 5.0, 33)\n        for n, x, y in hits:\n            if n not in labels:\n                labels[n] = (pi, x, y)\n            else:\n                print(f'  DUP {year} Q{n}: existing {labels[n]} new {(pi,x,y)}')\n    missing = [n for n in range(1, 34) if n not in labels]\n    print(year, 'found', len(labels), 'missing', missing)\n    if year == 2019 and 7 in missing:\n        # measure Q7 on page 3 - render and find '*7.' or '7.' near top\n        page = doc[3]\n        # Use tesseract TSV for positions\n        import subprocess, io\n        pix = page.get_pixmap(matrix=fitz.Matrix(3, 3), alpha=False)\n        img = Image.frombytes('RGB', (pix.width, pix.height), pix.samples)\n        # left region\n        left = img.crop((90, 0, 280, img.height))\n        buf = io.BytesIO(); left.save(buf, format='PNG')\n        r = subprocess.run(['tesseract', 'stdin', 'stdout', '--psm', '6', 'tsv'],\n                           input=buf.getvalue(), stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)\n        lines = r.stdout.decode('utf-8', errors='ignore').splitlines()\n        for line in lines[1:]:\n            parts = line.split('\\t')\n            if len(parts) < 12: continue\n            txt = parts[-1].strip()\n            if txt in {'7.', '*7.', '7', '*7'} or txt.replace('*','') in {'7.', '7'}:\n                # convert to PDF coords: left crop starts at 90/3=30 pdf pts offset in x\n                # y in image / 3\n                y_img = int(parts[7]) + int(parts[9])/2\n                x_img = int(parts[6]) + int(parts[8])/2\n                y_pdf = y_img / 3.0\n                x_pdf = 30 + x_img / 3.0\n                print('  Q7 candidate', txt, 'x', x_pdf, 'y', y_pdf)\n                labels[7] = (3, 66.4, y_pdf)  # use rail x from Q8\n    # also print all\n    for n in range(1, 34):\n        print(f'  {year} Q{n}: {labels.get(n)}')\n    doc.close()\n    \n    # write overrides using detected (and Q7 fix)\n    # Prefer meta marker_x style - use x from detection\n    ov = {}\n    for n, (pi, x, y) in labels.items():\n        # Convert detect x to marker x? overrides store number position x,y\n        # Looking at overrides_2015 - x is around 51-55 which is marker-ish\n        # detect_labels returns number ink x ~68\n        # Existing meta anchors used marker_x ~51. Looking at preprocess - overrides are number positions?\n        ov[str(n)] = [pi, round(x, 2), round(y, 2)]\n    Path = __import__('pathlib').Path\n    path = Path(f'scripts/overrides_{year}.json')\n    # don't write yet for 2020 until we verify; collect first\n    print('Would write', path, 'count', len(ov))\nPY"
+title: "Build complete label maps; find Q7"
+status: succeeded
+started_at: 2026-09-04T08:24:20.075Z
+running_for_ms: 81004    
+---
+  DUP 2019 Q2: existing (1, 68.09166666666665, 227.2) new (14, 44.7875, 625.75)
+  DUP 2019 Q3: existing (1, 68.09166666666665, 504.625) new (14, 44.7875, 621.875)
+  DUP 2019 Q5: existing (2, 67.83333333333333, 325.5) new (14, 44.7875, 621.8)
+  DUP 2019 Q9: existing (4, 68.8, 69.2) new (14, 44.7875, 728.75)
+  DUP 2019 Q1: existing (1, 68.09166666666665, 116.8) new (15, 110.95833333333333, 319.2)
+  DUP 2019 Q2: existing (1, 68.09166666666665, 227.2) new (15, 110.95833333333333, 374.5)
+  DUP 2019 Q3: existing (1, 68.09166666666665, 504.625) new (15, 110.95833333333333, 169.75)
+2019 found 30 missing [7, 32, 33]
+  Q7 candidate 7. x 71.33333333333334 y 72.5
+  2019 Q1: (1, 68.09166666666665, 116.8)
+  2019 Q2: (1, 68.09166666666665, 227.2)
+  2019 Q3: (1, 68.09166666666665, 504.625)
+  2019 Q4: (2, 67.83333333333333, 70.625)
+  2019 Q5: (2, 67.83333333333333, 325.5)
+  2019 Q6: (2, 67.83333333333333, 572.5)
+  2019 Q7: (3, 66.4, 72.5)
+  2019 Q8: (3, 66.4, 395.0)
+  2019 Q9: (4, 68.8, 69.2)
+  2019 Q10: (4, 68.8, 306.0)
+  2019 Q11: (5, 67.3, 69.4)
+  2019 Q12: (5, 67.3, 289.875)
+  2019 Q13: (5, 67.3, 512.8)
+  2019 Q14: (6, 67.26666666666667, 68.6)
+  2019 Q15: (6, 67.26666666666667, 345.8)
+  2019 Q16: (6, 67.26666666666667, 554.2)
+  2019 Q17: (7, 66.50833333333334, 69.25)
+  2019 Q18: (7, 66.50833333333334, 318.0)
+  2019 Q19: (7, 66.50833333333334, 451.2)
+  2019 Q20: (8, 67.75, 68.6)
+  2019 Q21: (8, 67.75, 334.0)
+  2019 Q22: (8, 67.75, 612.0)
+  2019 Q23: (9, 67.4, 69.0)
+  2019 Q24: (9, 67.4, 265.0)
+  2019 Q25: (10, 68.275, 68.0)
+  2019 Q26: (10, 68.275, 379.375)
+  2019 Q27: (11, 68.375, 68.75)
+  2019 Q28: (11, 68.375, 386.375)
+  2019 Q29: (12, 67.50833333333333, 68.25)
+  2019 Q30: (12, 67.50833333333333, 299.4)
+  2019 Q31: (12, 67.50833333333333, 450.4)
+  2019 Q32: None
+  2019 Q33: None
+Would write scripts/overrides_2019.json count 31
+  DUP 2020 Q3: existing (1, 72.425, 556.4) new (14, 46.675, 622.8)
+  DUP 2020 Q24: existing (10, 69.4375, 67.625) new (14, 46.675, 533.5)
+  DUP 2020 Q7: existing (3, 69.0125, 68.8) new (15, 72.6375, 515.4)
+  DUP 2020 Q9: existing (4, 76.33333333333333, 68.8) new (15, 72.6375, 297.125)
+2020 found 33 missing []
+  2020 Q1: (1, 72.425, 123.75)
+  2020 Q2: (1, 72.425, 373.625)
+  2020 Q3: (1, 72.425, 556.4)
+  2020 Q4: (2, 74.8, 69.4)
+  2020 Q5: (2, 74.8, 309.4)
+  2020 Q6: (2, 74.8, 570.4)
+  2020 Q7: (3, 69.0125, 68.8)
+  2020 Q8: (3, 69.0125, 513.75)
+  2020 Q9: (4, 76.33333333333333, 68.8)
+  2020 Q10: (4, 76.33333333333333, 332.0)
+  2020 Q11: (4, 76.33333333333333, 451.2)
+  2020 Q12: (5, 70.1, 68.2)
+  2020 Q13: (5, 70.1, 479.4)
+  2020 Q14: (6, 75.60000000000001, 68.8)
+  2020 Q15: (6, 75.60000000000001, 185.8)
+  2020 Q16: (6, 75.60000000000001, 473.8)
+  2020 Q17: (7, 70.4, 69.0)
+  2020 Q18: (7, 70.4, 498.8)
+  2020 Q19: (8, 72.55, 74.625)
+  2020 Q20: (8, 72.55, 213.2)
+  2020 Q21: (8, 72.55, 524.4)
+  2020 Q22: (9, 76.475, 68.375)
+  2020 Q23: (9, 76.475, 323.2)
+  2020 Q24: (10, 69.4375, 67.625)
+  2020 Q25: (10, 69.4375, 362.875)
+  2020 Q26: (11, 77.80000000000001, 68.6)
+  2020 Q27: (11, 77.80000000000001, 441.4)
+  2020 Q28: (12, 69.375, 67.625)
+  2020 Q29: (12, 69.375, 414.125)
+  2020 Q30: (13, 77.5, 68.0)
+  2020 Q31: (13, 77.5, 196.0)
+  2020 Q32: (13, 77.5, 445.6)
+  2020 Q33: (13, 77.5, 541.0)
+Would write scripts/overrides_2020.json count 33
+
+---
+exit_code: 0
+elapsed_ms: 81001
+ended_at: 2026-09-04T08:25:41.076Z
+---

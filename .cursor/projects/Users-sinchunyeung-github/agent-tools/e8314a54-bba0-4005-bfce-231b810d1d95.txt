@@ -1,0 +1,778 @@
+# [BUG] Shift+Enter Does Not Insert New Line in WSL on Windows 10
+
+- State: open
+- Author: sap2me
+- Created: 2025-05-23T10:33:15Z
+- Updated: 2026-07-08T15:28:50Z
+- Repository: anthropics/claude-code
+- Number: #1262
+
+## Labels
+
+- bug
+- has repro
+- platform:windows
+- area:tui
+
+---
+
+Environment
+Platform (select one):
+
+ Anthropic API
+
+ AWS Bedrock
+
+ Google Vertex AI
+
+ Other: Claude CLI
+
+Claude CLI version: 1.0.2 (Claude Code)
+
+Operating System: Windows 10 (10.0.19045.3803)
+
+Terminal: Windows Terminal (WSL)
+
+WSL version: 2.4.13.0
+
+Kernel version: 5.15.167.4-1
+
+WSLg version: 1.0.65
+
+Shell: bash
+
+Bug Description
+Pressing Shift+Enter inside Claude CLI running in WSL on Windows 10 does not insert a new line. Instead, it behaves the same as pressing Enter, which prematurely submits the current input. This prevents users from writing multiline prompts or code blocks.
+
+Steps to Reproduce
+Open Claude CLI (claude) in WSL (bash shell) using Windows Terminal
+
+Start typing a multiline prompt or code
+
+Press Shift+Enter expecting a newline
+
+Input is submitted instead of moving to the next line
+
+Expected Behavior
+Shift+Enter should insert a new line, allowing users to write properly formatted multiline input without submitting prematurely.
+
+Actual Behavior
+Shift+Enter submits the input, just like Enter, making multiline prompts impossible.
+
+Additional Context
+This affects productivity when writing structured prompts or code snippets.
+Reproducible consistently on a clean WSL 2 environment with Windows 10.
+Would be helpful to support standard multiline input behavior.
+
+## Timeline
+
+- sap2me added label "bug"
+
+- github-actions[bot] added label "has repro"
+
+- github-actions[bot] added label "platform:windows"
+
+- github-actions[bot] added label "area:tui"
+
+**StephenBadger** commented on 2025-05-23T16:10:59Z:
+
+> Same issue, very annoying. Makes it hard to talk to Claude. Also loving the extension, thanks team
+
+**heat** commented on 2025-05-23T23:46:02Z:
+
+> @sap2me I'm using their recommendation `\ + return` in order to add new lines. 
+> 
+> related https://github.com/anthropics/claude-code/issues/729
+
+- sap2me mentioned
+
+- sap2me subscribed
+
+**isi2010** commented on 2025-05-30T14:27:10Z:
+
+> > [@sap2me](https://github.com/sap2me) I'm using their recommendation `\ + return` in order to add new lines.
+> > 
+> > related [#729](https://github.com/anthropics/claude-code/issues/729)
+> 
+> But this isn’t the solution. In every work you are using shift + enter for a new line and this is for years like this. Really hard to train yourself to use something else for a new line 
+
+- JackCA subscribed
+
+- pupeno subscribed
+
+**pupeno** commented on 2025-06-01T10:02:37Z:
+
+> I tried adding this:
+> 
+> ```
+> [
+> {
+> "key": "shift+enter",
+> "command": "type",
+> "args": {
+> "text": "\n"
+> },
+> "when": "claudeCode.chatInputFocused"
+> }
+> ]
+> ```
+> 
+> to `keybindings.json` and it made no difference. This is super annoying. I'm wasting so many tokens on half finished prompts. I'm starting to compose prompts on a text file and copy and paste, but it makes the workflow slower.
+
+**pupeno** commented on 2025-06-01T10:09:33Z:
+
+> I think I see what the problem is. Claude Code adds the key binding inside WSL and it needs to be outside. It adds:
+> 
+> ```
+> [
+> {
+> "key": "shift+enter",
+> "command": "workbench.action.terminal.sendSequence",
+> "args": {
+> "text": "\\\r\n"
+> },
+> "when": "terminalFocus"
+> }
+> ]
+> ```
+> 
+> to `/home/pupeno/.config/Code/User/keybindings.json` inside the Linux Claude Code is running into, instead to the correct one of the VSCode that is running, which in my case it's `C:\Users\pupeno\AppData\Roaming\Code\User\keybindings.json`.
+
+**gusbicalho** commented on 2025-06-01T18:59:56Z:
+
+> @pupeno I think that's part of the issue. In my setup, adding that keybinding to the correct `keybindings.json` file left me with an extra `\` when I hit shift+enter:
+> 
+> ![Image](https://github.com/user-attachments/assets/58e69a0c-de99-4aa7-9513-0962ed1dcdb1)
+> 
+> The keybinding below works most of the time, but sometimes I am still left with the hanging `\`:
+> 
+> ```json
+> [
+> {
+> "key": "shift+enter",
+> "command": "runCommands",
+> "args": {
+> "commands": [
+> {
+> "command": "workbench.action.terminal.sendSequence",
+> "args": {
+> "text": "\\"
+> }
+> },
+> {
+> "command": "workbench.action.terminal.sendSequence",
+> "args": {
+> "text": "\n"
+> }
+> }
+> ]
+> },
+> "when": "terminalFocus"
+> }
+> ]
+> ```
+> 
+> So it looks like Claude Code doe snot handle the `\ Enter` sequence properly if it's sent too quickly
+
+- pupeno mentioned
+
+- pupeno subscribed
+
+- bytecrafted subscribed
+
+- om-mde-col subscribed
+
+- crazy-treyn subscribed
+
+- JDNdeveloper subscribed
+
+**mathwcst-bitlyft** commented on 2025-06-23T20:17:25Z:
+
+> > [@pupeno](https://github.com/pupeno) I think that's part of the issue. In my setup, adding that keybinding to the correct `keybindings.json` file left me with an extra `\` when I hit shift+enter:
+> > 
+> > ![Image](https://github.com/user-attachments/assets/58e69a0c-de99-4aa7-9513-0962ed1dcdb1)
+> > 
+> > The keybinding below works most of the time, but sometimes I am still left with the hanging `\`:
+> > 
+> > [
+> > {
+> > "key": "shift+enter",
+> > "command": "runCommands",
+> > "args": {
+> > "commands": [
+> > {
+> > "command": "workbench.action.terminal.sendSequence",
+> > "args": {
+> > "text": "\\"
+> > }
+> > },
+> > {
+> > "command": "workbench.action.terminal.sendSequence",
+> > "args": {
+> > "text": "\n"
+> > }
+> > }
+> > ]
+> > },
+> > "when": "terminalFocus"
+> > }
+> > ]
+> > So it looks like Claude Code doe snot handle the `\ Enter` sequence properly if it's sent too quickly
+> 
+> You're a freaking SAVIOR!
+
+**pupeno** commented on 2025-06-23T21:09:16Z:
+
+> Yeah, I also get the "\\". I'm just accepting it until the people at Anthropics improve this.
+
+- tsullivan subscribed
+
+- microexpression subscribed
+
+- ytakahashi-arent subscribed
+
+**Noir-Lime** commented on 2025-06-27T08:12:29Z:
+
+> > I think I see what the problem is. Claude Code adds the key binding inside WSL and it needs to be outside. It adds:
+> > 
+> > ```
+> > [
+> > {
+> > "key": "shift+enter",
+> > "command": "workbench.action.terminal.sendSequence",
+> > "args": {
+> > "text": "\\\r\n"
+> > },
+> > "when": "terminalFocus"
+> > }
+> > ]
+> > ```
+> > 
+> > to `/home/pupeno/.config/Code/User/keybindings.json` inside the Linux Claude Code is running into, instead to the correct one of the VSCode that is running, which in my case it's `C:\Users\pupeno\AppData\Roaming\Code\User\keybindings.json`.
+> 
+> Thanks! this fixed it for me.
+
+- mathwcst-bitlyft unsubscribed
+
+**dkarelov** commented on 2025-06-27T14:56:56Z:
+
+> If you are WSL2 user and use Claude Code under Windows Terminal in Windows 11, then you can use CTRL+BACKSPACE (kill word) and SHIFT+ENTER (enter new line) the following way (in Windows Terminal settings, then bottom left Open JSON file, then inside "actions" block add in the beginning):
+> 
+> {"command": {"action": "sendInput", "input": "\n"}, "keys": "shift+enter"},
+> {"command": {"action": "sendInput", "input": "\u0017"}, "keys": "ctrl+backspace"},
+> 
+> Now you can work like a proper human being ;)
+
+**thomascgray** commented on 2025-06-27T21:01:21Z:
+
+> @dkarelov you are a champion 👍 this worked a treat
+
+- dkarelov mentioned
+
+- dkarelov subscribed
+
+**JuliaBonita** commented on 2025-07-01T20:50:26Z:
+
+> None of the other solutions worked for me in the VSCode terminal (bash). This is the only approach that worked for me:
+> ```
+> // VSC's keybindings.json
+> // Rule 1: Prevent conflicting commands from running.
+> {
+> "key": "shift+enter",
+> "command": "-workbench.action.terminal.runSelectedText",
+> "when": "terminalFocus && !terminalTextSelected"
+> },
+> // Rule 2: Send the shell's line-continuation syntax.
+> {
+> "key": "shift+enter",
+> "command": "workbench.action.terminal.sendSequence",
+> "args": {
+> // Send a literal backslash (\\) and a newline (\n).
+> "text": "\\\n"
+> },
+> "when": "terminalFocus"
+> }
+> ``` 
+> In WSL2, something completely blocks all attempts to modify the key bindings using `bind` or any other system tools. I tried many different approaches, but the two JSON objects above are the only thing that worked to create the `shift+enter` behavior in VSCode's terminal and Claud Code's VSCode plugin terminal.
+
+- Referenced by issue #2754: [BUG] Shift+Enter does NOT newline 🔥 — '/setup-terminal' creates binding but doesn't work (VSCode WSL Ubuntu)
+
+- Referenced by issue #2946: Bash Shift+Enter Newline Functionality Broken in macOS Terminal.app
+
+- jibbers42 subscribed
+
+- Mincka subscribed
+
+**tsytskanovich** commented on 2025-07-20T08:16:58Z:
+
+> > None of the other solutions worked for me in the VSCode terminal (bash). This is the only approach that worked for me:
+> > 
+> > ```
+> > // VSC's keybindings.json
+> > // Rule 1: Prevent conflicting commands from running.
+> > {
+> > "key": "shift+enter",
+> > "command": "-workbench.action.terminal.runSelectedText",
+> > "when": "terminalFocus && !terminalTextSelected"
+> > },
+> > // Rule 2: Send the shell's line-continuation syntax.
+> > {
+> > "key": "shift+enter",
+> > "command": "workbench.action.terminal.sendSequence",
+> > "args": {
+> > // Send a literal backslash (\\) and a newline (\n).
+> > "text": "\\\n"
+> > },
+> > "when": "terminalFocus"
+> > }
+> > ```
+> > 
+> > In WSL2, something completely blocks all attempts to modify the key bindings using `bind` or any other system tools. I tried many different approaches, but the two JSON objects above are the only thing that worked to create the `shift+enter` behavior in VSCode's terminal and Claud Code's VSCode plugin terminal.
+> 
+> It worked. Thank you!
+
+- Referenced by issue #4036: [BUG] Correct "NEWLINE" Sequence on Windows is Shift+Enter
+
+**vitmantug** commented on 2025-07-27T10:41:46Z:
+
+> > None of the other solutions worked for me in the VSCode terminal (bash). This is the only approach that worked for me:
+> > 
+> > ```
+> > // VSC's keybindings.json
+> > // Rule 1: Prevent conflicting commands from running.
+> > {
+> > "key": "shift+enter",
+> > "command": "-workbench.action.terminal.runSelectedText",
+> > "when": "terminalFocus && !terminalTextSelected"
+> > },
+> > // Rule 2: Send the shell's line-continuation syntax.
+> > {
+> > "key": "shift+enter",
+> > "command": "workbench.action.terminal.sendSequence",
+> > "args": {
+> > // Send a literal backslash (\\) and a newline (\n).
+> > "text": "\\\n"
+> > },
+> > "when": "terminalFocus"
+> > }
+> > ```
+> > 
+> > In WSL2, something completely blocks all attempts to modify the key bindings using `bind` or any other system tools. I tried many different approaches, but the two JSON objects above are the only thing that worked to create the `shift+enter` behavior in VSCode's terminal and Claud Code's VSCode plugin terminal.
+> 
+> This has the same problem as the solution that was mentioned here: https://github.com/anthropics/claude-code/issues/1262#issuecomment-2926962304
+> That will add a backslash at the end of every line.
+> 
+> This is the only solution that works flawlessly (no backslash) on Windows + WSL + VSCode terminal: https://github.com/anthropics/claude-code/issues/2754#issuecomment-3064554102
+
+- jules-w2 subscribed
+
+- Referenced by issue #5326: Terminal Input: Newline Keybindings Not Functioning in VS Code on Windows
+
+- Referenced by issue #4796: [BUG] Jetbrains Plugin Doesn't Support Shift+Enter in Reworked 2025 terminal engine
+
+**ben-alkov** commented on 2025-08-12T17:42:46Z:
+
+> Fix working for Code on Fedora https://gist.github.com/ben-alkov/1329c25db38cf2ea7ae9ea7fdaf10d3a
+
+- railapex subscribed
+
+**simon-ami** commented on 2025-08-14T12:06:38Z:
+
+> Related and solution for people on Linux/Ubuntu (I think, at least works for me): https://github.com/anthropics/claude-code/issues/5760#issue-3321991860
+
+- henrychong-ai subscribed
+
+- Referenced by issue #2576: [BUG] shift+enter do not creates an empty new line on Win WSL
+
+- gamarilla subscribed
+
+- Referenced by issue #6535: [Bug] Shift+Enter Not Working for Multiline Input
+
+**rublev** commented on 2025-09-08T01:51:05Z:
+
+> No fix for MacOS? still getting the backslash -_-
+
+- Referenced by issue #7418: [BUG]
+
+- crocodile subscribed
+
+**agn-7** commented on 2025-09-21T06:05:10Z:
+
+> For MacOS and Cursor IDE, the path of the keybinding is `"/Users/benyamin/Library/Application Support/Cursor/User/keybindings.json"`.
+> 
+> In my case, when I open the Claude Code using Cursor/VSCode extension, the Shift + Enter doesn't add a new line. But when I open the Claude Code via terminal or the terminal inside the IDE, it works well. 
+> 
+> An alternative solution in this situation in MacOS is using Option + Enter 
+
+- tsullivan unsubscribed
+
+**kevin-on** commented on 2025-09-27T12:36:53Z:
+
+> > For MacOS and Cursor IDE, the path of the keybinding is "/Users/benyamin/Library/Application Support/Cursor/User/keybindings.json".
+> > 
+> > In my case, when I open the Claude Code using Cursor/VSCode extension, the Shift + Enter doesn't add a new line. But when I open the Claude Code via terminal or the terminal inside the IDE, it works well.
+> > 
+> > An alternative solution in this situation in MacOS is using Option + Enter
+> 
+> I'm also having exactly the same issue in MacOS.
+
+- WhyNotHugo subscribed
+
+- Referenced by issue #9321: Shift+Enter Doesn't Insert Newline in CLI (Non-intuitive Key Binding)
+
+**github-actions[bot]** commented on 2025-12-09T10:11:30Z:
+
+> This issue has been inactive for 30 days. If the issue is still occurring, please comment to let us know. Otherwise, this issue will be automatically closed in 30 days for housekeeping purposes.
+
+- github-actions[bot] added label "autoclose"
+
+**davidvazteixeira** commented on 2025-12-09T13:10:14Z:
+
+> Same on Linux here (no WSL, Ubuntu 24.04 and gnome-terminal and xfce4-terminal). Alt+Return and "type \" works, but `\terminal-setup` complains about VTE based.
+
+- github-actions[bot] removed label "autoclose"
+
+- jaroslawjanas subscribed
+
+- jaroslawjanas unsubscribed
+
+**LeandroCostaSantos** commented on 2025-12-18T14:03:34Z:
+
+> same problem here
+
+- Referenced by issue #15357: [Bug] Shift+Enter submits message instead of creating newline in Windows terminals
+
+**danielasher115** commented on 2026-01-04T16:53:09Z:
+
+> For me, on Windows 11 using WSL2 in Cursor or VS Code, adding the following entry to the `keybindings.json` array fixed the issue:
+> ```
+> {
+> "key": "shift+enter",
+> "command": "workbench.action.terminal.sendSequence",
+> "args": {
+> "text": "\u001b[200~\r\n\u001b[201~"
+> },
+> "when": "terminalFocus && remoteName == 'wsl'"
+> }
+> ```
+> 
+> `keybindings.json` locations:
+> Cursor: `C:\Users\<YOUR_USER>\AppData\Roaming\Cursor\User\keybindings.json` 
+> VSCode: `C:\Users\<YOUR_USER>\AppData\Roaming\Code\User\keybindings.json`
+
+- JJC1138 subscribed
+
+- yokomotod subscribed
+
+- cendyne subscribed
+
+- blooddrunk subscribed
+
+**rusty-art** commented on 2026-01-26T04:48:03Z:
+
+> ---
+> 
+> **Workaround for Windows Terminal + WSL:**
+> 
+> Add this to your Windows Terminal `settings.json`:
+> 
+> Location: `%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json`
+> 
+> Or press `Ctrl+,` in Windows Terminal, then click "Open JSON file" in the bottom left.
+> 
+> Add to the `actions` array:
+> 
+> ```json
+> "actions": [
+> {
+> "command": {
+> "action": "sendInput",
+> "input": "\u001b[13;2u"
+> },
+> "keys": "shift+enter"
+> }
+> ],
+> ```
+> 
+> This sends a CSI u-style escape sequence that Claude Code recognises as Shift+Enter.
+> 
+> ---
+
+- gusbicalho unsubscribed
+
+- Referenced by issue #20988: [BUG] Shift+Enter executes prompt instead of creating new line
+
+**coreyt** commented on 2026-01-27T14:55:41Z:
+
+> I have tried the settings.json updates, but none of it worked for me. Instead, I used the Windows 10 console settings gui, and it worked:
+> Open a console (command, Ubuntu, PowerShell), next to new tab click the downward chevron \/, go into Settings. On the left, go to Actions, Click [Add new] button. Press {Shift+Enter] (together), then in the downward chevron in the row and select "Send Input: "[ESC][13;2u"
+> 
+> 
+
+- azkore subscribed
+
+- Referenced by issue #25057: [BUG] Shift+Enter in Claude for Windows No Longer Works for NewLine
+
+- github-actions[bot] added label "stale"
+
+**modbender** commented on 2026-02-15T13:42:48Z:
+
+> I think this can be closed now, 
+> Running `/terminal-setup` gives mentions the issue and solution
+> Adding this config into `C:/Users/ /AppData/Roaming/Code/User/keybindings.json` works even on WSL
+> 
+> ```json
+> [
+> {
+> "key": "shift+enter",
+> "command": "workbench.action.terminal.sendSequence",
+> "args": { "text": "\u001b\r" },
+> "when": "terminalFocus"
+> }
+> ]
+> ```
+
+- Referenced by issue #25932: [BUG] Korean IME: Shift+Enter splits composed characters into separate lines on Windows
+
+**vekien** commented on 2026-02-22T22:56:24Z:
+
+> > I think this can be closed now, Running `/terminal-setup` gives mentions the issue and solution Adding this config into `C:/Users/ /AppData/Roaming/Code/User/keybindings.json` works even on WSL
+> > 
+> > [
+> > {
+> > "key": "shift+enter",
+> > "command": "workbench.action.terminal.sendSequence",
+> > "args": { "text": "\u001b\r" },
+> > "when": "terminalFocus"
+> > }
+> > ]
+> 
+> Did not work for me.
+
+- jules-w2 unsubscribed
+
+- xNomuraKeita subscribed
+
+**jay-lanterncare** commented on 2026-02-27T12:23:59Z:
+
+> > **Workaround for Windows Terminal + WSL:**
+> > 
+> > Add this to your Windows Terminal `settings.json`:
+> > 
+> > Location: `%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json`
+> > 
+> > Or press `Ctrl+,` in Windows Terminal, then click "Open JSON file" in the bottom left.
+> > 
+> > Add to the `actions` array:
+> > 
+> > "actions": [
+> > {
+> > "command": {
+> > "action": "sendInput",
+> > "input": "\u001b[13;2u"
+> > },
+> > "keys": "shift+enter"
+> > }
+> > ],
+> > This sends a CSI u-style escape sequence that Claude Code recognises as Shift+Enter.
+> 
+> This worked for windows terminal. Thanks @rusty-art 
+
+- rusty-art mentioned
+
+- rusty-art subscribed
+
+- github-actions[bot] removed label "stale"
+
+**Budgulick** commented on 2026-03-06T20:36:47Z:
+
+> **Workaround: Shift+Enter for newline in Claude Code on Windows Terminal**
+> 
+> Verified working on:
+> - **Windows 11 Pro** (10.0.26200)
+> - **Windows Terminal** 1.23.20211.0
+> - **Claude Code** 2.1.70
+> 
+> The root cause is that Windows Terminal sends the same byte (CR) for both Enter and Shift+Enter — the terminal can't distinguish them. The fix requires two changes:
+> 
+> **1. Windows Terminal — teach it to send a distinct escape sequence for Shift+Enter**
+> 
+> In `%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json`, add to `actions`:
+> 
+> ```json
+> {
+> "command": {
+> "action": "sendInput",
+> "input": "\u001b[13;2u"
+> },
+> "id": "User.sendInput.ShiftEnter"
+> }
+> ```
+> 
+> And add to `keybindings`:
+> 
+> ```json
+> {
+> "id": "User.sendInput.ShiftEnter",
+> "keys": "shift+enter"
+> }
+> ```
+> 
+> **2. Claude Code — map Shift+Enter to newline**
+> 
+> In `~/.claude/keybindings.json`:
+> 
+> ```json
+> {
+> "$schema": "https://www.schemastore.org/claude-code-keybindings.json",
+> "$docs": "https://code.claude.com/docs/en/keybindings",
+> "bindings": [
+> {
+> "context": "Chat",
+> "bindings": {
+> "shift+enter": "chat:newline"
+> }
+> }
+> ]
+> }
+> ```
+> 
+> Restart Windows Terminal after both changes. Shift+Enter will insert a newline, Enter will send — matching Claude.ai and Claude Desktop behavior.
+
+- Referenced by issue #31734: Shift+Enter no longer inserts newline in prompt (sends message instead)
+
+**ethanfischer** commented on 2026-03-08T01:09:31Z:
+
+> @Budgulick 's fix worked for me! Thank you
+
+- Budgulick mentioned
+
+- Budgulick subscribed
+
+- Referenced by issue #52: 📊 AI CLI 工具社区动态日报 2026-03-08
+
+**6-keem** commented on 2026-03-08T06:16:57Z:
+
+> Sharing my fix
+> 
+> **Situation 1: VSCode terminal + WSL Ubuntu**
+> 
+> Edit `C:\Users\<YOUR_USER>\AppData\Roaming\Code\User\keybindings.json` (Windows path, NOT inside WSL)
+> 
+> Open via `Ctrl+Shift+P` → `Preferences: Open Keyboard Shortcuts (JSON)`
+> 
+> ```json
+> [
+> {
+> "key": "shift+enter",
+> "command": "workbench.action.terminal.sendSequence",
+> "args": {
+> "text": "\u001b\r"
+> },
+> "when": "terminalFocus"
+> }
+> ]
+> ```
+> 
+> 
+> **Situation 2: Windows Terminal + WSL Ubuntu**
+> 
+> Open Windows Terminal → `Ctrl+,` → bottom left "Open JSON file" → `settings.json`
+> 
+> ```json
+> "actions": [
+> {
+> "command": {
+> "action": "sendInput",
+> "input": "\u001b\r"
+> },
+> "id": "User.sendInput.ShiftEnter"
+> }
+> ],
+> "keybindings": [
+> {
+> "id": "User.sendInput.ShiftEnter",
+> "keys": "shift+enter"
+> }
+> ]
+> ```
+
+- Referenced by issue #38809: [Bug] Shift+Enter keybinding not working in v2.1.83
+
+- Referenced by issue #391: Shift+Enter stopped inserting newline in Claude Code 2.1.82+
+
+- mickdekkers subscribed
+
+- kenspc subscribed
+
+- Referenced by issue #50159: [BUG] Shift+Enter regression - **AGAIN** - on version 2.1.113 - worked on 2.1.112
+
+- Referenced by issue #50729: [FEATURE] Ability to add newlines to messages in claude code by hitting shift enter just like in all chat systems.
+
+- zarko-a subscribed
+
+**ohxyz** commented on 2026-05-22T01:15:37Z:
+
+> > Sharing my fix
+> > 
+> > **Situation 1: VSCode terminal + WSL Ubuntu**
+> > 
+> > Edit `C:\Users\<YOUR_USER>\AppData\Roaming\Code\User\keybindings.json` (Windows path, NOT inside WSL)
+> > 
+> > Open via `Ctrl+Shift+P` → `Preferences: Open Keyboard Shortcuts (JSON)`
+> > 
+> > [
+> > {
+> > "key": "shift+enter",
+> > "command": "workbench.action.terminal.sendSequence",
+> > "args": {
+> > "text": "\u001b\r"
+> > },
+> > "when": "terminalFocus"
+> > }
+> > ]
+> > **Situation 2: Windows Terminal + WSL Ubuntu**
+> > 
+> > Open Windows Terminal → `Ctrl+,` → bottom left "Open JSON file" → `settings.json`
+> > 
+> > "actions": [
+> > {
+> > "command": {
+> > "action": "sendInput",
+> > "input": "\u001b\r"
+> > },
+> > "id": "User.sendInput.ShiftEnter"
+> > }
+> > ],
+> > "keybindings": [
+> > {
+> > "id": "User.sendInput.ShiftEnter",
+> > "keys": "shift+enter"
+> > }
+> > ]
+> 
+> Haven't tried the VS Code one. The Windows Terminal one worked for me. Thanks 
+
+**vladsterian-diconium** commented on 2026-05-28T12:34:45Z:
+
+> I confirm that it works on VS Code Insiders. Great. Thank you!!
+
+- Referenced by issue #69513: [BUG] Shift+Enter and Ctrl+J do not insert newlines in chat input on code-server / webview — cursor desyncs from visible text
+
+**rjgotten** commented on 2026-07-08T15:19:38Z:
+
+> Doesn't work properly from flat plain Windows Terminal / Powershell 7 on Windows 11 either.
+> Don't even have to involve WSL.
+
+**cduivis** commented on 2026-07-08T15:28:50Z:
+
+> Same issue for me on:
+> 
+> - Windows 11
+> - Powershell 7.6
+> 
+> And also no WSL
+
+- modbender unsubscribed
+
+- Referenced by issue #18: Shift+Enter doesn't insert new line but instead submits input

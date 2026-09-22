@@ -1,0 +1,57 @@
+---
+pid: 73249
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/7/paper2db"
+command: "git status --short --untracked-files=all | rg -v '^\\s*M ' | head -80\necho '---2017 q10---'\ngit status --short output/lq/2017/q10.png .lavish/lq-classified-review/img/2017-q10.png output/lq/2017/q3.png\necho '---diffstat tail---'\ngit diff --stat | tail -20\necho '---size---'\ngit diff --cached --stat 2>/dev/null | tail -5\ndu -sh output/lq classified/lq .lavish/lq-classified-review 2>/dev/null"
+title: "Inspect untracked files, 2017 Q10 git state, diff size"
+status: succeeded
+started_at: 2026-09-13T13:55:22.272Z
+running_for_ms: 34398    
+---
+?? .lavish/lq-classified-review/img/2024-q13.png
+?? .lavish/lq-classified-review/img/pp-q13.png
+?? .lavish/lq-classified-review/img/pp-q14.png
+?? classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/pp-q13.png
+?? classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2024-q13.png
+?? classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/pp-q14.png
+?? classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/pp-q14.png
+?? classified/lq/ocr_cache/2024/q13.txt
+?? classified/lq/ocr_cache/pp/q13.txt
+?? classified/lq/ocr_cache/pp/q14.txt
+?? output/lq/2024/q13.png
+?? output/lq/pp/q13.png
+?? output/lq/pp/q14.png
+---2017 q10---
+ M output/lq/2017/q3.png
+---diffstat tail---
+warning: in the working copy of 'classified/lq/classification.csv', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'classified/lq_classification.csv', CRLF will be replaced by LF the next time Git touches it
+ output/lq/pp/q10.png                               | Bin 240112 -> 299701 bytes
+ output/lq/pp/q11.png                               | Bin 355653 -> 457355 bytes
+ output/lq/pp/q12.png                               | Bin 2492163 -> 718406 bytes
+ output/lq/pp/q2.png                                | Bin 208156 -> 271072 bytes
+ output/lq/pp/q3.png                                | Bin 211516 -> 265942 bytes
+ output/lq/pp/q4.png                                | Bin 183978 -> 435000 bytes
+ output/lq/pp/q5.png                                | Bin 163945 -> 220575 bytes
+ output/lq/pp/q6.png                                | Bin 231996 -> 294623 bytes
+ output/lq/pp/q7.png                                | Bin 355490 -> 285158 bytes
+ output/lq/pp/q8.png                                | Bin 697231 -> 447366 bytes
+ output/lq/pp/q9.png                                | Bin 747650 -> 708141 bytes
+ output/lq/pp/questions.pdf                         | Bin 1205205 -> 1205581 bytes
+ output/lq/pp/starts.json                           |  14 +-
+ scripts/crop_lq_from_pages.py                      |  27 ++-
+ scripts/formula_sheet.py                           |  52 ++++--
+ scripts/lq_pdf_review.py                           |   4 +-
+ scripts/preprocess_lq.py                           |   5 +-
+ segment                                            |   6 +-
+ tests/test_lq_whole_pages.py                       | 197 +++++++++++++++++++++
+ 538 files changed, 446 insertions(+), 105 deletions(-)
+---size---
+826M	output/lq
+770M	classified/lq
+532M	.lavish/lq-classified-review
+
+---
+exit_code: 0
+elapsed_ms: 34343
+ended_at: 2026-09-13T13:55:56.615Z
+---

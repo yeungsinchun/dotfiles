@@ -1,0 +1,93 @@
+---
+pid: 52512
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/2/paper2notes/notes/book5/ch01-radiation-and-radioactivity"
+command: "python3 -m http.server 8765 --bind 127.0.0.1"
+title: "Serve notes chapter on port 8765"
+status: running  
+started_at: 2026-09-10T06:10:21.100Z
+running_for_ms: 31432702 
+---
+127.0.0.1 - - [10/Sep/2026 14:13:00] "GET /25-1.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 14:13:00] "GET /js/lib/three.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 14:13:00] "GET /css/notes.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 14:13:00] "GET /js/notes.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 14:13:00] "GET /js/diagrams3d.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 14:18:07] "GET /25-1.html?v=eb2 HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 14:18:07] "GET /css/notes.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Sep/2026 14:18:07] "GET /js/diagrams3d.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 14:18:07] "GET /js/notes.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Sep/2026 14:38:39] "GET /25-1.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 14:38:39] "GET /js/diagrams3d.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 14:38:39] "GET /js/notes.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 14:50:42] "GET /25-1.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 14:50:42] "GET /js/notes.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Sep/2026 14:50:42] "GET /js/diagrams3d.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Sep/2026 15:56:56] "GET /25-1.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 15:56:56] "GET /css/notes.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 15:56:56] "GET /js/diagrams3d.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 15:56:56] "GET /js/notes.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 16:20:06] "GET /25-1.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 16:20:06] "GET /css/notes.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Sep/2026 16:20:06] "GET /js/notes.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 16:20:06] "GET /js/diagrams3d.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 16:20:06] "GET /js/lib/three.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Sep/2026 17:59:19] "GET /25-1.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 17:59:19] "GET /css/notes.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 17:59:19] "GET /js/notes.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Sep/2026 17:59:19] "GET /js/diagrams3d.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 18:04:27] "GET /25-1.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 19:29:05] "GET /25-1.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 19:29:05] "GET /css/notes.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 19:29:05] "GET /js/diagrams3d.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 19:29:05] "GET /js/notes.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Sep/2026 19:29:05] "GET /js/lib/three.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Sep/2026 19:38:07] "GET /25-1.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 19:38:07] "GET /css/notes.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 19:38:07] "GET /js/diagrams3d.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 19:38:16] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 19:38:19] "GET /25-3.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 19:38:19] "GET /css/notes.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Sep/2026 19:38:19] "GET /js/diagrams3d.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Sep/2026 19:38:20] "GET /25-2.html HTTP/1.1" 200 -
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 60622)
+127.0.0.1 - - [10/Sep/2026 19:38:20] "GET /25-2.html HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socketserver.py", line 697, in process_request_thread
+    self.finish_request(request, client_address)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/server.py", line 1422, in finish_request
+    self.RequestHandlerClass(request, client_address, self,
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                             directory=args.directory)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/server.py", line 732, in __init__
+    super().__init__(*args, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socketserver.py", line 766, in __init__
+    self.handle()
+    ~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/server.py", line 496, in handle
+    self.handle_one_request()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/server.py", line 484, in handle_one_request
+    method()
+    ~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/server.py", line 739, in do_GET
+    self.copyfile(f, self.wfile)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/server.py", line 942, in copyfile
+    shutil.copyfileobj(source, outputfile)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/shutil.py", line 257, in copyfileobj
+    fdst_write(buf)
+    ~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socketserver.py", line 845, in write
+    self._sock.sendall(b)
+    ~~~~~~~~~~~~~~~~~~^^^
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+127.0.0.1 - - [10/Sep/2026 19:39:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 19:39:25] "GET /25-1.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 19:39:25] "GET /css/notes.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 20:11:31] "GET /25-1.html HTTP/1.1" 200 -

@@ -1,0 +1,2 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<timestamp>Wednesday, May 13, 2026, 7:26 PM (UTC+8)</timestamp>\n<user_query>\nuse ket(.) instead of | . > to do the ket notation\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"密钥不存在或被重置，请再次激活或检查后使用；如果是新激活的密钥请等2分钟后再开始使用 (1778671564804-95773905)"}]}}

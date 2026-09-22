@@ -1,0 +1,17 @@
+---
+pid: 43825
+cwd: "/Users/sinchunyeung/github/codeforces/2258/A"
+command: "# Try mirrors / alternative sources for the problem statement\ncurl -sL \"https://cf.nehotyaho.me/contest/2258/problem/A\" 2>/dev/null | head -c 2000\necho \"====\"\ncurl -sL \"https://codeforces.com/problemset/problem/2258/A\" -H \"User-Agent: Mozilla/5.0 (compatible; Googlebot/2.1)\" 2>/dev/null | rg -o 'problem-statement[\\s\\S]{0,8000}' | head -c 5000\necho \"====\"\n# Try cn mirror\ncurl -sL \"https://mirror.codeforces.com/contest/2258/problem/A\" 2>/dev/null | head -c 500\n# Try to get from competitive companion style APIs\ncurl -sL \"https://codeforces.com/api/contest.standings?contestId=2258\" 2>/dev/null | head -c 200\necho\n# Check if there's a local copy or recent contest announcement\ncurl -sL \"https://raw.githubusercontent.com/search?q=Odd+Eraser+codeforces\" 2>/dev/null | head -c 100\n# Try polygon or cached versions via web archive\ncurl -sL \"https://web.archive.org/web/2026/https://codeforces.com/contest/2258/problem/A\" 2>/dev/null | rg -i \"sample|gcd|input\" | head -40\n"
+title: "Try mirrors for full problem statement"
+status: failed   
+started_at: 2026-09-02T16:08:10.600Z
+running_for_ms: 63977    
+---
+====
+====
+
+---
+exit_code: unknown
+elapsed_ms: 63977
+ended_at: 2026-09-02T16:09:14.577Z
+---

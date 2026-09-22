@@ -1,0 +1,15 @@
+---
+pid: 23043
+cwd: "/Users/sinchunyeung/.config/nvim"
+command: "printf '%s\\n' 'int main() { int x = \"hello\"; return x; }' > /tmp/test_cpp_diag.cpp && nvim --headless -c 'edit /tmp/test_cpp_diag.cpp' -c 'lua vim.lsp.enable(\"clangd\")' -c 'sleep 5000' -c 'lua local c=vim.lsp.get_clients({bufnr=0}); print(\"clients:\", #c); for _,cl in ipairs(c) do print(cl.name, cl.id) end; local d=vim.diagnostic.get(0); print(\"diags:\", #d); for _,x in ipairs(d) do print(x.message) end' -c 'qa' 2>&1"
+title: "Test clangd diagnostics with wait"
+status: failed   
+started_at: 2026-08-31T14:34:41.987Z
+running_for_ms: 62556    
+---
+
+---
+exit_code: unknown
+elapsed_ms: 62549
+ended_at: 2026-08-31T14:35:44.536Z
+---

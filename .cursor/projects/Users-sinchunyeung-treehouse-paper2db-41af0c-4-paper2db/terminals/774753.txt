@@ -1,0 +1,65 @@
+---
+pid: 57844
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db"
+command: "# Regenerate LQ pages + whole-page PNGs for sample years, then refresh classified sample copies + lavish\n./pipeline --only lq-pages,lq-crops --years 2012 2024 2025 --force --yes 2>&1 | tee /tmp/lq-whole.log | tail -50"
+title: "Regenerate sample LQ years as whole pages"
+status: succeeded
+started_at: 2026-09-07T09:33:23.001Z
+running_for_ms: 367557   
+---
+  2025 q6.png 3941x10200 (pages 6..7)
+  2025 q7.png 3941x10200 (pages 8..9)
+  2025 q8.png 3941x5100 (pages 10..10)
+  2025 q9.png 3941x5100 (pages 11..11)
+  2025 q10.png 3941x10200 (pages 12..13)
+  2025 q11.png 3941x10200 (pages 14..15)
+  2025 q12.png 3941x15300 (pages 16..18)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/output/lq/2025/questions.pdf (12 pages)
+Wrote 35 whole-page LQ question PNGs
+paper2db pipeline
+  stages: lq-pages, lq-crops
+  years:  2012, 2024, 2025
+  force=True yes=True
+
+######## stage: lq-pages ########
+
+=== LQ pages: 2012 (2012p1b.pdf) ===
+$ /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/.venv/bin/python3 /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/segment /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/paper/lq/2012p1b.pdf /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/output/lq/2012 --type lq
+
+=== LQ pages: 2024 (2024p1b.pdf) ===
+$ /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/.venv/bin/python3 /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/segment /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/paper/lq/2024p1b.pdf /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/output/lq/2024 --type lq
+
+=== LQ pages: 2025 (2025p1b.pdf) ===
+$ /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/.venv/bin/python3 /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/segment /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/paper/lq/2025p1b.pdf /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/output/lq/2025 --type lq
+
+######## stage: lq-crops ########
+$ /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/.venv/bin/python3 /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/scripts/crop_lq_from_pages.py --years 2012 2024 2025
+
+========================================================================
+LQ PAGE REVIEW (optional but recommended)
+
+Skim output/lq/<year>/questions.pdf. Each qN.png is whole exam page(s)
+(page_from..page_to) - no within-page crop. Fix starts.json and re-run
+lq-pages / lq-crops if a question's page range is wrong.
+
+  output/lq/2012/questions.pdf
+  output/lq/2024/questions.pdf
+  output/lq/2025/questions.pdf
+========================================================================
+(continuing without prompt because --yes)
+
+Done.
+Review PDFs:
+  MC sections: classified/mc/<book>/<section>/combined.pdf
+  LQ sections: classified/lq/<book>/<section>/questions.pdf
+Lavish HTML (if lavish stage ran):
+  Pipeline walkthrough: .lavish/pipeline-review/
+  MC banks:             .lavish/classified-review/
+  LQ banks:             .lavish/lq-classified-review/
+  Quality audit JSON:   classified/quality_audit.json
+
+---
+exit_code: 0
+elapsed_ms: 367557
+ended_at: 2026-09-07T09:39:30.558Z
+---

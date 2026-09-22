@@ -1,0 +1,38 @@
+---
+pid: 74856
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/01b0017cd60e/01M25M61Y6A5QEMN293V2MYBJQ"
+command: "EVIDENCE_DIR=/Users/sinchunyeung/.no-mistakes/evidence/01M25M61Y6A5QEMN293V2MYBJQ node --test notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs"
+title: "Run notes interactives tests with screenshots"
+status: failed   
+started_at: 2026-09-10T12:36:26.381Z
+running_for_ms: 631595   
+---
+▶ Book 5 Ch.1 notes interactives
+  ✔ 25.1 spectrum is static with the ionizing barrier in UV (48233.733125ms)
+  ✔ 25.1 imaging is X-rays down through a hand onto film that starts white (25753.392875ms)
+  ✔ 25.2 pie wedge is 20% and Pu-239 bookkeeping is static n_α=8 (105500.005459ms)
+
+Interrupted while running:
+
+⚠ notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs (notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:1:1)
+✖ notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs (630331.194125ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 1
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 630328.684958
+
+✖ failing tests:
+
+test at notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:1:1
+✖ notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs (630331.194125ms)
+  'Promise resolution is still pending but the event loop has already resolved'
+
+---
+exit_code: unknown
+elapsed_ms: 631595
+ended_at: 2026-09-10T12:46:57.976Z
+---

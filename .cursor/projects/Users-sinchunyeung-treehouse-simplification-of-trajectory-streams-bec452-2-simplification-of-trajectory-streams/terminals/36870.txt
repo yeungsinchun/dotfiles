@@ -1,0 +1,48 @@
+---
+pid: 61972
+cwd: "/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams"
+command: "python3 - <<'PY'\nimport subprocess, re, statistics, itertools\nfrom pathlib import Path\n\nREPO = Path('.').resolve()\nBASE = Path('/tmp/simp-bench/simplify-baseline')\nNEW = Path('/tmp/simp-bench/simplify-new')\nCORE = re.compile(r'SIMPLIFY_CORE_MS:\\s*([\\d.]+)')\nPTS = re.compile(r'SIMPLIFIED_POINTS:\\s*(\\d+)')\n\nids = [1, 2, 3, 5, 8]\neps_deltas = [\n    (0.5, 200),\n    (0.25, 400),\n    (2.0, 100),\n    (5.0, 50),\n    (10.0, 200),\n    (299.0, 1.0),\n]\n\ndef run(bin, idv, e, d, dist=False, repeats=1):\n    cmd = [str(bin), '--in', str(idv), '-e', str(e), '-d', str(d), '--time']\n    if dist:\n        cmd += ['--out', '--dist']\n    times, pts, dists = [], [], []\n    for _ in range(repeats):\n        p = subprocess.run(cmd, cwd=REPO, capture_output=True, text=True, timeout=180)\n        if p.returncode != 0:\n            raise SystemExit(f'fail {bin} id={idv} e={e} d={d}\\n{p.stderr[-800:]}\\n{p.stdout[-800:]}')\n        text = p.stdout + '\\n' + p.stderr\n        times.append(float(CORE.search(p.stderr).group(1)))\n        pts.append(int(PTS.search(p.stderr).group(1)))\n        if dist:\n            lab = re.search(r'Frechet distance:\\s*([0-9]+(?:\\.[0-9]+)?)', text, re.I)\n            if lab:\n                dists.append(float(lab.group(1)))\n            else:\n                nums = re.findall(r'(?m)^([0-9]+(?:\\.[0-9]+)?)$', p.stdout)\n                if not nums:\n                    raise SystemExit(f'no dist\\nSTDOUT:\\n{p.stdout[-800:]}\\nSTDERR:\\n{p.stderr[-800:]}')\n                dists.append(float(nums[-1]))\n    return {'ms': statistics.median(times), 'pts': pts[0], 'dist': dists[0] if dists else None}\n\nprint(f\"{'id':>3} {'eps':>7} {'delta':>7} {'b_pts':>6} {'n_pts':>6} {'d_pts':>5} {'b_ms':>8} {'n_ms':>8} {'ratio':>6} {'b_fr':>10} {'n_fr':>10} {'d_fr':>8} st\")\nok = True\nratios = []\nfor idv, (e, d) in itertools.product(ids, eps_deltas):\n    b = run(BASE, idv, e, d, dist=False, repeats=3)\n    n = run(NEW, idv, e, d, dist=False, repeats=3)\n    dpts = n['pts'] - b['pts']\n    ratio = n['ms'] / b['ms'] if b['ms'] else float('inf')\n    ratios.append(ratio)\n    bfr = nfr = dfr = None\n    do_dist = (idv in (1, 2) and (e, d) in ((0.5, 200), (299.0, 1.0), (0.25, 400)))\n    if do_dist:\n        bd = run(BASE, idv, e, d, dist=True, repeats=1)\n        nd = run(NEW, idv, e, d, dist=True, repeats=1)\n        bfr, nfr = bd['dist'], nd['dist']\n        dfr = nfr - bfr\n    status = 'OK'\n    if dpts > 0:\n        status = 'FAIL_PTS'; ok = False\n    if dfr is not None and dfr > 0.01:\n        status = 'FAIL_DIST'; ok = False\n    print(f\"{idv:3d} {e:7.2f} {d:7.1f} {b['pts']:6d} {n['pts']:6d} {dpts:5d} {b['ms']:8.3f} {n['ms']:8.3f} {ratio:6.3f} \"\n          f\"{(bfr if bfr is not None else float('nan')):10.4f} {(nfr if nfr is not None else float('nan')):10.4f} \"\n          f\"{(dfr if dfr is not None else float('nan')):8.4f} {status}\")\n\nprint('median ratio', statistics.median(ratios), 'mean ratio', statistics.mean(ratios))\nprint('OVERALL', 'OK' if ok else 'FAIL')\nPY"
+title: "Compare points, Frechet, and speed vs baseline"
+status: succeeded
+started_at: 2026-09-04T17:35:28.857Z
+running_for_ms: 126360   
+---
+ id     eps   delta  b_pts  n_pts d_pts     b_ms     n_ms  ratio       b_fr       n_fr     d_fr st
+  1    0.50   200.0     86     86     0   29.700   27.963  0.942   300.0000   300.0000   0.0000 OK
+  1    0.25   400.0     70     70     0   56.671   53.625  0.946   500.0000   500.0000   0.0000 OK
+  1    2.00   100.0     90     90     0   10.311    9.814  0.952        nan        nan      nan OK
+  1    5.00    50.0     96     96     0    7.820    7.577  0.969        nan        nan      nan OK
+  1   10.00   200.0     34     34     0    6.755    6.590  0.976        nan        nan      nan OK
+  1  299.00     1.0     92     92     0    7.133    6.789  0.952   299.0000   299.0000   0.0000 OK
+  2    0.50   200.0    482    482     0   89.634   76.882  0.858   300.0000   300.0000   0.0000 OK
+  2    0.25   400.0    338    338     0  243.631  189.138  0.776   500.0037   500.0037   0.0000 OK
+  2    2.00   100.0    516    516     0   27.201   31.337  1.152        nan        nan      nan OK
+  2    5.00    50.0    562    562     0   23.311   20.780  0.891        nan        nan      nan OK
+  2   10.00   200.0    122    122     0   28.320   23.186  0.819        nan        nan      nan OK
+  2  299.00     1.0    516    516     0   18.574   17.993  0.969   299.0021   299.0021   0.0000 OK
+  3    0.50   200.0    112    112     0  105.817   76.460  0.723        nan        nan      nan OK
+  3    0.25   400.0     58     58     0  141.315  116.514  0.824        nan        nan      nan OK
+  3    2.00   100.0    120    120     0   30.568   32.450  1.062        nan        nan      nan OK
+  3    5.00    50.0    136    136     0   20.971   19.818  0.945        nan        nan      nan OK
+  3   10.00   200.0     20     20     0   21.308   20.423  0.958        nan        nan      nan OK
+  3  299.00     1.0    120    120     0   16.012   19.395  1.211        nan        nan      nan OK
+  5    0.50   200.0    162    162     0   58.348   57.462  0.985        nan        nan      nan OK
+  5    0.25   400.0    116    116     0   89.420   89.637  1.002        nan        nan      nan OK
+  5    2.00   100.0    176    176     0   19.178   18.289  0.954        nan        nan      nan OK
+  5    5.00    50.0    192    192     0   14.617   12.880  0.881        nan        nan      nan OK
+  5   10.00   200.0     48     48     0   13.416   12.969  0.967        nan        nan      nan OK
+  5  299.00     1.0    176    176     0    9.110    8.700  0.955        nan        nan      nan OK
+  8    0.50   200.0      6      6     0    0.323    0.330  1.021        nan        nan      nan OK
+  8    0.25   400.0      6      6     0    0.573    0.564  0.985        nan        nan      nan OK
+  8    2.00   100.0      6      6     0    0.127    0.163  1.287        nan        nan      nan OK
+  8    5.00    50.0      6      6     0    0.103    0.115  1.107        nan        nan      nan OK
+  8   10.00   200.0      4      4     0    0.124    0.123  0.996        nan        nan      nan OK
+  8  299.00     1.0      6      6     0    0.115    0.114  0.984        nan        nan      nan OK
+median ratio 0.9625763162703268 mean ratio 0.9682982628344232
+OVERALL OK
+
+---
+exit_code: 0
+elapsed_ms: 126359
+ended_at: 2026-09-04T17:37:35.216Z
+---

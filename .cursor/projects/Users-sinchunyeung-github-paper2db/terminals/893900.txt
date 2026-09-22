@@ -1,0 +1,54 @@
+---
+pid: 47615
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && for y in 2014 2020 2022 2024 2025 2026; do\n  pdf=$(ls paper/mc/${y}p1a.pdf paper/mc/${y}P1A.pdf 2>/dev/null | head -1)\n  inter=output/${y}-intermediate\n  if [[ ! -f $inter/anchor.meta.json ]]; then echo \"SKIP $y no meta\"; continue; fi\n  echo \"=== SPLIT $y ===\"\n  ./segment \"$pdf\" \"output/$y\" --type mc --step split --intermediate \"$inter\" 2>&1 | tail -4\ndone\n.venv/bin/python <<'PY'\nfrom PIL import Image\nimport numpy as np\nfor p in ['output/2014/q1.png','output/2014/q8.png','output/2014/q28.png','output/2022/q16.png','output/2022/q30.png','output/2024/q15.png','output/2025/q18.png','output/2026/q13.png','output/2026/q19.png','output/2020/q25.png']:\n    im=Image.open(p)\n    arr=np.array(im.convert('L'))\n    h,w=arr.shape\n    body=[y for y in range(h) if (arr[y,:int(w*0.85)]<235).mean()>=0.015]\n    print(p, im.size, 'body_gap', h-1-(body[-1] if body else 0))\nPY\n"
+status: succeeded
+started_at: 2026-09-04T15:53:48.709Z
+running_for_ms: 112205   
+---
+=== SPLIT 2014 ===
+Paper type: MC (2014p1a.pdf)
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2014
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2014/combined.pdf
+=== SPLIT 2020 ===
+Using MC overrides: overrides_2020.json
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2020
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2020/combined.pdf
+=== SPLIT 2022 ===
+Paper type: MC (2022p1a.pdf)
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2022
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2022/combined.pdf
+=== SPLIT 2024 ===
+Paper type: MC (2024p1a.pdf)
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2024
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2024/combined.pdf
+=== SPLIT 2025 ===
+Paper type: MC (2025p1a.pdf)
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2025
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2025/combined.pdf
+=== SPLIT 2026 ===
+Paper type: MC (2026p1a.pdf)
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2026
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2026/combined.pdf
+output/2014/q1.png (1105, 231) body_gap 0
+output/2014/q8.png (1107, 501) body_gap 9
+output/2014/q28.png (1117, 842) body_gap 0
+output/2022/q16.png (1011, 405) body_gap 10
+output/2022/q30.png (1024, 284) body_gap 10
+output/2024/q15.png (1001, 1431) body_gap 0
+output/2025/q18.png (1023, 310) body_gap 10
+output/2026/q13.png (1023, 664) body_gap 0
+output/2026/q19.png (1021, 282) body_gap 10
+output/2020/q25.png (1022, 856) body_gap 0
+
+---
+exit_code: 0
+elapsed_ms: 112196
+ended_at: 2026-09-04T15:55:40.905Z
+---

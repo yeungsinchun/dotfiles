@@ -1,0 +1,201 @@
+---
+pid: 24061
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy"
+command: "cd \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse\" && python3 << 'EOF'\n\"\"\"Reprocess all MC years with updated preprocess_mc.py.\"\"\"\nfrom __future__ import annotations\n\nimport subprocess\nimport sys\nfrom pathlib import Path\n\nROOT = Path(\"/Users/sinchunyeung/Documents-local/Materials/Phy/dse\")\nMC = ROOT / \"Year\" / \"MC\"\nPRE = ROOT / \"preprocessed\"\nSCRIPT = ROOT / \"scripts\" / \"preprocess_mc.py\"\n\n# (stem, questions) — 2012 already done with latest script\nJOBS = [\n    (\"2013p1a\", 36),\n    (\"2014p1a\", 33),\n    (\"2015p1a\", 33),\n    (\"2016p1a\", 33),\n    (\"2017p1a\", 33),\n    (\"2018p1a\", 33),\n    (\"2019p1a\", 33),\n    (\"2020p1a\", 33),\n    (\"2021p1a\", 33),\n    (\"2022p1a\", 33),\n    (\"2023p1a\", 33),\n    (\"2024p1a\", 33),\n    (\"2025p1a\", 33),\n    (\"2026p1a\", 33),\n    (\"ppp1a\", 36),\n    (\"sapp1a\", 36),\n]\n\nresults = []\nfor stem, questions in JOBS:\n    source = MC / f\"{stem}.pdf\"\n    output = PRE / f\"anchored_{stem}.pdf\"\n    overrides = PRE / f\"overrides_{stem}.json\"\n    cmd = [\n        sys.executable,\n        str(SCRIPT),\n        str(source),\n        str(output),\n        \"--questions\",\n        str(questions),\n        \"--cover-pages\",\n        \"1\",\n        \"--scale\",\n        \"5.0\",\n    ]\n    if overrides.exists():\n        cmd.extend([\"--overrides\", str(overrides)])\n    print(f\"\\n===== {stem} ({questions}q, overrides={overrides.exists()}) =====\", flush=True)\n    proc = subprocess.run(cmd, capture_output=True, text=True)\n    tail = (proc.stdout or \"\")[-800:]\n    err = (proc.stderr or \"\")[-500:]\n    if proc.returncode == 0:\n        print(tail)\n        results.append((stem, \"OK\"))\n    else:\n        print(tail)\n        print(\"STDERR:\", err)\n        results.append((stem, f\"FAIL:{proc.returncode}\"))\n\nprint(\"\\n===== SUMMARY =====\")\nfor stem, status in results:\n    print(f\"{stem}: {status}\")\nfailed = [s for s, st in results if st != \"OK\"]\nsys.exit(1 if failed else 0)\nEOF\n"
+started_at: 2026-08-21T19:18:24.783Z
+running_for_ms: 375079   
+---
+
+===== 2013p1a (36q, overrides=False) =====
+
+STDERR: Could not locate question labels: [1]. Add them to --overrides.
+
+
+===== 2014p1a (33q, overrides=True) =====
+0 bottom=782.3 footer=784.3 marker_x=62.0 questions=3
+page 8: rail_x=73.0 left=59.0 right=528.0 top=62.0 bottom=779.5 footer=781.5 marker_x=65.0 questions=3
+page 9: rail_x=68.0 left=54.0 right=523.0 top=62.0 bottom=780.3 footer=782.3 marker_x=60.0 questions=3
+page 10: rail_x=76.0 left=62.0 right=531.0 top=65.0 bottom=782.3 footer=784.3 marker_x=68.0 questions=2
+page 11: rail_x=72.0 left=58.0 right=527.0 top=62.0 bottom=779.9 footer=781.9 marker_x=64.0 questions=2
+page 12: rail_x=74.0 left=60.0 right=529.0 top=61.0 bottom=778.3 footer=780.3 marker_x=66.0 questions=3
+page 13: rail_x=72.0 left=58.0 right=527.0 top=64.0 bottom=780.7 footer=782.7 marker_x=64.0 questions=2
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/anchored_2014p1a.pdf with 12 pages and 33 anchors.
+
+
+===== 2015p1a (33q, overrides=True) =====
+8 bottom=776.6 footer=778.6 marker_x=55.6 questions=1
+page 8: rail_x=55.1 left=41.1 right=510.1 top=59.0 bottom=774.6 footer=776.6 marker_x=47.1 questions=2
+page 9: rail_x=61.3 left=47.3 right=516.3 top=63.2 bottom=776.2 footer=778.2 marker_x=53.3 questions=4
+page 10: rail_x=47.3 left=33.3 right=502.3 top=64.4 bottom=777.0 footer=779.0 marker_x=39.3 questions=3
+page 11: rail_x=63.1 left=49.1 right=518.1 top=60.0 bottom=772.2 footer=774.2 marker_x=55.1 questions=3
+page 12: rail_x=48.5 left=34.5 right=503.5 top=62.4 bottom=775.4 footer=777.4 marker_x=40.5 questions=3
+page 13: rail_x=62.7 left=48.7 right=517.7 top=58.4 bottom=771.0 footer=773.0 marker_x=54.7 questions=3
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/anchored_2015p1a.pdf with 12 pages and 33 anchors.
+
+
+===== 2016p1a (33q, overrides=True) =====
+=69.0 bottom=779.8 footer=781.8 marker_x=61.6 questions=3
+page 5: rail_x=64.5 left=50.5 right=519.5 top=70.2 bottom=783.0 footer=785.0 marker_x=56.5 questions=3
+page 6: rail_x=63.8 left=49.8 right=518.8 top=70.0 bottom=781.4 footer=783.4 marker_x=55.8 questions=4
+page 7: rail_x=62.8 left=48.8 right=517.8 top=69.6 bottom=781.4 footer=783.4 marker_x=54.8 questions=4
+page 8: rail_x=56.9 left=42.9 right=511.9 top=71.6 bottom=784.2 footer=786.2 marker_x=48.9 questions=4
+page 9: rail_x=64.8 left=50.8 right=519.8 top=64.2 bottom=777.0 footer=779.0 marker_x=56.8 questions=4
+page 10: rail_x=57.0 left=43.0 right=512.0 top=64.8 bottom=777.4 footer=779.4 marker_x=49.0 questions=4
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/anchored_2016p1a.pdf with 9 pages and 33 anchors.
+
+
+===== 2017p1a (33q, overrides=True) =====
+bottom=779.0 footer=781.0 marker_x=60.2 questions=3
+page 10: rail_x=57.5 left=43.5 right=512.5 top=70.2 bottom=783.8 footer=785.8 marker_x=49.5 questions=3
+page 11: rail_x=61.7 left=47.7 right=516.7 top=70.4 bottom=781.8 footer=783.8 marker_x=53.7 questions=2
+page 12: rail_x=59.0 left=45.0 right=485.0 top=69.8 bottom=783.4 footer=785.4 marker_x=51.0 questions=3
+page 13: rail_x=65.8 left=51.8 right=500.3 top=68.0 bottom=782.2 footer=784.2 marker_x=57.8 questions=1
+page 14: rail_x=54.7 left=40.7 right=509.7 top=68.0 bottom=781.8 footer=783.8 marker_x=46.7 questions=3
+page 15: rail_x=65.0 left=51.0 right=454.5 top=68.2 bottom=780.2 footer=782.2 marker_x=57.0 questions=3
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/anchored_2017p1a.pdf with 14 pages and 33 anchors.
+
+
+===== 2018p1a (33q, overrides=True) =====
+ bottom=751.7 footer=753.7 marker_x=72.3 questions=2
+page 9: rail_x=48.0 left=34.0 right=484.5 top=57.0 bottom=754.9 footer=756.9 marker_x=40.0 questions=2
+page 10: rail_x=78.7 left=64.7 right=527.7 top=62.7 bottom=754.1 footer=756.1 marker_x=70.7 questions=2
+page 11: rail_x=45.3 left=31.3 right=500.3 top=56.7 bottom=754.1 footer=756.1 marker_x=37.3 questions=3
+page 12: rail_x=67.2 left=53.2 right=522.2 top=53.0 bottom=747.7 footer=749.7 marker_x=59.2 questions=2
+page 13: rail_x=43.7 left=29.7 right=498.7 top=57.3 bottom=755.7 footer=757.7 marker_x=35.7 questions=2
+page 14: rail_x=76.0 left=62.0 right=530.5 top=59.4 bottom=749.7 footer=751.7 marker_x=68.0 questions=3
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/anchored_2018p1a.pdf with 13 pages and 33 anchors.
+
+
+===== 2019p1a (33q, overrides=True) =====
+ bottom=779.1 footer=781.1 marker_x=58.5 questions=3
+page 9: rail_x=67.8 left=53.8 right=522.8 top=60.6 bottom=777.5 footer=779.5 marker_x=59.8 questions=3
+page 10: rail_x=67.4 left=53.4 right=522.4 top=61.0 bottom=777.1 footer=779.1 marker_x=59.4 questions=2
+page 11: rail_x=68.8 left=54.8 right=523.8 top=60.0 bottom=776.7 footer=778.7 marker_x=60.8 questions=2
+page 12: rail_x=69.3 left=55.3 right=524.3 top=60.7 bottom=777.1 footer=779.1 marker_x=61.3 questions=2
+page 13: rail_x=67.8 left=53.8 right=522.8 top=60.8 bottom=777.9 footer=779.9 marker_x=59.8 questions=3
+page 14: rail_x=68.2 left=54.2 right=523.2 top=62.8 bottom=779.5 footer=781.5 marker_x=60.2 questions=2
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/anchored_2019p1a.pdf with 13 pages and 33 anchors.
+
+
+===== 2020p1a (33q, overrides=True) =====
+ bottom=778.1 footer=780.1 marker_x=62.4 questions=2
+page 9: rail_x=72.5 left=58.5 right=484.0 top=66.6 bottom=778.5 footer=780.5 marker_x=64.5 questions=3
+page 10: rail_x=76.5 left=62.5 right=531.5 top=61.2 bottom=776.9 footer=778.9 marker_x=68.5 questions=2
+page 11: rail_x=69.4 left=55.4 right=524.4 top=60.4 bottom=778.1 footer=780.1 marker_x=61.4 questions=2
+page 12: rail_x=77.8 left=63.8 right=532.8 top=60.6 bottom=776.5 footer=778.5 marker_x=69.8 questions=2
+page 13: rail_x=69.4 left=55.4 right=524.4 top=59.6 bottom=777.7 footer=779.7 marker_x=61.4 questions=2
+page 14: rail_x=77.5 left=63.5 right=532.5 top=60.8 bottom=776.5 footer=778.5 marker_x=69.5 questions=4
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/anchored_2020p1a.pdf with 13 pages and 33 anchors.
+
+
+===== 2021p1a (33q, overrides=True) =====
+8 bottom=784.6 footer=786.6 marker_x=48.6 questions=2
+page 8: rail_x=83.6 left=69.6 right=538.6 top=64.4 bottom=780.6 footer=782.6 marker_x=75.6 questions=4
+page 9: rail_x=56.3 left=42.3 right=511.3 top=68.0 bottom=785.4 footer=787.4 marker_x=48.3 questions=3
+page 10: rail_x=82.4 left=68.4 right=537.4 top=66.2 bottom=782.2 footer=784.2 marker_x=74.4 questions=3
+page 11: rail_x=54.5 left=40.5 right=509.5 top=67.4 bottom=786.6 footer=788.6 marker_x=46.5 questions=2
+page 12: rail_x=86.3 left=72.3 right=541.3 top=66.2 bottom=781.8 footer=783.8 marker_x=78.3 questions=2
+page 13: rail_x=53.0 left=39.0 right=508.0 top=75.0 bottom=789.4 footer=791.4 marker_x=45.0 questions=3
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/anchored_2021p1a.pdf with 12 pages and 33 anchors.
+
+
+===== 2022p1a (33q, overrides=True) =====
+ bottom=780.1 footer=782.1 marker_x=63.0 questions=2
+page 9: rail_x=63.7 left=49.7 right=518.7 top=71.2 bottom=782.1 footer=784.1 marker_x=55.7 questions=2
+page 10: rail_x=72.1 left=58.1 right=527.1 top=71.4 bottom=782.1 footer=784.1 marker_x=64.1 questions=3
+page 11: rail_x=65.7 left=51.7 right=520.7 top=71.6 bottom=782.5 footer=784.5 marker_x=57.7 questions=3
+page 12: rail_x=69.2 left=55.2 right=524.2 top=72.8 bottom=782.9 footer=784.9 marker_x=61.2 questions=2
+page 13: rail_x=68.5 left=54.5 right=523.5 top=72.8 bottom=783.7 footer=785.7 marker_x=60.5 questions=2
+page 14: rail_x=70.3 left=56.3 right=525.3 top=74.6 bottom=782.9 footer=784.9 marker_x=62.3 questions=3
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/anchored_2022p1a.pdf with 13 pages and 33 anchors.
+
+
+===== 2023p1a (33q, overrides=True) =====
+ bottom=775.1 footer=777.1 marker_x=68.2 questions=2
+page 9: rail_x=75.4 left=61.4 right=530.4 top=62.8 bottom=773.9 footer=775.9 marker_x=67.4 questions=3
+page 10: rail_x=71.2 left=57.2 right=526.2 top=60.8 bottom=773.5 footer=775.5 marker_x=63.2 questions=3
+page 11: rail_x=75.7 left=61.7 right=530.7 top=62.6 bottom=773.5 footer=775.5 marker_x=67.7 questions=2
+page 12: rail_x=73.1 left=59.1 right=528.1 top=60.8 bottom=773.9 footer=775.9 marker_x=65.1 questions=3
+page 13: rail_x=75.1 left=61.1 right=530.1 top=63.0 bottom=775.1 footer=777.1 marker_x=67.1 questions=3
+page 14: rail_x=72.4 left=58.4 right=527.4 top=62.0 bottom=775.1 footer=777.1 marker_x=64.4 questions=3
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/anchored_2023p1a.pdf with 13 pages and 33 anchors.
+
+
+===== 2024p1a (33q, overrides=True) =====
+ bottom=782.5 footer=784.5 marker_x=60.3 questions=2
+page 9: rail_x=66.5 left=52.5 right=521.5 top=68.6 bottom=782.1 footer=784.1 marker_x=58.5 questions=4
+page 10: rail_x=73.0 left=59.0 right=528.0 top=71.0 bottom=782.1 footer=784.1 marker_x=65.0 questions=2
+page 11: rail_x=68.0 left=54.0 right=523.0 top=68.8 bottom=781.3 footer=783.3 marker_x=60.0 questions=2
+page 12: rail_x=75.8 left=61.8 right=530.8 top=70.0 bottom=781.7 footer=783.7 marker_x=67.8 questions=2
+page 13: rail_x=67.5 left=53.5 right=522.5 top=65.2 bottom=778.5 footer=780.5 marker_x=59.5 questions=3
+page 14: rail_x=74.7 left=60.7 right=529.7 top=66.4 bottom=778.1 footer=780.1 marker_x=66.7 questions=3
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/anchored_2024p1a.pdf with 13 pages and 33 anchors.
+
+
+===== 2025p1a (33q, overrides=True) =====
+bottom=775.2 footer=777.2 marker_x=45.0 questions=3
+page 8: rail_x=109.6 left=95.6 right=564.6 top=64.5 bottom=774.4 footer=776.4 marker_x=101.6 questions=3
+page 9: rail_x=90.6 left=76.6 right=545.6 top=63.0 bottom=774.0 footer=776.0 marker_x=82.6 questions=3
+page 10: rail_x=72.0 left=58.0 right=527.0 top=61.6 bottom=774.0 footer=776.0 marker_x=64.0 questions=2
+page 11: rail_x=89.2 left=75.2 right=544.2 top=63.6 bottom=774.8 footer=776.8 marker_x=81.2 questions=2
+page 12: rail_x=70.8 left=56.8 right=525.8 top=62.6 bottom=775.2 footer=777.2 marker_x=62.8 questions=3
+page 13: rail_x=90.8 left=76.8 right=545.8 top=63.4 bottom=774.8 footer=776.8 marker_x=82.8 questions=3
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/anchored_2025p1a.pdf with 12 pages and 33 anchors.
+
+
+===== 2026p1a (33q, overrides=True) =====
+ bottom=778.9 footer=780.9 marker_x=58.1 questions=3
+page 9: rail_x=72.5 left=58.5 right=527.5 top=67.6 bottom=780.5 footer=782.5 marker_x=64.5 questions=3
+page 10: rail_x=58.0 left=44.0 right=513.0 top=69.0 bottom=783.3 footer=785.3 marker_x=50.0 questions=3
+page 11: rail_x=70.0 left=56.0 right=525.0 top=65.8 bottom=778.9 footer=780.9 marker_x=62.0 questions=3
+page 12: rail_x=60.5 left=46.5 right=515.5 top=68.0 bottom=781.7 footer=783.7 marker_x=52.5 questions=3
+page 13: rail_x=73.1 left=59.1 right=528.1 top=69.4 bottom=783.3 footer=785.3 marker_x=65.1 questions=2
+page 14: rail_x=64.2 left=50.2 right=519.2 top=65.7 bottom=780.5 footer=782.5 marker_x=56.2 questions=3
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/anchored_2026p1a.pdf with 13 pages and 33 anchors.
+
+
+===== ppp1a (36q, overrides=True) =====
+0 bottom=766.4 footer=768.4 marker_x=57.6 questions=2
+page 11: rail_x=65.2 left=51.2 right=520.2 top=59.0 bottom=766.4 footer=768.4 marker_x=57.2 questions=1
+page 12: rail_x=65.1 left=51.1 right=520.1 top=59.0 bottom=766.4 footer=768.4 marker_x=57.1 questions=3
+page 13: rail_x=64.7 left=50.7 right=519.7 top=59.0 bottom=766.4 footer=768.4 marker_x=56.7 questions=3
+page 14: rail_x=64.8 left=50.8 right=519.8 top=59.0 bottom=766.4 footer=768.4 marker_x=56.8 questions=3
+page 15: rail_x=64.9 left=50.9 right=519.9 top=59.0 bottom=766.4 footer=768.4 marker_x=56.9 questions=3
+page 16: rail_x=64.9 left=50.9 right=519.9 top=58.6 bottom=765.6 footer=767.6 marker_x=56.9 questions=3
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/anchored_ppp1a.pdf with 15 pages and 36 anchors.
+
+
+===== sapp1a (36q, overrides=False) =====
+6.4 bottom=780.4 footer=782.4 marker_x=64.9 questions=2
+page 7: rail_x=73.2 left=59.2 right=528.2 top=66.4 bottom=780.4 footer=782.4 marker_x=65.2 questions=3
+page 8: rail_x=72.2 left=58.2 right=527.2 top=66.4 bottom=780.4 footer=782.4 marker_x=64.2 questions=4
+page 9: rail_x=72.2 left=58.2 right=527.2 top=66.4 bottom=736.0 footer=738.0 marker_x=64.2 questions=4
+page 10: rail_x=71.9 left=57.9 right=526.9 top=66.4 bottom=780.0 footer=782.0 marker_x=63.9 questions=2
+page 11: rail_x=72.4 left=58.4 right=527.4 top=66.4 bottom=780.4 footer=782.4 marker_x=64.4 questions=3
+page 12: rail_x=72.6 left=58.6 right=517.6 top=66.2 bottom=780.4 footer=782.4 marker_x=64.6 questions=4
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/anchored_sapp1a.pdf with 11 pages and 36 anchors.
+
+
+===== SUMMARY =====
+2013p1a: FAIL:1
+2014p1a: OK
+2015p1a: OK
+2016p1a: OK
+2017p1a: OK
+2018p1a: OK
+2019p1a: OK
+2020p1a: OK
+2021p1a: OK
+2022p1a: OK
+2023p1a: OK
+2024p1a: OK
+2025p1a: OK
+2026p1a: OK
+ppp1a: OK
+sapp1a: OK
+
+---
+exit_code: 1
+elapsed_ms: 377514
+ended_at: 2026-08-21T19:24:42.297Z
+---

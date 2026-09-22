@@ -1,0 +1,23 @@
+---
+pid: 14654
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "# Also accept OCR \"l.\" as \"1.\" when expected - actually better fix in sequential: allow fuzzy?\n# First retest failed years with wider strip + bare 1.\ncd /Users/sinchunyeung/github/paper2db && .venv/bin/python <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nimport importlib, preprocess_lq as p\nimportlib.reload(p)\nimport pymupdf as fitz\n\ndef probe(label, pdf):\n    doc=fitz.open(pdf)\n    scale=min(p.native_scale(doc[1], cap=3.0), 3.0)\n    pages=p.expand_pdf_pages(doc, scale, cover_pages=1)\n    starts=p.find_question_starts(pages, 0, 12)\n    print(label, 'n', len(pages), 'starts', [(q,pg,round(y)) for q,pg,y in starts])\n    doc.close()\n\nfor y,f in [('2013','paper/lq/2013p1b.pdf'),('2014','paper/lq/2014p1b.pdf'),('2015','paper/lq/2015p1b.pdf'),('2016','paper/lq/2016p1b.pdf'),('2017','paper/lq/2017p1b.pdf'),('2019','paper/lq/2019p1b.pdf'),('2020','paper/lq/2020p1b.pdf'),('2021','paper/lq/2021p1b.pdf')]:\n    probe(y,f)\nPY\n"
+title: "Retest detection across failing LQ years"
+status: succeeded
+started_at: 2026-09-04T17:10:35.790Z
+running_for_ms: 338087   
+---
+2013 n 18 starts [(1, 0, 181), (2, 2, 192), (3, 4, 185), (4, 6, 170), (5, 7, 390), (6, 8, 185), (7, 10, 81), (8, 12, 200), (9, 13, 81), (10, 14, 178), (11, 16, 81)]
+2014 n 19 starts []
+2015 n 18 starts [(1, 0, 686), (2, 1, 460), (3, 2, 88), (4, 4, 234), (5, 6, 232), (6, 8, 232), (7, 10, 233), (8, 12, 233), (9, 14, 220), (10, 16, 237)]
+2016 n 19 starts [(1, 0, 204), (2, 2, 88), (3, 4, 234), (4, 6, 88), (5, 8, 88), (6, 10, 224), (7, 12, 223), (8, 14, 220), (9, 16, 234)]
+2017 n 19 starts [(1, 0, 197), (2, 2, 268), (3, 3, 470), (4, 4, 267), (5, 6, 263), (6, 8, 259), (7, 10, 266), (8, 12, 81), (9, 14, 265), (10, 16, 252)]
+2019 n 19 starts [(1, 0, 357), (2, 2, 228), (3, 4, 209), (4, 6, 228), (5, 8, 223), (6, 9, 226), (7, 10, 88), (8, 12, 88), (9, 14, 243), (10, 16, 204)]
+2020 n 19 starts [(1, 0, 274), (2, 2, 88), (3, 4, 202), (4, 6, 217), (5, 8, 88), (6, 9, 208), (7, 10, 210), (8, 12, 210), (9, 14, 208), (10, 16, 206)]
+2021 n 19 starts [(1, 0, 298), (2, 2, 237)]
+
+---
+exit_code: 0
+elapsed_ms: 338084
+ended_at: 2026-09-04T17:16:13.874Z
+---

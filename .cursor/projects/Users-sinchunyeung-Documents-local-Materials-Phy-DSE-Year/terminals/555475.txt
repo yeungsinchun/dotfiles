@@ -1,0 +1,13 @@
+---
+pid: 53154
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/DSE/Year"
+command: "cd \"/Users/sinchunyeung/Documents-local/Materials/Phy/DSE/scripts\" && python3 classify_pages.py > /tmp/classify_log.txt 2>&1; echo DONE_$? >> /tmp/classify_log.txt"
+started_at: 2026-07-31T17:35:13.480Z
+running_for_ms: 2091833  
+---
+
+---
+exit_code: 0
+elapsed_ms: 2096674
+ended_at: 2026-07-31T18:10:10.154Z
+---

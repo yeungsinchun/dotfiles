@@ -1,0 +1,30 @@
+---
+pid: 33472
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "ps -p 27975 -o etime,command; pgrep -P 27975 -a | head; kill 27975 2>/dev/null; sleep 1\ncd /Users/sinchunyeung/github/paper2db && PYTHONPATH=scripts PYTHONUNBUFFERED=1 .venv/bin/python -u scripts/classify_lq_llm.py 2>&1 | head -40\n"
+title: "Debug classify hang; rerun unbuffered"
+status: failed   
+started_at: 2026-09-04T18:07:45.672Z
+running_for_ms: 39594    
+---
+ELAPSED COMMAND
+  02:40 /bin/zsh -c builtin export PATH="/usr/bin:/bin:/usr/sbin:/sbin${PATH:+:$PATH}"; snap=$(command cat <&3); builtin unsetopt aliases 2>/dev/null; builtin unalias -m '*' 2>/dev/null || true; builtin eval "$snap" && { builtin unsetopt nounset 2>/dev/null || true; builtin eval "${__CURSOR_SANDBOX_ENV_RESTORE:-}" 2>/dev/null; builtin export PWD="$(builtin pwd)"; builtin setopt aliases 2>/dev/null; alias sudo='sudo -A'; builtin eval "$1" < /dev/null; }; COMMAND_EXIT_CODE=$?; dump_zsh_state >&4; builtin exit $COMMAND_EXIT_CODE -- cd /Users/sinchunyeung/github/paper2db && PYTHONPATH=scripts .venv/bin/python scripts/classify_lq_llm.py 2>&1\012
+27997
+OCR 117 LQ questions...
+  ocr 20/117
+  ocr 40/117
+  ocr 60/117
+  ocr 80/117
+  ocr 100/117
+  ocr 117/117
+LLM meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo @ https://api.together.xyz/v1 (117 questions)
+  FAIL 2012 Q1: LLM call failed after 3 retries: HTTP Error 403: Forbidden
+  FAIL 2012 Q2: LLM call failed after 3 retries: HTTP Error 403: Forbidden
+  FAIL 2012 Q3: LLM call failed after 3 retries: HTTP Error 403: Forbidden
+  FAIL 2012 Q4: LLM call failed after 3 retries: HTTP Error 403: Forbidden
+
+---
+exit_code: unknown
+elapsed_ms: 39594
+ended_at: 2026-09-04T18:08:25.266Z
+---

@@ -1,0 +1,897 @@
+---
+pid: 96379
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python - <<'PY'\nimport pymupdf as fitz\nfrom PIL import Image, ImageOps\nimport io, subprocess, re\n\ndef ocr(img, psm='6'):\n    buf=io.BytesIO(); img.save(buf, format='PNG')\n    r=subprocess.run(['tesseract','stdin','stdout',f'--psm',psm], input=buf.getvalue(),\n                     stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)\n    return r.stdout.decode('utf-8','ignore')\n\nfor year in ('2019','2020'):\n    doc=fitz.open(f'answer/{year}ans.pdf')\n    print('====', year, 'pages', doc.page_count)\n    for i in range(doc.page_count):\n        pix=doc[i].get_pixmap(matrix=fitz.Matrix(2.0,2.0), alpha=False)\n        img=Image.frombytes('RGB',(pix.width,pix.height),pix.samples)\n        text=ocr(ImageOps.autocontrast(img),'6')\n        # look for percentage-like patterns\n        if re.search(r'\\(\\s*\\d{1,3}\\s*\\)|correct|Section\\s*A|Question', text, re.I):\n            print(f'--- page {i} ---')\n            print(text[:1200])\n            print()\n    doc.close()\nPY"
+title: "OCR 2019/2020 answer PDFs for percentages"
+status: succeeded
+started_at: 2026-09-04T08:57:53.323Z
+running_for_ms: 44814    
+---
+==== 2019 pages 21
+--- page 0 ---
+2019/12/3
+PaVreat 6- Pa
+DSE Paper 1 Section A
+Question No. Key Question No. Key
+1. D 26. Cc
+2. B 27. D
+3. A 28. D
+4. D 29. Cc
+5. A 30. B
+6. c 31. D
+7. B 32. B
+8. D 33. Cc
+9. B
+10. A
+Il. B
+12. A
+13. c
+14. c
+15. A
+16. Cc
+17. B
+18. A
+19. D
+20. A
+21. D
+22. A
+23. A
+24. Cc
+25. B
+ah! AERA RF 23 BB TB >
+Note: Figures in brackets indicate the percentages of candidates choosing the correct answers.
+148
+
+
+--- page 2 ---
+O | ’
+ABR bel SS S Be FOR MARKERS’ USE ONLY | apritiz,2019
+HKDSE Physics
+General Marking Instruction
+
+Ll. It is very important that all markers should adhere as closely as possible to the marking scheme. In many cases,
+however, candidates may have obtained a correct answer by an alternative method not specified in the marking
+scheme. In general, a correct answer merits the answer mark allocated to that part, unless a particular method has
+been specified in the question. Markers should be patient in marking alternative solutions not specified in the
+marking scheme.
+
+2. In the marking scheme, answer marks or ‘A’ marks are awarded for a correct numerical answer with a unit. In case
+the same unit involved is given incorrectly for more than once in the same question, the ‘A’ marks thereafter
+can be awarded even for correct numerical answers without units. If the answer should be in km, then cm and m
+are considered to be wrong units.
+
+3. In a question consisting of several parts each depending on the previous parts, marks for correct method or
+substitution are awarded to steps or methods correctly deduced from previous answers, even if these answers are
+erroneous or for inserting values 
+
+--- page 3 ---
+ye ;
+RRASSSH FOR MARKERS’ USE ONLY  apritiz, 2019
+1. (a) @_——(1.5)(4200)(60 — 10) = m(3.34 x 105) + m(4200)(10— 0) |IM+IM JAI3 terms correct ~~ 2M
+m= 0.837766 kg = 0.838 kg 1A |Any 2 terms correct 1M
+(Accept: m = 0.83 ~ 0.84 kg) AT must be correct
+(ii) More ice is needed 1A pov f 2 [| 0 |
+to cool the container as it will release heat/thermal energy |1A | « | o fo}
+as well. Lincomplete| 1 | 0 |
+Key word: heat / energy
+(b) (i) Conduction:
+-Foam is a poor conductor (of heat) and it 1A One feature + corresponding reason
+minimizes the transfer of heat/thermal energy
+from the surroundings to the cool contents/ice | 4, IOR
+cream (inside the bag). ONE Radiation:
+OR - The shiny surface inside the bag
+Convection: reduces the transfer of heat/thermal
+- The zipper prevents convection between the hot energy from the surroundings to the
+air outside and the cool contents/ice cream cool contents/ice cream (inside the
+(inside the bag). bag) through emission of radiation
+‘The answer must be related to the
+(ii) (Radiation) Make the outer surface (of the bag) shiny. 1A modification of the bag like
+‘thickening the bag’
+| _1|Adding ice to the bag is NOT accepted!
+2. (a) pV =nRT
+(100 x 103)(0.52) = n (8.
+
+--- page 4 ---
+ye ;
+RRASSS FOR MARKERS’ USE ONLY | apritiz, 2019
+3, @ @ GQ 14
+zm? =mgh IM
+vy? =2(9.81)(12)
+v= 15344054 ms = 15.3 ms 1A
+(v=15.491933 ms“ = 15.5 ms“ for g= 10 ms~) Accept: v= 15 ~15.5ms"
+(2) Lo
+s= z gt IM
+1 2
+12=—(.8)¢
+3 (9.81)
+1= 1.564124 s = 1.56 _ (iia Accept: 1=1.5~ 1.65
+(t= 15491933 s~ 1.558 forg=10ms%)
+(ii) =
+Fomg=ma IM+IM | F=ma IM
+p= DA053-O) 949.1 F=mat+mg 2M
+= 4266.9793 N = 4270 N 1A
+(F = 4314,7845 N= 4310N for g=10ms~) Accept: F = 4180 ~ 4320 N
+(iii) Elastic potential energy MUST have the word: ‘Elastic’
+| _1 Accept: Elastic energy
+(b) (i) (Velocity is too high, hence the force for deceleration 1A The answer is related to the
+is too large.) consequence due to limitation of any
+- The life net may be torn. A lone of the following:
+- The falling person may be injured. ONE (1) the net, (2) the falling person
+- The firemen may not be able to hold the life net (3) the firemen
+tight.
+NOT accept:
+- The force is too large which exceed
+the limit of the life net
+- The life net is not strong enough to
+withstand the force
+- The force is too large that the man
+cannot withstand
+[
+1% mark: horizontal velocity /
+(ii) There exists a horizontal velocity when a person jumps and |1A projectil
+
+--- page 5 ---
+yea ’
+ABR bel SS S Be FOR MARKERS’ USE ONLY | apritiz,2019
+4 @ @ ; _ @ 5.0
+Rotation rate = On = on IM/1A
+= 0.795775 (rev s“') = 0.80 (rev s“') Accept: 0.79 ~ 0.80 (rev s"')
+[
+Gi) o}
+TOOT ESS 93.17
+H 1 m long inextensible|string
+oT" Coniripetal force pendulum bob
+(tension component) of mass 30 g
+Fe correctly indicated. 1A
+Fo=mra OR
+= (0.03)(1 x cos 23.1°)(5.0) IM TeosO= Fe and Tsin@=mg 1M
+= = 1A
+0.689866 N ~ 0.690 N Fo =—"£ cos = 0.689866 N 1A
+(Fc= 0.7033402 N = 0.703 N for g= 10ms~) sind
+Accept: Fc = 0.70 N
+(iii) Horizontal component of tension provides the centripetal |1M Tsind=mg 1M
+force, thus tension is larger than the centripetal force. 1A T=0.750N
+OR TeosO= Fe > T> Fe T> Fe 1A
+(b) (i) The gravitational force is perpendicular to the moon’s
+_ ory ° 1A
+motion/displacement/velocity,
+thus no work is done on the moon by this force (k.e.
+1A
+unchanged)
+(ii) (The claim is incorrect) as, by Newton’s third law of 1A Accept: action and reaction pairs
+motion, gravitational force of the same magnitude (but in
+opposite direction) is acting on the Earth by the moon. 1A
+2019-DSE-PHY 1B-5
+o yea ’
+ABR bel SS S Be FOR MARKERS’ USE ONLY
+
+
+--- page 6 ---
+BBS 3% Ba », D Pc?
+FBR =e OR MARKER ON April 019
+5 @ O  \avetength 2= oe
+=0.01 m(= 1 cm) 1A
+|
+(ii) speed v= fA = 10 x 0.01
+=0.lms!(10cems") IM/1A _ |e.c.f. from (a)(i)
+|
+(b) (i) frequency = 10 Hz ‘remain unchanged’ is NOT accepted
+|
+(ii) . .
+shallow region P deep region Q
+1A Straight wavefronts bend away
+from the normal of the shallow-
+deep boundary.
+1A All correct with double (longer)
+wavelength having wavefronts
+continuous at boundary
+(iii) Refraction. 1A Correct spelling
+It is due to the change in wavelengths/wave speeds in 1A
+different media/depth.
+2019-DSE-PHY 1B-6
+oO ye ;
+ABR bel SS S Be FOR MARKERS’ USE ONLY
+
+
+--- page 7 ---
+ye ’
+RRASSS FOR MARKERS’ USE ONLY | apritiz, 2019
+6. (a) Lis diverging/concave. 1A
+Only diverging/concave lens forms diminished, virtual [1A This is the only accepted answer
+image.
+(b) L
+Pf EE Pal | rede fre epresppting 5 em
+ST bee
+COE a a
+Hee eee
+fe eeea peredeee! aecaeeees
+cennpeBepoce cocpecepeccgh Ss pc) principal
+Correct position and height of object 2A Correct position 1st mark
+| _2|All correct: 2 marks
+(c) Correct ray to locate F and focus F correctly marked. 2M 1M mark: — Ray (1) or (2)
+e.c.f. from (b)
+Focal length = 16.5 cm (Accept 15.5 cm ~ 17.5 cm) 1A 2" M mark: locate F
+1*A mark: Diverging ray from the
+tip of the object, and
+(d) Correct ray p from tip of object 2A can reach the observer
+2/2 A mark: The ray entering the eye
+comes virtually from the
+tip of the image
+2019-DSE-PHY 1B-7
+o ye ’
+RRASSS FOR MARKERS’ USE ONLY
+
+
+--- page 8 ---
+o = ’
+RRS SS FOR MARKERS’ USE ONLY _ apritiz. 2019
+- (a)
+|
+1A Correct circuit with correct symbol
+th 1A Correct polarity
+Alternative circuit
+off|
++~-
+Close the switch and record corresponding V and R readings 1A
+Adjust the resistance R to lower/other value(s) and repeat the |} 4
+experiment
+Precaution:
+- First set the variable resistor to its maximum / a large NOT accept
+value Any |IA Change of apparatus
+- Open the switch after each measurement ONE Using thicker connecting wires ete
+- Any reasonable answer
+(b) Terminal voltage V delivered increases with increasing (loading) |1A ‘Accept
+resistance R (or graphical representation)
+R
+V=é—— vag. > 1A ,
+R+r OR R+r éb----- 2s
+2
+0 R
+NOT accept
+V is directly proportional to R
+V varies linearly with R
+2019-DSE-PHY 1B-8
+o = ’
+RRASSS FOR MARKERS’ USE ONLY
+
+
+--- page 9 ---
+yen ;
+RRASSS FOR MARKERS’ USE ONLY | apritiz, 2019
+8. (a) Earth N L
+X (Earth)
+mains socket Boo | 1A
+=]
+YO)
+XYZ
+|
+(b) (i) - If one of the lighting sets/circuits fails, the other 1A
+(in parallel) can still operate, ic. both work | Any
+independently. ONE
+- Both can work at the rated power.
+- Any reasonable answer
+[|
+GW) paw
+(300 + 450) = 1(220) IM 1M for substitution
+1=3.409091 A=3.41 A 1A The unit of current can be omitted
+Thus 5 A fuse should be used. 1A Correct deduction
+(c) Electrical energy used per day
+= 0.500 kW x Sh+2kWx0.5h+3kWx2h IM
+=11kWh
+Cost = $0.9/kWhx 11kWh IM
+=$9.9 1A
+2019-DSE-PHY 1B-9
+o yen ;
+RRASSS FOR MARKERS’ USE ONLY
+
+
+--- page 10 ---
+yen ;
+RARASaS FOR MARKERS’ USE ONLY  apritiz, 2019
+9. (a) (i) By Lenz’s law, an e.m.f. would be induced such that it
+opposes the change, i.e. decrease of magnetic flux (into the|1A 1A for induced e.m.f.
+paper) by driving an induced current (clockwise) in the|1A 1A for the change of magnetic flux
+coil/circuit (complete).
+[|
+(ii) ~~ NA®=NBA
+= (20)(0.3)(0.005) ‘Accept equivalent uni
+_ ccept equivalent unit :
+= 0.03 Wb IMA [Tvs
+. NA® _ 0.03 IM
+oA 05
+=0.06V (or 60mV) 1A
+[|
+(b) (i) The change of (magnetic) flux linkage is double that in|IM e.c.f. from (a)(ii)
+(a)(ii), i.e. 0.06 Wo.
+[|
+[|
+(ii) Direction of current : PORS 1A NOT accept
+clockwise/anticlockwise
+[|
+(©) i
+aluminium plate BORK 1A Correct position (accept just within
+x 1A the magnetic field)
+i Correct direction (clockwise) with
+ce 7 x |x complete circular path inside the
+x x |x aluminium plate
+H
+x xX XxX
+(ii) Move/swing to the right initially/momentarily/briefly.
+[
+Attachment of 9 (c)(i)
+Correct position (accept just within the magnetic field) 1A
+aluminium plate KX Correct direction (clockwise) with complete circular path inside
+P i the aluminium plate 1A
+x x |x
+Bx)
+x x |x
+x x xX
+2019-DSE-PHY 1B-10
+o yen ;
+RRASSS FOR MARKERS’ US
+
+--- page 13 ---
+ye ;
+ALR bel SS S Be FOR MARKERS’ USE ONLY  apritiz,2019
+10. (a) (i) x=3
+[
+(ii) More neutrons are produced in each fission for triggering] 1A ‘Accept: exceed critical mass, suitable
+further fissions, i.e. x> 1. concentration of U-235
+|
+(6) (i) m=me™
+b=! <9 846.107 yr!
+ty /
+a 1 2«10°/ ‘
+“in «| 2x10” OR 0.06 =o (=) 7 7:04x10
+_ 7.04x108 IM 2
+0.06 = no e
+‘mo = 0.429882832 (kg) = 0.430 (kg) 1A
+(ii) 0.430
+"= 0,03073691 = 3.1% > 3% .
+13.556 + 0.430 ae e.c.f, from (b)(i)
+Thus natural nuclear fission was possible. IM/1A
+[a
+(c) Underground water might run dry.
+OR Energy released by fission drys up the underground water. [1A
+Therefore, fission might stop without slow neutrons. 1A
+2019-DSE-PHY 1B-I1
+o ye ;
+ABR bel SS S Be FOR MARKERS’ USE ONLY
+
+
+--- page 15 ---
+O on ’
+ARRAS AaSH FOR MARKERS’ USE ONLY
+HKDSE Physics
+General Marking Instruction
+
+1. It is very important that all markers should adhere as closely as possible to the marking scheme. In many cases,
+however, candidates may have obtained a correct answer by an alternative method not specified in the marking
+scheme. In general, a correct answer merits the answer mark allocated to that part, unless a particular method has
+been specified in the question. Markers should be patient in marking alternative solutions not specified in the
+marking scheme.
+
+2. In the marking scheme, answer marks or ‘A’ marks are awarded for a correct numerical answer with a unit. In case
+the same unit involved is given incorrectly for more than once in answering the same question, the ‘A’ marks
+thereafter can be awarded even for correct numerical answers without units. If the answer should be in km, then
+cm and mare considered to be wrong units.
+
+3. In a question consisting of several parts each depending on the previous parts, method marks or ‘M’ marks are
+awarded to substitutions or methods correctly deduced from previous numerical answers, even if these answers are
+erroneous or appropriate physical quantiti
+
+--- page 16 ---
+o yes ;
+RARRASSSH FOR MARKERS’ USE ONLY
+Section A : Astronomy and Space Science
+1. D (%) 2. B (%) 3. B (%) 4. A (%)
+5. D (%) 6. A (%) 7. C (%) 8. C (%)
+7 -
+@ @  Liet—v2)=emMmL--)
+2 "OTR
+2 2 5 1 1 IM
+vg — 8.027 = 2(4« 10 002400” Ga00? Correct sub. for vg , 74 and rg
+va = 7.547679036 km s = 7.55 kms 1A
+(ii) 2
+pa2R agg GM _ mv
+yo, ¢ a Correct expression/derivation for
+app fe IM Kepler’s 3" law
+GM
+T=2n/= wherea ="4%2 — forelliptical orbit
+om 2
+14 +7» _ (6400) + (400 + 6400.
+a= “_ = (6400) + 400 + 6400) = 6600km [IM Correct semi-major axis
+Ty = t= fon soo" } = 2663.3962 s = 2663 s
+22) 2" Vaxt0
+(iii) The gravitational force acting on the astronaut is 1A NOT accept:
+(all) used for accelerating the astronaut. .
+-They have the same acceleration
+- The astronaut and the spacecraft are under the | Any The madlontion Panetta!
+same acceleration due to gravity, i.e. free falling. | ONE| - Nt for eration ol foros y Is
+- The gravitational force (weight) acting on the used for cenipeta a the
+astronaut is (all) used for centripetal force. - xe norma reaction fol ‘e
+[Ta] sstronaut in the spacecra
+6) @ 5570 _ 9663 on 2663 _ 180°-8
+o= an 360° IM 5570 360°
+= 7.8850987° = 7.89° 1A jor 2806800) , 180" 8 36
+
+--- page 18 ---
+Oo ye ;
+RARRASSSH FOR MARKERS’ USE ONLY
+Section C : Energy and Use of Energy
+1. B (%) 2. B (%) 3. A (%) 4. D (%)
+5. D (%) 6. A (%) 7.C (%) 8. C (%)
+3. (a) (i) The radiant power coming from the Sun on unit area is Note: The total (spherical) area
+given by irradiated at the Earth’s orbit is
+Bs 3.861076 W 4mRo? = 2.8274334 x 10°3 m?
+Re =o IM Correct sub. of Ps and Ro
+4nR3— 4n(1.50x10!!)? m2 n 1h60 1370 War?
+t: — 2
+= 1.365195734 x 10° Wm? = 1365 Wm? [IA eer m
+[al cco
+absorption / reflection /
+(ii) _ Loss due to absorption by the atmosphere. A scattering by ozone layer OR
+[1] | some are blocked by the
+y
+atmosphere
+(b) (i) — Solar energy > electrical energy > chemical energy 1A Accept:
+IA light energy —> electric energy
+1A only for solar energy -> chemical energy
+NOT accept:
+(ii) power output goo, light and heat energy —> electrical energy
+= —Power output ! sn
+1 solar power input ‘0 light > electricity
+= 30 100% IM Correct sub. of input & output powers
+Is 1818 1 Accentis0-182% |
+Accept: 18.0— 18.29
+= 18.1818 % = 18.2% 1A eee “
+(iii) ; — total energy stored 100 Ahx12V
+power input IM for —j00w
+= 100 Abx12V IM 1A for 5h / 300 min / 18000 s
+300 Wx0.8
+= 5 hours 1A
+The sun rays are (always) no
+
+--- page 19 ---
+iam] =| ’
+ARR el SS S Bel FOR MARKERS’ USE ONLY
+Section D : Medical Physics
+1. C (%) 2. B (%) 3. A (%) 4. D (%)
+5. A (%) 6. C (%) 7. D (%) 8. B (%)
+4 (a) (i) . 1.45
+sinc =——
+15
+1A
+c= 75.2°
+(ii) For @larger than @max, subsequently the light ray incident When @ > @Qmax, incident angle at|
+angle at the core-cladding boundary would be less than c, core-cladding boundary < c, no total
+thus total internal reflection fails to occur. internal reflection occurs.
+For a less than Qmax, Subsequently the light ray incident. |1A When @ < @imax, incident angle at|
+angle at the core-cladding boundary would be greater core-cladding boundary > c, total
+than c, thus total internal reflection occurs. 1A internal reflection occurs.
+Correct description, but without mentioning core-cladding |1A Note: @max = 22.6°
+boundary
+(iii) When comparing to X-rays radiographic imaging: INOT accept:
+Advantage: 1A Endoscope does not ‘radioactive’ / is
+- direct view of the stomach lining / inside / wall clear / has higher resolution / produce|
+- perform biopsy (getting a tissue) during examination| Any real-time image / produce colour|
+if necessary ONE} image.
+- without exposure to ionizing radiation by X-rays
+Disadvan
+
+==== 2020 pages 18
+--- page 1 ---
+oO | ,
+RARASSaSHe FOR MARKERS’ USE ONLY 18 may 2020
+HKDSE Physics
+General Marking Instruction
+
+1. It is very important that all markers should adhere as closely as possible to the marking scheme. In many cases, however,
+candidates may have obtained a correct answer by an alternative method not specified in the marking scheme. In
+general, a correct answer merits the answer mark allocated to that part, unless a particular method has been specified
+in the question. Markers should be patient in marking alternative solutions not specified in the marking scheme.
+
+2. In the marking scheme, answer marks or ‘A’ marks are awarded for a correct numerical answer with a unit. In case
+the same unit involved is given incorrectly for more than once in the same question, the ‘A’ marks thereafter can
+be awarded even for correct numerical answers without units. If the answer should be in km, then cm and m are
+considered to be wrong units.
+
+3. In a question consisting of several parts each depending on the previous parts, marks for correct method or
+substitution are awarded to steps or methods correctly deduced from previous answers, even if these answers are
+erroneous or for inserting values of appro
+
+--- page 2 ---
+ye ;
+RRASSSH FOR MARKERS’ USE ONLY 12 may 2020
+1. (a) 50.02 x3300 x(T— 4) = 0.60 x4200 x(96 — 7) IM ‘Accept 85.0 °C to 85.4 °C
+T = 85.347368 °C = 85.3 °C 1A [Marking Remark (MR): temperature
+difference must be correct &
+| _2|accept missing ‘5’ — 1 M]
+(b) (i) To compensate for / balance the heat loss (of the container |1A. [MR: Key words - heat loss to the
+with soup) to the surroundings. surroundings (from container or
+through evaporation)]
+(id) P10 x60 = 2000 x9 + 16 «4200 x9 IM+1M |Assume :
+
+P= 1038 W = 1040 W 1A Power of the heater = Rate of heat
+loss (of the container with soup) to
+ithe surroundings
+
+[| __3|[MR: Pxt + 1 termY - IM
+Pxt ¥ +2 term ¥ - 2M
+Pxt: accept Px 10
+AT: accept (96 — 9)]
+(iii) Smaller than 9 °C. 1A
+As the temperature of (the container with) soup drops, the [1A [2 A marks are independent
+rate of heat loss to the surroundings becomes lower due to [Key concept: smaller temperature
+a smaller temperature difference (w.r.t. the surroundings). difference]
+2020-DSE-PHY 1B-3
+oO ye ;
+RRASSSH FOR MARKERS’ USE ONLY
+
+
+--- page 3 ---
+yes ;
+RRASaSSH FOR MARKERS’ USE ONLY 12 may 2020
+2 (@) @ gpaeaaacenaasccnaasscee, PIStON 1A Fp correctly marked
+poo Fp should be in contaet with the
+high-pressure steai ft -well-insuiated----- cylindrical nen label of the f
+(237°C, 3.10 x 10° Pa) oo gastanie of pipe ccept: no label of the force
+(i) Fe = (3.10108 1.0 x 108) x0.67 IM Accept: Fp = (3.10 x 10°) 0.67
+= 2010000 N = 2.01x10°N 1A Accept 2.00%10° N to 2.01105 N
+(iii)
+pV=nrtr= v =2kE
+P 1 1M__ find n (570/0.018)
+yy — (570/0.018)(8.31)(237 +273) IM+IM | 21M p¥=nRT, accept T=237
+3.10 10°
+= 43.292419 m} = 43.3 m 1A Accept 43.0 m° to 43.3 m°
+(b) @) Work done = Kgpivesaisentisasscascsaiag, piston
+ik: (eae agra NS IM
+high ‘i Sa EB NLA ‘Accept 37.9 MJ to 38.0 MJ
+Nen-pressure steam a. well-insielated:-:-.-/f cylindrical
+(237 °C, 3.10 « 10° Pa) eo gag ante oo pipe Accept: a= 54/1.5 = 36 (ms?)
+‘Decececcccceeccecccccccce” F= (2.6x104) x36
+= 936000 (N)
+s = 54/(2x36) = 40.5 (m)
+for v= atl2 =36(1.5)/2
+=27(ms")]
+W = Fs =936000x340.5
+[or W = Fvt =936000x27%1.5]
+= 37908000 (5)
+[IM+1A]
+Ifs=vt [0MOA]
+(i) average acceleration a = = a IM
+=36ms? 1A
+;
+1° 1A for acceleration
+(iii) Acceleration is decreasing (i.e. maximum at first). 1A om 1A decreasi
+
+--- page 5 ---
+ye ;
+RRASSS FOR MARKERS’ USE ONLY 12 may 2020
+4. (a) ve>ve>vp>Va 1A [MR: Accept: va < vp < ve < vB
+Accept: B, C, D, A
+NOT accept: A, D, C, B]
+) 4
+__ oO [MR: Accept the arrows drawn at
+anywhere on the vertical lines passing
+err a through the object at positions B & D]
+ra _ lag correctly marked
+00 c S60" SLA lap correctly marked
+2m ap a {IA
+1.0m s
+ground NE
+[__2|[MR:2 marks : All correct and
+complete: PEDKE & some KE>PE
+(c) (i) — Gravitational potential energy is changed to kinetic energy |1A 1 mark :
+from A to B, and (i) PES KE > PE or
+some kinetic energy is changed back to gravitational 1A (ii) Correctly describe only between
+potential energy from B to C. 2 points (ADB / BC /A>O)]
+[MR: h must be correct for 1M
+Gi) 12 meh Method using v? — u? = 2as ete.
+ym msi is NOT accepted]
+_ 2
+v? =2(9.81)(2.2-1.0) IM Fora oe, S400 me
+_ tn “1 1A v= 4, ms! 24.90ms"'
+v= 4852216 ms! «4.85 ms Accept 4.85 ms“! to 4.90 ms“!
+(iii) Horizontal speed (at C) = 4.85 x cos 60° IM e.c.f. from (c)(ii)
+= 2.426108 ms + 2.43 ms! For g=10ms®,
+Horizontal speed
+Distance = 2.43 x 1= 2.55 m IM = 2.44949 ms! 2.45 ms
+t= 1.051066 s = 1.05s 1A Vertical speed = 4.24 ms!
+Or and t= 1.041033 s = 1.04s
+Vertical speed (at C) = 4
+
+--- page 6 ---
+ARS & Ba D », Pc’
+R i =e i OR MARKER ON
+5. (@) @ Forces R(or N) and Wor Mg)
+normal correctly indicated and labelled.
+reaction R Ry (MR:
+gn 1A 1A for weight with correct label
+P 1A (WiMgiweight/gravity)
+
+F 1A for normal reaction with correct
+label (R/N/normal force/contact
+force/reaction)
+
+< weight W 1A only: if both Wand R drawn
+30 (without/wrong label)
+2 Withhold 1A for additional force
+drawn (more than 2 forces)
+- W components added with correct
+labels (ignored)
+- W components added without
+correct labels (treated as additional
+force drawn)
+(ii) Reos30°=W=Mg and Rsin30°=F IM M= 10 kg; Mg = 98.1 N
+[MR: IM for both equations are correct]
+F = Mg x tan 30° = 56.63806 N = 56.6 N 1A For g=10ms°,
+Me 57.735027 N = 57.7N
+Neo Ra—— =113.27612N #113 N 1A 115.470054 N = 115. N
+cos30
+Or R= W cos 30° +F sin 30° and Wsin 30° =F cos 30° |(IM) __|[MR: IM for both equations are correct]
+(b) (i) gsin@=9.81 sin 30° = 4.905 ms? = 4.91 ms? las ms~ for g=10ms7,
+.
+as the component of F perpendicular to the incline no s
+Or as F is removed, the force pressing the block / incline |!A = Not D
+would decrease (only the weight’s component left) complete
+NA — Not answered / Un - Unchanged
+2020-DSE-PHY 1B-5
+o ye 
+
+--- page 7 ---
+Ope pss BS PD D Pe:
+i =e OR MARKER ON
+6. (a)
+[Rog }rsius
+‘bench top _ START STOP
+A K p B
+SS >—\ |!
+------K--- eh > aa <) --
+Correct location of ‘X’ (close to axis and on the side of the 1A
+START microphone).
+Use a metre rule 1A Accept ruler
+to measure the distance / separation D between the two
+microphones.
+Record the timer reading, which is the time interval Ar for the 1A Any ONE of the measurements
+sound to travel from one microphone (START) to the other
+microphone (STOP), i.e. A to B.
+(b) (i) Discard 539 ps, Ar= 801+ 838+821 _ yng bs IM for taking the average value
+3 of At and quoting the formula
+The speed of sound in air y= 2 IM v= 2 to calculate the speed of
+t . :
+0.280 sound, where D is the separation
+Ve nela-8 between the microphones.
+820x10
+= 341.463415ms!=34l mst 1A Accept 340 ms to 342 ms
+(ii) Increase separation D between the microphones. 1A
+2020-DSE-PHY 1B-6
+O | ’
+ARAB ASH FOR MARKERS’ USE ONLY
+
+
+--- page 8 ---
+o yen ;
+RBS SSH] FOR MARKERS’ USE ONLY
+7. (a) (i) _ Angle of incidence at 4,
+in = 90° 30° = 60° 1A
+(ii) n. sine =n, sin90° IM IM for correct equation with angle of
+g “ refraction in the cladding = 90°
+ates 1 Ly ysazoos= 1.15 1A Accept 1.2 or
+ne sinc sin 60° ns
+(iii) Total internal reflection. 1A Correct spelling
+For light rays from O with @ > 30°, 1A Accept O> 30°
+they will fail to undergo total internal reflection.
+(b) (i) Some light / energy (of the narrow light pulse) taking the |1A 1A for ‘taking different paths’
+shortest path (i.e. OD) arrives first while the rest of the
+energy taking longer paths arrives later. 1A 1A for ‘different arrival time”
+Therefore the pulse is broader and the height of the pulse is
+lower (smaller intensity). NOT accept:
+Some of the energy (going at angles
+larger than 30° from the axis) would
+be lost due to leakage, thus lower
+intensity.
+(ii) The refractive index of cladding should be increased, 1A
+n
+1 . .
+as © = , by making c/ sin c larger, only those 1A 0 A for the explanation if the choice
+Me sine for the change of n.is INCORRECT.
+light rays close to the axis / within a smaller @ are totally
+internal reflected,
+n . Note: More light rays will escape 
+
+--- page 9 ---
+yes ;
+RARRAGSSeH FOR MARKERS’ USE ONLY
+8. (a) Because Z; and Z (connected in series) are shorted by BCDE [IA Accept p.d. across each low-beam
+headlight (L; or L2) is 0.
+[a
+© © pase n= 12v
+[a
+Gi) B
+A c
+1A Any two currents correctly marked.
+1A All currents correct.
+i ©)
+B09 ©)
+*  #O@
+Th 2
+Rv=
+F
+¢ D
+largest current in branch BC 1A
+() : 122 122 IM for same voltage across each bulb
+Power supplied P = 2x 0 + a IM (11, Tx, Hy and Hp)
+= 153.6 W = 154 W @ sig. fig.) 1A e.c.f. from (b)(i)
+v2 122 1 1411 .
+— = = 153.6 (or —=—+—+=4+5) IM IM for all bulbs (71, 72, Hi and Hy) in
+Req Req Req 30 30.2 2 parallel
+Req = 0.9375 Q=0.938Q~1Q (sig. fig.) 1A
+(d) Vv 12
+max, curtent Ima 5 = Toa7g ~ 128A iM e-cf from (ec)
+P 153.6
+(oF Inax = = —>— = 12.8 A)
+Since the ratings slightly higher than th t (wh
+ince the rating is slightly higher than the max. current (when .
+high-beam headlights and taillights are switched on), it is suitable. |!“ 1A for 12.8 A and correct conclusion
+2020-DSE-PHY 1B-8
+yea ;
+RARASaSeH FOR MARKERS’ USE ONLY
+
+
+--- page 10 ---
+o ye ;
+RARASaS FOR MARKERS’ USE ONLY
+2 @) Lo ‘Accept: field lines are not on
+20 .
+Top view Figure 9.2
+140
+i a 1A Correct direction (From A to B)
+A B Accept: field lines not in contact
+| od IA Perpendicular to plates,
+Q parallel and evenly spaced
+A i NOT accept: 2 or more mistakes
+fos in the drawing
+(b) (i) Fx d=(2.0 x 10°)(0.05 cos 20°) IM IM Fxd
+Accept: without consider the
+= 9.396926 x 107 Nm~9.40 x 107Nm 1A component / without
+component
+d (0.05, 0.05/2,
+2x0.05, 5, 5/2, 2x5)
+NOT accept: calculation using
+separation between
+plates
+d (0.1, 10)
+@) pit
+d
+3 3 3
+7 ve ™
+0.1 O41 1 °VoO1
+= 50 000 Vm! or N C= 50 kV mr" or KNC# 1A
+(ii) pF
+Q
+5
+o=F = 20%107™ IM e.c.f, from (b)(ii)
+4
+E  5.0x10
+=4.0x 10-C 1A
+2020-DSE-PHY 1B-9
+o ye ’
+RRASaSSH FOR MARKERS’ USE ONLY
+
+
+--- page 13 ---
+PA DR Bel 5 SS ,
+7 Pk il FS el FOR MARKERS’ USE ONLY
+HKDSE Physics
+General Marking Instruction
+
+1. It is very important that all markers should adhere as closely as possible to the marking scheme. In many cases, however,
+candidates may have obtained a correct answer by an alternative method not specified in the marking scheme. In
+general, a correct answer merits the answer mark allocated to that part, unless a particular method has been specified
+in the question. Markers should be patient in marking alternative solutions not specified in the marking scheme.
+
+2. In the marking scheme, answer marks or ‘A’ marks are awarded for a correct numerical answer with a unit. In case
+the same unit involved is given incorrectly for more than once in answering the same question, the ‘A’ marks
+thereafter can be awarded even for correct numerical answers without units. If the answer should be in km, then
+cm and mare considered to be wrong units.
+
+3. Ina question consisting of several parts each depending on the previous parts, method marks or ‘M’ marks are awarded
+to substitutions or methods correctly deduced from previous numerical answers, even if these answers are erroneous or
+appropriate physi
+
+--- page 14 ---
+oO | ,
+RIRRISBSH FOR MARKERS’ USE ONLY
+Section A: Astronomy and Space Science
+1. D (%) 2. D (%) 3. C (%) 4. B(%)
+5. C (%) 6. B (%) 7. C (%) 8. A (%)
+1. (a) Distance 50 kpe = 50000 x 3.26 ly = 163000 ly 1A Note: 2020 — 1987 = 33 years can be
+Thus the explosion of the star took place 163000 years ago. ignored.
+Accepted range: 163000 ~164000 years
+or 50000x3.09x10!/(3x 108x365x24x3600)=163305
+or 50000x206265x 1.5x10!"/(3x108x365x24x3600=163516
+(b) SN 1987A at 50 kpc, being much farther away than 10 pe, would | | [Absolute magnitude is the apparent
+be much brighter (than that corresponding to +2.9) if it were brightness of the object at 10 pe.]
+placed at 10 pe.
+NO MARK awarded without ‘placed at 10 pe”
+Hence (the numerical value of) its absolute magnitude is much |1A
+smaller than +2.9 / the apparent magnitude.
+(c) (i) Take Ls, Rs and Ts to be the luminosity, radius and surface
+temperature of the Sun respectively, whereas let Lx, Rx and
+Tx be those of X respectively.
+By Stefan’s law,
+_ 2yn4 _ 2 rd
+Lg = o(4nR§)T§ and Lx = o(4nRX)TX
+L R P T; *
+Therefore, —* |] [| IM
+ls [Rs | |%
+Re
+40000=| —* | [3.1}* IM
+Rs
+R;
+=X = 20,81165~ 20.8
+Rs
+(ii) Region A. 1A
+Not a ‘red giant’ as the temperature of
+
+--- page 16 ---
+o =| ,
+RIREI}%S4H FOR MARKERS’ USE ONLY
+Section C : Energy and Use of Energy
+1. B (%) 2. A (%) 3. D (%) 4. C (%)
+5. A (%) 6. B (%) 7. D (%) 8. A (%)
+3. (a) The fission products / nuclides are with higher binding energy [1A 1A for comparing the binding energy|
+per nucleon than uranium-235. 1A per nucleon before and after
+Therefore, energy is released in fission and the resulting |1A fission of 235U
+nuelices are more stave. 1A for more stable after fission
+(b) (i) — It represents the energy required to separate all 1A Accept:
+nucleons (protons and neutrons) of uranium-235 to Energy released by combining protons|
+infinity / far apart / separate completely. and neutrons (nucleons) into a single
+nucleus.
+(i) Binding energy (B.E.) of 735U nucleus = 1783 MeV 1M for calculating the total binding
+p lad KE fi
+B.E. of '{Ba nucleus = 8.27 x 144 = 1190.88 MeV IM energy of {Ba & 3¢Kr from
+- 90 the binding energy per nucleon
+B.E. of 3°Kr nucleus = 8.59 x 90 = 773.1 MeV
+Hence, energy released in fission Accept:
+= (1190.88 + 773.1) — 1783 180 — 181 MeV
+= 180.98 (MeV) = 181 (MeV) 1A (2.88 — 2.90) x 10" J
+(c) (i)  Totalenergy released x efficiency IM. for (2:30%1022x108 (4.610719)
+Power output 500x10
+
+--- page 17 ---
+oO | ,
+RiRne SSH FOR MARKERS’ USE ONLY
+Section D : Medical Physics
+1. D (%) 2. C (%) 3. D (%) 4. A (%)
+5. B (%) 6. C (%) 7. B (%) 8. A (%)
+4. (a) X-rays are produced when high-speed electrons strike a heavy [IA
+metal target (like tungsten).
+(b) (i) density of bone is higher / 1A
+bone contains element(s) with high atomic number /
+heavy elements like calcium in bone block X-rays.
+(Accept other reasonable answers.)
+. Alternative method
+qi) 7 = [ye #'s = [ye 05 PS6 iM 0.51 x 5.6 = 2.46 x ty
+[= [pe"H = [ge 245%"
+ty = 1.16097561 cm = 1.2 cm (2 sig. fig.) 1A Accept 1.16 cm to 1.2cm
+(iii) Imaging of the breast only involves soft tissues and X- [1A Accept less harmful with X-rays of|
+rays of longer wavelength / lower frequency / less lower energy
+penetrating power are needed or giving better contrast of
+soft tissues / more sensitive to small changes in density of
+soft tissues.
+For structures with bone, X-rays of shorter wavelength /
+higher frequency / greater penetrating power are needed. [1A
+(c) (i) Induce (cause) cancer / heritable mutations / genetically |1A
+associated diseases.
+(Accept other reasonable answers.)
+(ii) ACT scan delivers a 2-D cross-sectional image of the body
+part by mean
+
+
+---
+exit_code: 0
+elapsed_ms: 44812
+ended_at: 2026-09-04T08:58:38.135Z
+---

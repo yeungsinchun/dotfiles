@@ -1,0 +1,27 @@
+---
+pid: 1318
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "# Free eval pools (local no-mistakes replay corpus; regenerable)\nrm -rf /Users/sinchunyeung/.no-mistakes/eval/pools/*\n# Also clear other paper2db worktrees if any leftover\nls /Users/sinchunyeung/.no-mistakes/worktrees/6238f6fd4f32/ 2>&1\ndf -h /Users/sinchunyeung | tail -1\necho '===='\n# Fetch pipeline tip from gate into local repo\nGATE=/Users/sinchunyeung/.no-mistakes/repos/6238f6fd4f32.git\ngit --git-dir=\"$GATE\" rev-parse refs/heads/classify\ngit fetch \"$GATE\" refs/heads/classify:refs/no-mistakes-recover/classify 2>&1\ngit rev-parse refs/no-mistakes-recover/classify 2>&1\ngit log --oneline refs/no-mistakes-recover/classify -6 2>&1\n"
+title: "Free eval pools; fetch tip from gate"
+status: succeeded
+started_at: 2026-09-05T15:57:04.223Z
+running_for_ms: 97752    
+---
+/dev/disk3s5   460Gi   417Gi   5.2Gi    99%    6.6M   54M   11%   /System/Volumes/Data
+====
+7f549d07352407e1a87569666562663116f6417b
+From /Users/sinchunyeung/.no-mistakes/repos/6238f6fd4f32
+ * [new branch]      classify   -> refs/no-mistakes-recover/classify
+7f549d07352407e1a87569666562663116f6417b
+7f549d0 no-mistakes(document): Align docs with split classification outputs
+03c6dd3 no-mistakes(review): Drop legacy MC names; preserve LQ crops
+25c86db chore: clean LQ assets and drop page-render caches
+863b880 feat: classify LQ questions into curriculum sections
+9489a3a feat: classify MC questions into curriculum sections
+665252d Merge pull request #2 from yeungsinchun/reorganize
+
+---
+exit_code: 0
+elapsed_ms: 97752
+ended_at: 2026-09-05T15:58:41.975Z
+---

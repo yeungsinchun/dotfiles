@@ -1,0 +1,49 @@
+---
+pid: 48222
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/01b0017cd60e/01M2MEXMA6V404M17QW1WBFKN8"
+command: "EVIDENCE_DIR=/Users/sinchunyeung/.no-mistakes/evidence/01M2MEXMA6V404M17QW1WBFKN8 node --test notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs"
+title: "Run Ch.1 notes interactive Chrome tests"
+status: failed   
+started_at: 2026-09-16T17:49:54.897Z
+running_for_ms: 828450   
+---
+compdef:153: _comps: assignment to invalid subscript range
+▶ Book 5 Ch.1 notes interactives
+  ✔ 25.1 spectrum is a 2D strip with the ionizing threshold inside UV (30971.549416ms)
+  ✔ 25.1 imaging is X-rays down through a hand onto film that starts white (33946.062375ms)
+  ✔ 25.2 pie wedge is 20% and Pu-239 bookkeeping is static n_α=8 (32389.626042ms)
+  ✔ 25.2 decay labels sit on the parent and outgoing particle (29989.468084ms)
+  ✔ 25.3 absorber presets follow paper/Al/Pb contribution rules (16623.560792ms)
+  ✔ 25.3 GM extra recomputes when the plastic grid toggles (21089.348209ms)
+  ✔ 25.3 identification graph keeps taken yes/no edges (34094.887917ms)
+  ✖ 25.1 knockout ejects the bound electron already on the atom (28022.644ms)
+  ✔ 25.3 ion-pair capture, Flip B marks, and β/γ check (26966.553ms)
+  ✔ chapter map, summary, and concept-check scoring are the public notes surface (169611.040375ms)
+  ✔ 3d scenes magnify, label the tube, keep β drift, and pulse radially (164927.434542ms)
+  ✔ every Ch.1 section page shows syllabus LOs and keeps DSE papers in the section quiz (76999.171208ms)
+  ✔ each Ch.1 subsection quizzes its DSE papers one at a time (140743.708334ms)
+  ✔ Export PDF prints once after scans settle (13309.587875ms)
+✖ Book 5 Ch.1 notes interactives (823211.707791ms)
+ℹ tests 14
+ℹ suites 1
+ℹ pass 13
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 823742.774042
+
+✖ failing tests:
+
+test at notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:242:3
+✖ 25.1 knockout ejects the bound electron already on the atom (28022.644ms)
+  Error: Runtime.evaluate timed out after 20000ms
+      at Timeout._onTimeout (file:///Users/sinchunyeung/.no-mistakes/worktrees/01b0017cd60e/01M2MEXMA6V404M17QW1WBFKN8/notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:74:16)
+      at listOnTimeout (node:internal/timers:685:17)
+      at process.processTimers (node:internal/timers:618:7)
+
+---
+exit_code: 1
+elapsed_ms: 828449
+ended_at: 2026-09-16T18:03:43.346Z
+---

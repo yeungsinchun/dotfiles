@@ -1,0 +1,21 @@
+---
+pid: 97782
+cwd: "/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams"
+command: "python3 << 'PY'\nfrom __future__ import annotations\nimport re, subprocess\nfrom pathlib import Path\n\nREPO = Path(\"/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams\")\nOLD = Path(\"/tmp/simplify-iter2-baseline\")\nNEW = REPO / \"build-release\" / \"simplify\"\nRAW = re.compile(r\"^[0-9]+(?:\\.[0-9]+)?$\", re.M)\nPTS = re.compile(r\"SIMPLIFIED_POINTS:\\s*(\\d+)\")\n\ndef count_pts(idv):\n    p = REPO / \"data\" / str(idv) / \"simplify.txt\"\n    return int(p.read_text().splitlines()[0].strip())\n\ndef run_dist(bin_path, idv, eps, delta):\n    cmd = [str(bin_path), str(idv), \"-e\", str(eps), \"-d\", str(delta), \"--dist\"]\n    proc = subprocess.run(cmd, cwd=REPO, capture_output=True, text=True, timeout=300)\n    if proc.returncode != 0:\n        raise RuntimeError(proc.stderr[-800:] + proc.stdout[-800:])\n    text = proc.stdout + \"\\n\" + proc.stderr\n    ms = RAW.findall(text)\n    if not ms:\n        raise RuntimeError(\"no dist\\n\" + text[-1500:])\n    return float(ms[-1]), count_pts(idv)\n\ncases = [\n    (1, 0.5, 200),\n    (1, 0.25, 400),\n    (1, 299, 1),\n    (2, 0.5, 200),\n]\nprint(f\"{'id':>3} {'eps':>6} {'delta':>6} {'old_dist':>12} {'new_dist':>12} {'d_dist':>10} {'old_pts':>7} {'new_pts':>7} status\")\nok = True\nfor idv, eps, delta in cases:\n    od, op = run_dist(OLD, idv, eps, delta)\n    nd, np_ = run_dist(NEW, idv, eps, delta)\n    status = \"OK\"\n    if abs(nd - od) > 0.01 and nd > od + 0.01:\n        status = \"FAIL_DIST\"\n        ok = False\n    elif np_ > op:\n        status = \"FAIL_POINTS\"\n        ok = False\n    print(f\"{idv:3d} {eps:6.2f} {delta:6.1f} {od:12.6f} {nd:12.6f} {nd-od:10.6f} {op:7d} {np_:7d} {status}\")\nprint(\"FRECHET\", \"OK\" if ok else \"FAILED\")\nPY"
+title: "Compare Frechet distance old vs new"
+status: succeeded
+started_at: 2026-09-04T17:50:20.181Z
+running_for_ms: 68521    
+---
+ id    eps  delta     old_dist     new_dist     d_dist old_pts new_pts status
+  1   0.50  200.0   300.000000   300.000000   0.000000      86      86 OK
+  1   0.25  400.0   500.000000   500.000000   0.000000      70      70 OK
+  1 299.00    1.0   299.000000   299.000000   0.000000      92      92 OK
+  2   0.50  200.0   300.000000   300.000000   0.000000     482     482 OK
+FRECHET OK
+
+---
+exit_code: 0
+elapsed_ms: 68521
+ended_at: 2026-09-04T17:51:28.702Z
+---

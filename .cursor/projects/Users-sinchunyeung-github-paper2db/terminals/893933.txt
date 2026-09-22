@@ -1,0 +1,16 @@
+---
+pid: 78876
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && PYTHONPATH=scripts PYTHONUNBUFFERED=1 .venv/bin/python -u scripts/build_lq_lavish_review.py 2>&1\n"
+title: "Rebuild Lavish with full pages + answers"
+status: succeeded
+started_at: 2026-09-05T01:17:37.494Z
+running_for_ms: 93714    
+---
+Wrote /Users/sinchunyeung/github/paper2db/.lavish/lq-classified-review/index.html (138 placements)
+
+---
+exit_code: 0
+elapsed_ms: 93714
+ended_at: 2026-09-05T01:19:11.208Z
+---

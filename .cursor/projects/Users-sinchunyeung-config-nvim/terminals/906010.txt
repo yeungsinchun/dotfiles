@@ -1,0 +1,15 @@
+---
+pid: 98654
+cwd: "/Users/sinchunyeung/.config/nvim"
+command: "cd ~/Documents && fzf --walker=dir,follow,hidden --scheme=path --query='.config' --print0 2>/dev/null | tr '\\0' '\\n' | head -10; echo \"=== from home ===\"; cd ~ && fzf --walker=dir,follow,hidden --scheme=path --query='.config' --print0 2>/dev/null | tr '\\0' '\\n' | head -10"
+title: "Test fzf walker scope from Documents vs home"
+status: failed   
+started_at: 2026-09-02T06:22:48.319Z
+running_for_ms: 81745    
+---
+
+---
+exit_code: unknown
+elapsed_ms: 81735
+ended_at: 2026-09-02T06:24:10.054Z
+---

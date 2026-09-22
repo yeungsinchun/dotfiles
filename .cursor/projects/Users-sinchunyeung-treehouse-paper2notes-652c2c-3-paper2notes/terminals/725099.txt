@@ -1,0 +1,41 @@
+---
+pid: 6477
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/3/paper2notes"
+command: "python3 -m http.server 8080 --bind 127.0.0.1"
+title: "Serve notes on localhost port 8080"
+status: aborted  
+started_at: 2026-09-14T15:23:57.066Z
+running_for_ms: 38819108 
+---
+127.0.0.1 - - [14/Sep/2026 23:24:01] "GET /notes/book5/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 23:26:29] "GET /notes/book5/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 23:26:29] "GET /notes/book5/css/notes.css HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 23:26:29] code 404, message File not found
+127.0.0.1 - - [14/Sep/2026 23:26:29] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+127.0.0.1 - - [14/Sep/2026 23:26:29] code 404, message File not found
+127.0.0.1 - - [14/Sep/2026 23:26:29] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [14/Sep/2026 23:26:29] code 404, message File not found
+127.0.0.1 - - [14/Sep/2026 23:26:29] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+127.0.0.1 - - [14/Sep/2026 23:26:29] code 404, message File not found
+127.0.0.1 - - [14/Sep/2026 23:26:29] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [14/Sep/2026 23:26:31] "GET /notes/book5/ch01-radiation-and-radioactivity/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 23:26:31] "GET /notes/book5/ch01-radiation-and-radioactivity/css/notes.css HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 23:26:31] "GET /notes/book5/ch01-radiation-and-radioactivity/js/notes.js HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 23:26:31] "GET /notes/book5/ch01-radiation-and-radioactivity/25-1.html HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 23:26:31] "GET /notes/book5/ch01-radiation-and-radioactivity/js/lib/three.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 23:26:31] "GET /notes/book5/ch01-radiation-and-radioactivity/js/diagrams3d.js HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 23:26:36] "GET /notes/book5/ch01-radiation-and-radioactivity/25-2.html HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 23:26:52] "GET /notes/book5/ch01-radiation-and-radioactivity/25-3.html HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 23:42:02] "GET /notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 23:42:02] "GET /notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/css/notes.css HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 23:42:02] "GET /notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.js HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 23:42:04] "GET /notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 23:42:04] "GET /notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/lib/three.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 23:42:04] "GET /notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/diagrams3d.js HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 23:42:08] "GET /notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html HTTP/1.1" 200 -
+
+---
+exit_code: unknown
+elapsed_ms: 38819106
+ended_at: 2026-09-15T02:10:56.172Z
+---

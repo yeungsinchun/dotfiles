@@ -1,0 +1,50 @@
+---
+pid: 90486
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && bash <<'EOS'\nset -u\nlog=/tmp/paper2db-resegment/rest.log\necho \"START $(date)\" | tee \"$log\"\npapers=(\n  \"paper/mc/sapp1a.pdf:output/sap:output/sap-intermediate\"\n  \"paper/mc/2012p1a.pdf:output/2012:output/2012-intermediate\"\n  \"paper/mc/2013p1a.pdf:output/2013:output/2013-intermediate\"\n  \"paper/mc/2014p1a.pdf:output/2014:output/2014-intermediate\"\n  \"paper/mc/2015p1a.pdf:output/2015:output/2015-intermediate\"\n  \"paper/mc/2016p1a.pdf:output/2016:output/2016-intermediate\"\n  \"paper/mc/2017p1a.pdf:output/2017:output/2017-intermediate\"\n  \"paper/mc/2018p1a.pdf:output/2018:output/2018-intermediate\"\n  \"paper/mc/2019p1a.pdf:output/2019:output/2019-intermediate\"\n  \"paper/mc/2020p1a.pdf:output/2020:output/2020-intermediate\"\n  \"paper/mc/2021p1a.pdf:output/2021:output/2021-intermediate\"\n  \"paper/mc/2022p1a.pdf:output/2022:output/2022-intermediate\"\n  \"paper/mc/2023p1a.pdf:output/2023:output/2023-intermediate\"\n  \"paper/mc/2024p1a.pdf:output/2024:output/2024-intermediate\"\n  \"paper/mc/2025p1a.pdf:output/2025:output/2025-intermediate\"\n  \"paper/mc/2026p1a.pdf:output/2026:output/2026-intermediate\"\n)\nfor spec in \"${papers[@]}\"; do\n  IFS=: read -r pdf out inter <<<\"$spec\"\n  echo \"=== $(date +%H:%M:%S) $pdf ===\" | tee -a \"$log\"\n  if ./segment \"$pdf\" \"$out\" --type mc --step all --intermediate \"$inter\" >>\"$log\" 2>&1; then\n    echo \"OK $pdf\" | tee -a \"$log\"\n  else\n    echo \"FAIL $pdf\" | tee -a \"$log\"\n  fi\ndone\n# Resync images after all\n.venv/bin/python - <<'PY'\nimport shutil, re\nfrom pathlib import Path\nn=0\nfor year_dir in Path('output').iterdir():\n    if not year_dir.is_dir() or year_dir.name.endswith('-intermediate'):\n        continue\n    year=year_dir.name\n    for png in year_dir.glob('q*.png'):\n        q=png.stem[1:]\n        dest=Path('.lavish/classified-review/img')/f'{year}_q{q}.png'\n        if dest.parent.is_dir():\n            shutil.copy2(png, dest); n+=1\npat=re.compile(r'^(?P<year>.+)_q(?P<q>\\d+)\\.png$')\nc=0\nfor p in Path('classified').rglob('*_q*.png'):\n    m=pat.match(p.name)\n    if not m: continue\n    src=Path('output')/m.group('year')/f\"q{m.group('q')}.png\"\n    if src.is_file():\n        shutil.copy2(src, p); c+=1\nprint(f'synced lavish={n} classified={c}')\nPY\necho \"DONE $(date)\" | tee -a \"$log\"\nEOS\n"
+title: "Background resegment remaining MC years"
+status: succeeded
+started_at: 2026-09-04T14:17:38.254Z
+running_for_ms: 2594884  
+---
+START Fri  4 Sep 2026 22:17:38 HKT
+=== 22:17:38 paper/mc/sapp1a.pdf ===
+OK paper/mc/sapp1a.pdf
+=== 22:20:07 paper/mc/2012p1a.pdf ===
+FAIL paper/mc/2012p1a.pdf
+=== 22:22:29 paper/mc/2013p1a.pdf ===
+OK paper/mc/2013p1a.pdf
+=== 22:25:30 paper/mc/2014p1a.pdf ===
+OK paper/mc/2014p1a.pdf
+=== 22:28:17 paper/mc/2015p1a.pdf ===
+OK paper/mc/2015p1a.pdf
+=== 22:31:03 paper/mc/2016p1a.pdf ===
+OK paper/mc/2016p1a.pdf
+=== 22:32:55 paper/mc/2017p1a.pdf ===
+OK paper/mc/2017p1a.pdf
+=== 22:35:43 paper/mc/2018p1a.pdf ===
+OK paper/mc/2018p1a.pdf
+=== 22:38:07 paper/mc/2019p1a.pdf ===
+FAIL paper/mc/2019p1a.pdf
+=== 22:40:20 paper/mc/2020p1a.pdf ===
+OK paper/mc/2020p1a.pdf
+=== 22:43:23 paper/mc/2021p1a.pdf ===
+OK paper/mc/2021p1a.pdf
+=== 22:46:21 paper/mc/2022p1a.pdf ===
+OK paper/mc/2022p1a.pdf
+=== 22:49:26 paper/mc/2023p1a.pdf ===
+OK paper/mc/2023p1a.pdf
+=== 22:52:52 paper/mc/2024p1a.pdf ===
+FAIL paper/mc/2024p1a.pdf
+=== 22:54:25 paper/mc/2025p1a.pdf ===
+FAIL paper/mc/2025p1a.pdf
+=== 22:56:17 paper/mc/2026p1a.pdf ===
+OK paper/mc/2026p1a.pdf
+synced lavish=573 classified=581
+DONE Fri  4 Sep 2026 23:00:53 HKT
+
+---
+exit_code: 0
+elapsed_ms: 2594884
+ended_at: 2026-09-04T15:00:53.138Z
+---

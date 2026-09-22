@@ -1,0 +1,56 @@
+---
+pid: 71582
+cwd: "/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams"
+command: "python3 -m http.server 8765 --directory web"
+title: "Serve web folder for browser testing"
+status: failed   
+started_at: 2026-09-07T05:58:47.340Z
+running_for_ms: 469977   
+---
+::ffff:127.0.0.1 - - [07/Sep/2026 13:59:30] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [07/Sep/2026 13:59:30] "GET /viewer.js?v=compare-method-glosses-1 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [07/Sep/2026 13:59:30] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 13:59:30] "GET /api/traces HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 13:59:30] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 13:59:30] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 13:59:44] "GET /index.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [07/Sep/2026 13:59:44] "GET /viewer.js?v=compare-method-glosses-1 HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [07/Sep/2026 13:59:44] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 13:59:44] "GET /api/traces HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 13:59:59] "GET /viewer.js?v=compare-method-glosses-1 HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [07/Sep/2026 13:59:59] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 13:59:59] "GET /api/traces HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:00:06] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 14:00:06] "GET /api/traces HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:03:13] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:03:13] "GET /viewer.js?v=compare-method-glosses-1 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:03:13] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 14:03:13] "GET /api/traces HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:03:13] "GET /index.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:03:13] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 14:03:13] "GET /api/traces HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:04:16] "GET /index.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:04:16] "GET /viewer.js?v=compare-method-glosses-1 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:04:16] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 14:04:16] "GET /api/traces HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:05:00] "GET /index.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:05:00] "GET /viewer.js?v=compare-method-glosses-1 HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:05:00] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 14:05:00] "GET /api/traces HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:05:25] "GET /index.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:05:25] "GET /viewer.js?v=compare-method-glosses-1 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:05:25] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 14:05:25] "GET /api/traces HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:05:46] "GET /index.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:05:46] "GET /viewer.js?v=compare-method-glosses-1 HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:05:46] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 14:05:46] "GET /api/traces HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:05:58] "GET /viewer.js?v=compare-method-glosses-1 HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:05:58] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 14:05:58] "GET /api/traces HTTP/1.1" 404 -
+
+---
+exit_code: unknown
+elapsed_ms: 469977
+ended_at: 2026-09-07T06:06:37.317Z
+---

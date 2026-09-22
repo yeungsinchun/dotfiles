@@ -1,0 +1,25 @@
+---
+pid: 95209
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "bin/fm-fleet-sync.sh dotfiles && bin/fm-teardown.sh df-pr-open-a-no-mistakes-pr-summarizing-recent-3d"
+title: "Refresh dotfiles clone and tear down landed task"
+status: succeeded
+started_at: 2026-09-10T12:49:08.878Z
+running_for_ms: 31151    
+---
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+dotfiles: synced db799ed..4141357
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+teardown: reaping leaked worktree process(es) for df-pr-open-a-no-mistakes-pr-summarizing-recent-3d: 74668 76467
+teardown: force-killing leaked worktree process(es) for df-pr-open-a-no-mistakes-pr-summarizing-recent-3d: 74668
+🌳 Worktree returned to pool.
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+dotfiles: already current
+teardown df-pr-open-a-no-mistakes-pr-summarizing-recent-3d complete (window github:fm-df-pr-open-a-no-mistakes-pr-summarizing-recent-3d, worktree /Users/sinchunyeung/.treehouse/dotfiles-a7f4b7/1/dotfiles)
+Backlog: df-pr-open-a-no-mistakes-pr-summarizing-recent-3d is closed in /Users/sinchunyeung/github/firstmate/data/backlog.md. Run tasks-axi ready for dependency-cleared candidates, check date gates, and dispatch only work whose blockers are gone and date is due.
+
+---
+exit_code: 0
+elapsed_ms: 31143
+ended_at: 2026-09-10T12:49:40.021Z
+---

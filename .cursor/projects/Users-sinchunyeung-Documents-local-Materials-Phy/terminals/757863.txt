@@ -1,0 +1,95 @@
+---
+pid: 30108
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/dse"
+command: "cd \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse\" && python3 << 'EOF'\n\"\"\"Split all anchored years into processed/<year>/qN.png\"\"\"\nfrom __future__ import annotations\nimport json, subprocess, sys\nfrom pathlib import Path\n\nROOT = Path(\"/Users/sinchunyeung/Documents-local/Materials/Phy/dse\")\nPRE = ROOT / \"preprocessed\"\nOUT = ROOT / \"processed\"\nSPLIT = ROOT / \"scripts\" / \"split_mc.py\"\n\nJOBS = [\n    (\"2012\", 36), (\"2013\", 36),\n    (\"2014\", 33), (\"2015\", 33), (\"2016\", 33), (\"2017\", 33), (\"2018\", 33),\n    (\"2019\", 33), (\"2020\", 33), (\"2021\", 33), (\"2022\", 33), (\"2023\", 33),\n    (\"2024\", 33), (\"2025\", 33), (\"2026\", 33),\n    (\"ppp\", 36), (\"sapp\", 36),\n]\n\nresults = []\nfor year, q in JOBS:\n    stem = f\"{year}p1a\"\n    anchored = PRE / f\"anchored_{stem}.pdf\"\n    ov = PRE / f\"overrides_{stem}.json\"\n    if ov.exists():\n        q = len(json.loads(ov.read_text()))\n    out_dir = OUT / year\n    if out_dir.exists():\n        for p in out_dir.glob(\"q*.png\"):\n            p.unlink()\n    print(f\"\\n===== SPLIT {year} ({q}q) =====\", flush=True)\n    proc = subprocess.run(\n        [sys.executable, str(SPLIT), str(anchored), str(out_dir), \"--questions\", str(q)],\n        capture_output=True, text=True,\n    )\n    if proc.returncode == 0:\n        n = len(list(out_dir.glob(\"q*.png\")))\n        print(proc.stdout.strip().splitlines()[-1] if proc.stdout.strip() else \"ok\")\n        results.append((year, f\"OK:{n}\"))\n    else:\n        print(proc.stdout[-400:])\n        print(\"ERR\", proc.stderr[-400:])\n        results.append((year, f\"FAIL:{proc.returncode}\"))\n\nprint(\"\\n===== SPLIT SUMMARY =====\")\nfor y, s in results:\n    print(f\"{y}: {s}\")\nsys.exit(0 if all(s.startswith(\"OK\") for _, s in results) else 1)\nEOF\n"
+started_at: 2026-08-22T02:13:36.067Z
+running_for_ms: 50041    
+---
+
+===== SPLIT 2012 (36q) =====
+Wrote 36 questions to /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/2012
+
+===== SPLIT 2013 (36q) =====
+Wrote 36 questions to /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/2013
+
+===== SPLIT 2014 (33q) =====
+Wrote 33 questions to /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/2014
+
+===== SPLIT 2015 (33q) =====
+Wrote 33 questions to /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/2015
+
+===== SPLIT 2016 (33q) =====
+Wrote 33 questions to /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/2016
+
+===== SPLIT 2017 (33q) =====
+Wrote 33 questions to /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/2017
+
+===== SPLIT 2018 (33q) =====
+Wrote 33 questions to /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/2018
+
+===== SPLIT 2019 (33q) =====
+Wrote 33 questions to /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/2019
+
+===== SPLIT 2020 (33q) =====
+Wrote 33 questions to /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/2020
+
+===== SPLIT 2021 (33q) =====
+Wrote 33 questions to /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/2021
+
+===== SPLIT 2022 (33q) =====
+Wrote 33 questions to /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/2022
+
+===== SPLIT 2023 (33q) =====
+Wrote 33 questions to /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/2023
+
+===== SPLIT 2024 (33q) =====
+Wrote 33 questions to /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/2024
+
+===== SPLIT 2025 (33q) =====
+Wrote 33 questions to /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/2025
+
+===== SPLIT 2026 (33q) =====
+Wrote 33 questions to /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/2026
+
+===== SPLIT ppp (36q) =====
+
+ERR /Documents-local/Materials/Phy/dse/scripts/split_mc.py", line 92, in main
+    document = fitz.open(args.anchored)
+  File "/opt/anaconda3/lib/python3.10/site-packages/pymupdf/__init__.py", line 2990, in __init__
+    raise FileNotFoundError(f"no such file: '{filename}'")
+pymupdf.FileNotFoundError: no such file: '/Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/anchored_pppp1a.pdf'
+
+
+===== SPLIT sapp (36q) =====
+
+ERR Documents-local/Materials/Phy/dse/scripts/split_mc.py", line 92, in main
+    document = fitz.open(args.anchored)
+  File "/opt/anaconda3/lib/python3.10/site-packages/pymupdf/__init__.py", line 2990, in __init__
+    raise FileNotFoundError(f"no such file: '{filename}'")
+pymupdf.FileNotFoundError: no such file: '/Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/anchored_sappp1a.pdf'
+
+
+===== SPLIT SUMMARY =====
+2012: OK:36
+2013: OK:36
+2014: OK:33
+2015: OK:33
+2016: OK:33
+2017: OK:33
+2018: OK:33
+2019: OK:33
+2020: OK:33
+2021: OK:33
+2022: OK:33
+2023: OK:33
+2024: OK:33
+2025: OK:33
+2026: OK:33
+ppp: FAIL:1
+sapp: FAIL:1
+
+---
+exit_code: 1
+elapsed_ms: 52603
+ended_at: 2026-08-22T02:14:28.670Z
+---

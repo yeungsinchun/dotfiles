@@ -1,0 +1,15 @@
+---
+pid: 99436
+cwd: "/tmp"
+command: "cd /tmp && fd --type d --hidden --follow --exclude .git . ~ 2>/dev/null | rg '/\\.config$' | head -5"
+title: "Test fd searching both . and ~ for .config"
+status: failed   
+started_at: 2026-09-02T06:25:03.740Z
+running_for_ms: 108144   
+---
+
+---
+exit_code: unknown
+elapsed_ms: 108138
+ended_at: 2026-09-02T06:26:51.878Z
+---

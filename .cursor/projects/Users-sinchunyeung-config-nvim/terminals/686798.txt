@@ -1,0 +1,15 @@
+---
+pid: 89983
+cwd: "/Users/sinchunyeung/.config/nvim"
+command: "nvim --headless \"+echo join(readfile('/opt/homebrew/share/nvim/runtime/doc/lsp.txt', ''), '')\" 2>&1 | head -1; rg -l \"vim\\.pack\" /opt/homebrew/share/nvim/runtime/doc/ 2>/dev/null | head -5"
+title: "Find vim.pack documentation in Neovim runtime"
+status: aborted  
+started_at: 2026-08-31T12:21:30.567Z
+running_for_ms: 7433675  
+---
+
+---
+exit_code: unknown
+elapsed_ms: 7433674
+ended_at: 2026-08-31T14:25:24.241Z
+---

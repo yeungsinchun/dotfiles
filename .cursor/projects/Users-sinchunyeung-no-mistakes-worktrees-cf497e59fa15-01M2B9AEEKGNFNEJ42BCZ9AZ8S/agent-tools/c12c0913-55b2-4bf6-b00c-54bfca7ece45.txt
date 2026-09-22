@@ -1,0 +1,1025 @@
+diff --git a/.cursor/rules/combined-png-pdf.mdc b/.cursor/rules/combined-png-pdf.mdc
+index 5509e09..b2b6428 100644
+--- a/.cursor/rules/combined-png-pdf.mdc
++++ b/.cursor/rules/combined-png-pdf.mdc
+@@ -8,6 +8,7 @@ alwaysApply: true
+ When this project generates PNG files, also leave a single review PDF in the same folder. Do not write a second PDF of the same pages.
+ 
+ - Anchor review: `anchor.pdf` (already written by preprocess). Do not also stitch `pageNN.png` into `combined.pdf`.
+-- Question crops (`qN.png`): write `combined.pdf` from the original paper (no blue dots). Overwrite that PDF when the PNGs are regenerated. Crop the left edge at the anchor.
+-- Prefer `scripts/png_pdf.py` (`combine_pngs_to_pdf`) for question crops. It skips an existing output PDF.
++- MC question crops (`qN.png`): write `combined.pdf` through `scripts/png_pdf.py` (`combine_pngs_to_pdf`). Portrait A4, year/Q labels, original paper (no blue dots). Overwrite when the PNGs are regenerated. Crop the left edge at the anchor. It skips an existing output PDF unless overwrite is set.
++- LQ answer crops: same PNG-to-A4 helper (`combine_pngs_to_pdf` / `place_pngs_on_a4`).
++- LQ question reviews (`output/lq/<year>/combined.pdf`, `questions.pdf`, and classified `questions.pdf`) come from source Paper 1B pages via `scripts/lq_pdf_review.py`. Do not stitch `qN.png` into those PDFs.
+ - Point the user at the existing review PDF, not a list of PNGs.
+diff --git a/AGENTS.md b/AGENTS.md
+index c00be67..db3df25 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -4,7 +4,7 @@ This file is the project's committed home for project-intrinsic agent knowledge:
+ 
+ - Day-to-day entry is `./pipeline` (stages via `--list-stages`, `--from`, `--only`, `--years`, `--force`, `--yes`). Prefer it over calling `scripts/*.py` or `./segment` directly.
+ - Quality bar and failure definitions: `python scripts/quality_audit.py` → `classified/quality_audit.json`. Captain walkthrough: `.lavish/pipeline-review/` (LQ Step C uses multi-page fit previews so whole `page_from`..`page_to` stacks are visible). PR screenshot pack: `.lavish/pr-evidence/`. MC/LQ banks: `.lavish/classified-review/` and `.lavish/lq-classified-review/`.
+-- Human gates that matter: review `output/<year>-intermediate/anchor.pdf` before MC split; skim `classified/mc/uncertain.csv` after classify. Hard MC pages live in `scripts/overrides_YYYY.json` (each counts toward the ≤5% manual-tuning budget). LQ uses whole exam pages only (`page_from`..`page_to`) - no within-page crop.
++- Human gates that matter: review `output/<year>-intermediate/anchor.pdf` before MC split; skim `classified/mc/uncertain.csv` after classify. Hard MC pages live in `scripts/overrides_YYYY.json` (each counts toward the ≤5% manual-tuning budget). LQ uses whole exam pages only (`page_from`..`page_to`) - no within-page crop. `output/**/pages/` is gitignored; `scripts/crop_lq_from_pages.py` exports missing pages from `paper/lq` without rewriting `starts.json`, then restacks `qN.png`. Answer crops under `ans/` stay cropped.
+ - Intermediate dirs (`output/*-intermediate/`, page PNGs) are gitignored; regenerate with `./pipeline --only mc-anchors --years YYYY --force --yes` when you need anchor evidence.
+ 
+ ## Maintaining this file
+diff --git a/README.md b/README.md
+index 7431022..03d7bd8 100644
+--- a/README.md
++++ b/README.md
+@@ -42,8 +42,8 @@ When no API key is set, both MC and LQ use the keyword classifiers.
+ | `paper/lq/` | Paper 1B PDFs |
+ | `paper/ans/` | Marking schemes (`2012ans.pdf`, ...) |
+ | `paper/performance/` | Candidate-performance notes (markdown; optional, not a pipeline stage) |
+-| `output/<year>/` | MC question PNGs + `combined.pdf` |
+-| `output/lq/<year>/` | LQ pages, `qN.png`, `ans/qN.png`, review PDFs |
++| `output/<year>/` | MC question PNGs + A4 `combined.pdf` |
++| `output/lq/<year>/` | LQ pages, `qN.png`, `ans/qN.png`, A4 review PDFs |
+ | `classified/mc/` | Section folders, CSVs, `answer_keys.json`, section PDFs |
+ | `classified/lq/` | Same for long questions (+ optional `candidate_performance.json`) |
+ | `scripts/` | Stage implementations (called by `./pipeline`) |
+@@ -56,14 +56,14 @@ When no API key is set, both MC and LQ use the keyword classifiers.
+ ## Stages
+ 
+ 1. **mc-anchors** - blue dots on each MC paper; **you must review** `output/<year>-intermediate/anchor.pdf`
+-2. **mc-split** - crop clean `qN.png` into `output/<year>/`
++2. **mc-split** - crop clean `qN.png` into `output/<year>/` + A4 `combined.pdf`
+ 3. **lq-pages** - export LQ pages + `starts.json`
+-4. **lq-crops** - whole exam page stack per question (`page_from`..`page_to`) + `questions.pdf` (no within-page crop)
++4. **lq-crops** - whole exam page stack per question (`page_from`..`page_to`); A4 `questions.pdf` from the source paper (no within-page crop)
+ 5. **lq-answers** - marking-scheme answer crops under `ans/`
+ 6. **keys** - MC keys + correct-% → `classified/mc/answer_keys.json`
+ 7. **classify-mc** - 27 syllabus sections (LLM if keyed, else keywords)
+ 8. **classify-lq** - same sections for LQ (LLM if keyed, else keywords)
+-9. **section-pdfs** - per-section `combined.pdf` / `questions.pdf` (+ answer PDFs)
++9. **section-pdfs** - per-section A4 `combined.pdf` / `questions.pdf` (+ answer PDFs)
+ 10. **lavish** - quality audit + HTML reviews under `.lavish/` (pipeline walkthrough, MC banks, LQ banks)
+ 
+ Candidate-performance extraction stays available as `python scripts/extract_lq_performance.py` when needed; it is not part of `./pipeline`.
+@@ -87,7 +87,7 @@ Captain review surface: `.lavish/pipeline-review/index.html` (step-by-step inter
+ 1. **Anchors** - every blue dot beside the question number with a clear gap (not on options or diagrams). Wrong anchors poison every later step. Use `scripts/overrides_YYYY.json` for hard pages (each counts toward the 5% budget).
+ 2. **Uncertain MC** - skim `classified/mc/uncertain.csv` and spot-check a few section folders.
+ 3. **LQ pages** - skim `output/lq/<year>/questions.pdf` if a question's page range looks wrong (`starts.json`).
+-4. Trust the section review PDFs under `classified/*/.../combined.pdf` (or `questions.pdf`) rather than browsing PNG lists.
++4. Trust the section review PDFs under `classified/*/.../combined.pdf` (or `questions.pdf`) rather than browsing PNG lists. Those PDFs are portrait A4 with year and question labels.
+ 5. Skim `.lavish/pipeline-review/` for the measured rates before accepting a new year.
+ 
+ ## Low-level tools
+diff --git a/pipeline b/pipeline
+index c565ae4..d89ef93 100755
+--- a/pipeline
++++ b/pipeline
+@@ -26,6 +26,7 @@ Usage:
+ from __future__ import annotations
+ 
+ import argparse
++import json
+ import os
+ import re
+ import subprocess
+@@ -134,13 +135,71 @@ def mc_output_ready(year: str) -> bool:
+ 
+ def lq_pages_ready(year: str) -> bool:
+     year_dir = ROOT / "output" / "lq" / year
+-    return (year_dir / "starts.json").is_file() and (year_dir / "pages").is_dir()
++    pages = year_dir / "pages"
++    return (
++        (year_dir / "starts.json").is_file()
++        and pages.is_dir()
++        and any(pages.glob("page*.png"))
++    )
++
++
++def _png_size(path: Path) -> tuple[int, int]:
++    """Width and height from a PNG IHDR (no raster decode)."""
++    import struct
++
++    with path.open("rb") as fh:
++        signature = fh.read(8)
++        if signature != b"\x89PNG\r\n\x1a\n":
++            raise ValueError(f"{path} is not a PNG")
++        _length, chunk = struct.unpack(">I4s", fh.read(8))
++        if chunk != b"IHDR":
++            raise ValueError(f"{path} is missing IHDR")
++        width, height = struct.unpack(">II", fh.read(8))
++        return int(width), int(height)
++
++
++def _page_png_sizes(pages_dir: Path) -> list[tuple[int, int]]:
++    sizes: list[tuple[int, int]] = []
++    index = 0
++    while True:
++        path = pages_dir / f"page{index:03d}.png"
++        if not path.is_file():
++            break
++        sizes.append(_png_size(path))
++        index += 1
++    return sizes
+ 
+ 
+ def lq_crops_ready(year: str) -> bool:
++    """True only when every qN.png is a whole page_from..page_to stack.
++
++    Leftover within-page y-crops (or qN.png with no pages/ export) are not ready.
++    """
+     year_dir = ROOT / "output" / "lq" / year
+-    pngs = list(year_dir.glob("q*.png"))
+-    return len(pngs) >= 8
++    meta_path = year_dir / "starts.json"
++    pages_dir = year_dir / "pages"
++    if not meta_path.is_file() or not pages_dir.is_dir():
++        return False
++    questions = json.loads(meta_path.read_text(encoding="utf-8")).get("questions") or []
++    if not questions:
++        return False
++    page_sizes = _page_png_sizes(pages_dir)
++    if not page_sizes:
++        return False
++    for item in questions:
++        dest = year_dir / f"q{int(item['q'])}.png"
++        if not dest.is_file():
++            return False
++        page_from = int(item["page_from"])
++        page_to = int(item["page_to"])
++        if page_from < 0 or page_to >= len(page_sizes) or page_to < page_from:
++            return False
++        expected_w = max(size[0] for size in page_sizes[page_from : page_to + 1])
++        expected_h = sum(size[1] for size in page_sizes[page_from : page_to + 1])
++        width, height = _png_size(dest)
++        if abs(width - expected_w) > 2 or abs(height - expected_h) > 2:
++            return False
++    return True
+ 
+ 
+ def lq_answers_ready(year: str) -> bool:
+@@ -246,7 +305,13 @@ def stage_lq_pages(years: list[str] | None, *, force: bool) -> None:
+     for pdf, year in papers:
+         out = ROOT / "output" / "lq" / year
+         if lq_pages_ready(year) and not force:
+-            print(f"skip lq-pages {year}: starts.json already present")
++            print(f"skip lq-pages {year}: starts.json and pages/ already present")
++            continue
++        starts = out / "starts.json"
++        if starts.is_file() and not force:
++            print(f"\n=== LQ pages export (keep starts.json): {year} ({pdf.name}) ===")
++            out.mkdir(parents=True, exist_ok=True)
++            run_script("crop_lq_from_pages.py", "--years", year, "--pages-only")
+             continue
+         print(f"\n=== LQ pages: {year} ({pdf.name}) ===")
+         out.mkdir(parents=True, exist_ok=True)
+diff --git a/scripts/classify_mc_llm.py b/scripts/classify_mc_llm.py
+index a4e27b6..38e8341 100644
+--- a/scripts/classify_mc_llm.py
++++ b/scripts/classify_mc_llm.py
+@@ -10,7 +10,7 @@ Pipeline:
+        classified/mc/uncertain.csv
+        classified/mc/summary.json
+        classified/mc_classification.csv|json  (top-level split naming)
+-  4. Optionally rebuild per-section combined.pdf (easiest -> hardest) + answer.pdf
++  4. Optionally rebuild per-section combined.pdf (year order) + answer.pdf
+ 
+ Partial --years/--limit runs merge into existing mc_ocr.* / classification.*
+ and only refresh touched section PNGs. A full apply aborts if decisions do not
+diff --git a/scripts/combine_lq_section_pdfs.py b/scripts/combine_lq_section_pdfs.py
+index 5d97947..970bee4 100644
+--- a/scripts/combine_lq_section_pdfs.py
++++ b/scripts/combine_lq_section_pdfs.py
+@@ -2,8 +2,8 @@
+ """Build per-section LQ review PDFs under classified/lq/.
+ 
+ For each syllabus section that has at least one primary LQ:
+-  - questions.pdf  - question crops (year order)
+-  - answers.pdf    - marking-scheme answer crops (same order; skips missing)
++  - questions.pdf  - whole source Paper 1B pages (year then Q; A4)
++  - answers.pdf    - marking-scheme answer crops packed on A4 (same order; skips missing)
+   - performance.pdf - candidate-performance notes as text pages
+ 
+ Skips empty sections. Overwrites existing PDFs by default.
+@@ -21,6 +21,8 @@ from pathlib import Path
+ import pymupdf as fitz
+ 
+ from classify_mc_llm import BOOK_NAMES, SECTION_BY_NUM, SECTIONS, year_key
++from png_pdf import YEAR_Q_PNG, place_pngs_on_a4, section_heading_title
++from lq_pdf_review import write_section_questions_pdf
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+ CLASSIFIED_LQ = ROOT / "classified" / "lq"
+@@ -80,35 +82,12 @@ def resolve_answer_png(row: dict) -> Path | None:
+ 
+ 
+ def write_image_pdf(paths: list[Path], dest: Path, *, title: str | None = None) -> int:
+-    """One PDF page per image. Optional title page if title set."""
++    """Stack images on portrait A4. Optional chapter heading on the first page."""
+     if not paths:
+         return 0
+     doc = fitz.open()
+     try:
+-        if title:
+-            page = doc.new_page(width=595, height=842)
+-            page.insert_text((40, 60), title, fontsize=16, fontname="helv")
+-            page.insert_text(
+-                (40, 86),
+-                f"{len(paths)} item(s)",
+-                fontsize=11,
+-                fontname="helv",
+-            )
+-        for path in paths:
+-            image = fitz.open(path)
+-            try:
+-                rect = image[0].rect
+-                # Cap very tall crops so PDF viewers stay usable.
+-                max_h = 2000.0
+-                width, height = rect.width, rect.height
+-                if height > max_h:
+-                    scale = max_h / height
+-                    width *= scale
+-                    height *= scale
+-                page = doc.new_page(width=width, height=height)
+-                page.insert_image(page.rect, filename=str(path))
+-            finally:
+-                image.close()
++        place_pngs_on_a4(doc, paths, title=title)
+         dest.parent.mkdir(parents=True, exist_ok=True)
+         doc.save(dest, garbage=4, deflate=True)
+     finally:
+@@ -178,20 +157,38 @@ def main() -> None:
+     written = 0
+     for num, _book, _folder, name in SECTIONS:
+         items = by_primary.get(num) or []
++        out_dir = section_dir(num)
++        heading = section_heading_title(num, name)
+         if not items:
++            folder_pngs = sorted(
++                p
++                for p in out_dir.glob("*.png")
++                if "-ans" not in p.name.lower()
++            )
++            if not folder_pngs:
++                continue
++            out_dir.mkdir(parents=True, exist_ok=True)
++            items_yq: list[tuple[str, int]] = []
++            for path in folder_pngs:
++                found = YEAR_Q_PNG.fullmatch(path.stem)
++                if found:
++                    items_yq.append((found.group("year"), int(found.group("q"))))
++            nq = write_section_questions_pdf(
++                items_yq, out_dir / "questions.pdf", title=heading
++            )
++            written += 1
++            print(
++                f"{heading}: questions.pdf ({nq}) from folder PNGs -> "
++                f"{out_dir.relative_to(ROOT)}"
++            )
+             continue
+-        out_dir = section_dir(num)
+         out_dir.mkdir(parents=True, exist_ok=True)
+         label = f"S{num:02d} {name}"
+ 
+-        q_paths: list[Path] = []
+         a_paths: list[Path] = []
+         perf_items: list[tuple[str, int, str]] = []
+         for row in items:
+             year, qn = row["Year"], int(row["Question"])
+-            q_png = resolve_question_png(row)
+-            if q_png:
+-                q_paths.append(q_png)
+             a_png = resolve_answer_png(row)
+             if a_png:
+                 a_paths.append(a_png)
+@@ -210,7 +207,8 @@ def main() -> None:
+             print(f"Keeping {out_dir.relative_to(ROOT)}")
+             continue
+ 
+-        nq = write_image_pdf(q_paths, q_pdf)
++        pdf_items = [(row["Year"], int(row["Question"])) for row in items]
++        nq = write_section_questions_pdf(pdf_items, q_pdf, title=heading)
+         na = write_image_pdf(a_paths, a_pdf)
+         np_ = write_performance_pdf(perf_items, p_pdf, section_label=label)
+         written += 1
+diff --git a/scripts/combine_section_pdfs.py b/scripts/combine_section_pdfs.py
+index ded8706..6de29d8 100644
+--- a/scripts/combine_section_pdfs.py
++++ b/scripts/combine_section_pdfs.py
+@@ -2,9 +2,8 @@
+ """Write per-section question + answer PDFs under classified/mc/.
+ 
+ For each section folder:
+-  - combined.pdf: question PNGs sorted easiest -> hardest by Correct %
+-    (higher % first). Items without a known % (pp/sap/2022/2026, deleted,
+-    missing keys) are placed last.
++  - combined.pdf: question PNGs sorted by year, then question number
++    (pp/sap after numbered years).
+   - answer.pdf: same order, one page per question listing year, Q#, answer,
+     and correct percentage.
+ """
+@@ -17,6 +16,13 @@ from pathlib import Path
+ 
+ import pymupdf as fitz
+ 
++from png_pdf import (
++    A4_HEIGHT,
++    A4_WIDTH,
++    place_pngs_on_a4,
++    section_heading_title,
++)
++
+ ROOT = Path(__file__).resolve().parents[1]
+ CLASSIFIED = ROOT / "classified" / "mc"
+ DEFAULT_KEYS = ROOT / "classified" / "mc" / "answer_keys.json"
+@@ -80,48 +86,46 @@ def pngs_in_section(section: Path) -> list[Path]:
+     return sorted(p for p in section.glob("*.png") if PNG_RE.fullmatch(p.name))
+ 
+ 
+-def sort_key(
+-    path: Path,
+-    percentages: dict[tuple[str, int], int | None],
+-) -> tuple:
++def sort_key(path: Path) -> tuple:
+     match = PNG_RE.fullmatch(path.name)
+     assert match
+     year = match.group("year")
+     q = int(match.group("q"))
+-    pct = percentages.get((year, q))
+-    # Easiest first: higher % first. Missing % -> last.
+-    has_pct = 0 if pct is not None else 1
+-    neg_pct = -(pct if pct is not None else 0)
+-    return (has_pct, neg_pct, YEAR_RANK.get(year, 99), q)
++    return (YEAR_RANK.get(year, 99), q)
+ 
+ 
+-def write_combined(paths: list[Path], dest: Path) -> None:
++def write_combined(
++    paths: list[Path],
++    dest: Path,
++    *,
++    title: str | None = None,
++) -> None:
+     document = fitz.open()
+     try:
+-        for path in paths:
+-            image = fitz.open(path)
+-            try:
+-                rect = image[0].rect
+-                page = document.new_page(width=rect.width, height=rect.height)
+-                page.insert_image(page.rect, filename=str(path))
+-            finally:
+-                image.close()
++        place_pngs_on_a4(document, paths, title=title)
+         dest.parent.mkdir(parents=True, exist_ok=True)
+         document.save(dest, garbage=4, deflate=True)
+     finally:
+         document.close()
+ 
+ 
++def heading_for_section_dir(section: Path) -> str:
++    match = re.match(r"^(\d{2})_(.+)$", section.name)
++    assert match
++    name = match.group(2).replace("_", " ")
++    return section_heading_title(int(match.group(1)), name)
++
++
+ def write_answer_pdf(
+     paths: list[Path],
+     dest: Path,
+     keys: dict[tuple[str, int], dict],
+     section_label: str,
+ ) -> None:
+-    """One summary page listing every question in the same hard->easy order."""
++    """One summary page listing every question in year then Q order."""
+     document = fitz.open()
+     try:
+-        page_width, page_height = 595.0, 842.0  # A4
++        page_width, page_height = A4_WIDTH, A4_HEIGHT
+         margin = 40.0
+         y = margin
+         page = document.new_page(width=page_width, height=page_height)
+@@ -130,7 +134,7 @@ def write_answer_pdf(
+         y += 28
+         page.insert_text(
+             (margin, y + 11),
+-            "Order matches combined.pdf (easiest -> hardest by correct %).",
++            "Order matches combined.pdf (year, then question number).",
+             fontsize=9,
+             fontname="helv",
+         )
+@@ -184,13 +188,13 @@ def main() -> None:
+         pngs = pngs_in_section(section)
+         if not pngs:
+             continue
+-        ordered = sorted(pngs, key=lambda p: sort_key(p, percentages))
++        ordered = sorted(pngs, key=sort_key)
+         combined = section / "combined.pdf"
+         answers = section / "answer.pdf"
+         if combined.is_file() and answers.is_file() and not args.overwrite:
+             print(f"Keeping {combined.relative_to(args.classified)}")
+             continue
+-        write_combined(ordered, combined)
++        write_combined(ordered, combined, title=heading_for_section_dir(section))
+         section_label = section.name.replace("_", " ")
+         write_answer_pdf(ordered, answers, keys, section_label)
+         total_pdfs += 1
+@@ -213,7 +217,7 @@ def main() -> None:
+     print(f"\nDone: {total_pdfs} section pairs, {total_pages} question pages")
+     if missing_examples:
+         print(
+-            "Examples without correct % (placed last):",
++            "Examples without correct %:",
+             ", ".join(missing_examples),
+         )
+ 
+diff --git a/scripts/crop_lq_from_pages.py b/scripts/crop_lq_from_pages.py
+index ec300cd..53e39ba 100644
+--- a/scripts/crop_lq_from_pages.py
++++ b/scripts/crop_lq_from_pages.py
+@@ -8,17 +8,26 @@ under ans/.
+ from __future__ import annotations
+ 
+ import argparse
++import csv
+ import json
++import shutil
+ import sys
+ from pathlib import Path
+ 
++import pymupdf as fitz
+ from PIL import Image
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+ sys.path.insert(0, str(ROOT / "scripts"))
+ 
+-from png_pdf import combine_pngs_to_pdf  # noqa: E402
+-from preprocess_lq import crisp_scan, load_page_pngs, stitch_vertical  # noqa: E402
++from classify_mc_llm import SECTION_BY_NUM  # noqa: E402
++from lq_pdf_review import lq_source_pdf, write_year_review_pdfs  # noqa: E402
++from preprocess_lq import (  # noqa: E402
++    crisp_scan,
++    export_pdf_pages,
++    load_page_pngs,
++    stitch_vertical,
++)
+ 
+ Image.MAX_IMAGE_PIXELS = 250_000_000
+ 
+@@ -32,14 +41,96 @@ def stack_question_pages(
+     return stitch_vertical(parts)
+ 
+ 
++def _source_page_count(source: Path) -> int:
++    document = fitz.open(source)
++    try:
++        return len(document)
++    finally:
++        document.close()
++
++
++def cover_pages_for_starts(year_dir: Path, source: Path) -> int:
++    """Match preprocess_lq cover skip to starts.json page count when possible."""
++    meta_path = year_dir / "starts.json"
++    if not meta_path.is_file():
++        return 1
++    expected = json.loads(meta_path.read_text(encoding="utf-8")).get("pages")
++    if not isinstance(expected, int):
++        return 1
++    pdf_pages = _source_page_count(source)
++    if pdf_pages == expected:
++        return 0
++    return 1
++
++
++def ensure_year_pages(year_dir: Path) -> list[Image.Image]:
++    """Load pages/, exporting from the source Paper 1B PDF if they are missing.
++
++    Does not rewrite starts.json.
++    """
++    existing = load_page_pngs(year_dir / "pages")
++    if existing:
++        return existing
++    year = year_dir.name
++    source = lq_source_pdf(year)
++    if source is None or not source.is_file():
++        print(f"  skip {year}: missing paper/lq PDF")
++        return []
++    cover_pages = cover_pages_for_starts(year_dir, source)
++    print(f"  exporting pages from {source.name} (cover_pages={cover_pages})")
++    export_pdf_pages(source, year_dir / "pages", cover_pages=cover_pages)
++    pages = load_page_pngs(year_dir / "pages")
++    meta_path = year_dir / "starts.json"
++    if meta_path.is_file() and pages:
++        expected = json.loads(meta_path.read_text(encoding="utf-8")).get("pages")
++        if isinstance(expected, int) and len(pages) != expected:
++            print(
++                f"  warning {year}: exported {len(pages)} pages, "
++                f"starts.json pages={expected}"
++            )
++    return pages
++
++
++def sync_classified_question_pngs(years: list[str] | None = None) -> int:
++    """Copy whole-page qN.png into classified section folders. Leave *-ans.png."""
++    csv_path = ROOT / "classified" / "lq" / "classification.csv"
++    if not csv_path.is_file():
++        return 0
++    copied = 0
++    with csv_path.open(encoding="utf-8") as fh:
++        for row in csv.DictReader(fh):
++            year = row["Year"]
++            if years and year not in years:
++                continue
++            question = row["Question"]
++            src = ROOT / "output" / "lq" / year / f"q{question}.png"
++            if not src.is_file():
++                continue
++            sections = [int(item) for item in row["AllSections"].split(";") if item]
++            for section in sections:
++                book, folder, _name = SECTION_BY_NUM[section]
++                dest = (
++                    ROOT
++                    / "classified"
++                    / "lq"
++                    / book
++                    / folder
++                    / f"{year}-q{question}.png"
++                )
++                dest.parent.mkdir(parents=True, exist_ok=True)
++                shutil.copy2(src, dest)
++                copied += 1
++    print(f"Synced {copied} classified LQ question PNGs")
++    return copied
++
++
+ def build_year(year_dir: Path) -> int:
+     meta_path = year_dir / "starts.json"
+-    pages_dir = year_dir / "pages"
+-    if not meta_path.is_file() or not pages_dir.is_dir():
+-        print(f"  skip {year_dir.name}: missing pages/starts")
++    if not meta_path.is_file():
++        print(f"  skip {year_dir.name}: missing starts.json")
+         return 0
+     meta = json.loads(meta_path.read_text(encoding="utf-8"))
+-    pages = load_page_pngs(pages_dir)
++    pages = ensure_year_pages(year_dir)
+     if not pages:
+         return 0
+     questions = meta.get("questions") or []
+@@ -71,24 +162,45 @@ def build_year(year_dir: Path) -> int:
+         )
+         written += 1
+ 
+-    combine_pngs_to_pdf(year_dir, output=year_dir / "questions.pdf", overwrite=True)
++    write_year_review_pdfs(year_dir.name)
+     return written
+ 
+ 
+ def main() -> None:
+     parser = argparse.ArgumentParser(description=__doc__)
+     parser.add_argument("--years", nargs="*", default=None)
++    parser.add_argument(
++        "--pages-only",
++        action="store_true",
++        help="Export missing pages/ without rewriting starts.json or qN.png",
++    )
++    parser.add_argument(
++        "--skip-classified-sync",
++        action="store_true",
++        help="Do not copy rebuilt qN.png into classified/lq section folders",
++    )
+     args = parser.parse_args()
+     root = ROOT / "output" / "lq"
+     total = 0
++    selected: list[str] = []
+     for year_dir in sorted(root.iterdir()):
+         if not year_dir.is_dir():
+             continue
+         if args.years and year_dir.name not in args.years:
+             continue
++        selected.append(year_dir.name)
+         print(f"=== {year_dir.name} ===")
++        if args.pages_only:
++            pages = ensure_year_pages(year_dir)
++            print(f"  {len(pages)} page PNGs")
++            continue
+         total += build_year(year_dir)
++    if args.pages_only:
++        print(f"Exported pages/ for {len(selected)} years")
++        return
+     print(f"Wrote {total} whole-page LQ question PNGs")
++    if not args.skip_classified_sync:
++        sync_classified_question_pngs(args.years)
+ 
+ 
+ if __name__ == "__main__":
+diff --git a/scripts/lq_pdf_review.py b/scripts/lq_pdf_review.py
+new file mode 100644
+index 0000000..a7694cf
+--- /dev/null
++++ b/scripts/lq_pdf_review.py
+@@ -0,0 +1,188 @@
++#!/usr/bin/env python3
++"""Build LQ review PDFs by splitting source Paper 1B PDFs onto A4 pages.
++
++No PNG raster and no within-page crop. page_from..page_to from starts.json
++are whole exam pages.
++"""
++from __future__ import annotations
++
++import argparse
++import json
++import re
++from pathlib import Path
++
++import pymupdf as fitz
++
++from png_pdf import append_pdf_page_a4
++
++ROOT = Path(__file__).resolve().parents[1]
++PAPER_LQ = ROOT / "paper" / "lq"
++OUTPUT_LQ = ROOT / "output" / "lq"
++
++
++def paper_year_label(stem: str) -> str:
++    name = stem.lower()
++    if name.startswith("sapp"):
++        return "sap"
++    if name.startswith("ppp"):
++        return "pp"
++    match = re.search(r"(20\d{2})", name)
++    if match:
++        return match.group(1)
++    raise SystemExit(f"Cannot derive year label from {stem!r}")
++
++
++def lq_source_pdf(year: str) -> Path | None:
++    for path in sorted(PAPER_LQ.glob("*.pdf")):
++        if paper_year_label(path.stem) == year:
++            return path
++    return None
++
++
++def load_starts_meta(year: str) -> dict:
++    path = OUTPUT_LQ / year / "starts.json"
++    if not path.is_file():
++        return {}
++    return json.loads(path.read_text(encoding="utf-8"))
++
++
++def load_starts(year: str) -> list[dict]:
++    return list(load_starts_meta(year).get("questions") or [])
++
++
++def question_range(year: str, qn: int) -> tuple[int, int] | None:
++    for item in load_starts(year):
++        if int(item["q"]) == qn:
++            return int(item["page_from"]), int(item["page_to"])
++    return None
++
++
++def pdf_page_offset(year: str, src_len: int) -> int:
++    """Map starts.json exam-page indices onto the source PDF.
++
++    preprocess_lq skips the cover (default cover_pages=1), so starts.json
++    page 0 is source PDF page 1 whenever the PDF has one extra page.
++    """
++    pages = load_starts_meta(year).get("pages")
++    if isinstance(pages, int) and src_len == pages + 1:
++        return 1
++    return 0
++
++
++def write_year_review_pdfs(year: str) -> None:
++    source = lq_source_pdf(year)
++    if source is None or not source.is_file():
++        print(f"skip LQ PDF review {year}: missing paper/lq PDF")
++        return
++    questions = load_starts(year)
++    out_dir = OUTPUT_LQ / year
++    out_dir.mkdir(parents=True, exist_ok=True)
++    src = fitz.open(source)
++    try:
++        offset = pdf_page_offset(year, len(src))
++        combined = fitz.open()
++        first_q_page = {}
++        for item in questions:
++            qn = int(item["q"])
++            page_from = int(item["page_from"])
++            if page_from not in first_q_page:
++                first_q_page[page_from] = qn
++        try:
++            for pno in range(len(src)):
++                exam_index = pno - offset
++                qn = first_q_page.get(exam_index) if exam_index >= 0 else None
++                label = f"{year} Q{qn}" if qn is not None else None
++                append_pdf_page_a4(combined, src, pno, label=label)
++            dest = out_dir / "combined.pdf"
++            combined.save(dest, garbage=4, deflate=True)
++            print(f"Wrote {dest} ({combined.page_count} A4 pages from {source.name})")
++        finally:
++            combined.close()
++
++        questions_pdf = fitz.open()
++        try:
++            for item in sorted(questions, key=lambda item: int(item["q"])):
++                qn = int(item["q"])
++                page_from = int(item["page_from"])
++                page_to = int(item["page_to"])
++                src_from = page_from + offset
++                src_to = page_to + offset
++                if src_from >= len(src):
++                    continue
++                src_to = min(src_to, len(src) - 1)
++                for pno in range(src_from, src_to + 1):
++                    label = f"{year} Q{qn}" if pno == src_from else None
++                    append_pdf_page_a4(questions_pdf, src, pno, label=label)
++            dest = out_dir / "questions.pdf"
++            questions_pdf.save(dest, garbage=4, deflate=True)
++            print(
++                f"Wrote {dest} ({questions_pdf.page_count} A4 pages, "
++                f"{len(questions)} questions)"
++            )
++        finally:
++            questions_pdf.close()
++    finally:
++        src.close()
++
++
++def write_section_questions_pdf(
++    items: list[tuple[str, int]],
++    dest: Path,
++    *,
++    title: str | None = None,
++) -> int:
++    """Concatenate whole LQ exam pages for (year, q) items, year then Q order."""
++    if not items:
++        return 0
++    dest.parent.mkdir(parents=True, exist_ok=True)
++    document = fitz.open()
++    written = 0
++    title_used = False
++    try:
++        for year, qn in items:
++            source = lq_source_pdf(year)
++            span = question_range(year, qn)
++            if source is None or span is None:
++                continue
++            page_from, page_to = span
++            src = fitz.open(source)
++            try:
++                offset = pdf_page_offset(year, len(src))
++                src_from = page_from + offset
++                src_to = page_to + offset
++                if src_from >= len(src):
++                    continue
++                src_to = min(src_to, len(src) - 1)
++                for pno in range(src_from, src_to + 1):
++                    heading = title if (title and not title_used) else None
++                    label = f"{year} Q{qn}" if pno == src_from else None
++                    append_pdf_page_a4(
++                        document, src, pno, title=heading, label=label
++                    )
++                    title_used = True
++                    written += 1
++            finally:
++                src.close()
++        if written == 0:
++            return 0
++        document.save(dest, garbage=4, deflate=True)
++    finally:
++        document.close()
++    return written
++
++
++def main() -> None:
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("--years", nargs="*", default=None)
++    args = parser.parse_args()
++    years = args.years
++    if not years:
++        years = sorted(
++            path.name for path in OUTPUT_LQ.iterdir() if path.is_dir()
++        )
++    for year in years:
++        write_year_review_pdfs(year)
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/png_pdf.py b/scripts/png_pdf.py
+index 800d54c..8d1d4ff 100644
+--- a/scripts/png_pdf.py
++++ b/scripts/png_pdf.py
+@@ -1,4 +1,4 @@
+-"""Combine generated page/question PNGs into one review PDF."""
++"""Combine generated page/question PNGs into one portrait-A4 review PDF."""
+ from __future__ import annotations
+ 
+ import re
+@@ -9,6 +9,179 @@ import pymupdf as fitz
+ QUESTION_PNG = re.compile(r"^q(\d+)\.png$", re.I)
+ PAGE_PNG = re.compile(r"^page(\d+)\.png$", re.I)
+ 
++A4_WIDTH = 595.0
++A4_HEIGHT = 842.0
++A4_MARGIN = 36.0
++YEAR_Q_PNG = re.compile(r"^(?P<year>\d{4}|pp|sap)[_-]q(?P<q>\d+)$", re.I)
++YEAR_DIR = re.compile(r"^(?P<year>\d{4}|pp|sap)$", re.I)
++BARE_Q_PNG = re.compile(r"^q(?P<q>\d+)$", re.I)
++LABEL_BAND = 16.0
++
++
++def png_item_label(path: Path) -> str | None:
++    """Year and question from a crop path: 2012_q36.png -> 2012 Q36.
++
++    Bare qN.png takes the year from an ancestor directory named {year}|pp|sap
++    (output/lq/2013/q2.png -> 2013 Q2; output/lq/2012/ans/q1.png -> 2012 Q1).
++    """
++    stem = path.stem
++    found = YEAR_Q_PNG.fullmatch(stem)
++    if found:
++        return f"{found.group('year')} Q{int(found.group('q'))}"
++    found = BARE_Q_PNG.fullmatch(stem)
++    if found:
++        q = int(found.group("q"))
++        for parent in path.parents:
++            year = YEAR_DIR.fullmatch(parent.name)
++            if year:
++                return f"{year.group('year')} Q{q}"
++        return f"Q{q}"
++    return None
++
++
++ITEM_GAP = 12.0
++
++
++def _png_size(path: Path) -> tuple[float, float]:
++    image = fitz.open(path)
++    try:
++        rect = image[0].rect
++        return rect.width, rect.height
++    finally:
++        image.close()
++
++
++def _scale_png(src_w: float, src_h: float, *, max_w: float, max_h: float) -> tuple[float, float]:
++    scale = min(max_w / src_w, max_h / src_h, 1.0)
++    return src_w * scale, src_h * scale
++
++
++class A4Flow:
++    """Stack crops top to bottom on portrait A4; start a new page when one does not fit."""
++
++    def __init__(self, document: fitz.Document, title: str | None = None) -> None:
++        self.document = document
++        self.title = title
++        self.page: fitz.Page | None = None
++        self.y = A4_MARGIN
++        self._wrote_title = False
++
++    def _new_page(self) -> None:
++        self.page = self.document.new_page(width=A4_WIDTH, height=A4_HEIGHT)
++        self.y = A4_MARGIN
++        if self.title and not self._wrote_title:
++            self.page.insert_text(
++                (A4_MARGIN, A4_MARGIN + 12),
++                self.title,
++                fontsize=16,
++                fontname="helv",
++            )
++            self.y = A4_MARGIN + 28
++            self._wrote_title = True
++
++    def _insert_label_top_right(self, label: str) -> None:
++        assert self.page is not None
++        width = fitz.get_text_length(label, fontname="helv", fontsize=11)
++        x = A4_WIDTH - A4_MARGIN - width
++        self.page.insert_text(
++            (x, self.y + 10),
++            label,
++            fontsize=11,
++            fontname="helv",
++        )
++
++    def add(self, path: Path) -> None:
++        label = png_item_label(path)
++        src_w, src_h = _png_size(path)
++        printable_w = A4_WIDTH - 2 * A4_MARGIN
++        full_h = A4_HEIGHT - 2 * A4_MARGIN
++        label_h = LABEL_BAND if label else 0.0
++        dest_w, dest_h = _scale_png(src_w, src_h, max_w=printable_w, max_h=full_h - label_h)
++        block_h = dest_h + label_h
++        remaining = A4_HEIGHT - A4_MARGIN - self.y
++        if self.page is None or block_h > remaining + 0.5:
++            self._new_page()
++            remaining = A4_HEIGHT - A4_MARGIN - self.y
++            dest_w, dest_h = _scale_png(
++                src_w, src_h, max_w=printable_w, max_h=remaining - label_h
++            )
++        assert self.page is not None
++        if label:
++            self._insert_label_top_right(label)
++            self.y += label_h
++        self.page.insert_image(
++            fitz.Rect(A4_MARGIN, self.y, A4_MARGIN + dest_w, self.y + dest_h),
++            filename=str(path),
++        )
++        self.y += dest_h + ITEM_GAP
++
++
++def place_pngs_on_a4(
++    document: fitz.Document,
++    paths: list[Path],
++    *,
++    title: str | None = None,
++) -> None:
++    """Place PNGs one after another on portrait A4 pages.
++
++    Optional chapter heading goes on the first page; crops flow immediately under it.
++    """
++    flow = A4Flow(document, title=title)
++    for path in paths:
++        flow.add(path)
++
++
++def append_pdf_page_a4(
++    document: fitz.Document,
++    src: fitz.Document,
++    pno: int,
++    *,
++    title: str | None = None,
++    label: str | None = None,
++) -> None:
++    """Copy one source PDF page onto a new portrait A4 page (no raster crop)."""
++    page = document.new_page(width=A4_WIDTH, height=A4_HEIGHT)
++    header = 0.0
++    if title:
++        page.insert_text(
++            (A4_MARGIN, A4_MARGIN + 12),
++            title,
++            fontsize=16,
++            fontname="helv",
++        )
++        header = 28.0
++    if label:
++        width = fitz.get_text_length(label, fontname="helv", fontsize=11)
++        page.insert_text(
++            (A4_WIDTH - A4_MARGIN - width, A4_MARGIN + 12),
++            label,
++            fontsize=11,
++            fontname="helv",
++        )
++        header = max(header, 28.0)
++    printable = fitz.Rect(
++        A4_MARGIN,
++        A4_MARGIN + header,
++        A4_WIDTH - A4_MARGIN,
++        A4_HEIGHT - A4_MARGIN,
++    )
++    src_page = src[pno]
++    src_w, src_h = src_page.rect.width, src_page.rect.height
++    scale = min(printable.width / src_w, printable.height / src_h)
++    dest_w, dest_h = src_w * scale, src_h * scale
++    target = fitz.Rect(
++        printable.x0,
++        printable.y0,
++        printable.x0 + dest_w,
++        printable.y0 + dest_h,
++    )
++    page.show_pdf_page(target, src, pno)
++
++
++def section_heading_title(section_num: int, section_name: str) -> str:
++    """Session heading for a classified section bank, e.g. ch25 Radiation and Radioactivity."""
++    return f"ch{section_num} {section_name}"
++
+ 
+ def _numeric_pngs(directory: Path, pattern: re.Pattern[str]) -> list[Path]:
+     matched: list[tuple[int, Path]] = []
+@@ -34,7 +207,7 @@ def combine_pngs_to_pdf(
+     *,
+     overwrite: bool = False,
+ ) -> Path | None:
+-    """Write a review PDF from PNGs. Skip if that PDF already exists unless overwrite."""
++    """Write a portrait-A4 review PDF from PNGs. Skip if that PDF already exists unless overwrite."""
+     paths = collect_review_pngs(directory)
+     if not paths:
+         return None
+@@ -45,16 +218,10 @@ def combine_pngs_to_pdf(
+     dest.parent.mkdir(parents=True, exist_ok=True)
+     document = fitz.open()
+     try:
+-        for path in paths:
+-            image = fitz.open(path)
+-            try:
+-                rect = image[0].rect
+-                page = document.new_page(width=rect.width, height=rect.height)
+-                page.insert_image(page.rect, filename=str(path))
+-            finally:
+-                image.close()
++        place_pngs_on_a4(document, paths)
++        page_count = document.page_count
+         document.save(dest, garbage=4, deflate=True)
+     finally:
+         document.close()
+-    print(f"Wrote {dest} ({len(paths)} pages)")
++    print(f"Wrote {dest} ({page_count} pages, {len(paths)} questions)")
+     return dest

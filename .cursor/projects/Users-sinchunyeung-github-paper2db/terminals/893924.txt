@@ -1,0 +1,36 @@
+---
+pid: 27978
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && for year in 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023; do\n  .venv/bin/python scripts/preprocess_lq_answers.py \"answer/${year}ans.pdf\" \"output/lq/$year/ans\" --max-questions 12 --scale 2.0 2>&1 | rg \"detected|Wrote [0-9]+ answer|WARNING|skip Section A page 1\"\ndone\n"
+title: "Re-crop answers allowing question gaps"
+status: failed   
+started_at: 2026-09-04T18:05:06.508Z
+running_for_ms: 198838   
+---
+  skip Section A page 1/11
+  detected answers Q1-Q11 (11)
+Wrote 11 answer crops -> output/lq/2012/ans
+  detected answers Q1-Q10 (10)
+Wrote 10 answer crops -> output/lq/2013/ans
+  detected answers Q2-Q9 (10)
+Wrote 10 answer crops -> output/lq/2014/ans
+  skip Section A page 1/14
+  detected answers Q1-Q12 (11)
+Wrote 11 answer crops -> output/lq/2015/ans
+  skip Section A page 1/14
+  detected answers Q1-Q9 (9)
+Wrote 9 answer crops -> output/lq/2016/ans
+  skip Section A page 1/14
+  detected answers Q1-Q3 (8)
+Wrote 8 answer crops -> output/lq/2017/ans
+  detected answers Q3-Q5 (4)
+Wrote 4 answer crops -> output/lq/2018/ans
+  skip Section A page 1/10
+  detected answers Q1-Q10 (9)
+Wrote 9 answer crops -> output/lq/2019/ans
+
+---
+exit_code: unknown
+elapsed_ms: 198828
+ended_at: 2026-09-04T18:08:25.336Z
+---

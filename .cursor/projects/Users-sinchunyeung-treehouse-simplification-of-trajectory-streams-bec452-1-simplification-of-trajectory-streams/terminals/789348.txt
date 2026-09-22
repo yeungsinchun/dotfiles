@@ -1,0 +1,21 @@
+---
+pid: 17750
+cwd: "/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams"
+command: "python3 -m http.server 18765"
+title: "Serve repo on free port 18765"
+status: failed   
+started_at: 2026-09-09T05:57:24.969Z
+running_for_ms: 166514   
+---
+::ffff:127.0.0.1 - - [09/Sep/2026 13:57:39] "HEAD /draft/trajectory-stream-simplification-explainer.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [09/Sep/2026 13:57:44] "GET /draft/trajectory-stream-simplification-explainer.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [09/Sep/2026 13:57:44] code 404, message File not found
+::ffff:127.0.0.1 - - [09/Sep/2026 13:57:44] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [09/Sep/2026 13:58:44] "GET /draft/trajectory-stream-simplification-explainer.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [09/Sep/2026 13:59:12] "GET /draft/trajectory-stream-simplification-explainer.html HTTP/1.1" 200 -
+
+---
+exit_code: unknown
+elapsed_ms: 166514
+ended_at: 2026-09-09T06:00:11.483Z
+---

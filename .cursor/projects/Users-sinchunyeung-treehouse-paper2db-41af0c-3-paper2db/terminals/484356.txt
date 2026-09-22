@@ -1,0 +1,12 @@
+---
+pid: 83412
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db"
+command: "cd /Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db && npx -y lavish-axi poll .lavish/2013-stem-review.html --agent-reply \"$(cat <<'EOF'\nPoll was interrupted earlier. Stem crop algorithm update is in place (pass 4 review). Send feedback when you have notes on the figures.\nEOF\n)\""
+title: "Restart Lavish poll for 2013 review"
+status: running  
+started_at: 2026-09-07T01:17:39.177Z
+running_for_ms: 82758    
+---
+[lavish-axi] Long-polling for user feedback on /Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db/.lavish/2013-stem-review.html. This stays silent until the user sends feedback or ends the session - leave it running. Detected layout issues do NOT return this poll: they wait in the user's Layout issues inbox until the user queues them as ordinary feedback. If it gets killed or times out before feedback arrives, re-run `lavish-axi poll /Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db/.lavish/2013-stem-review.html` - feedback remains queued until delivery. Poll delivery consumes the response, so read it completely.
+
+[lavish-axi] Poll interrupted before user feedback arrived. The user may still be reviewing - re-run `lavish-axi poll /Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db/.lavish/2013-stem-review.html` to keep waiting; feedback remains queued until delivery. Poll delivery consumes the response, so read it completely.

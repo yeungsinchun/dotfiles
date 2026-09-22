@@ -1,0 +1,58 @@
+---
+pid: 69495
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy"
+command: "cd \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse\" && python3 << 'PY'\nimport sys\nfrom pathlib import Path\nsys.path.insert(0, 'scripts')\nfrom preprocess_lq import process_one, native_scale\nimport fitz\nimport shutil\n\nROOT = Path('.')\nyears = {\n  '2016': ROOT/'Year/LQ/2016p1b.pdf',\n  '2019': ROOT/'Year/LQ/2019p1b.pdf',\n  '2020': ROOT/'Year/LQ/2020p1b.pdf',\n  '2021': ROOT/'Year/LQ/2021p1b.pdf',\n  '2022': ROOT/'Year/LQ/2022p1b.pdf',\n}\n# verify scales first\nfor y, pdf in years.items():\n  doc=fitz.open(pdf); doc.authenticate('')\n  page=doc[min(1,len(doc)-1)]\n  print(y, 'native_scale=', round(native_scale(page),2))\n  doc.close()\n\nfor y, pdf in years.items():\n  print(f'\\n=== {y} ===')\n  n=process_one(pdf, ROOT/'processed/LQ'/y, cover_pages=1, scale=0.0, max_questions=12, max_scale=9.0)\n  print('wrote', n)\n\n# sync curated circuit LQs\nmapping = {\n  ('2016','q7'): '2016_q7.png',\n  ('2019','q7'): '2019_q7.png',\n  ('2020','q8'): '2020_q8.png',\n  ('2021','q8'): '2021_q8.png',\n  ('2022','q8'): '2022_q8.png',\n}\ndests = [\n  ROOT/'by-topic/Electricity and Magnetism/Electric circuits/lq',\n  ROOT.parent/'DSE/by-topic/Electricity and Magnetism/Electric circuits/lq',\n]\nfor (year, q), name in mapping.items():\n  src = ROOT/'processed/LQ'/year/f'{q}.png'\n  for d in dests:\n    d.mkdir(parents=True, exist_ok=True)\n    shutil.copy2(src, d/name)\n    print('copied', src, '->', d/name)\n\nfrom PIL import Image\nfor name in mapping.values():\n  im=Image.open(dests[0]/name)\n  print(name, im.size, im.mode)\nPY\n"
+started_at: 2026-08-23T02:48:54.279Z
+running_for_ms: 210039   
+---
+2016 native_scale= 4.17
+2019 native_scale= 5.89
+2020 native_scale= 5.89
+2021 native_scale= 4.17
+2022 native_scale= 4.17
+
+=== 2016 ===
+  render scale=4.17
+  detected Q1-Q9 (9 questions)
+wrote 9
+
+=== 2019 ===
+  render scale=5.89
+  detected Q1-Q10 (10 questions)
+wrote 10
+
+=== 2020 ===
+  render scale=5.89
+  detected Q1-Q10 (10 questions)
+wrote 10
+
+=== 2021 ===
+  render scale=4.17
+  detected Q1-Q9 (9 questions)
+wrote 9
+
+=== 2022 ===
+  render scale=4.17
+  detected Q1-Q10 (10 questions)
+wrote 10
+copied processed/LQ/2016/q7.png -> by-topic/Electricity and Magnetism/Electric circuits/lq/2016_q7.png
+copied processed/LQ/2016/q7.png -> DSE/by-topic/Electricity and Magnetism/Electric circuits/lq/2016_q7.png
+copied processed/LQ/2019/q7.png -> by-topic/Electricity and Magnetism/Electric circuits/lq/2019_q7.png
+copied processed/LQ/2019/q7.png -> DSE/by-topic/Electricity and Magnetism/Electric circuits/lq/2019_q7.png
+copied processed/LQ/2020/q8.png -> by-topic/Electricity and Magnetism/Electric circuits/lq/2020_q8.png
+copied processed/LQ/2020/q8.png -> DSE/by-topic/Electricity and Magnetism/Electric circuits/lq/2020_q8.png
+copied processed/LQ/2021/q8.png -> by-topic/Electricity and Magnetism/Electric circuits/lq/2021_q8.png
+copied processed/LQ/2021/q8.png -> DSE/by-topic/Electricity and Magnetism/Electric circuits/lq/2021_q8.png
+copied processed/LQ/2022/q8.png -> by-topic/Electricity and Magnetism/Electric circuits/lq/2022_q8.png
+copied processed/LQ/2022/q8.png -> DSE/by-topic/Electricity and Magnetism/Electric circuits/lq/2022_q8.png
+2016_q7.png (2055, 5782) RGB
+2019_q7.png (2896, 9703) RGB
+2020_q8.png (2896, 10250) RGB
+2021_q8.png (2055, 3146) RGB
+2022_q8.png (2055, 4732) RGB
+
+---
+exit_code: 0
+elapsed_ms: 210349
+ended_at: 2026-08-23T02:52:24.628Z
+---

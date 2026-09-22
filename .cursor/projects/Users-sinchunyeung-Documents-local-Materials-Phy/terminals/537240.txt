@@ -1,0 +1,27 @@
+---
+pid: 12366
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy"
+command: "cd \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse\" && python3 scripts/preprocess_mc.py \\\n  \"Year/MC/2012p1a.pdf\" \\\n  \"preprocessed/anchored_2012p1a.pdf\" \\\n  --questions 36 \\\n  --cover-pages 1 \\\n  --scale 5.0\n"
+started_at: 2026-08-21T18:18:19.119Z
+running_for_ms: 50008    
+---
+page 2: rail_x=50.2 left=36.2 marker_x=42.2 gap=8.0 questions=3
+page 3: rail_x=53.4 left=39.4 marker_x=45.4 gap=8.0 questions=3
+page 4: rail_x=41.5 left=27.5 marker_x=33.5 gap=8.0 questions=3
+page 5: rail_x=53.5 left=39.5 marker_x=45.5 gap=8.0 questions=3
+page 6: rail_x=47.1 left=33.1 marker_x=39.1 gap=8.0 questions=2
+page 7: rail_x=60.6 left=46.6 marker_x=52.6 gap=8.0 questions=2
+page 8: rail_x=45.3 left=31.3 marker_x=37.3 gap=8.0 questions=3
+page 9: rail_x=57.1 left=43.1 marker_x=49.1 gap=8.0 questions=3
+page 10: rail_x=45.6 left=31.6 marker_x=37.6 gap=8.0 questions=4
+page 11: rail_x=57.4 left=43.4 marker_x=49.4 gap=8.0 questions=3
+page 12: rail_x=41.8 left=27.8 marker_x=33.8 gap=8.0 questions=2
+page 13: rail_x=55.5 left=41.5 marker_x=47.5 gap=8.0 questions=2
+page 14: rail_x=41.6 left=27.6 marker_x=33.6 gap=8.0 questions=3
+Wrote preprocessed/anchored_2012p1a.pdf with 13 pages and 36 anchors.
+
+---
+exit_code: 0
+elapsed_ms: 53367
+ended_at: 2026-08-21T18:19:12.486Z
+---

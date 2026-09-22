@@ -1,0 +1,15 @@
+---
+pid: 49997
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python <<'PY'\n# Fix 2012 starts with higher detect scale if needed\nimport sys, json\nsys.path.insert(0,'scripts')\nimport preprocess_lq as p\nimport pymupdf as fitz\nfrom pathlib import Path\n\ndoc=fitz.open('paper/lq/2012p1b.pdf')\n# use existing pages\npages=p.load_page_pngs(Path('output/lq/2012/pages'))\nprint('pages', len(pages), pages[0].size if pages else None)\n# detect at page resolution directly\nstarts=p.find_question_starts(pages, 0, 12)\nprint('starts on full pages', [(q,pg,round(y)) for q,pg,y in starts])\n# also try downscaled\ndet=p.downscale_pages(pages, 0.7)\nstarts2=p.find_question_starts(det, 0, 12)\nprint('starts 0.7', [(q,pg,round(y)) for q,pg,y in starts2])\ndoc.close()\nPY\n"
+title: "Fix 2012 question-start detection on pages"
+status: failed   
+started_at: 2026-09-05T01:01:10.077Z
+running_for_ms: 185812   
+---
+
+---
+exit_code: unknown
+elapsed_ms: 185812
+ended_at: 2026-09-05T01:04:15.889Z
+---

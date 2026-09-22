@@ -1,0 +1,47 @@
+---
+pid: 45690
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python - <<'PY'\nimport json\nfrom pathlib import Path\n# Write overrides for 2018 Q32 only - segment merges with OCR via setdefault\n# Actually setdefault means override only fills gaps - perfect!\nov = {\"32\": [13, 58.9, 230.2]}\n# Need to check Q31 x from a quick detect\nimport sys\nsys.path.insert(0,'scripts')\nimport pymupdf as fitz\nfrom preprocess_mc import detect_labels\nhits=detect_labels(fitz.open('paper/mc/2018p1a.pdf')[13], 5.0, 33)\nprint('page13 hits', hits)\n# use rail x from hits\nxs=[h[1] for h in hits]\nx=sum(xs)/len(xs) if xs else 58.9\nov={\"32\": [13, round(x,2), 230.2]}\nPath('scripts/overrides_2018.json').write_text(json.dumps(ov, indent=2)+'\\n')\nprint('wrote', ov)\nPY\n\n# Re-run full segment for 2018 and 2026\n./segment paper/mc/2018p1a.pdf output/2018 --type mc --intermediate output/2018-intermediate --overrides scripts/overrides_2018.json --questions 33 2>&1 | tee /tmp/seg2018.txt | tail -30\n"
+title: "Write 2018 Q32 override; resegment 2018"
+status: succeeded
+started_at: 2026-09-04T12:30:34.740Z
+running_for_ms: 98428    
+---
+page13 hits [(31, 76.1875, 67.375), (33, 76.1875, 365.6)]
+wrote {'32': [13, 76.19, 230.2]}
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/q15.png (918x668)
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/q16.png (583x413)
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/q17.png (644x632)
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/q18.png (932x419)
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/q19.png (898x177)
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/q20.png (903x889)
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/q21.png (806x150)
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/q22.png (933x581)
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/q23.png (919x540)
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/q24.png (941x327)
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/q25.png (942x195)
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/q26.png (937x172)
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/q27.png (930x469)
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/q28.png (925x534)
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/q29.png (937x553)
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/q30.png (939x470)
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/q31.png (795x277)
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/q32.png (928x218)
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/q33.png (590x491)
+Wrote 33 questions to /Users/sinchunyeung/github/paper2db/output/2018 (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/2018/combined.pdf (33 pages)
+Paper type: MC (2018p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Wrote /Users/sinchunyeung/github/paper2db/output/2018-intermediate/anchor.pdf
+Wrote /Users/sinchunyeung/github/paper2db/output/2018-intermediate/anchor.meta.json
+Wrote 13 preview PNGs (page01.png, ...) in /Users/sinchunyeung/github/paper2db/output/2018-intermediate
+Review anchor.pdf (blue dots next to each question number), then run step 2.
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2018
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2018/combined.pdf
+
+---
+exit_code: 0
+elapsed_ms: 98426
+ended_at: 2026-09-04T12:32:13.166Z
+---

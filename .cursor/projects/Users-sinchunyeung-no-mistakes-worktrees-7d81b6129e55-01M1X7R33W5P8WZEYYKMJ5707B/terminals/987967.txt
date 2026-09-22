@@ -1,0 +1,46 @@
+---
+pid: 98808
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1X7R33W5P8WZEYYKMJ5707B"
+command: "cd /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1X7R33W5P8WZEYYKMJ5707B/web && python3 -m http.server 8765"
+title: "Start static web server on 8765"
+status: failed   
+started_at: 2026-09-07T06:29:54.061Z
+running_for_ms: 312805   
+---
+::ffff:127.0.0.1 - - [07/Sep/2026 14:32:04] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:32:04] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:32:06] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:32:06] "GET /viewer.js?v=compare-method-glosses-1 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:32:06] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 14:32:06] "GET /api/traces HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:32:06] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 14:32:06] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:32:06] "GET /index.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:32:07] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 14:32:07] "GET /api/traces HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:32:11] "GET /usability/desktop-trace-select-border.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:32:12] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 14:32:12] "GET /api/traces HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:32:13] "GET /index.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:32:13] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 14:32:13] "GET /api/traces HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:33:56] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:33:56] "GET /viewer.js?v=compare-method-glosses-1 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:33:57] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 14:33:57] "GET /api/traces HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:33:57] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 14:33:57] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:33:58] "GET /index.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:33:58] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 14:33:58] "GET /api/traces HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:34:00] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 14:34:00] "GET /api/traces HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:34:01] "GET /index.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [07/Sep/2026 14:34:01] code 404, message File not found
+::ffff:127.0.0.1 - - [07/Sep/2026 14:34:01] "GET /api/traces HTTP/1.1" 404 -
+
+---
+exit_code: unknown
+elapsed_ms: 312805
+ended_at: 2026-09-07T06:35:06.866Z
+---

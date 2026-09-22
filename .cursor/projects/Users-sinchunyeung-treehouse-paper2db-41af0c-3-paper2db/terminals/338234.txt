@@ -1,0 +1,110 @@
+---
+pid: 35237
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db"
+command: "cd /Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db && .venv/bin/python3 scripts/build_mc_db.py 2>&1 | tee /tmp/paper2db_ocr_ingest.log"
+title: "OCR-ingest all remaining years"
+status: succeeded
+started_at: 2026-09-04T01:29:16.442Z
+running_for_ms: 202211   
+---
+Loading answer keys ...
+  loaded cache /Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db/schema/answer_keys.json (151 keys)
+Ingesting 2012 (36 questions) ...
+    2012 q1
+    2012 q10
+    2012 q20
+    2012 q30
+Ingesting 2013 (36 questions) ...
+    2013 q1
+    2013 q10
+    2013 q20
+    2013 q30
+Ingesting 2014 (33 questions) ...
+    2014 q1
+    2014 q10
+    2014 q20
+    2014 q30
+Ingesting 2015 (33 questions) ...
+    2015 q1
+    2015 q10
+    2015 q20
+    2015 q30
+Ingesting 2016 (33 questions) ...
+    2016 q1
+    2016 q10
+    2016 q20
+    2016 q30
+Ingesting 2017 (33 questions) ...
+    2017 q1
+    2017 q10
+    2017 q20
+    2017 q30
+Ingesting 2018 (33 questions) ...
+    2018 q1
+    2018 q10
+    2018 q20
+    2018 q30
+Ingesting 2019 (33 questions) ...
+    2019 q1
+    2019 q10
+    2019 q20
+    2019 q30
+Ingesting 2020 (33 questions) ...
+    2020 q1
+    2020 q10
+    2020 q20
+    2020 q30
+Ingesting 2021 (33 questions) ...
+    2021 q1
+    2021 q10
+    2021 q20
+    2021 q30
+Ingesting 2022 (33 questions) ...
+    2022 q1
+    2022 q10
+    2022 q20
+    2022 q30
+Ingesting 2023 (33 questions) ...
+    2023 q1
+    2023 q10
+    2023 q20
+    2023 q30
+Ingesting 2024 (33 questions) ...
+    2024 q1
+    2024 q10
+    2024 q20
+    2024 q30
+Ingesting 2025 (33 questions) ...
+    2025 q1
+    2025 q10
+    2025 q20
+    2025 q30
+Ingesting 2026 (33 questions) ...
+    2026 q1
+    2026 q10
+    2026 q20
+    2026 q30
+Ingesting pp (36 questions) ...
+    pp q1
+    pp q10
+    pp q20
+    pp q30
+Ingesting sap (36 questions) ...
+    sap q1
+    sap q10
+    sap q20
+    sap q30
+
+Ingested 573 questions into /Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db/paper2db.sqlite
+Format tags:
+  text_options: 279
+  combo_statements: 126
+  numeric_options: 123
+  tabular_options: 23
+  image_or_graph_options: 22
+
+---
+exit_code: 0
+elapsed_ms: 202209
+ended_at: 2026-09-04T01:32:38.651Z
+---

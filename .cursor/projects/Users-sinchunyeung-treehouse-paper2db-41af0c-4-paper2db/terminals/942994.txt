@@ -1,0 +1,25 @@
+---
+pid: 91852
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db"
+command: "git push --force /Users/sinchunyeung/.no-mistakes/repos/cf497e59fa15.git HEAD:refs/heads/fm/p2db-make-combined-pdf-review-pdfs-a4-31"
+title: "Force-update no-mistakes gate ref off obsolete head"
+status: succeeded
+started_at: 2026-09-10T16:47:55.307Z
+running_for_ms: 507497   
+---
+remote: _  _ ____    _  _ _ ____ ___ ____ _  _ ____ ____        
+remote: |\ | |  |    |\/| | [__   |  |__| |_/  |___ [__        
+remote: | \| |__|    |  | | ___]  |  |  | | \_ |___ ___]        
+remote: 
+remote:   * Pipeline started        
+remote: 
+remote:   Run no-mistakes to review.        
+remote: 
+To /Users/sinchunyeung/.no-mistakes/repos/cf497e59fa15.git
+ + 7a4df5b...e88e178 HEAD -> fm/p2db-make-combined-pdf-review-pdfs-a4-31 (forced update)
+
+---
+exit_code: 0
+elapsed_ms: 507497
+ended_at: 2026-09-10T16:56:22.804Z
+---

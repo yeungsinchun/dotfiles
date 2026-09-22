@@ -1,0 +1,46 @@
+---
+pid: 5683
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/2/paper2notes"
+command: "node --test --test-name-pattern='imaging is X-rays|chapter map|3d scenes magnify' 'notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs'"
+title: "Run imaging, chrome, and orbit tests"
+status: failed   
+started_at: 2026-09-10T11:39:24.594Z
+running_for_ms: 124247   
+---
+▶ Book 5 Ch.1 notes interactives
+  ✖ 25.1 imaging is X-rays down through a hand onto film that starts white (19192.833042ms)
+  ✔ chapter map, summary, and concept-check scoring are the public notes surface (62673.053709ms)
+  ✔ 3d scenes magnify, label the tube, keep β drift, and pulse radially (37645.117291ms)
+✖ Book 5 Ch.1 notes interactives (122452.185625ms)
+ℹ tests 3
+ℹ suites 1
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 122990.562334
+
+✖ failing tests:
+
+test at notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:215:1
+✖ 25.1 imaging is X-rays down through a hand onto film that starts white (19192.833042ms)
+  AssertionError [ERR_ASSERTION]: hand and film should not be clipped, fillY=1.6222773409195308
+      at TestContext.<anonymous> (file:///Users/sinchunyeung/.treehouse/paper2notes-652c2c/2/paper2notes/notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:249:10)
+      at async Test.run (node:internal/test_runner/test:1404:7)
+      at async Promise.all (index 1)
+      at async Suite.run (node:internal/test_runner/test:1889:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+---
+exit_code: 1
+elapsed_ms: 124247
+ended_at: 2026-09-10T11:41:28.841Z
+---

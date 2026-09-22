@@ -1,0 +1,717 @@
+Cursor Codebase Index: @ Symbols, Privacy, and Setup | Easton
+
+Updated 2026-06-08: rechecked against Cursor’s official docs — indexing settings now live under Cursor Settings → Indexing & Docs (use “View included files” to inspect what’s indexed); code chunks are actually encrypted and uploaded to Cursor’s servers to build embeddings stored in a remote vector database (not a purely local FAISS index), though source code is never stored in plaintext and indexes are deleted after 6 weeks of inactivity; sync runs automatically about every 5 minutes. The text below is updated accordingly.
+
+Cursor’s fifth wrong suggestion on screen.
+
+“Fix this login bug” was clear. It ignored the existing auth helper, rewrote validation, and pointed at a`utils` folder that does not exist.
+
+Without project context, it is just a fast typist with generic advice.
+
+Twenty minutes on codebase indexing and`.cursorignore` changed that. It found auth, spotted three duplicate validation blocks, and suggested one wrapper. That “it finally sees my repo” feeling is worth the setup.
+
+## How Cursor Indexing Works Under the Hood
+
+### What is Codebase Indexing?
+
+Honestly, when I first heard “indexing,” I was confused. Sounds sophisticated, but it’s actually simple once you get it.
+
+Imagine going to a library to find a book. Without a catalog system, you’d have to scan shelf by shelf, potentially searching all day. But with a card catalog, typing in a title or keyword locates the exact position in seconds.
+
+Cursor’s Codebase indexing works the same way — it builds an “intelligent catalog” for your entire project, allowing AI to quickly find relevant code instead of guessing blindly.
+
+Specifically, indexing means scanning your code files, analyzing what each function, class, and variable does, then tagging them using a mathematical approach (vectorization). When you ask AI a question, it can instantly match the most relevant code snippets.
+
+### Six Key Steps of Indexing
+
+I won’t bore you with all the technical details, but understanding this process helps you figure out why indexing sometimes slows down and why configuring .cursorignore matters.
+
+Step 1: File Scanning and Preprocessing
+
+When Cursor opens your project, it first scans all files. It skips files marked in .gitignore and .cursorignore — so if you haven’t configured .cursorignore, it might be diligently indexing your node_modules with tens of thousands of files.
+
+Step 2: Code Chunking
+
+After scanning, Cursor doesn’t treat entire files as one blob. It intelligently splits them by functions, classes, and logic blocks. A 1000-line utility file might be divided into 30 small chunks, each indexed independently. This gives better precision when querying.
+
+Step 3: Vector Embedding (The Core)
+
+This step is a bit abstract, but here’s the plain English: Vectorization converts code into a series of numbers, like a code “fingerprint.” Functionally similar code has similar fingerprints. Two different login functions, despite different implementations, are mathematically close in vector space.
+
+Step 4: Building the Vector Database
+
+A lot of guides get this step wrong. What actually happens: code chunks are encrypted and uploaded to Cursor’s servers to generate embeddings, and those vectors — along with obfuscated file paths and line numbers — are stored in a remote vector database (Cursor uses a service like Turbopuffer), with incremental sync driven by a Merkle tree. So the index is not purely local — but Cursor states your source code is never stored in plaintext (it’s discarded after the request), filenames are obfuscated/encrypted, and indexes are deleted after 6 weeks of inactivity.
+
+Step 5: Query Matching
+
+When you type “help me optimize login logic,” Cursor vectorizes that sentence too, then searches the database for code blocks with the closest “fingerprints.” This process is incredibly fast — milliseconds.
+
+Step 6: Context Injection
+
+After finding relevant code, Cursor inserts these snippets into the AI’s context. The AI sees your actual code, so responses become much more accurate.
+
+### Why is Indexing So Important?
+
+I ran a comparison test. Same requirement, without indexing: Cursor could only see my currently open file, giving suggestions that often missed the mark. With indexing enabled, it could relate 3-5 relevant files, providing solutions I could use immediately.
+
+Current file + 1-3 manually @‘d files
+
+AI Understanding Without Indexing
+
+Entire project + auto-related 10+ files
+
+AI Understanding With Indexing
+
+From 2 hours to 15 minutes
+
+Cross-File Bug Fix Time
+
+3x
+
+Code Suggestion Accuracy Increase
+
+The difference is huge. I had a cross-file bug involving three layers: API, data, and UI. Without indexing, I had to manually @ all three files and explain their relationships to the AI. With indexing, I simply asked “why isn’t user data updating?” Cursor found all three files on its own and even discovered a fourth one I’d missed (data validation in middleware).
+
+### Privacy and Security
+
+Seeing terms like “cloud upload” and “AI analyzing code” makes many people nervous. I was too, initially.
+
+First, the mechanism (which many guides get wrong): during indexing, code chunks are encrypted and uploaded to Cursor’s servers to compute embeddings. But there are real protections:
+
+1. Source code isn’t stored in plaintext — the server only processes it during the request and discards it afterward; the vector store holds vectors, not your source code
+2. Filenames/paths are obfuscated and encrypted — even with the vector data, the project structure can’t be reconstructed
+3. 6-week auto-cleanup — indexes inactive for a long time are deleted, and reopening the project re-indexes it
+4. Privacy Mode — Cursor’s privacy mode in settings further limits data retention
+
+To be honest, for strongly sensitive projects (finance, healthcare) I’d enable Privacy Mode and evaluate carefully; for regular web or personal projects, default mode is fine. But the claim that “your code never leaves your machine” isn’t accurate — keep that in mind.
+
+## Complete Guide to @ Symbols
+
+When I started with Cursor, I thought @ was just @, didn’t realize there’s so much to it. Using the wrong one not only wastes time but can make AI give absurd suggestions.
+
+This chapter covers all 6 @ symbol types, their use cases, pros and cons. After reading, you’ll know exactly when to use which.
+
+### @Codebase - Project-Level Context
+
+Purpose: Let AI understand your entire project’s code structure and logic.
+
+This is the most powerful @ symbol, and the most underestimated. When you type`@Codebase`, Cursor uses the index database to automatically find all code snippets most relevant to your question.
+
+Use Cases:
+
+- Cross-file troubleshooting: “Why isn’t data syncing after user login?”
+- Architecture-level questions: “Where does my project handle permission validation?”
+- Learning new projects: “How are routes organized in this project?”
+
+My Real Experience: Once I inherited a legacy project — no documentation, thousands of files. I directly asked`@Codebase how is the payment flow implemented?` Cursor instantly pinpointed 5 relevant files, mapping the entire chain from API calls to data validation to callback handling. Manual code searching would’ve taken half a day.
+
+Limitations:
+
+- Depends on index quality; poor indexing reduces effectiveness
+- Query speed is slower (typically 1-3 seconds) due to full database search
+- For massive projects (100k+ lines), some edge code might be missed
+
+### @Files - Precise File Reference
+
+Purpose: Explicitly tell AI to focus on specific files.
+
+This is the most straightforward. Type`@Files`, and a file selector pops up. You can check one or multiple files. AI only looks at your selected files, nothing else.
+
+Use Cases:
+
+- You know exactly which files contain the problem
+- Need to modify specific file code
+- Avoid AI relating to irrelevant code
+
+Real Case: I needed to refactor a component involving the component itself, style file, and test file. I used`@Files` to select all three, then asked “help me convert this component to functional style.” AI only looked at those three files, giving highly focused suggestions without noise.
+
+Pros: Precise, fast, controllable Cons: Requires knowing relevant files upfront, easy to miss some
+
+### @Folders - Directory-Level Reference
+
+Purpose: Reference an entire folder’s code as context.
+
+Useful when you know the problem is in a certain module but unsure which specific file.
+
+Use Cases:
+
+- “Optimize all components in the`/components/auth/` directory”
+- “Check the`/api/` directory for security issues”
+- Batch processing code in a module
+
+Caution: Too-large folders can exceed context limits. Generally, directories with 10 or fewer files work best. If a directory has dozens of files, AI might only see the first portion, truncating the rest.
+
+### @Code - Precise Code Snippet
+
+Purpose: Reference a specific function, class, or code block.
+
+This feature is cool. You can select a code section, right-click “Add to Chat,” or directly type`@Code`, then choose a function name.
+
+Use Cases:
+
+- “This`validateUser` function has a bug, take a look”
+- “Refactor this logic to make it clearer”
+- Specify exact snippets during code review
+
+My Favorite Use: In a 1000-line utility file, I only wanted AI to focus on one 50-line function. Using`@Code` to select that function means AI isn’t distracted by other code, focusing solely on that function’s issues.
+
+### @Docs - External Documentation Reference
+
+Purpose: Let AI reference external docs like framework official documentation or API docs.
+
+This feature was added to Cursor in late 2024, many people still don’t know about it.
+
+Use Cases:
+
+- “Refer to Next.js official docs to help me configure dynamic routing”
+- “Generate calling code based on this API documentation”
+- When learning new tech, have AI combine docs with suggestions
+
+How to Use: Type`@Docs`, then enter a documentation URL or select from Cursor’s built-in common framework docs.
+
+Limitations:
+
+- Only supports some mainstream framework official docs
+- Custom documentation URLs sometimes fail (network issues or unsupported formats)
+
+### @Web - Real-Time Web Search
+
+Purpose: Let AI search the web for latest information.
+
+If you’re using a newly released library that hasn’t been trained into AI yet, use`@Web` to search for the latest usage.
+
+Use Cases:
+
+- “Search for React 19’s latest features”
+- “Look up the latest version usage of this npm package”
+- Resolve newly appearing bugs or errors
+
+Note: This feature is slightly slower since it searches the web in real-time. I only use it when I genuinely need the latest info.
+
+### Comparison Table: How to Choose Among 6 @ Symbols?
+
+| @ Symbol | Scope | Speed | Use Cases | Pros | Cons |
+| --- | --- | --- | --- | --- | --- |
+| @Codebase | Entire project | Slow (1-3s) | Cross-file issues, learning projects, architecture questions | Auto-relates, comprehensive | Depends on indexing, may lack precision |
+| @Files | Specific files | Fast (<1s) | Know file locations, precise modifications | Precise, controllable | Manual selection, easy to miss files |
+| @Folders | Entire directory | Medium (1s) | Module-level issues, batch processing | Moderate scope | Too large truncates |
+| @Code | Code snippet | Fast (<1s) | Function-level issues, code review | Extremely focused | Lacks broader context |
+| @Docs | External docs | Medium (1-2s) | Learning new tech, referencing official docs | Combines authoritative sources | Limited doc coverage |
+| @Web | Web search | Slow (2-5s) | Latest info, new library usage | Real-time current | Slow, potentially inaccurate |
+
+### My Usage Experience
+
+Honestly, at first I only used`@Files`, thinking it was safest. Later I discovered that 80% of the time`@Codebase` is more efficient — letting AI find things itself is much faster than manual file selection, and it often discovers related code I overlooked.
+
+My current usage frequency:
+
+- `@Codebase`: 60%
+- `@Files`: 30%
+- `@Code`: 5%
+- Others: 5%
+
+You don’t need to copy this exactly — find your own rhythm. The key is understanding each @ symbol’s characteristics and which tool fits which scenario.
+
+## .cursorignore Configuration in Practice
+
+Now we must talk about`.cursorignore`. This file may seem insignificant, but it can boost indexing speed by over 50% and cut CPU usage in half.
+
+When I first used Cursor, I didn’t configure this file at all. Opening a project with node_modules, my computer fan went crazy, Cursor froze to the point I questioned reality. Later I learned it was diligently indexing 30,000 files in node_modules — all that third-party library code I didn’t need.
+
+### Why Do You Need .cursorignore?
+
+Simple reason: Not all files are worth indexing.
+
+Your project might contain:
+
+- Dependency files: node_modules, vendor, .venv, etc. — tens of thousands of files you basically never need
+- Build artifacts: dist, build, .next, etc. — all compiled output, not source code
+- Temporary files: .log, .cache, .DS_Store, etc. — completely irrelevant
+- Large static assets: videos, images, fonts — indexing them is useless
+
+Excluding these can reduce indexing from 5 minutes to 30 seconds, and AI queries become more precise since they’re not distracted by irrelevant code.
+
+### .cursorignore vs .gitignore
+
+Many ask: I already have`.gitignore`, do I still need`.cursorignore`?
+
+Answer: Yes, and they serve different purposes.
+
+`.gitignore`’s purpose is “which files not to commit to version control.” But some files you don’t want to commit, yet you want AI to see. For example:
+
+- Local config:`.env.local` you don’t commit, but AI needs to know your environment variables
+- Personal notes:`TODO.md` not committed, but AI can reference
+
+Conversely, some files you commit but don’t need indexed:
+
+- package-lock.json: Needs committing, but AI doesn’t need to read this dependency lock file
+- Test coverage reports: Committed to CI, but no indexing needed
+
+So`.cursorignore` needs separate configuration.
+
+### Universal Configuration Template (Copy and Use)
+
+This is my universal template, suitable for most frontend projects. Create a`.cursorignore` file in your project root and copy this in:
+
+```
+# Dependency directories
+node_modules/
+.pnp/
+.pnp.js
+vendor/
+.venv/
+
+# Build artifacts
+dist/
+build/
+.next/
+out/
+.cache/
+.parcel-cache/
+
+# Logs and temporary files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
+
+# IDE and editor configs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Static assets (optional, adjust per project)
+*.mp4
+*.avi
+*.mov
+*.zip
+*.tar.gz
+
+# Large JSON files (optional)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+```
+
+Note: This is just a base template, adjust for your project. If you use Python, add`__pycache__/` and`*.pyc`.
+
+### Advanced Configuration Strategies
+
+1. Staged Indexing for Large Monorepos
+
+If your project is a monorepo with dozens of sub-packages, indexing everything might be slow. Use this strategy:
+
+```
+# Only index packages you're currently working on
+packages/*/node_modules/
+packages/package-a/  # Packages not currently focused on
+packages/package-b/
+```
+
+When needed, uncomment them later.
+
+2. Whitelist Mode
+
+Sometimes project files are so messy that instead of listing exclusions, specify “only index these”:
+
+```
+# Exclude everything
+*
+
+# Only include src directory
+!src/
+!src/**/*
+
+# Only include config files
+!*.config.js
+!tsconfig.json
+```
+
+This mode suits large legacy projects where you only want AI to focus on core code.
+
+3. Filter by File Size
+
+Cursor automatically skips oversized files (usually >1MB), but you can manually exclude:
+
+```
+# Exclude large data files
+*.sql
+*.csv
+*.json  # If you have dozens of MB in JSON data
+```
+
+### How to Verify Configuration?
+
+After editing`.cursorignore`, verify it took effect. Two methods:
+
+Method 1: Watch Indexing Speed
+
+Close the project, reopen it, watch the “Indexing…” progress bar in the bottom right. Before configuration might take 3-5 minutes, after should finish in 30 seconds to 1 minute.
+
+Method 2: Check Indexed File Count
+
+Open Cursor Settings → Indexing & Docs and click “View included files” to list what’s actually indexed. If it drops from 30,000 to a few hundred, configuration worked.
+
+Method 3: Test @Codebase
+
+Type`@Codebase what files are in this project?` and check the file list AI returns. If node_modules files still appear, .cursorignore didn’t take effect — check syntax.
+
+### Performance Optimization Results Comparison
+
+I tested on a real Next.js project, here’s the data:
+
+| Metric | Before Config | After Config | Improvement |
+| --- | --- | --- | --- |
+| Indexed Files | 28,634 | 487 | -98% |
+| Indexing Time | 4m 23s | 41s | -84% |
+| Peak CPU Usage | 95% | 42% | -56% |
+| @Codebase Query Speed | 2.8s | 1.1s | -61% |
+
+The data doesn’t lie. Configuring`.cursorignore` is step one in using Cursor effectively.
+
+## Common Issues and Solutions
+
+Using Cursor for over a year, I’ve hit plenty of snags. Indexing failures, slow queries, CPU maxing out… these issues affect 90% of users.
+
+This chapter compiles the 4 most common problems and solutions. When issues arise, follow this checklist, and you’ll basically solve everything.
+
+### Problem 1: Indexing Fails or Stuck on “Indexing…”
+
+Symptoms:
+
+- Bottom right corner shows “Indexing…” for dozens of minutes without completing
+- Or displays “Indexing failed”
+- @Codebase has no response
+
+Possible Causes and Solutions:
+
+Cause 1: Too many project files, indexing timeout
+
+- Solution: Configure`.cursorignore`, exclude node_modules and other irrelevant files
+- Verify: Close project, reopen, check if indexing completes within 2 minutes
+
+Cause 2: Unsupported or corrupted file format
+
+- Solution: Check for oversized files (>10MB) or binary files in project, manually add to`.cursorignore`
+- Common cases: Video files, large SQL dumps, compiled binaries
+
+Cause 3: Insufficient disk space
+
+- Solution: Index data stores locally, check remaining disk space. Generally needs at least 5GB free
+- Mac path:`~/Library/Application Support/Cursor/`
+- Windows path:`%APPDATA%\Cursor\`
+
+Cause 4: Network issues (if cloud sync enabled)
+
+- Solution: Try disabling Privacy Mode or switch network environments
+- Temporary fix: check your Privacy Mode setting, or confirm the network can reach Cursor’s servers
+
+Quick Troubleshooting Checklist:
+
+```
+☐ Check if .cursorignore is configured
+☐ Check project file count (over 1000 needs optimization)
+☐ Disk space sufficient (at least 5GB)
+☐ Try restarting Cursor
+☐ Delete old index cache, reindex
+```
+
+### Problem 2: @Codebase Search Results Inaccurate
+
+Symptoms:
+
+- Project clearly has relevant code, but @Codebase can’t find it
+- Or returns completely unrelated code
+
+Possible Causes and Solutions:
+
+Cause 1: Incomplete or outdated index
+
+- Solution: Manually trigger reindexing
+- Action: Cmd+Shift+P (Mac) / Ctrl+Shift+P (Windows) → Type “Reindex Codebase” → Enter
+
+Cause 2: Code just written, not indexed yet
+
+- Solution: Cursor auto-syncs incrementally (officially about every 5 minutes). After writing new code, wait a moment before querying
+- Or manually trigger a Reindex
+
+Cause 3: Question description too vague
+
+- Solution: Improve your question. Don’t ask “there’s a bug,” ask “why isn’t token saved to localStorage after user login”
+- Comparison:
+- - ❌ “Optimize performance”
+- ✅ “List component renders slowly, find cause of repeated rendering”
+
+Cause 4: Relevant code was excluded
+
+- Solution: Check`.cursorignore`, confirm core code wasn’t mistakenly excluded
+- Common mistake: Accidentally excluding entire src directory
+
+Tips to Improve Accuracy:
+
+- Use specific function names, variable names, file names
+- Describe concrete business scenarios, not generalizations
+- If @Codebase isn’t accurate, try`@Files` to specify files directly
+
+### Problem 3: Cursor Using Too Much CPU/Memory
+
+Symptoms:
+
+- Computer fan spinning wildly
+- Cursor using 80%+ CPU
+- Memory usage in the GBs
+- System lag
+
+Possible Causes and Solutions:
+
+Cause 1: Currently indexing large number of files
+
+- Solution: This is normal, wait for indexing to complete
+- If sustained high usage, configure`.cursorignore` to reduce indexed files
+
+Cause 2: Real-time index updates too frequent
+
+- Solution: If you’re frequently modifying code, Cursor keeps syncing the index incrementally
+- Mitigation: Cursor auto-syncs about every 5 minutes by default; add frequently-changing large folders to .cursorignore to cut repeated indexing load
+
+Cause 3: Multiple large projects open simultaneously
+
+- Solution: Each project uses resources, close unneeded project windows
+
+Cause 4: Corrupted index database
+
+- Solution: Delete index cache, reindex
+- Mac: Delete`~/Library/Application Support/Cursor/Index/`
+- Windows: Delete`%APPDATA%\Cursor\Index\`
+
+Performance Optimization Suggestions:
+
+```
+☐ Configure .cursorignore, reduce indexed files (target <1000 files)
+☐ Close unneeded project windows
+☐ Exclude frequently-changing large folders in .cursorignore to reduce re-indexing
+☐ If project particularly large, consider using @Files instead of @Codebase
+☐ Upgrade hardware (at least 16GB RAM, recommend 32GB)
+```
+
+### Problem 4: @Codebase Response Very Slow
+
+Symptoms:
+
+- After entering question, takes 5-10 seconds to respond
+- Sometimes times out
+
+Possible Causes and Solutions:
+
+Cause 1: Index database too large
+
+- Solution: Configure`.cursorignore`, reduce indexed files
+- Ideal state: 500-2000 indexed files, fastest query speed
+
+Cause 2: Slow network (if using cloud model)
+
+- Solution: Check network connection or switch to local mode
+- Settings → Models → Choose lower-latency model
+
+Cause 3: Queried code volume too large
+
+- Solution: @Codebase tries to include all related code, matching dozens of files slows it down
+- Optimize: Use more precise question descriptions or switch to`@Files` to specify scope
+
+Cause 4: Insufficient computer performance
+
+- Solution: Vector search requires computational resources, low-spec computers will be slow
+- Recommended specs: At least 16GB RAM, SSD drive
+
+Speed-Up Tips:
+
+- Prioritize`@Files` or`@Folders`, much faster than`@Codebase`
+- Regularly clean old index cache
+- Modularize projects, load only needed portions each time
+
+### My Troubleshooting Experience
+
+When problems arise, don’t panic. 90% of indexing issues stem from not configuring`.cursorignore`, causing too many irrelevant files to be indexed.
+
+My troubleshooting sequence:
+
+1. First check`.cursorignore`, confirm correct configuration
+2. Manually trigger reindexing, see if it resolves
+3. Check CPU/memory usage, determine if performance or configuration issue
+4. If nothing works, delete index cache, start fresh
+
+Most problems get resolved following this sequence. If still not working, might be a Cursor bug itself — go to official GitHub to file an issue.
+
+## Real-World Case: Configuring Next.js Project Index from Scratch
+
+Enough theory, let’s get practical. I’ll demonstrate using a real Next.js project, from creating`.cursorignore` to verifying results, complete walkthrough.
+
+Follow along, 10 minutes to completion.
+
+### Case Summary: Before and After Configuration Comparison
+
+I conducted complete testing on a real Next.js project (including component library, API routes, database integration):
+
+| Metric | Before Config | After Config | Improvement |
+| --- | --- | --- | --- |
+| Initial Indexing Time | 4m 23s | 41s | 84% faster |
+| Indexed Files | 28,634 | 487 | 98% reduction |
+| Peak CPU Usage | 95% | 42% | 56% lower |
+| @Codebase Query Speed | 2.8s | 1.1s | 61% faster |
+| AI Suggestion Accuracy (subjective) | 60% | 92% | 53% increase |
+
+That last metric “AI Suggestion Accuracy” was manually tested using 20 real development questions, comparing whether AI suggestions were usable. After configuring indexing, accuracy jumped from 60% to 92% — incredibly noticeable.
+
+### Key Takeaways
+
+Through this real-world case, you should now know:
+
+1. ✅ How to create`.cursorignore` for Next.js projects
+2. ✅ How to verify if index configuration took effect
+3. ✅ How to test @ symbol functionality
+4. ✅ How to optimize configuration based on actual situations
+
+This workflow isn’t just for Next.js — swap in React, Vue, Angular, or backend projects, the thinking is the same: Exclude irrelevant files, let AI focus on core code.
+
+## Related Reading
+
+- Complete guide to Cursor Agent mode
+- Complete Cursor network troubleshooting
+- Cursor free tier complete guide
+
+## Conclusion
+
+Wrapping up here.
+
+Back to the opening scene — 1 AM, staring at Cursor’s fifth wrong suggestion. That frustration, many have felt it. No matter how powerful AI is, if it can’t see your project’s full picture, it can only guess.
+
+Configuring indexing is the key to solving this.
+
+Three core points to remember:
+
+Understanding principles isn’t for showing off, it’s to avoid getting burned. Knowing how indexing works helps you understand why node_modules must be excluded, why queries sometimes slow down, why AI sometimes can’t find code.
+
+.cursorignore is priority number one. Everything else can wait, this is essential. Indexing speed up 50%, CPU usage cut in half, AI accuracy up 60% — all real tested data.
+
+Don’t memorize @ symbols, understand use cases. 80% of the time @Codebase is enough, 20% of the time precisely use @Files. Don’t overthink it, you’ll get the feel with practice.
+
+3 Steps to Take Immediately:
+
+1. Right now, go to your project root and create a`.cursorignore` file, copy the template from this article, save it
+2. Restart Cursor, watch indexing speed, feel the before-and-after difference
+3. Test @Codebase, ask a question AI struggled with before, see the results
+
+That simple. 10 minutes invested saves hundreds of hours of efficiency later.
+
+If this article helped you, share it with friends still struggling with Cursor indexing. We’ve all been through the pain — every pit avoided is a win.
+
+That said, Cursor’s indexing keeps evolving. This guide was rechecked against the mid-2026 official docs, but new features and issues may appear later. For anything not covered here, check the official docs for the latest.
+
+Alright, stop just reading — go configure it.
+
+### Configure Cursor Indexing for Next.js Project from Scratch
+
+Complete workflow for configuring .cursorignore, verifying index status, testing @ symbol functionality
+
+⏱️ Estimated time: 10 min
+
+1
+
+#### Step 1: Create .cursorignore file
+
+Create .cursorignore file in project root (same level as package.json).Terminal command:• touch .cursorignore (Mac/Linux)• type nul > .cursorignore (Windows)Recommended configuration for Next.js projects:# Next.js specificnode_modules/.next/out/.cache/# Dependencies and lock filespackage-lock.jsonyarn.lockpnpm-lock.yaml# Build and temporary filesdist/build/*.log.DS_Store# Test coveragecoverage/.nyc_output/# IDE configs.vscode/.idea/# Static assets (adjust per project)public/images/*.mp4public/videos/Save file, close Cursor project, prepare to reopen for verification.
+
+2
+
+#### Step 2: Verify index status
+
+Three methods to check if configuration took effect:Method 1: Observe indexing progress• Close current project: File → Close Folder• Reopen project• Watch bottom-right "Indexing..." progress bar• Before config: 28,634 files, 3-5 minutes• After config: 487 files, 30-60 secondsMethod 2: Check indexed file count• Open settings: Cmd+, (Mac) / Ctrl+, (Windows)• Go to Indexing & Docs• Click "View included files"• Dropping from tens of thousands to hundreds means it workedMethod 3: Test @Codebase• Type: @Codebase what files are in this project?• Check returned list• If node_modules files still appear, check syntax
+
+3
+
+#### Step 3: Test @ symbol functionality
+
+Verify each @ symbol works properly.Test @Codebase:• Open chat: Cmd+L / Ctrl+L• Type: @Codebase How are page routes organized in this project?• Expected: Accurately finds route files in app/ or pages/ directoryTest @Files:• Type: @Files• Select a page file (like app/page.tsx)• Ask: What does this page do?• Expected: Accurately interprets file functionalityTest @Folders:• Type: @Folders app/components/• Ask: List all components in this directory• Expected: Returns component directory structureIf all tests pass, configuration complete!
+
+4
+
+#### Step 4: Optimize configuration (optional)
+
+Further adjust .cursorignore based on actual needs.Exclude test files (if you don't need AI to see test code):__tests__/*.test.ts*.test.tsx*.spec.tsExclude documentation and config files:README.mdCHANGELOG.md*.config.jsWhitelist mode (only index specific directories):# Exclude everything*# Only include source code directories!app/!app/**/*!src/!src/**/*!components/!components/**/*After adjusting, reopen project, verify indexed file count changes. Target: 500-2000 files for fastest query speed.
+
+## FAQ
+
+Why is node_modules still being indexed even though I configured .cursorignore?
+
+Three possible reasons:1. Syntax error: Check if .cursorignore file is saved as UTF-8 encoding, and paths end with slash (node_modules/ not node_modules)2. Needs reindexing: After configuration, close and reopen project, or manually trigger reindexing (Cmd+Shift+P → Reindex Codebase)3. Wrong file location: .cursorignore must be in project root (same level as package.json), not in subdirectoriesVerification method: Open Cursor Settings → Indexing & Docs and use "View included files" to see what's actually indexed and whether the count dropped. If still tens of thousands, check the three points above.
+
+@Codebase or @Files — which is better? When to use which?
+
+Each has appropriate use cases, neither is universally better:@Codebase suits:• Cross-file troubleshooting (unsure which specific file)• Learning new project code structure• Architecture-level questions (like "how does project handle permission validation")@Files suits:• Know exactly which files have the problem• Need precise modification of specific files• Avoid AI being distracted by irrelevant codeUsage suggestion: 80% of the time try @Codebase first, if results are inaccurate or too slow, switch to @Files to specify files. My usage frequency is @Codebase 60%, @Files 30%, others 10%.
+
+Indexing is very slow or keeps failing, how to quickly troubleshoot?
+
+Follow this sequence to troubleshoot, 90% of problems resolve:1. Check .cursorignore configuration: Ensure node_modules, dist, .next and other large directories are excluded2. Check project file count: If over 1000 files, configuration isn't strict enough, needs further optimization3. Check disk space: Ensure at least 5GB free (Mac path: ~/Library/Application Support/Cursor/)4. Manually trigger reindexing: Cmd+Shift+P → Reindex Codebase5. Delete old index cache: Close Cursor, delete index cache directory, reopen projectIf none work, might be corrupted or oversized files (>10MB) in project, check and manually exclude.
+
+Cursor using too much CPU, computer fan spinning wildly — what to do?
+
+High CPU usage typically occurs during indexing, solutions:Immediate relief:• Wait for indexing to complete (first-time indexing uses more resources, normalizes after completion)• Close unneeded project windows (each project uses resources)Long-term optimization:• Configure .cursorignore, reduce indexed files (target: under 1000 files)• Reduce repeated indexing from frequent large edits: Cursor auto-syncs incrementally (about every 5 minutes), so excluding large, frequently-changing folders cuts the load most• Use whitelist mode: Only index src, app and other core directories• Upgrade hardware: At least 16GB RAM, recommend 32GBIf sustained high usage after configuration, delete index cache and reindex. Mac path: ~/Library/Application Support/Cursor/Index/
+
+What's the difference between .cursorignore and .gitignore? Can they be merged?
+
+Different purposes, not recommended to merge:.gitignore: Controls which files not to commit to version control.cursorignore: Controls which files AI doesn't indexTypical differences:• .env.local: Don't commit (.gitignore), but want AI to know environment config (not in .cursorignore)• package-lock.json: Must commit (not in .gitignore), but AI doesn't need to see (in .cursorignore)• TODO.md: Don't commit, but AI can referenceSuggestion: Maintain .cursorignore separately, configure based on "does AI need to see this file" principle, not simply copying .gitignore.
+
+After configuring indexing, @Codebase query speed still very slow (5-10 seconds), is this normal?
+
+5-10 seconds is not normal, normal speed should be within 1-3 seconds. Possible reasons:1. Indexed file count still too high: Check indexed file count in settings, ideal range is 500-2000, over 5000 noticeably slows down2. Question description too broad: @Codebase tries to match all related code, vague questions like "optimize performance" match dozens of files. Change to specific like "list component renders slowly, find repeated rendering cause"3. Network latency (cloud model): Check network connection or switch to lower-latency model in settings4. Insufficient computer performance: Vector search requires computational resources, recommend at least 16GB RAM + SSDSpeed-up tip: For definite files, using @Files directly is much faster (typically under 1 second).
+
+How to configure indexing for monorepo projects? Indexing everything is too slow
+
+Monorepo projects recommend staged indexing strategy:Method 1: Only index currently working packages# .cursorignorepackages/*/node_modules/packages/package-a/ # Packages not currently working onpackages/package-b/packages/package-c/Method 2: Whitelist mode, only index specific packages*!packages/my-working-package/!packages/my-working-package/**/*!packages/shared-utils/!packages/shared-utils/**/*Method 3: Use Cursor's multi-workspace feature• Don't open entire monorepo root• Only open currently working sub-package directory• When cross-package collaboration needed, separately @Files to referenceReal test: A 50-package monorepo, full indexing takes 10 minutes, indexing only 3 working packages takes just 1 minute.
+
+19 min read · Published on: Jan 15, 2026 · Modified on: Jul 30, 2026
+
+Series Reading PathPart 9 of 25
+
+## Cursor: Agent Mode, Pricing, Quotas, Errors, and Workflows
+
+If you landed here from search, the fastest way to build context is to jump to the previous or next post in this same series.
+
+### Cursor Agent Mode in Practice: 10 Tips I Learned the Hard Way Over Three Months
+
+PreviousFrom 2 AM debugging nightmares to seamless collaboration—real-world experience, pitfalls to avoid, and productivity tips for truly mastering your AI coding assistantPart 8 of 25
+
+### Complete Guide to Cursor .cursorignore Configuration: 3 Key Strategies for Large Project Indexing Optimization
+
+NextLearn how to optimize Cursor AI's codebase indexing with .cursorignore configuration to solve slow indexing and AI accuracy issues in large projects. Includes configuration templates, monorepo optimization strategies, and best practices.Part 10 of 25
+
+### Stop Using Cursor Wrong! The Right Way to Use These 3 Core Features
+
+### Complete Guide to Cursor Agent Mode: Start AI-Powered Automation in 3 Steps (2026)
+
+## Comments
+
+Sign in with GitHub to leave a comment
+
+Easton Blog
+
+Tech Practice Basic Tools
+
+AI Practice Theory & Trends
+
+Creation & Ops Growth & Revenue
+
+Language
+
+English
+
+Appearance
+
+LightDarkSystem

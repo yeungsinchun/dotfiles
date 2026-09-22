@@ -1,0 +1,463 @@
+---
+pid: 76813
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74"
+command: "./pipeline --only lq-pages,lq-crops --yes"
+title: "Rebuild remaining reconstructed LQ years"
+status: succeeded
+started_at: 2026-09-16T06:50:13.088Z
+running_for_ms: 1395465  
+---
+Paper type: LQ (2012p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=8.34 (detect 4.59)
+  saved 18 page PNGs -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2012/pages
+  detected Q1-Q11 (11 questions)
+  wrote starts.json (11 questions)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2012/combined.pdf (18 pages, 18 questions)
+Wrote 11 questions (page split) -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2012
+Review PDF -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2012/combined.pdf
+Paper type: LQ (2013p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=2.78 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 18 page PNGs -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2013/pages
+  detected Q1-Q11 (11 questions)
+  wrote starts.json (11 questions)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2013/combined.pdf (18 pages, 18 questions)
+Wrote 11 questions (page split) -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2013
+Review PDF -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2013/combined.pdf
+Paper type: LQ (2015p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=5.56 (detect 3.06)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 18 page PNGs -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2015/pages
+  detected Q1-Q10 (10 questions)
+  wrote starts.json (10 questions)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2015/combined.pdf (18 pages, 18 questions)
+Wrote 10 questions (page split) -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2015
+Review PDF -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2015/combined.pdf
+Paper type: LQ (2016p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=4.17 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 19 page PNGs -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2016/pages
+  detected Q1-Q9 (9 questions)
+  wrote starts.json (9 questions, excluded formula pages [18])
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2016/combined.pdf (18 pages, 18 questions)
+Wrote 9 questions (page split) -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2016
+Review PDF -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2016/combined.pdf
+Paper type: LQ (2017p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=2.78 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 19 page PNGs -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2017/pages
+  detected Q1-Q10 (10 questions)
+  wrote starts.json (10 questions, excluded formula pages [17, 18])
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2017/combined.pdf (17 pages, 17 questions)
+Wrote 10 questions (page split) -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2017
+Review PDF -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2017/combined.pdf
+Paper type: LQ (2018p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=4.17 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 18 page PNGs -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2018/pages
+  detected Q1-Q10 (10 questions)
+  wrote starts.json (10 questions)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2018/combined.pdf (18 pages, 18 questions)
+Wrote 10 questions (page split) -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2018
+Review PDF -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2018/combined.pdf
+Paper type: LQ (2019p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=5.89 (detect 3.24)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 19 page PNGs -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2019/pages
+  detected Q1-Q10 (10 questions)
+  wrote starts.json (10 questions, excluded formula pages [18])
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2019/combined.pdf (18 pages, 18 questions)
+Wrote 10 questions (page split) -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2019
+Review PDF -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2019/combined.pdf
+Paper type: LQ (2020p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=5.89 (detect 3.24)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 19 page PNGs -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2020/pages
+  detected Q1-Q10 (10 questions)
+  wrote starts.json (10 questions, excluded formula pages [17, 18])
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2020/combined.pdf (17 pages, 17 questions)
+Wrote 10 questions (page split) -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2020
+Review PDF -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2020/combined.pdf
+Paper type: LQ (2021p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=4.17 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 19 page PNGs -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2021/pages
+  detected Q1-Q9 (9 questions)
+  wrote starts.json (9 questions, excluded formula pages [18])
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2021/combined.pdf (18 pages, 18 questions)
+Wrote 9 questions (page split) -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2021
+Review PDF -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2021/combined.pdf
+Paper type: LQ (2022p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=4.17 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 19 page PNGs -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2022/pages
+  detected Q1-Q10 (10 questions)
+  wrote starts.json (10 questions, excluded formula pages [18])
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2022/combined.pdf (18 pages, 18 questions)
+Wrote 10 questions (page split) -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2022
+Review PDF -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2022/combined.pdf
+Paper type: LQ (2023p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=5.89 (detect 3.24)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 19 page PNGs -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2023/pages
+  detected Q1-Q9 (9 questions)
+  wrote starts.json (9 questions, excluded formula pages [18])
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2023/combined.pdf (18 pages, 18 questions)
+Wrote 9 questions (page split) -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2023
+Review PDF -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2023/combined.pdf
+Paper type: LQ (2024p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=2.75 (detect 2.50)
+  saved 18 page PNGs -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2024/pages
+  detected Q1-Q13 (13 questions)
+  wrote starts.json (13 questions)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2024/combined.pdf (18 pages, 18 questions)
+Wrote 13 questions (page split) -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2024
+Review PDF -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2024/combined.pdf
+Paper type: LQ (2025p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=6.44 (detect 3.54)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 19 page PNGs -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2025/pages
+  detected Q1-Q12 (12 questions)
+  wrote starts.json (12 questions, excluded formula pages [18])
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2025/combined.pdf (18 pages, 18 questions)
+Wrote 12 questions (page split) -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2025
+Review PDF -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2025/combined.pdf
+Paper type: LQ (2026p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=4.17 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 19 page PNGs -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2026/pages
+  detected Q1-Q12 (12 questions)
+  wrote starts.json (12 questions, excluded formula pages [18])
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2026/combined.pdf (18 pages, 18 questions)
+Wrote 12 questions (page split) -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2026
+Review PDF -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2026/combined.pdf
+Paper type: LQ (ppp1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=3.50 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 19 page PNGs -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/pp/pages
+  detected Q1-Q14 (14 questions)
+  wrote starts.json (14 questions)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/pp/combined.pdf (19 pages, 19 questions)
+Wrote 14 questions (page split) -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/pp
+Review PDF -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/pp/combined.pdf
+=== 2012 ===
+  2012 q1.png 4916x13952 (pages 0..1)
+  2012 q2.png 4916x6976 (pages 2..2)
+  2012 q3.png 4916x6976 (pages 3..3)
+  2012 q4.png 4916x13952 (pages 4..5)
+  2012 q5.png 4916x13952 (pages 6..7)
+  2012 q6.png 4916x6976 (pages 8..8)
+  2012 q7.png 4916x20928 (pages 9..11)
+  2012 q8.png 4916x13952 (pages 12..13)
+  2012 q9.png 4916x13952 (pages 14..15)
+  2012 q10.png 4916x6976 (pages 16..16)
+  2012 q11.png 4916x6976 (pages 17..17)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2012/combined.pdf (19 A4 pages from 2012p1b.pdf)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2012/questions.pdf (18 A4 pages, 11 questions)
+=== 2013 ===
+  2013 q1.png 1653x4676 (pages 0..1)
+  2013 q2.png 1653x4676 (pages 2..3)
+  2013 q3.png 1653x4676 (pages 4..5)
+  2013 q4.png 1653x2338 (pages 6..6)
+  2013 q5.png 1653x2338 (pages 7..7)
+  2013 q6.png 1653x4676 (pages 8..9)
+  2013 q7.png 1653x4676 (pages 10..11)
+  2013 q8.png 1653x2338 (pages 12..12)
+  2013 q9.png 1653x2338 (pages 13..13)
+  2013 q10.png 1653x4676 (pages 14..15)
+  2013 q11.png 1653x4676 (pages 16..17)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2013/combined.pdf (19 A4 pages from 2013p1b.pdf)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2013/questions.pdf (18 A4 pages, 11 questions)
+=== 2015 ===
+  2015 q1.png 3310x4680 (pages 0..0)
+  2015 q2.png 3310x4680 (pages 1..1)
+  2015 q3.png 3310x9360 (pages 2..3)
+  2015 q4.png 3310x9360 (pages 4..5)
+  2015 q5.png 3310x9360 (pages 6..7)
+  2015 q6.png 3310x9360 (pages 8..9)
+  2015 q7.png 3310x9360 (pages 10..11)
+  2015 q8.png 3310x9360 (pages 12..13)
+  2015 q9.png 3310x9360 (pages 14..15)
+  2015 q10.png 3310x9360 (pages 16..17)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2015/combined.pdf (19 A4 pages from 2015p1b.pdf)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2015/questions.pdf (18 A4 pages, 10 questions)
+=== 2016 ===
+  2016 q1.png 2480x7014 (pages 0..1)
+  2016 q2.png 2480x7014 (pages 2..3)
+  2016 q3.png 2480x7014 (pages 4..5)
+  2016 q4.png 2480x7014 (pages 6..7)
+  2016 q5.png 2480x7014 (pages 8..9)
+  2016 q6.png 2480x7014 (pages 10..11)
+  2016 q7.png 2480x7014 (pages 12..13)
+  2016 q8.png 2480x7014 (pages 14..15)
+  2016 q9.png 2480x7014 (pages 16..17)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2016/combined.pdf (19 A4 pages from 2016p1b.pdf)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2016/questions.pdf (18 A4 pages, 9 questions)
+=== 2017 ===
+  2017 q1.png 1654x4676 (pages 0..1)
+  2017 q2.png 1654x2338 (pages 2..2)
+  2017 q3.png 1654x2338 (pages 3..3)
+  2017 q4.png 1654x2338 (pages 4..4)
+  2017 q5.png 1654x7014 (pages 5..7)
+  2017 q6.png 1654x4676 (pages 8..9)
+  2017 q7.png 1654x4676 (pages 10..11)
+  2017 q8.png 1654x4676 (pages 12..13)
+  2017 q9.png 1654x4676 (pages 14..15)
+  2017 q10.png 1654x2338 (pages 16..16)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2017/combined.pdf (18 A4 pages from 2017p1b.pdf)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2017/questions.pdf (17 A4 pages, 10 questions)
+=== 2018 ===
+  2018 q1.png 2450x3478 (pages 0..0)
+  2018 q2.png 2450x3478 (pages 1..1)
+  2018 q3.png 2450x6956 (pages 2..3)
+  2018 q4.png 2450x6956 (pages 4..5)
+  2018 q5.png 2450x6956 (pages 6..7)
+  2018 q6.png 2450x6956 (pages 8..9)
+  2018 q7.png 2450x6956 (pages 10..11)
+  2018 q8.png 2450x6956 (pages 12..13)
+  2018 q9.png 2450x6956 (pages 14..15)
+  2018 q10.png 2450x6956 (pages 16..17)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2018/combined.pdf (19 A4 pages from 2018p1b.pdf)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2018/questions.pdf (18 A4 pages, 10 questions)
+=== 2019 ===
+  2019 q1.png 3508x9922 (pages 0..1)
+  2019 q2.png 3508x9922 (pages 2..3)
+  2019 q3.png 3508x9922 (pages 4..5)
+  2019 q4.png 3508x4961 (pages 6..6)
+  2019 q5.png 3508x9922 (pages 7..8)
+  2019 q6.png 3508x4961 (pages 9..9)
+  2019 q7.png 3508x9922 (pages 10..11)
+  2019 q8.png 3508x9922 (pages 12..13)
+  2019 q9.png 3508x9922 (pages 14..15)
+  2019 q10.png 3508x9922 (pages 16..17)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2019/combined.pdf (19 A4 pages from 2019p1b.pdf)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2019/questions.pdf (18 A4 pages, 10 questions)
+=== 2020 ===
+  2020 q1.png 3508x9920 (pages 0..1)
+  2020 q2.png 3508x9920 (pages 2..3)
+  2020 q3.png 3508x9920 (pages 4..5)
+  2020 q4.png 3508x9920 (pages 6..7)
+  2020 q5.png 3508x4960 (pages 8..8)
+  2020 q6.png 3508x4960 (pages 9..9)
+  2020 q7.png 3508x9920 (pages 10..11)
+  2020 q8.png 3508x9920 (pages 12..13)
+  2020 q9.png 3508x9920 (pages 14..15)
+  2020 q10.png 3508x4960 (pages 16..16)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2020/combined.pdf (18 A4 pages from 2020p1b.pdf)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2020/questions.pdf (17 A4 pages, 10 questions)
+=== 2021 ===
+  2021 q1.png 2527x7071 (pages 0..1)
+  2021 q2.png 2521x7066 (pages 2..3)
+  2021 q3.png 2514x7066 (pages 4..5)
+  2021 q4.png 2521x7066 (pages 6..7)
+  2021 q5.png 2521x10609 (pages 8..10)
+  2021 q6.png 2521x10614 (pages 11..13)
+  2021 q7.png 2527x7076 (pages 14..15)
+  2021 q8.png 2527x3543 (pages 16..16)
+  2021 q9.png 2521x3538 (pages 17..17)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2021/combined.pdf (19 A4 pages from 2021p1b.pdf)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2021/questions.pdf (18 A4 pages, 9 questions)
+=== 2022 ===
+  2022 q1.png 2480x3507 (pages 0..0)
+  2022 q2.png 2480x10521 (pages 1..3)
+  2022 q3.png 2480x7014 (pages 4..5)
+  2022 q4.png 2480x7014 (pages 6..7)
+  2022 q5.png 2480x7014 (pages 8..9)
+  2022 q6.png 2480x7014 (pages 10..11)
+  2022 q7.png 2480x7014 (pages 12..13)
+  2022 q8.png 2480x7014 (pages 14..15)
+  2022 q9.png 2480x3507 (pages 16..16)
+  2022 q10.png 2481x3508 (pages 17..17)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2022/combined.pdf (19 A4 pages from 2022p1b.pdf)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2022/questions.pdf (18 A4 pages, 10 questions)
+=== 2023 ===
+  2023 q1.png 3508x9922 (pages 0..1)
+  2023 q2.png 3508x9922 (pages 2..3)
+  2023 q3.png 3508x9922 (pages 4..5)
+  2023 q4.png 3508x4961 (pages 6..6)
+  2023 q5.png 3508x19844 (pages 6..9)
+  2023 q6.png 3508x9922 (pages 10..11)
+  2023 q7.png 3508x9922 (pages 12..13)
+  2023 q8.png 3508x9922 (pages 14..15)
+  2023 q9.png 3508x9922 (pages 16..17)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2023/combined.pdf (19 A4 pages from 2023p1b.pdf)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2023/questions.pdf (19 A4 pages, 9 questions)
+=== 2024 ===
+  2024 q1.png 1654x2340 (pages 0..0)
+  2024 q2.png 1654x2340 (pages 1..1)
+  2024 q3.png 1654x2340 (pages 2..2)
+  2024 q4.png 1654x2340 (pages 3..3)
+  2024 q5.png 1654x2340 (pages 4..4)
+  2024 q6.png 1654x2340 (pages 5..5)
+  2024 q7.png 1654x4680 (pages 6..7)
+  2024 q8.png 1654x2340 (pages 8..8)
+  2024 q9.png 1654x2340 (pages 9..9)
+  2024 q10.png 1654x4680 (pages 10..11)
+  2024 q11.png 1654x4680 (pages 12..13)
+  2024 q12.png 1654x4680 (pages 14..15)
+  2024 q13.png 1654x4680 (pages 16..17)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2024/combined.pdf (19 A4 pages from 2024p1b.pdf)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2024/questions.pdf (18 A4 pages, 13 questions)
+=== 2025 ===
+  2025 q1.png 3941x5100 (pages 0..0)
+  2025 q2.png 3941x5100 (pages 1..1)
+  2025 q3.png 3941x10200 (pages 2..3)
+  2025 q4.png 3941x5100 (pages 4..4)
+  2025 q5.png 3941x5100 (pages 5..5)
+  2025 q6.png 3941x10200 (pages 6..7)
+  2025 q7.png 3941x10200 (pages 8..9)
+  2025 q8.png 3941x5100 (pages 10..10)
+  2025 q9.png 3941x5100 (pages 11..11)
+  2025 q10.png 3941x10200 (pages 12..13)
+  2025 q11.png 3941x10200 (pages 14..15)
+  2025 q12.png 3941x10200 (pages 16..17)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2025/combined.pdf (19 A4 pages from 2025p1b.pdf)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2025/questions.pdf (18 A4 pages, 12 questions)
+=== 2026 ===
+  2026 q1.png 2480x3507 (pages 0..0)
+  2026 q2.png 2480x7014 (pages 0..1)
+  2026 q3.png 2480x7014 (pages 2..3)
+  2026 q4.png 2480x7014 (pages 4..5)
+  2026 q5.png 2480x3507 (pages 6..6)
+  2026 q6.png 2480x3507 (pages 7..7)
+  2026 q7.png 2480x3507 (pages 8..8)
+  2026 q8.png 2480x3507 (pages 9..9)
+  2026 q9.png 2480x7014 (pages 10..11)
+  2026 q10.png 2480x7014 (pages 12..13)
+  2026 q11.png 2480x7014 (pages 14..15)
+  2026 q12.png 2480x7014 (pages 16..17)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2026/combined.pdf (19 A4 pages from 2026p1b.pdf)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2026/questions.pdf (19 A4 pages, 12 questions)
+=== pp ===
+  pp q1.png 2083x2947 (pages 0..0)
+  pp q2.png 2083x2947 (pages 1..1)
+  pp q3.png 2083x2947 (pages 2..2)
+  pp q4.png 2083x2947 (pages 3..3)
+  pp q5.png 2083x2947 (pages 4..4)
+  pp q6.png 2083x2947 (pages 5..5)
+  pp q7.png 2082x2947 (pages 6..6)
+  pp q8.png 2083x5894 (pages 7..8)
+  pp q9.png 2083x5894 (pages 9..10)
+  pp q10.png 2083x2947 (pages 11..11)
+  pp q11.png 2083x5894 (pages 12..13)
+  pp q12.png 2083x5894 (pages 14..15)
+  pp q13.png 2082x5894 (pages 16..17)
+  pp q14.png 2083x2947 (pages 18..18)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/pp/combined.pdf (20 A4 pages from ppp1b.pdf)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/pp/questions.pdf (19 A4 pages, 14 questions)
+Wrote 160 whole-page LQ question PNGs
+Synced 173 classified LQ question PNGs
+Wrote reconstructed/lq/combined.pdf (303 pages)
+paper2db pipeline
+  stages: lq-pages, lq-crops
+  force=False yes=True
+
+######## stage: lq-pages ########
+
+=== LQ pages: 2012 (2012p1b.pdf) ===
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/segment /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/paper/lq/2012p1b.pdf /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2012 --type lq
+
+=== LQ pages: 2013 (2013p1b.pdf) ===
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/segment /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/paper/lq/2013p1b.pdf /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2013 --type lq
+skip lq-pages 2014: starts.json and pages/ already present
+
+=== LQ pages: 2015 (2015p1b.pdf) ===
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/segment /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/paper/lq/2015p1b.pdf /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2015 --type lq
+
+=== LQ pages: 2016 (2016p1b.pdf) ===
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/segment /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/paper/lq/2016p1b.pdf /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2016 --type lq
+
+=== LQ pages: 2017 (2017p1b.pdf) ===
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/segment /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/paper/lq/2017p1b.pdf /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2017 --type lq
+
+=== LQ pages: 2018 (2018p1b.pdf) ===
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/segment /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/paper/lq/2018p1b.pdf /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2018 --type lq
+
+=== LQ pages: 2019 (2019p1b.pdf) ===
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/segment /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/paper/lq/2019p1b.pdf /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2019 --type lq
+
+=== LQ pages: 2020 (2020p1b.pdf) ===
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/segment /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/paper/lq/2020p1b.pdf /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2020 --type lq
+
+=== LQ pages: 2021 (2021p1b.pdf) ===
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/segment /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/paper/lq/2021p1b.pdf /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2021 --type lq
+
+=== LQ pages: 2022 (2022p1b.pdf) ===
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/segment /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/paper/lq/2022p1b.pdf /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2022 --type lq
+
+=== LQ pages: 2023 (2023p1b.pdf) ===
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/segment /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/paper/lq/2023p1b.pdf /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2023 --type lq
+
+=== LQ pages: 2024 (2024p1b.pdf) ===
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/segment /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/paper/lq/2024p1b.pdf /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2024 --type lq
+
+=== LQ pages: 2025 (2025p1b.pdf) ===
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/segment /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/paper/lq/2025p1b.pdf /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2025 --type lq
+
+=== LQ pages: 2026 (2026p1b.pdf) ===
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/segment /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/paper/lq/2026p1b.pdf /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/2026 --type lq
+
+=== LQ pages: pp (ppp1b.pdf) ===
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/segment /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/paper/lq/ppp1b.pdf /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/lq/pp --type lq
+
+######## stage: lq-crops ########
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/scripts/crop_lq_from_pages.py --years 2012 2013 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 2026 pp
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/scripts/combine_reconstructed.py --kind lq
+
+========================================================================
+LQ PAGE REVIEW (optional but recommended)
+
+Skim reconstructed/lq/<year>/questions.pdf. Each qN.png is whole exam page(s)
+(page_from..page_to) - no within-page crop. Fix starts.json and re-run
+lq-pages / lq-crops if a question's page range is wrong.
+
+  reconstructed/lq/2012/questions.pdf
+  reconstructed/lq/2013/questions.pdf
+  reconstructed/lq/2015/questions.pdf
+  reconstructed/lq/2016/questions.pdf
+  reconstructed/lq/2017/questions.pdf
+  reconstructed/lq/2018/questions.pdf
+  reconstructed/lq/2019/questions.pdf
+  reconstructed/lq/2020/questions.pdf
+  reconstructed/lq/2021/questions.pdf
+  reconstructed/lq/2022/questions.pdf
+  reconstructed/lq/2023/questions.pdf
+  reconstructed/lq/2024/questions.pdf
+  reconstructed/lq/2025/questions.pdf
+  reconstructed/lq/2026/questions.pdf
+  reconstructed/lq/pp/questions.pdf
+========================================================================
+(continuing without prompt because --yes)
+
+Done.
+Review PDFs:
+  MC papers:   reconstructed/mc/combined.pdf (per year: reconstructed/mc/<year>/combined.pdf)
+  LQ papers:   reconstructed/lq/combined.pdf (per year: reconstructed/lq/<year>/combined.pdf)
+  MC sections: classified/mc/<book>/<section>/combined.pdf
+  LQ sections: classified/lq/<book>/<section>/questions.pdf
+Lavish HTML (if lavish stage ran):
+  Pipeline walkthrough: .lavish/pipeline-review/
+  MC banks:             .lavish/classified-review/
+  LQ banks:             .lavish/lq-classified-review/
+  Quality audit JSON:   classified/quality_audit.json
+
+---
+exit_code: 0
+elapsed_ms: 1395449
+ended_at: 2026-09-16T07:13:28.537Z
+---

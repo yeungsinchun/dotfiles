@@ -1,0 +1,2 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<timestamp>Saturday, May 23, 2026, 2:01 AM (UTC+8)</timestamp>\n<user_query>\nStop working. The translation agent should interrupt and stop immediately.\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"Understood. I will stop working immediately."}]}}

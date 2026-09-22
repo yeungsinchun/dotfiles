@@ -1,0 +1,42 @@
+---
+pid: 56115
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "/usr/bin/env -i PATH=\"/usr/bin:/bin:/opt/homebrew/bin:/usr/local/bin:/Users/sinchunyeung/.local/bin:$HOME/.nvm/versions/node/v24.20.0/bin\" HOME=\"/Users/sinchunyeung\" /bin/bash <<'SCRIPT'\nREPO=yeungsinchun/Simplification-of-Trajectory-Streams\nCLONE=/Users/sinchunyeung/github/firstmate/projects/simplification-of-trajectory-streams\ncd \"$CLONE\"\ngit fetch origin main gnhf/fix-any-usability-pr-5460d8 2>&1 | tail -3\necho \"==== commits on #17 not in main ====\"\ngit log --oneline origin/main..origin/gnhf/fix-any-usability-pr-5460d8\necho \"==== PR 17 summary ====\"\ngh pr view 17 -R \"$REPO\" --json title,body,baseRefName,headRefName,url,state,mergedAt --jq '{title,state,base:.baseRefName,head:.headRefName,url,body:(.body[0:800])}'\necho \"==== already on main (recent usability merges) ====\"\ngit log --oneline origin/main -15 | head -15\nSCRIPT\n"
+status: succeeded
+started_at: 2026-09-07T12:12:55.140Z
+running_for_ms: 76633    
+---
+fatal: unable to access 'https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams.git/': Failed to connect to github.com port 443 after 75011 ms: Couldn't connect to server
+==== commits on #17 not in main ====
+2c4aa06 Merge pull request #16 from yeungsinchun/fm/boundary-lr-fix
+6defabb no-mistakes(document): Refresh stale USABILITY and boundary docs
+965df98 no-mistakes(review): Restore match-limit chip; refresh status-gloss PNG
+9221ad0 fix(web): drop overlay gloss parens and shorten Instructions
+96a2163 fix: P boundary is L/R per row plus full top/bottom rows
+43948cf fix: L/R P anchors per y-row and restore tour UX on GNHF tip
+aeb1382 fix(web): restore paper ε/δ labels and polish compare UI
+4daf0c5 gnhf 87: Merged PR #12 after green CI, Deploy published simplify-viewer-00012-mkv with novice copy live (HTTP 200), and marked the Cloud Run refresh resolved in USABILITY.md.
+==== PR 17 summary ====
+{"base":"main","body":"## Summary\n- Brings the current GNHF usability line onto `main`, including paper ε/δ labels, Map math overlays, and viewer polish from `gnhf/fix-any-usability-pr-5460d8`.\n- Includes merged [#16](https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/pull/16): P boundary is leftmost/rightmost on every y-row plus every sample on the topmost and bottommost rows (discrete hull outline); Status gloss removed; overlay parentheses dropped; Instructions shortened; match-limit chip restored while saved Match stays removed.\n\n## Test plan\n- [ ] Benchmark + Correctness CI green on this PR\n- [ ] Viewer: P anchors form hull outline (full top/bottom rows, L/R sides)\n- [ ] Map overlays show math labels without extra parentheses\n- [ ] Right-panel Instructions are shorter; no Status descriptio","head":"gnhf/fix-any-usability-pr-5460d8","state":"OPEN","title":"Usability + discrete P hull outline on GNHF tip","url":"https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/pull/17"}
+==== already on main (recent usability merges) ====
+d7c8fc7 Merge pull request #12 from yeungsinchun/gnhf/fix-any-usability-pr-5460d8
+bdbe6db gnhf 86: Pushed 67 local usability commits and opened PR #12 so Deploy can refresh Cloud Run off the stale PR #11 revision, and documented that live-site gap in USABILITY.md.
+a95449d gnhf 85: Aligned the loaded match limit chip tip with Match/DP smaller-outcome guidance by replacing Upper Match limit with A smaller match limit keeps a more detailed green path, verified with a 900px fixture.
+4a81182 gnhf 84: Aligned Grid form/chip tips and the Accuracy tour with Match-style smaller/outcome guidance by saying a smaller Grid uses finer spacing, verified with a 900px fixture.
+312e040 gnhf 83: Aligned Match and DP match tips (and the Accuracy tour) with green-path vocabulary by replacing Smaller keeps more detail with A smaller Match/match keeps a more detailed green path, verified with a 900px fixture.
+b196b0b gnhf 82: Aligned SQUISH Compare pill and keep-percent tips with builds a shorter green path vocabulary, verified with a 900px fixture.
+d035976 gnhf 81: Replaced leftover Compare DP dropping-points and DOTS Larger-keeps tip wording with match-limit / green-path vocabulary, verified with a 900px fixture.
+0214b98 gnhf 80: Replaced leftover Compare DOTS/DP and welcome-tour “shortens the path” wording with builds a shorter green path / Gray path vocabulary, verified with a 900px fixture.
+6dafb56 gnhf 79: Aligned desktop drop-hint/Instructions and Compare selection status with DOTS (as-you-go) / DP (all-at-once) / SQUISH (keep %) glosses so skip-tour desktop users can map help to the pills.
+4a247fa gnhf 78: Aligned Compare help, Map overlays hint, and tour copy with as-you-go / all-at-once / keep % glosses so skip-tour users can map Instructions to the Compare pills.
+126ec9c gnhf 77: Aligned Results SQUISH to header keep + % (dropping redundant keep %), with matching keep percent validation and API metadata.
+d0904b4 gnhf 76: Replaced opaque Compare stream/classic path-shortener glosses with as-you-go / all-at-once wording and cleared leftover looking-for / streaming load copy.
+1e22e7e gnhf 75: Replaced leftover server Match-error/Compare failure and API metadata jargon (simplified path, algorithm, LSSD, PED ε) with green path / method / budget / match / keep % wording, and aligned the Scores tiny-Match-error note.
+32943e8 gnhf 74: Renamed Compare DP match error to match/match limit and DOTS distance budget to budget so params no longer collide with Scores Match error, with a verified 900px fixture.
+0635973 gnhf 73: Replaced leftover Compare algorithms / Match tolerance jargon with methods / Match wording across Results, tips, status, and tours, verified with a 900px fixture.
+
+---
+exit_code: 0
+elapsed_ms: 76630
+ended_at: 2026-09-07T12:14:11.770Z
+---

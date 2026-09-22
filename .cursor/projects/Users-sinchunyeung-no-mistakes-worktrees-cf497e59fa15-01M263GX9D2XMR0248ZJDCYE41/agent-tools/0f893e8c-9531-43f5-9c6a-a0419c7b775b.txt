@@ -1,0 +1,1492 @@
+ .../01_Temperature_and_Heat_Transfer/questions.pdf | Bin 2366515 -> 847679 bytes
+ .../02_Heat_Capacity/questions.pdf                 | Bin 11450045 -> 7550708 bytes
+ .../03_Change_of_State/questions.pdf               | Bin 8046687 -> 4507483 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/questions.pdf    | Bin 18393997 -> 13729800 bytes
+ .../lq/02_Force_and_Motion/05_Motion/questions.pdf | Bin 13736891 -> 11191401 bytes
+ .../lq/02_Force_and_Motion/06_Force/questions.pdf  | Bin 16811054 -> 8547681 bytes
+ .../07_More_about_Forces/questions.pdf             | Bin 6524142 -> 3806110 bytes
+ .../08_Work_Energy_and_Power/questions.pdf         | Bin 9677568 -> 4576916 bytes
+ .../02_Force_and_Motion/09_Momentum/questions.pdf  | Bin 12262169 -> 5989190 bytes
+ .../10_Projectile_Motion/questions.pdf             | Bin 1194864 -> 613903 bytes
+ .../11_Uniform_Circular_Motion/questions.pdf       | Bin 4652317 -> 4712751 bytes
+ .../03A_Wave_Motion/13_Wave_Motion/questions.pdf   | Bin 3058160 -> 1893345 bytes
+ .../questions.pdf                                  | Bin 8534150 -> 5457219 bytes
+ .../questions.pdf                                  | Bin 11107111 -> 3250639 bytes
+ .../16_Light_and_Sound/questions.pdf               | Bin 5744497 -> 3379080 bytes
+ .../18_Refraction_of_Light/questions.pdf           | Bin 10226664 -> 4440654 bytes
+ .../lq/03B_Ray_Optics/19_Lenses/questions.pdf      | Bin 23603289 -> 15154418 bytes
+ .../20_Electrostatics/questions.pdf                | Bin 5859681 -> 3198093 bytes
+ .../21_Circuit_and_Power/questions.pdf             | Bin 37328221 -> 19662258 bytes
+ .../22_AC_and_Domestic_Electricity/questions.pdf   | Bin 11043288 -> 6771394 bytes
+ .../23_Electromagnetism/questions.pdf              | Bin 15561836 -> 7425668 bytes
+ .../24_Electromagnetic_Induction/questions.pdf     | Bin 15227253 -> 4442965 bytes
+ .../25_Radiation_and_Radioactivity/questions.pdf   | Bin 0 -> 943910 bytes
+ .../questions.pdf                                  | Bin 14523238 -> 7340495 bytes
+ .../27_Nuclear_Energy/questions.pdf                | Bin 18664796 -> 10301638 bytes
+ .../01_Temperature_and_Heat_Transfer/answer.pdf    | Bin 4028 -> 4028 bytes
+ .../01_Temperature_and_Heat_Transfer/combined.pdf  | Bin 1272024 -> 1273350 bytes
+ .../01_Heat_and_Gases/02_Heat_Capacity/answer.pdf  | Bin 3658 -> 3657 bytes
+ .../02_Heat_Capacity/combined.pdf                  | Bin 1163372 -> 1164491 bytes
+ .../03_Change_of_State/answer.pdf                  | Bin 4393 -> 4393 bytes
+ .../03_Change_of_State/combined.pdf                | Bin 1378494 -> 1380022 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/answer.pdf       | Bin 5309 -> 5310 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/combined.pdf     | Bin 1469686 -> 1471636 bytes
+ .../mc/02_Force_and_Motion/05_Motion/answer.pdf    | Bin 6747 -> 6745 bytes
+ .../mc/02_Force_and_Motion/05_Motion/combined.pdf  | Bin 1823360 -> 1825925 bytes
+ .../mc/02_Force_and_Motion/06_Force/answer.pdf     | Bin 8335 -> 8338 bytes
+ .../mc/02_Force_and_Motion/06_Force/combined.pdf   | Bin 3137781 -> 3141356 bytes
+ .../07_More_about_Forces/answer.pdf                | Bin 5492 -> 5488 bytes
+ .../07_More_about_Forces/combined.pdf              | Bin 2564322 -> 2566860 bytes
+ .../08_Work_Energy_and_Power/answer.pdf            | Bin 4591 -> 4587 bytes
+ .../08_Work_Energy_and_Power/combined.pdf          | Bin 1636262 -> 1638210 bytes
+ .../mc/02_Force_and_Motion/09_Momentum/answer.pdf  | Bin 5304 -> 5302 bytes
+ .../02_Force_and_Motion/09_Momentum/combined.pdf   | Bin 2291220 -> 2293361 bytes
+ .../10_Projectile_Motion/answer.pdf                | Bin 3516 -> 3517 bytes
+ .../10_Projectile_Motion/combined.pdf              | Bin 1069963 -> 1071283 bytes
+ .../11_Uniform_Circular_Motion/answer.pdf          | Bin 3136 -> 3139 bytes
+ .../11_Uniform_Circular_Motion/combined.pdf        | Bin 576734 -> 577865 bytes
+ .../02_Force_and_Motion/12_Gravitation/answer.pdf  | Bin 4045 -> 4040 bytes
+ .../12_Gravitation/combined.pdf                    | Bin 1122885 -> 1124434 bytes
+ .../mc/03A_Wave_Motion/13_Wave_Motion/answer.pdf   | Bin 6582 -> 6587 bytes
+ .../mc/03A_Wave_Motion/13_Wave_Motion/combined.pdf | Bin 3272195 -> 3275229 bytes
+ .../answer.pdf                                     | Bin 6405 -> 6405 bytes
+ .../combined.pdf                                   | Bin 2500665 -> 2503614 bytes
+ .../15_Interference_and_Stationary_Wave/answer.pdf | Bin 6774 -> 6767 bytes
+ .../combined.pdf                                   | Bin 2604062 -> 2607224 bytes
+ .../03A_Wave_Motion/16_Light_and_Sound/answer.pdf  | Bin 6222 -> 6206 bytes
+ .../16_Light_and_Sound/combined.pdf                | Bin 1830478 -> 1832255 bytes
+ .../17_Reflection_of_Light/answer.pdf              | Bin 2417 -> 2417 bytes
+ .../17_Reflection_of_Light/combined.pdf            | Bin 595567 -> 596670 bytes
+ .../18_Refraction_of_Light/answer.pdf              | Bin 3873 -> 3876 bytes
+ .../18_Refraction_of_Light/combined.pdf            | Bin 1118174 -> 1119915 bytes
+ classified/mc/03B_Ray_Optics/19_Lenses/answer.pdf  | Bin 5644 -> 5643 bytes
+ .../mc/03B_Ray_Optics/19_Lenses/combined.pdf       | Bin 2127797 -> 2130325 bytes
+ .../20_Electrostatics/answer.pdf                   | Bin 7078 -> 7083 bytes
+ .../20_Electrostatics/combined.pdf                 | Bin 2199647 -> 2202215 bytes
+ .../21_Circuit_and_Power/answer.pdf                | Bin 9577 -> 9579 bytes
+ .../21_Circuit_and_Power/combined.pdf              | Bin 3029419 -> 3033449 bytes
+ .../22_AC_and_Domestic_Electricity/answer.pdf      | Bin 6389 -> 6392 bytes
+ .../22_AC_and_Domestic_Electricity/combined.pdf    | Bin 1675114 -> 1677309 bytes
+ .../23_Electromagnetism/answer.pdf                 | Bin 6731 -> 6727 bytes
+ .../23_Electromagnetism/combined.pdf               | Bin 3123215 -> 3126592 bytes
+ .../24_Electromagnetic_Induction/answer.pdf        | Bin 6214 -> 6215 bytes
+ .../24_Electromagnetic_Induction/combined.pdf      | Bin 2788377 -> 2791142 bytes
+ .../25_Radiation_and_Radioactivity/answer.pdf      | Bin 4786 -> 4788 bytes
+ .../25_Radiation_and_Radioactivity/combined.pdf    | Bin 1181231 -> 1182995 bytes
+ .../answer.pdf                                     | Bin 4616 -> 4619 bytes
+ .../combined.pdf                                   | Bin 1040670 -> 1041863 bytes
+ .../27_Nuclear_Energy/answer.pdf                   | Bin 3867 -> 3866 bytes
+ .../27_Nuclear_Energy/combined.pdf                 | Bin 822677 -> 823998 bytes
+ output/2012/combined.pdf                           | Bin 3182020 -> 3179580 bytes
+ output/2013/combined.pdf                           | Bin 2964426 -> 2961400 bytes
+ output/2014/combined.pdf                           | Bin 2181520 -> 2183835 bytes
+ output/2015/combined.pdf                           | Bin 2673246 -> 2669952 bytes
+ output/2016/combined.pdf                           | Bin 1907077 -> 1909170 bytes
+ output/2017/combined.pdf                           | Bin 3152690 -> 3155568 bytes
+ output/2018/combined.pdf                           | Bin 3850314 -> 3845596 bytes
+ output/2019/combined.pdf                           | Bin 4880551 -> 4883548 bytes
+ output/2020/combined.pdf                           | Bin 3199617 -> 3202299 bytes
+ output/2021/combined.pdf                           | Bin 1681054 -> 1683339 bytes
+ output/2022/combined.pdf                           | Bin 2414661 -> 2417094 bytes
+ output/2023/combined.pdf                           | Bin 4191907 -> 4186481 bytes
+ output/2024/combined.pdf                           | Bin 2881038 -> 2883458 bytes
+ output/2025/combined.pdf                           | Bin 3044885 -> 3047316 bytes
+ output/2026/combined.pdf                           | Bin 3514951 -> 3517365 bytes
+ output/lq/2012/ans/combined.pdf                    | Bin 1245118 -> 1246336 bytes
+ output/lq/2012/combined.pdf                        | Bin 6145295 -> 4111993 bytes
+ output/lq/2012/questions.pdf                       | Bin 6142873 -> 3888368 bytes
+ output/lq/2013/ans/combined.pdf                    | Bin 2147844 -> 2148870 bytes
+ output/lq/2013/combined.pdf                        | Bin 14180010 -> 5716053 bytes
+ output/lq/2013/questions.pdf                       | Bin 9895556 -> 5477005 bytes
+ output/lq/2014/ans/combined.pdf                    | Bin 3871493 -> 3873445 bytes
+ output/lq/2014/combined.pdf                        | Bin 11746719 -> 1834616 bytes
+ output/lq/2014/questions.pdf                       | Bin 7035112 -> 1805178 bytes
+ output/lq/2015/ans/combined.pdf                    | Bin 2436837 -> 2438447 bytes
+ output/lq/2015/combined.pdf                        | Bin 46146752 -> 24445270 bytes
+ output/lq/2015/questions.pdf                       | Bin 35381867 -> 24445459 bytes
+ output/lq/2016/ans/combined.pdf                    | Bin 2516826 -> 2518647 bytes
+ output/lq/2016/combined.pdf                        | Bin 18586099 -> 9341587 bytes
+ output/lq/2016/questions.pdf                       | Bin 13746814 -> 9198668 bytes
+ output/lq/2017/ans/combined.pdf                    | Bin 3453291 -> 3454484 bytes
+ output/lq/2017/combined.pdf                        | Bin 25939864 -> 4973658 bytes
+ output/lq/2017/questions.pdf                       | Bin 20047665 -> 4767804 bytes
+ output/lq/2018/ans/combined.pdf                    | Bin 4515209 -> 4516792 bytes
+ output/lq/2018/combined.pdf                        | Bin 83025954 -> 33011999 bytes
+ output/lq/2018/questions.pdf                       | Bin 54458742 -> 31319722 bytes
+ output/lq/2019/ans/combined.pdf                    | Bin 3644680 -> 3646279 bytes
+ output/lq/2019/combined.pdf                        | Bin 30330937 -> 10790118 bytes
+ output/lq/2019/questions.pdf                       | Bin 21711477 -> 10790084 bytes
+ output/lq/2020/ans/combined.pdf                    | Bin 1363569 -> 1365533 bytes
+ output/lq/2020/combined.pdf                        | Bin 17893826 -> 5887701 bytes
+ output/lq/2020/questions.pdf                       | Bin 13787444 -> 5887664 bytes
+ output/lq/2021/ans/combined.pdf                    | Bin 4244015 -> 4245400 bytes
+ output/lq/2021/combined.pdf                        | Bin 9767934 -> 1076740 bytes
+ output/lq/2021/questions.pdf                       | Bin 7472681 -> 1072938 bytes
+ output/lq/2022/ans/combined.pdf                    | Bin 4344267 -> 4346266 bytes
+ output/lq/2022/combined.pdf                        | Bin 13977353 -> 1136223 bytes
+ output/lq/2022/questions.pdf                       | Bin 9967229 -> 1128119 bytes
+ output/lq/2023/ans/combined.pdf                    | Bin 1535291 -> 1537058 bytes
+ output/lq/2023/combined.pdf                        | Bin 23011513 -> 9881543 bytes
+ output/lq/2023/questions.pdf                       | Bin 17745011 -> 9881268 bytes
+ output/lq/2024/ans/combined.pdf                    | Bin 1870681 -> 1872262 bytes
+ output/lq/2024/combined.pdf                        | Bin 1323286 -> 719943 bytes
+ output/lq/2024/questions.pdf                       | Bin 1320555 -> 692176 bytes
+ output/lq/2025/ans/combined.pdf                    | Bin 2627351 -> 2629187 bytes
+ output/lq/2025/combined.pdf                        | Bin 59447209 -> 8043193 bytes
+ output/lq/2025/questions.pdf                       | Bin 59440050 -> 8043094 bytes
+ output/lq/2026/combined.pdf                        | Bin 22593667 -> 6018268 bytes
+ output/lq/2026/questions.pdf                       | Bin 17536352 -> 5891132 bytes
+ output/lq/pp/combined.pdf                          | Bin 7165077 -> 1222694 bytes
+ output/lq/pp/questions.pdf                         | Bin 5696175 -> 1209856 bytes
+ output/pp/combined.pdf                             | Bin 1373778 -> 1376590 bytes
+ output/sap/combined.pdf                            | Bin 1706423 -> 1708964 bytes
+ scripts/classify_mc_llm.py                         |   2 +-
+ scripts/combine_lq_section_pdfs.py                 |  60 +++---
+ scripts/combine_section_pdfs.py                    |  56 +++---
+ scripts/crop_lq_from_pages.py                      |   4 +-
+ scripts/lq_pdf_review.py                           | 166 +++++++++++++++
+ scripts/png_pdf.py                                 | 171 +++++++++++++++-
+ tests/test_combined_pdf_a4.py                      | 222 +++++++++++++++++++++
+ tests/test_lq_whole_pages.py                       |  44 ++++
+ 150 files changed, 656 insertions(+), 69 deletions(-)
+======= FULL DIFF =======
+diff --git a/classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/questions.pdf b/classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/questions.pdf
+index 910c39a..3d92247 100644
+Binary files a/classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/questions.pdf and b/classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/questions.pdf differ
+diff --git a/classified/lq/01_Heat_and_Gases/02_Heat_Capacity/questions.pdf b/classified/lq/01_Heat_and_Gases/02_Heat_Capacity/questions.pdf
+index ac71d21..a56f848 100644
+Binary files a/classified/lq/01_Heat_and_Gases/02_Heat_Capacity/questions.pdf and b/classified/lq/01_Heat_and_Gases/02_Heat_Capacity/questions.pdf differ
+diff --git a/classified/lq/01_Heat_and_Gases/03_Change_of_State/questions.pdf b/classified/lq/01_Heat_and_Gases/03_Change_of_State/questions.pdf
+index b9ae0f1..841c11a 100644
+Binary files a/classified/lq/01_Heat_and_Gases/03_Change_of_State/questions.pdf and b/classified/lq/01_Heat_and_Gases/03_Change_of_State/questions.pdf differ
+diff --git a/classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/questions.pdf b/classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/questions.pdf
+index 5572074..02bdc9c 100644
+Binary files a/classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/questions.pdf and b/classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/questions.pdf differ
+diff --git a/classified/lq/02_Force_and_Motion/05_Motion/questions.pdf b/classified/lq/02_Force_and_Motion/05_Motion/questions.pdf
+index 6e6bc58..73745c9 100644
+Binary files a/classified/lq/02_Force_and_Motion/05_Motion/questions.pdf and b/classified/lq/02_Force_and_Motion/05_Motion/questions.pdf differ
+diff --git a/classified/lq/02_Force_and_Motion/06_Force/questions.pdf b/classified/lq/02_Force_and_Motion/06_Force/questions.pdf
+index 22e82c2..932cfb5 100644
+Binary files a/classified/lq/02_Force_and_Motion/06_Force/questions.pdf and b/classified/lq/02_Force_and_Motion/06_Force/questions.pdf differ
+diff --git a/classified/lq/02_Force_and_Motion/07_More_about_Forces/questions.pdf b/classified/lq/02_Force_and_Motion/07_More_about_Forces/questions.pdf
+index d0c7fb1..598c055 100644
+Binary files a/classified/lq/02_Force_and_Motion/07_More_about_Forces/questions.pdf and b/classified/lq/02_Force_and_Motion/07_More_about_Forces/questions.pdf differ
+diff --git a/classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/questions.pdf b/classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/questions.pdf
+index 46bb88a..90d4d34 100644
+Binary files a/classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/questions.pdf and b/classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/questions.pdf differ
+diff --git a/classified/lq/02_Force_and_Motion/09_Momentum/questions.pdf b/classified/lq/02_Force_and_Motion/09_Momentum/questions.pdf
+index ccadce9..6584679 100644
+Binary files a/classified/lq/02_Force_and_Motion/09_Momentum/questions.pdf and b/classified/lq/02_Force_and_Motion/09_Momentum/questions.pdf differ
+diff --git a/classified/lq/02_Force_and_Motion/10_Projectile_Motion/questions.pdf b/classified/lq/02_Force_and_Motion/10_Projectile_Motion/questions.pdf
+index db21713..15c81f4 100644
+Binary files a/classified/lq/02_Force_and_Motion/10_Projectile_Motion/questions.pdf and b/classified/lq/02_Force_and_Motion/10_Projectile_Motion/questions.pdf differ
+diff --git a/classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/questions.pdf b/classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/questions.pdf
+index dfd91a4..71b0194 100644
+Binary files a/classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/questions.pdf and b/classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/questions.pdf differ
+diff --git a/classified/lq/03A_Wave_Motion/13_Wave_Motion/questions.pdf b/classified/lq/03A_Wave_Motion/13_Wave_Motion/questions.pdf
+index 3ac2194..9922e9f 100644
+Binary files a/classified/lq/03A_Wave_Motion/13_Wave_Motion/questions.pdf and b/classified/lq/03A_Wave_Motion/13_Wave_Motion/questions.pdf differ
+diff --git a/classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/questions.pdf b/classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/questions.pdf
+index d433b9c..cb8c2e3 100644
+Binary files a/classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/questions.pdf and b/classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/questions.pdf differ
+diff --git a/classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/questions.pdf b/classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/questions.pdf
+index f6f5011..625a241 100644
+Binary files a/classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/questions.pdf and b/classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/questions.pdf differ
+diff --git a/classified/lq/03A_Wave_Motion/16_Light_and_Sound/questions.pdf b/classified/lq/03A_Wave_Motion/16_Light_and_Sound/questions.pdf
+index 784aed6..8f6f609 100644
+Binary files a/classified/lq/03A_Wave_Motion/16_Light_and_Sound/questions.pdf and b/classified/lq/03A_Wave_Motion/16_Light_and_Sound/questions.pdf differ
+diff --git a/classified/lq/03B_Ray_Optics/18_Refraction_of_Light/questions.pdf b/classified/lq/03B_Ray_Optics/18_Refraction_of_Light/questions.pdf
+index eeb4161..ad099cd 100644
+Binary files a/classified/lq/03B_Ray_Optics/18_Refraction_of_Light/questions.pdf and b/classified/lq/03B_Ray_Optics/18_Refraction_of_Light/questions.pdf differ
+diff --git a/classified/lq/03B_Ray_Optics/19_Lenses/questions.pdf b/classified/lq/03B_Ray_Optics/19_Lenses/questions.pdf
+index 40c939d..cce4053 100644
+Binary files a/classified/lq/03B_Ray_Optics/19_Lenses/questions.pdf and b/classified/lq/03B_Ray_Optics/19_Lenses/questions.pdf differ
+diff --git a/classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/questions.pdf b/classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/questions.pdf
+index a3c20d4..14c5bb5 100644
+Binary files a/classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/questions.pdf and b/classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/questions.pdf differ
+diff --git a/classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/questions.pdf b/classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/questions.pdf
+index b1ffdc3..4dcd12a 100644
+Binary files a/classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/questions.pdf and b/classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/questions.pdf differ
+diff --git a/classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/questions.pdf b/classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/questions.pdf
+index 6d060ab..b18f6eb 100644
+Binary files a/classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/questions.pdf and b/classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/questions.pdf differ
+diff --git a/classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/questions.pdf b/classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/questions.pdf
+index 2a810d6..7391287 100644
+Binary files a/classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/questions.pdf and b/classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/questions.pdf differ
+diff --git a/classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/questions.pdf b/classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/questions.pdf
+index fc48006..894943b 100644
+Binary files a/classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/questions.pdf and b/classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/questions.pdf differ
+diff --git a/classified/lq/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/questions.pdf b/classified/lq/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/questions.pdf
+new file mode 100644
+index 0000000..e28f768
+Binary files /dev/null and b/classified/lq/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/questions.pdf differ
+diff --git a/classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/questions.pdf b/classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/questions.pdf
+index f823173..ebd7ba9 100644
+Binary files a/classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/questions.pdf and b/classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/questions.pdf differ
+diff --git a/classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/questions.pdf b/classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/questions.pdf
+index f68996f..98889c6 100644
+Binary files a/classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/questions.pdf and b/classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/questions.pdf differ
+diff --git a/classified/mc/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/answer.pdf b/classified/mc/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/answer.pdf
+index f0f8c77..4eb75cf 100644
+Binary files a/classified/mc/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/answer.pdf and b/classified/mc/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/answer.pdf differ
+diff --git a/classified/mc/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/combined.pdf b/classified/mc/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/combined.pdf
+index e130e72..6ec686c 100644
+Binary files a/classified/mc/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/combined.pdf and b/classified/mc/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/combined.pdf differ
+diff --git a/classified/mc/01_Heat_and_Gases/02_Heat_Capacity/answer.pdf b/classified/mc/01_Heat_and_Gases/02_Heat_Capacity/answer.pdf
+index 635f6cb..68a0cc1 100644
+Binary files a/classified/mc/01_Heat_and_Gases/02_Heat_Capacity/answer.pdf and b/classified/mc/01_Heat_and_Gases/02_Heat_Capacity/answer.pdf differ
+diff --git a/classified/mc/01_Heat_and_Gases/02_Heat_Capacity/combined.pdf b/classified/mc/01_Heat_and_Gases/02_Heat_Capacity/combined.pdf
+index 9c25be2..15b191c 100644
+Binary files a/classified/mc/01_Heat_and_Gases/02_Heat_Capacity/combined.pdf and b/classified/mc/01_Heat_and_Gases/02_Heat_Capacity/combined.pdf differ
+diff --git a/classified/mc/01_Heat_and_Gases/03_Change_of_State/answer.pdf b/classified/mc/01_Heat_and_Gases/03_Change_of_State/answer.pdf
+index 22b1fb6..9291f71 100644
+Binary files a/classified/mc/01_Heat_and_Gases/03_Change_of_State/answer.pdf and b/classified/mc/01_Heat_and_Gases/03_Change_of_State/answer.pdf differ
+diff --git a/classified/mc/01_Heat_and_Gases/03_Change_of_State/combined.pdf b/classified/mc/01_Heat_and_Gases/03_Change_of_State/combined.pdf
+index dce4c61..0d74b83 100644
+Binary files a/classified/mc/01_Heat_and_Gases/03_Change_of_State/combined.pdf and b/classified/mc/01_Heat_and_Gases/03_Change_of_State/combined.pdf differ
+diff --git a/classified/mc/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/answer.pdf b/classified/mc/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/answer.pdf
+index 04453bc..de8a691 100644
+Binary files a/classified/mc/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/answer.pdf and b/classified/mc/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/answer.pdf differ
+diff --git a/classified/mc/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/combined.pdf b/classified/mc/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/combined.pdf
+index 6f5f35c..0b73c71 100644
+Binary files a/classified/mc/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/combined.pdf and b/classified/mc/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/combined.pdf differ
+diff --git a/classified/mc/02_Force_and_Motion/05_Motion/answer.pdf b/classified/mc/02_Force_and_Motion/05_Motion/answer.pdf
+index 1af5f78..2ce36a2 100644
+Binary files a/classified/mc/02_Force_and_Motion/05_Motion/answer.pdf and b/classified/mc/02_Force_and_Motion/05_Motion/answer.pdf differ
+diff --git a/classified/mc/02_Force_and_Motion/05_Motion/combined.pdf b/classified/mc/02_Force_and_Motion/05_Motion/combined.pdf
+index 560224d..8d46d13 100644
+Binary files a/classified/mc/02_Force_and_Motion/05_Motion/combined.pdf and b/classified/mc/02_Force_and_Motion/05_Motion/combined.pdf differ
+diff --git a/classified/mc/02_Force_and_Motion/06_Force/answer.pdf b/classified/mc/02_Force_and_Motion/06_Force/answer.pdf
+index c4170ab..f52be00 100644
+Binary files a/classified/mc/02_Force_and_Motion/06_Force/answer.pdf and b/classified/mc/02_Force_and_Motion/06_Force/answer.pdf differ
+diff --git a/classified/mc/02_Force_and_Motion/06_Force/combined.pdf b/classified/mc/02_Force_and_Motion/06_Force/combined.pdf
+index a86594b..2547c14 100644
+Binary files a/classified/mc/02_Force_and_Motion/06_Force/combined.pdf and b/classified/mc/02_Force_and_Motion/06_Force/combined.pdf differ
+diff --git a/classified/mc/02_Force_and_Motion/07_More_about_Forces/answer.pdf b/classified/mc/02_Force_and_Motion/07_More_about_Forces/answer.pdf
+index fd6e09d..7c4d7f6 100644
+Binary files a/classified/mc/02_Force_and_Motion/07_More_about_Forces/answer.pdf and b/classified/mc/02_Force_and_Motion/07_More_about_Forces/answer.pdf differ
+diff --git a/classified/mc/02_Force_and_Motion/07_More_about_Forces/combined.pdf b/classified/mc/02_Force_and_Motion/07_More_about_Forces/combined.pdf
+index d009984..b2260b3 100644
+Binary files a/classified/mc/02_Force_and_Motion/07_More_about_Forces/combined.pdf and b/classified/mc/02_Force_and_Motion/07_More_about_Forces/combined.pdf differ
+diff --git a/classified/mc/02_Force_and_Motion/08_Work_Energy_and_Power/answer.pdf b/classified/mc/02_Force_and_Motion/08_Work_Energy_and_Power/answer.pdf
+index ad0df91..ed38fa4 100644
+Binary files a/classified/mc/02_Force_and_Motion/08_Work_Energy_and_Power/answer.pdf and b/classified/mc/02_Force_and_Motion/08_Work_Energy_and_Power/answer.pdf differ
+diff --git a/classified/mc/02_Force_and_Motion/08_Work_Energy_and_Power/combined.pdf b/classified/mc/02_Force_and_Motion/08_Work_Energy_and_Power/combined.pdf
+index bc8a071..0ddd0de 100644
+Binary files a/classified/mc/02_Force_and_Motion/08_Work_Energy_and_Power/combined.pdf and b/classified/mc/02_Force_and_Motion/08_Work_Energy_and_Power/combined.pdf differ
+diff --git a/classified/mc/02_Force_and_Motion/09_Momentum/answer.pdf b/classified/mc/02_Force_and_Motion/09_Momentum/answer.pdf
+index 1bf2241..2308057 100644
+Binary files a/classified/mc/02_Force_and_Motion/09_Momentum/answer.pdf and b/classified/mc/02_Force_and_Motion/09_Momentum/answer.pdf differ
+diff --git a/classified/mc/02_Force_and_Motion/09_Momentum/combined.pdf b/classified/mc/02_Force_and_Motion/09_Momentum/combined.pdf
+index 3e9e942..9475d4c 100644
+Binary files a/classified/mc/02_Force_and_Motion/09_Momentum/combined.pdf and b/classified/mc/02_Force_and_Motion/09_Momentum/combined.pdf differ
+diff --git a/classified/mc/02_Force_and_Motion/10_Projectile_Motion/answer.pdf b/classified/mc/02_Force_and_Motion/10_Projectile_Motion/answer.pdf
+index acf8e3b..36804c7 100644
+Binary files a/classified/mc/02_Force_and_Motion/10_Projectile_Motion/answer.pdf and b/classified/mc/02_Force_and_Motion/10_Projectile_Motion/answer.pdf differ
+diff --git a/classified/mc/02_Force_and_Motion/10_Projectile_Motion/combined.pdf b/classified/mc/02_Force_and_Motion/10_Projectile_Motion/combined.pdf
+index a78950b..ba70e45 100644
+Binary files a/classified/mc/02_Force_and_Motion/10_Projectile_Motion/combined.pdf and b/classified/mc/02_Force_and_Motion/10_Projectile_Motion/combined.pdf differ
+diff --git a/classified/mc/02_Force_and_Motion/11_Uniform_Circular_Motion/answer.pdf b/classified/mc/02_Force_and_Motion/11_Uniform_Circular_Motion/answer.pdf
+index 5728aa1..2aabeaf 100644
+Binary files a/classified/mc/02_Force_and_Motion/11_Uniform_Circular_Motion/answer.pdf and b/classified/mc/02_Force_and_Motion/11_Uniform_Circular_Motion/answer.pdf differ
+diff --git a/classified/mc/02_Force_and_Motion/11_Uniform_Circular_Motion/combined.pdf b/classified/mc/02_Force_and_Motion/11_Uniform_Circular_Motion/combined.pdf
+index f91f117..ecb2b54 100644
+Binary files a/classified/mc/02_Force_and_Motion/11_Uniform_Circular_Motion/combined.pdf and b/classified/mc/02_Force_and_Motion/11_Uniform_Circular_Motion/combined.pdf differ
+diff --git a/classified/mc/02_Force_and_Motion/12_Gravitation/answer.pdf b/classified/mc/02_Force_and_Motion/12_Gravitation/answer.pdf
+index 2433ce5..c541640 100644
+Binary files a/classified/mc/02_Force_and_Motion/12_Gravitation/answer.pdf and b/classified/mc/02_Force_and_Motion/12_Gravitation/answer.pdf differ
+diff --git a/classified/mc/02_Force_and_Motion/12_Gravitation/combined.pdf b/classified/mc/02_Force_and_Motion/12_Gravitation/combined.pdf
+index 4acc1d4..433ce82 100644
+Binary files a/classified/mc/02_Force_and_Motion/12_Gravitation/combined.pdf and b/classified/mc/02_Force_and_Motion/12_Gravitation/combined.pdf differ
+diff --git a/classified/mc/03A_Wave_Motion/13_Wave_Motion/answer.pdf b/classified/mc/03A_Wave_Motion/13_Wave_Motion/answer.pdf
+index 37a32f1..aa01ce7 100644
+Binary files a/classified/mc/03A_Wave_Motion/13_Wave_Motion/answer.pdf and b/classified/mc/03A_Wave_Motion/13_Wave_Motion/answer.pdf differ
+diff --git a/classified/mc/03A_Wave_Motion/13_Wave_Motion/combined.pdf b/classified/mc/03A_Wave_Motion/13_Wave_Motion/combined.pdf
+index 6995d8f..aa16db4 100644
+Binary files a/classified/mc/03A_Wave_Motion/13_Wave_Motion/combined.pdf and b/classified/mc/03A_Wave_Motion/13_Wave_Motion/combined.pdf differ
+diff --git a/classified/mc/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/answer.pdf b/classified/mc/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/answer.pdf
+index 867fbee..febac40 100644
+Binary files a/classified/mc/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/answer.pdf and b/classified/mc/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/answer.pdf differ
+diff --git a/classified/mc/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/combined.pdf b/classified/mc/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/combined.pdf
+index 6e04d91..dfcae75 100644
+Binary files a/classified/mc/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/combined.pdf and b/classified/mc/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/combined.pdf differ
+diff --git a/classified/mc/03A_Wave_Motion/15_Interference_and_Stationary_Wave/answer.pdf b/classified/mc/03A_Wave_Motion/15_Interference_and_Stationary_Wave/answer.pdf
+index b032b3b..7f6c924 100644
+Binary files a/classified/mc/03A_Wave_Motion/15_Interference_and_Stationary_Wave/answer.pdf and b/classified/mc/03A_Wave_Motion/15_Interference_and_Stationary_Wave/answer.pdf differ
+diff --git a/classified/mc/03A_Wave_Motion/15_Interference_and_Stationary_Wave/combined.pdf b/classified/mc/03A_Wave_Motion/15_Interference_and_Stationary_Wave/combined.pdf
+index 01242e0..cdace98 100644
+Binary files a/classified/mc/03A_Wave_Motion/15_Interference_and_Stationary_Wave/combined.pdf and b/classified/mc/03A_Wave_Motion/15_Interference_and_Stationary_Wave/combined.pdf differ
+diff --git a/classified/mc/03A_Wave_Motion/16_Light_and_Sound/answer.pdf b/classified/mc/03A_Wave_Motion/16_Light_and_Sound/answer.pdf
+index be646ac..9426274 100644
+Binary files a/classified/mc/03A_Wave_Motion/16_Light_and_Sound/answer.pdf and b/classified/mc/03A_Wave_Motion/16_Light_and_Sound/answer.pdf differ
+diff --git a/classified/mc/03A_Wave_Motion/16_Light_and_Sound/combined.pdf b/classified/mc/03A_Wave_Motion/16_Light_and_Sound/combined.pdf
+index bd12ac8..b57b0b3 100644
+Binary files a/classified/mc/03A_Wave_Motion/16_Light_and_Sound/combined.pdf and b/classified/mc/03A_Wave_Motion/16_Light_and_Sound/combined.pdf differ
+diff --git a/classified/mc/03B_Ray_Optics/17_Reflection_of_Light/answer.pdf b/classified/mc/03B_Ray_Optics/17_Reflection_of_Light/answer.pdf
+index e5f547c..c528bad 100644
+Binary files a/classified/mc/03B_Ray_Optics/17_Reflection_of_Light/answer.pdf and b/classified/mc/03B_Ray_Optics/17_Reflection_of_Light/answer.pdf differ
+diff --git a/classified/mc/03B_Ray_Optics/17_Reflection_of_Light/combined.pdf b/classified/mc/03B_Ray_Optics/17_Reflection_of_Light/combined.pdf
+index 708a0e3..c4b5617 100644
+Binary files a/classified/mc/03B_Ray_Optics/17_Reflection_of_Light/combined.pdf and b/classified/mc/03B_Ray_Optics/17_Reflection_of_Light/combined.pdf differ
+diff --git a/classified/mc/03B_Ray_Optics/18_Refraction_of_Light/answer.pdf b/classified/mc/03B_Ray_Optics/18_Refraction_of_Light/answer.pdf
+index 0ae3d08..0a358cc 100644
+Binary files a/classified/mc/03B_Ray_Optics/18_Refraction_of_Light/answer.pdf and b/classified/mc/03B_Ray_Optics/18_Refraction_of_Light/answer.pdf differ
+diff --git a/classified/mc/03B_Ray_Optics/18_Refraction_of_Light/combined.pdf b/classified/mc/03B_Ray_Optics/18_Refraction_of_Light/combined.pdf
+index 1296695..fb0d288 100644
+Binary files a/classified/mc/03B_Ray_Optics/18_Refraction_of_Light/combined.pdf and b/classified/mc/03B_Ray_Optics/18_Refraction_of_Light/combined.pdf differ
+diff --git a/classified/mc/03B_Ray_Optics/19_Lenses/answer.pdf b/classified/mc/03B_Ray_Optics/19_Lenses/answer.pdf
+index 1aa11c2..33ac949 100644
+Binary files a/classified/mc/03B_Ray_Optics/19_Lenses/answer.pdf and b/classified/mc/03B_Ray_Optics/19_Lenses/answer.pdf differ
+diff --git a/classified/mc/03B_Ray_Optics/19_Lenses/combined.pdf b/classified/mc/03B_Ray_Optics/19_Lenses/combined.pdf
+index f3c7706..b66093c 100644
+Binary files a/classified/mc/03B_Ray_Optics/19_Lenses/combined.pdf and b/classified/mc/03B_Ray_Optics/19_Lenses/combined.pdf differ
+diff --git a/classified/mc/04_Electricity_and_Magnetism/20_Electrostatics/answer.pdf b/classified/mc/04_Electricity_and_Magnetism/20_Electrostatics/answer.pdf
+index 90bce5e..1d957ce 100644
+Binary files a/classified/mc/04_Electricity_and_Magnetism/20_Electrostatics/answer.pdf and b/classified/mc/04_Electricity_and_Magnetism/20_Electrostatics/answer.pdf differ
+diff --git a/classified/mc/04_Electricity_and_Magnetism/20_Electrostatics/combined.pdf b/classified/mc/04_Electricity_and_Magnetism/20_Electrostatics/combined.pdf
+index a0887d4..3f50f9d 100644
+Binary files a/classified/mc/04_Electricity_and_Magnetism/20_Electrostatics/combined.pdf and b/classified/mc/04_Electricity_and_Magnetism/20_Electrostatics/combined.pdf differ
+diff --git a/classified/mc/04_Electricity_and_Magnetism/21_Circuit_and_Power/answer.pdf b/classified/mc/04_Electricity_and_Magnetism/21_Circuit_and_Power/answer.pdf
+index 60270a4..581be5a 100644
+Binary files a/classified/mc/04_Electricity_and_Magnetism/21_Circuit_and_Power/answer.pdf and b/classified/mc/04_Electricity_and_Magnetism/21_Circuit_and_Power/answer.pdf differ
+diff --git a/classified/mc/04_Electricity_and_Magnetism/21_Circuit_and_Power/combined.pdf b/classified/mc/04_Electricity_and_Magnetism/21_Circuit_and_Power/combined.pdf
+index 2b5cf54..9e5584d 100644
+Binary files a/classified/mc/04_Electricity_and_Magnetism/21_Circuit_and_Power/combined.pdf and b/classified/mc/04_Electricity_and_Magnetism/21_Circuit_and_Power/combined.pdf differ
+diff --git a/classified/mc/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/answer.pdf b/classified/mc/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/answer.pdf
+index 1f76cb8..2de4256 100644
+Binary files a/classified/mc/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/answer.pdf and b/classified/mc/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/answer.pdf differ
+diff --git a/classified/mc/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/combined.pdf b/classified/mc/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/combined.pdf
+index 9376cf5..e9f5646 100644
+Binary files a/classified/mc/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/combined.pdf and b/classified/mc/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/combined.pdf differ
+diff --git a/classified/mc/04_Electricity_and_Magnetism/23_Electromagnetism/answer.pdf b/classified/mc/04_Electricity_and_Magnetism/23_Electromagnetism/answer.pdf
+index 1d2800b..2f49786 100644
+Binary files a/classified/mc/04_Electricity_and_Magnetism/23_Electromagnetism/answer.pdf and b/classified/mc/04_Electricity_and_Magnetism/23_Electromagnetism/answer.pdf differ
+diff --git a/classified/mc/04_Electricity_and_Magnetism/23_Electromagnetism/combined.pdf b/classified/mc/04_Electricity_and_Magnetism/23_Electromagnetism/combined.pdf
+index e734dae..dba5cef 100644
+Binary files a/classified/mc/04_Electricity_and_Magnetism/23_Electromagnetism/combined.pdf and b/classified/mc/04_Electricity_and_Magnetism/23_Electromagnetism/combined.pdf differ
+diff --git a/classified/mc/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/answer.pdf b/classified/mc/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/answer.pdf
+index 0cb331d..9c89abc 100644
+Binary files a/classified/mc/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/answer.pdf and b/classified/mc/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/answer.pdf differ
+diff --git a/classified/mc/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/combined.pdf b/classified/mc/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/combined.pdf
+index 71f3a58..cb92b45 100644
+Binary files a/classified/mc/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/combined.pdf and b/classified/mc/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/combined.pdf differ
+diff --git a/classified/mc/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/answer.pdf b/classified/mc/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/answer.pdf
+index 3c48d4f..de69fd4 100644
+Binary files a/classified/mc/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/answer.pdf and b/classified/mc/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/answer.pdf differ
+diff --git a/classified/mc/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/combined.pdf b/classified/mc/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/combined.pdf
+index 0639367..9d76186 100644
+Binary files a/classified/mc/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/combined.pdf and b/classified/mc/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/combined.pdf differ
+diff --git a/classified/mc/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/answer.pdf b/classified/mc/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/answer.pdf
+index 73bf014..b93bced 100644
+Binary files a/classified/mc/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/answer.pdf and b/classified/mc/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/answer.pdf differ
+diff --git a/classified/mc/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/combined.pdf b/classified/mc/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/combined.pdf
+index d303739..61bd525 100644
+Binary files a/classified/mc/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/combined.pdf and b/classified/mc/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/combined.pdf differ
+diff --git a/classified/mc/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/answer.pdf b/classified/mc/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/answer.pdf
+index ecb0415..5194706 100644
+Binary files a/classified/mc/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/answer.pdf and b/classified/mc/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/answer.pdf differ
+diff --git a/classified/mc/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/combined.pdf b/classified/mc/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/combined.pdf
+index a68e081..3ba157a 100644
+Binary files a/classified/mc/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/combined.pdf and b/classified/mc/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/combined.pdf differ
+diff --git a/output/2012/combined.pdf b/output/2012/combined.pdf
+index 15c552e..3b899ef 100644
+Binary files a/output/2012/combined.pdf and b/output/2012/combined.pdf differ
+diff --git a/output/2013/combined.pdf b/output/2013/combined.pdf
+index 198c2fc..8e31f06 100644
+Binary files a/output/2013/combined.pdf and b/output/2013/combined.pdf differ
+diff --git a/output/2014/combined.pdf b/output/2014/combined.pdf
+index 18081b4..6dcc04f 100644
+Binary files a/output/2014/combined.pdf and b/output/2014/combined.pdf differ
+diff --git a/output/2015/combined.pdf b/output/2015/combined.pdf
+index 29fc709..59d514e 100644
+Binary files a/output/2015/combined.pdf and b/output/2015/combined.pdf differ
+diff --git a/output/2016/combined.pdf b/output/2016/combined.pdf
+index 6b310e3..9171617 100644
+Binary files a/output/2016/combined.pdf and b/output/2016/combined.pdf differ
+diff --git a/output/2017/combined.pdf b/output/2017/combined.pdf
+index 015ab13..ad27162 100644
+Binary files a/output/2017/combined.pdf and b/output/2017/combined.pdf differ
+diff --git a/output/2018/combined.pdf b/output/2018/combined.pdf
+index 3630f69..764d673 100644
+Binary files a/output/2018/combined.pdf and b/output/2018/combined.pdf differ
+diff --git a/output/2019/combined.pdf b/output/2019/combined.pdf
+index 2115926..1d230b4 100644
+Binary files a/output/2019/combined.pdf and b/output/2019/combined.pdf differ
+diff --git a/output/2020/combined.pdf b/output/2020/combined.pdf
+index d2c6f7d..65f2eab 100644
+Binary files a/output/2020/combined.pdf and b/output/2020/combined.pdf differ
+diff --git a/output/2021/combined.pdf b/output/2021/combined.pdf
+index 8d13455..b0e70d9 100644
+Binary files a/output/2021/combined.pdf and b/output/2021/combined.pdf differ
+diff --git a/output/2022/combined.pdf b/output/2022/combined.pdf
+index 4a665c6..00ecd5b 100644
+Binary files a/output/2022/combined.pdf and b/output/2022/combined.pdf differ
+diff --git a/output/2023/combined.pdf b/output/2023/combined.pdf
+index 1408f55..db23de7 100644
+Binary files a/output/2023/combined.pdf and b/output/2023/combined.pdf differ
+diff --git a/output/2024/combined.pdf b/output/2024/combined.pdf
+index 5d862f2..2b45562 100644
+Binary files a/output/2024/combined.pdf and b/output/2024/combined.pdf differ
+diff --git a/output/2025/combined.pdf b/output/2025/combined.pdf
+index ab48833..5afb11e 100644
+Binary files a/output/2025/combined.pdf and b/output/2025/combined.pdf differ
+diff --git a/output/2026/combined.pdf b/output/2026/combined.pdf
+index b19ff9e..a1ad795 100644
+Binary files a/output/2026/combined.pdf and b/output/2026/combined.pdf differ
+diff --git a/output/lq/2012/ans/combined.pdf b/output/lq/2012/ans/combined.pdf
+index dcbe671..29c9dc3 100644
+Binary files a/output/lq/2012/ans/combined.pdf and b/output/lq/2012/ans/combined.pdf differ
+diff --git a/output/lq/2012/combined.pdf b/output/lq/2012/combined.pdf
+index fa62a2c..ab6b27a 100644
+Binary files a/output/lq/2012/combined.pdf and b/output/lq/2012/combined.pdf differ
+diff --git a/output/lq/2012/questions.pdf b/output/lq/2012/questions.pdf
+index 9bb55a8..83f07d6 100644
+Binary files a/output/lq/2012/questions.pdf and b/output/lq/2012/questions.pdf differ
+diff --git a/output/lq/2013/ans/combined.pdf b/output/lq/2013/ans/combined.pdf
+index f4182df..5c3f005 100644
+Binary files a/output/lq/2013/ans/combined.pdf and b/output/lq/2013/ans/combined.pdf differ
+diff --git a/output/lq/2013/combined.pdf b/output/lq/2013/combined.pdf
+index e0728df..6df7606 100644
+Binary files a/output/lq/2013/combined.pdf and b/output/lq/2013/combined.pdf differ
+diff --git a/output/lq/2013/questions.pdf b/output/lq/2013/questions.pdf
+index fb8fdff..f861664 100644
+Binary files a/output/lq/2013/questions.pdf and b/output/lq/2013/questions.pdf differ
+diff --git a/output/lq/2014/ans/combined.pdf b/output/lq/2014/ans/combined.pdf
+index a95ec76..897ec63 100644
+Binary files a/output/lq/2014/ans/combined.pdf and b/output/lq/2014/ans/combined.pdf differ
+diff --git a/output/lq/2014/combined.pdf b/output/lq/2014/combined.pdf
+index 5f58fe3..6089627 100644
+Binary files a/output/lq/2014/combined.pdf and b/output/lq/2014/combined.pdf differ
+diff --git a/output/lq/2014/questions.pdf b/output/lq/2014/questions.pdf
+index 26263d9..3fa72a7 100644
+Binary files a/output/lq/2014/questions.pdf and b/output/lq/2014/questions.pdf differ
+diff --git a/output/lq/2015/ans/combined.pdf b/output/lq/2015/ans/combined.pdf
+index 19caf81..fe6d567 100644
+Binary files a/output/lq/2015/ans/combined.pdf and b/output/lq/2015/ans/combined.pdf differ
+diff --git a/output/lq/2015/combined.pdf b/output/lq/2015/combined.pdf
+index fcefd15..2740c16 100644
+Binary files a/output/lq/2015/combined.pdf and b/output/lq/2015/combined.pdf differ
+diff --git a/output/lq/2015/questions.pdf b/output/lq/2015/questions.pdf
+index 4dffbdd..12cd741 100644
+Binary files a/output/lq/2015/questions.pdf and b/output/lq/2015/questions.pdf differ
+diff --git a/output/lq/2016/ans/combined.pdf b/output/lq/2016/ans/combined.pdf
+index 1f7e84b..7b5e8bb 100644
+Binary files a/output/lq/2016/ans/combined.pdf and b/output/lq/2016/ans/combined.pdf differ
+diff --git a/output/lq/2016/combined.pdf b/output/lq/2016/combined.pdf
+index 5a6c227..dc08d2a 100644
+Binary files a/output/lq/2016/combined.pdf and b/output/lq/2016/combined.pdf differ
+diff --git a/output/lq/2016/questions.pdf b/output/lq/2016/questions.pdf
+index 7a3efb2..eba2fe1 100644
+Binary files a/output/lq/2016/questions.pdf and b/output/lq/2016/questions.pdf differ
+diff --git a/output/lq/2017/ans/combined.pdf b/output/lq/2017/ans/combined.pdf
+index 0a7716c..2202e65 100644
+Binary files a/output/lq/2017/ans/combined.pdf and b/output/lq/2017/ans/combined.pdf differ
+diff --git a/output/lq/2017/combined.pdf b/output/lq/2017/combined.pdf
+index 8bd6331..dff01cb 100644
+Binary files a/output/lq/2017/combined.pdf and b/output/lq/2017/combined.pdf differ
+diff --git a/output/lq/2017/questions.pdf b/output/lq/2017/questions.pdf
+index 16e5633..f465592 100644
+Binary files a/output/lq/2017/questions.pdf and b/output/lq/2017/questions.pdf differ
+diff --git a/output/lq/2018/ans/combined.pdf b/output/lq/2018/ans/combined.pdf
+index b28310f..f481469 100644
+Binary files a/output/lq/2018/ans/combined.pdf and b/output/lq/2018/ans/combined.pdf differ
+diff --git a/output/lq/2018/combined.pdf b/output/lq/2018/combined.pdf
+index 9f6a7d6..0ec83aa 100644
+Binary files a/output/lq/2018/combined.pdf and b/output/lq/2018/combined.pdf differ
+diff --git a/output/lq/2018/questions.pdf b/output/lq/2018/questions.pdf
+index 51512bf..86beb3a 100644
+Binary files a/output/lq/2018/questions.pdf and b/output/lq/2018/questions.pdf differ
+diff --git a/output/lq/2019/ans/combined.pdf b/output/lq/2019/ans/combined.pdf
+index ab8b488..708b9e9 100644
+Binary files a/output/lq/2019/ans/combined.pdf and b/output/lq/2019/ans/combined.pdf differ
+diff --git a/output/lq/2019/combined.pdf b/output/lq/2019/combined.pdf
+index a1b621f..eeb3b63 100644
+Binary files a/output/lq/2019/combined.pdf and b/output/lq/2019/combined.pdf differ
+diff --git a/output/lq/2019/questions.pdf b/output/lq/2019/questions.pdf
+index 0945bbd..5c1108b 100644
+Binary files a/output/lq/2019/questions.pdf and b/output/lq/2019/questions.pdf differ
+diff --git a/output/lq/2020/ans/combined.pdf b/output/lq/2020/ans/combined.pdf
+index 6de8e24..b062161 100644
+Binary files a/output/lq/2020/ans/combined.pdf and b/output/lq/2020/ans/combined.pdf differ
+diff --git a/output/lq/2020/combined.pdf b/output/lq/2020/combined.pdf
+index 8514dad..2fa7363 100644
+Binary files a/output/lq/2020/combined.pdf and b/output/lq/2020/combined.pdf differ
+diff --git a/output/lq/2020/questions.pdf b/output/lq/2020/questions.pdf
+index 1fae725..0435dae 100644
+Binary files a/output/lq/2020/questions.pdf and b/output/lq/2020/questions.pdf differ
+diff --git a/output/lq/2021/ans/combined.pdf b/output/lq/2021/ans/combined.pdf
+index e3841a1..d31df55 100644
+Binary files a/output/lq/2021/ans/combined.pdf and b/output/lq/2021/ans/combined.pdf differ
+diff --git a/output/lq/2021/combined.pdf b/output/lq/2021/combined.pdf
+index 4aae135..9eda5d8 100644
+Binary files a/output/lq/2021/combined.pdf and b/output/lq/2021/combined.pdf differ
+diff --git a/output/lq/2021/questions.pdf b/output/lq/2021/questions.pdf
+index 0b7d7c0..a7c5214 100644
+Binary files a/output/lq/2021/questions.pdf and b/output/lq/2021/questions.pdf differ
+diff --git a/output/lq/2022/ans/combined.pdf b/output/lq/2022/ans/combined.pdf
+index 3dabbe9..cbc4513 100644
+Binary files a/output/lq/2022/ans/combined.pdf and b/output/lq/2022/ans/combined.pdf differ
+diff --git a/output/lq/2022/combined.pdf b/output/lq/2022/combined.pdf
+index 5c570c5..b97d13e 100644
+Binary files a/output/lq/2022/combined.pdf and b/output/lq/2022/combined.pdf differ
+diff --git a/output/lq/2022/questions.pdf b/output/lq/2022/questions.pdf
+index 8895f6f..184a998 100644
+Binary files a/output/lq/2022/questions.pdf and b/output/lq/2022/questions.pdf differ
+diff --git a/output/lq/2023/ans/combined.pdf b/output/lq/2023/ans/combined.pdf
+index 9ac3f1e..df1f1e3 100644
+Binary files a/output/lq/2023/ans/combined.pdf and b/output/lq/2023/ans/combined.pdf differ
+diff --git a/output/lq/2023/combined.pdf b/output/lq/2023/combined.pdf
+index 9109fe9..86259ff 100644
+Binary files a/output/lq/2023/combined.pdf and b/output/lq/2023/combined.pdf differ
+diff --git a/output/lq/2023/questions.pdf b/output/lq/2023/questions.pdf
+index 35c83e7..d7581e3 100644
+Binary files a/output/lq/2023/questions.pdf and b/output/lq/2023/questions.pdf differ
+diff --git a/output/lq/2024/ans/combined.pdf b/output/lq/2024/ans/combined.pdf
+index b748f69..4dc140d 100644
+Binary files a/output/lq/2024/ans/combined.pdf and b/output/lq/2024/ans/combined.pdf differ
+diff --git a/output/lq/2024/combined.pdf b/output/lq/2024/combined.pdf
+index 32e55e0..27bdf56 100644
+Binary files a/output/lq/2024/combined.pdf and b/output/lq/2024/combined.pdf differ
+diff --git a/output/lq/2024/questions.pdf b/output/lq/2024/questions.pdf
+index d091e30..7467b23 100644
+Binary files a/output/lq/2024/questions.pdf and b/output/lq/2024/questions.pdf differ
+diff --git a/output/lq/2025/ans/combined.pdf b/output/lq/2025/ans/combined.pdf
+index d9cdfac..e248ae7 100644
+Binary files a/output/lq/2025/ans/combined.pdf and b/output/lq/2025/ans/combined.pdf differ
+diff --git a/output/lq/2025/combined.pdf b/output/lq/2025/combined.pdf
+index 256d237..2fc6303 100644
+Binary files a/output/lq/2025/combined.pdf and b/output/lq/2025/combined.pdf differ
+diff --git a/output/lq/2025/questions.pdf b/output/lq/2025/questions.pdf
+index a5b33b7..1b8aa19 100644
+Binary files a/output/lq/2025/questions.pdf and b/output/lq/2025/questions.pdf differ
+diff --git a/output/lq/2026/combined.pdf b/output/lq/2026/combined.pdf
+index 2151350..06e84eb 100644
+Binary files a/output/lq/2026/combined.pdf and b/output/lq/2026/combined.pdf differ
+diff --git a/output/lq/2026/questions.pdf b/output/lq/2026/questions.pdf
+index 875dd84..0aae2d9 100644
+Binary files a/output/lq/2026/questions.pdf and b/output/lq/2026/questions.pdf differ
+diff --git a/output/lq/pp/combined.pdf b/output/lq/pp/combined.pdf
+index 42578e3..048a68b 100644
+Binary files a/output/lq/pp/combined.pdf and b/output/lq/pp/combined.pdf differ
+diff --git a/output/lq/pp/questions.pdf b/output/lq/pp/questions.pdf
+index f455e70..7eeba52 100644
+Binary files a/output/lq/pp/questions.pdf and b/output/lq/pp/questions.pdf differ
+diff --git a/output/pp/combined.pdf b/output/pp/combined.pdf
+index aeecb77..65042f3 100644
+Binary files a/output/pp/combined.pdf and b/output/pp/combined.pdf differ
+diff --git a/output/sap/combined.pdf b/output/sap/combined.pdf
+index 9d24d56..7ff3a5f 100644
+Binary files a/output/sap/combined.pdf and b/output/sap/combined.pdf differ
+diff --git a/scripts/classify_mc_llm.py b/scripts/classify_mc_llm.py
+index a4e27b6..38e8341 100644
+--- a/scripts/classify_mc_llm.py
++++ b/scripts/classify_mc_llm.py
+@@ -10,7 +10,7 @@ Pipeline:
+        classified/mc/uncertain.csv
+        classified/mc/summary.json
+        classified/mc_classification.csv|json  (top-level split naming)
+-  4. Optionally rebuild per-section combined.pdf (easiest -> hardest) + answer.pdf
++  4. Optionally rebuild per-section combined.pdf (year order) + answer.pdf
+ 
+ Partial --years/--limit runs merge into existing mc_ocr.* / classification.*
+ and only refresh touched section PNGs. A full apply aborts if decisions do not
+diff --git a/scripts/combine_lq_section_pdfs.py b/scripts/combine_lq_section_pdfs.py
+index 5d97947..c877ca1 100644
+--- a/scripts/combine_lq_section_pdfs.py
++++ b/scripts/combine_lq_section_pdfs.py
+@@ -21,6 +21,8 @@ from pathlib import Path
+ import pymupdf as fitz
+ 
+ from classify_mc_llm import BOOK_NAMES, SECTION_BY_NUM, SECTIONS, year_key
++from png_pdf import YEAR_Q_PNG, place_pngs_on_a4, section_heading_title
++from lq_pdf_review import write_section_questions_pdf
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+ CLASSIFIED_LQ = ROOT / "classified" / "lq"
+@@ -80,35 +82,12 @@ def resolve_answer_png(row: dict) -> Path | None:
+ 
+ 
+ def write_image_pdf(paths: list[Path], dest: Path, *, title: str | None = None) -> int:
+-    """One PDF page per image. Optional title page if title set."""
++    """A4 pages with images stacked in order. Optional title page if title set."""
+     if not paths:
+         return 0
+     doc = fitz.open()
+     try:
+-        if title:
+-            page = doc.new_page(width=595, height=842)
+-            page.insert_text((40, 60), title, fontsize=16, fontname="helv")
+-            page.insert_text(
+-                (40, 86),
+-                f"{len(paths)} item(s)",
+-                fontsize=11,
+-                fontname="helv",
+-            )
+-        for path in paths:
+-            image = fitz.open(path)
+-            try:
+-                rect = image[0].rect
+-                # Cap very tall crops so PDF viewers stay usable.
+-                max_h = 2000.0
+-                width, height = rect.width, rect.height
+-                if height > max_h:
+-                    scale = max_h / height
+-                    width *= scale
+-                    height *= scale
+-                page = doc.new_page(width=width, height=height)
+-                page.insert_image(page.rect, filename=str(path))
+-            finally:
+-                image.close()
++        place_pngs_on_a4(doc, paths, title=title)
+         dest.parent.mkdir(parents=True, exist_ok=True)
+         doc.save(dest, garbage=4, deflate=True)
+     finally:
+@@ -178,20 +157,38 @@ def main() -> None:
+     written = 0
+     for num, _book, _folder, name in SECTIONS:
+         items = by_primary.get(num) or []
++        out_dir = section_dir(num)
++        heading = section_heading_title(num, name)
+         if not items:
++            folder_pngs = sorted(
++                p
++                for p in out_dir.glob("*.png")
++                if "-ans" not in p.name.lower()
++            )
++            if not folder_pngs:
++                continue
++            out_dir.mkdir(parents=True, exist_ok=True)
++            items_yq: list[tuple[str, int]] = []
++            for path in folder_pngs:
++                found = YEAR_Q_PNG.fullmatch(path.stem)
++                if found:
++                    items_yq.append((found.group("year"), int(found.group("q"))))
++            nq = write_section_questions_pdf(
++                items_yq, out_dir / "questions.pdf", title=heading
++            )
++            written += 1
++            print(
++                f"{heading}: questions.pdf ({nq}) from folder PNGs -> "
++                f"{out_dir.relative_to(ROOT)}"
++            )
+             continue
+-        out_dir = section_dir(num)
+         out_dir.mkdir(parents=True, exist_ok=True)
+         label = f"S{num:02d} {name}"
+ 
+-        q_paths: list[Path] = []
+         a_paths: list[Path] = []
+         perf_items: list[tuple[str, int, str]] = []
+         for row in items:
+             year, qn = row["Year"], int(row["Question"])
+-            q_png = resolve_question_png(row)
+-            if q_png:
+-                q_paths.append(q_png)
+             a_png = resolve_answer_png(row)
+             if a_png:
+                 a_paths.append(a_png)
+@@ -210,7 +207,8 @@ def main() -> None:
+             print(f"Keeping {out_dir.relative_to(ROOT)}")
+             continue
+ 
+-        nq = write_image_pdf(q_paths, q_pdf)
++        pdf_items = [(row["Year"], int(row["Question"])) for row in items]
++        nq = write_section_questions_pdf(pdf_items, q_pdf, title=heading)
+         na = write_image_pdf(a_paths, a_pdf)
+         np_ = write_performance_pdf(perf_items, p_pdf, section_label=label)
+         written += 1
+diff --git a/scripts/combine_section_pdfs.py b/scripts/combine_section_pdfs.py
+index ded8706..74779e5 100644
+--- a/scripts/combine_section_pdfs.py
++++ b/scripts/combine_section_pdfs.py
+@@ -2,9 +2,8 @@
+ """Write per-section question + answer PDFs under classified/mc/.
+ 
+ For each section folder:
+-  - combined.pdf: question PNGs sorted easiest -> hardest by Correct %
+-    (higher % first). Items without a known % (pp/sap/2022/2026, deleted,
+-    missing keys) are placed last.
++  - combined.pdf: question PNGs sorted by year, then question number
++    (pp/sap after numbered years).
+   - answer.pdf: same order, one page per question listing year, Q#, answer,
+     and correct percentage.
+ """
+@@ -17,6 +16,13 @@ from pathlib import Path
+ 
+ import pymupdf as fitz
+ 
++from png_pdf import (
++    A4_HEIGHT,
++    A4_WIDTH,
++    place_pngs_on_a4,
++    section_heading_title,
++)
++
+ ROOT = Path(__file__).resolve().parents[1]
+ CLASSIFIED = ROOT / "classified" / "mc"
+ DEFAULT_KEYS = ROOT / "classified" / "mc" / "answer_keys.json"
+@@ -80,48 +86,46 @@ def pngs_in_section(section: Path) -> list[Path]:
+     return sorted(p for p in section.glob("*.png") if PNG_RE.fullmatch(p.name))
+ 
+ 
+-def sort_key(
+-    path: Path,
+-    percentages: dict[tuple[str, int], int | None],
+-) -> tuple:
++def sort_key(path: Path) -> tuple:
+     match = PNG_RE.fullmatch(path.name)
+     assert match
+     year = match.group("year")
+     q = int(match.group("q"))
+-    pct = percentages.get((year, q))
+-    # Easiest first: higher % first. Missing % -> last.
+-    has_pct = 0 if pct is not None else 1
+-    neg_pct = -(pct if pct is not None else 0)
+-    return (has_pct, neg_pct, YEAR_RANK.get(year, 99), q)
++    return (YEAR_RANK.get(year, 99), q)
+ 
+ 
+-def write_combined(paths: list[Path], dest: Path) -> None:
++def write_combined(
++    paths: list[Path],
++    dest: Path,
++    *,
++    title: str | None = None,
++) -> None:
+     document = fitz.open()
+     try:
+-        for path in paths:
+-            image = fitz.open(path)
+-            try:
+-                rect = image[0].rect
+-                page = document.new_page(width=rect.width, height=rect.height)
+-                page.insert_image(page.rect, filename=str(path))
+-            finally:
+-                image.close()
++        place_pngs_on_a4(document, paths, title=title)
+         dest.parent.mkdir(parents=True, exist_ok=True)
+         document.save(dest, garbage=4, deflate=True)
+     finally:
+         document.close()
+ 
+ 
++def heading_for_section_dir(section: Path) -> str:
++    match = re.match(r"^(\d{2})_(.+)$", section.name)
++    assert match
++    name = match.group(2).replace("_", " ")
++    return section_heading_title(int(match.group(1)), name)
++
++
+ def write_answer_pdf(
+     paths: list[Path],
+     dest: Path,
+     keys: dict[tuple[str, int], dict],
+     section_label: str,
+ ) -> None:
+-    """One summary page listing every question in the same hard->easy order."""
++    """One summary page listing every question in year then Q order."""
+     document = fitz.open()
+     try:
+-        page_width, page_height = 595.0, 842.0  # A4
++        page_width, page_height = A4_WIDTH, A4_HEIGHT
+         margin = 40.0
+         y = margin
+         page = document.new_page(width=page_width, height=page_height)
+@@ -130,7 +134,7 @@ def write_answer_pdf(
+         y += 28
+         page.insert_text(
+             (margin, y + 11),
+-            "Order matches combined.pdf (easiest -> hardest by correct %).",
++            "Order matches combined.pdf (year, then question number).",
+             fontsize=9,
+             fontname="helv",
+         )
+@@ -184,13 +188,13 @@ def main() -> None:
+         pngs = pngs_in_section(section)
+         if not pngs:
+             continue
+-        ordered = sorted(pngs, key=lambda p: sort_key(p, percentages))
++        ordered = sorted(pngs, key=sort_key)
+         combined = section / "combined.pdf"
+         answers = section / "answer.pdf"
+         if combined.is_file() and answers.is_file() and not args.overwrite:
+             print(f"Keeping {combined.relative_to(args.classified)}")
+             continue
+-        write_combined(ordered, combined)
++        write_combined(ordered, combined, title=heading_for_section_dir(section))
+         section_label = section.name.replace("_", " ")
+         write_answer_pdf(ordered, answers, keys, section_label)
+         total_pdfs += 1
+diff --git a/scripts/crop_lq_from_pages.py b/scripts/crop_lq_from_pages.py
+index ec300cd..f2ede6b 100644
+--- a/scripts/crop_lq_from_pages.py
++++ b/scripts/crop_lq_from_pages.py
+@@ -17,7 +17,7 @@ from PIL import Image
+ ROOT = Path(__file__).resolve().parents[1]
+ sys.path.insert(0, str(ROOT / "scripts"))
+ 
+-from png_pdf import combine_pngs_to_pdf  # noqa: E402
++from lq_pdf_review import write_year_review_pdfs  # noqa: E402
+ from preprocess_lq import crisp_scan, load_page_pngs, stitch_vertical  # noqa: E402
+ 
+ Image.MAX_IMAGE_PIXELS = 250_000_000
+@@ -71,7 +71,7 @@ def build_year(year_dir: Path) -> int:
+         )
+         written += 1
+ 
+-    combine_pngs_to_pdf(year_dir, output=year_dir / "questions.pdf", overwrite=True)
++    write_year_review_pdfs(year_dir.name)
+     return written
+ 
+ 
+diff --git a/scripts/lq_pdf_review.py b/scripts/lq_pdf_review.py
+new file mode 100644
+index 0000000..af5c5b3
+--- /dev/null
++++ b/scripts/lq_pdf_review.py
+@@ -0,0 +1,166 @@
++#!/usr/bin/env python3
++"""Build LQ review PDFs by splitting source Paper 1B PDFs onto A4 pages.
++
++No PNG raster and no within-page crop. page_from..page_to from starts.json
++are whole exam pages.
++"""
++from __future__ import annotations
++
++import argparse
++import json
++import re
++from pathlib import Path
++
++import pymupdf as fitz
++
++from png_pdf import append_pdf_page_a4
++
++ROOT = Path(__file__).resolve().parents[1]
++PAPER_LQ = ROOT / "paper" / "lq"
++OUTPUT_LQ = ROOT / "output" / "lq"
++
++
++def paper_year_label(stem: str) -> str:
++    name = stem.lower()
++    if name.startswith("sapp"):
++        return "sap"
++    if name.startswith("ppp"):
++        return "pp"
++    match = re.search(r"(20\d{2})", name)
++    if match:
++        return match.group(1)
++    raise SystemExit(f"Cannot derive year label from {stem!r}")
++
++
++def lq_source_pdf(year: str) -> Path | None:
++    for path in sorted(PAPER_LQ.glob("*.pdf")):
++        if paper_year_label(path.stem) == year:
++            return path
++    return None
++
++
++def load_starts(year: str) -> list[dict]:
++    path = OUTPUT_LQ / year / "starts.json"
++    if not path.is_file():
++        return []
++    return list(json.loads(path.read_text(encoding="utf-8")).get("questions") or [])
++
++
++def question_range(year: str, qn: int) -> tuple[int, int] | None:
++    for item in load_starts(year):
++        if int(item["q"]) == qn:
++            return int(item["page_from"]), int(item["page_to"])
++    return None
++
++
++def write_year_review_pdfs(year: str) -> None:
++    source = lq_source_pdf(year)
++    if source is None or not source.is_file():
++        print(f"skip LQ PDF review {year}: missing paper/lq PDF")
++        return
++    questions = load_starts(year)
++    out_dir = OUTPUT_LQ / year
++    out_dir.mkdir(parents=True, exist_ok=True)
++    src = fitz.open(source)
++    try:
++        combined = fitz.open()
++        first_q_page = {}
++        for item in questions:
++            qn = int(item["q"])
++            page_from = int(item["page_from"])
++            if qn not in first_q_page:
++                first_q_page[page_from] = qn
++        try:
++            for pno in range(len(src)):
++                qn = first_q_page.get(pno)
++                label = f"{year} Q{qn}" if qn is not None else None
++                append_pdf_page_a4(combined, src, pno, label=label)
++            dest = out_dir / "combined.pdf"
++            combined.save(dest, garbage=4, deflate=True)
++            print(f"Wrote {dest} ({combined.page_count} A4 pages from {source.name})")
++        finally:
++            combined.close()
++
++        questions_pdf = fitz.open()
++        try:
++            for item in sorted(questions, key=lambda item: int(item["q"])):
++                qn = int(item["q"])
++                page_from = int(item["page_from"])
++                page_to = int(item["page_to"])
++                if page_from >= len(src):
++                    continue
++                page_to = min(page_to, len(src) - 1)
++                for pno in range(page_from, page_to + 1):
++                    label = f"{year} Q{qn}" if pno == page_from else None
++                    append_pdf_page_a4(questions_pdf, src, pno, label=label)
++            dest = out_dir / "questions.pdf"
++            questions_pdf.save(dest, garbage=4, deflate=True)
++            print(
++                f"Wrote {dest} ({questions_pdf.page_count} A4 pages, "
++                f"{len(questions)} questions)"
++            )
++        finally:
++            questions_pdf.close()
++    finally:
++        src.close()
++
++
++def write_section_questions_pdf(
++    items: list[tuple[str, int]],
++    dest: Path,
++    *,
++    title: str | None = None,
++) -> int:
++    """Concatenate whole LQ exam pages for (year, q) items, year then Q order."""
++    if not items:
++        return 0
++    dest.parent.mkdir(parents=True, exist_ok=True)
++    document = fitz.open()
++    written = 0
++    title_used = False
++    try:
++        for year, qn in items:
++            source = lq_source_pdf(year)
++            span = question_range(year, qn)
++            if source is None or span is None:
++                continue
++            page_from, page_to = span
++            src = fitz.open(source)
++            try:
++                if page_from >= len(src):
++                    continue
++                page_to = min(page_to, len(src) - 1)
++                for pno in range(page_from, page_to + 1):
++                    heading = title if (title and not title_used) else None
++                    label = f"{year} Q{qn}" if pno == page_from else None
++                    append_pdf_page_a4(
++                        document, src, pno, title=heading, label=label
++                    )
++                    title_used = True
++                    written += 1
++            finally:
++                src.close()
++        if written == 0:
++            document.close()
++            return 0
++        document.save(dest, garbage=4, deflate=True)
++    finally:
++        document.close()
++    return written
++
++
++def main() -> None:
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("--years", nargs="*", default=None)
++    args = parser.parse_args()
++    years = args.years
++    if not years:
++        years = sorted(
++            path.name for path in OUTPUT_LQ.iterdir() if path.is_dir()
++        )
++    for year in years:
++        write_year_review_pdfs(year)
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/png_pdf.py b/scripts/png_pdf.py
+index 800d54c..479c217 100644
+--- a/scripts/png_pdf.py
++++ b/scripts/png_pdf.py
+@@ -9,6 +9,165 @@ import pymupdf as fitz
+ QUESTION_PNG = re.compile(r"^q(\d+)\.png$", re.I)
+ PAGE_PNG = re.compile(r"^page(\d+)\.png$", re.I)
+ 
++A4_WIDTH = 595.0
++A4_HEIGHT = 842.0
++A4_MARGIN = 36.0
++YEAR_Q_PNG = re.compile(r"^(?P<year>\d{4}|pp|sap)[_-]q(?P<q>\d+)$", re.I)
++BARE_Q_PNG = re.compile(r"^q(?P<q>\d+)$", re.I)
++LABEL_BAND = 16.0
++
++
++def png_item_label(path: Path) -> str | None:
++    """Year and question from a crop filename: 2012_q36.png -> 2012 Q36."""
++    stem = path.stem
++    found = YEAR_Q_PNG.fullmatch(stem)
++    if found:
++        return f"{found.group('year')} Q{int(found.group('q'))}"
++    found = BARE_Q_PNG.fullmatch(stem)
++    if found:
++        return f"Q{int(found.group('q'))}"
++    return None
++
++
++ITEM_GAP = 12.0
++
++
++def _png_size(path: Path) -> tuple[float, float]:
++    image = fitz.open(path)
++    try:
++        rect = image[0].rect
++        return rect.width, rect.height
++    finally:
++        image.close()
++
++
++def _scale_png(src_w: float, src_h: float, *, max_w: float, max_h: float) -> tuple[float, float]:
++    scale = min(max_w / src_w, max_h / src_h, 1.0)
++    return src_w * scale, src_h * scale
++
++
++class A4Flow:
++    """Stack crops top to bottom on portrait A4; start a new page when one does not fit."""
++
++    def __init__(self, document: fitz.Document, title: str | None = None) -> None:
++        self.document = document
++        self.title = title
++        self.page: fitz.Page | None = None
++        self.y = A4_MARGIN
++        self._wrote_title = False
++
++    def _new_page(self) -> None:
++        self.page = self.document.new_page(width=A4_WIDTH, height=A4_HEIGHT)
++        self.y = A4_MARGIN
++        if self.title and not self._wrote_title:
++            self.page.insert_text(
++                (A4_MARGIN, A4_MARGIN + 12),
++                self.title,
++                fontsize=16,
++                fontname="helv",
++            )
++            self.y = A4_MARGIN + 28
++            self._wrote_title = True
++
++    def _insert_label_top_right(self, label: str) -> None:
++        assert self.page is not None
++        width = fitz.get_text_length(label, fontname="helv", fontsize=11)
++        x = A4_WIDTH - A4_MARGIN - width
++        self.page.insert_text(
++            (x, self.y + 10),
++            label,
++            fontsize=11,
++            fontname="helv",
++        )
++
++    def add(self, path: Path) -> None:
++        label = png_item_label(path)
++        src_w, src_h = _png_size(path)
++        printable_w = A4_WIDTH - 2 * A4_MARGIN
++        full_h = A4_HEIGHT - 2 * A4_MARGIN
++        label_h = LABEL_BAND if label else 0.0
++        dest_w, dest_h = _scale_png(src_w, src_h, max_w=printable_w, max_h=full_h - label_h)
++        block_h = dest_h + label_h
++        remaining = A4_HEIGHT - A4_MARGIN - self.y
++        if self.page is None or block_h > remaining + 0.5:
++            self._new_page()
++            dest_w, dest_h = _scale_png(
++                src_w, src_h, max_w=printable_w, max_h=full_h - label_h
++            )
++        assert self.page is not None
++        if label:
++            self._insert_label_top_right(label)
++            self.y += label_h
++        self.page.insert_image(
++            fitz.Rect(A4_MARGIN, self.y, A4_MARGIN + dest_w, self.y + dest_h),
++            filename=str(path),
++        )
++        self.y += dest_h + ITEM_GAP
++
++
++def place_pngs_on_a4(
++    document: fitz.Document,
++    paths: list[Path],
++    *,
++    title: str | None = None,
++) -> None:
++    """Place PNGs one after another on portrait A4 pages, after an optional title."""
++    flow = A4Flow(document, title=title)
++    for path in paths:
++        flow.add(path)
++
++
++def append_pdf_page_a4(
++    document: fitz.Document,
++    src: fitz.Document,
++    pno: int,
++    *,
++    title: str | None = None,
++    label: str | None = None,
++) -> None:
++    """Copy one source PDF page onto a new portrait A4 page (no raster crop)."""
++    page = document.new_page(width=A4_WIDTH, height=A4_HEIGHT)
++    header = 0.0
++    if title:
++        page.insert_text(
++            (A4_MARGIN, A4_MARGIN + 12),
++            title,
++            fontsize=16,
++            fontname="helv",
++        )
++        header = 28.0
++    if label:
++        width = fitz.get_text_length(label, fontname="helv", fontsize=11)
++        page.insert_text(
++            (A4_WIDTH - A4_MARGIN - width, A4_MARGIN + 12),
++            label,
++            fontsize=11,
++            fontname="helv",
++        )
++        header = max(header, 28.0)
++    printable = fitz.Rect(
++        A4_MARGIN,
++        A4_MARGIN + header,
++        A4_WIDTH - A4_MARGIN,
++        A4_HEIGHT - A4_MARGIN,
++    )
++    src_page = src[pno]
++    src_w, src_h = src_page.rect.width, src_page.rect.height
++    scale = min(printable.width / src_w, printable.height / src_h)
++    dest_w, dest_h = src_w * scale, src_h * scale
++    target = fitz.Rect(
++        printable.x0,
++        printable.y0,
++        printable.x0 + dest_w,
++        printable.y0 + dest_h,
++    )
++    page.show_pdf_page(target, src, pno)
++
++
++def section_heading_title(section_num: int, section_name: str) -> str:
++    """Session heading for a classified section bank, e.g. ch25 Radiation and Radioactivity."""
++    return f"ch{section_num} {section_name}"
++
+ 
+ def _numeric_pngs(directory: Path, pattern: re.Pattern[str]) -> list[Path]:
+     matched: list[tuple[int, Path]] = []
+@@ -45,16 +204,10 @@ def combine_pngs_to_pdf(
+     dest.parent.mkdir(parents=True, exist_ok=True)
+     document = fitz.open()
+     try:
+-        for path in paths:
+-            image = fitz.open(path)
+-            try:
+-                rect = image[0].rect
+-                page = document.new_page(width=rect.width, height=rect.height)
+-                page.insert_image(page.rect, filename=str(path))
+-            finally:
+-                image.close()
++        place_pngs_on_a4(document, paths)
++        page_count = document.page_count
+         document.save(dest, garbage=4, deflate=True)
+     finally:
+         document.close()
+-    print(f"Wrote {dest} ({len(paths)} pages)")
++    print(f"Wrote {dest} ({page_count} pages, {len(paths)} questions)")
+     return dest
+diff --git a/tests/test_combined_pdf_a4.py b/tests/test_combined_pdf_a4.py
+new file mode 100644
+index 0000000..3619e8a
+--- /dev/null
++++ b/tests/test_combined_pdf_a4.py
+@@ -0,0 +1,222 @@
++"""Written combined.pdf pages use portrait A4 (or landscape only when needed)."""
++from __future__ import annotations
++
++import importlib.machinery
++import importlib.util
++import sys
++import tempfile
++import unittest
++from pathlib import Path
++
++import pymupdf as fitz
++from PIL import Image
++
++ROOT = Path(__file__).resolve().parents[1]
++SCRIPTS = ROOT / "scripts"
++A4_WIDTH = 595.0
++A4_HEIGHT = 842.0
++
++
++def load_module(name: str, path: Path):
++    if str(SCRIPTS) not in sys.path:
++        sys.path.insert(0, str(SCRIPTS))
++    loader = importlib.machinery.SourceFileLoader(name, str(path))
++    spec = importlib.util.spec_from_loader(loader.name, loader)
++    assert spec and spec.loader
++    module = importlib.util.module_from_spec(spec)
++    spec.loader.exec_module(module)
++    return module
++
++
++def _write_png(path: Path, size: tuple[int, int]) -> None:
++    Image.new("RGB", size, (255, 255, 255)).save(path)
++
++
++class TestCombinedPdfA4(unittest.TestCase):
++    def test_combine_pngs_to_pdf_uses_a4_pages(self) -> None:
++        png_pdf = load_module("png_pdf", SCRIPTS / "png_pdf.py")
++        with tempfile.TemporaryDirectory() as tmp:
++            directory = Path(tmp)
++            _write_png(directory / "q1.png", (1100, 200))
++            _write_png(directory / "q2.png", (400, 180))
++            dest = png_pdf.combine_pngs_to_pdf(directory, overwrite=True)
++            self.assertIsNotNone(dest)
++            document = fitz.open(dest)
++            try:
++                self.assertEqual(len(document), 1)
++                page = document[0]
++                self.assertEqual(page.rect.width, A4_WIDTH)
++                self.assertEqual(page.rect.height, A4_HEIGHT)
++                self.assertIn("Q1", page.get_text())
++                self.assertIn("Q2", page.get_text())
++            finally:
++                document.close()
++
++    def test_write_combined_uses_a4_pages(self) -> None:
++        section = load_module(
++            "combine_section_pdfs", SCRIPTS / "combine_section_pdfs.py"
++        )
++        with tempfile.TemporaryDirectory() as tmp:
++            directory = Path(tmp)
++            paths = [
++                directory / "2019_q1.png",
++                directory / "2019_q2.png",
++            ]
++            for path in paths:
++                _write_png(path, (828, 315))
++            dest = directory / "combined.pdf"
++            section.write_combined(paths, dest)
++            document = fitz.open(dest)
++            try:
++                self.assertEqual(len(document), 1)
++                page = document[0]
++                self.assertEqual(page.rect.width, A4_WIDTH)
++                self.assertEqual(page.rect.height, A4_HEIGHT)
++                self.assertIn("2019 Q1", page.get_text())
++                self.assertIn("2019 Q2", page.get_text())
++            finally:
++                document.close()
++
++    def test_combined_questions_sorted_by_year_then_number(self) -> None:
++        section = load_module(
++            "combine_section_pdfs", SCRIPTS / "combine_section_pdfs.py"
++        )
++        with tempfile.TemporaryDirectory() as tmp:
++            directory = Path(tmp)
++            names = ["2019_q2.png", "2012_q36.png", "2012_q1.png", "pp_q1.png"]
++            paths = [directory / name for name in names]
++            for path in paths:
++                _write_png(path, (828, 200))
++            ordered = sorted(paths, key=section.sort_key)
++            dest = directory / "combined.pdf"
++            section.write_combined(ordered, dest)
++            document = fitz.open(dest)
++            try:
++                labels = [
++                    span["text"].strip()
++                    for block in document[0].get_text("dict")["blocks"]
++                    for line in block.get("lines", [])
++                    for span in line.get("spans", [])
++                    if span.get("text", "").strip()
++                ]
++                self.assertEqual(labels, ["2012 Q1", "2012 Q36", "2019 Q2", "pp Q1"])
++            finally:
++                document.close()
++
++    def test_question_that_does_not_fit_starts_next_page(self) -> None:
++        png_pdf = load_module("png_pdf", SCRIPTS / "png_pdf.py")
++        with tempfile.TemporaryDirectory() as tmp:
++            directory = Path(tmp)
++            _write_png(directory / "q1.png", (400, 900))
++            _write_png(directory / "q2.png", (400, 900))
++            dest = png_pdf.combine_pngs_to_pdf(directory, overwrite=True)
++            document = fitz.open(dest)
++            try:
++                self.assertGreaterEqual(len(document), 2)
++                self.assertIn("Q1", document[0].get_text())
++                self.assertIn("Q2", document[1].get_text())
++                self.assertNotIn("Q2", document[0].get_text())
++            finally:
++                document.close()
++
++
++SECTION_25_HEADING = "ch25 Radiation and Radioactivity"
++MC_25 = (
++    ROOT
++    / "classified"
++    / "mc"
++    / "05_Radioactivity_and_Nuclear_Energy"
++    / "25_Radiation_and_Radioactivity"
++    / "combined.pdf"
++)
++LQ_25 = (
++    ROOT
++    / "classified"
++    / "lq"
++    / "05_Radioactivity_and_Nuclear_Energy"
++    / "25_Radiation_and_Radioactivity"
++    / "questions.pdf"
++)
++
++
++class TestSection25Heading(unittest.TestCase):
++    def test_heading_title_format(self) -> None:
++        png_pdf = load_module("png_pdf", SCRIPTS / "png_pdf.py")
++        self.assertEqual(
++            png_pdf.section_heading_title(25, "Radiation and Radioactivity"),
++            SECTION_25_HEADING,
++        )
++
++    def test_section_25_mc_and_lq_open_with_heading(self) -> None:
++        self.assertTrue(MC_25.is_file(), MC_25)
++        self.assertTrue(LQ_25.is_file(), LQ_25)
++        for path in (MC_25, LQ_25):
++            document = fitz.open(path)
++            try:
++                page = document[0]
++                self.assertEqual(page.rect.width, A4_WIDTH)
++                self.assertEqual(page.rect.height, A4_HEIGHT)
++                text = page.get_text()
++                self.assertIn(SECTION_25_HEADING, text)
++                self.assertNotIn("Items:", text)
++            finally:
++                document.close()
++
++    def test_question_page_carries_year_and_question_number(self) -> None:
++        png_pdf = load_module("png_pdf", SCRIPTS / "png_pdf.py")
++        section = load_module(
++            "combine_section_pdfs", SCRIPTS / "combine_section_pdfs.py"
++        )
++        lq = load_module(
++            "combine_lq_section_pdfs", SCRIPTS / "combine_lq_section_pdfs.py"
++        )
++        self.assertEqual(png_pdf.png_item_label(Path("2012_q36.png")), "2012 Q36")
++        self.assertEqual(png_pdf.png_item_label(Path("2026-q12.png")), "2026 Q12")
++        with tempfile.TemporaryDirectory() as tmp:
++            directory = Path(tmp)
++            mc_png = directory / "2012_q36.png"
++            lq_png = directory / "2026-q12.png"
++            _write_png(mc_png, (828, 315))
++            _write_png(lq_png, (600, 400))
++            mc_pdf = directory / "combined.pdf"
++            section.write_combined(
++                [mc_png], mc_pdf, title="ch25 Radiation and Radioactivity"
++            )
++            document = fitz.open(mc_pdf)
++            try:
++                self.assertEqual(len(document), 1)
++                page = document[0]
++                self.assertIn("ch25 Radiation and Radioactivity", page.get_text())
++                self.assertIn("2012 Q36", page.get_text())
++                self._assert_label_top_right(page, "2012 Q36")
++            finally:
++                document.close()
++            lq_pdf = directory / "questions.pdf"
++            lq.write_image_pdf(
++                [lq_png], lq_pdf, title="ch25 Radiation and Radioactivity"
++            )
++            document = fitz.open(lq_pdf)
++            try:
++                self.assertEqual(len(document), 1)
++                page = document[0]
++                self.assertIn("ch25 Radiation and Radioactivity", page.get_text())
++                self.assertIn("2026 Q12", page.get_text())
++                self._assert_label_top_right(page, "2026 Q12")
++            finally:
++                document.close()
++
++    def _assert_label_top_right(self, page: fitz.Page, label: str) -> None:
++        midpoint = page.rect.width / 2
++        found = False
++        for block in page.get_text("dict")["blocks"]:
++            for line in block.get("lines", []):
++                for span in line.get("spans", []):
++                    if span.get("text", "").strip() != label:
++                        continue
++                    found = True
++                    self.assertGreater(span["bbox"][0], midpoint)
++        self.assertTrue(found, label)
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_lq_whole_pages.py b/tests/test_lq_whole_pages.py
+index 1bfca81..d2e8c99 100644
+--- a/tests/test_lq_whole_pages.py
++++ b/tests/test_lq_whole_pages.py
+@@ -8,6 +8,7 @@ import tempfile
+ import unittest
+ from pathlib import Path
+ 
++import pymupdf as fitz
+ from PIL import Image
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+@@ -57,5 +58,48 @@ class TestLqWholePages(unittest.TestCase):
+             self.assertEqual(out.getpixel((0, 590)), (0, 0, 0))
+ 
+ 
++    def test_lq_review_pdf_is_a4_whole_pages_not_png_crop(self) -> None:
++        png_pdf = load_module("png_pdf", ROOT / "scripts" / "png_pdf.py")
++        with tempfile.TemporaryDirectory() as tmp:
++            src_path = Path(tmp) / "src.pdf"
++            doc = fitz.open()
++            page = doc.new_page(width=500, height=700)
++            page.insert_text((40, 80), "TOP-MARK", fontsize=14)
++            page.insert_text((40, 650), "BOTTOM-MARK", fontsize=14)
++            page = doc.new_page(width=500, height=700)
++            page.insert_text((40, 80), "PAGE-TWO", fontsize=14)
++            doc.save(src_path)
++            doc.close()
++            dest = Path(tmp) / "out.pdf"
++            document = fitz.open()
++            src_doc = fitz.open(src_path)
++            try:
++                png_pdf.append_pdf_page_a4(
++                    document,
++                    src_doc,
++                    0,
++                    title="ch25 Radiation and Radioactivity",
++                    label="2026 Q12",
++                )
++                png_pdf.append_pdf_page_a4(document, src_doc, 1)
++                document.save(dest)
++            finally:
++                src_doc.close()
++                document.close()
++            out = fitz.open(dest)
++            try:
++                self.assertEqual(len(out), 2)
++                self.assertEqual(out[0].rect.width, 595.0)
++                self.assertEqual(out[0].rect.height, 842.0)
++                text0 = out[0].get_text()
++                self.assertIn("ch25 Radiation and Radioactivity", text0)
++                self.assertIn("2026 Q12", text0)
++                self.assertIn("TOP-MARK", text0)
++                self.assertIn("BOTTOM-MARK", text0)
++                self.assertIn("PAGE-TWO", out[1].get_text())
++            finally:
++                out.close()
++
++
+ if __name__ == "__main__":
+     unittest.main()

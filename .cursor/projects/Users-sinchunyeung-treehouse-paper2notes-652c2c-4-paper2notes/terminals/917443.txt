@@ -1,0 +1,37 @@
+---
+pid: 35460
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/4/paper2notes/notes/book5/ch01-radiation-and-radioactivity"
+command: "node --test js/notes.interactives.test.mjs"
+title: "Run Ch.1 Chrome notes interactive tests"
+status: succeeded
+started_at: 2026-09-12T16:37:08.276Z
+running_for_ms: 193373   
+---
+▶ Book 5 Ch.1 notes interactives
+  ✔ 25.1 spectrum is static with the ionizing barrier in UV (13898.764417ms)
+  ✔ 25.1 imaging is X-rays down through a hand onto film that starts white (7387.539916ms)
+  ✔ 25.2 pie wedge is 20% and Pu-239 bookkeeping is static n_α=8 (8342.553167ms)
+  ✔ 25.2 decay labels sit on the parent and outgoing particle (11000.457875ms)
+  ✔ 25.3 absorber presets follow paper/Al/Pb contribution rules (7339.575916ms)
+  ✔ 25.3 GM extra recomputes when the plastic grid toggles (9357.294875ms)
+  ✔ 25.3 identification graph keeps taken yes/no edges (7081.775584ms)
+  ✔ 25.1 knockout ejects the bound electron already on the atom (9117.212833ms)
+  ✔ 25.3 ion-pair capture, Flip B marks, and β/γ check (10491.281ms)
+  ✔ chapter map, summary, and concept-check scoring are the public notes surface (46826.477833ms)
+  ✔ 3d scenes magnify, label the tube, keep β drift, and pulse radially (25879.119167ms)
+  ✔ Ch.1 section pages keep syllabus LOs at the top and DSE papers at the close (33790.205292ms)
+✔ Book 5 Ch.1 notes interactives (192332.743208ms)
+ℹ tests 12
+ℹ suites 1
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 192811.086584
+
+---
+exit_code: 0
+elapsed_ms: 193373
+ended_at: 2026-09-12T16:40:21.649Z
+---

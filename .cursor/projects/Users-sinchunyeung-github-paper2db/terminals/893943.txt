@@ -1,0 +1,18 @@
+---
+pid: 1085
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python scripts/build_lq_lavish_review.py && .venv/bin/python -c \"\nimport json\nd=json.load(open('.lavish/lq-classified-review/data.json'))\nn=sum(1 for s in d['sections'] for it in s['items'] if it.get('performance'))\nt=sum(len(s['items']) for s in d['sections'])\nprint(f'placements={t} with_perf={n}')\n# sample\nfor s in d['sections']:\n  for it in s['items']:\n    if it['year']=='2013' and it['q']==2:\n      print('2013Q2 perf len', len(it.get('performance','')))\n      break\n\"\n"
+title: "Rebuild Lavish with venv Python"
+status: succeeded
+started_at: 2026-09-05T01:59:03.445Z
+running_for_ms: 51734    
+---
+Wrote /Users/sinchunyeung/github/paper2db/.lavish/lq-classified-review/index.html (138 placements)
+placements=138 with_perf=138
+2013Q2 perf len 486
+
+---
+exit_code: 0
+elapsed_ms: 51734
+ended_at: 2026-09-05T01:59:55.179Z
+---

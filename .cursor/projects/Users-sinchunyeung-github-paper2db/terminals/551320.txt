@@ -1,0 +1,32 @@
+---
+pid: 58759
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python << 'PY'\nimport sys, json\nsys.path.insert(0, \"scripts\")\nimport pymupdf as fitz\nfrom preprocess_mc import collect_labels, enforce_label_order, is_formula_sheet\n\ndef test(pdf):\n    doc = fitz.open(pdf)\n    excluded = {i for i in range(1, len(doc)) if is_formula_sheet(doc[i])}\n    content = [i for i in range(1, len(doc)) if i not in excluded]\n    labels = collect_labels(doc, content, 5.0, 36)\n    labels = enforce_label_order(labels, 36)\n    missing = sorted(set(range(1,37)) - labels.keys())\n    print(f\"{pdf.split('/')[-1]}: {len(labels)}/36 missing={missing}\")\n    doc.close()\n\nfor pdf in sorted(__import__('glob').glob('paper/*p1a.pdf')):\n    test(pdf)\nPY"
+title: "Test all MC papers after OCR fixes"
+status: succeeded
+started_at: 2026-09-01T06:47:43.937Z
+running_for_ms: 622073   
+---
+2012p1a.pdf: 36/36 missing=[]
+2013p1a.pdf: 36/36 missing=[]
+2014p1a.pdf: 36/36 missing=[]
+2015p1a.pdf: 36/36 missing=[]
+2016p1a.pdf: 36/36 missing=[]
+2017p1a.pdf: 36/36 missing=[]
+2018p1a.pdf: 36/36 missing=[]
+2019p1a.pdf: 36/36 missing=[]
+2020p1a.pdf: 36/36 missing=[]
+2021p1a.pdf: 36/36 missing=[]
+2022p1a.pdf: 36/36 missing=[]
+2023p1a.pdf: 36/36 missing=[]
+2024p1a.pdf: 36/36 missing=[]
+2025p1a.pdf: 36/36 missing=[]
+2026p1a.pdf: 36/36 missing=[]
+ppp1a.pdf: 36/36 missing=[]
+sapp1a.pdf: 36/36 missing=[]
+
+---
+exit_code: 0
+elapsed_ms: 622067
+ended_at: 2026-09-01T06:58:06.004Z
+---

@@ -1,0 +1,525 @@
+AGENTS.md Spec (2026): Recommended Sections + AGENTS.md vs CLAUDE.md vs .cursorrules
+
+# AGENTS.md Spec (2026): Recommended Sections, the 30+ Tools That Read It, and AGENTS.md vs CLAUDE.md vs .cursorrules
+
+The AGENTS.md spec is plain Markdown with no required fields. Recommended sections: overview, build/test commands, code style, testing, security, commit/PR rules. Read by 30+ agents across 60,000+ repos. Full comparison to CLAUDE.md and .cursorrules, the SKILL.md frontmatter schema, and copy-paste templates.
+
+June 9, 2026 · 2 min read
+
+## What AGENTS.md Does
+
+AGENTS.md in short
+
+AGENTS.md is a plain Markdown file at the root of a repository that tells AI coding agents how to build, test, and change your project. There are no required fields. The sections most repositories use are project overview, build and test commands, code style, testing instructions, security notes, and commit or PR rules. More than 30 agents read it, including OpenAI Codex, GitHub Copilot, Cursor, Gemini CLI, Google Jules, Aider, Zed, Windsurf, and Devin, and the format is now stewarded by the Agentic AI Foundation at the Linux Foundation. Claude Code is the exception: as of August 2026 it still loads CLAUDE.md rather than AGENTS.md, so point one at the other with a first-line`@AGENTS.md` import. Nested files are supported, and the file nearest the code being edited wins. Keep the root file near 20 to 30 lines, because content duplicated from your README measurably hurts agent performance.
+
+Every AI coding agent starts a task by scanning your repository. It reads file trees, package manifests, READMEs. But READMEs are written for humans. They explain what a project does, not how an agent should work on it.
+
+AGENTS.md fills that gap. It is a markdown file, placed at the root of your repository, that contains the context coding agents need to work effectively: build commands with exact flags, test procedures, code style rules that differ from defaults, architectural constraints, and boundaries (files the agent should never touch).
+
+The format is plain markdown. No required fields. No YAML frontmatter. No special syntax. Write headings and bullet points. The agent parses the text and adjusts its behavior accordingly.
+
+60,000+
+
+Open-source projects using AGENTS.md
+
+30+
+
+Compatible coding agents
+
+32 KiB
+
+Default size cap (Codex)
+
+AGENTS.md exists to solve one problem: developers were maintaining a separate instruction file for each tool (`.cursorrules`,`CLAUDE.md`,`.github/copilot-instructions.md`). AGENTS.md is the cross-tool standard. One file, every agent.
+
+Directory Hierarchy
+
+In monorepos, place an AGENTS.md in each package. The agent reads the nearest file to the file being edited: the closest AGENTS.md wins, so each subproject ships tailored instructions. OpenAI's own Codex repository uses 88 AGENTS.md files across its directory tree.
+
+## Who Maintains the AGENTS.md Spec
+
+AGENTS.md started as a cross-vendor convention rather than a formal specification. The format came out of work by the teams behind OpenAI Codex, Amp, Google Jules, Cursor, and Factory, who each needed the same file and did not want five competing names for it. It is now stewarded by the Agentic AI Foundation, a Linux Foundation project, which means the spec itself is not owned by a single vendor.
+
+Practically, that changes two things. The file name is stable, so a repository that adds AGENTS.md today is not betting on one company's roadmap. And the spec stays deliberately thin: neutral governance makes it hard to bolt on vendor-specific fields, which is why AGENTS.md still has no required frontmatter while every tool-specific format keeps adding options. Anything that needs structure lives in the tool's own file:`.claude/rules/` path globs, Cursor MDC frontmatter, or`.github/instructions/*.instructions.md` path scoping.
+
+## Recommended Sections: What to Include in AGENTS.md
+
+AGENTS.md has no required fields. The spec describes it as a README for agents. The common sections, in the order most repositories use them:
+
+1. Project overview: what the project is, primary language and framework with versions.
+2. Build and test commands: exact commands with flags, not vague tool names.
+3. Code style guidelines: only rules that differ from language defaults.
+4. Testing instructions: how to run the suite, a single test, and what to mock.
+5. Security considerations: secrets handling, files to never read or commit.
+6. Commit and PR guidelines: branch naming, commit format, merge strategy.
+
+An analysis of 2,500+ repositories by GitHub's engineering team found that effective files prioritize copy-pasteable commands over vague tool names, real code snippets over descriptive prose, and explicit boundaries over implicit assumptions. The six categories below map to those sections.
+
+### Build & Test Commands
+
+Exact commands with flags. 'uv run pytest tests/unit/ -v', not 'run the tests'. Include environment setup, migration scripts, and dev server startup.
+
+### Code Style Rules
+
+Only rules that differ from language defaults. 'Named exports only, no default exports.' 'All async handlers.' Things the agent would get wrong without guidance.
+
+### Project Structure
+
+Map directories to responsibilities. '/src/api/ contains route handlers (thin, delegate to services). /src/services/ contains business logic.' Name technologies with versions.
+
+### Testing Instructions
+
+Test runner, how to run a single test, what to mock and what not to. 'No mocking the database. Use the test database. Factory Boy for test data.'
+
+### Git Workflow
+
+Branch naming conventions, commit message format, PR requirements. 'Squash merge only. Conventional commits: feat:, fix:, chore:, docs:.'
+
+### Boundaries
+
+What the agent should never touch. 'Never modify files in /generated/. Never commit .env files. The /legacy/ module uses sync code; do not convert to async.'
+
+#### A practical AGENTS.md (35 lines)
+
+```
+# Invoice API
+
+FastAPI, Python 3.12, PostgreSQL, SQLAlchemy 2.0, Alembic.
+
+## Commands
+
+- `uv run dev`: Dev server (port 8000)
+- `uv run pytest tests/ -v`: Full test suite
+- `uv run pytest tests/unit/test_handlers.py -v`: Single test file
+- `uv run ruff check --fix .`: Lint and auto-fix
+- `alembic upgrade head`: Run migrations
+
+## Architecture
+
+- /app/api/v1/       Route handlers (thin, delegate to services)
+- /app/services/     Business logic
+- /app/models/       SQLAlchemy models
+- /app/schemas/      Pydantic v2 request/response schemas
+- /app/repositories/ Data access layer (no raw SQL)
+
+## Code Style
+
+- Type hints on all function signatures
+- Async handlers by default
+- Pydantic v2 models for all request/response shapes
+- Named exports from __init__.py, no star imports
+
+## Rules
+
+- Handlers must not contain business logic. Delegate to services.
+- All endpoints return { data, error, meta } shape.
+- Redis is for caching only, not primary storage.
+- Never modify /app/legacy/. It uses sync code intentionally.
+
+## Testing
+
+- pytest-asyncio for async tests
+- Factory Boy for test data, never fixtures
+- No mocking the database. Use test database.
+```
+
+Start with 20 to 30 lines covering the information agents most often get wrong. Add sections based on real agent mistakes, not hypothetical ones.
+
+## The Research: 28.6% Faster, 16.6% Fewer Tokens
+
+A study from Princeton researchers measured the impact of AGENTS.md on real-world coding tasks. They ran OpenAI Codex (gpt-5.2-codex) across 10 repositories and 124 merged pull requests, executing each task twice in isolated Docker environments: once with the repository's AGENTS.md file present, once without.
+
+28.6%
+
+Median runtime reduction
+
+16.6%
+
+Median token reduction
+
+98.6s ? 70.3s
+
+Median wall-clock time
+
+2,925 ? 2,440
+
+Median output tokens
+
+The mechanism is straightforward. Without AGENTS.md, the agent spends time exploring: reading directory structures, inferring build systems, guessing test commands. With AGENTS.md, that context is provided upfront. The agent skips exploratory steps and works directly toward the solution.
+
+Caveats
+
+The study tested only OpenAI Codex on small PRs (under 100 lines changed, 5 or fewer files). A follow-up study by different researchers found that LLM-generated AGENTS.md files slightly reduced task success while increasing cost by 23%. Human-written files performed better, improving success by about 4%. The takeaway: a well-written AGENTS.md helps. An auto-generated one full of redundant information can hurt.
+
+## What NOT to Include
+
+The follow-up research found that auto-generated AGENTS.md files that duplicated existing README content actually reduced task success. Redundancy is the enemy. Every line should contain information the agent cannot get from reading your code, package manifests, or existing documentation.
+
+Include vs. Exclude
+
+| Include | Exclude | Why |
+| --- | --- | --- |
+| Non-obvious commands with flags | Commands in package.json scripts | Agents already read package.json |
+| Rules that differ from defaults | Standard language conventions | Agents know PEP 8 and Prettier defaults |
+| Architecture constraints | Full API documentation | Link to docs. Do not embed them. |
+| Explicit boundaries | Obvious practices ('write clean code') | Wastes context budget. The agent already tries to. |
+| Project-specific gotchas | Information duplicated from README | Redundancy reduces performance (23% cost increase in study) |
+
+Codex enforces a 32 KiB default size limit on AGENTS.md. Content beyond that limit is silently truncated. Even within the limit, shorter files perform better because every line competes for the agent's attention budget.
+
+## AGENTS.md vs CLAUDE.md vs .cursorrules vs copilot-instructions.md
+
+Four tools, four configuration files. They serve the same purpose (giving agents project context) but differ in scope, loading behavior, and features.
+
+Configuration File Comparison
+
+| Feature | AGENTS.md | CLAUDE.md | .cursorrules | copilot-instructions.md |
+| --- | --- | --- | --- | --- |
+| Scope | Cross-tool (30+ agents) | Claude Code, plus Copilot as a root-file alternative | Cursor only, legacy | GitHub Copilot only |
+| Format | Plain markdown | Markdown + @imports | Plain markdown (root file) | Markdown |
+| Hierarchy | Nearest file wins (nested supported) | Managed policy + user + project + subdirectory | Single root file only | .github/copilot-instructions.md + .github/instructions/*.instructions.md |
+| @imports | No | Yes (4 hops max) | No | No |
+| Local overrides | AGENTS.override.md (Codex) | CLAUDE.local.md | Not built-in | Not built-in |
+| Size limit | 32 KiB default (Codex) | Under 200 lines recommended | No hard limit | No hard limit |
+| Skills integration | SKILL.md (separate standard) | .claude/skills/ built-in | .cursor/ commands | Agent Skills (SKILL.md) |
+| Hooks | No | Pre/post tool hooks | No | No |
+| Status (Aug 2026) | Current, expanding | Current | Legacy, slated for deprecation | Current |
+| Maintainer | Agentic AI Foundation (Linux Foundation) | Anthropic | Cursor Inc. | GitHub / Microsoft |
+
+Two things changed recently. Cursor now documents four rule mechanisms, project rules in`.cursor/rules/*.mdc`, user rules, team rules on Team and Enterprise plans, and AGENTS.md as the plain-Markdown option, while`.cursorrules` is treated as legacy, so new repositories should skip`.cursorrules` entirely. And GitHub Copilot now reads AGENTS.md anywhere in the tree with nearest-file precedence, or a single root`CLAUDE.md` or`GEMINI.md` as an alternative, alongside`.github/copilot-instructions.md` and path-scoped`.github/instructions/*.instructions.md` files.
+
+If you use only one tool, use its native format. If you use multiple tools, put shared instructions in AGENTS.md and tool-specific configuration in the native file. One caveat the docs are explicit about: Claude Code reads CLAUDE.md, not AGENTS.md. To make Claude Code use a shared AGENTS.md, create a CLAUDE.md whose first line is`@AGENTS.md`(an import), or run`/init` in a repo that already has AGENTS.md and Claude Code will read and incorporate it (along with`.cursorrules` and`.windsurfrules`).
+
+90% overlap
+
+In practice, 90%+ of the content is identical across these files. Build commands, architecture rules, and testing conventions do not change per tool. The differences are in advanced features: CLAUDE.md's @imports, Cursor's MDC frontmatter with glob patterns, and Copilot's agent skills system. A converter tool like rule-porter can translate between formats.
+
+## Which Tools Support Which Files
+
+Tool Compatibility Matrix
+
+| Tool | AGENTS.md | CLAUDE.md | .cursorrules | copilot-instructions.md | SKILL.md |
+| --- | --- | --- | --- | --- | --- |
+| OpenAI Codex | Yes (primary) | No | No | No | Yes |
+| Claude Code | Via @AGENTS.md import | Yes (primary) | No | No | Yes |
+| GitHub Copilot | Yes (nearest file wins) | Yes (single root file) | No | Yes (primary) | Yes |
+| Cursor | Yes (nested supported) | No | Legacy | No | Yes |
+| Gemini CLI | Yes | No | No | No | No |
+| Windsurf | Yes | No | .windsurfrules | No | No |
+| Devin | Yes | No | No | No | No |
+| Aider | Yes | No | No | No | No |
+| Google Jules | Yes | No | No | No | No |
+| Factory / Zed / Warp | Yes | No | No | No | Varies |
+
+AGENTS.md has the broadest compatibility: 30+ agents read it, including OpenAI Codex, Claude Code (via import), GitHub Copilot, Cursor, Gemini CLI, Google Jules, Factory, Aider, Zed, VS Code, Windsurf, and Devin. If you maintain one instruction file, make it AGENTS.md. Add CLAUDE.md only when you need Claude Code features such as imports, hooks, or auto memory, and reach for`.cursor/rules/*.mdc` rather than`.cursorrules` when you need glob-scoped Cursor rules.
+
+Claude Code remains the one holdout on native AGENTS.md reads. Its memory documentation still describes two mechanisms, CLAUDE.md files that you write and auto memory notes that Claude writes per repository, with no AGENTS.md path in either. Requests to add a dual read (issue 50778, among others) are open and unshipped as of August 2026, so plan on the`@AGENTS.md` import or a`/init` pass instead of waiting.
+
+## What is SKILL.md
+
+AGENTS.md tells agents about your project. SKILL.md tells agents about a specific capability. A skill is a portable directory containing a`SKILL.md` file plus optional scripts, references, and assets. Skills work across Claude Code, OpenAI Codex, GitHub Copilot, and other compatible agents.
+
+The standard uses progressive disclosure. When a session starts, the agent reads only skill names and descriptions (the YAML frontmatter). When a task matches a skill's domain, the agent loads the full`SKILL.md` body. Supplementary files (scripts, reference docs) load only when the agent needs them. This keeps context lean until the moment detail is required.
+
+#### SKILL.md example: deployment skill
+
+```
+---
+name: deploy
+description: Deploy the application to production or staging environments
+---
+
+# Deploy
+
+## Steps
+
+1. Run the test suite: `bun run test`
+2. Build for production: `bun run build`
+3. Check for TypeScript errors: `bun run typecheck`
+4. If all checks pass, deploy:
+   - Staging: `vercel deploy --env preview`
+   - Production: `vercel deploy --prod`
+5. Verify health: `curl -s https://myapp.com/health | jq .status`
+
+## Rules
+
+- Never deploy to production without passing tests
+- Always deploy to staging first for new features
+- Production deploys require the main branch
+```
+
+### SKILL.md vs AGENTS.md
+
+AGENTS.md vs SKILL.md
+
+| Aspect | AGENTS.md | SKILL.md |
+| --- | --- | --- |
+| Purpose | Project context | Reusable task/capability |
+| Scope | Repository-wide | Single task or workflow |
+| Loading | Always loaded at session start | On-demand when task matches |
+| Format | Plain markdown | Markdown with YAML frontmatter |
+| Portability | Per-repo | Shareable across projects |
+| Invocation | Automatic | Automatic or manual (/skill-name) |
+
+### Skill Directory Structure
+
+#### Skill file layout
+
+```
+my-skill/
+??? SKILL.md            # Required: instructions + frontmatter
+??? scripts/            # Optional: executable scripts
+?   ??? validate.sh
+??? references/         # Optional: reference documentation
+?   ??? api-spec.yaml
+??? assets/             # Optional: images, templates
+    ??? logo.svg
+```
+
+### Where Skills Live
+
+Skills can be stored in multiple locations depending on the tool:
+
+- Project skills:`.github/skills/`,`.claude/skills/`, or`.agents/skills/`
+- Personal skills:`~/.copilot/skills/`,`~/.claude/skills/`, or`~/.agents/skills/`
+- Installable skills:`npx skills add https://docs-url`(Vercel's skills CLI)
+
+SKILL.md Frontmatter
+
+The`name` and`description` fields in SKILL.md frontmatter are critical. The agent decides whether to load a skill based on the description alone. A vague description means the skill never activates. Write descriptions that specify both when the skill applies and when it does not.
+
+## SKILL.md Frontmatter Schema
+
+SKILL.md frontmatter sits between`---` markers at the top of the file. Only`description` is meaningfully required (without it, the first paragraph of the body is used). The combined`description` text is truncated at 1,536 characters in the skill listing to keep context usage low.
+
+Claude Code SKILL.md frontmatter fields
+
+| Field | Required | What it does |
+| --- | --- | --- |
+| name | No | Display name in listings. Defaults to the directory name. The command you type comes from the directory, not this field (except for a plugin-root SKILL.md). |
+| description | Recommended | What the skill does and when to use it. Claude uses this to decide when to load the skill. Truncated at 1,536 chars in the listing. |
+| disable-model-invocation | No | true prevents Claude from auto-loading the skill (manual /name only). Also stops it preloading into subagents. Default false. |
+| user-invocable | No | false hides the skill from the / menu (background knowledge Claude can still load). Default true. |
+| allowed-tools | No | Tools Claude may use without asking while the skill is active. Space- or comma-separated string, or a YAML list. |
+| disallowed-tools | No | Tools removed from the pool while the skill is active. The restriction clears on your next message. |
+| model | No | Model to use while the skill is active. Same values as /model, or inherit. Resumes the session model on your next prompt. |
+| context | No | Set to fork to run the skill in an isolated subagent context. The skill body becomes the subagent prompt. |
+| arguments | No | Named positional arguments for $name substitution in the body. Space-separated string or YAML list. |
+
+paths belongs to .claude/rules/, not SKILL.md
+
+A common mix-up: a`paths` frontmatter field is part of Claude Code`.claude/rules/*.md`, not SKILL.md. In a rule file,`paths: ["src/api/**/*.ts"]` scopes the rule to load only when Claude reads a matching file (brace expansion like`"src/**/*.{ts,tsx}"` is supported). A rule with no`paths` loads at launch like`.claude/CLAUDE.md`. SKILL.md controls loading through`description` matching and`disable-model-invocation` instead, not path globs.
+
+#### A deploy skill: manual-only, scoped tools
+
+```
+---
+name: deploy
+description: >
+  Deploy the app to staging or production. Use when the user
+  asks to ship, release, or deploy. NOT for local dev runs.
+disable-model-invocation: true
+allowed-tools: Bash(git status *) Bash(vercel deploy *)
+---
+
+# Deploy
+
+1. Run tests: `bun run test`
+2. Staging: `vercel deploy --env preview`
+3. Production: `vercel deploy --prod`
+```
+
+## AGENTS.md Templates
+
+Copy the template closest to your stack. Delete lines that do not apply. A shorter, accurate file outperforms a comprehensive, generic one.
+
+### Next.js / React / TypeScript
+
+#### AGENTS.md for a Next.js project
+
+```
+# Project Name
+
+Next.js 15 App Router, React 19, TypeScript, Tailwind CSS, Drizzle ORM, Bun.
+
+## Commands
+
+- `bun run dev`: Dev server (port 3000)
+- `bun run build`: Production build
+- `bun run test`: Vitest suite
+- `bunx vitest run src/path/to/test.ts`: Single test file
+- `bun run db:push`: Push Drizzle schema changes
+- `bun run lint`: ESLint
+
+## Architecture
+
+- /src/app/          App Router pages and layouts
+- /src/components/   React components (named exports only)
+- /src/lib/          Utilities, DB client, helpers
+- /src/lib/db/       Drizzle schema and migrations
+- /src/actions/      Server actions (all mutations go here)
+
+## Code Style
+
+- Server Components by default. Client components only for interactivity.
+- ES modules (import/export). No CommonJS.
+- No default exports except page.tsx and layout.tsx.
+- Tailwind for styling. No CSS modules.
+
+## Rules
+
+- Mutations through server actions, not API routes.
+- All DB access through Drizzle ORM in server components/actions.
+- Run typecheck before committing: bun run typecheck.
+- Never commit .env files.
+```
+
+### Python / FastAPI
+
+#### AGENTS.md for a Python project
+
+```
+# Project Name
+
+FastAPI, Python 3.12, PostgreSQL, SQLAlchemy 2.0, Alembic, uv.
+
+## Commands
+
+- `uv run dev`: Dev server (port 8000)
+- `uv run pytest tests/ -v`: Full test suite
+- `uv run pytest tests/unit/test_handlers.py::test_create -v`: Single test
+- `uv run ruff check --fix .`: Lint
+- `alembic upgrade head`: Migrations
+
+## Architecture
+
+- /app/api/v1/       Route handlers (thin, delegate to services)
+- /app/services/     Business logic
+- /app/models/       SQLAlchemy models
+- /app/schemas/      Pydantic v2 schemas
+- /app/repositories/ Data access (repository pattern)
+
+## Rules
+
+- Type hints on all functions. Async handlers by default.
+- Handlers delegate to services. No business logic in routes.
+- All DB access through repositories. No raw SQL.
+- Return { data, error } shape from all endpoints.
+- Use dependency injection for DB sessions.
+- Never modify /app/legacy/. Sync code, intentionally.
+```
+
+### Monorepo
+
+#### Root AGENTS.md for a monorepo
+
+```
+# Monorepo Name
+
+Turborepo, pnpm workspaces. Frontend (Next.js) + API (Express) + shared packages.
+
+## Commands
+
+- `pnpm dev`: Start all services
+- `pnpm build`: Build all packages
+- `pnpm test`: Run all tests
+- `turbo run test --filter=@app/api`: Test single package
+
+## Structure
+
+- /apps/web/       Next.js frontend (see apps/web/AGENTS.md)
+- /apps/api/       Express API (see apps/api/AGENTS.md)
+- /packages/ui/    Shared React components
+- /packages/db/    Drizzle schema, shared across apps
+- /packages/types/ Shared TypeScript types
+
+## Rules
+
+- Shared types in @app/types. Never duplicate type definitions.
+- Import shared packages by name: import { Button } from '@app/ui'
+- Never use relative paths across package boundaries.
+- Each package has its own AGENTS.md for package-specific rules.
+- DB schema changes require migrations in both dev and test databases.
+```
+
+### SKILL.md Template
+
+#### SKILL.md template
+
+```
+---
+name: my-skill
+description: >
+  When to use: [specific trigger condition].
+  When NOT to use: [explicit exclusion].
+user-invocable: true
+disable-model-invocation: false
+---
+
+# Skill Name
+
+## Prerequisites
+
+- [Required tools, access, or state]
+
+## Steps
+
+1. [First action with exact command]
+2. [Second action]
+3. [Verification step]
+
+## Rules
+
+- [Constraint 1]
+- [Constraint 2]
+
+## Examples
+
+[One real example showing input and expected output]
+```
+
+## FAQ
+
+### Should I use AGENTS.md or CLAUDE.md?
+
+If you use multiple coding agents, use AGENTS.md for shared instructions and CLAUDE.md for Claude-specific features (@imports, skills, hooks). If you only use Claude Code, CLAUDE.md alone is enough since it has more features. Claude Code reads CLAUDE.md, not AGENTS.md, by default. To share one file, point CLAUDE.md at it with a first-line`@AGENTS.md` import, or run`/init` in a repo that has AGENTS.md. See our CLAUDE.md guide for detailed Claude Code configuration.
+
+### Who maintains the AGENTS.md standard?
+
+The Agentic AI Foundation, a Linux Foundation project, stewards the spec. The format itself grew out of a shared convention among the teams behind OpenAI Codex, Amp, Google Jules, Cursor, and Factory, which is why no single vendor controls the file name. That governance is also why the spec has stayed minimal: there are still no required fields, and structured options such as path globs live in tool-specific files.
+
+### Is .cursorrules deprecated in favor of AGENTS.md?
+
+Cursor documents four mechanisms now: project rules in`.cursor/rules/*.mdc`, user rules, team rules on Team and Enterprise plans, and AGENTS.md as the plain-Markdown option. A root`.cursorrules` file is legacy and slated for deprecation. Put shared instructions in AGENTS.md and keep`.cursor/rules/*.mdc` for rules that need glob scoping, manual invocation, or an`alwaysApply` flag.
+
+### Does GitHub Copilot read AGENTS.md?
+
+Yes. GitHub's docs list three types of repository instructions: repo-wide`.github/copilot-instructions.md`, path-specific`.github/instructions/NAME.instructions.md` files, and agent instructions in AGENTS.md files stored anywhere in the repository, with the nearest file in the directory tree taking precedence. A single root`CLAUDE.md` or`GEMINI.md` is accepted as an alternative to AGENTS.md.
+
+### How long should AGENTS.md be?
+
+Start with 20 to 30 lines. The best files from the GitHub analysis of 2,500 repositories were concise and specific. Codex enforces a 32 KiB cap and silently truncates beyond it. Shorter files performed better in the Princeton study because agents spent less time parsing instructions and more time on the task.
+
+### Can I have multiple AGENTS.md files in one repository?
+
+Yes. Nested AGENTS.md files provide directory-specific context. The agent reads the nearest file to the code being edited. Root-level rules apply everywhere; subdirectory rules override for that subtree. OpenAI's Codex repository uses 88 AGENTS.md files across its directory structure.
+
+### Does AGENTS.md replace documentation?
+
+No. AGENTS.md complements your README and docs. It contains agent-specific context that would clutter human documentation: exact test flags, architectural constraints an agent needs to follow, files it should never modify. Keep your README for humans, AGENTS.md for agents.
+
+### Should I auto-generate AGENTS.md?
+
+Be careful. The second research study found that LLM-generated AGENTS.md files reduced success rates by 2% and increased cost by 23%, primarily because they duplicated content already available in the repository. Human-written files that contain genuinely non-obvious information performed better. Use`/init` or a generator as a starting point, then aggressively edit and trim.
+
+### What are the recommended sections in the AGENTS.md format?
+
+The spec defines no required fields, so there is no fixed schema. The sections most repositories include are: project overview, build and test commands, code style guidelines, testing instructions, security considerations, and commit/PR guidelines. Keep each section to information the agent cannot infer from your code or package manifests.
+
+### What is the SKILL.md frontmatter schema (paths, disable-model-invocation)?
+
+Claude Code SKILL.md frontmatter supports`name`,`description`,`disable-model-invocation`(true blocks auto-loading, manual`/name` only),`user-invocable`(false hides it from the / menu),`allowed-tools`,`disallowed-tools`,`model`,`context`(set to`fork` for an isolated subagent), and`arguments`. There is no`paths` field in SKILL.md. The`paths` frontmatter belongs to`.claude/rules/*.md`, where`paths: ["src/api/**/*.ts"]` scopes a rule to load only when Claude reads a matching file.
+
+### Build Faster with Agent-Native Search
+
+Morph accelerates coding agents with subagent-native search and apply. Your AGENTS.md rules apply across all agents.

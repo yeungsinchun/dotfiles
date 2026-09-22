@@ -1,0 +1,24 @@
+---
+pid: 39160
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "export PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:$PATH\"\nexport FM_HOME=/Users/sinchunyeung/github/firstmate\n/Users/sinchunyeung/github/firstmate/bin/fm-spawn.sh \\\n  p2db-regenerate-all-lq-with-the-no-crop-scrip-34 \\\n  /Users/sinchunyeung/github/firstmate/projects/paper2db \\\n  --mode no-mistakes --yolo off \\\n  --harness cursor --model cursor-grok-4.6-xhigh --effort high\necho spawn=$?\n"
+title: "Spawn paper2db LQ no-crop regen worker"
+status: succeeded
+started_at: 2026-09-12T16:38:42.948Z
+running_for_ms: 47584    
+---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  6 task(s) in flight, but no watcher has a fresh beacon (last beat: 313s ago, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  watcher supervision is owned by the stop-hook park; inspect the hook registration and watcher startup path before ending the turn.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+spawned p2db-regenerate-all-lq-with-the-no-crop-scrip-34 harness=cursor kind=ship mode=no-mistakes yolo=off window=0:fm-p2db-regenerate-all-lq-with-the-no-crop-scrip-34 worktree=/Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db
+spawn=0
+
+---
+exit_code: 0
+elapsed_ms: 47572
+ended_at: 2026-09-12T16:39:30.520Z
+---

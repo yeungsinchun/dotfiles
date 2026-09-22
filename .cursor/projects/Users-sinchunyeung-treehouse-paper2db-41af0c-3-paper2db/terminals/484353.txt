@@ -1,0 +1,48 @@
+---
+pid: 29796
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db"
+command: "cd /Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db && .venv/bin/python3 << 'PY'\nimport sys\nsys.path.insert(0,'scripts')\nfrom crop_mc_figures import find_stem_figure_box\nfrom PIL import Image\nimport numpy as np\nfor qid,qn,year in [('2013:21',21,'2013'),('2013:8',8,'2013'),('2013:11',11,'2013'),('2012:13',13,'2012')]:\n    gray=np.array(Image.open(f'output/{year}/q{qn}.png').convert('L'))\n    print(qid, find_stem_figure_box(gray,None))\nPY\n# full 2013 stem pass\n.venv/bin/python3 scripts/crop_mc_figures.py --stem-figures --questions $(python3 -c 'print(\" \".join(f\"2013:{i}\" for i in range(1,37)))') 2>&1 | grep -E 'stem=|Attached|removed|error|Error' | head -50\n"
+title: "Verify key cases then re-crop all 2013"
+status: succeeded
+started_at: 2026-09-05T15:22:34.668Z
+running_for_ms: 30313    
+---
+2013:21 None
+2013:8 CropBox(left=16, top=0, right=942, bottom=217)
+2013:11 CropBox(left=631, top=94, right=922, bottom=239)
+2012:13 CropBox(left=144, top=99, right=814, bottom=434)
+  2013:4: stem=(16, 0, 907, 168) (text_options)
+  2013:5: stem=(22, 0, 770, 234) (numeric_options)
+  2013:6: stem=(19, 0, 938, 301) (text_options)
+  2013:7: stem=(17, 0, 938, 196) (text_options)
+  2013:8: stem=(16, 0, 942, 217) (text_options)
+  2013:9: stem=(19, 0, 940, 257) (text_options)
+  2013:10: stem=(18, 0, 940, 99) (combo_statements)
+  2013:11: stem=(631, 94, 922, 239) (combo_statements)
+  2013:12: stem=(18, 0, 940, 220) (text_options)
+  2013:13: stem=(19, 0, 939, 124) (text_options)
+  2013:14: stem=(20, 0, 519, 297) (combo_statements)
+  2013:16: stem=(16, 0, 938, 238) (numeric_options)
+  2013:18: stem=(17, 0, 939, 168) (combo_statements)
+  2013:19: stem=(16, 0, 939, 215) (numeric_options)
+  2013:20: stem=(16, 0, 942, 262) (numeric_options)
+  2013:22: stem=(18, 0, 939, 214) (combo_statements)
+  2013:23: stem=(361, 0, 931, 212) (text_options)
+  2013:24: stem=(18, 48, 940, 192) (text_options)
+  2013:26: stem=(16, 0, 943, 399) (tabular_options)
+  2013:27: stem=(21, 0, 938, 330) (tabular_options)
+  2013:28: stem=(16, 0, 841, 244) (text_options)
+  2013:29: stem=(25, 1, 939, 284) (text_options)
+  2013:30: stem=(16, 0, 603, 195) (numeric_options)
+  2013:31: stem=(16, 0, 940, 239) (text_options)
+  2013:32: stem=(17, 0, 624, 253) (text_options)
+  2013:34: stem=(16, 24, 945, 117) (numeric_options)
+Attached stem figures: 26
+  removed stem figure 2012:36
+  removed stem figure 2012:20
+
+---
+exit_code: 0
+elapsed_ms: 30269
+ended_at: 2026-09-05T15:23:04.937Z
+---

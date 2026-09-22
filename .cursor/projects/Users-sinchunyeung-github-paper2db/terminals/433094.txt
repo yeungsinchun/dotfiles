@@ -1,0 +1,19 @@
+---
+pid: 29049
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages=true -sOutputFile=/tmp/2020ans-ebook.pdf \"paper/ans/2020ans.pdf\" && ls -lh /tmp/2020ans-ebook.pdf && pdfinfo /tmp/2020ans-ebook.pdf | egrep 'Pages|Page size|File size'"
+title: "Compress 2020ans.pdf with Ghostscript ebook"
+status: succeeded
+started_at: 2026-09-04T16:25:54.198Z
+running_for_ms: 152859   
+---
+-rw-r--r--@ 1 sinchunyeung  wheel    17M  5 Sep 00:28 /tmp/2020ans-ebook.pdf
+Pages:           19
+Page size:       2320.08 x 3300 pts
+File size:       18253270 bytes
+
+---
+exit_code: 0
+elapsed_ms: 152856
+ended_at: 2026-09-04T16:28:27.054Z
+---

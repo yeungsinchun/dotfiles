@@ -1,0 +1,118 @@
+---
+pid: 82621
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74"
+command: "./pipeline --only mc-anchors,mc-split --years 2015 --yes"
+title: "Rebuild 2015 reconstructed MC with overrides"
+status: succeeded
+started_at: 2026-09-16T06:52:43.154Z
+running_for_ms: 144550   
+---
+Note: no Q34-Q36 in this PDF; segmenting 33 questions.
+page 2: rail_x=52.9 left=16.9 right=525.4 top=98.5 bottom=770.6 footer=772.6 marker_x=35.1 questions=4 first_pad=20.0
+page 3: rail_x=54.2 left=18.2 right=528.2 top=45.6 bottom=770.2 footer=772.2 marker_x=36.8 questions=3 first_pad=20.0
+page 4: rail_x=51.1 left=15.1 right=523.1 top=48.8 bottom=773.4 footer=775.4 marker_x=35.1 questions=2 first_pad=20.0
+page 5: rail_x=59.2 left=23.2 right=531.2 top=45.9 bottom=770.6 footer=772.6 marker_x=43.2 questions=3 first_pad=20.0
+page 6: rail_x=53.9 left=17.9 right=524.4 top=46.2 bottom=771.8 footer=773.8 marker_x=37.9 questions=2 first_pad=20.0
+page 7: rail_x=63.8 left=27.8 right=453.8 top=49.7 bottom=776.6 footer=778.6 marker_x=47.8 questions=1 first_pad=20.0
+page 8: rail_x=55.2 left=19.2 right=526.7 top=46.6 bottom=774.6 footer=776.6 marker_x=37.4 questions=2 first_pad=20.0
+page 9: rail_x=61.6 left=25.6 right=534.1 top=51.2 bottom=776.2 footer=778.2 marker_x=43.4 questions=4 first_pad=20.0
+page 10: rail_x=47.4 left=11.4 right=519.9 top=52.2 bottom=777.0 footer=779.0 marker_x=31.1 questions=3 first_pad=20.0
+page 11: rail_x=63.2 left=27.2 right=537.2 top=47.8 bottom=772.2 footer=774.2 marker_x=45.2 questions=3 first_pad=20.0
+page 12: rail_x=48.4 left=12.4 right=521.4 top=50.6 bottom=775.4 footer=777.4 marker_x=31.9 questions=3 first_pad=20.0
+page 13: rail_x=62.7 left=26.7 right=535.7 top=46.2 bottom=770.6 footer=772.6 marker_x=45.7 questions=3 first_pad=20.0
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015-intermediate/anchor.meta.json
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015-intermediate/anchor.pdf with 12 pages and 33 anchors.
+Paper type: MC (2015p1a.pdf)
+Using MC overrides: overrides_2015.json
+=== MC step 1/2: place anchors (blue dots) ===
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015-intermediate/anchor.pdf
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015-intermediate/anchor.meta.json
+Wrote 12 preview PNGs (page01.png, ...) in /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015-intermediate
+Review anchor.pdf (blue dots next to each question number), then run step 2.
+Anchor review PDF -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015-intermediate/anchor.pdf
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q1.png (1018x191)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q2.png (1018x508)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q3.png (1018x258)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q4.png (1018x193)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q5.png (1021x318)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q6.png (1021x468)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q7.png (1021x464)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q8.png (1017x553)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q9.png (1017x602)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q10.png (1017x475)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q11.png (1017x188)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q12.png (1017x680)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q13.png (1014x580)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q14.png (1014x487)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q15.png (853x901)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q16.png (1016x837)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q17.png (1016x579)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q18.png (1018x464)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q19.png (1018x243)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q20.png (1018x227)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q21.png (1018x191)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q22.png (1018x324)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q23.png (1018x373)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q24.png (1018x669)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q25.png (1021x559)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q26.png (1021x443)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q27.png (1021x196)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q28.png (1019x258)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q29.png (1019x189)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q30.png (1019x632)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q31.png (1019x300)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q32.png (1019x213)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/q33.png (1019x365)
+Wrote 33 questions to /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015 (from original PDF)
+Wrote /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/combined.pdf (13 pages, 33 questions)
+Paper type: MC (2015p1a.pdf)
+Using MC overrides: overrides_2015.json
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015
+Review PDF -> /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015/combined.pdf
+Wrote reconstructed/mc/combined.pdf (13 pages)
+paper2db pipeline
+  stages: mc-anchors, mc-split
+  years:  2015
+  force=False yes=True
+
+######## stage: mc-anchors ########
+
+=== MC anchors: 2015 (2015p1a.pdf) ===
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/segment /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/paper/mc/2015p1a.pdf /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015-intermediate --type mc --step anchors --intermediate /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015-intermediate
+
+========================================================================
+MC ANCHOR REVIEW (required for quality)
+
+Open each anchor.pdf below. Every blue dot must sit beside the
+question number with a clear gap - not on digits, *, #, options,
+diagrams, or empty margin. Fix overrides_YYYY.json or re-run a
+year with --force if a dot is wrong. Do not continue until all pass.
+
+  /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015-intermediate/anchor.pdf
+========================================================================
+(continuing without prompt because --yes)
+
+######## stage: mc-split ########
+
+=== MC split: 2015 ===
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/segment /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/paper/mc/2015p1a.pdf /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015 --type mc --step split --intermediate /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/reconstructed/mc/2015-intermediate
+$ /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/.venv/bin/python3 /Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74/scripts/combine_reconstructed.py --kind mc
+
+Done.
+Review PDFs:
+  MC papers:   reconstructed/mc/combined.pdf (per year: reconstructed/mc/<year>/combined.pdf)
+  LQ papers:   reconstructed/lq/combined.pdf (per year: reconstructed/lq/<year>/combined.pdf)
+  MC sections: classified/mc/<book>/<section>/combined.pdf
+  LQ sections: classified/lq/<book>/<section>/questions.pdf
+Lavish HTML (if lavish stage ran):
+  Pipeline walkthrough: .lavish/pipeline-review/
+  MC banks:             .lavish/classified-review/
+  LQ banks:             .lavish/lq-classified-review/
+  Quality audit JSON:   classified/quality_audit.json
+
+---
+exit_code: 0
+elapsed_ms: 144550
+ended_at: 2026-09-16T06:55:07.704Z
+---

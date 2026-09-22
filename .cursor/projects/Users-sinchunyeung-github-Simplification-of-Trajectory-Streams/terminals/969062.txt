@@ -1,0 +1,40 @@
+---
+pid: 43210
+cwd: "/Users/sinchunyeung/github/simplification-of-trajectory-streams"
+command: "cd /Users/sinchunyeung/github/simplification-of-trajectory-streams/web && .venv/bin/python -c \"import flask; print('flask', flask.__version__)\" && lsof -ti:5055 | xargs kill -9 2>/dev/null; .venv/bin/python server.py"
+title: "Start Flask web viewer server"
+status: failed   
+started_at: 2026-09-05T17:23:53.890Z
+running_for_ms: 90413    
+---
+<string>:1: DeprecationWarning: The '__version__' attribute is deprecated and will be removed in Flask 3.2. Use feature detection or 'importlib.metadata.version("flask")' instead.
+flask 3.1.3
+Repo root: /Users/sinchunyeung/github/simplification-of-trajectory-streams
+Binary: /Users/sinchunyeung/github/simplification-of-trajectory-streams/build/simplify
+Baselines: dots=True dp=True squish=True
+Starting Flask server on http://0.0.0.0:5051
+ * Serving Flask app 'server'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5051
+ * Running on http://192.168.31.91:5051
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [06/Sep/2026 01:25:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:25:02] "GET /viewer.js?v=eps-delta-gloss-1 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:25:02] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:25:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:25:03] "GET /viewer.js?v=eps-delta-gloss-1 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:25:03] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:25:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:25:05] "GET /viewer.js?v=eps-delta-gloss-1 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:25:05] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:25:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:25:06] "GET /viewer.js?v=eps-delta-gloss-1 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:25:06] "GET /api/traces HTTP/1.1" 200 -
+
+---
+exit_code: unknown
+elapsed_ms: 90413
+ended_at: 2026-09-05T17:25:24.303Z
+---

@@ -1,0 +1,1185 @@
+HONG KONG EXAMINATIONS AND ASSESSMENT AUTHORITY HONG KONG DIPLOMA OF SECONDARY EDUCATION EXAMINATION
+
+### PHYSICS PAPER 1 (Sample Paper)
+
+Time allowed: 2 hours 30 minutes This paper must be answered in English
+
+GENERAL INSTRUCTIONS 
+1. There are TWO sections, A and B, in this Paper. Section A consists of multiple-choice questions in this 
+question book, while Section B contains conventional questions printed separately in Question-Answer 
+Book B. You are advised to finish Section A in about 60 minutes. 
+2. Answers to Section A should be marked on the Multiple-choice Answer Sheet while answers to Section B 
+should be written in the spaces provided in Question-Answer Book B. The Answer Sheet for Section A 
+and the Question-Answer Book for Section B must be handed in separately at the end of the 
+examination. 
+
+#### SECTION A (MULTIPLE-CHOICE QUESTIONS)
+
+INSTRUCTIONS FOR SECTION A 
+1. Read the instructions on the Answer Sheet carefully. Stick a barcode label and insert the information 
+required in the spaces provided. 
+2. When told to open this book, you should check that all the questions are there. Look for the words ‘END OF 
+SECTION A’ after the last question. 
+3. All questions carry equal marks. 
+4. ANSWER ALL QUESTIONS. You should use an HB pencil to mark all your answers on the Answer 
+Sheet. Wrong marks must be completely erased. 
+5. You should mark only ONE answer for each question. If you mark more than one answer, you will receive 
+NO MARKS for that question. 
+6. No marks will be deducted for wrong answers. 
+
+Not to be taken away before the end of the examination session
+
+There are 36 questions. Questions marked with “*” involve knowledge of the extension component. The 
+back cover of this question paper contains a list of data, formulae and relationships which you may find 
+useful. 
+1. 
+Cynthia places a piece of carpet on a tiled floor. After a while, she stands in bare feet with one foot on 
+the tiled floor and the other on the carpet as shown above. She feels that the tiled floor is colder than 
+the carpet. Which of the following best explains this phenomenon ? 
+A. The tile is a better insulator of heat than the carpet. 
+B. The tile is at a lower temperature than the carpet. 
+C. The specific heat capacity of the tile is smaller than that of the carpet. 
+D. Energy transfers from Cynthia’s foot to the tile at a greater rate than that to the 
+carpet. 
+temperature 
+
+time
+
+room temperature
+
+P
+
+P
+
+Q
+
+Q
+
+0
+
+carpet tile
+
+2.
+
+The graph shows the variation in temperature of equal masses of two substances P and Q when they are 
+separately heated by identical heaters. Which deduction is correct ? 
+A. The melting point of P is lower than that of Q. 
+B. The specific heat capacity of P in solid state is larger than that of Q. 
+C. The specific latent heat of fusion of P is larger than that of Q. 
+D. The energy required to raise the temperature of P from room temperature to boiling 
+point is more than that of Q. 
+
+*3. pressure absolute temperature 0
+
+p
+
+1.5 p
+
+T 2T
+
+X
+
+Y
+
+As the gas in a vessel of fixed volume is heated, it gradually leaks out. The gas in the vessel changes 
+from state X to state Y along the path XY shown in the plot of pressure against absolute temperature. 
+What percentage of the original mass of the gas leaks out from the vessel in this process ? 
+A. 10% 
+B. 20% 
+C. 25% 
+D. 50% 
+
+HKDSE-PHY 1A−2 (Sample Paper) 62 *4. Two vessels contain hydrogen gas and oxygen gas respectively. Both gases have the same pressure and temperature and are assumed to be ideal. Which of the following physical quantities must be the same for the two gases ? A. The volume of the gas B. The mass per unit volume of the gas C. The r.m.s. speed of the gas molecules D. The number of gas molecules per unit volume
+
+5.
+
+70 o 70 o
+
+A fish is hung on a light string as shown above. The tension in the string is 10 N. Find the total weight 
+of the fish and the hook. 
+A. 20 sin 70° N 
+B. 20 cos 70° N 
+C. 10 sin 70° N 
+D. 10 cos 70° N 
+
+6.
+
+5 N
+
+A 1 kg block is pulled by a horizontal force of 5 N and moves with an acceleration of 2 m s –2 on a rough horizontal plane. Find the frictional force acting on the block. A. zero B. 2 N C. 3 N D. 7 N 7. Patrick is driving along a straight horizontal road. At time t = 0, he observes that an accident has happened. He then applies the brakes to stop his car with uniform deceleration. The graph shows the variation of the speed of the car with time.
+
+0
+
+v / m s –1 t / s
+
+14
+
+0.8 5.0 Find the distance travelled by the car from time t = 0 to 5.0 s. A. 29.4 m B. 40.6 m C. 46.2 m D. 81.2 m
+
+8.
+
+A block remains at rest on a rough inclined plane. Which diagram shows all the forces acting on the 
+block ? 
+Note : W = gravitational force acting on the block, 
+R = normal reaction exerted by the inclined plane on the block, and 
+F = friction acting on the block. 
+
+R
+
+W
+
+A. B. F
+
+W
+
+C. D.
+
+9. Kelvin is standing on a balance inside a lift. The table shows the readings of the balance in three situations.
+
+Motion of the lift Reading of the balance moving upwards with a uniform speed R1 moving downwards with a uniform speed R2 moving upwards with an acceleration R3 Which relationship is correct ? A. R1 = R2 > R3 B. R3 > R1 = R2 C. R1 > R2 > R3 D. R3 > R1 > R2
+
+10.
+
+Figure (a) shows a uniform plank supported by two spring balances P and Q. The readings of the two balances are both 150 N. P is now moved 0.25 m towards Q (see Figure (b)). Find the new readings of P and Q.
+
+Reading of P/N Reading of Q/N 
+A. 100 200 
+B. 150 150 
+C. 200 100 
+D. 200 150 
+
+R R
+
+F W
+
+F
+
+W
+
+1 m Figure (a)
+
+P Q
+
+0.25 m
+
+Figure (b)
+
+P Q
+
+11. Which of the following pairs of forces is/are example(s) of action and reaction ? (1) The centripetal force keeping a satellite in orbit round the earth and the weight of the satellite. (2) The air resistance acting on an object falling through the air with terminal velocity and the weight of the object. (3) The forces of attraction experienced by two parallel wires carrying currents in the same direction. A. (1) only B. (3) only C. (1) and (2) only D. (2) and (3) only
+
+12. Two small identical objects P and Q are released from rest from the top of a building 80 m above the ground. Q is released 1 s after P. Neglecting air resistance, what is the maximum vertical separation between P and Q in the air ? A. 5 m B. 10 m C. 35 m D. 45 m
+
+13. A car P of mass 1000 kg moves with a speed of 20 m s –1 and makes a head-on collision with a car Q of mass 1500 kg, which was moving with a speed of 10 m s –1 in the opposite direction before the collision. The two cars stick together after the collision. Find their common velocity immediately after the collision. A. 2 m s –1 along the original direction of P B. 2 m s –1 along the original direction of Q C. 14 m s –1 along the original direction of P D. 14 m s –1 along the original direction of Q
+
+*14.
+
+pendulum in horizontal position
+
+A simple pendulum is held at rest in a horizontal position. It is then released with the string taut. 
+Which statement about the tension in the string is not correct when the pendulum reaches its vertical 
+position ? 
+A. The tension equals the weight of the pendulum bob in magnitude. 
+B. The tension attains its greatest value. 
+C. The tension does not depend on the length of the pendulum. 
+D. The tension depends on the mass of the pendulum bob. 
+
+15.
+
+plane mirror
+
+The diagram shows the image of a clock in a plane mirror. What is the time displayed by the clock ? A. 3:58 B. 4:02 C. 7:58 D. 8:02
+
+16.
+
+Cecilia uses a magnifying glass to read some small print. Which diagram shows how the image of the print is formed ?
+
+A. B.
+
+O
+
+I
+
+O
+
+I
+
+C. D.
+
+F F
+
+I
+
+O F
+
+I
+
+O F
+
+17. 2.0 cm
+
+The solid curve in the diagram shows a transverse wave at a certain instant. After 0.05 s, the wave has travelled a distance of 2.0 cm and is indicated by the dashed curve. Find the wavelength and frequency of the wave.
+
+Wavelength/cm Frequency/Hz 
+A. 8 2.5 
+B. 16 2.5 
+C. 8 5 
+D. 16 5 
+
+18.
+
+P
+
+Q
+
+R
+
+direction of propagation
+
+The figure shows the shape of a transverse wave travelling along a string at a certain instant. Which 
+statement about the motion of the particles P, Q and R on the string at this instant is correct ? 
+A. Particle P is moving downwards. 
+B. Particle Q is stationary. 
+C. Particle R attains its maximum acceleration. 
+D. P and Q are in phase. 
+
+19.
+
+X Y
+
+P 2 mm
+
+45 cm 
+String XY is fixed at both ends. The distance between X and Y is 45 cm. Two identical sinusoidal 
+waves travel along XY in opposite directions and form a stationary wave with an antinode at point P. 
+The figure shows the string when P is 2 mm, its maximum displacement, from the equilibrium 
+position. What is the amplitude and wavelength of each of the travelling waves on the string ? 
+Amplitude Wavelength 
+A. 1 mm 30 cm 
+B. 1 mm 15 cm 
+C. 2 mm 30 cm 
+D. 2 mm 15 cm 
+
+20. A Young’s double-slit experiment was performed using a monochromatic light source. Which change would result in a greater fringe separation on the screen ? (1) Using monochromatic light source of longer wavelength (2) Using double slit with greater slit separation (3) Using double slit with larger slit width A. (1) only B. (1) and (2) only C. (2) and (3) only D. (1), (2) and (3)
+
+21. An object is placed at the focus of a concave lens of focal length 10 cm. What is the magnification of the image formed ? A. 0.5 B. 1.0 C. 2.0 D. infinite
+
+22. Which of the following statements about sound waves is/are correct ? (1) Sound waves are longitudinal waves. (2) Sound waves are electromagnetic waves. (3) Sound waves cannot travel in a vacuum. A. (2) only B. (3) only C. (1) and (2) only D. (1) and (3) only
+
+23.
+
+incident light
+
+first-order maximum θ central maximum first-order maximum
+
+grating
+
+When monochromatic light is passed through a diffraction grating, a pattern of maxima and minima is observed as shown. Which combination would produce the largest angle θ between the first-order maxima ?
+
+Grating (lines per mm) Colour of light used A. 200 blue B. 200 red C. 400 blue D. 400 red
+
+24. Two conducting spheres are hanging freely in air by insulating threads. In which of the following will the two spheres attract each other ? Note : ‘N’ denotes that the sphere is uncharged.
+
+| Note : ‘N’ denotes that the sphere is uncharged. | | | | | | | | | | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| (1) | | | | | | (2) | | | | | (3) | | | | |
+| | + | | – | | | | | + | N | | | | – | N | |
+| | A. | | (1) only | | | | | | | | | | | | |
+| | B. | | (2) only | | | | | | | | | | | | |
+| | C. | | (3) only | | | | | | | | | | | | |
+| | D. | | (1), (2) and (3) | | | | | | | | | | | | |
+
+25. The table shows three electrical appliances which Clara used in a certain month : Appliance Rating Duration Air-conditioner 220 V, 1200 W 250 hours television 220 V, 250 W 80 hours computer 220 V, 150 W 60 hours Calculate the cost of electricity used. Note : 1 kW h of electricity costs $ 0.86. A. $ 62.25 B. $ 73.79 C. $ 282.94 D. $ 536.64
+
+26. If a 15 A fuse is installed in the plug of an electric kettle of rating ‘220 V, 900 W’, state what happens when the kettle is plugged in and switched on. A. The kettle will not operate. B. The kettle will be short-circuited. C. The output power of the kettle will be increased. D. The chance of the kettle being damaged by an excessive current will be increase
+
+27.
+
+A3
+
+A
+
+A2
+
+A
+
+A1
+
+A
+
+In the above circuit, the bulbs are identical. The reading of ammeter A1 is 1 A. Find the readings of ammeters A2 and A3.
+
+Reading of A2 Reading of A3
+
+A. 2 A 2 A B. 2 A 3 A C. 0.5 A 1 A D. 0.5 A 1.5 A
+
+28.
+
+magnet
+
+S
+
+N coil
+
+rheostat battery box
+
+| (1) | | using a stronger magnet | | | |
+| --- | --- | --- | --- | --- | --- |
+| (2) | | reducing the resistance of the rheostat | | | |
+| (3) | | using a coil with a smaller number of turns | | | |
+| | | A. | | (1) and (2) only | |
+| | | B. | | (1) and (3) only | |
+| | | C. | | (2) and (3) only | |
+| | | D. | | (1), (2) and (3) | |
+
+The figure shows a simple motor. Which of these changes would increase the turning effect of the coil ?
+
+29.
+
+Which diagram shows the magnetic field pattern around a flat circular current-carrying coil, in the 
+plane shown ? 
+A. B. 
+
+C. D.
+
+30.
+
+A student wants to measure the resistance of a resistor R and sets up the circuit shown. The student made which of these mistakes setting up the circuit ?
+
++ _
+
++ _ _ +
+
+battery box ammeter voltmeter
+
+R
+
+switch rheostat
+
+(1) The polarity of the ammeter was reversed. 
+(2) The polarity of the voltmeter was reversed. 
+(3) The voltmeter was connected across both R and the rheostat. A. (1) only B. (2) only C. (1) and (3) only D. (2) and (3) only 
+
+31.
+
+× × × × × × × × × × × × × × × × × × × × × × × ×
+
+R
+
+S P
+
+Q
+
+uniform magnetic field
+
+The figure shows conducting rods PQ and RS placed on two smooth, parallel, horizontal conducting 
+rails. A uniform magnetic field is directed into the plane of the paper. PQ is given an initial velocity 
+to the right and left to roll. Which statement is INCORRECT ? 
+A. The induced current is in the direction PQRS. 
+B. The magnetic force acting on rod PQ is towards the left. 
+C. Rod RS starts moving towards the right. 
+D. Rod PQ moves with a uniform speed. 
+
+32.
+
+X
+
+72 Y
+
++Q 360 40 The figure shows the location of an isolated charge of size +Q. The size (in an arbitrary unit) of the electric field strength is marked at certain points. What is the size (in the same arbitrary unit) of the electric field strength at X and Y ? electric field strength at X electric field strength at Y A. 72 30 B. 72 36 C. 90 30 D. 90 36 HKDSE-PHY 1A−11 (Sample Paper) 71
+
+*33. Power is transmitted over long distances at high alternating voltages. Which statements are correct ? (1) Alternating voltages can be stepped up or down efficiently by transformers. (2) For a given transmitted power, the current will be reduced if a high voltage is adopted. (3) The power loss in the transmission cables will be reduced if a high voltage is adopted. A. (1) and (2) only B. (1) and (3) only C. (2) and (3) only D. (1), (2) and (3)
+
+34. Which of these is a nuclear fusion reaction ?
+
+A. n2KrBanU
+
+90 
+36 
+144 
+56 
+
+235 92 ++→+ B. nHeHH
+
+4 
+2 
+3 
+1 
+
+2 1 +→+ C. HCnN
+
+1 
+1 
+14 
+6 
+
+14 7 +→+ D. U Th +→ α
+
+234 
+90 
+238 
+92 
+
+*35. On which of the following does the activity of a radioactive source depend ? (1) the nature of the nuclear radiation emitted by the source (2) the half-life of the source (3) the number of active nuclides in the source A. (1) only B. (3) only C. (1) and (2) only D. (2) and (3) only
+
+36. Different absorbers are placed in turn between a radioactive source and a Geiger-Muller tube. Three readings are taken for each absorber. The following data are obtained: Absorber Count rate / s –1 – 200 205 198 paper 197 202 206 5 mm aluminium 112 108 111 25 mm lead 60 62 58 50 mm lead 34 36 34 What type(s) of radiation does the source emit ? A. β only B. γ only C. β and γ only D. α , β and γ
+
+END OF SECTION A
+
+List of data, formulae and relationships
+
+Data speed of light in vacuum c = 3.00 × 10 8 m s −1 acceleration due to gravity g = 9.81 m s −2 (Close to the Earth) universal gravitational constant G = 6.67 × 10 −11 N m 2 kg −2 charge of electron e = 1.60 × 10 −19 C electron rest mass me = 9.11 × 10 −31 kg permittivity of free space εo = 8.85 × 10 −12 C 2 N −1 m −2 permeability of free space μo = 4π × 10 −7 H m −1 Planck constant h = 6.63 × 10 −34 J s molar gas constant R = 8.31 J K −1 mol −1 Stefan constant σ = 5.67 ¯ 10 −8 W m −2 K −4 Avogadro constant NA = 6.02 × 10 23 mol −1 atomic mass unit (1 u is equivalent to 931 MeV)
+
+u = 1.661 ¯ 10 −27 kg
+
+Rectilinear motion 
+For uniformly accelerated motion : 
+v = u + at 
+s = ut + 2 
+2 
+
+1at v 2 = u 2 + 2as
+
+Mathematics 
+Equation of a straight line y = mx + c 
+Arc length = r θ 
+Surface area of cylinder = 2πrh + 2πr 2 
+
+| Surface area of cylinder | = | 2πrh + 2πr | 2 | |
+| --- | --- | --- | --- | --- |
+| Volume of cylinder | = | πr 2h | | |
+| Surface area of sphere | = | 2 4πr | | |
+| Volume of sphere | = | 3 4πr 3 | | |
+
+For small angles, sin θ ≈ tan θ ≈ θ (in radians)
+
+| A1. | | E = mc | | ∆T | energy transfer during heating | | | | | | | D3. | | = V | Q | | electric potential due to | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | and cooling | | | | | | | | | 4πε | r 0 | | a point charge | | | | |
+| A2. | | E = l | | ∆m | energy transfer during change | | | | | | | | | V = E | | | energy field between parallel plates | | | | |
+| | | | | | of state | | | | | | | D4. | | | | | | | | | |
+| | | | | | | | | | | | | | | d | | | (numerically) | | | | |
+| A3. | | nRTpV | | = | equation of state for an ideal gas | | | | | | | D5. | | = I nA | υ Q | | general current flow equation | | | | |
+| A4. | | pV | | 1 = Nmc | | | | | | | | | | ρ = | l | | | | | | |
+| | | | | | 2 kinetic theory equation | | | | | | | D6. | | R | | | resistance and resistivity | | | | |
+| | | | | 3 | | | | | | | | | | A | | | | | | | |
+| A5. | | E | | 3 RT = | molecular kinetic energy | | | | | | | D7. | | R = R1 + R2 | | | resistors in series | | | | |
+| | | | k | 2 N A | | | | | | | | | | | | | | | | | |
+| | | | | Δ v | Δ p | | | | | | | | | 111 | | | | | | | |
+| B1. | | F = m | | = | force | | | | | | | D8. | | += | | | resistors in parallel | | | | |
+| | | | | Δ t | Δ t | | | | | | | | | RRR | 21 | | | | | | |
+| B2. | | moment = F | | | ¯ d moment of a force | | | | | | | D9. | | == RIIVP | | 2 | power in a circuit | | | | |
+| B3. | | EP = mgh | | | gravitational potential energy | | | | | | | D10. | | = υ BQF | sin | θ | force | on a moving | | charge | in a |
+
+magnetic field
+
+| | | | | 1mv | kinetic energy | | | | | | | D11. | | = F BIl | sinθ | | magnetic field force | on a | | current-carrying | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| B4. | | EK = | | 2 | | | | | | | | | | | | | | | | | |
+| | | | | 2 | | | | | | | | | | | | | conductor in a magnetic field | | | | |
+| B5. | | F = kx | | | Hooke’s law | | | | | | | D12. | | V | BI | | | | | | |
+| | | | | | | | | | | | | | | = | | | Hall voltage | | | | |
+| | | | | | | | | | | | | | | nQt | | | | | | | |
+| | | | | | | | | | | | | | | μ = | 0 | | magnetic | field | due | to a | long |
+| B6. | | P = Fv = | | W | mechanical power | | | | | | | D13. | | B | I | | | | | | |
+| | | | | t | | | | | | | | | | 2 | π r | | straight wire | | | | |
+| | | | | 2 υ | | | | | | | | | | | NI | | | | | | |
+| B7. | | a | = | = ω | 2 centripetal acceleration r | | | | | | | D14. | | μ = B | 0 | | magnetic | field | inside | a | long |
+| B7. | | a | | | | | | | | | | | | | | | | | | | |
+| | | | | r | | | | | | | | | | | l | | solenoid | | | | |
+| | | | = | Gm m 1 | 2 | | | | | | | | | | Δ | | | | | | |
+| B8. | | F | | 2 r | Newton’s law of gravitation | | | | | | | D15. | | ε = N | Φ Δ t | | induced e.m.f. | | | | |
+
+t
+
+| | | | | λ | | | | | | | | | | V | N | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| C1. | | =Δ | Dy | | fringe width in | | | | | | | D16. | | s ≈ | s | | ratio of secondary voltage to | | | | |
+| | | | | a | double-slit interference | | | | | | | | | V | N | | primary voltage in a transformer | | | | |
+| | | | | | | | | | | | | | | p | p | | | | | | |
+| C2. | | d | sinθ | = nλ | diffraction grating equation | | | | | | | E1. | | N = N0e | −kt | | law of radioactive decay | | | | |
+| C3. | | 111 | =+ | | equation for a single lens | | | | | | | E2. | | = t | 2 ln | | half-life and decay constant | | | | |
+| | | vu | | f | | | | | | | | | | 1 2 | k | | | | | | |
+
+QQ
+
+21
+
+F
+
+= Coulomb’s law E3. A = kN activity and the number of undecayed nuclei
+
+D1. 2 
+0 
+
+πε
+
+4 r
+
+= electric field strength due to a point charge E4. E mc = 2 mass-energy relationship
+
+Q E πε
+
+D2. 2 0 4 r
+
+Astronomy and Space Science
+
+Energy and Energy Use
+
+TTA
+
+Q − CH )( = rate of energy transfer by conduction
+
+k d t r
+
+GMm U −= gravitational potential energy 4 = σATP Stefan’s law c
+
+k U = thermal transmittance U-value
+
+f ≈ Δ
+
+d v
+
+Doppler effect
+
+3 o
+
+1 = ρAvP maximum power by wind turbine
+
+2
+
+| Atomic World | | | | | | | | | | | | | Medical Physics | | | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| hfvm e | | 2 −= | | φ | | | | | | | | | | λ | | | | | | | |
+| 1 max 2 | | | | | Einstein’s photoelectric equation | | | | | | | | 221. = θ | d | | Rayleigh criterion (resolving power) | | | | | |
+
+λ θ 221. = Rayleigh criterion (resolving power) power
+
+| | 6.13 | | eV | | | | | | | | | | | | | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| −= En | | | | energy level equation for hydrogen atom | | | | | | | | | power | 1 = | | power of a lens | | | | | |
+| | n | 2 | | | | | | | | | | | | f | | | | | | | |
+| | | h | | | | | | | | | | | | | | | | | | | |
+| h λ == | | | | de Broglie formula | | | | | | | | | log10 | I | | intensity level (dB) | | | | | |
+| p | | mv | | | | | | | | | | | | I o | | | | | | | |
+| | λ | | | | | | | | | | | | Z = pc | | | acoustic impedance | | | | | |
+| 22.1 θ ≈ | | | | Rayleigh criterion (resolving power) | | | | | | | | | | | | 2 | | | | | |
+| | | | | | | | | | | | | | I | )( | − ZZ | | | | | | |
+| | d | | | | | | | | | | | | == α | r | 12 | intensity reflection coefficient | | | | | |
+| | | | | | | | | | | | | | I | )( o | + ZZ 12 | 2 | | | | | |
+
+1 Einstein’s photoelectric equation μx II − = eo transmitted intensity through a medium
+
+B
+
+HONG KONG EXAMINATIONS AND ASSESSMENT AUTHORITY HONG KONG DIPLOMA OF SECONDARY EDUCATION EXAMINATION
+
+Candidate Number
+
+PHYSICS PAPER 1 (Sample Paper)
+
+Marker’s Use Only
+
+Examiner’s Use Only Marker No. Examiner No.
+
+Section B : Question-Answer Book B
+
+This paper must be answered in English
+
+Question No. Marks Marks
+
+INSTRUCTIONS
+
+1
+
+2
+
+(1) Write your Candidate Number in the space provided on Page 1.
+
+3
+
+(2) Stick barcode labels in the spaces provided on Pages 1, 3, 5, 7 and 9.
+
+4
+
+| (3) | This section carries 84 | ALL marks. Answer | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| | questions. | | | 5 | | | |
+| (4) | Write your answers in the spaces provided in this | | | 6 | | | |
+| | Question-Answer Book. Do not write in the margins. | | | | | | |
+| | Answers written in the margins will not be marked. | | | 7 | | | |
+| (5) | Supplementary answer sheets will be | provided on | | 8 | | | |
+| | request. Write your Candidate Number, mark the | | | | | | |
+| | question number box and stick a barcode label on | | | 9 | | | |
+| | each sheet. Tie them loosely but securely with a | | | | | | |
+| | string INSIDE this Question-Answer Book. | | | 10 | | | |
+| (6) | The diagrams in this section | are NOT necessarily | | 11 | | | |
+
+drawn to scale.
+
+12
+
+13
+
+14
+
+Total
+
+Answer ALL questions. Parts marked with “*” involve knowledge of the extension component. Write your
+
+answers in the spaces provided.
+
+1.
+
+A balloon containing 0.01 m
+
+3
+
+of gas at a pressure of 100 kPa is placed inside a chamber. Air is slowly pumped out from the chamber while the temperature remains unchanged.
+
+*(a) Explain, in terms of molecular motion, how the gas inside the balloon exerts a pressure on its inner surface. (2 marks)
+
+*(b) Find the final pressure inside the balloon when its volume is doubled. (2 marks)
+
+*(c) Sketch a graph to show the relationship between the pressure p inside the balloon and the volume
+
+V of the balloon. (2 marks)
+
+to vacuum pump chamber balloon
+
+Figure 1.1
+
+0 0.01 0.02 0.03 V / m
+
+3
+
+p / kPa
+
+150
+
+100
+
+50
+
+2.
+
+In a road test, John drives his car along a straight horizontal road (see Figure 2.1). The car takes 9.3 s to
+
+accelerate from rest to 100 km h
+
+–1
+
+. The total mass of John and his car is 1400 kg.
+
+( Note: 100 km h
+
+–1
+
+= 27.8 m s
+
+–1 )
+
+(a) Find the total kinetic energy of John and his car when travelling at 100 km h
+
+–1
+
+. Hence estimate
+
+the average output power of the car during this acceleration. (3 marks)
+
+(b) A similar road test is conducted on an inclined road. The car now takes more than 9.3 s to
+
+accelerate from rest to 100 km h
+
+–1
+
+along the road (see Figure 2.2). Assume the output power of the car remains unchanged. Explain why it takes a longer time for the car to accelerate up an inclined road than along a horizontal road. (2 marks)
+
+Figure 2.2
+
+Figure 2.1
+
+3. A ball is kicked and moves with an initial velocity of 10 m s
+
+–1
+
+at an angle of 40
+
+o
+
+to the horizontal. The
+
+ball then just passes a block of height 1.6 m, reaching the highest point D, and finally hits the ground at E as shown in Figure 3.1. (Neglect air resistance and the size of the ball.)
+
+Figure 3.1
+
+A B E (a) Draw an arrow to indicate the direction of acceleration of the ball at C. (1 mark)
+
+*(b) For a projectile of initial velocity u that makes an angle θ with the horizontal, show that its
+
+horizontal range is given by
+
+g
+
+u sin
+
+2θ2
+
+. Hence, or otherwise, find another angle of projection such that the ball can still reach E with the same initial speed of 10 m s
+
+–1 .
+
+(Given: 2 sinθ cosθ = sin2θ ) (4 marks)
+
+(c) Calculate the speed of the ball at C. (2 marks)
+
+1.6 m goal
+
+40°
+
+D
+
+C F block 10 m s
+
+−1
+
+4. One end of a piece of string is fixed to a wall. A wave pulse travels along the string at a speed of
+
+0.5 m s
+
+–1
+
+towards the fixed end. Figure 4.1 shows the string at time t = 0 s and t = 2 s.
+
+(a) On Figure 4.1, draw the shape of the wave pulse at t = 1 s. (1 mark)
+
+(b) Sketch a graph of the displacement of point P on the string at a distance of 0.1 m from the wall during the period t = 0 s to t = 1 s. (2 marks)
+
+displacement/m
+
+0 time/s
+
+0.2 0.4 0.6 0.8 1.0
+
+0.02 −0.02
+
+At t = 1 s
+
+At t = 2 s
+
+Figure 4.1
+
+At t = 0 s
+
+P
+
+wall
+
+0.1 m
+
+0.02 m
+
+5.
+
+Figure 5.1 shows the display panel of a radio and the broadcasting frequencies of two radio channels R1 and R2. Given : speed of electromagnetic waves = 3.00×10
+
+8
+
+m s −1
+
+(a) Find the wavelength of the radio waves used by channel R1. (1 mark)
+
+(b) Anita’s house is surrounded by hills and at her house, the reception of one of the two radio channels is better. For which radio channel is the reception better ? Explain your answer.
+
+(2 marks)
+
+Figure 5.1 channel R2 channel R1
+
+MHz 88 94 99 105 108
+
+530 610 750 1000 1300 1600 kHz
+
+##### FM
+
+##### AM
+
+6.
+
+Figure 6.1
+
+Figure 6.1 shows two identical loudspeakers P and Q are connected to a signal generator. Position A is the mid-point of PQ. A microphone connected to a CRO is moved along BC. The amplitude of the CRO trace increases as the loudness of the sound detected increases. Figure 6.2 shows how the amplitude of the
+
+CRO trace varies with the position of the microphone.
+
+Figure 6.2
+
+(a) (i) Explain why the loudness of the sound varies along BC. (2 marks)
+
+(ii) State ONE reason why the amplitude of the CRO trace is NOT zero at position X. (1 mark)
+
+(b) If PY = 5.10 m and QY = 5.78 m, find the wavelength of the sound. (2 marks)
+
+B
+
+C
+
+microphone signal generator
+
+P
+
+Q
+
+Y
+
+A
+
+X
+
+CRO
+
+loudspeaker loudspeaker
+
+Amplitude of the
+
+CRO trace
+
+0 Position of microphone B X Y C
+
+7. Amy uses the motor of a toy fan as a simple generator. She connects a bulb to the two terminals of the
+
+motor. This is shown in Figure 7.1.
+
+The bulb lights up when the blades are turned rapidly. Explain why and state the energy conversion taking place in this process. (4 marks)
+
+electric wires motor
+
+blade bulb
+
+Figure 7.1
+
+8. Figure 8.1 shows an earth leakage circuit breaker (
+
+## 漏 電 斷 路 器
+
+) installed in a domestic circuit. The
+
+live and the neutral wires pass through the centre of a soft iron ring of mean radius 1 cm. A 100-turn coil
+
+C with cross-section area 0.8 cm
+
+2
+
+is wound on the ring.
+
+In case of an earth leakage in the domestic circuit such that the current in the neutral wire and the live wire differ by 0.5 A or more, the relay switch S opens and disconnects the mains supply. To reconnect the
+
+supply, S has to be reset manually.
+
+(a) Explain why S opens when there is a leakage current of 0.5 A from the load to the Earth. (3 marks)
+
+~ live
+
+load
+
+soft iron ring
+
+mains supply solenoid relay switch S
+
+coil C fuse
+
+Earth
+
+earth leakage circuit breaker
+
+neutral
+
+Figure 8.1
+
+(b) Calculate the magnetic field B through coil C when there is a leakage current of 0.5 A from the load to the Earth. The magnetic field B due to a current-carrying conductor is 1500 times larger in soft iron. (2 marks)
+
+(c) Electrical appliances are usually equipped with fuses. When a short circuit occurs between the live and neutral wires, the fuse blows but the earth leakage circuit breaker does not operate.
+
+Explain these observations. (2 marks)
+
+9.
+
+Figure 9.1 shows a microwave oven. Mary wants to estimate the useful output power of the oven. She is provided with the apparatus and material shown in Figure 9.2.
+
+(a) Describe how Mary should conduct the experiment. Specify all measurements Mary has to take.
+
+State EITHER one precaution taken OR one assumption made when conducting this experiment.
+
+Write down an equation for calculating the useful output power. (5 marks)
+
+Figure 9.1
+
+Figure 9.2
+
+(b) The value obtained by Mary is found to be smaller than the rated power of the oven. Suggest one possible reason to account for this difference. (1 mark)
+
+(c) Explain whether increasing the mass of water used in the experiment would improve the accuracy of the experiment. (1 mark)
+
+10.
+
+Figure 10.1
+
+Figure 10.1 shows a ship equipped with sonar. The sonar emits ultrasonic waves of frequency 25 kHz into the sea. The waves propagate at an angle of 50º to the surface of the sea and are reflected from a
+
+submarine back to the ship after 0.15 s.
+
+Given : speed of sound in air = 340 m s
+
+−1
+
+speed of sound in sea water = 1500 m s
+
+−1
+
+(a) Calculate the vertical distance of the submarine beneath the sea surface. (2 marks)
+
+(b) Some of the reflected waves propagate along the dotted line and emerge into the air at X.
+
+Calculate the angle of refraction in air. (2 marks)
+
+(c) Is it possible for ultrasonic waves, at certain angles of incidence, to undergo total internal reflection when they go from sea water to the air ? Explain. (2 marks)
+
+ship
+
+sonar 50° 40°
+
+X
+
+submarine
+
+sea air
+
+normal
+
+11. (a) A spacecraft with an astronaut on board is launched on a rocket. The rocket with the spacecraft has an initial mass of 4.80×10
+
+kg at take-off. The
+
+rocket engine expels hot exhaust gas at a constant speed of 2600 m s
+
+–1
+
+downwards relative to the rocket. Assume that 1.15×10
+
+3
+
+kg of gas is
+
+expelled in the first 0.5 s. (Neglect air resistance.)
+
+(i) Calculate the average thrust (the upward force) acting on the rocket due to the exhaust gas during the first 0.5 s. (2 marks)
+
+(ii) On Figure 11.1, draw and label an arrow for each force acting on the rocket. Assuming that the change in mass of the rocket during the first 0.5 s is negligible, estimate the acceleration of the rocket. (3 marks)
+
+Figure 11.1 中國航天
+
+(b) The spacecraft of mass 7.80×10
+
+kg now enters a circular orbit of radius r around the Earth.
+
+Figure 11.2
+
+*(i) Show that the speed of the spacecraft in the orbit is given by
+
+r g
+
+RE where RE is the
+
+radius of the Earth. (2 marks)
+
+*(ii) How long does it take for the spacecraft to orbit the Earth 14 times ? (3 marks)
+
+Given : radius of the orbit r = 6.71×10
+
+6
+
+m
+
+radius of the Earth RE = 6.37×10
+
+6
+
+m
+
+(c) Give ONE reason why an aircraft is unable to fly in space like a rocket. (1 mark)
+
+r
+
+spacecraft
+
+12.
+
+to be connected to a
+
+bulb
+
+data-logger
+
+cell switch
+
+voltage sensor
+
+Figure 12
+
+Figure 12.1
+
+Iris uses the apparatus shown in Figure 12.1 to study the lifetime of AA-size cells when used to power a bulb. She connects a cell and a switch to the bulb and uses a voltage sensor to measure the voltage across
+
+the bulb.
+
+(a) Draw a circuit diagram to illustrate how the apparatus is connected. Use the symbol to
+
+V
+
+denote the voltage sensor and the data-logger. (2 marks)
+
+(b) Iris conducts the experiment with a zinc-carbon cell, an alkaline cell and a lithium cell separately.
+
+Figure 12.2 shows the variation of the voltage across the bulb with time for the cells. The bulb
+
+lights up as long as the voltage across it is above 0.6 V.
+
+Voltage / V
+
+s s n n
+
+Figure 12.2
+
+| 1.2 | | |
+| --- | --- | --- |
+| 1.0 | | lithium cell |
+| 0.8 | | alkaline cell |
+| 0.6 | | |
+| 0.4 | zinc-carbon cell | |
+| 0.2 | | |
+
+0 1 2 4 3 5 6 8 7 9 10
+
+Time / hour
+
+(b) (i) A salesman claims that the lifetime of a lithium cell for lighting up the bulb is five times that of an alkaline cell. Determine whether the claim is correct or not. (2 marks)
+
+(ii) Table 12.3 shows the prices of the three types of cell.
+
+Type of cells Price per cell zinc-carbon $ 1.5 alkaline $ 3.8 lithium $25.0
+
+Table 12.3
+
+Which type of cells is the best buy, in terms of the cost per hour for lighting up the bulb ? Show your calculations. (3 marks)
+
+13. Josephine conducts an investigation on transformers. Primary and secondary coils are wound on two soft-iron C-cores to form a transformer. She sets up a circuit as shown in Figure 13.1.
+
+*(a) Josephine varies the input voltage V1 to the transformer and records the corresponding output voltage V2. The results are shown in Table 13.2. Figure 13.3 shows the graph of
+
+V2 against V1. Draw a conclusion for this investigation.
+
+Table 13.2 (1 mark)
+
+*(b) Deduce the value of V2 that will be produced when V1 equals 8.0 V. (1 mark)
+
+V1 / V V2 / V
+
+1.5 2.5
+
+3.0 5.1
+
+4.5 7.6
+
+6.0 10.0
+
+voltmeter voltmeter
+
+a.c. power supply
+
+primary coil
+
+secondary
+
+coil
+
+transformer
+
+Figure 13.1
+
+Figure 13.3
+
+V2 / V
+
+0 2 4 V1 / V
+
+5
+
+10
+
+*(c) Josephine wants to study the relationship between the output voltage and the number of turns in the secondary coil of the transformer. Describe how she can conduct the experiment. (2 marks)
+
+*(d) Josephine adds a bulb to the circuit as shown in Figure 13.4. Suggest how Josephine can estimate the efficiency of the transformer. State the measurement(s) she must take. Additional apparatus may be used if necessary. (3 marks)
+
+bulb
+
+voltmeter voltmeter
+
+a.c. power supply primary coil
+
+secondary
+
+coil
+
+transformer
+
+Figure 13.4
+
+14. In April 1986, a disastrous nuclear accident happened at the Chernobyl Nuclear Power Station. A large quantity of various radioactive substances was released and spread to neighbouring countries. The radiation levels recorded in these countries were much higher than the normal background count rate.
+
+(a) State ONE source of background radiation. (1 mark)
+
+(b) One of the radioactive isotopes released in the accident was caesium-137 (Cs-137). The
+
+following equation shows how Cs-137 is produced :
+
+U n Cs Rb n
+
+235 
+92 
++ → + + x 
+
+Given : mass of one nuclide of U
+
+235 
+92 = 235.0439 u 
+
+Cs
+
+137 
+55 = 136.9071 u 
+
+Rb
+
+95 
+37 = 94.9399 u 
+
+n
+
+1 
+0 = 1.0087 u 
+
+1 u is equivalent to 931 MeV
+
+(i) What is the value of x ? (1 mark)
+
+*(ii) Find the energy release in the fission of one U-235 nuclide in MeV. (2 marks)
+
+*(iii) The half-life of Cs-137 is 30 years. A soil sample contaminated by Cs-137 has an
+
+activity of 1.2 × 10
+
+6
+
+Bq (disintegrations per second). A physicist comments that the contaminated sample will affect the environment for more than 350 years. Justify the physicist’s claim with calculations. It is known that the activity of an uncontaminated soil sample is 200 Bq. (2 marks)
+
+END OF PAPER
+

@@ -1,0 +1,60 @@
+---
+pid: 44526
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && ./segment paper/mc/ppp1a.pdf output/pp --type mc --step split --intermediate output/pp-intermediate 2>&1 | tail -8\n./segment paper/mc/2014p1a.pdf output/2014 --type mc --step split --intermediate output/2014-intermediate 2>&1 | tee /tmp/2014-split.log | tail -8\n# start 2024 full segment in parallel\nmkdir -p output/2024-intermediate\n./segment paper/mc/2024p1a.pdf output/2024 --type mc --step all --intermediate output/2024-intermediate --questions 33 2>&1 | tee /tmp/2024-seg.log | tail -30\n"
+status: succeeded
+started_at: 2026-09-04T15:18:16.638Z
+running_for_ms: 184416   
+---
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q35.png (1041x228)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q36.png (1041x560)
+Wrote 36 questions to /Users/sinchunyeung/github/paper2db/output/pp (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/combined.pdf (36 pages)
+Paper type: MC (ppp1a.pdf)
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 36 questions -> /Users/sinchunyeung/github/paper2db/output/pp
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/pp/combined.pdf
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q32.png (1117x482)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q33.png (1117x462)
+Wrote 33 questions to /Users/sinchunyeung/github/paper2db/output/2014 (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/combined.pdf (33 pages)
+Paper type: MC (2014p1a.pdf)
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2014
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2014/combined.pdf
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q15.png (1001x1431)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q16.png (1022x577)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q17.png (1022x522)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q18.png (1029x452)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q19.png (1029x410)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q20.png (1029x190)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q21.png (1029x167)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q22.png (1019x620)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q23.png (1019x429)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q24.png (1034x482)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q25.png (1034x454)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q26.png (1112x390)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q27.png (1112x614)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q28.png (1031x424)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q29.png (1031x445)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q30.png (1031x526)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q31.png (1031x257)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q32.png (1031x192)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q33.png (1031x388)
+Wrote 33 questions to /Users/sinchunyeung/github/paper2db/output/2024 (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/combined.pdf (33 pages)
+Paper type: MC (2024p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Wrote /Users/sinchunyeung/github/paper2db/output/2024-intermediate/anchor.pdf
+Wrote /Users/sinchunyeung/github/paper2db/output/2024-intermediate/anchor.meta.json
+Wrote 13 preview PNGs (page01.png, ...) in /Users/sinchunyeung/github/paper2db/output/2024-intermediate
+Review anchor.pdf (blue dots next to each question number), then run step 2.
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2024
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2024/combined.pdf
+
+---
+exit_code: 0
+elapsed_ms: 184416
+ended_at: 2026-09-04T15:21:21.054Z
+---

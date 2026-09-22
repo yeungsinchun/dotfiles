@@ -1,0 +1,1960 @@
+diff --git a/pipeline b/pipeline
+new file mode 100755
+index 0000000..207c774
+--- /dev/null
++++ b/pipeline
+@@ -0,0 +1,516 @@
++#!/usr/bin/env python3
++"""HKDSE Physics paper2db - single entry point for the full pipeline.
++
++Reads PDFs under paper/{mc,lq,ans}/ and writes:
++  output/<year>/          MC question crops + combined.pdf
++  output/lq/<year>/       LQ pages, question crops, answer crops
++  classified/mc/          MC section folders, CSVs, section PDFs, answer keys
++  classified/lq/          LQ section folders, CSVs, section PDFs
++  .lavish/pipeline-review/        step-by-step HTML (intermediates + finals)
++  .lavish/classified-review/      MC section bank HTML
++  .lavish/lq-classified-review/   LQ section bank HTML
++  classified/quality_audit.json   crop/classification failure rates
++
++Human gates (skipped with --yes, but paths are still printed):
++  1. After MC anchors - review each intermediate/anchor.pdf (blue dot beside
++     the question number, not options or diagrams) before split.
++  2. After classify - skim classified/mc/uncertain.csv (and LQ section folders).
++
++Usage:
++  ./pipeline
++  ./pipeline --years 2024 2025
++  ./pipeline --from classify-mc
++  ./pipeline --only keys,classify-mc,section-pdfs
++  ./pipeline --yes --force
++"""
++from __future__ import annotations
++
++import argparse
++import os
++import re
++import subprocess
++import sys
++from pathlib import Path
++
++ROOT = Path(__file__).resolve().parent
++SCRIPTS = ROOT / "scripts"
++
++STAGES = (
++    "mc-anchors",
++    "mc-split",
++    "lq-pages",
++    "lq-crops",
++    "lq-answers",
++    "keys",
++    "classify-mc",
++    "classify-lq",
++    "section-pdfs",
++    "lavish",
++)
++
++
++def ensure_venv() -> None:
++    venv_dir = (ROOT / ".venv").resolve()
++    venv_py = venv_dir / "bin" / "python3"
++    if not venv_py.is_file():
++        return
++    if Path(sys.prefix).resolve() != venv_dir:
++        os.execv(str(venv_py), [str(venv_py), *sys.argv])
++
++
++ensure_venv()
++
++
++def python_executable() -> str:
++    venv = ROOT / ".venv" / "bin" / "python3"
++    return str(venv) if venv.is_file() else sys.executable
++
++
++def run_script(script_name: str, *args: str) -> None:
++    cmd = [python_executable(), str(SCRIPTS / script_name), *args]
++    print(f"$ {' '.join(cmd)}")
++    subprocess.run(cmd, check=True, cwd=str(ROOT))
++
++
++def run_segment(*args: str) -> None:
++    cmd = [python_executable(), str(ROOT / "segment"), *args]
++    print(f"$ {' '.join(cmd)}")
++    subprocess.run(cmd, check=True, cwd=str(ROOT))
++
++
++def paper_year_label(stem: str) -> str:
++    name = stem.lower()
++    if name.startswith("sapp"):
++        return "sap"
++    if name.startswith("ppp"):
++        return "pp"
++    match = re.search(r"(20\d{2})", name)
++    if match:
++        return match.group(1)
++    raise SystemExit(f"Cannot derive year label from {stem!r}")
++
++
++def discover_mc_papers(years: list[str] | None) -> list[tuple[Path, str]]:
++    papers: list[tuple[Path, str]] = []
++    for path in sorted((ROOT / "paper" / "mc").glob("*.pdf")):
++        label = paper_year_label(path.stem)
++        if years and label not in years:
++            continue
++        papers.append((path, label))
++    return papers
++
++
++def discover_lq_papers(years: list[str] | None) -> list[tuple[Path, str]]:
++    papers: list[tuple[Path, str]] = []
++    for path in sorted((ROOT / "paper" / "lq").glob("*.pdf")):
++        label = paper_year_label(path.stem)
++        if years and label not in years:
++            continue
++        papers.append((path, label))
++    return papers
++
++
++def discover_answer_pdfs(years: list[str] | None) -> list[tuple[Path, str]]:
++    ans_dir = ROOT / "paper" / "ans"
++    papers: list[tuple[Path, str]] = []
++    if not ans_dir.is_dir():
++        return papers
++    for path in sorted(ans_dir.glob("*ans.pdf")):
++        # Skip *ans2.pdf (handled separately if needed); glob is *ans.pdf only.
++        label = path.name[: -len("ans.pdf")]
++        if years and label not in years:
++            continue
++        papers.append((path, label))
++    return papers
++
++
++def mc_output_ready(year: str) -> bool:
++    year_dir = ROOT / "output" / year
++    if not year_dir.is_dir():
++        return False
++    pngs = list(year_dir.glob("q*.png"))
++    return len(pngs) >= 30 and (year_dir / "combined.pdf").is_file()
++
++
++def lq_pages_ready(year: str) -> bool:
++    year_dir = ROOT / "output" / "lq" / year
++    return (year_dir / "starts.json").is_file() and (year_dir / "pages").is_dir()
++
++
++def lq_crops_ready(year: str) -> bool:
++    year_dir = ROOT / "output" / "lq" / year
++    pngs = list(year_dir.glob("q*.png"))
++    return len(pngs) >= 8
++
++
++def lq_answers_ready(year: str) -> bool:
++    ans_dir = ROOT / "output" / "lq" / year / "ans"
++    return ans_dir.is_dir() and len(list(ans_dir.glob("q*.png"))) >= 8
++
++
++def intermediate_dir(year: str) -> Path:
++    return ROOT / "output" / f"{year}-intermediate"
++
++
++def pause(message: str, *, yes: bool) -> None:
++    print()
++    print("=" * 72)
++    print(message.rstrip())
++    print("=" * 72)
++    if yes:
++        print("(continuing without prompt because --yes)")
++        return
++    try:
++        input("Press Enter to continue (Ctrl-C to abort)... ")
++    except EOFError:
++        raise SystemExit(
++            "No TTY for review pause. Re-run with --yes after checking the paths above."
++        )
++
++
++def has_llm_key() -> bool:
++    return bool(
++        os.environ.get("LLM_API_KEY")
++        or os.environ.get("OPENAI_API_KEY")
++        or os.environ.get("TOGETHER_API_KEY")
++    )
++
++
++def stage_mc_anchors(years: list[str] | None, *, force: bool, yes: bool) -> list[str]:
++    papers = discover_mc_papers(years)
++    if not papers:
++        print("No MC papers matched.")
++        return []
++    reviewed: list[str] = []
++    for pdf, year in papers:
++        if mc_output_ready(year) and not force:
++            print(f"skip mc-anchors {year}: output/{year}/ already has crops (use --force)")
++            continue
++        inter = intermediate_dir(year)
++        print(f"\n=== MC anchors: {year} ({pdf.name}) ===")
++        run_segment(
++            str(pdf),
++            str(inter),
++            "--type",
++            "mc",
++            "--step",
++            "anchors",
++            "--intermediate",
++            str(inter),
++        )
++        reviewed.append(year)
++    if reviewed:
++        lines = [
++            "MC ANCHOR REVIEW (required for quality)",
++            "",
++            "Open each anchor.pdf below. Every blue dot must sit beside the",
++            "question number with a clear gap - not on digits, *, #, options,",
++            "diagrams, or empty margin. Fix overrides_YYYY.json or re-run a",
++            "year with --force if a dot is wrong. Do not continue until all pass.",
++            "",
++        ]
++        for year in reviewed:
++            lines.append(f"  {intermediate_dir(year) / 'anchor.pdf'}")
++        pause("\n".join(lines), yes=yes)
++    return reviewed
++
++
++def stage_mc_split(years: list[str] | None, *, force: bool) -> None:
++    papers = discover_mc_papers(years)
++    for pdf, year in papers:
++        out = ROOT / "output" / year
++        if mc_output_ready(year) and not force:
++            print(f"skip mc-split {year}: already ready")
++            continue
++        inter = intermediate_dir(year)
++        if not (inter / "anchor.pdf").is_file() and not (inter / "anchored.pdf").is_file():
++            raise SystemExit(
++                f"Missing {inter / 'anchor.pdf'} for {year}. Run mc-anchors first."
++            )
++        print(f"\n=== MC split: {year} ===")
++        out.mkdir(parents=True, exist_ok=True)
++        run_segment(
++            str(pdf),
++            str(out),
++            "--type",
++            "mc",
++            "--step",
++            "split",
++            "--intermediate",
++            str(inter),
++        )
++
++
++def stage_lq_pages(years: list[str] | None, *, force: bool) -> None:
++    papers = discover_lq_papers(years)
++    for pdf, year in papers:
++        out = ROOT / "output" / "lq" / year
++        if lq_pages_ready(year) and not force:
++            print(f"skip lq-pages {year}: starts.json already present")
++            continue
++        print(f"\n=== LQ pages: {year} ({pdf.name}) ===")
++        out.mkdir(parents=True, exist_ok=True)
++        run_segment(str(pdf), str(out), "--type", "lq")
++
++
++def stage_lq_crops(years: list[str] | None, *, force: bool, yes: bool) -> None:
++    papers = discover_lq_papers(years)
++    need = [year for _, year in papers if force or not lq_crops_ready(year)]
++    if not need:
++        print("skip lq-crops: all selected years already cropped")
++        return
++    run_script("crop_lq_from_pages.py", "--years", *need)
++    pause(
++        "LQ CROP REVIEW (optional but recommended)\n\n"
++        "Skim output/lq/<year>/questions.pdf (or combined.pdf) for cut-off\n"
++        "questions or wrong starts. Fix starts.json and re-run lq-crops if needed.\n\n"
++        + "\n".join(f"  output/lq/{y}/questions.pdf" for y in need),
++        yes=yes,
++    )
++
++
++def stage_lq_answers(years: list[str] | None, *, force: bool) -> None:
++    answers = discover_answer_pdfs(years)
++    if not answers:
++        print("No answer PDFs found under paper/ans.")
++        return
++    for pdf, year in answers:
++        out = ROOT / "output" / "lq" / year / "ans"
++        if lq_answers_ready(year) and not force:
++            print(f"skip lq-answers {year}: ans/ already present")
++            continue
++        # Only crop answers when we have an LQ paper for that year (or force).
++        lq_dir = ROOT / "output" / "lq" / year
++        if not lq_dir.is_dir() and not force:
++            print(f"skip lq-answers {year}: no output/lq/{year}/ yet")
++            continue
++        print(f"\n=== LQ answers: {year} ({pdf.name}) ===")
++        out.mkdir(parents=True, exist_ok=True)
++        run_script("preprocess_lq_answers.py", str(pdf), str(out))
++
++
++def answer_keys_path() -> Path:
++    return ROOT / "classified" / "mc" / "answer_keys.json"
++
++
++def stage_keys(*, force: bool) -> None:
++    dest = answer_keys_path()
++    if dest.is_file() and not force:
++        print(f"skip keys: {dest.relative_to(ROOT)} exists (use --force to refresh)")
++        return
++    ans_dir = ROOT / "paper" / "ans"
++    if not ans_dir.is_dir():
++        raise SystemExit(f"Missing {ans_dir}. Place marking-scheme PDFs there.")
++    run_script(
++        "extract_answer_keys.py",
++        "--answers",
++        str(ans_dir),
++        "--output",
++        str(dest),
++    )
++
++
++def stage_classify_mc(years: list[str] | None, *, force: bool, yes: bool) -> None:
++    classified = ROOT / "classified" / "mc" / "classification.csv"
++    if classified.is_file() and not force and not years:
++        print("skip classify-mc: classification.csv exists (use --force or --years)")
++    else:
++        year_args: list[str] = []
++        if years:
++            year_args = ["--years", *years]
++        if has_llm_key():
++            print("=== classify-mc: LLM ===")
++            run_script("classify_mc_llm.py", *year_args)
++        else:
++            print(
++                "=== classify-mc: keyword scorer "
++                "(set LLM_API_KEY / OPENAI_API_KEY / TOGETHER_API_KEY for LLM) ==="
++            )
++            run_script("classify_mc_sections.py", *year_args)
++    uncertain = ROOT / "classified" / "mc" / "uncertain.csv"
++    count = 0
++    if uncertain.is_file():
++        lines = uncertain.read_text(encoding="utf-8").strip().splitlines()
++        count = max(0, len(lines) - 1)
++    pause(
++        "MC CLASSIFICATION REVIEW\n\n"
++        f"Uncertain rows: {count}\n"
++        f"  {uncertain.relative_to(ROOT) if uncertain.is_file() else '(missing)'}\n"
++        "  classified/mc/<book>/<section>/\n\n"
++        "Fix keyword OVERRIDES or edit llm_classifications.json then:\n"
++        "  ./pipeline --only classify-mc --force\n"
++        "  # or: python scripts/classify_mc_llm.py --from-json ...",
++        yes=yes,
++    )
++
++
++def stage_classify_lq(years: list[str] | None, *, force: bool) -> None:
++    classified = ROOT / "classified" / "lq" / "classification.csv"
++    if classified.is_file() and not force and not years:
++        print("skip classify-lq: classification.csv exists (use --force or --years)")
++        return
++    year_args: list[str] = []
++    if years:
++        year_args = ["--years", *years]
++    if has_llm_key():
++        print("=== classify-lq: LLM ===")
++        run_script("classify_lq_llm.py", *year_args)
++    else:
++        print(
++            "=== classify-lq: keywords "
++            "(set LLM_API_KEY / OPENAI_API_KEY / TOGETHER_API_KEY for LLM) ==="
++        )
++        run_script("classify_lq_keywords.py", *year_args)
++
++
++def stage_section_pdfs() -> None:
++    keys = answer_keys_path()
++    if not keys.is_file():
++        raise SystemExit(
++            f"Missing {keys}. Run keys stage first "
++            "(./pipeline --only keys)."
++        )
++    run_script("combine_section_pdfs.py", "--keys", str(keys))
++    run_script("combine_lq_section_pdfs.py")
++
++
++def stage_lavish() -> None:
++    run_script("quality_audit.py")
++    run_script("build_mc_lavish_review.py")
++    run_script("build_lq_lavish_review.py")
++    run_script("build_pipeline_lavish_review.py")
++
++
++def parse_stage_list(raw: str | None) -> list[str] | None:
++    if not raw:
++        return None
++    parts = [p.strip() for p in raw.split(",") if p.strip()]
++    unknown = [p for p in parts if p not in STAGES]
++    if unknown:
++        raise SystemExit(f"Unknown stage(s): {', '.join(unknown)}. Valid: {', '.join(STAGES)}")
++    return parts
++
++
++def select_stages(args: argparse.Namespace) -> list[str]:
++    only = parse_stage_list(args.only)
++    if only:
++        return only
++    stages = list(STAGES)
++    if args.from_stage:
++        if args.from_stage not in STAGES:
++            raise SystemExit(f"Unknown --from stage: {args.from_stage}")
++        stages = stages[STAGES.index(args.from_stage) :]
++    if args.until:
++        if args.until not in STAGES:
++            raise SystemExit(f"Unknown --until stage: {args.until}")
++        stages = [s for s in stages if STAGES.index(s) <= STAGES.index(args.until)]
++    if args.skip_lavish and "lavish" in stages:
++        stages = [s for s in stages if s != "lavish"]
++    return stages
++
++
++def parse_args() -> argparse.Namespace:
++    parser = argparse.ArgumentParser(
++        description=__doc__,
++        formatter_class=argparse.RawDescriptionHelpFormatter,
++    )
++    parser.add_argument(
++        "--years",
++        nargs="*",
++        default=None,
++        help="Limit to these year labels (e.g. 2024 2025 pp sap)",
++    )
++    parser.add_argument(
++        "--from",
++        dest="from_stage",
++        choices=STAGES,
++        default=None,
++        help="Start at this stage (inclusive)",
++    )
++    parser.add_argument(
++        "--until",
++        choices=STAGES,
++        default=None,
++        help="Stop after this stage (inclusive)",
++    )
++    parser.add_argument(
++        "--only",
++        default=None,
++        help="Comma-separated stage list (overrides --from/--until)",
++    )
++    parser.add_argument(
++        "--force",
++        action="store_true",
++        help="Re-run stages even when outputs already look complete",
++    )
++    parser.add_argument(
++        "--yes",
++        action="store_true",
++        help="Do not wait for Enter at review gates (still prints paths)",
++    )
++    parser.add_argument(
++        "--skip-lavish",
++        action="store_true",
++        help="Omit the lavish HTML rebuild stage",
++    )
++    parser.add_argument(
++        "--list-stages",
++        action="store_true",
++        help="Print stage names and exit",
++    )
++    return parser.parse_args()
++
++
++def main() -> None:
++    args = parse_args()
++    if args.list_stages:
++        for name in STAGES:
++            print(name)
++        return
++
++    stages = select_stages(args)
++    years = args.years
++    print(f"paper2db pipeline")
++    print(f"  stages: {', '.join(stages)}")
++    if years:
++        print(f"  years:  {', '.join(years)}")
++    print(f"  force={args.force} yes={args.yes}")
++
++    for stage in stages:
++        print(f"\n######## stage: {stage} ########")
++        if stage == "mc-anchors":
++            stage_mc_anchors(years, force=args.force, yes=args.yes)
++        elif stage == "mc-split":
++            stage_mc_split(years, force=args.force)
++        elif stage == "lq-pages":
++            stage_lq_pages(years, force=args.force)
++        elif stage == "lq-crops":
++            stage_lq_crops(years, force=args.force, yes=args.yes)
++        elif stage == "lq-answers":
++            stage_lq_answers(years, force=args.force)
++        elif stage == "keys":
++            stage_keys(force=args.force)
++        elif stage == "classify-mc":
++            stage_classify_mc(years, force=args.force, yes=args.yes)
++        elif stage == "classify-lq":
++            stage_classify_lq(years, force=args.force)
++        elif stage == "section-pdfs":
++            stage_section_pdfs()
++        elif stage == "lavish":
++            stage_lavish()
++        else:
++            raise SystemExit(f"Unhandled stage: {stage}")
++
++    print("\nDone.")
++    print("Review PDFs:")
++    print("  MC sections: classified/mc/<book>/<section>/combined.pdf")
++    print("  LQ sections: classified/lq/<book>/<section>/questions.pdf")
++    print("Lavish HTML (if lavish stage ran):")
++    print("  Pipeline walkthrough: .lavish/pipeline-review/")
++    print("  MC banks:             .lavish/classified-review/")
++    print("  LQ banks:             .lavish/lq-classified-review/")
++    print("  Quality audit JSON:   classified/quality_audit.json")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/build_pipeline_lavish_review.py b/scripts/build_pipeline_lavish_review.py
+new file mode 100644
+index 0000000..a709c61
+--- /dev/null
++++ b/scripts/build_pipeline_lavish_review.py
+@@ -0,0 +1,539 @@
++#!/usr/bin/env python3
++"""Build a step-by-step pipeline Lavish review (intermediates + finals + quality)."""
++from __future__ import annotations
++
++import json
++import shutil
++import subprocess
++import sys
++from pathlib import Path
++
++ROOT = Path(__file__).resolve().parents[1]
++SCRIPTS = ROOT / "scripts"
++OUT = ROOT / ".lavish" / "pipeline-review"
++IMG = OUT / "img"
++AUDIT_JSON = ROOT / "classified" / "quality_audit.json"
++
++
++def python_executable() -> str:
++    venv = ROOT / ".venv" / "bin" / "python3"
++    return str(venv) if venv.is_file() else sys.executable
++
++
++def ensure_audit() -> dict:
++    subprocess.run(
++        [python_executable(), str(SCRIPTS / "quality_audit.py"), "--output", str(AUDIT_JSON)],
++        check=True,
++        cwd=str(ROOT),
++    )
++    return json.loads(AUDIT_JSON.read_text(encoding="utf-8"))
++
++
++def copy_sample(src: Path, dest_name: str) -> str | None:
++    if not src.is_file():
++        return None
++    dest = IMG / dest_name
++    dest.parent.mkdir(parents=True, exist_ok=True)
++    shutil.copy2(src, dest)
++    return f"img/{dest_name}"
++
++
++def existing_sample(dest_name: str) -> str | None:
++    if (IMG / dest_name).is_file():
++        return f"img/{dest_name}"
++    return None
++
++
++def resolve_sample(src: Path, dest_name: str) -> str | None:
++    return copy_sample(src, dest_name) or existing_sample(dest_name)
++
++
++def collect_assets() -> dict:
++    assets: dict[str, list[dict]] = {
++        "anchors": [],
++        "mc_crops": [],
++        "lq_crops": [],
++        "mc_classified": [],
++        "lq_classified": [],
++    }
++
++    for page in range(1, 4):
++        dest_name = f"anchor-2024-page{page:02d}.png"
++        rel = resolve_sample(
++            ROOT / "output" / "2024-intermediate" / f"page{page:02d}.png",
++            dest_name,
++        )
++        if rel:
++            assets["anchors"].append(
++                {
++                    "label": f"2024 MC anchor page {page}",
++                    "path": rel,
++                    "note": "Blue dots must sit beside question numbers with a clear gap.",
++                }
++            )
++
++    for year, question in (("2012", 1), ("2012", 15), ("2024", 1), ("2024", 4), ("2025", 1)):
++        dest_name = f"mc-{year}-q{question}.png"
++        rel = resolve_sample(
++            ROOT / "output" / year / f"q{question}.png",
++            dest_name,
++        )
++        if rel:
++            assets["mc_crops"].append(
++                {
++                    "label": f"MC {year} Q{question}",
++                    "path": rel,
++                    "note": "Empty stem + options; no answer bleed.",
++                }
++            )
++
++    for year, question in (("2012", 1), ("2012", 2), ("2024", 1), ("2025", 1)):
++        dest_name = f"lq-{year}-q{question}.png"
++        rel = resolve_sample(
++            ROOT / "output" / "lq" / year / f"q{question}.png",
++            dest_name,
++        )
++        if rel:
++            assets["lq_crops"].append(
++                {
++                    "label": f"LQ {year} Q{question}",
++                    "path": rel,
++                    "note": "Full long-question crop from the paper (may span pages).",
++                }
++            )
++
++    mc_samples = [
++        ROOT
++        / "classified"
++        / "mc"
++        / "01_Heat_and_Gases"
++        / "02_Heat_Capacity"
++        / "2012_q1.png",
++        ROOT
++        / "classified"
++        / "mc"
++        / "02_Force_and_Motion"
++        / "05_Motion"
++        / "2024_q4.png",
++        ROOT
++        / "classified"
++        / "mc"
++        / "03A_Wave_Motion"
++        / "13_Wave_Motion"
++        / "2012_q15.png",
++    ]
++    for src in mc_samples:
++        if not src.is_file():
++            # Fall back to any PNG in that section folder.
++            candidates = list(src.parent.glob("*.png"))
++            src = candidates[0] if candidates else src
++        dest_name = f"classified-mc-{src.name}"
++        rel = resolve_sample(src, dest_name)
++        if rel:
++            assets["mc_classified"].append(
++                {
++                    "label": f"Bank: {src.parent.name} / {src.name}",
++                    "path": rel,
++                    "note": str(src.relative_to(ROOT)) if src.is_file() else dest_name,
++                }
++            )
++
++    lq_samples = [
++        ROOT
++        / "classified"
++        / "lq"
++        / "01_Heat_and_Gases"
++        / "03_Change_of_State"
++        / "2012-q1.png",
++        ROOT
++        / "classified"
++        / "lq"
++        / "02_Force_and_Motion"
++        / "09_Momentum"
++        / "2012-q4.png",
++    ]
++    for src in lq_samples:
++        if not src.is_file():
++            candidates = list(src.parent.glob("*-q*.png"))
++            candidates = [c for c in candidates if "-ans" not in c.name]
++            src = candidates[0] if candidates else src
++        dest_name = f"classified-lq-{src.name}"
++        rel = resolve_sample(src, dest_name)
++        if rel:
++            assets["lq_classified"].append(
++                {
++                    "label": f"Bank: {src.parent.name} / {src.name}",
++                    "path": rel,
++                    "note": str(src.relative_to(ROOT)) if src.is_file() else dest_name,
++                }
++            )
++
++    return assets
++
++
++def pct(rate: float) -> str:
++    return f"{100 * rate:.2f}%"
++
++
++def write_html(audit: dict, assets: dict) -> None:
++    summary = audit["summary"]
++    mc = summary["mc"]
++    lq = summary["lq"]
++    combined = summary["combined"]
++    overrides = summary["overrides_historical"]
++    passes = summary["passes_5pct_bar"]
++
++    stages = [
++        ("1. MC anchors", "mc-anchors", "Blue dots on each Paper 1A PDF → output/<year>-intermediate/anchor.pdf"),
++        ("2. MC split", "mc-split", "Crop empty qN.png + combined.pdf under output/<year>/"),
++        ("3. LQ pages", "lq-pages", "Export pages + starts.json under output/lq/<year>/"),
++        ("4. LQ crops", "lq-crops", "Full-question crops + questions.pdf"),
++        ("5. LQ answers", "lq-answers", "Marking-scheme answer crops under ans/"),
++        ("6. Keys", "keys", "MC answer keys → classified/mc/answer_keys.json"),
++        ("7. Classify MC", "classify-mc", "27 syllabus sections (LLM if keyed, else keywords)"),
++        ("8. Classify LQ", "classify-lq", "Same sections for long questions (LLM if keyed, else keywords)"),
++        ("9. Section PDFs", "section-pdfs", "Per-section combined.pdf / questions.pdf"),
++        ("10. Lavish", "lavish", "HTML reviews under .lavish/"),
++    ]
++
++    def gallery(items: list[dict]) -> str:
++        if not items:
++            return '<p class="muted">No sample assets found for this step.</p>'
++        cards = []
++        for item in items:
++            cards.append(
++                f"""
++<article class="shot">
++  <img src="{item['path']}" alt="{item['label']}" loading="lazy" />
++  <div class="shot-cap">
++    <strong>{item['label']}</strong>
++    <span>{item['note']}</span>
++  </div>
++</article>"""
++            )
++        return '<div class="gallery">' + "".join(cards) + "</div>"
++
++    stage_rows = "".join(
++        f"<tr><td>{name}</td><td><code>{code}</code></td><td>{desc}</td></tr>"
++        for name, code, desc in stages
++    )
++
++    fail_defs = summary["failure_definitions"]
++    counted = "".join(f"<li><code>{item}</code></li>" for item in fail_defs["counted"])
++    not_counted = "".join(
++        f"<li><code>{item}</code></li>" for item in fail_defs["not_counted"]
++    )
++
++    override_rows = "".join(
++        f"<tr><td>{year}</td><td>{count}</td></tr>"
++        for year, count in sorted(overrides["by_year"].items())
++    )
++
++    status_class = "ok" if passes else "bad"
++    status_text = "PASS (<=5% manual tuning)" if passes else "FAIL (above 5%)"
++
++    html = f"""<!DOCTYPE html>
++<html lang="en" data-theme="luxury">
++<head>
++  <meta charset="utf-8" />
++  <meta name="viewport" content="width=device-width, initial-scale=1" />
++  <title>paper2db pipeline review</title>
++  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5.5.19/daisyui.css" />
++  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5.5.19/themes.css" />
++  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.2.4/dist/index.global.js"></script>
++  <style>
++    *, *::before, *::after {{ box-sizing: border-box; }}
++    :where(.grid, .flex) > * {{ min-width: 0; }}
++    body {{
++      margin: 0;
++      min-height: 100vh;
++      background:
++        radial-gradient(1200px 600px at 10% -10%, rgba(212,165,116,0.18), transparent 60%),
++        radial-gradient(900px 500px at 90% 0%, rgba(142,197,192,0.12), transparent 55%),
++        #120f18;
++      color: #f3eef8;
++      font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
++    }}
++    .wrap {{ max-width: 1120px; margin: 0 auto; padding: 28px 18px 80px; }}
++    .hero {{
++      display: grid; gap: 14px; margin-bottom: 28px;
++      padding: 22px 22px 20px; border-radius: 18px;
++      background: linear-gradient(160deg, rgba(29,26,36,0.96), rgba(20,18,26,0.92));
++      border: 1px solid rgba(255,255,255,0.08);
++    }}
++    .hero h1 {{
++      margin: 0; font-family: "Iowan Old Style", Palatino, Georgia, serif;
++      font-size: clamp(1.8rem, 3vw, 2.6rem); letter-spacing: -0.02em;
++    }}
++    .hero p {{ margin: 0; color: #b7acc6; line-height: 1.5; max-width: 62ch; }}
++    .status {{
++      display: inline-flex; align-items: center; gap: 8px;
++      padding: 8px 12px; border-radius: 999px; font-weight: 700; font-size: 0.9rem;
++    }}
++    .status.ok {{ background: rgba(125,207,154,0.16); color: #9ee0b4; border: 1px solid rgba(125,207,154,0.35); }}
++    .status.bad {{ background: rgba(232,139,139,0.16); color: #f0b0b0; border: 1px solid rgba(232,139,139,0.35); }}
++    .stats {{
++      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;
++    }}
++    @media (max-width: 800px) {{ .stats {{ grid-template-columns: 1fr; }} }}
++    .stat {{
++      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
++      border-radius: 14px; padding: 14px 16px;
++    }}
++    .stat .k {{ color: #a89bb8; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }}
++    .stat .v {{ font-size: 1.6rem; font-weight: 800; margin-top: 4px; font-family: ui-monospace, Menlo, monospace; }}
++    .stat .s {{ color: #a89bb8; font-size: 0.85rem; margin-top: 4px; }}
++    section.block {{
++      margin: 28px 0; padding: 20px; border-radius: 18px;
++      background: rgba(29,26,36,0.88); border: 1px solid rgba(255,255,255,0.08);
++    }}
++    section.block h2 {{
++      margin: 0 0 8px; font-family: "Iowan Old Style", Palatino, Georgia, serif;
++      font-size: 1.45rem;
++    }}
++    section.block .lede {{ margin: 0 0 16px; color: #b7acc6; line-height: 1.45; }}
++    .flow {{
++      width: 100%; overflow-x: auto; padding: 8px 0 4px;
++    }}
++    .muted {{ color: #a89bb8; }}
++    table.stages {{ width: 100%; border-collapse: collapse; font-size: 0.92rem; }}
++    table.stages th, table.stages td {{
++      text-align: left; padding: 10px 8px; border-bottom: 1px solid rgba(255,255,255,0.08);
++      vertical-align: top;
++    }}
++    table.stages th {{ color: #d4a574; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }}
++    code {{ font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; color: #f0d2ad; }}
++    .gallery {{
++      display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
++      gap: 14px;
++    }}
++    .shot {{
++      background: #0f0d14; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; overflow: hidden;
++    }}
++    .shot img {{ width: 100%; height: auto; display: block; background: #fff; }}
++    .shot-cap {{ padding: 10px 12px; display: grid; gap: 4px; }}
++    .shot-cap strong {{ font-size: 0.92rem; }}
++    .shot-cap span {{ color: #a89bb8; font-size: 0.8rem; overflow-wrap: anywhere; }}
++    .two {{
++      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
++    }}
++    @media (max-width: 800px) {{ .two {{ grid-template-columns: 1fr; }} }}
++    .listbox {{
++      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
++      border-radius: 12px; padding: 12px 14px;
++    }}
++    .listbox h3 {{ margin: 0 0 8px; font-size: 0.95rem; color: #d4a574; }}
++    .listbox ul {{ margin: 0; padding-left: 1.1rem; color: #d8cfe4; }}
++    .links a {{
++      display: inline-flex; margin: 0 10px 10px 0; padding: 8px 12px; border-radius: 10px;
++      background: rgba(212,165,116,0.16); border: 1px solid rgba(212,165,116,0.35);
++      color: #f0d2ad; text-decoration: none; font-size: 0.9rem;
++    }}
++    .cmd {{
++      background: #0b0910; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;
++      padding: 12px 14px; font-family: ui-monospace, Menlo, monospace; font-size: 0.85rem;
++      color: #cfe8e4; overflow-x: auto;
++    }}
++  </style>
++</head>
++<body>
++  <div class="wrap">
++    <header class="hero">
++      <div class="status {status_class}">{status_text}</div>
++      <h1>paper2db pipeline evidence</h1>
++      <p>
++        One command (<code>./pipeline</code>) turns HKDSE Physics PDFs into classified empty
++        question crops for MC and long questions. This page walks the stages with intermediate
++        artifacts, final banks, and the measured manual-tuning rate.
++      </p>
++      <div class="stats">
++        <div class="stat">
++          <div class="k">MC manual tuning</div>
++          <div class="v">{pct(mc['manual_tuning_rate'])}</div>
++          <div class="s">{mc['failure_count']} / {mc['questions']} questions</div>
++        </div>
++        <div class="stat">
++          <div class="k">LQ manual tuning</div>
++          <div class="v">{pct(lq['manual_tuning_rate'])}</div>
++          <div class="s">{lq['failure_count']} / {lq['questions']} questions</div>
++        </div>
++        <div class="stat">
++          <div class="k">Combined</div>
++          <div class="v">{pct(combined['manual_tuning_rate'])}</div>
++          <div class="s">{combined['failure_count']} / {combined['questions']} questions</div>
++        </div>
++      </div>
++    </header>
++
++    <section class="block" id="flow">
++      <h2>Pipeline flow</h2>
++      <p class="lede">Day-to-day entry is <code>./pipeline</code>. Scripts under <code>scripts/</code> and <code>segment</code> are internals.</p>
++      <div class="flow" aria-label="pipeline stages diagram">
++        <svg viewBox="0 0 980 170" width="100%" role="img" id="pipeline-flow">
++          <title>PDF papers flow through ten stages into classified crops and Lavish reviews</title>
++          <defs>
++            <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
++              <path d="M 0 0 L 10 5 L 0 10 z" fill="#8ec5c0" />
++            </marker>
++          </defs>
++          <rect x="8" y="40" width="120" height="54" rx="12" fill="#1d1a24" stroke="#d4a574" />
++          <text x="68" y="72" text-anchor="middle" fill="#f3eef8" font-size="13">paper/*.pdf</text>
++          <line x1="128" y1="67" x2="168" y2="67" stroke="#8ec5c0" stroke-width="2" marker-end="url(#arrow)" />
++          <rect x="170" y="28" width="150" height="78" rx="12" fill="#25212e" stroke="rgba(255,255,255,0.15)" />
++          <text x="245" y="58" text-anchor="middle" fill="#d4a574" font-size="12">anchors + split</text>
++          <text x="245" y="80" text-anchor="middle" fill="#a89bb8" font-size="11">MC blue dots → crops</text>
++          <line x1="320" y1="67" x2="360" y2="67" stroke="#8ec5c0" stroke-width="2" marker-end="url(#arrow)" />
++          <rect x="362" y="28" width="150" height="78" rx="12" fill="#25212e" stroke="rgba(255,255,255,0.15)" />
++          <text x="437" y="58" text-anchor="middle" fill="#d4a574" font-size="12">LQ pages/crops</text>
++          <text x="437" y="80" text-anchor="middle" fill="#a89bb8" font-size="11">starts.json → qN.png</text>
++          <line x1="512" y1="67" x2="552" y2="67" stroke="#8ec5c0" stroke-width="2" marker-end="url(#arrow)" />
++          <rect x="554" y="28" width="150" height="78" rx="12" fill="#25212e" stroke="rgba(255,255,255,0.15)" />
++          <text x="629" y="58" text-anchor="middle" fill="#d4a574" font-size="12">classify</text>
++          <text x="629" y="80" text-anchor="middle" fill="#a89bb8" font-size="11">27 syllabus sections</text>
++          <line x1="704" y1="67" x2="744" y2="67" stroke="#8ec5c0" stroke-width="2" marker-end="url(#arrow)" />
++          <rect x="746" y="40" width="220" height="54" rx="12" fill="#1d1a24" stroke="#8ec5c0" />
++          <text x="856" y="72" text-anchor="middle" fill="#f3eef8" font-size="13">classified/* + .lavish/</text>
++          <text x="490" y="150" text-anchor="middle" fill="#a89bb8" font-size="12">Human gates: review anchor.pdf, then uncertain.csv (usually empty)</text>
++        </svg>
++      </div>
++      <div class="overflow-x-auto">
++        <table class="stages">
++          <thead><tr><th>Step</th><th>Stage</th><th>Output</th></tr></thead>
++          <tbody>{stage_rows}</tbody>
++        </table>
++      </div>
++      <div class="cmd" style="margin-top:14px">./pipeline
++./pipeline --years 2024 2025
++./pipeline --from classify-mc
++./pipeline --only lavish
++python scripts/quality_audit.py --strict</div>
++    </section>
++
++    <section class="block" id="quality">
++      <h2>What counts as a failure</h2>
++      <p class="lede">These events count toward the &lt;=5% manual-tuning budget, including every question listed in <code>scripts/overrides_YYYY.json</code>.</p>
++      <div class="two">
++        <div class="listbox">
++          <h3>Counted</h3>
++          <ul>{counted}</ul>
++        </div>
++        <div class="listbox">
++          <h3>Not counted</h3>
++          <ul>{not_counted}</ul>
++          <p class="muted" style="margin:10px 0 0;font-size:0.85rem">
++            LQ missing answers: {lq['missing_answer_png_count']}
++            (often no ans PDF for 2026/pp). Override-tuned questions
++            (counted above): {overrides['total_questions']} across
++            {len(overrides['by_year'])} years.
++          </p>
++        </div>
++      </div>
++      <div class="overflow-x-auto" style="margin-top:16px">
++        <table class="stages">
++          <thead><tr><th>Override year</th><th>Questions tuned (counted)</th></tr></thead>
++          <tbody>{override_rows}</tbody>
++        </table>
++      </div>
++    </section>
++
++    <section class="block" id="anchors">
++      <h2>Step A - MC anchors (intermediate)</h2>
++      <p class="lede">Sample from <code>output/2024-intermediate/</code> (regenerated for this review). Every blue dot must sit beside the question number - not on options, diagrams, or digits.</p>
++      {gallery(assets['anchors'])}
++    </section>
++
++    <section class="block" id="mc-crops">
++      <h2>Step B - MC empty crops (final per-question)</h2>
++      <p class="lede">Clean screenshots cut from the paper: full stem + options, no neighboring bleed. Review PDF: <code>output/&lt;year&gt;/combined.pdf</code>.</p>
++      {gallery(assets['mc_crops'])}
++    </section>
++
++    <section class="block" id="lq-crops">
++      <h2>Step C - LQ crops (final per-question)</h2>
++      <p class="lede">Long questions are taller and often multi-page. Review PDF: <code>output/lq/&lt;year&gt;/questions.pdf</code>.</p>
++      {gallery(assets['lq_crops'])}
++    </section>
++
++    <section class="block" id="classified">
++      <h2>Step D - Classified section banks</h2>
++      <p class="lede">Crops copied into syllabus folders with section PDFs. Full interactive banks are linked below.</p>
++      <h3 style="margin:0 0 10px;color:#d4a574;font-size:1rem">MC samples</h3>
++      {gallery(assets['mc_classified'])}
++      <h3 style="margin:18px 0 10px;color:#d4a574;font-size:1rem">LQ samples</h3>
++      {gallery(assets['lq_classified'])}
++    </section>
++
++    <section class="block" id="reviews">
++      <h2>Full review surfaces</h2>
++      <p class="lede">Open these for exhaustive section-by-section inspection (crop + classification reason + fix form).</p>
++      <div class="links">
++        <a href="../classified-review/index.html">MC classified review</a>
++        <a href="../lq-classified-review/index.html">LQ classified review</a>
++      </div>
++      <form data-lavish-question="captain-verdict" onsubmit="return window.__submitVerdict(event)" class="listbox" style="margin-top:12px">
++        <h3>Captain verdict</h3>
++        <p class="muted" style="margin:0 0 10px;font-size:0.9rem">Does this evidence clear the &lt;=5% bar for accepting the pipeline?</p>
++        <label style="display:block;margin:6px 0"><input type="radio" name="verdict" value="accept" /> Accept - pipeline is good enough</label>
++        <label style="display:block;margin:6px 0"><input type="radio" name="verdict" value="needs-work" /> Needs more work before accept</label>
++        <label style="display:grid;gap:4px;margin-top:10px">
++          <span class="muted" style="font-size:0.8rem">Note</span>
++          <input name="note" type="text" placeholder="optional note" style="padding:8px 10px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);background:#120f18;color:#f3eef8" />
++        </label>
++        <button type="submit" class="btn btn-primary" style="margin-top:12px">Queue verdict</button>
++      </form>
++    </section>
++  </div>
++  <script>
++    window.__submitVerdict = function(ev) {{
++      ev.preventDefault();
++      const form = ev.target;
++      const verdict = new FormData(form).get('verdict');
++      const note = (form.note.value || '').trim();
++      if (!verdict) {{
++        alert('Pick accept or needs-work');
++        return false;
++      }}
++      const parts = ['Pipeline review verdict: ' + verdict];
++      if (note) parts.push('Note: ' + note);
++      if (!window.lavish || typeof window.lavish.queuePrompt !== 'function') {{
++        alert(parts.join(' '));
++        return false;
++      }}
++      window.lavish.queuePrompt(parts.join(' '), {{
++        tag: 'pipeline-verdict',
++        data: {{ verdict, note, mc_rate: {mc['manual_tuning_rate']}, lq_rate: {lq['manual_tuning_rate']}, combined_rate: {combined['manual_tuning_rate']} }}
++      }});
++      if (typeof window.lavish.sendQueuedPrompts === 'function') window.lavish.sendQueuedPrompts();
++      return false;
++    }};
++  </script>
++</body>
++</html>
++"""
++    (OUT / "index.html").write_text(html, encoding="utf-8")
++    (OUT / "data.json").write_text(
++        json.dumps(
++            {
++                "summary": summary,
++                "assets": assets,
++                "audit_path": str(AUDIT_JSON.relative_to(ROOT)),
++            },
++            indent=2,
++        )
++        + "\n",
++        encoding="utf-8",
++    )
++
++
++def main() -> None:
++    OUT.mkdir(parents=True, exist_ok=True)
++    IMG.mkdir(parents=True, exist_ok=True)
++    audit = ensure_audit()
++    assets = collect_assets()
++    write_html(audit, assets)
++    print(f"Wrote {OUT}/index.html")
++    print(f"Quality: passes_5pct_bar={audit['summary']['passes_5pct_bar']}")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/combine_section_pdfs.py b/scripts/combine_section_pdfs.py
+index 682dd0e..ded8706 100644
+--- a/scripts/combine_section_pdfs.py
++++ b/scripts/combine_section_pdfs.py
+@@ -19,7 +19,7 @@ import pymupdf as fitz
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+ CLASSIFIED = ROOT / "classified" / "mc"
+-DEFAULT_KEYS = ROOT / "processed" / "MC" / "answer_keys.json"
++DEFAULT_KEYS = ROOT / "classified" / "mc" / "answer_keys.json"
+ 
+ PNG_RE = re.compile(r"^(?P<year>\d{4}|pp|sap)_q(?P<q>\d+)\.png$", re.I)
+ YEAR_RANK = {
+diff --git a/scripts/extract_answer_keys.py b/scripts/extract_answer_keys.py
+index 9f0948e..6a3db36 100644
+--- a/scripts/extract_answer_keys.py
++++ b/scripts/extract_answer_keys.py
+@@ -20,15 +20,18 @@ KEY_RE = re.compile(
+ 
+ def parse_args() -> argparse.Namespace:
+     parser = argparse.ArgumentParser(description=__doc__)
++    root = Path(__file__).resolve().parents[1]
+     parser.add_argument(
+         "--answers",
+         type=Path,
+-        default=Path(__file__).resolve().parents[1] / "Year" / "Answer",
++        default=root / "paper" / "ans",
++        help="Marking-scheme PDF folder (default: paper/ans)",
+     )
+     parser.add_argument(
+         "--output",
+         type=Path,
+-        default=Path(__file__).resolve().parents[1] / "processed" / "MC" / "answer_keys.json",
++        default=root / "classified" / "mc" / "answer_keys.json",
++        help="Output JSON (default: classified/mc/answer_keys.json)",
+     )
+     return parser.parse_args()
+ 
+diff --git a/scripts/quality_audit.py b/scripts/quality_audit.py
+new file mode 100644
+index 0000000..712e194
+--- /dev/null
++++ b/scripts/quality_audit.py
+@@ -0,0 +1,461 @@
++#!/usr/bin/env python3
++"""Audit crop + classification quality for the paper2db pipeline.
++
++Failure definitions (count toward the captain's <=5% manual-tuning budget):
++  missing_crop       - classification row points at a missing question PNG
++  missing_classified - no copy under classified/{mc,lq}/.../<year>_qN.png
++  uncertain          - MC Uncertain=yes (needs human skim)
++  tiny_crop          - crop width/height below usable threshold
++  few_year_crops     - year folder has far fewer crops than a full paper
++  override_tuned     - scripts/overrides_YYYY.json entry (human anchor tuning)
++
++Not counted as failures (documented separately):
++  missing_answer_png - LQ answer crop absent (often no ans PDF for that year)
++  very_tall_lq       - LQ crops intentionally include answer lines (multi-page)
++
++Exit code 0 always when writing a report; use --strict to exit 1 if the
++manual-tuning rate exceeds --max-rate (default 0.05).
++"""
++from __future__ import annotations
++
++import argparse
++import csv
++import json
++import statistics
++import sys
++from collections import Counter, defaultdict
++from pathlib import Path
++
++from PIL import Image
++
++ROOT = Path(__file__).resolve().parents[1]
++MC_CSV = ROOT / "classified" / "mc" / "classification.csv"
++LQ_CSV = ROOT / "classified" / "lq" / "classification.csv"
++OUT_JSON = ROOT / "classified" / "quality_audit.json"
++
++BOOK_ORDER = {
++    "Heat and Gases": 1,
++    "Force and Motion": 2,
++    "Wave Motion": 3,
++    "Ray Optics": 3,
++    "Electricity and Magnetism": 4,
++    "Radioactivity and Nuclear Energy": 5,
++}
++
++
++def load_csv(path: Path) -> list[dict[str, str]]:
++    if not path.is_file():
++        return []
++    return list(csv.DictReader(path.open(encoding="utf-8")))
++
++
++def mc_years() -> list[str]:
++    years: list[str] = []
++    for directory in sorted((ROOT / "output").iterdir()):
++        if not directory.is_dir():
++            continue
++        name = directory.name
++        if name in {"lq"} or name.endswith("-intermediate"):
++            continue
++        if (directory / "q1.png").is_file():
++            years.append(name)
++    return years
++
++
++def audit_mc_crops() -> dict:
++    failures: list[dict] = []
++    warnings: list[dict] = []
++    heights: list[int] = []
++    crop_count = 0
++    for year in mc_years():
++        pngs = sorted(
++            (ROOT / "output" / year).glob("q*.png"),
++            key=lambda path: int(path.stem[1:]),
++        )
++        if len(pngs) < 30:
++            failures.append({"kind": "few_year_crops", "year": year, "n": len(pngs)})
++        for png in pngs:
++            with Image.open(png) as image:
++                width, height = image.size
++            heights.append(height)
++            crop_count += 1
++            if height < 60 or width < 200:
++                failures.append(
++                    {
++                        "kind": "tiny_crop",
++                        "year": year,
++                        "q": png.stem,
++                        "w": width,
++                        "h": height,
++                    }
++                )
++            elif height > 2200:
++                warnings.append(
++                    {
++                        "kind": "very_tall_mc",
++                        "year": year,
++                        "q": png.stem,
++                        "h": height,
++                    }
++                )
++    return {
++        "crop_count": crop_count,
++        "years": len(mc_years()),
++        "failures": failures,
++        "warnings": warnings,
++        "height_median": statistics.median(heights) if heights else None,
++        "height_max": max(heights) if heights else None,
++        "missing_combined_pdf": [
++            year
++            for year in mc_years()
++            if not (ROOT / "output" / year / "combined.pdf").is_file()
++        ],
++    }
++
++
++def audit_lq_crops() -> dict:
++    failures: list[dict] = []
++    warnings: list[dict] = []
++    heights: list[int] = []
++    crop_count = 0
++    years = []
++    for year_dir in sorted((ROOT / "output" / "lq").iterdir()):
++        if not year_dir.is_dir():
++            continue
++        years.append(year_dir.name)
++        pngs = sorted(
++            year_dir.glob("q*.png"),
++            key=lambda path: int(path.stem[1:]),
++        )
++        if len(pngs) < 8:
++            failures.append(
++                {"kind": "few_year_crops", "year": year_dir.name, "n": len(pngs)}
++            )
++        for png in pngs:
++            with Image.open(png) as image:
++                width, height = image.size
++            heights.append(height)
++            crop_count += 1
++            if height < 80 or width < 200:
++                failures.append(
++                    {
++                        "kind": "tiny_crop",
++                        "year": year_dir.name,
++                        "q": png.stem,
++                        "w": width,
++                        "h": height,
++                    }
++                )
++            elif height > 5000:
++                warnings.append(
++                    {
++                        "kind": "very_tall_lq",
++                        "year": year_dir.name,
++                        "q": png.stem,
++                        "h": height,
++                        "note": "often multi-page with answer lines; not a failure",
++                    }
++                )
++    return {
++        "crop_count": crop_count,
++        "years": len(years),
++        "failures": failures,
++        "warnings": warnings,
++        "height_median": statistics.median(heights) if heights else None,
++        "height_max": max(heights) if heights else None,
++        "missing_questions_pdf": [
++            year
++            for year in years
++            if not (ROOT / "output" / "lq" / year / "questions.pdf").is_file()
++        ],
++    }
++
++
++def audit_mc_classification(rows: list[dict[str, str]]) -> dict:
++    uncertain = [
++        {"year": row["Year"], "q": row["Question"], "section": row["PrimaryName"]}
++        for row in rows
++        if row.get("Uncertain", "").lower() in {"yes", "true", "1"}
++    ]
++    missing_crop = []
++    for row in rows:
++        png = ROOT / row["PNG"] if row.get("PNG") else None
++        if png is None or not png.is_file():
++            missing_crop.append(
++                {"year": row["Year"], "q": row["Question"], "png": row.get("PNG", "")}
++            )
++
++    missing_classified = []
++    for row in rows:
++        matches = list(
++            (ROOT / "classified" / "mc").rglob(f"{row['Year']}_q{row['Question']}.png")
++        )
++        if not matches:
++            missing_classified.append({"year": row["Year"], "q": row["Question"]})
++
++    by_year: dict[str, list[dict[str, str]]] = defaultdict(list)
++    for row in rows:
++        by_year[row["Year"]].append(row)
++    inversions = []
++    for year, items in sorted(by_year.items()):
++        items = sorted(items, key=lambda row: int(row["Question"]))
++        books = [row["PrimaryBook"] for row in items]
++        ranks = [BOOK_ORDER.get(book, 0) for book in books]
++        for index in range(1, len(ranks)):
++            if ranks[index] < ranks[index - 1] - 1:
++                inversions.append(
++                    {
++                        "year": year,
++                        "q_prev": items[index - 1]["Question"],
++                        "book_prev": books[index - 1],
++                        "q": items[index]["Question"],
++                        "book": books[index],
++                    }
++                )
++
++    return {
++        "row_count": len(rows),
++        "uncertain": uncertain,
++        "missing_crop": missing_crop,
++        "missing_classified": missing_classified,
++        "book_order_inversions": inversions,
++        "per_year": dict(Counter(row["Year"] for row in rows)),
++    }
++
++
++def audit_lq_classification(rows: list[dict[str, str]]) -> dict:
++    missing_crop = []
++    missing_classified = []
++    missing_answer = []
++    for row in rows:
++        png = ROOT / row["PNG"] if row.get("PNG") else None
++        if png is None or not png.is_file():
++            missing_crop.append(
++                {"year": row["Year"], "q": row["Question"], "png": row.get("PNG", "")}
++            )
++        matches = list(
++            (ROOT / "classified" / "lq").rglob(f"{row['Year']}-q{row['Question']}.png")
++        )
++        if not matches:
++            missing_classified.append({"year": row["Year"], "q": row["Question"]})
++        answer = row.get("AnswerPNG") or ""
++        answer_path = ROOT / answer if answer else None
++        if not answer or answer_path is None or not answer_path.is_file():
++            missing_answer.append(
++                {
++                    "year": row["Year"],
++                    "q": row["Question"],
++                    "answer": answer,
++                }
++            )
++    return {
++        "row_count": len(rows),
++        "missing_crop": missing_crop,
++        "missing_classified": missing_classified,
++        "missing_answer_png": missing_answer,
++        "per_year": dict(Counter(row["Year"] for row in rows)),
++    }
++
++
++def override_stats() -> dict:
++    total = 0
++    by_year: dict[str, int] = {}
++    items: list[dict] = []
++    for path in sorted((ROOT / "scripts").glob("overrides_*.json")):
++        payload = json.loads(path.read_text(encoding="utf-8"))
++        if not isinstance(payload, dict):
++            continue
++        year = path.stem.replace("overrides_", "")
++        by_year[year] = len(payload)
++        total += len(payload)
++        for question in sorted(payload, key=lambda value: int(str(value))):
++            items.append({"year": year, "q": str(question)})
++    return {"total_questions": total, "by_year": by_year, "items": items}
++
++
++def summarize(
++    mc_crops: dict,
++    lq_crops: dict,
++    mc_class: dict,
++    lq_class: dict,
++    overrides: dict,
++) -> dict:
++    mc_failure_events = (
++        list(mc_crops["failures"])
++        + [{"kind": "uncertain", **item} for item in mc_class["uncertain"]]
++        + [{"kind": "missing_crop", **item} for item in mc_class["missing_crop"]]
++        + [
++            {"kind": "missing_classified", **item}
++            for item in mc_class["missing_classified"]
++        ]
++        + [
++            {"kind": "override_tuned", "year": item["year"], "q": item["q"]}
++            for item in overrides.get("items", [])
++        ]
++    )
++    lq_failure_events = (
++        list(lq_crops["failures"])
++        + [{"kind": "missing_crop", **item} for item in lq_class["missing_crop"]]
++        + [
++            {"kind": "missing_classified", **item}
++            for item in lq_class["missing_classified"]
++        ]
++    )
++
++    mc_denom = max(mc_class["row_count"], mc_crops["crop_count"], 1)
++    lq_denom = max(lq_class["row_count"], lq_crops["crop_count"], 1)
++    mc_rate = len(mc_failure_events) / mc_denom
++    lq_rate = len(lq_failure_events) / lq_denom
++    combined_fail = len(mc_failure_events) + len(lq_failure_events)
++    combined_denom = mc_denom + lq_denom
++    combined_rate = combined_fail / combined_denom
++
++    return {
++        "failure_definitions": {
++            "counted": [
++                "missing_crop",
++                "missing_classified",
++                "uncertain",
++                "tiny_crop",
++                "few_year_crops",
++                "override_tuned",
++            ],
++            "not_counted": [
++                "missing_answer_png",
++                "very_tall_lq",
++                "book_order_inversion_warning",
++            ],
++        },
++        "mc": {
++            "questions": mc_denom,
++            "failure_count": len(mc_failure_events),
++            "manual_tuning_rate": round(mc_rate, 4),
++            "failures": mc_failure_events,
++            "book_order_inversions": mc_class["book_order_inversions"],
++        },
++        "lq": {
++            "questions": lq_denom,
++            "failure_count": len(lq_failure_events),
++            "manual_tuning_rate": round(lq_rate, 4),
++            "failures": lq_failure_events,
++            "missing_answer_png_count": len(lq_class["missing_answer_png"]),
++            "missing_answer_by_year": dict(
++                Counter(item["year"] for item in lq_class["missing_answer_png"])
++            ),
++        },
++        "combined": {
++            "questions": combined_denom,
++            "failure_count": combined_fail,
++            "manual_tuning_rate": round(combined_rate, 4),
++        },
++        "overrides_historical": {
++            "total_questions": overrides["total_questions"],
++            "by_year": overrides["by_year"],
++        },
++        "passes_5pct_bar": combined_rate <= 0.05 and mc_rate <= 0.05 and lq_rate <= 0.05,
++    }
++
++
++def build_report() -> dict:
++    mc_rows = load_csv(MC_CSV)
++    lq_rows = load_csv(LQ_CSV)
++    mc_crops = audit_mc_crops()
++    lq_crops = audit_lq_crops()
++    mc_class = audit_mc_classification(mc_rows)
++    lq_class = audit_lq_classification(lq_rows)
++    overrides = override_stats()
++    summary = summarize(mc_crops, lq_crops, mc_class, lq_class, overrides)
++    return {
++        "mc_crops": mc_crops,
++        "lq_crops": lq_crops,
++        "mc_classification": {
++            "row_count": mc_class["row_count"],
++            "uncertain_count": len(mc_class["uncertain"]),
++            "missing_crop_count": len(mc_class["missing_crop"]),
++            "missing_classified_count": len(mc_class["missing_classified"]),
++            "book_order_inversion_count": len(mc_class["book_order_inversions"]),
++            "per_year": mc_class["per_year"],
++            "uncertain": mc_class["uncertain"],
++            "missing_crop": mc_class["missing_crop"],
++            "missing_classified": mc_class["missing_classified"],
++            "book_order_inversions": mc_class["book_order_inversions"],
++        },
++        "lq_classification": {
++            "row_count": lq_class["row_count"],
++            "missing_crop_count": len(lq_class["missing_crop"]),
++            "missing_classified_count": len(lq_class["missing_classified"]),
++            "missing_answer_png_count": len(lq_class["missing_answer_png"]),
++            "per_year": lq_class["per_year"],
++            "missing_crop": lq_class["missing_crop"],
++            "missing_classified": lq_class["missing_classified"],
++            "missing_answer_png": lq_class["missing_answer_png"],
++        },
++        "summary": summary,
++    }
++
++
++def parse_args() -> argparse.Namespace:
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument(
++        "--output",
++        type=Path,
++        default=OUT_JSON,
++        help="Write JSON report here (default: classified/quality_audit.json)",
++    )
++    parser.add_argument(
++        "--max-rate",
++        type=float,
++        default=0.05,
++        help="Manual-tuning rate ceiling for --strict (default 0.05)",
++    )
++    parser.add_argument(
++        "--strict",
++        action="store_true",
++        help="Exit 1 if MC, LQ, or combined rate exceeds --max-rate",
++    )
++    return parser.parse_args()
++
++
++def main() -> None:
++    args = parse_args()
++    report = build_report()
++    args.output.parent.mkdir(parents=True, exist_ok=True)
++    args.output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
++    summary = report["summary"]
++    print(f"Wrote {args.output.relative_to(ROOT)}")
++    print(
++        f"MC  failures={summary['mc']['failure_count']}/"
++        f"{summary['mc']['questions']} "
++        f"({100 * summary['mc']['manual_tuning_rate']:.2f}%)"
++    )
++    print(
++        f"LQ  failures={summary['lq']['failure_count']}/"
++        f"{summary['lq']['questions']} "
++        f"({100 * summary['lq']['manual_tuning_rate']:.2f}%)"
++    )
++    print(
++        f"All failures={summary['combined']['failure_count']}/"
++        f"{summary['combined']['questions']} "
++        f"({100 * summary['combined']['manual_tuning_rate']:.2f}%)"
++    )
++    print(
++        f"LQ missing answer crops (not counted): "
++        f"{summary['lq']['missing_answer_png_count']}"
++    )
++    print(
++        f"Override-tuned qs (counted toward budget): "
++        f"{summary['overrides_historical']['total_questions']}"
++    )
++    print(f"Passes <=5% bar: {summary['passes_5pct_bar']}")
++    if args.strict:
++        rates = [
++            summary["mc"]["manual_tuning_rate"],
++            summary["lq"]["manual_tuning_rate"],
++            summary["combined"]["manual_tuning_rate"],
++        ]
++        if any(rate > args.max_rate for rate in rates):
++            raise SystemExit(1)
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/tests/test_pipeline.py b/tests/test_pipeline.py
+new file mode 100644
+index 0000000..22a3d76
+--- /dev/null
++++ b/tests/test_pipeline.py
+@@ -0,0 +1,175 @@
++"""Behavioral checks for the ./pipeline entry point."""
++from __future__ import annotations
++
++import importlib.machinery
++import importlib.util
++import json
++import subprocess
++import sys
++import tempfile
++import unittest
++from pathlib import Path
++from unittest import mock
++
++ROOT = Path(__file__).resolve().parents[1]
++
++
++def load_pipeline():
++    path = ROOT / "pipeline"
++    loader = importlib.machinery.SourceFileLoader("paper2db_pipeline", str(path))
++    spec = importlib.util.spec_from_loader(loader.name, loader)
++    assert spec and spec.loader
++    module = importlib.util.module_from_spec(spec)
++    spec.loader.exec_module(module)
++    return module
++
++
++class TestPipelineCli(unittest.TestCase):
++    def test_list_stages_prints_all(self) -> None:
++        result = subprocess.run(
++            [sys.executable, str(ROOT / "pipeline"), "--list-stages"],
++            cwd=ROOT,
++            check=True,
++            capture_output=True,
++            text=True,
++        )
++        lines = [line.strip() for line in result.stdout.splitlines() if line.strip()]
++        self.assertEqual(lines, list(load_pipeline().STAGES))
++        self.assertNotIn("performance", lines)
++
++    def test_unknown_only_stage_exits(self) -> None:
++        result = subprocess.run(
++            [sys.executable, str(ROOT / "pipeline"), "--only", "not-a-stage"],
++            cwd=ROOT,
++            check=False,
++            capture_output=True,
++            text=True,
++        )
++        self.assertNotEqual(result.returncode, 0)
++        self.assertIn("Unknown stage", result.stderr + result.stdout)
++
++
++class TestPipelineHelpers(unittest.TestCase):
++    @classmethod
++    def setUpClass(cls) -> None:
++        cls.pipe = load_pipeline()
++
++    def test_paper_year_label(self) -> None:
++        self.assertEqual(self.pipe.paper_year_label("2019p1a"), "2019")
++        self.assertEqual(self.pipe.paper_year_label("ppp1b"), "pp")
++        self.assertEqual(self.pipe.paper_year_label("sapp1a"), "sap")
++
++    def test_discover_mc_papers_respects_years(self) -> None:
++        papers = self.pipe.discover_mc_papers(["2025"])
++        self.assertTrue(papers)
++        self.assertEqual({label for _, label in papers}, {"2025"})
++        self.assertTrue(all(path.is_file() for path, _ in papers))
++
++    def test_select_stages_from_until(self) -> None:
++        args = mock.Mock(
++            only=None,
++            from_stage="keys",
++            until="classify-lq",
++            skip_lavish=False,
++        )
++        self.assertEqual(
++            self.pipe.select_stages(args),
++            ["keys", "classify-mc", "classify-lq"],
++        )
++
++    def test_keys_stage_uses_paper_ans_only(self) -> None:
++        pipe = self.pipe
++        with tempfile.TemporaryDirectory() as tmp:
++            tmp_path = Path(tmp)
++            legacy_dir = tmp_path / "processed" / "MC"
++            legacy_dir.mkdir(parents=True)
++            legacy = legacy_dir / "answer_keys.json"
++            legacy.write_text(
++                json.dumps({"2012": {"1": {"Correct Option": "A"}}}) + "\n",
++                encoding="utf-8",
++            )
++            (tmp_path / "paper" / "ans").mkdir(parents=True)
++            dest = tmp_path / "classified" / "mc" / "answer_keys.json"
++            calls: list[tuple[str, tuple[str, ...]]] = []
++
++            def fake_run(script_name: str, *args: str) -> None:
++                calls.append((script_name, args))
++
++            with mock.patch.object(pipe, "ROOT", tmp_path):
++                with mock.patch.object(pipe, "run_script", side_effect=fake_run):
++                    pipe.stage_keys(force=False)
++            self.assertEqual(calls[0][0], "extract_answer_keys.py")
++            self.assertIn(str(tmp_path / "paper" / "ans"), calls[0][1])
++            self.assertFalse(dest.is_file())
++
++    def test_keys_stage_fails_without_paper_ans(self) -> None:
++        pipe = self.pipe
++        with tempfile.TemporaryDirectory() as tmp:
++            tmp_path = Path(tmp)
++            with mock.patch.object(pipe, "ROOT", tmp_path):
++                with self.assertRaises(SystemExit) as raised:
++                    pipe.stage_keys(force=True)
++            self.assertIn("paper/ans", str(raised.exception))
++
++    def test_force_mc_split_fails_when_intermediates_missing(self) -> None:
++        pipe = self.pipe
++        with tempfile.TemporaryDirectory() as tmp:
++            tmp_path = Path(tmp)
++            paper = tmp_path / "paper" / "mc"
++            paper.mkdir(parents=True)
++            (paper / "2099p1a.pdf").write_bytes(b"%PDF-1.4")
++            year_dir = tmp_path / "output" / "2099"
++            year_dir.mkdir(parents=True)
++            from PIL import Image
++
++            for index in range(1, 31):
++                Image.new("RGB", (400, 120), (255, 255, 255)).save(
++                    year_dir / f"q{index}.png"
++                )
++            (year_dir / "combined.pdf").write_bytes(b"%PDF-1.4")
++            with mock.patch.object(pipe, "ROOT", tmp_path):
++                with self.assertRaises(SystemExit) as raised:
++                    pipe.stage_mc_split(["2099"], force=True)
++            self.assertIn("Run mc-anchors first", str(raised.exception))
++
++    def test_classify_lq_uses_llm_when_keyed(self) -> None:
++        pipe = self.pipe
++        calls: list[str] = []
++
++        def fake_run(script_name: str, *args: str) -> None:
++            calls.append(script_name)
++
++        with tempfile.TemporaryDirectory() as tmp:
++            tmp_path = Path(tmp)
++            with mock.patch.object(pipe, "ROOT", tmp_path):
++                with mock.patch.object(pipe, "has_llm_key", return_value=True):
++                    with mock.patch.object(pipe, "run_script", side_effect=fake_run):
++                        with mock.patch.dict("os.environ", {}, clear=False):
++                            pipe.stage_classify_lq(None, force=True)
++        self.assertEqual(calls, ["classify_lq_llm.py"])
++
++
++class TestAnswerKeyDefaults(unittest.TestCase):
++    def test_extract_answer_keys_defaults_to_paper_ans(self) -> None:
++        sys.path.insert(0, str(ROOT / "scripts"))
++        import extract_answer_keys as eak
++
++        with mock.patch.object(sys, "argv", ["extract_answer_keys.py"]):
++            args = eak.parse_args()
++        self.assertEqual(args.answers, ROOT / "paper" / "ans")
++        self.assertEqual(args.output, ROOT / "classified" / "mc" / "answer_keys.json")
++
++    def test_combine_section_pdfs_uses_classified_keys(self) -> None:
++        sys.path.insert(0, str(ROOT / "scripts"))
++        import combine_section_pdfs as csp
++
++        with mock.patch.object(sys, "argv", ["combine_section_pdfs.py"]):
++            args = csp.parse_args()
++        self.assertEqual(
++            args.keys.resolve(),
++            (ROOT / "classified" / "mc" / "answer_keys.json").resolve(),
++        )
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_quality_audit.py b/tests/test_quality_audit.py
+new file mode 100644
+index 0000000..0bc88ea
+--- /dev/null
++++ b/tests/test_quality_audit.py
+@@ -0,0 +1,201 @@
++"""Behavioral checks for quality_audit and lavish wiring."""
++from __future__ import annotations
++
++import importlib.machinery
++import importlib.util
++import json
++import subprocess
++import sys
++import tempfile
++import unittest
++from pathlib import Path
++from unittest import mock
++
++ROOT = Path(__file__).resolve().parents[1]
++
++
++def load_module(name: str, path: Path):
++    loader = importlib.machinery.SourceFileLoader(name, str(path))
++    spec = importlib.util.spec_from_loader(loader.name, loader)
++    assert spec and spec.loader
++    module = importlib.util.module_from_spec(spec)
++    spec.loader.exec_module(module)
++    return module
++
++
++class TestQualityAudit(unittest.TestCase):
++    def test_report_counts_overrides_toward_five_percent(self) -> None:
++        result = subprocess.run(
++            [
++                sys.executable,
++                str(ROOT / "scripts" / "quality_audit.py"),
++                "--output",
++                str(ROOT / "classified" / "quality_audit.json"),
++            ],
++            cwd=ROOT,
++            check=False,
++            capture_output=True,
++            text=True,
++        )
++        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
++        report = json.loads(
++            (ROOT / "classified" / "quality_audit.json").read_text(encoding="utf-8")
++        )
++        summary = report["summary"]
++        overrides = summary["overrides_historical"]["total_questions"]
++        self.assertGreaterEqual(overrides, 1)
++        override_failures = [
++            item
++            for item in summary["mc"]["failures"]
++            if item.get("kind") == "override_tuned"
++        ]
++        self.assertEqual(len(override_failures), overrides)
++        self.assertGreaterEqual(summary["mc"]["failure_count"], overrides)
++        expected_mc_rate = summary["mc"]["failure_count"] / summary["mc"]["questions"]
++        self.assertAlmostEqual(
++            summary["mc"]["manual_tuning_rate"], round(expected_mc_rate, 4)
++        )
++        self.assertIn("override_tuned", summary["failure_definitions"]["counted"])
++        self.assertNotIn(
++            "override_baked_in", summary["failure_definitions"]["not_counted"]
++        )
++        self.assertNotIn(
++            "override_tuned", summary["failure_definitions"]["not_counted"]
++        )
++        override_rate = overrides / summary["mc"]["questions"]
++        if override_rate > 0.05:
++            self.assertFalse(summary["passes_5pct_bar"])
++        self.assertGreater(summary["mc"]["questions"], 100)
++        self.assertGreater(summary["lq"]["questions"], 50)
++
++    def test_summarize_counts_override_items(self) -> None:
++        audit = load_module("quality_audit", ROOT / "scripts" / "quality_audit.py")
++        summary = audit.summarize(
++            {
++                "failures": [],
++                "crop_count": 100,
++            },
++            {
++                "failures": [],
++                "crop_count": 50,
++            },
++            {
++                "uncertain": [],
++                "missing_crop": [],
++                "missing_classified": [],
++                "book_order_inversions": [],
++                "row_count": 100,
++            },
++            {
++                "missing_crop": [],
++                "missing_classified": [],
++                "missing_answer_png": [],
++                "row_count": 50,
++            },
++            {
++                "total_questions": 10,
++                "by_year": {"2099": 10},
++                "items": [{"year": "2099", "q": str(i)} for i in range(1, 11)],
++            },
++        )
++        self.assertEqual(summary["mc"]["failure_count"], 10)
++        self.assertEqual(summary["mc"]["manual_tuning_rate"], 0.1)
++        self.assertFalse(summary["passes_5pct_bar"])
++        self.assertTrue(
++            all(item["kind"] == "override_tuned" for item in summary["mc"]["failures"])
++        )
++
++    def test_tiny_crop_is_counted_as_failure(self) -> None:
++        audit = load_module("quality_audit", ROOT / "scripts" / "quality_audit.py")
++        with tempfile.TemporaryDirectory() as tmp:
++            tmp_path = Path(tmp)
++            year_dir = tmp_path / "output" / "2099"
++            year_dir.mkdir(parents=True)
++            from PIL import Image
++
++            Image.new("RGB", (40, 40), (255, 255, 255)).save(year_dir / "q1.png")
++            # Pad to look like a year folder with q1 only - few_year_crops also fires.
++            with mock.patch.object(audit, "ROOT", tmp_path):
++                crops = audit.audit_mc_crops()
++            kinds = {item["kind"] for item in crops["failures"]}
++            self.assertIn("tiny_crop", kinds)
++            self.assertIn("few_year_crops", kinds)
++
++
++class TestPipelineLavishWiring(unittest.TestCase):
++    def test_stage_lavish_runs_quality_and_three_builders(self) -> None:
++        pipe = load_module("paper2db_pipeline", ROOT / "pipeline")
++        calls: list[str] = []
++
++        def fake_run(script_name: str, *args: str) -> None:
++            calls.append(script_name)
++
++        with mock.patch.object(pipe, "run_script", side_effect=fake_run):
++            pipe.stage_lavish()
++        self.assertEqual(
++            calls,
++            [
++                "quality_audit.py",
++                "build_mc_lavish_review.py",
++                "build_lq_lavish_review.py",
++                "build_pipeline_lavish_review.py",
++            ],
++        )
++
++    def test_pipeline_review_preserves_img_when_sources_missing(self) -> None:
++        lavish = load_module(
++            "build_pipeline_lavish_review",
++            ROOT / "scripts" / "build_pipeline_lavish_review.py",
++        )
++        with tempfile.TemporaryDirectory() as tmp:
++            tmp_path = Path(tmp)
++            out = tmp_path / ".lavish" / "pipeline-review"
++            img = out / "img"
++            img.mkdir(parents=True)
++            marker = img / "anchor-2024-page01.png"
++            marker.write_bytes(b"kept-anchor")
++            audit = {
++                "summary": {
++                    "mc": {
++                        "manual_tuning_rate": 0.1,
++                        "failure_count": 10,
++                        "questions": 100,
++                    },
++                    "lq": {
++                        "manual_tuning_rate": 0.0,
++                        "failure_count": 0,
++                        "questions": 50,
++                        "missing_answer_png_count": 0,
++                    },
++                    "combined": {
++                        "manual_tuning_rate": 0.0667,
++                        "failure_count": 10,
++                        "questions": 150,
++                    },
++                    "overrides_historical": {"total_questions": 10, "by_year": {"2099": 10}},
++                    "passes_5pct_bar": False,
++                    "failure_definitions": {
++                        "counted": ["override_tuned"],
++                        "not_counted": ["missing_answer_png"],
++                    },
++                }
++            }
++            with mock.patch.object(lavish, "ROOT", tmp_path):
++                with mock.patch.object(lavish, "OUT", out):
++                    with mock.patch.object(lavish, "IMG", img):
++                        with mock.patch.object(
++                            lavish, "AUDIT_JSON", tmp_path / "classified" / "quality_audit.json"
++                        ):
++                            with mock.patch.object(
++                                lavish, "ensure_audit", return_value=audit
++                            ):
++                                lavish.main()
++            self.assertTrue(marker.is_file())
++            self.assertEqual(marker.read_bytes(), b"kept-anchor")
++            html = (out / "index.html").read_text(encoding="utf-8")
++            self.assertIn("FAIL (above 5%)", html)
++            self.assertIn("img/anchor-2024-page01.png", html)
++
++
++if __name__ == "__main__":
++    unittest.main()

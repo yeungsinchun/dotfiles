@@ -1,0 +1,15 @@
+---
+pid: 79150
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python scripts/preprocess_mc.py paper/mc/2020p1a.pdf segment/2020/anchor.pdf --questions 33 2>&1"
+title: "Preprocess 2020 MC with anchors"
+status: failed   
+started_at: 2026-09-04T08:15:37.542Z
+running_for_ms: 47865    
+---
+
+---
+exit_code: unknown
+elapsed_ms: 47861
+ended_at: 2026-09-04T08:16:25.403Z
+---

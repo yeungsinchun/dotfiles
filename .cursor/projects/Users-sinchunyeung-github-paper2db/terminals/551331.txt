@@ -1,0 +1,33 @@
+---
+pid: 98285
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && git branch -m init main && git push -u origin main && gh repo edit yeungsinchun/paper2db --default-branch main && git push origin --delete init && git status && git branch -vv && gh repo view --json defaultBranchRef,url"
+title: "Rename init to main, push, set default, delete init"
+status: succeeded
+started_at: 2026-09-03T06:20:24.712Z
+running_for_ms: 57255    
+---
+remote: 
+remote: Create a pull request for 'main' on GitHub by visiting:        
+remote:      https://github.com/yeungsinchun/paper2db/pull/new/main        
+remote: 
+To https://github.com/yeungsinchun/paper2db.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+To https://github.com/yeungsinchun/paper2db.git
+ - [deleted]         init
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
++ db                      50d6aa2 (/Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db) fix(scripts): trim end-of-section lines from MC crops
+  fix/trim-end-of-section 50d6aa2 fix(scripts): trim end-of-section lines from MC crops
+* main                    437e109 [origin/main] Add MC segmentation pipeline and per-year question crops.
++ radiation               437e109 (/Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db) Add MC segmentation pipeline and per-year question crops.
+{"defaultBranchRef":{"name":"main"},"url":"https://github.com/yeungsinchun/paper2db"}
+
+---
+exit_code: 0
+elapsed_ms: 57252
+ended_at: 2026-09-03T06:21:21.964Z
+---

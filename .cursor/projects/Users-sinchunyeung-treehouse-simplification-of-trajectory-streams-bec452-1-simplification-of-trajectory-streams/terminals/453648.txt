@@ -1,0 +1,315 @@
+---
+pid: 76776
+cwd: "/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams"
+command: "python3 scripts/profile_hotspots.py --a 1 --b 10 --repeats 3 --timeout 180 2>&1 | tee results/profile_run.log"
+title: "Run full epsilon/delta hotspot profile sweep"
+status: succeeded
+started_at: 2026-09-04T13:38:10.624Z
+running_for_ms: 36368    
+---
+Profiling 10 IDs x 6 eps x 4 deltas x 3 repeats
+[id= 1 n=  588] e= 0.25 d=  50.0  core=   54.42 ms  intersect= 58.4%  find_F= 21.3%  simp= 116  [ok]
+[id= 1 n=  588] e= 0.25 d= 100.0  core=   62.59 ms  intersect= 59.7%  find_F= 21.9%  simp= 106  [ok]
+[id= 1 n=  588] e= 0.25 d= 200.0  core=   53.97 ms  intersect= 60.5%  find_F= 21.8%  simp=  92  [ok]
+[id= 1 n=  588] e= 0.25 d= 400.0  core=   58.54 ms  intersect= 60.7%  find_F= 22.1%  simp=  70  [ok]
+[id= 1 n=  588] e= 0.50 d=  50.0  core=   33.89 ms  intersect= 58.7%  find_F= 21.7%  simp= 112  [ok]
+[id= 1 n=  588] e= 0.50 d= 100.0  core=   33.35 ms  intersect= 59.6%  find_F= 21.7%  simp= 102  [ok]
+[id= 1 n=  588] e= 0.50 d= 200.0  core=   31.58 ms  intersect= 59.0%  find_F= 22.9%  simp=  86  [ok]
+[id= 1 n=  588] e= 0.50 d= 400.0  core=   33.03 ms  intersect= 60.7%  find_F= 21.2%  simp=  64  [ok]
+[id= 1 n=  588] e= 1.00 d=  50.0  core=   19.02 ms  intersect= 45.8%  find_F= 27.7%  simp= 110  [ok]
+[id= 1 n=  588] e= 1.00 d= 100.0  core=   19.52 ms  intersect= 47.1%  find_F= 28.2%  simp=  94  [ok]
+[id= 1 n=  588] e= 1.00 d= 200.0  core=   14.51 ms  intersect= 45.7%  find_F= 28.8%  simp=  76  [ok]
+[id= 1 n=  588] e= 1.00 d= 400.0  core=   18.94 ms  intersect= 47.4%  find_F= 27.7%  simp=  54  [ok]
+[id= 1 n=  588] e= 2.00 d=  50.0  core=   12.55 ms  intersect= 29.3%  find_F= 30.7%  simp= 106  [ok]
+[id= 1 n=  588] e= 2.00 d= 100.0  core=   11.23 ms  intersect= 29.9%  find_F= 29.9%  simp=  90  [ok]
+[id= 1 n=  588] e= 2.00 d= 200.0  core=   11.20 ms  intersect= 30.1%  find_F= 31.7%  simp=  70  [ok]
+[id= 1 n=  588] e= 2.00 d= 400.0  core=    8.25 ms  intersect= 28.7%  find_F= 31.2%  simp=  42  [ok]
+[id= 1 n=  588] e= 5.00 d=  50.0  core=    8.62 ms  intersect= 29.3%  find_F= 30.3%  simp=  96  [ok]
+[id= 1 n=  588] e= 5.00 d= 100.0  core=    7.53 ms  intersect= 29.2%  find_F= 31.4%  simp=  76  [ok]
+[id= 1 n=  588] e= 5.00 d= 200.0  core=    6.45 ms  intersect= 28.6%  find_F= 32.2%  simp=  48  [ok]
+[id= 1 n=  588] e= 5.00 d= 400.0  core=    7.03 ms  intersect= 30.3%  find_F= 31.9%  simp=  34  [ok]
+[id= 1 n=  588] e=10.00 d=  50.0  core=    7.50 ms  intersect= 29.1%  find_F= 31.8%  simp=  76  [ok]
+[id= 1 n=  588] e=10.00 d= 100.0  core=    6.47 ms  intersect= 28.3%  find_F= 32.3%  simp=  48  [ok]
+[id= 1 n=  588] e=10.00 d= 200.0  core=    7.09 ms  intersect= 29.8%  find_F= 31.6%  simp=  34  [ok]
+[id= 1 n=  588] e=10.00 d= 400.0  core=    6.74 ms  intersect= 29.5%  find_F= 31.6%  simp=  22  [ok]
+[id= 2 n= 1674] e= 0.25 d=  50.0  core=  121.74 ms  intersect= 52.1%  find_F= 21.6%  simp= 994  [ok]
+[id= 2 n= 1674] e= 0.25 d= 100.0  core=  116.51 ms  intersect= 53.9%  find_F= 20.6%  simp= 784  [ok]
+[id= 2 n= 1674] e= 0.25 d= 200.0  core=  117.36 ms  intersect= 54.8%  find_F= 21.6%  simp= 536  [ok]
+[id= 2 n= 1674] e= 0.25 d= 400.0  core=  123.97 ms  intersect= 55.3%  find_F= 22.6%  simp= 338  [ok]
+[id= 2 n= 1674] e= 0.50 d=  50.0  core=   70.33 ms  intersect= 53.8%  find_F= 20.4%  simp= 936  [ok]
+[id= 2 n= 1674] e= 0.50 d= 100.0  core=   69.21 ms  intersect= 55.5%  find_F= 20.4%  simp= 722  [ok]
+[id= 2 n= 1674] e= 0.50 d= 200.0  core=   71.70 ms  intersect= 56.7%  find_F= 21.5%  simp= 482  [ok]
+[id= 2 n= 1674] e= 0.50 d= 400.0  core=   74.74 ms  intersect= 56.3%  find_F= 23.5%  simp= 290  [ok]
+[id= 2 n= 1674] e= 1.00 d=  50.0  core=   38.61 ms  intersect= 41.1%  find_F= 23.5%  simp= 850  [ok]
+[id= 2 n= 1674] e= 1.00 d= 100.0  core=   38.85 ms  intersect= 42.1%  find_F= 25.0%  simp= 632  [ok]
+[id= 2 n= 1674] e= 1.00 d= 200.0  core=   38.99 ms  intersect= 43.1%  find_F= 26.5%  simp= 404  [ok]
+[id= 2 n= 1674] e= 1.00 d= 400.0  core=   42.20 ms  intersect= 43.1%  find_F= 28.0%  simp= 248  [ok]
+[id= 2 n= 1674] e= 2.00 d=  50.0  core=   27.43 ms  intersect= 27.5%  find_F= 25.2%  simp= 766  [ok]
+[id= 2 n= 1674] e= 2.00 d= 100.0  core=   27.77 ms  intersect= 28.1%  find_F= 28.3%  simp= 516  [ok]
+[id= 2 n= 1674] e= 2.00 d= 200.0  core=   28.76 ms  intersect= 28.0%  find_F= 30.1%  simp= 324  [ok]
+[id= 2 n= 1674] e= 2.00 d= 400.0  core=   27.31 ms  intersect= 28.3%  find_F= 32.4%  simp= 190  [ok]
+[id= 2 n= 1674] e= 5.00 d=  50.0  core=   18.81 ms  intersect= 27.8%  find_F= 27.8%  simp= 562  [ok]
+[id= 2 n= 1674] e= 5.00 d= 100.0  core=   19.53 ms  intersect= 27.9%  find_F= 30.2%  simp= 368  [ok]
+[id= 2 n= 1674] e= 5.00 d= 200.0  core=   20.15 ms  intersect= 28.1%  find_F= 32.4%  simp= 224  [ok]
+[id= 2 n= 1674] e= 5.00 d= 400.0  core=   20.91 ms  intersect= 27.5%  find_F= 35.7%  simp= 122  [ok]
+[id= 2 n= 1674] e=10.00 d=  50.0  core=   19.34 ms  intersect= 27.9%  find_F= 30.1%  simp= 368  [ok]
+[id= 2 n= 1674] e=10.00 d= 100.0  core=   20.04 ms  intersect= 28.2%  find_F= 32.5%  simp= 224  [ok]
+[id= 2 n= 1674] e=10.00 d= 200.0  core=   20.71 ms  intersect= 27.5%  find_F= 35.6%  simp= 122  [ok]
+[id= 2 n= 1674] e=10.00 d= 400.0  core=   19.54 ms  intersect= 27.2%  find_F= 37.5%  simp=  50  [ok]
+[id= 3 n= 1371] e= 0.25 d=  50.0  core=  135.35 ms  intersect= 60.0%  find_F= 20.9%  simp= 322  [ok]
+[id= 3 n= 1371] e= 0.25 d= 100.0  core=   97.54 ms  intersect= 57.0%  find_F= 21.1%  simp= 206  [ok]
+[id= 3 n= 1371] e= 0.25 d= 200.0  core=  100.63 ms  intersect= 59.0%  find_F= 22.0%  simp= 122  [ok]
+[id= 3 n= 1371] e= 0.25 d= 400.0  core=   90.80 ms  intersect= 58.0%  find_F= 22.8%  simp=  58  [ok]
+[id= 3 n= 1371] e= 0.50 d=  50.0  core=   86.85 ms  intersect= 60.4%  find_F= 22.4%  simp= 292  [ok]
+[id= 3 n= 1371] e= 0.50 d= 100.0  core=   58.81 ms  intersect= 58.8%  find_F= 21.2%  simp= 176  [ok]
+[id= 3 n= 1371] e= 0.50 d= 200.0  core=   66.82 ms  intersect= 60.4%  find_F= 21.4%  simp= 112  [ok]
+[id= 3 n= 1371] e= 0.50 d= 400.0  core=   46.52 ms  intersect= 57.9%  find_F= 22.9%  simp=  52  [ok]
+[id= 3 n= 1371] e= 1.00 d=  50.0  core=   35.10 ms  intersect= 45.6%  find_F= 25.1%  simp= 246  [ok]
+[id= 3 n= 1371] e= 1.00 d= 100.0  core=   31.72 ms  intersect= 46.0%  find_F= 26.6%  simp= 152  [ok]
+[id= 3 n= 1371] e= 1.00 d= 200.0  core=   37.35 ms  intersect= 46.3%  find_F= 28.4%  simp=  84  [ok]
+[id= 3 n= 1371] e= 1.00 d= 400.0  core=   28.50 ms  intersect= 44.6%  find_F= 29.4%  simp=  42  [ok]
+[id= 3 n= 1371] e= 2.00 d=  50.0  core=   24.25 ms  intersect= 28.9%  find_F= 29.5%  simp= 198  [ok]
+[id= 3 n= 1371] e= 2.00 d= 100.0  core=   22.30 ms  intersect= 28.4%  find_F= 32.0%  simp= 120  [ok]
+[id= 3 n= 1371] e= 2.00 d= 200.0  core=   19.51 ms  intersect= 28.8%  find_F= 31.9%  simp=  58  [ok]
+[id= 3 n= 1371] e= 2.00 d= 400.0  core=   24.28 ms  intersect= 28.9%  find_F= 34.9%  simp=  32  [ok]
+[id= 3 n= 1371] e= 5.00 d=  50.0  core=   14.09 ms  intersect= 28.1%  find_F= 30.9%  simp= 136  [ok]
+[id= 3 n= 1371] e= 5.00 d= 100.0  core=   14.07 ms  intersect= 28.9%  find_F= 30.5%  simp=  72  [ok]
+[id= 3 n= 1371] e= 5.00 d= 200.0  core=   15.85 ms  intersect= 28.0%  find_F= 34.7%  simp=  42  [ok]
+[id= 3 n= 1371] e= 5.00 d= 400.0  core=   16.80 ms  intersect= 28.4%  find_F= 34.5%  simp=  20  [ok]
+[id= 3 n= 1371] e=10.00 d=  50.0  core=   14.38 ms  intersect= 28.3%  find_F= 30.6%  simp=  72  [ok]
+[id= 3 n= 1371] e=10.00 d= 100.0  core=   15.96 ms  intersect= 28.2%  find_F= 34.6%  simp=  42  [ok]
+[id= 3 n= 1371] e=10.00 d= 200.0  core=   17.07 ms  intersect= 28.6%  find_F= 34.8%  simp=  20  [ok]
+[id= 3 n= 1371] e=10.00 d= 400.0  core=   17.82 ms  intersect= 28.1%  find_F= 38.3%  simp=  10  [ok]
+[id= 4 n=  672] e= 0.25 d=  50.0  core=   69.18 ms  intersect= 62.4%  find_F= 20.7%  simp=  96  [ok]
+[id= 4 n=  672] e= 0.25 d= 100.0  core=   74.42 ms  intersect= 61.7%  find_F= 21.3%  simp=  86  [ok]
+[id= 4 n=  672] e= 0.25 d= 200.0  core=   73.02 ms  intersect= 62.1%  find_F= 21.6%  simp=  68  [ok]
+[id= 4 n=  672] e= 0.25 d= 400.0  core=   77.21 ms  intersect= 62.2%  find_F= 21.7%  simp=  52  [ok]
+[id= 4 n=  672] e= 0.50 d=  50.0  core=   40.88 ms  intersect= 62.9%  find_F= 20.9%  simp=  94  [ok]
+[id= 4 n=  672] e= 0.50 d= 100.0  core=   43.09 ms  intersect= 62.2%  find_F= 21.3%  simp=  80  [ok]
+[id= 4 n=  672] e= 0.50 d= 200.0  core=   35.87 ms  intersect= 60.5%  find_F= 22.5%  simp=  60  [ok]
+[id= 4 n=  672] e= 0.50 d= 400.0  core=   38.72 ms  intersect= 62.2%  find_F= 21.4%  simp=  42  [ok]
+[id= 4 n=  672] e= 1.00 d=  50.0  core=   20.47 ms  intersect= 48.3%  find_F= 25.5%  simp=  94  [ok]
+[id= 4 n=  672] e= 1.00 d= 100.0  core=   21.77 ms  intersect= 49.0%  find_F= 26.2%  simp=  70  [ok]
+[id= 4 n=  672] e= 1.00 d= 200.0  core=   21.05 ms  intersect= 49.1%  find_F= 26.4%  simp=  56  [ok]
+[id= 4 n=  672] e= 1.00 d= 400.0  core=   14.46 ms  intersect= 46.8%  find_F= 27.2%  simp=  40  [ok]
+[id= 4 n=  672] e= 2.00 d=  50.0  core=   13.86 ms  intersect= 30.7%  find_F= 29.9%  simp=  86  [ok]
+[id= 4 n=  672] e= 2.00 d= 100.0  core=   13.50 ms  intersect= 30.1%  find_F= 31.1%  simp=  66  [ok]
+[id= 4 n=  672] e= 2.00 d= 200.0  core=   13.40 ms  intersect= 29.1%  find_F= 33.3%  simp=  50  [ok]
+[id= 4 n=  672] e= 2.00 d= 400.0  core=   10.04 ms  intersect= 29.0%  find_F= 32.3%  simp=  34  [ok]
+[id= 4 n=  672] e= 5.00 d=  50.0  core=    8.99 ms  intersect= 30.6%  find_F= 31.2%  simp=  68  [ok]
+[id= 4 n=  672] e= 5.00 d= 100.0  core=    8.28 ms  intersect= 29.6%  find_F= 31.7%  simp=  56  [ok]
+[id= 4 n=  672] e= 5.00 d= 200.0  core=    6.29 ms  intersect= 28.8%  find_F= 31.9%  simp=  38  [ok]
+[id= 4 n=  672] e= 5.00 d= 400.0  core=    8.54 ms  intersect= 29.7%  find_F= 33.8%  simp=  24  [ok]
+[id= 4 n=  672] e=10.00 d=  50.0  core=    8.80 ms  intersect= 29.1%  find_F= 32.0%  simp=  56  [ok]
+[id= 4 n=  672] e=10.00 d= 100.0  core=    6.37 ms  intersect= 28.6%  find_F= 31.3%  simp=  38  [ok]
+[id= 4 n=  672] e=10.00 d= 200.0  core=    8.42 ms  intersect= 29.5%  find_F= 33.9%  simp=  24  [ok]
+[id= 4 n=  672] e=10.00 d= 400.0  core=    5.22 ms  intersect= 28.2%  find_F= 32.4%  simp=  18  [ok]
+[id= 5 n=  798] e= 0.25 d=  50.0  core=   77.05 ms  intersect= 59.4%  find_F= 20.9%  simp= 254  [ok]
+[id= 5 n=  798] e= 0.25 d= 100.0  core=   68.95 ms  intersect= 58.5%  find_F= 20.8%  simp= 222  [ok]
+[id= 5 n=  798] e= 0.25 d= 200.0  core=   70.43 ms  intersect= 58.5%  find_F= 21.2%  simp= 178  [ok]
+[id= 5 n=  798] e= 0.25 d= 400.0  core=   70.75 ms  intersect= 59.1%  find_F= 22.1%  simp= 116  [ok]
+[id= 5 n=  798] e= 0.50 d=  50.0  core=   44.58 ms  intersect= 59.7%  find_F= 20.8%  simp= 250  [ok]
+[id= 5 n=  798] e= 0.50 d= 100.0  core=   45.60 ms  intersect= 59.6%  find_F= 20.1%  simp= 214  [ok]
+[id= 5 n=  798] e= 0.50 d= 200.0  core=   39.82 ms  intersect= 58.5%  find_F= 22.8%  simp= 162  [ok]
+[id= 5 n=  798] e= 0.50 d= 400.0  core=   41.11 ms  intersect= 60.2%  find_F= 21.7%  simp= 102  [ok]
+[id= 5 n=  798] e= 1.00 d=  50.0  core=   22.81 ms  intersect= 45.8%  find_F= 24.8%  simp= 234  [ok]
+[id= 5 n=  798] e= 1.00 d= 100.0  core=   21.66 ms  intersect= 44.5%  find_F= 26.6%  simp= 192  [ok]
+[id= 5 n=  798] e= 1.00 d= 200.0  core=   22.69 ms  intersect= 46.2%  find_F= 26.2%  simp= 142  [ok]
+[id= 5 n=  798] e= 1.00 d= 400.0  core=   21.90 ms  intersect= 46.6%  find_F= 26.9%  simp=  90  [ok]
+[id= 5 n=  798] e= 2.00 d=  50.0  core=   13.97 ms  intersect= 29.2%  find_F= 27.8%  simp= 216  [ok]
+[id= 5 n=  798] e= 2.00 d= 100.0  core=   13.59 ms  intersect= 28.7%  find_F= 28.0%  simp= 176  [ok]
+[id= 5 n=  798] e= 2.00 d= 200.0  core=   14.15 ms  intersect= 29.1%  find_F= 30.3%  simp= 120  [ok]
+[id= 5 n=  798] e= 2.00 d= 400.0  core=   14.62 ms  intersect= 29.8%  find_F= 31.3%  simp=  74  [ok]
+[id= 5 n=  798] e= 5.00 d=  50.0  core=   12.55 ms  intersect= 26.5%  find_F= 25.8%  simp= 192  [ok]
+[id= 5 n=  798] e= 5.00 d= 100.0  core=   12.38 ms  intersect= 29.4%  find_F= 30.3%  simp= 132  [ok]
+[id= 5 n=  798] e= 5.00 d= 200.0  core=   10.32 ms  intersect= 30.5%  find_F= 30.4%  simp=  84  [ok]
+[id= 5 n=  798] e= 5.00 d= 400.0  core=   11.07 ms  intersect= 29.6%  find_F= 33.0%  simp=  48  [ok]
+[id= 5 n=  798] e=10.00 d=  50.0  core=   10.18 ms  intersect= 29.0%  find_F= 29.7%  simp= 132  [ok]
+[id= 5 n=  798] e=10.00 d= 100.0  core=   10.31 ms  intersect= 30.4%  find_F= 29.3%  simp=  84  [ok]
+[id= 5 n=  798] e=10.00 d= 200.0  core=   10.67 ms  intersect= 29.8%  find_F= 33.3%  simp=  48  [ok]
+[id= 5 n=  798] e=10.00 d= 400.0  core=   10.16 ms  intersect= 29.8%  find_F= 32.8%  simp=  24  [ok]
+[id= 6 n=  792] e= 0.25 d=  50.0  core=   60.77 ms  intersect= 57.7%  find_F= 21.1%  simp= 154  [ok]
+[id= 6 n=  792] e= 0.25 d= 100.0  core=   66.58 ms  intersect= 58.3%  find_F= 21.3%  simp= 108  [ok]
+[id= 6 n=  792] e= 0.25 d= 200.0  core=   62.05 ms  intersect= 58.5%  find_F= 22.0%  simp=  56  [ok]
+[id= 6 n=  792] e= 0.25 d= 400.0  core=   61.37 ms  intersect= 58.5%  find_F= 22.7%  simp=  38  [ok]
+[id= 6 n=  792] e= 0.50 d=  50.0  core=   37.27 ms  intersect= 58.1%  find_F= 21.6%  simp= 148  [ok]
+[id= 6 n=  792] e= 0.50 d= 100.0  core=   35.70 ms  intersect= 59.1%  find_F= 21.1%  simp=  88  [ok]
+[id= 6 n=  792] e= 0.50 d= 200.0  core=   29.03 ms  intersect= 59.2%  find_F= 21.4%  simp=  48  [ok]
+[id= 6 n=  792] e= 0.50 d= 400.0  core=   38.00 ms  intersect= 59.1%  find_F= 23.5%  simp=  32  [ok]
+[id= 6 n=  792] e= 1.00 d=  50.0  core=   19.89 ms  intersect= 44.9%  find_F= 26.6%  simp= 124  [ok]
+[id= 6 n=  792] e= 1.00 d= 100.0  core=   17.94 ms  intersect= 46.2%  find_F= 26.1%  simp=  68  [ok]
+[id= 6 n=  792] e= 1.00 d= 200.0  core=   17.66 ms  intersect= 45.4%  find_F= 28.7%  simp=  42  [ok]
+[id= 6 n=  792] e= 1.00 d= 400.0  core=   21.70 ms  intersect= 47.1%  find_F= 28.1%  simp=  28  [ok]
+[id= 6 n=  792] e= 2.00 d=  50.0  core=   12.26 ms  intersect= 29.6%  find_F= 28.8%  simp= 100  [ok]
+[id= 6 n=  792] e= 2.00 d= 100.0  core=   11.83 ms  intersect= 30.0%  find_F= 30.8%  simp=  52  [ok]
+[id= 6 n=  792] e= 2.00 d= 200.0  core=   13.26 ms  intersect= 30.3%  find_F= 32.8%  simp=  36  [ok]
+[id= 6 n=  792] e= 2.00 d= 400.0  core=   13.76 ms  intersect= 30.9%  find_F= 33.0%  simp=  28  [ok]
+[id= 6 n=  792] e= 5.00 d=  50.0  core=    9.27 ms  intersect= 30.0%  find_F= 30.4%  simp=  64  [ok]
+[id= 6 n=  792] e= 5.00 d= 100.0  core=    9.13 ms  intersect= 29.1%  find_F= 32.0%  simp=  42  [ok]
+[id= 6 n=  792] e= 5.00 d= 200.0  core=   10.46 ms  intersect= 30.8%  find_F= 33.6%  simp=  28  [ok]
+[id= 6 n=  792] e= 5.00 d= 400.0  core=   11.95 ms  intersect= 31.5%  find_F= 36.0%  simp=  14  [ok]
+[id= 6 n=  792] e=10.00 d=  50.0  core=    9.14 ms  intersect= 29.4%  find_F= 31.9%  simp=  42  [ok]
+[id= 6 n=  792] e=10.00 d= 100.0  core=   10.26 ms  intersect= 30.1%  find_F= 33.0%  simp=  28  [ok]
+[id= 6 n=  792] e=10.00 d= 200.0  core=   11.81 ms  intersect= 31.1%  find_F= 36.1%  simp=  14  [ok]
+[id= 6 n=  792] e=10.00 d= 400.0  core=   12.17 ms  intersect= 30.0%  find_F= 37.8%  simp=   8  [ok]
+[id= 7 n=  454] e= 0.25 d=  50.0  core=   34.23 ms  intersect= 54.0%  find_F= 20.3%  simp= 276  [ok]
+[id= 7 n=  454] e= 0.25 d= 100.0  core=   34.20 ms  intersect= 54.5%  find_F= 20.8%  simp= 222  [ok]
+[id= 7 n=  454] e= 0.25 d= 200.0  core=   35.15 ms  intersect= 55.0%  find_F= 21.8%  simp= 164  [ok]
+[id= 7 n=  454] e= 0.25 d= 400.0  core=   35.90 ms  intersect= 56.4%  find_F= 22.4%  simp= 104  [ok]
+[id= 7 n=  454] e= 0.50 d=  50.0  core=   20.58 ms  intersect= 54.1%  find_F= 20.4%  simp= 262  [ok]
+[id= 7 n=  454] e= 0.50 d= 100.0  core=   19.76 ms  intersect= 55.5%  find_F= 20.8%  simp= 204  [ok]
+[id= 7 n=  454] e= 0.50 d= 200.0  core=   20.85 ms  intersect= 56.8%  find_F= 21.5%  simp= 144  [ok]
+[id= 7 n=  454] e= 0.50 d= 400.0  core=   21.45 ms  intersect= 56.8%  find_F= 23.1%  simp=  90  [ok]
+[id= 7 n=  454] e= 1.00 d=  50.0  core=   11.56 ms  intersect= 41.4%  find_F= 23.9%  simp= 244  [ok]
+[id= 7 n=  454] e= 1.00 d= 100.0  core=   10.66 ms  intersect= 42.8%  find_F= 24.6%  simp= 178  [ok]
+[id= 7 n=  454] e= 1.00 d= 200.0  core=   11.10 ms  intersect= 43.4%  find_F= 25.6%  simp= 122  [ok]
+[id= 7 n=  454] e= 1.00 d= 400.0  core=   10.59 ms  intersect= 43.9%  find_F= 27.7%  simp=  70  [ok]
+[id= 7 n=  454] e= 2.00 d=  50.0  core=    7.38 ms  intersect= 28.2%  find_F= 25.0%  simp= 208  [ok]
+[id= 7 n=  454] e= 2.00 d= 100.0  core=    7.76 ms  intersect= 28.5%  find_F= 27.4%  simp= 156  [ok]
+[id= 7 n=  454] e= 2.00 d= 200.0  core=    7.75 ms  intersect= 28.4%  find_F= 30.3%  simp= 102  [ok]
+[id= 7 n=  454] e= 2.00 d= 400.0  core=    8.51 ms  intersect= 28.9%  find_F= 32.9%  simp=  58  [ok]
+[id= 7 n=  454] e= 5.00 d=  50.0  core=    5.41 ms  intersect= 27.5%  find_F= 26.0%  simp= 172  [ok]
+[id= 7 n=  454] e= 5.00 d= 100.0  core=    5.32 ms  intersect= 28.3%  find_F= 28.9%  simp= 110  [ok]
+[id= 7 n=  454] e= 5.00 d= 200.0  core=    5.27 ms  intersect= 28.1%  find_F= 30.6%  simp=  64  [ok]
+[id= 7 n=  454] e= 5.00 d= 400.0  core=    5.34 ms  intersect= 28.2%  find_F= 34.6%  simp=  28  [ok]
+[id= 7 n=  454] e=10.00 d=  50.0  core=    5.27 ms  intersect= 28.3%  find_F= 28.7%  simp= 110  [ok]
+[id= 7 n=  454] e=10.00 d= 100.0  core=    5.22 ms  intersect= 28.6%  find_F= 30.8%  simp=  64  [ok]
+[id= 7 n=  454] e=10.00 d= 200.0  core=    5.32 ms  intersect= 28.1%  find_F= 35.4%  simp=  28  [ok]
+[id= 7 n=  454] e=10.00 d= 400.0  core=    6.28 ms  intersect= 28.3%  find_F= 36.5%  simp=  18  [ok]
+[id= 8 n=    5] e= 0.25 d=  50.0  core=    0.53 ms  intersect= 27.8%  find_F= 12.0%  simp=   6  [ok]
+[id= 8 n=    5] e= 0.25 d= 100.0  core=    0.51 ms  intersect= 29.6%  find_F= 12.6%  simp=   6  [ok]
+[id= 8 n=    5] e= 0.25 d= 200.0  core=    0.51 ms  intersect= 28.2%  find_F= 13.4%  simp=   6  [ok]
+[id= 8 n=    5] e= 0.25 d= 400.0  core=    0.52 ms  intersect= 27.4%  find_F= 14.6%  simp=   6  [ok]
+[id= 8 n=    5] e= 0.50 d=  50.0  core=    0.29 ms  intersect= 27.3%  find_F= 12.7%  simp=   6  [ok]
+[id= 8 n=    5] e= 0.50 d= 100.0  core=    0.29 ms  intersect= 27.8%  find_F= 11.7%  simp=   6  [ok]
+[id= 8 n=    5] e= 0.50 d= 200.0  core=    0.30 ms  intersect= 27.9%  find_F= 13.1%  simp=   6  [ok]
+[id= 8 n=    5] e= 0.50 d= 400.0  core=    0.30 ms  intersect= 27.7%  find_F= 12.8%  simp=   6  [ok]
+[id= 8 n=    5] e= 1.00 d=  50.0  core=    0.18 ms  intersect= 21.9%  find_F= 14.3%  simp=   6  [ok]
+[id= 8 n=    5] e= 1.00 d= 100.0  core=    0.17 ms  intersect= 22.4%  find_F= 14.9%  simp=   6  [ok]
+[id= 8 n=    5] e= 1.00 d= 200.0  core=    0.17 ms  intersect= 23.0%  find_F= 15.3%  simp=   6  [ok]
+[id= 8 n=    5] e= 1.00 d= 400.0  core=    0.17 ms  intersect= 24.7%  find_F= 13.0%  simp=   4  [ok]
+[id= 8 n=    5] e= 2.00 d=  50.0  core=    0.12 ms  intersect= 16.0%  find_F= 15.5%  simp=   6  [ok]
+[id= 8 n=    5] e= 2.00 d= 100.0  core=    0.12 ms  intersect= 17.1%  find_F= 15.7%  simp=   6  [ok]
+[id= 8 n=    5] e= 2.00 d= 200.0  core=    0.13 ms  intersect= 16.0%  find_F= 17.9%  simp=   6  [ok]
+[id= 8 n=    5] e= 2.00 d= 400.0  core=    0.12 ms  intersect= 21.0%  find_F= 15.6%  simp=   4  [ok]
+[id= 8 n=    5] e= 5.00 d=  50.0  core=    0.10 ms  intersect= 16.1%  find_F= 16.7%  simp=   6  [ok]
+[id= 8 n=    5] e= 5.00 d= 100.0  core=    0.09 ms  intersect= 15.5%  find_F= 17.3%  simp=   6  [ok]
+[id= 8 n=    5] e= 5.00 d= 200.0  core=    0.10 ms  intersect= 18.3%  find_F= 14.2%  simp=   4  [ok]
+[id= 8 n=    5] e= 5.00 d= 400.0  core=    0.09 ms  intersect= 19.1%  find_F= 19.3%  simp=   4  [ok]
+[id= 8 n=    5] e=10.00 d=  50.0  core=    0.10 ms  intersect= 14.8%  find_F= 16.9%  simp=   6  [ok]
+[id= 8 n=    5] e=10.00 d= 100.0  core=    0.09 ms  intersect= 19.6%  find_F= 15.4%  simp=   4  [ok]
+[id= 8 n=    5] e=10.00 d= 200.0  core=    0.09 ms  intersect= 18.6%  find_F= 15.8%  simp=   4  [ok]
+[id= 8 n=    5] e=10.00 d= 400.0  core=    0.10 ms  intersect= 18.0%  find_F= 18.0%  simp=   4  [ok]
+[id= 9 n=  643] e= 0.25 d=  50.0  core=   46.83 ms  intersect= 54.1%  find_F= 20.4%  simp= 370  [ok]
+[id= 9 n=  643] e= 0.25 d= 100.0  core=   47.47 ms  intersect= 55.3%  find_F= 21.1%  simp= 280  [ok]
+[id= 9 n=  643] e= 0.25 d= 200.0  core=   47.89 ms  intersect= 54.8%  find_F= 23.2%  simp= 196  [ok]
+[id= 9 n=  643] e= 0.25 d= 400.0  core=   44.83 ms  intersect= 56.1%  find_F= 23.1%  simp= 112  [ok]
+[id= 9 n=  643] e= 0.50 d=  50.0  core=   28.27 ms  intersect= 54.6%  find_F= 21.0%  simp= 350  [ok]
+[id= 9 n=  643] e= 0.50 d= 100.0  core=   27.56 ms  intersect= 55.8%  find_F= 21.0%  simp= 240  [ok]
+[id= 9 n=  643] e= 0.50 d= 200.0  core=   27.79 ms  intersect= 56.8%  find_F= 21.5%  simp= 170  [ok]
+[id= 9 n=  643] e= 0.50 d= 400.0  core=   27.57 ms  intersect= 56.6%  find_F= 23.5%  simp=  96  [ok]
+[id= 9 n=  643] e= 1.00 d=  50.0  core=   15.21 ms  intersect= 42.4%  find_F= 24.2%  simp= 314  [ok]
+[id= 9 n=  643] e= 1.00 d= 100.0  core=   15.29 ms  intersect= 43.3%  find_F= 25.3%  simp= 228  [ok]
+[id= 9 n=  643] e= 1.00 d= 200.0  core=   14.24 ms  intersect= 43.8%  find_F= 26.7%  simp= 134  [ok]
+[id= 9 n=  643] e= 1.00 d= 400.0  core=   13.85 ms  intersect= 43.6%  find_F= 28.7%  simp=  68  [ok]
+[id= 9 n=  643] e= 2.00 d=  50.0  core=   11.10 ms  intersect= 27.6%  find_F= 26.2%  simp= 264  [ok]
+[id= 9 n=  643] e= 2.00 d= 100.0  core=   10.72 ms  intersect= 28.2%  find_F= 27.8%  simp= 186  [ok]
+[id= 9 n=  643] e= 2.00 d= 200.0  core=   10.45 ms  intersect= 28.4%  find_F= 31.7%  simp= 112  [ok]
+[id= 9 n=  643] e= 2.00 d= 400.0  core=   11.78 ms  intersect= 28.5%  find_F= 34.5%  simp=  56  [ok]
+[id= 9 n=  643] e= 5.00 d=  50.0  core=    7.72 ms  intersect= 28.3%  find_F= 27.5%  simp= 218  [ok]
+[id= 9 n=  643] e= 5.00 d= 100.0  core=    7.16 ms  intersect= 28.3%  find_F= 30.4%  simp= 128  [ok]
+[id= 9 n=  643] e= 5.00 d= 200.0  core=    7.61 ms  intersect= 28.0%  find_F= 33.4%  simp=  64  [ok]
+[id= 9 n=  643] e= 5.00 d= 400.0  core=    8.52 ms  intersect= 29.2%  find_F= 36.0%  simp=  28  [ok]
+[id= 9 n=  643] e=10.00 d=  50.0  core=    7.21 ms  intersect= 28.1%  find_F= 30.6%  simp= 128  [ok]
+[id= 9 n=  643] e=10.00 d= 100.0  core=    7.68 ms  intersect= 28.0%  find_F= 33.3%  simp=  66  [ok]
+[id= 9 n=  643] e=10.00 d= 200.0  core=    8.40 ms  intersect= 28.8%  find_F= 36.3%  simp=  28  [ok]
+[id= 9 n=  643] e=10.00 d= 400.0  core=   10.88 ms  intersect= 28.6%  find_F= 42.2%  simp=   4  [ok]
+[id=10 n= 5617] e= 0.25 d=  50.0  core=  422.08 ms  intersect= 58.5%  find_F= 20.8%  simp= 658  [ok]
+[id=10 n= 5617] e= 0.25 d= 100.0  core=  406.25 ms  intersect= 59.2%  find_F= 21.2%  simp= 370  [ok]
+[id=10 n= 5617] e= 0.25 d= 200.0  core=  431.45 ms  intersect= 59.9%  find_F= 21.7%  simp= 204  [ok]
+[id=10 n= 5617] e= 0.25 d= 400.0  core=  475.31 ms  intersect= 60.9%  find_F= 22.1%  simp= 116  [ok]
+[id=10 n= 5617] e= 0.50 d=  50.0  core=  250.72 ms  intersect= 60.0%  find_F= 20.4%  simp= 580  [ok]
+[id=10 n= 5617] e= 0.50 d= 100.0  core=  239.98 ms  intersect= 60.3%  find_F= 20.4%  simp= 318  [ok]
+[id=10 n= 5617] e= 0.50 d= 200.0  core=  262.49 ms  intersect= 60.4%  find_F= 21.8%  simp= 174  [ok]
+[id=10 n= 5617] e= 0.50 d= 400.0  core=  272.58 ms  intersect= 60.9%  find_F= 22.5%  simp=  96  [ok]
+[id=10 n= 5617] e= 1.00 d=  50.0  core=  133.53 ms  intersect= 46.0%  find_F= 26.2%  simp= 470  [ok]
+[id=10 n= 5617] e= 1.00 d= 100.0  core=  131.88 ms  intersect= 47.2%  find_F= 25.7%  simp= 254  [ok]
+[id=10 n= 5617] e= 1.00 d= 200.0  core=  141.67 ms  intersect= 48.1%  find_F= 26.5%  simp= 148  [ok]
+[id=10 n= 5617] e= 1.00 d= 400.0  core=  138.90 ms  intersect= 48.1%  find_F= 28.4%  simp=  76  [ok]
+[id=10 n= 5617] e= 2.00 d=  50.0  core=   89.88 ms  intersect= 30.6%  find_F= 30.1%  simp= 360  [ok]
+[id=10 n= 5617] e= 2.00 d= 100.0  core=   97.70 ms  intersect= 30.9%  find_F= 31.7%  simp= 202  [ok]
+[id=10 n= 5617] e= 2.00 d= 200.0  core=  100.51 ms  intersect= 31.8%  find_F= 33.2%  simp= 114  [ok]
+[id=10 n= 5617] e= 2.00 d= 400.0  core=  104.03 ms  intersect= 32.3%  find_F= 34.4%  simp=  60  [ok]
+[id=10 n= 5617] e= 5.00 d=  50.0  core=   64.67 ms  intersect= 30.3%  find_F= 31.1%  simp= 234  [ok]
+[id=10 n= 5617] e= 5.00 d= 100.0  core=   67.23 ms  intersect= 30.8%  find_F= 32.3%  simp= 136  [ok]
+[id=10 n= 5617] e= 5.00 d= 200.0  core=   67.87 ms  intersect= 32.1%  find_F= 32.2%  simp=  72  [ok]
+[id=10 n= 5617] e= 5.00 d= 400.0  core=   84.68 ms  intersect= 32.7%  find_F= 35.9%  simp=  34  [ok]
+[id=10 n= 5617] e=10.00 d=  50.0  core=   67.20 ms  intersect= 31.1%  find_F= 32.4%  simp= 136  [ok]
+[id=10 n= 5617] e=10.00 d= 100.0  core=   66.86 ms  intersect= 32.1%  find_F= 32.2%  simp=  72  [ok]
+[id=10 n= 5617] e=10.00 d= 200.0  core=   90.57 ms  intersect= 33.3%  find_F= 36.0%  simp=  34  [ok]
+[id=10 n= 5617] e=10.00 d= 400.0  core=  110.62 ms  intersect= 34.7%  find_F= 38.2%  simp=  16  [ok]
+
+PROFILE SUMMARY - streaming delta-simplification on T-Drive taxi data
+========================================================================
+IDs: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+epsilons: [0.25, 0.5, 1.0, 2.0, 5.0, 10.0]
+deltas: [50, 100, 200, 400]
+repeats/median: 3
+ok rows: 240 / 240
+
+1) Where does time go? (mean % of core across all ok runs)
+------------------------------------------------------------------------
+  intersect                 mean= 39.6%  median= 30.9%  max= 62.9%
+  find_F                    mean= 26.3%  median= 26.6%  max= 42.2%
+  get_longest_stab          mean= 99.6%  median= 99.9%  max=100.0%
+  get_boundary_points       mean=  2.4%  median=  0.3%  max= 25.5%
+  get_conv_from_grid        mean=  1.4%  median=  0.6%  max= 13.3%
+  update_S                  mean=  0.3%  median=  0.3%  max=  0.6%
+  get_longest_stab self     mean= 29.7%  median= 30.6%  max= 45.8%
+
+2) Epsilon sweep at delta=200.0 (median core_ms across IDs)
+------------------------------------------------------------------------
+     eps     core_ms  intersect%   find_F%   alive_iters  simp_pts
+    0.25       66.24        58.5      21.8         34736       143
+    0.50       33.72        58.8      21.5         16612       128
+    1.00       19.36        45.5      26.5         13666       103
+    2.00       13.33        29.0      31.7         14358        86
+    5.00        8.97        28.4      32.2          8982        56
+   10.00        9.55        29.1      35.1          9678        28
+
+3) Delta sweep at epsilon=0.5 (median core_ms across IDs)
+------------------------------------------------------------------------
+   delta     core_ms  intersect%   find_F%  stab_steps  simp_pts
+    50.0       39.07        58.4      20.9         731       256
+   100.0       39.39        59.0      20.9         731       190
+   200.0       33.72        58.8      21.5         731       128
+   400.0       38.36        58.5      22.7         731        77
+
+4) Per-trajectory at e=0.5, d=200.0
+------------------------------------------------------------------------
+    id       n     core_ms  intersect%   find_F%       alive    simp
+     1     588       31.58        59.0      22.9       15684      86
+     2    1674       71.70        56.7      21.5       42381     482
+     3    1371       66.82        60.4      21.4       33446     112
+     4     672       35.87        60.5      22.5       16849      60
+     5     798       39.82        58.5      22.8       21270     162
+     6     792       29.03        59.2      21.4       15674      48
+     7     454       20.85        56.8      21.5       12282     144
+     8       5        0.30        27.9      13.1         128       6
+     9     643       27.79        56.8      21.5       16376     170
+    10    5617      262.49        60.4      21.8      129914     174
+
+5) Cost drivers
+------------------------------------------------------------------------
+  alive_candidate_iters range: 51 .. 249488
+  core_ms range: 0.09 .. 475.31
+  estimated avg boundary candidates |P|: median=24  max=56
+
+Raw CSV: /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams/results/profile_sweep.csv
+
+
+---
+exit_code: 0
+elapsed_ms: 36364
+ended_at: 2026-09-04T13:38:46.988Z
+---

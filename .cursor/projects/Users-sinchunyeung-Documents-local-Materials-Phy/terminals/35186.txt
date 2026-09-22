@@ -1,0 +1,573 @@
+---
+pid: 19722
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy"
+command: "python3 << 'PYEOF'\nimport fitz, subprocess, tempfile, os, re\npdf_path = \"/Users/sinchunyeung/Documents-local/Materials/Phy/active-physics/Book 4.pdf\"\ndoc = fitz.open(pdf_path)\n\ndef ocr_page(i):\n    pix = doc[i].get_pixmap(dpi=180)\n    with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as tmp:\n        pix.save(tmp.name)\n        r = subprocess.run(['tesseract', tmp.name, 'stdout', '-l', 'eng'], capture_output=True, text=True)\n        os.unlink(tmp.name)\n    return r.stdout\n\n# pages around power, short circuit, internal resistance, meters\nfor i in [118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145]:\n    text = ocr_page(i)\n    # first 25 lines\n    lines = [l.strip() for l in text.split('\\n') if l.strip()]\n    print(f\"\\n=== PAGE {i+1} (first headers) ===\")\n    for l in lines[:18]:\n        print(l[:90])\nPYEOF"
+started_at: 2026-08-22T14:42:46.689Z
+running_for_ms: 75008    
+---
+
+=== PAGE 119 (first headers) ===
+et Circuit and Power
+17.
+S 18.
+When the sliding contact P in each of the following
+circuit shifts to the right, how would the ammeter
+reading change?
+(a) (b)
+——fr - {+— {+ -4r
+L@ih
+A rotary-type potential divider PRQ is connected
+across a 12 V battery as shown in Fig. a. The
+internal structure of the potential divider is shown
+in Fig. b.
+Qi8a Q18b
+The resistive wire XZY is uniform and forms a
+circular are with centre O. The sliding contact OZ is
+free to rotate along the arc. Given 2XOY = 90° and
+£XOZ = 225°, find the reading of the voltmeter.
+
+=== PAGE 120 (first headers) ===
+yaw Electrical power
+Energy transformed per unit time
+A circuit (with non-zero resistance) will dissipate energy when
+a current flows in it. This may result in warming a wire, lighting
+a bulb or turning a motor in the circuit. The rate at which
+electrical energy is converted into other forms of energy is
+called electrical power. Recall
+Power = energy aoe or P ==
+The SI unit of power is the watt (W):
+1W=1Js'
+(QR) Experiment 21.4 Y Determine the electrical power of a bulb™@
+joulemeter joulemeter Purpose: To determine the power of
+power
+a bulb,
+Ll r 3 —
+#® Do not touch the glowing bulb!
+input output (>) (VY) It is hat.
+Ls ot(A)
+
+=== PAGE 121 (first headers) ===
+at Circuit and Power
+4 Experiment 21.5 Heating effect of electric current
+Purpose: To study the heating effect
+of electric current passing through a
+conductor.
+Nichrome
+wire
+Do not touch the hot Nichrome wire!
+Heating effect of electric current
+(8% V21-e251)
+d
+1. Coil a piece of Nichrome wire and place it on a tile. Put a piece
+of wax inside the coil.
+2. Connect the coil to a cell with a switch.
+Close the switch and observe the wax.
+Repeat steps 1 to 3 with a battery of three cells. Compare the
+heating effect in each case.
+5. Repeat steps 1 to 3 with a longer Nichrome wire.
+
+=== PAGE 122 (first headers) ===
+In particular, the rate at which electrical energy is consumed
+(or supplied) is called the electrical power. The rate depends on
+two factors:
+1. The amount of energy consumed (or supplied) per unit
+charge
+2. The amount of charge passing the load per second
+Factor 1 is actually the applied pd V (or the emf €), while factor 2
+is the current I going through the load (or the source). We will
+now show that power is simply the product of these two factors:
+E E®
+tee
+vod
+(or €)
+If the load has a resistance R, then
+V2
+P=V-I=FR R
+The total power dissipated P,,,,, by a network of loads is equal to
+the sum of power dissipated by each load:
+
+=== PAGE 123 (first headers) ===
+et Circuit and Power
+=
+Li mp, Example 21.11 Electric torch
+y-
+When the bulb of an electric torch is
+glowing, the current flowing through :
+the bulb is 0.40 A and the voltage
+supplied to the bulb is 3.0 V.
+Find
+(a) the power supplied to the bulb.
+(b) the electrical energy consumed in 5.5 minutes.
+BS GY secncceecserseesamaaxcnmumeneuscauamacenunasaneanunmnanuiuivde
+(a) Power P = VI = (3.0)(0.40) = 1.2 W
+(b) Energy consumed E = Pt = (1.2)(5.5 x 60) = 396 J
+Kipp Example 21.12 Y Brightness of filament light bulbs Conceptual
+Identical bulbs (each of constant resistance R) are connected to a
+battery of emf € in three ways:
+ed [e4 |
+
+=== PAGE 124 (first headers) ===
+EY Short circuit
+Electrical power
+If a wire is connected across the two ends of a device, current
+will bypass the device via the wire. The device is shorted (or
+short-circuited).
+<Q Since the resistance of a wire is much
+smaller than a device.
+{+ - 41
+—r-4t
+¥ a” Y -
+{+ - 4t
+—
+Yeane
+YH |
+>
+fan
+4
+Fig. 21.48 Shorting a bulb (middle) and shorting a battery (right)
+
+=== PAGE 125 (first headers) ===
+et Circuit and Power
+—_ 130
+Amy & Bob
+ee
+Short circuit
+If the battery in a circuit is shorted, the current becomes very large.
+Amy: By P = °R, the power dissipation P goes up greatly.
+Bob: No. Don't forget that R becomes very low too. This balances the
+increase in current, and P only goes up slightly.
+With whom do you agree? Why?
+Complete the following tables by filling in the
+power dissipated as heat in each resistor. Find also
+the equivalent resistance and the total power of the
+circuit.
+1Q
+10 30 32
+Equivalent resistance:
+Total power:
+
+=== PAGE 126 (first headers) ===
+S 10.
+& 14.
+Two light bulbs X and Y are connected in series
+to a 32 V battery as shown in Fig. a. Their -V
+characteristic curves are shown in Fig. b.
+If A
+4
+244
+32 aa 2S
+—r = {t-— 124
+0.85 no ; |
+x ¥ 0.454 ]
+(7) oo eV /V
+8 16 24
+Q10a Q10b
+(a) Which bulb glows dimmer? Briefly explain. s
+15.
+11.
+
+=== PAGE 127 (first headers) ===
+So far, we have assumed that all cells and meters are ideal —
+adding them into a circuit does not affect the resistance of the
+circuit. But in reality this is not true. They do affect the circuit.
+We will discuss their effects one by one.
+’ Practical cells
+An ideal cell has no resistance, but a practical cell does (we call
+it internal resistance r). A typical new 1.5 V cell has an internal
+resistance of about 0.3 Q. We may represent a practical cell with
+an ideal cell and a pure resistor (Fig. 21.49).
+When current is drawn from a practical cell, there is a potential
+drop across the internal resistance. So, the terminal voltage V (the
+actual voltage output) of a practical cell in use is smaller than
+its emf é. If a cell (€, r) is connected across a resistor R, the total
+resistance of the circuit is R + r, and thus
+e€=I(R+r)=V+Ir
+This gives
+V =e- fr
+The term Ir gives the pd across r (the Jost volts). Note that the
+
+=== PAGE 128 (first headers) ===
+Practical cells and meters
+I) Experiment 21.6 A homemade dry cell
+fo Purpose: To find the internal resistance of
+homemade a homemade dry cell.
+i------ dry cell
+liek) The internal resistance of a
+cea homemade dry cell
+(Sf V21-e246)
+a
+1. Connect a variable resistor to the homemade dry cell. 4 Set the variable resistor to it
+2. Record the ammeter reading / and voltmeter reading V. mmemenewoélS
+3. Adjust the variable resistor to obtain other pairs of readings. 4 over a wide range
+4. Plot a graph of V against J. Its slope is equal to the internal
+resistance of the cell in magnitude.
+BA DisCUSSION «2000.20... 2... cece eee eeeeeeeeenenteeeeeeeeeeeeeeeetennenenenees
+1. Extend the line backwards, and it will cut the y-axis at some
+value. What is the meaning of this value?
+2, Why is the slope equal to the internal resistance? (Hint: The
+
+=== PAGE 129 (first headers) ===
+at Circuit and Power
+(c) When both switches are closed, the total resistance of the
+circuit is
+5
+R=1 ts =3.50 4 The two identical resistors are in
+parallel.
+Current through the battery [= - = 0.8571 A
+.. voltmeter reading V=eée-—Ir=3-(0.8571)(1)=2.14V
+BD What ccna ainsi araeamnie as
+What is the voltmeter reading if one of the resistors is replaced Ans: shorted => zero
+with a wire and both switches are closed?
+~ Checkpoint ®
+1. True or false:
+(a) A practical dc power supply has no internal
+resistance.
+(b) When a resistor is connected to a practical
+cell of emf 9 V, the voltage across the cell
+must be less than 9 V.
+
+=== PAGE 130 (first headers) ===
+Practical cells and meters
+€
+{ full-scale reading | typical resistance
+R, =0 = original I TA | 0.10
+1Y
+1mA 100.2
+R, R, #0 = smaller I
+R in 100 pA | 1kQ
+Fig. 21.51 In practice, R, « 0. Adding an ammeter Table 21.3 Typical resistance values of 
+makes the current smaller. ammeters
+Therefore,
+a good ammeter should have a low resistance. 4 The resistance is considered low as
+compared with R.
+(] Practical voltmeters
+An ideal voltmeter has infinite resistance, like a gap. When
+connected across a load for measurement, it draws no current,
+and does not affect the pd across the load.
+However, a practical voltmeter has a finite resistance Ry. A
+
+=== PAGE 131 (first headers) ===
+et Circuit and Power
+>) Ammeter-—voltmeter method in practice
+To determine the resistance R of a load, we measure the
+voltage V across its ends and the current / through it. Fig. 21.53
+shows two different ways to connect an ammeter and a
+voltmeter to the load. The result would be the same if both
+meters are ideal. In practice, however, their results are different.
+fv
+Ww
+- (a)
+ie
+Legg! Mg
+circuit 7 circuit 2
+Fig. 21.53 Two circuits for finding resistance
+In circuit 1, the ammeter reads the current through the load
+correctly. However, the voltmeter gives a reading higher than
+the actual voltage across the load. By R = V/I, the measured
+resistance is higher than the actual value. If R is low, the error
+
+=== PAGE 132 (first headers) ===
+Checkpoint @)
+Practical cells and meters banc
+Which of the following circuits is the most suitable
+for measuring the resistance of a resistor that is
+comparable to that of the ammeter?
+A. de B. de
+power supply power supply
+-= - =
+ra] © =] >
+VW) (A)
+oe de D. de
+power supply power supply
+=) ae - +
+2] & =] oO
+ee
+Y
+-+t—}—(V+
+2.
+
+=== PAGE 133 (first headers) ===
+at Circuit and Power
+5. A practical ammeter and a practical voltmeter are
+connected to a resistor, as shown. A student gives
+Ss.
+the following comments. Discuss whether the
+statements are true or not, and give necessary
+corrections.
+(a)
+(b)
+(c)
+(d)
+6. Acell of emf 10 V and internal
+resistance 2 © is connected toa
+500 Q resistor.
+(a)
+(b)
+The ammeter reading gives the exact value of
+the current passing through the resistor.
+
+=== PAGE 134 (first headers) ===
+Summary
+Key Ideas
+eee eee ee ee ee ee ee ee ee ey
+Current
+* Current J is the rate of charge flow:
+=f
+ae
+* Unit: ampere (A)
+Voltage
+* Voltage V is the electrical energy transferred W per
+unit charge:
+* Ifenergy is supplied, the voltage is called emf; if
+energy is consumed, it is called pd.
+* Unit: volt (V)
+Resistance
+* Resistance of a component is defined as:
+_V
+R=5
+
+=== PAGE 135 (first headers) ===
+et Circuit and Power
+For the whole circuit,
+total P;,, = total P,.,
+ijt
+P,
+Equivalent resistance
+* For a resistor network:
+I Vv
+v
+yt —l
+“ iL | r very small
+1 “= Var
+roo r very large
+H }----{ H 2 : voltmeter es
+1 2 N i rr i i,=0 ly#0
+N
+r=0 r#0
+YVeVit+Vi+... f=))4)+..
+
+=== PAGE 136 (first headers) ===
+Summary Ds
+Common Mistakes
+1, oY Pd parallel
+| branches
+open the switch, open the switch,
+= ammeter reading t = ammeter reading:
+unchanged
+; ; ; _y Parallel branches are independent of each other.
+M The resistance is obtained from the ratio T but : : ; :
+(Here, the cell is assumed to be ideal, i.e. having no
+not the slope of the V-I graph.
+internal resistance and no limit of output current.)
+R= slope
+For large R= Ry: For small R = R,:
+20 20 20
+reading: reading: reading: reading: circuit 1 circuit 1
+2V 1A 6V 3A
+For small R= R,: For large R= R,:
+
+=== PAGE 137 (first headers) ===
+a Circuit and Power
+Chapter Exercise
+Multiple-choice Questions
+eee ee ee ee ee ee
+ideal ammeter and three
+A circuit with an ideal cell, an 20
+resistors is as shown. The
+ammeter reading is 0.6 A.
+124
+What is the voltage of the
+cell? 60 |
+A. 24V B.
+Cc. 108V D.
+46V
+13.2 V
+Five identical resistors are connected to a cell as
+shown. Which two points should a galvanometer be
+connected so that the galvanometer shows no
+
+=== PAGE 138 (first headers) ===
+Chapter Exercise
+Which of the following is/are true? a BOM
+(1) The polarities of both meters are reversed. Ae 24 me - | Ho
+(2) The voltmeter should be connected across both B. 25V (ay
+the ammeter and the light bulb. C. 29V 4
+(3) Aswitch must be added to the circuit. D. 3.0V a
+A. (1) only B, (3) only —
+C. (1) and (2) only D. (2) and (3) only 10. HKOSE 2012 What will happen if the variable
+resistor is set to zero in the circuit below?
+Larry wants to build a battery-powered model car
+that consists of two motors. Each of the motors,
+having a separate indication lamp, can be switched
+|
+Li
+on and off independently. Which of the following
+circuits shows the most suitable design?
+A. \r- -|t B. \t- -|t
+A. The light bulb will burn out.
+
+=== PAGE 139 (first headers) ===
+a Circuit and Power
+Structured Questions
+13.
+14.
+15.
+—_ 144
+A2 Q resistor and a 8 Q resistor are connected in
+series with a battery and a switch. The switch is
+closed for 3 hours. During that period of time, 20 kJ
+of energy is provided by the battery, and 1 = 10° C of
+charge passes through the circuit.
+4-4}
+20 8O
+ooooL___.-——
+(a) What is the current in the circuit?
+(b) What is the emf of the battery?
+(c) Ifthe energy dissipated in the 2 © resistor
+is 3 kJ, what is that dissipated in the 8 Q
+
+=== PAGE 140 (first headers) ===
+18. Kelly is investigating the lifetime of three different
+cells. She connects a bulb and an ammeter to each
+cell in turn. The result is plotted as follows.
+current / A
+Oo 1 2 3 4 5 6 7 8 9 W
+time / hour
+Estimate the total amount of charges passing
+through cell A. (3 marks)
+(b) Sketch the voltage—time graph for cell B.
+(1 mark)
+Describe the brightness of the bulb when it is
+connected to each cell. (3 marks)
+(c)
+19. A student uses the following circuit to investigate the
+emf € and internal resistance r of a cell. A few
+ammeters and voltmeters with different full-scale
+readings are available.
+|
+
+=== PAGE 141 (first headers) ===
+a Circuit and Power
+22, An ohmmeter is a device for measuring the resistance
+of an electrical component connected across its two
+probes. Its simplified diagram is shown below.
+I
+() !
+1 [| oY | probe
+|
+l yr
+B one unknown
+ane Bet cee "| | resistor
+\
+| —K_ probe
+|
+soci an dona pee a a
+ohmmeter
+The galvanometer has a resistance of 50 9 and its
+full-scale deflection current is 2 WA. A full-scale
+
+=== PAGE 142 (first headers) ===
+(b) Ifthe output power of the heating element is
+150 W, find
+(i) the operating resistance of the heating
+element, and (1 mark)
+(ii) the total current drawn from the power
+supply. (3 marks)
+(c) Each person is now given one more heating
+element and switch, and is required to modify
+the circuit in (a) to produce a dryer that can be
+set at two levels of power output. Draw a
+possible circuit. (1 mark)
+Edexcel SH Physics Jan 2009 A student hears that it
+is dangerous to carry button cells in a pocket because
+coins could create a short circuit, causing large
+currents and generating high temperatures.
+She investigates this by connecting three coins in
+series with a button cell.
+The table gives the manufacturer's technical
+
+=== PAGE 143 (first headers) ===
+a Circuit and Power
+support
+cable
+driving
+| cable
+tw
+Q27b
+(c) (i) Calculate the rate of gain of potential
+energy of a fully loaded car during the
+steepest part of the journey. (4 marks)
+(ii) Asa fully loaded car ascends an empty
+car descends. Calculate the power the
+motor needs in order to provide potential
+energy during the steepest part of the
+journey. (3 marks)
+(d) In an actual situation a fully loaded car is
+ascending during the steepest part of the journey.
+An empty car is descending. The motor, working
+
+=== PAGE 144 (first headers) ===
+Shoot-the-stars Questions
+Brain-teasers that may drive you mad. Have fun!
+1. If several cells are connected in series, the resultant
+emf would depend on the directions of the cells. For
+two cells connected in the same direction, the
+resultant emf adds up, e.g.
+3Vo1Vv 4Vv
+= =
+while for two cells connected in opposite directions,
+the resultant emf equals their difference, e.g.
+3Vo Vv 2V
+AHR > ah
+Now, two cells of emf 3 V and 6 V are connected to
+two resistors of 4 Q and 8 Q as shown. What is the
+pd across AB?
+6V
+A
+BO 1
+
+=== PAGE 145 (first headers) ===
+yy Mains electricity
+A lamp connected to a wall socket is powered by
+mains electricity. What we obtain from the socket is energy, 4) We consume energy, not cur
+not current. & Mains electricity is also called 2B in
+slang.
+Fig. 22.1 A lamp powered by mains electricity
+Direct and alternating current
+Current driven by batteries flows in one direction only. This
+type of current is called direct current (dc). It can either be
+steady or varying in size (Fig. 22.2).
++ =
+s) °
+aaa] |e
+eS
+current current
+4 ‘
+steady de So \
+varying de
+
+=== PAGE 146 (first headers) ===
+But the current from a wall socket is not dc. It flows back and
+forth, reversing its direction periodically. This type of current
+is called alternating current (ac). It oscillates and reverses its
+direction (+/—) every half cycle.
+I 50 Hz I i 50 Hz I
+ive neutra ive neutra
+o Nye 0.01s a M\)/?
+| ! ! | | I ! |
+Ry Fe Ry
+Neco: ar,
+current
+ry
+0 [\ ca
+\} \/™ time / 5
+Fig. 22.3 Ac reverses its direction (changing sign) periodically.
+Fig. 22.4 shows the circuit symbols that denote a dc and an ac
+power supply. Fig. 22.5 shows a power supply with ac and dc
+outputs. Note the labels of the terminals.
+
+---
+exit_code: 0
+elapsed_ms: 75931
+ended_at: 2026-08-22T14:44:02.620Z
+---

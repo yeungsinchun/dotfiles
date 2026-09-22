@@ -1,0 +1,425 @@
+local-dse: present
+      66
+primary-local-dse: absent
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/summary.html:163:          <button type="button" data-choice="A">1 : 1</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/summary.html:164:          <button type="button" data-choice="B">1 : 2</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/summary.html:165:          <button type="button" data-choice="C">2 : 1</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/summary.html:166:          <button type="button" data-choice="D">4 : 1</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/summary.html:177:          <button type="button" data-choice="A">penetrating power · ionizing power · constant half-life</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/summary.html:178:          <button type="button" data-choice="B">ionizing power · penetrating power · constant half-life</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/summary.html:179:          <button type="button" data-choice="C">penetrating power · constant half-life · ionizing power</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/summary.html:180:          <button type="button" data-choice="D">ionizing power · ionizing power · constant half-life</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/summary.html:191:          <button type="button" data-choice="A">\( 1.2 \times 10^{6} \) Bq</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/summary.html:192:          <button type="button" data-choice="B">\( 3.0 \times 10^{6} \) Bq</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/summary.html:193:          <button type="button" data-choice="C">\( 4.8 \times 10^{6} \) Bq</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/summary.html:194:          <button type="button" data-choice="D">\( 5.4 \times 10^{6} \) Bq</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/summary.html:205:          <button type="button" data-choice="A">P and Q contain the same number of undecayed nuclei.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/summary.html:206:          <button type="button" data-choice="B">P has the larger decay constant and contains fewer undecayed nuclei than Q.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/summary.html:207:          <button type="button" data-choice="C">P has the longer half-life and contains fewer undecayed nuclei than Q.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/summary.html:208:          <button type="button" data-choice="D">P has the larger decay constant and contains more undecayed nuclei than Q.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:79:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:80:          <button type="button" data-choice="B">(2) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:81:          <button type="button" data-choice="C">(3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:82:          <button type="button" data-choice="D">(1) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:104:      <div class="row"><button type="button" data-replay="knock-vis">Replay knockout</button></div>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:126:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:127:          <button type="button" data-choice="B">(2) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:128:          <button type="button" data-choice="C">(1) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:129:          <button type="button" data-choice="D">(2) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:185:          <button type="button" data-choice="A">(1) and (2) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:186:          <button type="button" data-choice="B">(1) and (4) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:187:          <button type="button" data-choice="C">(1), (3) and (4) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:188:          <button type="button" data-choice="D">(1), (2), (3) and (4)</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:230:            <button type="button" data-tf="true">True</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:231:            <button type="button" data-tf="false">False</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:239:            <button type="button" data-tf="true">True</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:240:            <button type="button" data-tf="false">False</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:248:            <button type="button" data-tf="true">True</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:249:            <button type="button" data-tf="false">False</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:284:      <div class="row"><button type="button" data-replay="imaging-vis">Replay film</button></div>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:311:          <button type="button" data-choice="A">X-rays can be produced by high-speed electrons hitting a metal target.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:312:          <button type="button" data-choice="B">X-rays are a kind of electromagnetic wave.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:313:          <button type="button" data-choice="C">X-rays can be deflected by an electric field.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:314:          <button type="button" data-choice="D">Although X-rays do not carry charge, they can cause ionization.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:341:          <button type="button" data-choice="A">A: ultraviolet light on a sponge</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:342:          <button type="button" data-choice="B">B: ultraviolet light on a heavy metal block</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:343:          <button type="button" data-choice="C">C: fast electrons on a sponge</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:344:          <button type="button" data-choice="D">D: fast electrons on a heavy metal block</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:388:          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:394:          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:400:          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:414:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:415:          <button type="button" data-choice="B">(2) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:416:          <button type="button" data-choice="C">(1) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:417:          <button type="button" data-choice="D">(2) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:433:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:434:          <button type="button" data-choice="B">(3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:435:          <button type="button" data-choice="C">(1) and (2) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-1.html:436:          <button type="button" data-choice="D">(2) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:85:          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:91:          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:116:        <button type="button" data-nuclide="H">H-1</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:117:        <button type="button" data-nuclide="He">He-4</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:118:        <button type="button" data-nuclide="Li">Li-7</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:119:        <button type="button" data-nuclide="C">C-12</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:121:        <button type="button" data-iso="0">¹H</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:122:        <button type="button" data-iso="1">²H</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:123:        <button type="button" data-iso="2">³H</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:192:          <button type="button" data-choice="A">A</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:193:          <button type="button" data-choice="B">B</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:194:          <button type="button" data-choice="C">C</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:195:          <button type="button" data-choice="D">D</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:211:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:212:          <button type="button" data-choice="B">(2) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:213:          <button type="button" data-choice="C">(2) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:214:          <button type="button" data-choice="D">(1), (2) and (3)</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:233:          <button type="button" data-decay="a" aria-pressed="true">α decay of ²⁰⁸Po</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:234:          <button type="button" data-decay="b">β decay of ⁶⁰Co</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:235:          <button type="button" data-decay="g">γ emission from ⁶⁰Ni*</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:237:        <div class="visual play stage" id="decay-a" data-decay-panel="a" data-autoplay data-scene="decay-a">
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:244:        <div class="visual play stage" id="decay-b" data-decay-panel="b" hidden data-scene="decay-b">
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:251:        <div class="visual play stage" id="decay-g" data-decay-panel="g" hidden data-scene="decay-g">
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:287:          <button type="button" data-choice="A">\( {}^{214}_{82}\mathrm{Pb} + {}^{0}_{-1}e \rightarrow {}^{214}_{81}\mathrm{X} \)</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:288:          <button type="button" data-choice="B">\( {}^{214}_{82}\mathrm{Pb} \rightarrow {}^{214}_{83}\mathrm{X} + {}^{0}_{-1}e \)</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:289:          <button type="button" data-choice="C">\( {}^{214}_{82}\mathrm{Pb} \rightarrow {}^{213}_{82}\mathrm{X} + {}^{0}_{-1}e \)</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:290:          <button type="button" data-choice="D">\( {}^{214}_{82}\mathrm{Pb} \rightarrow {}^{214}_{81}\mathrm{X} + {}^{0}_{-1}e \)</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:306:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:307:          <button type="button" data-choice="B">(2) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:308:          <button type="button" data-choice="C">(1) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:309:          <button type="button" data-choice="D">(1), (2) and (3)</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:392:          <button type="button" data-choice="A">6 α and 5 β</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:393:          <button type="button" data-choice="B">7 α and 4 β</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:394:          <button type="button" data-choice="C">7 α and 3 β</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:395:          <button type="button" data-choice="D">8 α and 6 β</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:406:          <button type="button" data-choice="A">90 and 230</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:407:          <button type="button" data-choice="B">90 and 234</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:408:          <button type="button" data-choice="C">88 and 230</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:409:          <button type="button" data-choice="D">88 and 234</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:425:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:426:          <button type="button" data-choice="B">(2) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:427:          <button type="button" data-choice="C">(1) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:428:          <button type="button" data-choice="D">(2) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:439:          <button type="button" data-choice="A">\( Z = 86,\ A = 222 \)</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:440:          <button type="button" data-choice="B">\( Z = 84,\ A = 216 \)</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:441:          <button type="button" data-choice="C">\( Z = 83,\ A = 214 \)</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:442:          <button type="button" data-choice="D">\( Z = 82,\ A = 210 \)</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:453:          <button type="button" data-choice="A">the source is impure and contains other elements.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:454:          <button type="button" data-choice="B">daughter nuclides in the radium decay series (e.g. Pb-214, Bi-214) are themselves radioactive and emit β and γ.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:455:          <button type="button" data-choice="C">α particles turn into β particles when they hit the metal casing.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:456:          <button type="button" data-choice="D">the extra readings are only background radiation.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:514:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:515:          <button type="button" data-choice="B">(2) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:516:          <button type="button" data-choice="C">(1) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:517:          <button type="button" data-choice="D">(1), (2) and (3)</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:528:          <button type="button" data-choice="A">(i) α, (ii) α</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:529:          <button type="button" data-choice="B">(i) α, (ii) γ</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:530:          <button type="button" data-choice="C">(i) γ, (ii) α</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:531:          <button type="button" data-choice="D">(i) γ, (ii) γ</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:587:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:588:          <button type="button" data-choice="B">(2) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:589:          <button type="button" data-choice="C">(2) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:590:          <button type="button" data-choice="D">(1), (2) and (3)</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:601:          <button type="button" data-choice="A">The reading was zero before the phone was brought near.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:602:          <button type="button" data-choice="B">The reading does not change, because the phone's microwaves are non-ionizing and cannot be counted.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:603:          <button type="button" data-choice="C">The reading rises, because the phone's radiation is a form of background radiation.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:604:          <button type="button" data-choice="D">The reading falls, because the phone's signal absorbs some of the background radiation.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:615:          <button type="button" data-choice="A">radioactive minerals in the rock walls</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:616:          <button type="button" data-choice="B">radon gas that has collected in the still air of the cave</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:617:          <button type="button" data-choice="C">cosmic rays</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:618:          <button type="button" data-choice="D">radioactive material in the soil on the cave floor</button>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:629:          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:635:          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+notes/book5/ch01-radiation-and-radioactivity/25-2.html:641:          <div class="row"><button type="button" data-tf="true">True</button><button type="button" data-tf="false">False</button></div>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.js:22:    $all("[data-replay]").forEach(function (btn) {
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.js:24:        var target = document.getElementById(btn.getAttribute("data-replay"));
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.js:90:    $all("[data-leak]").forEach(function (btn) {
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.js:92:        var on = btn.getAttribute("data-leak") === "on";
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.js:96:        $all("[data-leak]").forEach(function (b) {
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.js:117:    $all("[data-fire]").forEach(function (btn) {
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.js:119:        var on = btn.getAttribute("data-fire") === "on";
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.js:123:        $all("[data-fire]").forEach(function (b) {
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.js:131:    $all("[data-age]").forEach(function (btn) {
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.js:133:        var i = Number(btn.getAttribute("data-age"));
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.js:137:        $all("[data-age]").forEach(function (b) {
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:49:      <div class="row"><button type="button" data-replay="pair-vis">Replay</button></div>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:81:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:82:          <button type="button" data-choice="B">(1) and (2) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:83:          <button type="button" data-choice="C">(1) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:84:          <button type="button" data-choice="D">(2) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:107:        <button type="button" data-current="alpha">α source</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:108:        <button type="button" data-current="beta">β source</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:134:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:135:          <button type="button" data-choice="B">(2) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:136:          <button type="button" data-choice="C">(1) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:137:          <button type="button" data-choice="D">(2) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:148:          <button type="button" data-choice="A">It stays the same, because the source is emitting just as strongly.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:149:          <button type="button" data-choice="B">It rises, because the α particles have more air to ionize.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:150:          <button type="button" data-choice="C">It falls to zero within a few centimetres, because α particles have a range of only about 5 cm in air.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:151:          <button type="button" data-choice="D">It falls gradually to zero over several metres.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:174:        <button type="button" data-track="alpha" aria-pressed="true">α tracks</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:175:        <button type="button" data-track="beta" aria-pressed="false">β tracks</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:176:        <button type="button" data-track="gamma" aria-pressed="false">γ tracks</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:205:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:206:          <button type="button" data-choice="B">(2) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:207:          <button type="button" data-choice="C">(1) and (2) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:208:          <button type="button" data-choice="D">(1), (2) and (3)</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:224:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:225:          <button type="button" data-choice="B">(2) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:226:          <button type="button" data-choice="C">(2) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:227:          <button type="button" data-choice="D">(1), (2) and (3)</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:250:        <button type="button" data-badge="alpha">expose to α</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:251:        <button type="button" data-badge="beta">expose to β</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:252:        <button type="button" data-badge="gamma">expose to γ</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:272:          <button type="button" data-choice="A">α</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:273:          <button type="button" data-choice="B">β</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:274:          <button type="button" data-choice="C">γ</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:275:          <button type="button" data-choice="D">It monitors all three.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:329:          <button type="button" data-gm-src="40">β or γ source nearby</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:330:          <button type="button" data-gm-src="20" data-need-grid="off">α source nearby</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:352:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:353:          <button type="button" data-choice="B">(2) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:354:          <button type="button" data-choice="C">(1) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:355:          <button type="button" data-choice="D">(2) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:381:        <button type="button" data-abs-src="bg">β + γ</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:382:        <button type="button" data-abs-src="ag">α + γ</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:383:        <button type="button" data-abs-src="abg">α + β + γ</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:427:          <button type="button" data-choice="A">The source emits γ with a range of 4 cm.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:428:          <button type="button" data-choice="B">The background count rate is zero and the source emits β.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:429:          <button type="button" data-choice="C">The source emits α with a range of about 4 cm in air; the background is about 28 counts per minute.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:430:          <button type="button" data-choice="D">The source stops emitting when the tube is more than 4 cm away.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:551:          <button type="button" data-choice="A">No radiation from the source is detected at Z.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:552:          <button type="button" data-choice="B">Both β and γ can be detected at Y.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:553:          <button type="button" data-choice="C">α is detected only at X.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:554:          <button type="button" data-choice="D">β is detected at X but not at Y or Z.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:565:          <button type="button" data-choice="A">\( x = 300,\ y = 300,\ z = 100 \)</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:566:          <button type="button" data-choice="B">\( x = 300,\ y = 100,\ z = 50 \)</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:567:          <button type="button" data-choice="C">\( x = 100,\ y = 100,\ z = 0 \)</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:568:          <button type="button" data-choice="D">\( x = 100,\ y = 50,\ z = 50 \)</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:579:          <button type="button" data-choice="A">β only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:580:          <button type="button" data-choice="B">γ only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:581:          <button type="button" data-choice="C">β and γ only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:582:          <button type="button" data-choice="D">α, β and γ</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:598:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:599:          <button type="button" data-choice="B">(2) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:600:          <button type="button" data-choice="C">(1) and (2) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:601:          <button type="button" data-choice="D">(2) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:612:          <button type="button" data-choice="A">Photograph the tracks in a cloud chamber to show that α, β and γ are all present.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:613:          <button type="button" data-choice="B">Insert a sheet of paper between the source and the gauze, or move the source more than about 5 cm away, and check that the sparking stops.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:614:          <button type="button" data-choice="C">Bring a bar magnet close to the source and see whether the sparks change.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:615:          <button type="button" data-choice="D">Replace the high-voltage supply with a lower voltage.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:686:          <button type="button" data-choice="A">experience a larger electric force.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:687:          <button type="button" data-choice="B">have a much smaller mass.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:688:          <button type="button" data-choice="C">carry more charge.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:689:          <button type="button" data-choice="D">move more slowly.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:700:          <button type="button" data-choice="A">Only β radiation can ionize air.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:701:          <button type="button" data-choice="B">Only γ radiation can travel through a vacuum.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:702:          <button type="button" data-choice="C">Both can be detected by a photographic film.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:703:          <button type="button" data-choice="D">Both carry charge.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:714:          <button type="button" data-choice="A">The source emits γ radiation.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:715:          <button type="button" data-choice="B">The source emits β radiation.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:716:          <button type="button" data-choice="C">The source does not emit α radiation.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:717:          <button type="button" data-choice="D">The background count rate is 95 counts per minute.</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:728:          <button type="button" data-choice="A">β ≈ 102, γ ≈ 40 counts per minute</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:729:          <button type="button" data-choice="B">β ≈ 82, γ ≈ 42 counts per minute</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:730:          <button type="button" data-choice="C">β ≈ 142, γ ≈ 82 counts per minute</button>
+notes/book5/ch01-radiation-and-radioactivity/25-3.html:731:          <button type="button" data-choice="D">β ≈ 184, γ ≈ 82 counts per minute</button>
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:30:    $all("[data-replay]").forEach(function (btn) {
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:32:        var target = document.getElementById(btn.getAttribute("data-replay"));
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:46:    $all("[data-iso]").forEach(function (btn) {
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:49:          window.NotesScenes.hydrogen.setN(Number(btn.getAttribute("data-iso")));
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:56:    $all("[data-nuclide]").forEach(function (btn) {
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:59:          window.NotesScenes.nuclide.setKey(btn.getAttribute("data-nuclide"));
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:162:    $all("[data-decay]").forEach(function (btn) {
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:164:        var kind = btn.getAttribute("data-decay");
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:165:        $all("[data-decay]").forEach(function (b) {
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:168:        $all("[data-decay-panel]").forEach(function (p) {
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:169:          p.hidden = p.getAttribute("data-decay-panel") !== kind;
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:206:    $all("[data-gm-src]").forEach(function (btn) {
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:208:        picked = Number(btn.getAttribute("data-gm-src"));
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:223:    $all("[data-current]").forEach(function (btn) {
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:226:          window.NotesScenes.current.setKind(btn.getAttribute("data-current"));
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:233:    var buttons = $all("[data-track]");
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:236:        btn.setAttribute("aria-pressed", btn.getAttribute("data-track") === kind ? "true" : "false");
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:241:        var kind = btn.getAttribute("data-track");
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:300:    $all("[data-abs-src]").forEach(function (btn) {
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:302:        src = sources[btn.getAttribute("data-abs-src")];
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:465:    $all("[data-badge]").forEach(function (btn) {
+notes/book5/ch01-radiation-and-radioactivity/js/notes.js:467:        var kind = btn.getAttribute("data-badge");
+notes/book5/ch01-radiation-and-radioactivity/summary.html:182:          <button type="button" data-choice="A">P = β, Q = α, R = γ</button>
+notes/book5/ch01-radiation-and-radioactivity/summary.html:183:          <button type="button" data-choice="B">P = α, Q = γ, R = β</button>
+notes/book5/ch01-radiation-and-radioactivity/summary.html:184:          <button type="button" data-choice="C">P = γ, Q = β, R = α</button>
+notes/book5/ch01-radiation-and-radioactivity/summary.html:185:          <button type="button" data-choice="D">P = α, Q = β, R = γ</button>
+notes/book5/ch01-radiation-and-radioactivity/summary.html:201:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch01-radiation-and-radioactivity/summary.html:202:          <button type="button" data-choice="B">(2) only</button>
+notes/book5/ch01-radiation-and-radioactivity/summary.html:203:          <button type="button" data-choice="C">(2) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/summary.html:204:          <button type="button" data-choice="D">(1), (2) and (3)</button>
+notes/book5/ch01-radiation-and-radioactivity/summary.html:220:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch01-radiation-and-radioactivity/summary.html:221:          <button type="button" data-choice="B">(3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/summary.html:222:          <button type="button" data-choice="C">(1) and (3) only</button>
+notes/book5/ch01-radiation-and-radioactivity/summary.html:223:          <button type="button" data-choice="D">(1) and (2) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:70:          <button type="button" data-choice="A">(1) and (2) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:71:          <button type="button" data-choice="B">(1) and (3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:72:          <button type="button" data-choice="C">(2) and (3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:73:          <button type="button" data-choice="D">(1), (2) and (3)</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:144:          <button type="button" data-choice="A">(1) and (2) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:145:          <button type="button" data-choice="B">(1) and (3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:146:          <button type="button" data-choice="C">(2) and (3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:147:          <button type="button" data-choice="D">(1), (2) and (3)</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:158:          <button type="button" data-choice="A">β · 6.0 hours</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:159:          <button type="button" data-choice="B">γ · 13.5 years</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:160:          <button type="button" data-choice="C">γ · 6.01 hours</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:161:          <button type="button" data-choice="D">β · 3.14 days</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:184:        <button type="button" data-leak="on" aria-pressed="true">Leak on</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:185:        <button type="button" data-leak="off">Leak off</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:214:          <button type="button" data-choice="A">P · half-life 66 h · β</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:215:          <button type="button" data-choice="B">Q · half-life 36 h · γ</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:216:          <button type="button" data-choice="C">R · half-life 7.2 h · α</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:217:          <button type="button" data-choice="D">S · half-life 45 min · α and β</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:228:          <button type="button" data-choice="A">α · half-life 432 years</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:229:          <button type="button" data-choice="B">β · half-life 5.75 years</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:230:          <button type="button" data-choice="C">γ · half-life 5.27 years</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:231:          <button type="button" data-choice="D">γ · half-life 6.0 hours</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:242:          <button type="button" data-choice="A">Correct: older sources emit slower β particles.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:243:          <button type="button" data-choice="B">Wrong reason: penetrating power per particle is unchanged, but the activity (particles per second) has fallen, so the count rate for the set thickness has drifted.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:244:          <button type="button" data-choice="C">Wrong: a source with a half-life of years never needs replacing.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:245:          <button type="button" data-choice="D">Wrong: the source is replaced only because the paper becomes radioactive.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:280:        <button type="button" data-fire="off" aria-pressed="true">Clear air</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:281:        <button type="button" data-fire="on">Smoke</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:306:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:307:          <button type="button" data-choice="B">(1) and (3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:308:          <button type="button" data-choice="C">(2) and (3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:309:          <button type="button" data-choice="D">(3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:344:          <button type="button" data-choice="A">(2) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:345:          <button type="button" data-choice="B">(3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:346:          <button type="button" data-choice="C">(1) and (2) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:347:          <button type="button" data-choice="D">none of them</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:368:        <button type="button" data-age="0" aria-pressed="true">Alive</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:369:        <button type="button" data-age="1">Just dead</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:370:        <button type="button" data-age="2">1 half-life</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:371:        <button type="button" data-age="3">2 half-lives</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:398:          <button type="button" data-choice="A">890 years</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:399:          <button type="button" data-choice="B">1300 years</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:400:          <button type="button" data-choice="C">2000 years</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:401:          <button type="button" data-choice="D">2900 years</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:412:          <button type="button" data-choice="A">a granite rock</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:413:          <button type="button" data-choice="B">a bone believed to be 300 000 years old</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:414:          <button type="button" data-choice="C">a linen cloth believed to be 3000 years old</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:415:          <button type="button" data-choice="D">a wooden box made 20 years ago</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:426:          <button type="button" data-choice="A">The activity of the carbon-14 in a living body is too small to measure.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:427:          <button type="button" data-choice="B">A human lifetime is far shorter than the half-life of carbon-14.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:428:          <button type="button" data-choice="C">While a person is alive the carbon-14 fraction in the body is continually replenished from food, so it does not fall with age.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:429:          <button type="button" data-choice="D">Carbon-14 is found only in plants.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:55:        <button type="button" data-replay="decay-vis">Replay</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:71:          <button type="button" data-choice="A">the activity of a sample depends on the number of undecayed nuclei.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:72:          <button type="button" data-choice="B">the rate of decay increases with temperature.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:73:          <button type="button" data-choice="C">the type of radiation emitted by the sample cannot be known in advance.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:74:          <button type="button" data-choice="D">we can never tell which nucleus in the sample will decay next, or when a given nucleus will decay.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:85:          <button type="button" data-choice="A">5, 62, 8, 69</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:86:          <button type="button" data-choice="B">40, 40, 40, 40</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:87:          <button type="button" data-choice="C">60, 50, 30, 20</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:88:          <button type="button" data-choice="D">29, 26, 31, 35</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:104:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:105:          <button type="button" data-choice="B">(3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:106:          <button type="button" data-choice="C">(2) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:107:          <button type="button" data-choice="D">(1) and (2) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:167:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:168:          <button type="button" data-choice="B">(1) and (3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:169:          <button type="button" data-choice="C">(2) and (3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:170:          <button type="button" data-choice="D">(1), (2) and (3)</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:186:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:187:          <button type="button" data-choice="B">(2) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:188:          <button type="button" data-choice="C">(1) and (3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:189:          <button type="button" data-choice="D">(2) and (3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:200:          <button type="button" data-choice="A">25% parent, 75% daughter</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:201:          <button type="button" data-choice="B">51% parent, 49% daughter</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:202:          <button type="button" data-choice="C">14% parent, 86% daughter</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:203:          <button type="button" data-choice="D">4% parent, 96% daughter</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:254:          <button type="button" data-choice="A">0.2 Bq</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:255:          <button type="button" data-choice="B">5 Bq</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:256:          <button type="button" data-choice="C">300 Bq</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:257:          <button type="button" data-choice="D">18 000 Bq</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:273:          <button type="button" data-choice="A">(1) and (3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:274:          <button type="button" data-choice="B">(1) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:275:          <button type="button" data-choice="C">(1), (2) and (3)</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:276:          <button type="button" data-choice="D">(2) and (3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:292:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:293:          <button type="button" data-choice="B">(3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:294:          <button type="button" data-choice="C">(1) and (2) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:295:          <button type="button" data-choice="D">(2) and (3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:306:          <button type="button" data-choice="A">P has twice the half-life of Q.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:307:          <button type="button" data-choice="B">P and Q have the same activity because they are the same nuclide.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:308:          <button type="button" data-choice="C">P has twice the activity of Q, and both activities halve in the same time.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:309:          <button type="button" data-choice="D">P's activity takes twice as long as Q's to fall to half.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:331:        <button type="button" data-replay="countbg-vis">Replay</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:369:          <button type="button" data-choice="A">2.0 years</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:370:          <button type="button" data-choice="B">2.5 years</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:371:          <button type="button" data-choice="C">3.0 years</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:372:          <button type="button" data-choice="D">4.8 years</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:383:          <button type="button" data-choice="A">70 min<sup>-1</sup></button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:384:          <button type="button" data-choice="B">80 min<sup>-1</sup></button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:385:          <button type="button" data-choice="C">60 min<sup>-1</sup></button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:386:          <button type="button" data-choice="D">10 min<sup>-1</sup></button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:397:          <button type="button" data-choice="A">The source has become negative in activity.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:398:          <button type="button" data-choice="B">The source now contributes almost nothing and the background itself fluctuates randomly.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:399:          <button type="button" data-choice="C">The half-life of the source has changed.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:400:          <button type="button" data-choice="D">The counter must be faulty.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:435:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:436:          <button type="button" data-choice="B">(3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:437:          <button type="button" data-choice="C">(1) and (2) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:438:          <button type="button" data-choice="D">(2) and (3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:449:          <button type="button" data-choice="A">\( \tfrac{1}{4} \le f \le \tfrac{1}{2} \)</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:450:          <button type="button" data-choice="B">\( f = \tfrac{1}{2} \)</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:451:          <button type="button" data-choice="C">\( \tfrac{1}{2} &lt; f &lt; \tfrac{3}{4} \)</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:452:          <button type="button" data-choice="D">\( f &gt; \tfrac{3}{4} \)</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:463:          <button type="button" data-choice="A">\( t \)</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:464:          <button type="button" data-choice="B">\( 2t \)</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:465:          <button type="button" data-choice="C">\( 3t \)</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:466:          <button type="button" data-choice="D">\( 4t \)</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:521:          <button type="button" data-choice="A">It is the rate of decay of a sample of the nuclide.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:522:          <button type="button" data-choice="B">It is the fraction of the undecayed nuclei that decay per unit time.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:523:          <button type="button" data-choice="C">It is the probability that a given nucleus decays per unit time.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:524:          <button type="button" data-choice="D">It is independent of the temperature of the sample.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:535:          <button type="button" data-choice="A">\( 1.08 \times 10^{5} \) s</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:536:          <button type="button" data-choice="B">\( 3.98 \times 10^{4} \) s</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:537:          <button type="button" data-choice="C">\( 6.80 \times 10^{4} \) s</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:538:          <button type="button" data-choice="D">\( 3.27 \times 10^{4} \) s</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:549:          <button type="button" data-choice="A">The half-life is 4.0 h.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:550:          <button type="button" data-choice="B">The decay constant is 4.0 h<sup>-1</sup>.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:551:          <button type="button" data-choice="C">The decay constant is 1.0 h<sup>-1</sup> and the half-life is about 0.69 h.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:552:          <button type="button" data-choice="D">The initial activity is 6.0 Bq.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:563:          <button type="button" data-choice="A">0.50</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:564:          <button type="button" data-choice="B">0.39</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:565:          <button type="button" data-choice="C">0.61</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:566:          <button type="button" data-choice="D">0.05</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:63:          <button type="button" data-choice="A">(i) α, (ii) α</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:64:          <button type="button" data-choice="B">(i) α, (ii) γ</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:65:          <button type="button" data-choice="C">(i) γ, (ii) α</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:66:          <button type="button" data-choice="D">(i) γ, (ii) γ</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:77:          <button type="button" data-choice="A">Yes: harm is proportional to activity.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:78:          <button type="button" data-choice="B">No: it also depends on the type of radiation, whether the source is inside or outside the body, the distance, the exposure time and any shielding.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:79:          <button type="button" data-choice="C">No: only the half-life matters.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:80:          <button type="button" data-choice="D">Yes, provided both are γ sources.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:91:          <button type="button" data-choice="A">it emits γ radiation, which is absorbed mainly by lung tissue.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:92:          <button type="button" data-choice="B">it has a very long half-life, so it stays in the lungs for years.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:93:          <button type="button" data-choice="C">it is a gas that is breathed in, so it and its daughters decay inside the lungs, where their α particles ionize the tissue directly.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:94:          <button type="button" data-choice="D">it is heavier than air and collects at floor level.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:164:          <button type="button" data-choice="A">sievert (Sv)</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:165:          <button type="button" data-choice="B">becquerel (Bq)</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:166:          <button type="button" data-choice="C">joule (J)</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:167:          <button type="button" data-choice="D">watt per square metre (W m<sup>-2</sup>)</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:178:          <button type="button" data-choice="A">2.46 mSv</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:179:          <button type="button" data-choice="B">9.06 mSv</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:180:          <button type="button" data-choice="C">11.5 mSv</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:181:          <button type="button" data-choice="D">20.5 mSv</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:197:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:198:          <button type="button" data-choice="B">(2) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:199:          <button type="button" data-choice="C">(1) and (3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:200:          <button type="button" data-choice="D">(2) and (3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:252:          <button type="button" data-choice="A">(1) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:253:          <button type="button" data-choice="B">(1) and (2) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:254:          <button type="button" data-choice="C">(2) and (3) only</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:255:          <button type="button" data-choice="D">(1), (2) and (3)</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:266:          <button type="button" data-choice="A">Wood, because it is a good electrical insulator.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:267:          <button type="button" data-choice="B">Aluminium, because 5 mm of aluminium stops all radiation.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:268:          <button type="button" data-choice="C">Lead, because a dense, high-atomic-number material absorbs γ most effectively.</button>
+notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:269:          <button type="button" data-choice="D">Any of them, because a sealed box keeps the radiation in.</button>

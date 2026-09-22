@@ -1,0 +1,2984 @@
+compdef:153: _comps: assignment to invalid subscript range
+{
+  "start1280": {
+    "vw": 1280,
+    "bodyClass": "",
+    "headerH": 47,
+    "headerText": "Trajectory Simplification Visualizer Preloaded: Select trace... ────────────────── Demo or Upload original.txt no file chosen ε δ Load Trace",
+    "paramsText": "",
+    "paramsH": 0,
+    "paramsW": 0,
+    "paramsChildren": [],
+    "hasFrechet": false,
+    "hasTime": false,
+    "hasSpinner": false,
+    "loadBtn": {
+      "w": 82,
+      "h": 26,
+      "text": "Load Trace"
+    },
+    "uploadStatus": {
+      "text": "",
+      "w": 0
+    },
+    "hudVisible": false,
+    "hud": {
+      "display": "none",
+      "text": "Loading details…"
+    },
+    "dropDisplay": "block",
+    "playbackH": 0,
+    "pbClipped": [
+      {
+        "id": "stepBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepInput",
+        "text": "Current step / total steps",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "segmentInput",
+        "text": "Current segment / total segments",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateInput",
+        "text": "Current candidate / total candidates",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "playBtn",
+        "text": "Play",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.25×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.5×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "1×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "2×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "4×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      }
+    ],
+    "pbControls": [
+      {
+        "id": "stepBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepInput",
+        "text": "Current step / total steps",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "segmentInput",
+        "text": "Current segment / total segments",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateInput",
+        "text": "Current candidate / total candidates",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "playBtn",
+        "text": "Play",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.25×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.5×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "1×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "2×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "4×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      }
+    ],
+    "dockDisplay": "none",
+    "sidebarDisplay": "none",
+    "canvas": {
+      "h": 753,
+      "w": 1280
+    },
+    "pageOverflowX": false,
+    "scrollW": 1280,
+    "overflows": []
+  },
+  "start900": {
+    "vw": 900,
+    "bodyClass": "",
+    "headerH": 81,
+    "headerText": "Trajectory Simplification Visualizer Preloaded: Select trace... ────────────────── Demo or Upload original.txt no file chosen ε δ Load Trace",
+    "paramsText": "",
+    "paramsH": 0,
+    "paramsW": 0,
+    "paramsChildren": [],
+    "hasFrechet": false,
+    "hasTime": false,
+    "hasSpinner": false,
+    "loadBtn": {
+      "w": 82,
+      "h": 26,
+      "text": "Load Trace"
+    },
+    "uploadStatus": {
+      "text": "",
+      "w": 0
+    },
+    "hudVisible": false,
+    "hud": {
+      "display": "none",
+      "text": "Loading details…"
+    },
+    "dropDisplay": "block",
+    "playbackH": 0,
+    "pbClipped": [
+      {
+        "id": "stepBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepInput",
+        "text": "Current step / total steps",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "segmentInput",
+        "text": "Current segment / total segments",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateInput",
+        "text": "Current candidate / total candidates",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "playBtn",
+        "text": "Play",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.25×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.5×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "1×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "2×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "4×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      }
+    ],
+    "pbControls": [
+      {
+        "id": "stepBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepInput",
+        "text": "Current step / total steps",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "segmentInput",
+        "text": "Current segment / total segments",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateInput",
+        "text": "Current candidate / total candidates",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "playBtn",
+        "text": "Play",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.25×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.5×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "1×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "2×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "4×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      }
+    ],
+    "dockDisplay": "none",
+    "sidebarDisplay": "none",
+    "canvas": {
+      "h": 619,
+      "w": 900
+    },
+    "pageOverflowX": false,
+    "scrollW": 900,
+    "overflows": []
+  },
+  "start390": {
+    "vw": 390,
+    "bodyClass": "",
+    "headerH": 844,
+    "headerText": "Trajectory Simplification Visualizer Select trace… Select trace... ────────────────── Demo ε δ Load Trace Instructions Select a preloaded trajectory. Adjust ε and δ, then tap Load ",
+    "paramsText": "",
+    "paramsH": 0,
+    "paramsW": 0,
+    "paramsChildren": [],
+    "hasFrechet": false,
+    "hasTime": false,
+    "hasSpinner": false,
+    "loadBtn": {
+      "w": 336,
+      "h": 44,
+      "text": "Load Trace"
+    },
+    "uploadStatus": {
+      "text": "",
+      "w": 336
+    },
+    "hudVisible": false,
+    "hud": {
+      "display": "none",
+      "text": "Loading details…"
+    },
+    "dropDisplay": "none",
+    "playbackH": 0,
+    "pbClipped": [
+      {
+        "id": "stepBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepInput",
+        "text": "Current step / total steps",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "segmentInput",
+        "text": "Current segment / total segments",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateInput",
+        "text": "Current candidate / total candidates",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "playBtn",
+        "text": "Play",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.25×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.5×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "1×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "2×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "4×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      }
+    ],
+    "pbControls": [
+      {
+        "id": "stepBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepInput",
+        "text": "Current step / total steps",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "segmentInput",
+        "text": "Current segment / total segments",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateInput",
+        "text": "Current candidate / total candidates",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "playBtn",
+        "text": "Play",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.25×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.5×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "1×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "2×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "4×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      }
+    ],
+    "dockDisplay": "none",
+    "sidebarDisplay": "none",
+    "canvas": {
+      "h": 0,
+      "w": 0
+    },
+    "pageOverflowX": false,
+    "scrollW": 390,
+    "overflows": []
+  },
+  "loading1280": {
+    "vw": 1280,
+    "bodyClass": "trace-loading",
+    "headerH": 48,
+    "headerText": "Trajectory Simplification Visualizer Preloaded: Select trace... ────────────────── Demo or Upload original.txt no file chosen ε δ Loading Computing trace…",
+    "paramsText": "",
+    "paramsH": 0,
+    "paramsW": 0,
+    "paramsChildren": [],
+    "hasFrechet": false,
+    "hasTime": false,
+    "hasSpinner": false,
+    "loadBtn": {
+      "w": 36,
+      "h": 27,
+      "text": "Loading"
+    },
+    "uploadStatus": {
+      "text": "Computing trace…",
+      "w": 126
+    },
+    "hudVisible": true,
+    "hud": {
+      "display": "flex",
+      "text": "Loading details…"
+    },
+    "dropDisplay": "none",
+    "playbackH": 0,
+    "pbClipped": [
+      {
+        "id": "stepBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepInput",
+        "text": "Current step / total steps",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "segmentInput",
+        "text": "Current segment / total segments",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateInput",
+        "text": "Current candidate / total candidates",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "playBtn",
+        "text": "Play",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.25×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.5×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "1×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "2×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "4×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      }
+    ],
+    "pbControls": [
+      {
+        "id": "stepBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepInput",
+        "text": "Current step / total steps",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "segmentInput",
+        "text": "Current segment / total segments",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateInput",
+        "text": "Current candidate / total candidates",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "playBtn",
+        "text": "Play",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.25×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.5×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "1×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "2×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "4×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      }
+    ],
+    "dockDisplay": "none",
+    "sidebarDisplay": "none",
+    "canvas": {
+      "h": 752,
+      "w": 1280
+    },
+    "pageOverflowX": false,
+    "scrollW": 1280,
+    "overflows": []
+  },
+  "loading390": {
+    "vw": 390,
+    "bodyClass": "trace-loaded-mobile trace-loading",
+    "headerH": 117,
+    "headerText": "Back Trajectory Simplification Visualizer Computed Fréchet distance Loading Simplification time Loading",
+    "paramsText": "Computed Fréchet distance Loading Simplification time Loading",
+    "paramsH": 36,
+    "paramsW": 366,
+    "paramsChildren": [
+      {
+        "text": "Computed Fréchet distance Loading",
+        "x": 12,
+        "y": 70,
+        "w": 209,
+        "h": 14,
+        "right": 221
+      },
+      {
+        "text": "Simplification time Loading",
+        "x": 12,
+        "y": 92,
+        "w": 189,
+        "h": 14,
+        "right": 201
+      }
+    ],
+    "hasFrechet": true,
+    "hasTime": true,
+    "hasSpinner": true,
+    "loadBtn": {
+      "w": 0,
+      "h": 0,
+      "text": "Loading"
+    },
+    "uploadStatus": {
+      "text": "Computing trace…",
+      "w": 0
+    },
+    "hudVisible": true,
+    "hud": {
+      "display": "flex",
+      "text": "Loading details…"
+    },
+    "dropDisplay": "none",
+    "playbackH": 0,
+    "pbClipped": [
+      {
+        "id": "stepBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepInput",
+        "text": "Current step / total steps",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "segmentInput",
+        "text": "Current segment / total segments",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateInput",
+        "text": "Current candidate / total candidates",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "playBtn",
+        "text": "Play",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.25×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.5×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "1×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "2×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "4×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      }
+    ],
+    "pbControls": [
+      {
+        "id": "stepBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepInput",
+        "text": "Current step / total steps",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "segmentInput",
+        "text": "Current segment / total segments",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateInput",
+        "text": "Current candidate / total candidates",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "playBtn",
+        "text": "Play",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.25×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.5×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "1×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "2×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "4×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      }
+    ],
+    "dockDisplay": "none",
+    "sidebarDisplay": "none",
+    "canvas": {
+      "h": 727,
+      "w": 390
+    },
+    "pageOverflowX": false,
+    "scrollW": 390,
+    "overflows": []
+  },
+  "loaded1280": {
+    "vw": 1280,
+    "bodyClass": "trace-loaded-mobile playback-ready",
+    "headerH": 110,
+    "headerText": "Trajectory Simplification Visualizer Preloaded: Select trace... ────────────────── Demo or Upload original.txt no file chosen ε δ Load Trace ✓ Loaded Trace 1 Computed Fréchet dista",
+    "paramsText": "Computed Fréchet distance 0.4123 Simplification time 12.4000 ms 𝜀 0.9000 𝛿 500.0000 len grid 12.5000 𝑅 (disk radius) 8.2000 a-priori Fréchet bound 1.2500 Actual Fréchet distance",
+    "paramsH": 46,
+    "paramsW": 1248,
+    "paramsChildren": [
+      {
+        "text": "Computed Fréchet distance 0.4123",
+        "x": 16,
+        "y": 52,
+        "w": 226,
+        "h": 17,
+        "right": 242
+      },
+      {
+        "text": "Simplification time 12.4000 ms",
+        "x": 256,
+        "y": 52,
+        "w": 204,
+        "h": 17,
+        "right": 460
+      },
+      {
+        "text": "𝜀 0.9000",
+        "x": 474,
+        "y": 52,
+        "w": 53,
+        "h": 17,
+        "right": 527
+      },
+      {
+        "text": "𝛿 500.0000",
+        "x": 541,
+        "y": 52,
+        "w": 68,
+        "h": 17,
+        "right": 609
+      },
+      {
+        "text": "len grid 12.5000",
+        "x": 623,
+        "y": 52,
+        "w": 88,
+        "h": 17,
+        "right": 711
+      },
+      {
+        "text": "𝑅 (disk radius) 8.2000",
+        "x": 725,
+        "y": 52,
+        "w": 131,
+        "h": 17,
+        "right": 856
+      },
+      {
+        "text": "a-priori Fréchet bound 1.2500",
+        "x": 870,
+        "y": 52,
+        "w": 172,
+        "h": 17,
+        "right": 1042
+      },
+      {
+        "text": "Actual Fréchet distance 0.4100",
+        "x": 1056,
+        "y": 52,
+        "w": 184,
+        "h": 17,
+        "right": 1240
+      },
+      {
+        "text": "|stream| 3",
+        "x": 16,
+        "y": 84,
+        "w": 56,
+        "h": 15,
+        "right": 72
+      },
+      {
+        "text": "|simplified| 2",
+        "x": 86,
+        "y": 84,
+        "w": 72,
+        "h": 15,
+        "right": 158
+      },
+      {
+        "text": "ratio 66.7%",
+        "x": 172,
+        "y": 84,
+        "w": 67,
+        "h": 15,
+        "right": 239
+      }
+    ],
+    "hasFrechet": true,
+    "hasTime": true,
+    "hasSpinner": false,
+    "loadBtn": {
+      "w": 82,
+      "h": 26,
+      "text": "Load Trace"
+    },
+    "uploadStatus": {
+      "text": "✓ Loaded Trace 1",
+      "w": 99
+    },
+    "hudVisible": false,
+    "hud": {
+      "display": "none",
+      "text": "Loading details…"
+    },
+    "dropDisplay": "none",
+    "playbackH": 91,
+    "pbClipped": [],
+    "pbControls": [
+      {
+        "id": "stepBackBtn",
+        "text": "Previous step (←)",
+        "x": 14,
+        "y": 718,
+        "w": 56,
+        "h": 28,
+        "clipped": false,
+        "disabled": true
+      },
+      {
+        "id": "stepInput",
+        "text": "1 / 2",
+        "x": 76,
+        "y": 720,
+        "w": 80,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "stepForwardBtn",
+        "text": "Next step (→)",
+        "x": 162,
+        "y": 718,
+        "w": 56,
+        "h": 28,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "prefixBackBtn",
+        "text": "Previous simplified segment (Shift+←)",
+        "x": 239,
+        "y": 718,
+        "w": 56,
+        "h": 28,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "segmentInput",
+        "text": "1 / 1",
+        "x": 301,
+        "y": 720,
+        "w": 80,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "prefixForwardBtn",
+        "text": "Next simplified segment (Shift+→)",
+        "x": 387,
+        "y": 718,
+        "w": 56,
+        "h": 28,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "candidateBackBtn",
+        "text": "Previous candidate",
+        "x": 464,
+        "y": 718,
+        "w": 56,
+        "h": 28,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "candidateInput",
+        "text": "1 / 1",
+        "x": 526,
+        "y": 720,
+        "w": 80,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "candidateForwardBtn",
+        "text": "Next candidate (C)",
+        "x": 612,
+        "y": 718,
+        "w": 56,
+        "h": 28,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "playBtn",
+        "text": "Play",
+        "x": 689,
+        "y": 719,
+        "w": 64,
+        "h": 41,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.25×",
+        "x": 61,
+        "y": 768,
+        "w": 50,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.5×",
+        "x": 118,
+        "y": 768,
+        "w": 44,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "1×",
+        "x": 167,
+        "y": 768,
+        "w": 36,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "2×",
+        "x": 209,
+        "y": 768,
+        "w": 36,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "4×",
+        "x": 251,
+        "y": 768,
+        "w": 36,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      }
+    ],
+    "dockDisplay": "none",
+    "sidebarDisplay": "flex",
+    "canvas": {
+      "h": 599,
+      "w": 960
+    },
+    "pageOverflowX": false,
+    "scrollW": 1280,
+    "overflows": []
+  },
+  "loaded1024": {
+    "vw": 1024,
+    "bodyClass": "trace-loaded-mobile playback-ready",
+    "headerH": 144,
+    "headerText": "Trajectory Simplification Visualizer Preloaded: Select trace... ────────────────── Demo or Upload original.txt no file chosen ε δ Load Trace ✓ Loaded Trace 1 Computed Fréchet dista",
+    "paramsText": "Computed Fréchet distance 0.4123 Simplification time 12.4000 ms 𝜀 0.9000 𝛿 500.0000 len grid 12.5000 𝑅 (disk radius) 8.2000 a-priori Fréchet bound 1.2500 Actual Fréchet distance",
+    "paramsH": 46,
+    "paramsW": 992,
+    "paramsChildren": [
+      {
+        "text": "Computed Fréchet distance 0.4123",
+        "x": 16,
+        "y": 86,
+        "w": 226,
+        "h": 17,
+        "right": 242
+      },
+      {
+        "text": "Simplification time 12.4000 ms",
+        "x": 256,
+        "y": 86,
+        "w": 204,
+        "h": 17,
+        "right": 460
+      },
+      {
+        "text": "𝜀 0.9000",
+        "x": 474,
+        "y": 86,
+        "w": 53,
+        "h": 17,
+        "right": 527
+      },
+      {
+        "text": "𝛿 500.0000",
+        "x": 541,
+        "y": 86,
+        "w": 68,
+        "h": 17,
+        "right": 609
+      },
+      {
+        "text": "len grid 12.5000",
+        "x": 623,
+        "y": 86,
+        "w": 88,
+        "h": 17,
+        "right": 711
+      },
+      {
+        "text": "𝑅 (disk radius) 8.2000",
+        "x": 725,
+        "y": 86,
+        "w": 131,
+        "h": 17,
+        "right": 856
+      },
+      {
+        "text": "a-priori Fréchet bound 1.2500",
+        "x": 16,
+        "y": 118,
+        "w": 172,
+        "h": 15,
+        "right": 188
+      },
+      {
+        "text": "Actual Fréchet distance 0.4100",
+        "x": 202,
+        "y": 118,
+        "w": 184,
+        "h": 15,
+        "right": 386
+      },
+      {
+        "text": "|stream| 3",
+        "x": 400,
+        "y": 118,
+        "w": 56,
+        "h": 15,
+        "right": 456
+      },
+      {
+        "text": "|simplified| 2",
+        "x": 470,
+        "y": 118,
+        "w": 72,
+        "h": 15,
+        "right": 542
+      },
+      {
+        "text": "ratio 66.7%",
+        "x": 556,
+        "y": 118,
+        "w": 67,
+        "h": 15,
+        "right": 623
+      }
+    ],
+    "hasFrechet": true,
+    "hasTime": true,
+    "hasSpinner": false,
+    "loadBtn": {
+      "w": 82,
+      "h": 26,
+      "text": "Load Trace"
+    },
+    "uploadStatus": {
+      "text": "✓ Loaded Trace 1",
+      "w": 99
+    },
+    "hudVisible": false,
+    "hud": {
+      "display": "none",
+      "text": "Loading details…"
+    },
+    "dropDisplay": "none",
+    "playbackH": 108,
+    "pbClipped": [],
+    "pbControls": [
+      {
+        "id": "stepBackBtn",
+        "text": "Previous step (←)",
+        "x": 14,
+        "y": 669,
+        "w": 56,
+        "h": 28,
+        "clipped": false,
+        "disabled": true
+      },
+      {
+        "id": "stepInput",
+        "text": "1 / 2",
+        "x": 76,
+        "y": 671,
+        "w": 80,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "stepForwardBtn",
+        "text": "Next step (→)",
+        "x": 162,
+        "y": 669,
+        "w": 56,
+        "h": 28,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "prefixBackBtn",
+        "text": "Previous simplified segment (Shift+←)",
+        "x": 239,
+        "y": 669,
+        "w": 56,
+        "h": 28,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "segmentInput",
+        "text": "1 / 1",
+        "x": 301,
+        "y": 671,
+        "w": 80,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "prefixForwardBtn",
+        "text": "Next simplified segment (Shift+→)",
+        "x": 387,
+        "y": 669,
+        "w": 56,
+        "h": 28,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "candidateBackBtn",
+        "text": "Previous candidate",
+        "x": 464,
+        "y": 669,
+        "w": 56,
+        "h": 28,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "candidateInput",
+        "text": "1 / 1",
+        "x": 526,
+        "y": 671,
+        "w": 80,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "candidateForwardBtn",
+        "text": "Next candidate (C)",
+        "x": 612,
+        "y": 669,
+        "w": 56,
+        "h": 28,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "playBtn",
+        "text": "Play",
+        "x": 14,
+        "y": 719,
+        "w": 64,
+        "h": 41,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.25×",
+        "x": 131,
+        "y": 727,
+        "w": 50,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.5×",
+        "x": 188,
+        "y": 727,
+        "w": 44,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "1×",
+        "x": 237,
+        "y": 727,
+        "w": 36,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "2×",
+        "x": 279,
+        "y": 727,
+        "w": 36,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "4×",
+        "x": 321,
+        "y": 727,
+        "w": 36,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      }
+    ],
+    "dockDisplay": "none",
+    "sidebarDisplay": "flex",
+    "canvas": {
+      "h": 516,
+      "w": 704
+    },
+    "pageOverflowX": false,
+    "scrollW": 1024,
+    "overflows": []
+  },
+  "loaded900": {
+    "vw": 900,
+    "bodyClass": "trace-loaded-mobile playback-ready",
+    "headerH": 144,
+    "headerText": "Trajectory Simplification Visualizer Preloaded: Select trace... ────────────────── Demo or Upload original.txt no file chosen ε δ Load Trace ✓ Loaded Trace 1 Computed Fréchet dista",
+    "paramsText": "Computed Fréchet distance 0.4123 Simplification time 12.4000 ms 𝜀 0.9000 𝛿 500.0000 len grid 12.5000 𝑅 (disk radius) 8.2000 a-priori Fréchet bound 1.2500 Actual Fréchet distance",
+    "paramsH": 46,
+    "paramsW": 868,
+    "paramsChildren": [
+      {
+        "text": "Computed Fréchet distance 0.4123",
+        "x": 16,
+        "y": 86,
+        "w": 226,
+        "h": 17,
+        "right": 242
+      },
+      {
+        "text": "Simplification time 12.4000 ms",
+        "x": 256,
+        "y": 86,
+        "w": 204,
+        "h": 17,
+        "right": 460
+      },
+      {
+        "text": "𝜀 0.9000",
+        "x": 474,
+        "y": 86,
+        "w": 53,
+        "h": 17,
+        "right": 527
+      },
+      {
+        "text": "𝛿 500.0000",
+        "x": 541,
+        "y": 86,
+        "w": 68,
+        "h": 17,
+        "right": 609
+      },
+      {
+        "text": "len grid 12.5000",
+        "x": 623,
+        "y": 86,
+        "w": 88,
+        "h": 17,
+        "right": 711
+      },
+      {
+        "text": "𝑅 (disk radius) 8.2000",
+        "x": 725,
+        "y": 86,
+        "w": 131,
+        "h": 17,
+        "right": 856
+      },
+      {
+        "text": "a-priori Fréchet bound 1.2500",
+        "x": 16,
+        "y": 118,
+        "w": 172,
+        "h": 15,
+        "right": 188
+      },
+      {
+        "text": "Actual Fréchet distance 0.4100",
+        "x": 202,
+        "y": 118,
+        "w": 184,
+        "h": 15,
+        "right": 386
+      },
+      {
+        "text": "|stream| 3",
+        "x": 400,
+        "y": 118,
+        "w": 56,
+        "h": 15,
+        "right": 456
+      },
+      {
+        "text": "|simplified| 2",
+        "x": 470,
+        "y": 118,
+        "w": 72,
+        "h": 15,
+        "right": 542
+      },
+      {
+        "text": "ratio 66.7%",
+        "x": 556,
+        "y": 118,
+        "w": 67,
+        "h": 15,
+        "right": 623
+      }
+    ],
+    "hasFrechet": true,
+    "hasTime": true,
+    "hasSpinner": false,
+    "loadBtn": {
+      "w": 82,
+      "h": 26,
+      "text": "Load Trace"
+    },
+    "uploadStatus": {
+      "text": "✓ Loaded Trace 1",
+      "w": 99
+    },
+    "hudVisible": false,
+    "hud": {
+      "display": "none",
+      "text": "Loading details…"
+    },
+    "dropDisplay": "none",
+    "playbackH": 107,
+    "pbClipped": [],
+    "pbControls": [
+      {
+        "id": "stepBackBtn",
+        "text": "Previous step (←)",
+        "x": 14,
+        "y": 602,
+        "w": 48,
+        "h": 26,
+        "clipped": false,
+        "disabled": true
+      },
+      {
+        "id": "stepInput",
+        "text": "1 / 2",
+        "x": 68,
+        "y": 603,
+        "w": 80,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "stepForwardBtn",
+        "text": "Next step (→)",
+        "x": 154,
+        "y": 602,
+        "w": 48,
+        "h": 26,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "prefixBackBtn",
+        "text": "Previous simplified segment (Shift+←)",
+        "x": 223,
+        "y": 602,
+        "w": 48,
+        "h": 26,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "segmentInput",
+        "text": "1 / 1",
+        "x": 277,
+        "y": 603,
+        "w": 80,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "prefixForwardBtn",
+        "text": "Next simplified segment (Shift+→)",
+        "x": 363,
+        "y": 602,
+        "w": 48,
+        "h": 26,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "candidateBackBtn",
+        "text": "Previous candidate",
+        "x": 14,
+        "y": 650,
+        "w": 48,
+        "h": 26,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "candidateInput",
+        "text": "1 / 1",
+        "x": 68,
+        "y": 651,
+        "w": 80,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "candidateForwardBtn",
+        "text": "Next candidate (C)",
+        "x": 154,
+        "y": 650,
+        "w": 48,
+        "h": 26,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "playBtn",
+        "text": "Play",
+        "x": 223,
+        "y": 652,
+        "w": 56,
+        "h": 39,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.25×",
+        "x": 332,
+        "y": 659,
+        "w": 50,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.5×",
+        "x": 389,
+        "y": 659,
+        "w": 44,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "1×",
+        "x": 438,
+        "y": 659,
+        "w": 36,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "2×",
+        "x": 480,
+        "y": 659,
+        "w": 36,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "4×",
+        "x": 522,
+        "y": 659,
+        "w": 36,
+        "h": 24,
+        "clipped": false,
+        "disabled": false
+      }
+    ],
+    "dockDisplay": "none",
+    "sidebarDisplay": "flex",
+    "canvas": {
+      "h": 449,
+      "w": 620
+    },
+    "pageOverflowX": false,
+    "scrollW": 900,
+    "overflows": [
+      {
+        "id": "",
+        "cls": "MathJax CtxtMenu_Attached_0",
+        "tag": "MJX-CONTAINER",
+        "right": 910,
+        "x": 733,
+        "w": 177,
+        "text": "conv ( 𝐺 𝑣 𝑖 ) ∩ 𝐹 ( 𝑆 𝑖 − 1 [ 𝑝 ] , 𝑝 )"
+      },
+      {
+        "id": "",
+        "cls": "MJX-TEX",
+        "tag": "MJX-MATH",
+        "right": 910,
+        "x": 733,
+        "w": 177,
+        "text": ""
+      },
+      {
+        "id": "",
+        "cls": "mjx-i",
+        "tag": "MJX-MI",
+        "right": 903,
+        "x": 895,
+        "w": 8,
+        "text": ""
+      },
+      {
+        "id": "",
+        "cls": "mjx-c1D45D TEX-I",
+        "tag": "MJX-C",
+        "right": 903,
+        "x": 895,
+        "w": 8,
+        "text": ""
+      },
+      {
+        "id": "",
+        "cls": "mjx-n",
+        "tag": "MJX-MO",
+        "right": 910,
+        "x": 903,
+        "w": 7,
+        "text": ""
+      },
+      {
+        "id": "",
+        "cls": "mjx-c29",
+        "tag": "MJX-C",
+        "right": 910,
+        "x": 903,
+        "w": 7,
+        "text": ""
+      }
+    ]
+  },
+  "loaded390": {
+    "vw": 390,
+    "bodyClass": "trace-loaded-mobile playback-ready",
+    "headerH": 117,
+    "headerText": "Back Trajectory Simplification Visualizer Computed Fréchet distance 0.4123 Simplification time 12.4000 ms",
+    "paramsText": "Computed Fréchet distance 0.4123 Simplification time 12.4000 ms",
+    "paramsH": 36,
+    "paramsW": 366,
+    "paramsChildren": [
+      {
+        "text": "Computed Fréchet distance 0.4123",
+        "x": 12,
+        "y": 70,
+        "w": 209,
+        "h": 14,
+        "right": 221
+      },
+      {
+        "text": "Simplification time 12.4000 ms",
+        "x": 12,
+        "y": 92,
+        "w": 189,
+        "h": 14,
+        "right": 201
+      }
+    ],
+    "hasFrechet": true,
+    "hasTime": true,
+    "hasSpinner": false,
+    "loadBtn": {
+      "w": 0,
+      "h": 0,
+      "text": "Load Trace"
+    },
+    "uploadStatus": {
+      "text": "✓ Loaded Trace 1",
+      "w": 0
+    },
+    "hudVisible": false,
+    "hud": {
+      "display": "none",
+      "text": "Loading details…"
+    },
+    "dropDisplay": "none",
+    "playbackH": 0,
+    "pbClipped": [
+      {
+        "id": "stepBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": true
+      },
+      {
+        "id": "stepInput",
+        "text": "1 / 2",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "segmentInput",
+        "text": "1 / 1",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateInput",
+        "text": "1 / 1",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "playBtn",
+        "text": "Play",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.25×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.5×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "1×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "2×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "4×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      }
+    ],
+    "pbControls": [
+      {
+        "id": "stepBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": true
+      },
+      {
+        "id": "stepInput",
+        "text": "1 / 2",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "stepForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "segmentInput",
+        "text": "1 / 1",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "prefixForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateBackBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateInput",
+        "text": "1 / 1",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "candidateForwardBtn",
+        "text": "",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "playBtn",
+        "text": "Play",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.25×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "0.5×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "1×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "2×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      },
+      {
+        "id": "",
+        "text": "4×",
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "clipped": true,
+        "disabled": false
+      }
+    ],
+    "dockDisplay": "grid",
+    "sidebarDisplay": "flex",
+    "canvas": {
+      "h": 321,
+      "w": 390
+    },
+    "pageOverflowX": false,
+    "scrollW": 390,
+    "overflows": []
+  }
+}

@@ -1,0 +1,55 @@
+---
+pid: 67053
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1PM6A9M9PWQ9ZV6944A7Q8S"
+command: "HOST=127.0.0.1 PORT=8765 /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1PM6A9M9PWQ9ZV6944A7Q8S/.venv-test/bin/python /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1PM6A9M9PWQ9ZV6944A7Q8S/web/server.py"
+title: "Start Flask visualizer on port 8765"
+status: failed   
+started_at: 2026-09-04T16:56:25.945Z
+running_for_ms: 153712   
+---
+Repo root: /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1PM6A9M9PWQ9ZV6944A7Q8S
+Binary: /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1PM6A9M9PWQ9ZV6944A7Q8S/build/simplify
+Starting Flask server on http://127.0.0.1:8765
+ * Serving Flask app 'server'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8765
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [05/Sep/2026 00:56:45] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:56:45] "GET /api/trace/1/compare?algorithm=none HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:56:46] "GET /api/trace/1/compare?algorithm=dp&run=1&epsilon=0.9 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:56:47] "GET /api/trace/1/compare?algorithm=squish&run=1&ratio=0.2 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:56:47] "GET /api/trace/1/compare?algorithm=dots&run=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:56:47] "[33mGET /api/trace/1/layers HTTP/1.1[0m" 404 -
+127.0.0.1 - - [05/Sep/2026 00:56:47] "GET /api/trace/1/compare?run_dots=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:56:47] "[31m[1mGET /api/trace/1/frechet/baseline HTTP/1.1[0m" 400 -
+127.0.0.1 - - [05/Sep/2026 00:56:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:56:50] "GET /viewer.js?v=baseline-hidden-1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:56:50] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:56:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [05/Sep/2026 00:56:53] "GET /api/trace/1?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:56:53] "GET /api/trace/1/compare?algorithm=none HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:56:53] "GET /api/trace/1/compare?algorithm=dp&run=1&epsilon=0.9 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:56:53] "GET /api/trace/1/compare?algorithm=squish&run=1&ratio=0.2 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:57:00] "POST /api/frechet HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:57:00] "GET /api/trace/1/frechet/squish HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:57:00] "GET /api/trace/1/frechet/dp HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:57:50] "GET /api/trace/1/frechet/dp HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:57:55] "GET /api/trace/1/frechet/squish HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:58:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:58:13] "GET /viewer.js?v=baseline-hidden-1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:58:13] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:58:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [05/Sep/2026 00:58:14] "GET /api/trace/1?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:58:15] "GET /api/trace/1/compare?algorithm=none HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:58:15] "GET /api/trace/1/compare?algorithm=dp&run=1&epsilon=0.9 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:58:15] "GET /api/trace/1/compare?algorithm=squish&run=1&ratio=0.2 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:58:19] "POST /api/frechet HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:58:19] "GET /api/trace/1/frechet/squish HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:58:19] "GET /api/trace/1/frechet/dp HTTP/1.1" 200 -
+
+---
+exit_code: unknown
+elapsed_ms: 153711
+ended_at: 2026-09-04T16:58:59.656Z
+---

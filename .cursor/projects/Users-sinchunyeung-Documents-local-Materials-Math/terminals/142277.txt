@@ -1,0 +1,23 @@
+---
+pid: 4587
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Math/mock/F1/first-test/2/question-paper"
+command: "awk '/^! /{err=$0; getline; while($0 !~ /^l\\./ && NF) getline; print err; print $0}' \"/Users/sinchunyeung/Documents-local/Materials/Math/mock/F1/first-test/2/marking-scheme/main.log\""
+started_at: 2026-08-20T08:13:27.284Z
+running_for_ms: 245087   
+---
+! File ended while scanning use of \msstep.
+l.26 \input{questions/ms-q8.tex}
+! LaTeX Error: \begin{tabular} on input line 21 ended by \end{document}.
+
+! You can't use `\end' in internal vertical mode.
+                                                  
+! LaTeX Error: \begin{tabular} on input line 21 ended by \end{document}.
+
+! Emergency stop.
+            
+
+---
+exit_code: unknown
+elapsed_ms: 246973
+ended_at: 2026-08-20T08:17:34.257Z
+---

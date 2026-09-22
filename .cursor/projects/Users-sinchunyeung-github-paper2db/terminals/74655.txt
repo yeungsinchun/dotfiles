@@ -1,0 +1,84 @@
+---
+pid: 95857
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "no-mistakes axi run --help 2>&1 | head -100; echo '===='; # fetch origin into gate to see default\ngit -C /Users/sinchunyeung/.no-mistakes/repos/6238f6fd4f32.git fetch origin 2>&1 | tail -30\ngit -C /Users/sinchunyeung/.no-mistakes/repos/6238f6fd4f32.git show-ref | head -40\ngit -C /Users/sinchunyeung/.no-mistakes/repos/6238f6fd4f32.git ls-remote origin HEAD refs/heads/main refs/heads/init 2>&1\necho '===='\n# Where does \"init\" come from in NM DB?\nfind /Users/sinchunyeung/.no-mistakes -maxdepth 2 -type f \\( -name '*.sqlite*' -o -name '*.db' -o -name 'state*' -o -name '*.json' \\) 2>/dev/null | head -40\nls /Users/sinchunyeung/.no-mistakes/"
+title: "Fetch gate origin; check axi run help"
+status: succeeded
+started_at: 2026-09-05T14:55:58.257Z
+running_for_ms: 199586   
+---
+Triggers a pipeline run for the current branch and drives it. Without
+--yes it blocks until the first approval gate, CI-ready point, or final outcome and
+prints it. With --yes it auto-resolves every gate (fixing actionable
+findings - including ask-user findings, with no escalation - then
+accepting the result) until a decision point or outcome.
+
+--intent is required when starting a new run: pass what the user set out
+to accomplish (the goal behind the change, not a description of the diff)
+so no-mistakes uses it directly instead of inferring it from transcripts.
+
+--base-branch targets an integration branch other than the repository default
+for this run only (for example an epic branch). It overrides pr.base_branch
+in repo config and is persisted on the run for rebase, PR, and CI steps.
+
+The calling agent drives AXI approval gates but does not become the pipeline
+agent. The daemon requires a supported native agent binary, the `agent: cursor`
+ACP alias, or an explicit `acp:<target>` through `acpx`, and fails before the
+first step when none can run.
+
+Commit post-pipeline follow-up work on top of the existing branch so every pipeline fix commit remains present. Never abort-and-restart, reset, or replace the branch in a way that drops prior gate-fix commits.
+
+Usage:
+  no-mistakes axi run [flags]
+
+Flags:
+      --base-branch string   integration branch to open the PR against for this run only (overrides pr.base_branch)
+  -h, --help                 help for run
+      --intent string        what the user set out to accomplish (not a description of the diff); used instead of inferring from transcripts (required to start a run)
+      --skip string          comma-separated pipeline steps to skip
+  -y, --yes                  auto-resolve every gate (fix findings, then accept) until a decision point or outcome
+====
+fatal: unable to access 'https://github.com/yeungsinchun/paper2db.git/': Recv failure: Connection reset by peer
+324a4da7ab591eae68b551583791cf894ce74286 refs/heads/classify
+345b41802beb5d0207971a2a375856eec53db325 refs/heads/fix/trim-end-of-section
+6f95bad90c9f4e0d2bc908870e24f81dc28a88d4 refs/heads/reorganize
+345b41802beb5d0207971a2a375856eec53db325 refs/no-mistakes/recover/01M1HC6M48D9510X2M968SYM6Z
+665252d49c0485c3b832a7c5fbc1ad4c007a8b29 refs/remotes/origin/HEAD
+0e09810b6746ce415efb107837c71038d853d6b9 refs/remotes/origin/classify
+345b41802beb5d0207971a2a375856eec53db325 refs/remotes/origin/fix/trim-end-of-section
+841144c902077a8fb1e50befb68bb45324cfb0d3 refs/remotes/origin/init
+665252d49c0485c3b832a7c5fbc1ad4c007a8b29 refs/remotes/origin/main
+437e1097d7baf2cbe460495320fd197608e5d889 refs/remotes/origin/more-space
+6f95bad90c9f4e0d2bc908870e24f81dc28a88d4 refs/remotes/origin/reorganize
+665252d49c0485c3b832a7c5fbc1ad4c007a8b29	HEAD
+665252d49c0485c3b832a7c5fbc1ad4c007a8b29	refs/heads/main
+====
+/Users/sinchunyeung/.no-mistakes/state.sqlite-shm
+/Users/sinchunyeung/.no-mistakes/state.sqlite-wal
+/Users/sinchunyeung/.no-mistakes/update-check.json
+/Users/sinchunyeung/.no-mistakes/state.sqlite
+/Users/sinchunyeung/.no-mistakes/eval/registry.sqlite
+/Users/sinchunyeung/.no-mistakes/telemetry-gate.json
+bin
+config.yaml
+daemon.lock
+daemon.pid
+eval
+evidence
+logs
+repos
+servers
+socket
+state.sqlite
+state.sqlite-shm
+state.sqlite-wal
+telemetry-gate.json
+telemetry-gate.json.lock
+update-check.json
+worktrees
+
+---
+exit_code: 0
+elapsed_ms: 199585
+ended_at: 2026-09-05T14:59:17.842Z
+---

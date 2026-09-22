@@ -1,0 +1,95 @@
+---
+pid: 67031
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes"
+command: "mkdir -p .lavish/evidence && EVIDENCE_DIR=.lavish/evidence node --test notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.interactives.test.mjs"
+title: "Run Book 5 interactive browser tests"
+status: failed   
+started_at: 2026-09-15T03:14:30.636Z
+running_for_ms: 371823   
+---
+▶ Book 5 Ch.1 notes interactives
+  ✔ 25.1 spectrum is static with the ionizing barrier in UV (18112.413916ms)
+  ✔ 25.1 imaging is X-rays down through a hand onto film that starts white (19370.253583ms)
+  ✔ 25.2 pie wedge is 20% and Pu-239 bookkeeping is static n_α=8 (33234.419042ms)
+  ✔ 25.2 decay labels sit on the parent and outgoing particle (28818.449458ms)
+  ✔ 25.3 absorber presets follow paper/Al/Pb contribution rules (9970.0305ms)
+  ✔ 25.3 GM extra recomputes when the plastic grid toggles (14854.141083ms)
+  ✔ 25.3 identification graph keeps taken yes/no edges (15605.688167ms)
+  ✔ 25.1 knockout ejects the bound electron already on the atom (25833.878916ms)
+  ✔ 25.3 ion-pair capture, Flip B marks, and β/γ check (18403.377333ms)
+  ✖ chapter map, summary, and concept-check scoring are the public notes surface (30437.110541ms)
+  ✔ 3d scenes magnify, label the tube, keep β drift, and pulse radially (85594.879208ms)
+  ✔ every Ch.1 page shows syllabus LOs and the summary embeds DSE papers (36900.575459ms)
+  ✔ each Ch.1 subsection groups links to its own DSE practice (31051.35825ms)
+✖ Book 5 Ch.1 notes interactives (369683.051166ms)
+▶ Book 5 menu and Ch.2 notes
+  ✔ Book 5 picker lists both textbook chapter titles (6189.589417ms)
+  ✔ Ch.1 and Ch.2 top bars link back to the Book 5 menu (35855.692125ms)
+  ✔ 26.1 dice remaining falls and N+decayed stays 40 billion (18437.659583ms)
+  ✔ student pages hide intake chrome and keep per-box scale (11377.306458ms)
+  ✔ 26.1 concept check marks the random-decay answer (4914.9155ms)
+  ✔ 26.2 leak, smoke, and C-14 alive equals just-dead (20409.46525ms)
+  ✔ 26.3 sievert check and activity vs dose labels (1822.421792ms)
+  ✔ Ch.2 pages show syllabus LOs, KaTeX, and summary DSE embeds (41879.633834ms)
+  ✔ Book 5 menu keeps two chapter cards and hosts nuclear-energy LOs with papers (3459.165ms)
+  ✔ each Ch.2 subsection groups links to its own DSE practice (13811.130833ms)
+✔ Book 5 menu and Ch.2 notes (159620.573333ms)
+ℹ tests 23
+ℹ suites 2
+ℹ pass 22
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 371098.1665
+
+✖ failing tests:
+
+test at notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:242:3
+✖ chapter map, summary, and concept-check scoring are the public notes surface (30437.110541ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /knocks protons out of the nucleus/i. Input:
+  
+  'BIonizing means knocking an electron out\n' +
+    '−\n' +
+    '+\n' +
+    'ionizing radiation\n' +
+    'positive ion\n' +
+    'electron\n' +
+    "Fig. 25.3 Ionization. Radiation with enough energy knocks one of the atom's own bound electrons out of the atom, leaving a positive ion behind.\n" +
+    'Replay knockout\n' +
+    'DEFINITION\n' +
+    '\n' +
+    'Ionizing radiation carries enough energy per photon or per particle to remove an electron from an atom or molecule, turning it into an ion. Radiation that cannot do this is non-ionizing.\n' +
+    '\n' +
+    '\tIonizing\tNon-ionizing\n' +
+    'Energy per photon or particle\tEnough to knock an electron out of an atom or molecule\tNot enough; at most the electron is raised to a higher energy level and falls back\n' +
+    'Examples\tX-rays, γ rays, most ultraviolet; α and β particles\tRadio, microwaves, infrared, visible light, the lowest-energy part of ultraviolet\n' +
+    'Hazard\tIons and broken bonds inside cells damage tissue and DNA; cells may die or become cancerous\tHeating at high intensity only; no ionization\n' +
+    'CHECK 2\n' +
+    '\n' +
+    'Which of the following statements about ionizing radiation is/are correct?\n' +
+    '\n' +
+    'Its energy is high enough to strike electrons out of atoms or molecules.\n' +
+    'It is radiation in the form of ions.\n' +
+    'X-rays are ionizing radiation.\n' +
+    '(1) only\n' +
+    '(2) only\n' +
+    '(1) and (3) only\n' +
+    '(2) and (3) only'
+  
+      at TestContext.<anonymous> (file:///Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes/notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:876:10)
+      at async Test.run (node:internal/test_runner/test:1404:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "BIonizing means knocking an electron out\n−\n+\nionizing radiation\npositive ion\nelectron\nFig. 25.3 Ionization. Radiation with enough energy knocks one of the atom's own bound electrons out of the atom, leaving a positive ion behind.\nReplay knockout\nDEFINITION\n\nIonizing radiation carries enough energy per photon or per particle to remove an electron from an atom or molecule, turning it into an ion. Radiation that cannot do this is non-ionizing.\n\n\tIonizing\tNon-ionizing\nEnergy per photon or particle\tEnough to knock an electron out of an atom or molecule\tNot enough; at most the electron is raised to a higher energy level and falls back\nExamples\tX-rays, γ rays, most ultraviolet; α and β particles\tRadio, microwaves, infrared, visible light, the lowest-energy part of ultraviolet\nHazard\tIons and broken bonds inside cells damage tissue and DNA; cells may die or become cancerous\tHeating at high intensity only; no ionization\nCHECK 2\n\nWhich of the following statements about ionizing radiation is/are correct?\n\nIts energy is high enough to strike electrons out of atoms or molecules.\nIt is radiation in the form of ions.\nX-rays are ionizing radiation.\n(1) only\n(2) only\n(1) and (3) only\n(2) and (3) only",
+    expected: /knocks protons out of the nucleus/i,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+---
+exit_code: 1
+elapsed_ms: 371777
+ended_at: 2026-09-15T03:20:42.413Z
+---

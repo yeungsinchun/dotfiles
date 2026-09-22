@@ -1,0 +1,17 @@
+---
+pid: 74075
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "PY=/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/.venv/bin/python; WT=/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams; \"$PY\" \"$WT/web/server.py\""
+title: "Serve worktree viewer via existing venv"
+status: failed   
+started_at: 2026-09-07T04:30:24.718Z
+running_for_ms: 428      
+---
+Error: simplify binary not found at /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams/build/simplify
+Build it first: cmake -B build && cmake --build build
+
+---
+exit_code: 1
+elapsed_ms: 428
+ended_at: 2026-09-07T04:30:25.146Z
+---

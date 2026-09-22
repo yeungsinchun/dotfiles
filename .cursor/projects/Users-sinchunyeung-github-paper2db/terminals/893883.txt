@@ -1,0 +1,38 @@
+---
+pid: 17136
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nfrom split_mc import strip_end_matter_banner\nfrom pathlib import Path\nfrom PIL import Image\nimport subprocess, io, shutil\n\nfixed=[]\nfor year_dir in Path('output').iterdir():\n    if not year_dir.is_dir() or year_dir.name.endswith('-intermediate'): continue\n    for png in year_dir.glob('q*.png'):\n        im=Image.open(png)\n        buf=io.BytesIO(); im.save(buf,'PNG')\n        r=subprocess.run(['tesseract','stdin','stdout','--psm','6'], input=buf.getvalue(), capture_output=True)\n        t=r.stdout.decode('utf-8','ignore').upper()\n        if 'END OF SECTION' in t or 'END OF PAPER' in t:\n            out=strip_end_matter_banner(im)\n            out.save(png)\n            fixed.append((str(png), im.size, out.size))\n            dest=Path('.lavish/classified-review/img')/f'{year_dir.name}_q{png.stem[1:]}.png'\n            shutil.copy2(png, dest)\nprint('fixed', len(fixed))\nfor f in fixed:\n    print(f)\n# remaining?\nbad=[]\nfor year_dir in Path('output').iterdir():\n    if not year_dir.is_dir() or year_dir.name.endswith('-intermediate'): continue\n    qs=sorted(year_dir.glob('q*.png'), key=lambda p: int(p.stem[1:]))\n    if not qs: continue\n    last=qs[-1]\n    im=Image.open(last)\n    buf=io.BytesIO(); im.save(buf,'PNG')\n    r=subprocess.run(['tesseract','stdin','stdout','--psm','6'], input=buf.getvalue(), capture_output=True)\n    t=r.stdout.decode('utf-8','ignore').upper()\n    if 'END OF SECTION' in t or 'END OF PAPER' in t:\n        bad.append(str(last))\nprint('still bad', bad)\n# confirm strip called in split path\nfrom pathlib import Path as P\nprint('strip in split', 'strip_end_matter_banner(combined)' in P('scripts/split_mc.py').read_text())\nPY\nnpx -y lavish-axi /Users/sinchunyeung/github/paper2db/.lavish/classified-review/index.html --reopen 2>&1 | head -8\n"
+title: "Apply OCR stripper to all END OF SECTION crops"
+status: succeeded
+started_at: 2026-09-04T14:54:51.711Z
+running_for_ms: 286701   
+---
+fixed 15
+('output/2013/q36.png', (987, 407), (987, 378))
+('output/2014/q33.png', (1078, 477), (1078, 448))
+('output/2022/q33.png', (1079, 340), (1079, 311))
+('output/2025/q33.png', (944, 372), (944, 343))
+('output/pp/q36.png', (1001, 580), (1001, 548))
+('output/2024/q33.png', (943, 399), (943, 370))
+('output/2023/q33.png', (1074, 311), (1074, 283))
+('output/2015/q33.png', (981, 380), (981, 352))
+('output/2012/q36.png', (939, 692), (939, 663))
+('output/2017/q33.png', (833, 581), (833, 552))
+('output/2026/q33.png', (955, 514), (955, 483))
+('output/2019/q33.png', (942, 421), (942, 392))
+('output/2020/q33.png', (968, 357), (968, 328))
+('output/2018/q33.png', (965, 492), (965, 461))
+('output/2016/q33.png', (1095, 315), (1095, 286))
+still bad []
+strip in split True
+session:
+  file: /Users/sinchunyeung/github/paper2db/.lavish/classified-review/index.html
+  url: "http://127.0.0.1:4387/session/b5bd5001e87d036d"
+  status: opened
+next_step: "Do not respond to the user just yet. Now you must run `lavish-axi poll /Users/sinchunyeung/github/paper2db/.lavish/classified-review/index.html`. This command long-polls until the user sends feedback or ends the session, and it stays silent the whole time - that is normal, never kill it. Layout issues the browser detects do not return this poll; they wait in the user's Layout issues inbox until the user queues them, then arrive as an ordinary tag \"layout-warnings\" prompt. Do not pass --timeout-ms during normal agent use. Keep the poll in the foreground by default and let it return the feedback directly to the agent. A background poll is allowed only through a harness-native tracked background-job facility whose completion result is guaranteed to resume or notify the same agent. Never use `nohup`, shell `&`, `disown`, redirected fire-and-forget processes, or a detached terminal without an explicit verified callback merely to keep polling alive. If the harness has no completion-aware background facility, use the foreground poll or first wire a verified wake callback into the surrounding supervisor. Do not tell the user the artifact is being monitored until that wake path is live. If the poll gets killed or times out before feedback arrives, re-run it - feedback remains queued until delivery. Poll delivery consumes the response, so read it completely. After applying feedback, run `lavish-axi poll /Users/sinchunyeung/github/paper2db/.lavish/classified-review/index.html --agent-reply \"<message for the user>\"` without --timeout-ms to show your response in Lavish Editor and wait for more feedback. If the user ends the session, stop polling and do not reopen it by re-running `lavish-axi /Users/sinchunyeung/github/paper2db/.lavish/classified-review/index.html` unless the user asks for further review or something genuinely important needs their visual attention - deliver routine updates directly in this conversation instead. When reopening is warranted, run `lavish-axi /Users/sinchunyeung/github/paper2db/.lavish/classified-review/index.html --reopen`."
+
+---
+exit_code: 0
+elapsed_ms: 286701
+ended_at: 2026-09-04T14:59:38.412Z
+---

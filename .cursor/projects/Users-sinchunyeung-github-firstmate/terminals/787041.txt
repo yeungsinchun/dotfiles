@@ -1,0 +1,39 @@
+---
+pid: 15824
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "/usr/bin/env -i PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/usr/local/bin:/Users/sinchunyeung/.local/bin:/Users/sinchunyeung/.nvm/versions/node/v24.20.0/bin\" HOME=\"/Users/sinchunyeung\" FM_HOME=\"/Users/sinchunyeung/github/firstmate\" /bin/bash <<'SCRIPT'\nset -euo pipefail\ncd /Users/sinchunyeung/github/firstmate\n\nBODY=$(cat <<'EOF'\nScout: recommend keep #6+#8 stack vs #10 for SOTS perf. Close losers after captain decision. Mode scout.\nEOF\n)\ntasks-axi add perf-pr-keep \"Scout: keep PR #6+#8 stack or #10 for SOTS perf\" \\\n  --kind scout --repo simplification-of-trajectory-streams --body \"$BODY\" 2>&1 | head -25\n\n/Users/sinchunyeung/github/firstmate/bin/fm-brief.sh perf-pr-keep simplification-of-trajectory-streams --scout 2>&1\n\npython3 <<'PY'\nfrom pathlib import Path\np = Path(\"/Users/sinchunyeung/github/firstmate/data/perf-pr-keep/brief.md\")\ntext = p.read_text()\ntask = \"\"\"Compare the two open Simplification-of-Trajectory-Streams performance lines and recommend which to keep:\n- Stack A: PR #6 (wedge prune) then PR #8 (Gi dedup), base optimize\n- Line B: PR #10 (wedge prune + double-path geometry)\n\nCaptain already closed #7 as superseded. Recommend one keep path; the other should be closed after the captain decides.\n\"\"\"\nspec = \"\"\"Deliverable: self-contained report at data/perf-pr-keep/report.md (no PR).\n\nCompare against current origin/main tip. Answer:\n1. What each line changes relative to main (algorithms, files, stacking).\n2. Overlap / redundancy: does #10 subsume #6? Can #8 land without #6?\n3. Correctness evidence quality (byte-identical outputs, Frechet, CI) and risk of Frechet-unsafe prune.\n4. Performance evidence quality (honest ratios, which eps/delta, noise). Prefer evidence already in the PRs; only run local benches if needed to break a tie, and keep them bounded.\n5. Rebase cost vs main (conflict surface, especially simplify.cpp / simplify_geometry.h after recent boundary/UX merges).\n6. Clear recommendation: keep A (#6 then #8) OR keep B (#10), with one-line reason and what to close.\n\nDo not merge or close PRs; recommendation only. Use the disposable scout worktree.\nRepo clone: projects/simplification-of-trajectory-streams. PRs:\nhttps://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/pull/6\nhttps://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/pull/8\nhttps://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/pull/10\n\"\"\"\n# Avoid nested ## under Firstmate spec (spawn parser)\nspec = spec.replace(\"## \", \"\")\nif \"{TASK}\" not in text or \"{FIRSTMATE_SPEC}\" not in text:\n    raise SystemExit(\"placeholders missing\")\ntext = text.replace(\"{TASK}\", task.strip(), 1).replace(\"{FIRSTMATE_SPEC}\", spec.strip(), 1)\np.write_text(text)\nprint(\"brief filled\")\nPY\n\n/Users/sinchunyeung/github/firstmate/bin/fm-spawn.sh perf-pr-keep \\\n  /Users/sinchunyeung/github/firstmate/projects/simplification-of-trajectory-streams \\\n  --scout --harness cursor --effort xhigh 2>&1\nSCRIPT\n"
+status: failed   
+started_at: 2026-09-07T15:17:29.025Z
+running_for_ms: 81204    
+---
+ok: added perf-pr-keep (scout, repo simplification-of-trajectory-streams) -> Queued
+task:
+  id: perf-pr-keep
+  title: "Scout: keep PR #6+#8 stack or #10 for SOTS perf"
+  state: queued
+  blocked: no
+  blocked_by: none
+  held: no
+  hold_reason: "-"
+  hold_kind: "-"
+  hold_until: "-"
+  kind: scout
+  repo: simplification-of-trajectory-streams
+  priority: "-"
+  created: 2026-09-07
+  closed: "-"
+  deps: none
+  links: none
+  body: "Scout: recommend keep #6+#8 stack vs #10 for SOTS perf. Close losers after captain decision. Mode scout."
+help[2]:
+  - Run `tasks-axi start perf-pr-keep` to move it to in flight
+  - Run `tasks-axi block perf-pr-keep --by <other>` to record a dependency
+scaffolded: /Users/sinchunyeung/github/firstmate/data/perf-pr-keep/brief.md (scout; replace {TASK} and {FIRSTMATE_SPEC})
+brief filled
+error: could not resolve origin's current default branch for pooled worktree '/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams'; refusing to launch from a potentially stale base
+
+---
+exit_code: 1
+elapsed_ms: 81203
+ended_at: 2026-09-07T15:18:50.228Z
+---

@@ -1,0 +1,9 @@
+---
+pid: 34822
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2MECQ5HWAM1DEQ87169JN74"
+command: "env -u TOGETHER_API_KEY -u OPENAI_API_KEY -u LLM_API_KEY ./pipeline --only classify-lq --force --yes"
+title: "Classify LQ with keyword Book 5 listings"
+status: running  
+started_at: 2026-09-16T07:13:51.236Z
+running_for_ms: 175038   
+---

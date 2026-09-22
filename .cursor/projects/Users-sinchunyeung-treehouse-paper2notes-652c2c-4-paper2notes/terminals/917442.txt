@@ -1,0 +1,88 @@
+---
+pid: 44021
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/4/paper2notes"
+command: "no-mistakes axi respond --action fix --findings ch2-2021-33-dead-hash --instructions \"Embed 2021/33 MC on the Ch.2 summary DSE bank as dse-mc-2021-33 (same classified PNG path as Ch.1) so existing Ch.2 chips that point at summary.html#dse-mc-2021-33 land on a paper. Keep the syllabus LO wording and the Ch.1 embed unchanged.\""
+title: "Authorize pipeline auto-fix for dead 2021/33 hash"
+status: failed   
+started_at: 2026-09-12T16:00:13.073Z
+running_for_ms: 1939619  
+---
+[33mA new version of no-mistakes is available: v1.64.0 -> v1.72.0
+Run "no-mistakes update" to update[0m
+run: running
+  intent: completed
+  rebase: completed
+  review: fixing
+  review: completed
+  test: running
+  test: completed
+  document: running
+  document: completed
+  lint: running
+  lint: completed
+  push: running
+  push: completed
+  pr: running
+  pr: completed
+  ci: running
+  ci: failed
+run: cancelled
+run:
+  id: "01M2B595BV9SZVV2YARB8A7944"
+  branch: fm/p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e
+  status: cancelled
+  head: 7ece8ac2
+  pr: "https://github.com/yeungsinchun/paper2notes/pull/3"
+  findings: none
+  steps[9]{step,status,findings,duration_ms}:
+    intent,completed,0,1
+    rebase,completed,0,1916
+    review,completed,0,727477
+    test,completed,0,504062
+    document,completed,0,184529
+    lint,completed,0,62
+    push,completed,0,5726
+    pr,completed,0,77925
+    ci,failed,0,715604
+  shared_work[1]{attributed_to,scope,duration_ms}:
+    document,document+lint housekeeping,184529
+branch_sync:
+  state: behind
+  changed: false
+  local:
+    branch: fm/p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e
+    head: 4ed5900febaa2b0587044331586c34c41986f6a7
+    clean: true
+  pipeline:
+    run: "01M2B595BV9SZVV2YARB8A7944"
+    status: cancelled
+    phase: ""
+    submitted_head: 4ed5900febaa2b0587044331586c34c41986f6a7
+    current_head: 7ece8ac2d968186bdf763f8951fe68c2ef407b45
+    pushed_head: 7ece8ac2d968186bdf763f8951fe68c2ef407b45
+    pushed_at: 1789229957
+    push_generation: 1
+  target:
+    kind: upstream
+    remote: origin
+    url: "https://github.com/yeungsinchun/paper2notes.git"
+    ref: refs/heads/fm/p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e
+  remote:
+    observed_head: 7ece8ac2d968186bdf763f8951fe68c2ef407b45
+    freshness: pipeline_push
+    observed_at: 1789229957
+  relation: behind
+  safety: refresh_required
+  pr_state: open
+  next_action:
+    code: sync
+    command: no-mistakes axi sync
+outcome: cancelled
+error: "cancelled: aborted by user"
+help[3]: "Open the PR: https://github.com/yeungsinchun/paper2notes/pull/3","Commit post-pipeline follow-up work on top of the existing branch so every pipeline fix commit remains present. Never abort-and-restart, reset, or replace the branch in a way that drops prior gate-fix commits.","Before a post-pipeline local commit or fresh run, follow the structured `branch_sync.next_action`. Run `no-mistakes axi sync` only when its code is `sync`; that guarded sync may be a strict fast-forward or a content-equivalent diverged advance that anchors the pre-sync head before moving the branch with reset semantics. Run `no-mistakes axi sync --recover` only when its code is `recover_custody` (a terminal run left unpublished pipeline commits preserved in the local gate). A `user_owned` state means cancellation released the branch before changing the submitted head: the exact branch and head are yours, immediately usable, and no sync action is needed. Process blocked or pipeline-owned states instead of improvising reset, stash, merge, rebase, force, or branch replacement."
+
+---
+exit_code: 1
+elapsed_ms: 1939618
+ended_at: 2026-09-12T16:32:32.691Z
+---

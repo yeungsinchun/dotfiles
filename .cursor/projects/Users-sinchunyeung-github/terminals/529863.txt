@@ -1,0 +1,16 @@
+---
+pid: 3293
+cwd: "/Users/sinchunyeung/github"
+command: "rg -l \"40646E4B-2A30-48DB-997C-52D7A525A793\" /Users/sinchunyeung/.cursor /Users/sinchunyeung/Library/Application\\ Support 2>/dev/null | head -20"
+title: "Search Cursor and App Support for GUID"
+status: succeeded
+started_at: 2026-09-03T14:50:58.044Z
+running_for_ms: 31077    
+---
+/Users/sinchunyeung/Library/Application Support/iTerm2/DynamicProfiles/NerdFont.json
+
+---
+exit_code: 0
+elapsed_ms: 31070
+ended_at: 2026-09-03T14:51:29.114Z
+---

@@ -1,0 +1,107 @@
+---
+pid: 99456
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/7/paper2notes"
+command: "PORT=8770\nwhile lsof -iTCP:$PORT -sTCP:LISTEN >/dev/null 2>&1; do PORT=$((PORT+1)); done\necho \"NOTES_PR_PORT=$PORT\"\npython3 -m http.server \"$PORT\" --directory '/Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes/notes'"
+title: "Serve PR 5 notes tree on second port"
+status: failed   
+started_at: 2026-09-15T11:29:48.428Z
+running_for_ms: 3224574  
+---
+NOTES_PR_PORT=8770
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:10] "GET /book5/index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:10] "GET /book5/ch01-radiation-and-radioactivity/index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:10] "GET /book5/ch02-rate-of-decay-and-uses-of-radionuclides/index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:10] "GET /book5/ch01-radiation-and-radioactivity/25-1.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:10] "GET /book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:10] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:12] "GET /book5/index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:12] "GET /book5/css/notes.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:12] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:12] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:13] "GET /book5/ch01-radiation-and-radioactivity/index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:13] "GET /book5/ch01-radiation-and-radioactivity/css/notes.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:13] "GET /book5/vendor/katex/katex.min.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:14] "GET /book5/ch02-rate-of-decay-and-uses-of-radionuclides/index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:14] "GET /book5/ch02-rate-of-decay-and-uses-of-radionuclides/css/notes.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:14] "GET /book5/vendor/katex/auto-render.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:14] "GET /book5/vendor/katex/katex.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:14] "GET /book5/js/math.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:14] "GET /book5/vendor/katex/fonts/KaTeX_Math-Italic.woff2 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:14] "GET /book5/vendor/katex/fonts/KaTeX_Main-Regular.woff2 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:15] "GET /book5/ch01-radiation-and-radioactivity/25-1.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:15] "GET /book5/_local/dse/mc/25/2022_q31.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:15] "GET /book5/js/checks.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:15] "GET /book5/ch01-radiation-and-radioactivity/js/notes.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:15] "GET /book5/ch01-radiation-and-radioactivity/js/lib/three.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:15] "GET /book5/ch01-radiation-and-radioactivity/js/diagrams3d.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:22] "GET /book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:22] "GET /book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/lib/three.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:22] "GET /book5/_local/dse/mc/26/2023_q31.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:22] "GET /book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:22] "GET /book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/diagrams3d.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:30:22] "GET /book5/vendor/katex/fonts/KaTeX_Size1-Regular.woff2 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/ch01-radiation-and-radioactivity/index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/ch01-radiation-and-radioactivity/25-1.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/ch02-rate-of-decay-and-uses-of-radionuclides/index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/css/notes.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/vendor/katex/katex.min.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/ch01-radiation-and-radioactivity/css/notes.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/_local/dse/mc/25/2022_q31.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/vendor/katex/katex.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/js/checks.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/js/math.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/ch01-radiation-and-radioactivity/js/lib/three.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/ch01-radiation-and-radioactivity/js/diagrams3d.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/ch01-radiation-and-radioactivity/js/notes.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/vendor/katex/auto-render.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/ch02-rate-of-decay-and-uses-of-radionuclides/css/notes.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/_local/dse/mc/26/2023_q31.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/lib/three.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/diagrams3d.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/vendor/katex/fonts/KaTeX_Main-Regular.woff2 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/vendor/katex/fonts/KaTeX_Math-Italic.woff2 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /book5/vendor/katex/fonts/KaTeX_Size1-Regular.woff2 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:43:14] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 19:43:14] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/ch01-radiation-and-radioactivity/summary.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/mc/25/2012_q36.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/mc/25/2013_q34.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/mc/25/2014_q31.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/mc/25/2014_q32.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/mc/25/2015_q31.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/mc/26/2015_q32.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/mc/25/2016_q32.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/mc/25/2017_q31.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/mc/25/2017_q32.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/mc/25/2019_q31.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/mc/25/2020_q30.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/mc/25/2020_q31.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/mc/25/2021_q31.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/mc/25/2021_q33.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/mc/25/2025_q32.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/mc/25/pp_q34.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/mc/25/pp_q35.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/mc/25/sap_q36.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/lq/26/2014-q10.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/lq/26/2017-q10.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/lq/26/2016-q9.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/lq/26/2018-q10.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/lq/26/2021-q9.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/lq/26/2023-q9.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:48:53] "GET /book5/_local/dse/lq/25/2026-q12.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:56:37] "GET /book5/ch01-radiation-and-radioactivity/25-3.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:57:44] "GET /book5/ch01-radiation-and-radioactivity/25-2.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:08:02] "GET /book5/index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:22:40] "GET /book5/index.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:22:40] "GET /book5/ch01-radiation-and-radioactivity/index.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:22:40] "GET /book5/ch02-rate-of-decay-and-uses-of-radionuclides/index.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:22:40] "GET /book5/ch01-radiation-and-radioactivity/js/diagrams3d.js HTTP/1.1" 304 -
+
+---
+exit_code: 143
+elapsed_ms: 3224573
+ended_at: 2026-09-15T12:23:33.001Z
+---

@@ -1,0 +1,29 @@
+---
+pid: 52798
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "export PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:$PATH\"\npython3 /tmp/fm-http-dual.py 8766 /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/.lavish/classified-review"
+title: "Restart MC classified board on 8766"
+status: failed   
+started_at: 2026-09-11T14:03:21.630Z
+running_for_ms: 217256571
+---
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:29] "GET /index.html HTTP/1.1" 200 -
+::1 - - [11/Sep/2026 22:03:29] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:29] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:29] "GET /img/2012_q36.png?v=1788755555 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:29] "GET /img/2013_q34.png?v=1788755555 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:29] "GET /img/2015_q31.png?v=1788755555 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:29] "GET /img/2017_q31.png?v=1788755555 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:29] "GET /img/2014_q31.png?v=1788755555 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:29] "GET /img/2014_q32.png?v=1788755555 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:29] "GET /img/2016_q32.png?v=1788755555 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:29] "GET /img/2017_q32.png?v=1788755555 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:48] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:04:08] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 23:59:28] "GET /index.html HTTP/1.1" 200 -
+
+---
+exit_code: 143
+elapsed_ms: 217256565
+ended_at: 2026-09-14T02:24:18.195Z
+---

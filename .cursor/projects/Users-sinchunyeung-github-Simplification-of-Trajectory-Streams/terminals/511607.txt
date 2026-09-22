@@ -1,0 +1,20 @@
+---
+pid: 2583
+cwd: "/Users/sinchunyeung/github/Simplification-of-Trajectory-Streams"
+command: "JULIA_DEPOT_PATH=/tmp/julia-ci-test julia -e 'using Pkg; Pkg.add(\"FrechetDist\"); using FrechetDist; println(pkgversion(FrechetDist))' 2>&1 | tail -5"
+title: "Check latest FrechetDist version from registry"
+status: succeeded
+started_at: 2026-08-30T10:44:41.456Z
+running_for_ms: 229554   
+---
+   1264.0 ms[32m  ✓ [39m[90mPDMats → StatsBaseExt[39m
+   8184.0 ms[32m  ✓ [39m[90mDistributions[39m
+   6758.4 ms[32m  ✓ [39mFrechetDist
+  67 dependencies successfully precompiled in 57 seconds. 8 already precompiled.
+2.1.0
+
+---
+exit_code: 0
+elapsed_ms: 229549
+ended_at: 2026-08-30T10:48:31.005Z
+---

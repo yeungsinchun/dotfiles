@@ -1,0 +1,21 @@
+---
+pid: 39578
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "# Free safe caches (~10GB+) so the large push can succeed\nrm -rf /Users/sinchunyeung/Library/Caches/com.spotify.client/*\nrm -rf /Users/sinchunyeung/Library/Caches/ms-playwright/*\nrm -rf /Users/sinchunyeung/Library/Caches/go-build/*\nrm -rf /Users/sinchunyeung/Library/Caches/Homebrew/*\nrm -rf /Users/sinchunyeung/Library/Caches/typescript/*\nnpm cache clean --force 2>&1 | tail -3\n# Trim cursor-agent old versions if many\ndu -sh /Users/sinchunyeung/.local/share/cursor-agent/versions/* 2>/dev/null | sort -hr | head\ndf -h /Users/sinchunyeung | tail -1\n"
+title: "Clear safe caches for disk headroom"
+status: succeeded
+started_at: 2026-09-05T16:07:59.488Z
+running_for_ms: 41141    
+---
+compdef:153: _comps: assignment to invalid subscript range
+npm warn using --force Recommended protections disabled.
+559M	/Users/sinchunyeung/.local/share/cursor-agent/versions/2026.09.02-c22c1a3
+224M	/Users/sinchunyeung/.local/share/cursor-agent/versions/2026.08.31-4057e58
+224M	/Users/sinchunyeung/.local/share/cursor-agent/versions/2026.08.25-3e8eec8
+/dev/disk3s5   460Gi   409Gi    13Gi    97%    6.4M  138M    4%   /System/Volumes/Data
+
+---
+exit_code: 0
+elapsed_ms: 41141
+ended_at: 2026-09-05T16:08:40.629Z
+---

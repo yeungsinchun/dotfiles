@@ -1,0 +1,27 @@
+---
+pid: 42074
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/DSE"
+command: "cd \"/Users/sinchunyeung/Documents-local/Materials/Phy/DSE\" && python3 scripts/ocr_lq_questions.py 2>&1\npython3 scripts/classify_lq_by_topic.py 2>&1 | tail -40\n"
+started_at: 2026-08-22T03:05:42.898Z
+running_for_ms: 175782   
+---
+2012: 10 questions
+2013: 1 questions
+2015: 1 questions
+2016: 9 questions
+2017: 2 questions
+2018: 10 questions
+2019: 10 questions
+2020: 10 questions
+2021: 9 questions
+2022: 10 questions
+2023: 9 questions
+ppp: 10 questions
+Wrote 91 LQ records -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/LQ/lq_questions.json
+SyntaxError: Non-UTF-8 code starting with '\x97' in file /Users/sinchunyeung/Documents-local/Materials/Phy/dse/scripts/classify_lq_by_topic.py on line 61, but no encoding declared; see https://python.org/dev/peps/pep-0263/ for details
+
+---
+exit_code: 0
+elapsed_ms: 180159
+ended_at: 2026-08-22T03:08:43.057Z
+---

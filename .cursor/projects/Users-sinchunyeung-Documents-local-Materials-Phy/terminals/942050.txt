@@ -1,0 +1,18 @@
+---
+pid: 35144
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/dse"
+command: "cd \"/Users/sinchunyeung/Documents-local/Materials/Phy/DSE\" && python3 scripts/preprocess_lq.py \"Year/LQ/2021p1b.pdf\" \"processed/LQ/2021\" 2>&1\npython3 << 'EOF'\nfrom PIL import Image\nfrom pathlib import Path\nsrc = Path(\"processed/LQ/2021\")\nfor i in (1,2,6):\n    img = Image.open(src/f\"q{i}.png\")\n    print(f\"q{i}: {img.size}\")\nimg = Image.open(src/\"q1.png\")\n# save top portion and full scaled\nw=800\nh=int(img.height*w/img.width)\nimg.resize((w,h)).save(\"/tmp/lq_qcheck/q1b.png\")\nimg.crop((0,0,img.width,min(1600,img.height))).resize((800, int(min(1600,img.height)*800/img.width))).save(\"/tmp/lq_qcheck/q1b_top.png\")\nEOF\n"
+started_at: 2026-08-22T02:34:06.959Z
+running_for_ms: 30034    
+---
+  detected Q1-Q9 (9 questions)
+Wrote 9 questions -> processed/LQ/2021
+q1: (1198, 3489)
+q2: (1198, 3593)
+q6: (1198, 5399)
+
+---
+exit_code: 0
+elapsed_ms: 31672
+ended_at: 2026-08-22T02:34:38.631Z
+---

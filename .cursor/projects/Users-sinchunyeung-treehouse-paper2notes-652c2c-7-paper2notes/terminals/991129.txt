@@ -1,0 +1,133 @@
+---
+pid: 60204
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/7/paper2notes"
+command: "# pick a free port starting at 8767\nPORT=8767\nwhile lsof -iTCP:$PORT -sTCP:LISTEN >/dev/null 2>&1; do PORT=$((PORT+1)); done\necho \"CHOSEN_PORT=$PORT\"\n# serve worktree root (notes/ does not exist on this HEAD)\npython3 -m http.server \"$PORT\" --directory '/Users/sinchunyeung/.treehouse/paper2notes-652c2c/7/paper2notes'"
+title: "Start static HTTP server on free port"
+status: aborted  
+started_at: 2026-09-15T11:21:59.437Z
+running_for_ms: 8789295  
+---
+CHOSEN_PORT=8768
+::ffff:127.0.0.1 - - [15/Sep/2026 19:22:08] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:22:08] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 19:22:08] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:22:08] "GET /README.md HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:22:18] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:22:18] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 19:22:18] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:22:19] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 19:22:19] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:22:20] "GET /README.md HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:22:21] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:23:51] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:23:51] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 19:23:51] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:23:51] "GET /README.md HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:24:03] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:24:03] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 19:24:03] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:24:03] "GET /README.md HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:24:11] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:24:11] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 19:24:11] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:24:12] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:24:12] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 19:24:12] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:26:51] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:39:55] "GET /README.md HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:55:12] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:56:03] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:56:03] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 19:56:03] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 19:56:03] "GET /README.md HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:03:31] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:03:31] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:03:31] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:03:31] "GET /README.md HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:04:17] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:04:17] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:04:17] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:03] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:03] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:03] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:04] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:04] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:04] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:12] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:12] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:12] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:21] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:21] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:21] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:39] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:39] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:39] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:40] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:40] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:40] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:42] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:42] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:42] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:43] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:43] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:43] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:45] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:45] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:45] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:50] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:50] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:50] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:53] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:53] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:53] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:56] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:56] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:05:56] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:06:15] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:06:15] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:06:15] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:11:06] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:11:06] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:11:06] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:11:06] "GET /README.md HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:11:27] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:11:27] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:11:27] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:11:28] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:11:28] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:11:28] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:11:30] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:11:30] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:11:30] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:11:32] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:11:32] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Sep/2026 20:11:32] "GET /notes/ HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:22:40] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:22:40] "GET /README.md HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:22:40] "GET /notes/ HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:22:42] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:22:42] "GET /notes/ HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:23:22] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:23:22] "GET /notes/ HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:26:32] "GET /notes/book5/index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:35:27] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:35:27] "GET /README.md HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:35:27] "GET /notes/ HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:35:38] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 20:35:38] "GET /notes/ HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 21:08:39] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 21:08:39] "GET /notes/ HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 21:08:39] "GET /README.md HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [15/Sep/2026 21:36:37] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 21:36:37] "GET /notes/ HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 21:36:37] "GET /README.md HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [15/Sep/2026 21:37:18] "GET / HTTP/1.1" 200 -
+
+---
+exit_code: unknown
+elapsed_ms: 8789291
+ended_at: 2026-09-15T13:48:28.728Z
+---

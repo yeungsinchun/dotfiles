@@ -1,0 +1,982 @@
+simplify_geometry.h:19:12: error: code should be clang-formatted [-Wclang-format-violations]
+using Point  = Kernel::Point_2;
+           ^
+simplify_geometry.h:33:27: error: code should be clang-formatted [-Wclang-format-violations]
+inline Vec2 sub(const Vec2& u, const Vec2& v) {
+                          ^
+simplify_geometry.h:33:28: error: code should be clang-formatted [-Wclang-format-violations]
+inline Vec2 sub(const Vec2& u, const Vec2& v) {
+                           ^
+simplify_geometry.h:33:42: error: code should be clang-formatted [-Wclang-format-violations]
+inline Vec2 sub(const Vec2& u, const Vec2& v) {
+                                         ^
+simplify_geometry.h:33:43: error: code should be clang-formatted [-Wclang-format-violations]
+inline Vec2 sub(const Vec2& u, const Vec2& v) {
+                                          ^
+simplify_geometry.h:37:31: error: code should be clang-formatted [-Wclang-format-violations]
+inline double cross(const Vec2& u, const Vec2& v) {
+                              ^
+simplify_geometry.h:37:32: error: code should be clang-formatted [-Wclang-format-violations]
+inline double cross(const Vec2& u, const Vec2& v) {
+                               ^
+simplify_geometry.h:37:46: error: code should be clang-formatted [-Wclang-format-violations]
+inline double cross(const Vec2& u, const Vec2& v) {
+                                             ^
+simplify_geometry.h:37:47: error: code should be clang-formatted [-Wclang-format-violations]
+inline double cross(const Vec2& u, const Vec2& v) {
+                                              ^
+simplify_geometry.h:41:28: error: code should be clang-formatted [-Wclang-format-violations]
+inline Vec2 lerp(const Vec2& p, const Vec2& q, double t) {
+                           ^
+simplify_geometry.h:41:29: error: code should be clang-formatted [-Wclang-format-violations]
+inline Vec2 lerp(const Vec2& p, const Vec2& q, double t) {
+                            ^
+simplify_geometry.h:41:43: error: code should be clang-formatted [-Wclang-format-violations]
+inline Vec2 lerp(const Vec2& p, const Vec2& q, double t) {
+                                          ^
+simplify_geometry.h:41:44: error: code should be clang-formatted [-Wclang-format-violations]
+inline Vec2 lerp(const Vec2& p, const Vec2& q, double t) {
+                                           ^
+simplify_geometry.h:47:32: error: code should be clang-formatted [-Wclang-format-violations]
+inline double orient(const Vec2& a, const Vec2& b, const Vec2& p) {
+                               ^
+simplify_geometry.h:47:33: error: code should be clang-formatted [-Wclang-format-violations]
+inline double orient(const Vec2& a, const Vec2& b, const Vec2& p) {
+                                ^
+simplify_geometry.h:47:47: error: code should be clang-formatted [-Wclang-format-violations]
+inline double orient(const Vec2& a, const Vec2& b, const Vec2& p) {
+                                              ^
+simplify_geometry.h:47:48: error: code should be clang-formatted [-Wclang-format-violations]
+inline double orient(const Vec2& a, const Vec2& b, const Vec2& p) {
+                                               ^
+simplify_geometry.h:47:62: error: code should be clang-formatted [-Wclang-format-violations]
+inline double orient(const Vec2& a, const Vec2& b, const Vec2& p) {
+                                                             ^
+simplify_geometry.h:47:63: error: code should be clang-formatted [-Wclang-format-violations]
+inline double orient(const Vec2& a, const Vec2& b, const Vec2& p) {
+                                                              ^
+simplify_geometry.h:53:43: error: code should be clang-formatted [-Wclang-format-violations]
+inline Vec2 crossing_on_segment(const Vec2& p, const Vec2& q,
+                                          ^
+simplify_geometry.h:53:44: error: code should be clang-formatted [-Wclang-format-violations]
+inline Vec2 crossing_on_segment(const Vec2& p, const Vec2& q,
+                                           ^
+simplify_geometry.h:53:58: error: code should be clang-formatted [-Wclang-format-violations]
+inline Vec2 crossing_on_segment(const Vec2& p, const Vec2& q,
+                                                         ^
+simplify_geometry.h:53:59: error: code should be clang-formatted [-Wclang-format-violations]
+inline Vec2 crossing_on_segment(const Vec2& p, const Vec2& q,
+                                                          ^
+simplify_geometry.h:53:62: error: code should be clang-formatted [-Wclang-format-violations]
+inline Vec2 crossing_on_segment(const Vec2& p, const Vec2& q,
+                                                             ^
+simplify_geometry.h:54:49: error: code should be clang-formatted [-Wclang-format-violations]
+                                double orient_p, double orient_q) {
+                                                ^
+simplify_geometry.h:58:39: error: code should be clang-formatted [-Wclang-format-violations]
+inline void make_ccw(std::vector<Vec2>& polygon) {
+                                      ^
+simplify_geometry.h:58:40: error: code should be clang-formatted [-Wclang-format-violations]
+inline void make_ccw(std::vector<Vec2>& polygon) {
+                                       ^
+simplify_geometry.h:63:26: error: code should be clang-formatted [-Wclang-format-violations]
+    if (twice_area < 0.0) std::reverse(polygon.begin(), polygon.end());
+                         ^
+simplify_geometry.h:66:32: error: code should be clang-formatted [-Wclang-format-violations]
+inline Vec2 to_vec2(const Point& p) {
+                               ^
+simplify_geometry.h:66:33: error: code should be clang-formatted [-Wclang-format-violations]
+inline Vec2 to_vec2(const Point& p) {
+                                ^
+simplify_geometry.h:70:56: error: code should be clang-formatted [-Wclang-format-violations]
+inline void assign_ccw_doubles(const std::vector<Point>& src, std::vector<Vec2>& dst) {
+                                                       ^
+simplify_geometry.h:70:57: error: code should be clang-formatted [-Wclang-format-violations]
+inline void assign_ccw_doubles(const std::vector<Point>& src, std::vector<Vec2>& dst) {
+                                                        ^
+simplify_geometry.h:70:62: error: code should be clang-formatted [-Wclang-format-violations]
+inline void assign_ccw_doubles(const std::vector<Point>& src, std::vector<Vec2>& dst) {
+                                                             ^
+simplify_geometry.h:70:80: error: code should be clang-formatted [-Wclang-format-violations]
+inline void assign_ccw_doubles(const std::vector<Point>& src, std::vector<Vec2>& dst) {
+                                                                               ^
+simplify_geometry.h:70:81: error: code should be clang-formatted [-Wclang-format-violations]
+inline void assign_ccw_doubles(const std::vector<Point>& src, std::vector<Vec2>& dst) {
+                                                                                ^
+simplify_geometry.h:73:20: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& p : src) dst.push_back(to_vec2(p));
+                   ^
+simplify_geometry.h:73:21: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& p : src) dst.push_back(to_vec2(p));
+                    ^
+simplify_geometry.h:73:30: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& p : src) dst.push_back(to_vec2(p));
+                             ^
+simplify_geometry.h:77:50: error: code should be clang-formatted [-Wclang-format-violations]
+inline void assign_points(const std::vector<Vec2>& src, std::vector<Point>& dst) {
+                                                 ^
+simplify_geometry.h:77:51: error: code should be clang-formatted [-Wclang-format-violations]
+inline void assign_points(const std::vector<Vec2>& src, std::vector<Point>& dst) {
+                                                  ^
+simplify_geometry.h:77:56: error: code should be clang-formatted [-Wclang-format-violations]
+inline void assign_points(const std::vector<Vec2>& src, std::vector<Point>& dst) {
+                                                       ^
+simplify_geometry.h:77:75: error: code should be clang-formatted [-Wclang-format-violations]
+inline void assign_points(const std::vector<Vec2>& src, std::vector<Point>& dst) {
+                                                                          ^
+simplify_geometry.h:77:76: error: code should be clang-formatted [-Wclang-format-violations]
+inline void assign_points(const std::vector<Vec2>& src, std::vector<Point>& dst) {
+                                                                           ^
+simplify_geometry.h:80:20: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& p : src) dst.emplace_back(p[0], p[1]);
+                   ^
+simplify_geometry.h:80:21: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& p : src) dst.emplace_back(p[0], p[1]);
+                    ^
+simplify_geometry.h:80:30: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& p : src) dst.emplace_back(p[0], p[1]);
+                             ^
+simplify_geometry.h:83:18: error: code should be clang-formatted [-Wclang-format-violations]
+inline const Vec2& next_ccw_vertex(const std::vector<Vec2>& polygon, int i) {
+                 ^
+simplify_geometry.h:83:19: error: code should be clang-formatted [-Wclang-format-violations]
+inline const Vec2& next_ccw_vertex(const std::vector<Vec2>& polygon, int i) {
+                  ^
+simplify_geometry.h:83:59: error: code should be clang-formatted [-Wclang-format-violations]
+inline const Vec2& next_ccw_vertex(const std::vector<Vec2>& polygon, int i) {
+                                                          ^
+simplify_geometry.h:83:60: error: code should be clang-formatted [-Wclang-format-violations]
+inline const Vec2& next_ccw_vertex(const std::vector<Vec2>& polygon, int i) {
+                                                           ^
+simplify_geometry.h:90:57: error: code should be clang-formatted [-Wclang-format-violations]
+inline void crop_to_left_of_edge(const std::vector<Vec2>& polygon,
+                                                        ^
+simplify_geometry.h:90:58: error: code should be clang-formatted [-Wclang-format-violations]
+inline void crop_to_left_of_edge(const std::vector<Vec2>& polygon,
+                                                         ^
+simplify_geometry.h:91:44: error: code should be clang-formatted [-Wclang-format-violations]
+                                 const Vec2& edge_start,
+                                           ^
+simplify_geometry.h:91:45: error: code should be clang-formatted [-Wclang-format-violations]
+                                 const Vec2& edge_start,
+                                            ^
+simplify_geometry.h:91:57: error: code should be clang-formatted [-Wclang-format-violations]
+                                 const Vec2& edge_start,
+                                                        ^
+simplify_geometry.h:92:44: error: code should be clang-formatted [-Wclang-format-violations]
+                                 const Vec2& edge_end,
+                                           ^
+simplify_geometry.h:92:45: error: code should be clang-formatted [-Wclang-format-violations]
+                                 const Vec2& edge_end,
+                                            ^
+simplify_geometry.h:93:51: error: code should be clang-formatted [-Wclang-format-violations]
+                                 std::vector<Vec2>& cropped) {
+                                                  ^
+simplify_geometry.h:93:52: error: code should be clang-formatted [-Wclang-format-violations]
+                                 std::vector<Vec2>& cropped) {
+                                                   ^
+simplify_geometry.h:96:16: error: code should be clang-formatted [-Wclang-format-violations]
+    if (n == 0) return;
+               ^
+simplify_geometry.h:100:19: error: code should be clang-formatted [-Wclang-format-violations]
+        const Vec2& curr = polygon[i];
+                  ^
+simplify_geometry.h:100:20: error: code should be clang-formatted [-Wclang-format-violations]
+        const Vec2& curr = polygon[i];
+                   ^
+simplify_geometry.h:101:19: error: code should be clang-formatted [-Wclang-format-violations]
+        const Vec2& prev = polygon[prev_i];
+                  ^
+simplify_geometry.h:101:20: error: code should be clang-formatted [-Wclang-format-violations]
+        const Vec2& prev = polygon[prev_i];
+                   ^
+simplify_geometry.h:130:27: error: code should be clang-formatted [-Wclang-format-violations]
+inline ReusableClipBuffers& reusable_clip_buffers() {
+                          ^
+simplify_geometry.h:130:28: error: code should be clang-formatted [-Wclang-format-violations]
+inline ReusableClipBuffers& reusable_clip_buffers() {
+                           ^
+simplify_geometry.h:137:32: error: code should be clang-formatted [-Wclang-format-violations]
+inline const std::vector<Point>& clip(const std::vector<Point>& current_polygon,
+                               ^
+simplify_geometry.h:137:33: error: code should be clang-formatted [-Wclang-format-violations]
+inline const std::vector<Point>& clip(const std::vector<Point>& current_polygon,
+                                ^
+simplify_geometry.h:137:63: error: code should be clang-formatted [-Wclang-format-violations]
+inline const std::vector<Point>& clip(const std::vector<Point>& current_polygon,
+                                                              ^
+simplify_geometry.h:137:64: error: code should be clang-formatted [-Wclang-format-violations]
+inline const std::vector<Point>& clip(const std::vector<Point>& current_polygon,
+                                                               ^
+simplify_geometry.h:137:81: error: code should be clang-formatted [-Wclang-format-violations]
+inline const std::vector<Point>& clip(const std::vector<Point>& current_polygon,
+                                                                                ^
+simplify_geometry.h:138:63: error: code should be clang-formatted [-Wclang-format-violations]
+                                      const std::vector<Point>& cropping_polygon) {
+                                                              ^
+simplify_geometry.h:138:64: error: code should be clang-formatted [-Wclang-format-violations]
+                                      const std::vector<Point>& cropping_polygon) {
+                                                               ^
+simplify_geometry.h:139:9: error: code should be clang-formatted [-Wclang-format-violations]
+    auto& buffers = reusable_clip_buffers();
+        ^
+simplify_geometry.h:139:10: error: code should be clang-formatted [-Wclang-format-violations]
+    auto& buffers = reusable_clip_buffers();
+         ^
+simplify_geometry.h:149:31: error: code should be clang-formatted [-Wclang-format-violations]
+    const int num_halfplanes = static_cast<int>(buffers.cropping_polygon.size());
+                              ^
+simplify_geometry.h:150:79: error: code should be clang-formatted [-Wclang-format-violations]
+    for (int e = 0; e < num_halfplanes && buffers.current_polygon.size() >= 3; ++e) {
+                                                                              ^
+simplify_geometry.h:151:19: error: code should be clang-formatted [-Wclang-format-violations]
+        const Vec2& edge_start = buffers.cropping_polygon[e];
+                  ^
+simplify_geometry.h:151:20: error: code should be clang-formatted [-Wclang-format-violations]
+        const Vec2& edge_start = buffers.cropping_polygon[e];
+                   ^
+simplify_geometry.h:152:19: error: code should be clang-formatted [-Wclang-format-violations]
+        const Vec2& edge_end   = next_ccw_vertex(buffers.cropping_polygon, e);
+                  ^
+simplify_geometry.h:152:20: error: code should be clang-formatted [-Wclang-format-violations]
+        const Vec2& edge_end   = next_ccw_vertex(buffers.cropping_polygon, e);
+                   ^
+simplify_geometry.h:152:29: error: code should be clang-formatted [-Wclang-format-violations]
+        const Vec2& edge_end   = next_ccw_vertex(buffers.cropping_polygon, e);
+                            ^
+simplify_geometry.h:166:2: error: code should be clang-formatted [-Wclang-format-violations]
+}  // namespace sh_double
+ ^
+simplify_geometry.h:181:48: error: code should be clang-formatted [-Wclang-format-violations]
+inline void dedup_into(const std::vector<Point>& poly, std::vector<Point>& out) {
+                                               ^
+simplify_geometry.h:181:49: error: code should be clang-formatted [-Wclang-format-violations]
+inline void dedup_into(const std::vector<Point>& poly, std::vector<Point>& out) {
+                                                ^
+simplify_geometry.h:181:55: error: code should be clang-formatted [-Wclang-format-violations]
+inline void dedup_into(const std::vector<Point>& poly, std::vector<Point>& out) {
+                                                      ^
+simplify_geometry.h:181:74: error: code should be clang-formatted [-Wclang-format-violations]
+inline void dedup_into(const std::vector<Point>& poly, std::vector<Point>& out) {
+                                                                         ^
+simplify_geometry.h:181:75: error: code should be clang-formatted [-Wclang-format-violations]
+inline void dedup_into(const std::vector<Point>& poly, std::vector<Point>& out) {
+                                                                          ^
+simplify_geometry.h:184:17: error: code should be clang-formatted [-Wclang-format-violations]
+    if (n < 2) { out = poly; return; }
+                ^
+simplify_geometry.h:184:29: error: code should be clang-formatted [-Wclang-format-violations]
+    if (n < 2) { out = poly; return; }
+                            ^
+simplify_geometry.h:184:37: error: code should be clang-formatted [-Wclang-format-violations]
+    if (n < 2) { out = poly; return; }
+                                    ^
+simplify_geometry.h:186:32: error: code should be clang-formatted [-Wclang-format-violations]
+    auto close = [](const Point& a, const Point& b) {
+                               ^
+simplify_geometry.h:186:33: error: code should be clang-formatted [-Wclang-format-violations]
+    auto close = [](const Point& a, const Point& b) {
+                                ^
+simplify_geometry.h:186:48: error: code should be clang-formatted [-Wclang-format-violations]
+    auto close = [](const Point& a, const Point& b) {
+                                               ^
+simplify_geometry.h:186:49: error: code should be clang-formatted [-Wclang-format-violations]
+    auto close = [](const Point& a, const Point& b) {
+                                                ^
+simplify_geometry.h:193:56: error: code should be clang-formatted [-Wclang-format-violations]
+        if (!out.empty() && close(poly[i], out.back())) continue;
+                                                       ^
+simplify_geometry.h:196:62: error: code should be clang-formatted [-Wclang-format-violations]
+    while (out.size() >= 2 && close(out.front(), out.back())) out.pop_back();
+                                                             ^
+simplify_geometry.h:200:69: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> dedup_consecutive(const std::vector<Point>& poly) {
+                                                                    ^
+simplify_geometry.h:200:70: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> dedup_consecutive(const std::vector<Point>& poly) {
+                                                                     ^
+simplify_geometry.h:214:47: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool intersect(const std::vector<Point>& P_in,
+                                              ^
+simplify_geometry.h:214:48: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool intersect(const std::vector<Point>& P_in,
+                                               ^
+simplify_geometry.h:215:47: error: code should be clang-formatted [-Wclang-format-violations]
+                      const std::vector<Point>& Q_in,
+                                              ^
+simplify_geometry.h:215:48: error: code should be clang-formatted [-Wclang-format-violations]
+                      const std::vector<Point>& Q_in,
+                                               ^
+simplify_geometry.h:216:41: error: code should be clang-formatted [-Wclang-format-violations]
+                      std::vector<Point>& result) {
+                                        ^
+simplify_geometry.h:216:42: error: code should be clang-formatted [-Wclang-format-violations]
+                      std::vector<Point>& result) {
+                                         ^
+simplify_geometry.h:253:40: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_in_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                       ^
+simplify_geometry.h:253:41: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_in_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                        ^
+simplify_geometry.h:253:69: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_in_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                                                    ^
+simplify_geometry.h:253:70: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_in_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                                                     ^
+simplify_geometry.h:253:76: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_in_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                                                           ^
+simplify_geometry.h:256:15: error: code should be clang-formatted [-Wclang-format-violations]
+    if (n < 3) return false;
+              ^
+simplify_geometry.h:256:29: error: code should be clang-formatted [-Wclang-format-violations]
+    if (n < 3) return false;
+                            ^
+simplify_geometry.h:258:20: error: code should be clang-formatted [-Wclang-format-violations]
+    const int bad = ccw ? -1 : 1;   // sign that means "outside" (right for CCW, left for CW)
+                   ^
+simplify_geometry.h:258:34: error: code should be clang-formatted [-Wclang-format-violations]
+    const int bad = ccw ? -1 : 1;   // sign that means "outside" (right for CCW, left for CW)
+                                 ^
+simplify_geometry.h:261:56: error: code should be clang-formatted [-Wclang-format-violations]
+        const double ax = CGAL::to_double(poly[i].x()), ay = CGAL::to_double(poly[i].y());
+                                                       ^
+simplify_geometry.h:262:66: error: code should be clang-formatted [-Wclang-format-violations]
+        const double bx = CGAL::to_double(poly[(i + 1) % n].x()), by = CGAL::to_double(poly[(i + 1) % n].y());
+                                                                 ^
+simplify_geometry.h:269:18: error: code should be clang-formatted [-Wclang-format-violations]
+        if (det >  bound)      s =  1;
+                 ^
+simplify_geometry.h:269:26: error: code should be clang-formatted [-Wclang-format-violations]
+        if (det >  bound)      s =  1;
+                         ^
+simplify_geometry.h:269:35: error: code should be clang-formatted [-Wclang-format-violations]
+        if (det >  bound)      s =  1;
+                                  ^
+simplify_geometry.h:270:31: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (det < -bound) s = -1;
+                              ^
+simplify_geometry.h:272:72: error: code should be clang-formatted [-Wclang-format-violations]
+            switch (CGAL::orientation(poly[i], poly[(i + 1) % n], p)) {
+                                                                       ^
+simplify_geometry.h:273:38: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::LEFT_TURN:  s =  1; break;
+                                     ^
+simplify_geometry.h:273:43: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::LEFT_TURN:  s =  1; break;
+                                          ^
+simplify_geometry.h:273:47: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::LEFT_TURN:  s =  1; break;
+                                              ^
+simplify_geometry.h:273:54: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::LEFT_TURN:  s =  1; break;
+                                                     ^
+simplify_geometry.h:274:39: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::RIGHT_TURN: s = -1; break;
+                                      ^
+simplify_geometry.h:274:47: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::RIGHT_TURN: s = -1; break;
+                                              ^
+simplify_geometry.h:274:54: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::RIGHT_TURN: s = -1; break;
+                                                     ^
+simplify_geometry.h:275:25: error: code should be clang-formatted [-Wclang-format-violations]
+                default:               s =  0; break;
+                        ^
+simplify_geometry.h:275:43: error: code should be clang-formatted [-Wclang-format-violations]
+                default:               s =  0; break;
+                                          ^
+simplify_geometry.h:275:47: error: code should be clang-formatted [-Wclang-format-violations]
+                default:               s =  0; break;
+                                              ^
+simplify_geometry.h:278:22: error: code should be clang-formatted [-Wclang-format-violations]
+        if (s == bad) return false;
+                     ^
+simplify_geometry.h:284:41: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_on_segment(const Point& a, const Point& b, const Point& q) {
+                                        ^
+simplify_geometry.h:284:42: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_on_segment(const Point& a, const Point& b, const Point& q) {
+                                         ^
+simplify_geometry.h:284:57: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_on_segment(const Point& a, const Point& b, const Point& q) {
+                                                        ^
+simplify_geometry.h:284:58: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_on_segment(const Point& a, const Point& b, const Point& q) {
+                                                         ^
+simplify_geometry.h:284:73: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_on_segment(const Point& a, const Point& b, const Point& q) {
+                                                                        ^
+simplify_geometry.h:284:74: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_on_segment(const Point& a, const Point& b, const Point& q) {
+                                                                         ^
+simplify_geometry.h:293:31: error: code should be clang-formatted [-Wclang-format-violations]
+    if (std::abs(det) > bound) return false;
+                              ^
+simplify_geometry.h:294:55: error: code should be clang-formatted [-Wclang-format-violations]
+    if (CGAL::orientation(a, b, q) != CGAL::COLLINEAR) return false;
+                                                      ^
+simplify_geometry.h:295:48: error: code should be clang-formatted [-Wclang-format-violations]
+    return qx >= std::min(ax, bx) - GEOM_TOL && qx <= std::max(ax, bx) + GEOM_TOL &&
+                                               ^
+simplify_geometry.h:296:48: error: code should be clang-formatted [-Wclang-format-violations]
+           qy >= std::min(ay, by) - GEOM_TOL && qy <= std::max(ay, by) + GEOM_TOL;
+                                               ^
+simplify_geometry.h:300:47: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool strictly_inside_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                              ^
+simplify_geometry.h:300:48: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool strictly_inside_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                               ^
+simplify_geometry.h:300:51: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool strictly_inside_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                                  ^
+simplify_geometry.h:300:76: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool strictly_inside_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                                                           ^
+simplify_geometry.h:300:77: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool strictly_inside_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                                                            ^
+simplify_geometry.h:300:83: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool strictly_inside_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                                                                  ^
+simplify_geometry.h:302:15: error: code should be clang-formatted [-Wclang-format-violations]
+    if (n < 3) return false;
+              ^
+simplify_geometry.h:307:56: error: code should be clang-formatted [-Wclang-format-violations]
+        const double ax = CGAL::to_double(poly[i].x()), ay = CGAL::to_double(poly[i].y());
+                                                       ^
+simplify_geometry.h:308:66: error: code should be clang-formatted [-Wclang-format-violations]
+        const double bx = CGAL::to_double(poly[(i + 1) % n].x()), by = CGAL::to_double(poly[(i + 1) % n].y());
+                                                                 ^
+simplify_geometry.h:315:18: error: code should be clang-formatted [-Wclang-format-violations]
+        if (det >  bound)      s =  1;
+                 ^
+simplify_geometry.h:315:26: error: code should be clang-formatted [-Wclang-format-violations]
+        if (det >  bound)      s =  1;
+                         ^
+simplify_geometry.h:315:35: error: code should be clang-formatted [-Wclang-format-violations]
+        if (det >  bound)      s =  1;
+                                  ^
+simplify_geometry.h:316:31: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (det < -bound) s = -1;
+                              ^
+simplify_geometry.h:318:65: error: code should be clang-formatted [-Wclang-format-violations]
+            if (point_on_segment(poly[i], poly[(i + 1) % n], p)) return false;
+                                                                ^
+simplify_geometry.h:319:72: error: code should be clang-formatted [-Wclang-format-violations]
+            switch (CGAL::orientation(poly[i], poly[(i + 1) % n], p)) {
+                                                                       ^
+simplify_geometry.h:320:38: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::LEFT_TURN:  s =  1; break;
+                                     ^
+simplify_geometry.h:320:43: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::LEFT_TURN:  s =  1; break;
+                                          ^
+simplify_geometry.h:320:47: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::LEFT_TURN:  s =  1; break;
+                                              ^
+simplify_geometry.h:320:54: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::LEFT_TURN:  s =  1; break;
+                                                     ^
+simplify_geometry.h:321:39: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::RIGHT_TURN: s = -1; break;
+                                      ^
+simplify_geometry.h:321:47: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::RIGHT_TURN: s = -1; break;
+                                              ^
+simplify_geometry.h:321:54: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::RIGHT_TURN: s = -1; break;
+                                                     ^
+simplify_geometry.h:322:25: error: code should be clang-formatted [-Wclang-format-violations]
+                default:               s =  0; break;
+                        ^
+simplify_geometry.h:322:43: error: code should be clang-formatted [-Wclang-format-violations]
+                default:               s =  0; break;
+                                          ^
+simplify_geometry.h:322:47: error: code should be clang-formatted [-Wclang-format-violations]
+                default:               s =  0; break;
+                                              ^
+simplify_geometry.h:325:20: error: code should be clang-formatted [-Wclang-format-violations]
+        if (s != 1) return false;
+                   ^
+simplify_geometry.h:331:53: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::optional<Point> ray_hit_bbox(const Point& p, const Point& dir) {
+                                                    ^
+simplify_geometry.h:331:54: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::optional<Point> ray_hit_bbox(const Point& p, const Point& dir) {
+                                                     ^
+simplify_geometry.h:331:69: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::optional<Point> ray_hit_bbox(const Point& p, const Point& dir) {
+                                                                    ^
+simplify_geometry.h:331:70: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::optional<Point> ray_hit_bbox(const Point& p, const Point& dir) {
+                                                                     ^
+simplify_geometry.h:337:20: error: code should be clang-formatted [-Wclang-format-violations]
+        if (t <= 0) return;
+                   ^
+simplify_geometry.h:339:50: error: code should be clang-formatted [-Wclang-format-violations]
+        if (x < BMIN - 1e-8 || x > BMAX + 1e-8 ||
+                                                 ^
+simplify_geometry.h:340:31: error: code should be clang-formatted [-Wclang-format-violations]
+            y < BMIN - 1e-8 || y > BMAX + 1e-8) return;
+                              ^
+simplify_geometry.h:340:48: error: code should be clang-formatted [-Wclang-format-violations]
+            y < BMIN - 1e-8 || y > BMAX + 1e-8) return;
+                                               ^
+simplify_geometry.h:341:24: error: code should be clang-formatted [-Wclang-format-violations]
+        if (t < best) { best = t; hx = x; hy = y; }
+                       ^
+simplify_geometry.h:341:34: error: code should be clang-formatted [-Wclang-format-violations]
+        if (t < best) { best = t; hx = x; hy = y; }
+                                 ^
+simplify_geometry.h:341:42: error: code should be clang-formatted [-Wclang-format-violations]
+        if (t < best) { best = t; hx = x; hy = y; }
+                                         ^
+simplify_geometry.h:341:50: error: code should be clang-formatted [-Wclang-format-violations]
+        if (t < best) { best = t; hx = x; hy = y; }
+                                                 ^
+simplify_geometry.h:351:30: error: code should be clang-formatted [-Wclang-format-violations]
+    if (!std::isfinite(best)) return std::nullopt;
+                             ^
+simplify_geometry.h:357:12: error: code should be clang-formatted [-Wclang-format-violations]
+    BL = 0, BOTTOM = 1, BR = 2, RIGHT = 3,
+           ^
+simplify_geometry.h:357:24: error: code should be clang-formatted [-Wclang-format-violations]
+    BL = 0, BOTTOM = 1, BR = 2, RIGHT = 3,
+                       ^
+simplify_geometry.h:357:32: error: code should be clang-formatted [-Wclang-format-violations]
+    BL = 0, BOTTOM = 1, BR = 2, RIGHT = 3,
+                               ^
+simplify_geometry.h:358:12: error: code should be clang-formatted [-Wclang-format-violations]
+    TR = 4, TOP = 5,    TL = 6, LEFT = 7
+           ^
+simplify_geometry.h:358:21: error: code should be clang-formatted [-Wclang-format-violations]
+    TR = 4, TOP = 5,    TL = 6, LEFT = 7
+                    ^
+simplify_geometry.h:358:32: error: code should be clang-formatted [-Wclang-format-violations]
+    TR = 4, TOP = 5,    TL = 6, LEFT = 7
+                               ^
+simplify_geometry.h:362:13: error: code should be clang-formatted [-Wclang-format-violations]
+    return {
+            ^
+simplify_geometry.h:363:65: error: code should be clang-formatted [-Wclang-format-violations]
+        Point(BMIN, BMIN), Point(BMAX, BMIN), Point(BMAX, BMAX), Point(BMIN, BMAX)
+                                                                ^
+simplify_geometry.h:363:83: error: code should be clang-formatted [-Wclang-format-violations]
+        Point(BMIN, BMIN), Point(BMAX, BMIN), Point(BMAX, BMAX), Point(BMIN, BMAX)
+                                                                                  ^
+simplify_geometry.h:373:55: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::optional<Bbox_edge> which_edge(const Point& s) {
+                                                      ^
+simplify_geometry.h:373:56: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::optional<Bbox_edge> which_edge(const Point& s) {
+                                                       ^
+simplify_geometry.h:375:17: error: code should be clang-formatted [-Wclang-format-violations]
+    bool on_left   = std::abs(x - BMIN) < GEOM_TOL;
+                ^
+simplify_geometry.h:376:18: error: code should be clang-formatted [-Wclang-format-violations]
+    bool on_right  = std::abs(x - BMAX) < GEOM_TOL;
+                 ^
+simplify_geometry.h:378:16: error: code should be clang-formatted [-Wclang-format-violations]
+    bool on_top    = std::abs(y - BMAX) < GEOM_TOL;
+               ^
+simplify_geometry.h:380:30: error: code should be clang-formatted [-Wclang-format-violations]
+    if (on_left && on_bottom) return Bbox_edge::BL;
+                             ^
+simplify_geometry.h:381:31: error: code should be clang-formatted [-Wclang-format-violations]
+    if (on_right && on_bottom) return Bbox_edge::BR;
+                              ^
+simplify_geometry.h:382:28: error: code should be clang-formatted [-Wclang-format-violations]
+    if (on_right && on_top) return Bbox_edge::TR;
+                           ^
+simplify_geometry.h:383:27: error: code should be clang-formatted [-Wclang-format-violations]
+    if (on_left && on_top) return Bbox_edge::TL;
+                          ^
+simplify_geometry.h:384:19: error: code should be clang-formatted [-Wclang-format-violations]
+    if (on_bottom) return Bbox_edge::BOTTOM;
+                  ^
+simplify_geometry.h:385:18: error: code should be clang-formatted [-Wclang-format-violations]
+    if (on_right)  return Bbox_edge::RIGHT;
+                 ^
+simplify_geometry.h:386:16: error: code should be clang-formatted [-Wclang-format-violations]
+    if (on_top)    return Bbox_edge::TOP;
+               ^
+simplify_geometry.h:387:17: error: code should be clang-formatted [-Wclang-format-violations]
+    if (on_left)   return Bbox_edge::LEFT;
+                ^
+simplify_geometry.h:393:47: error: code should be clang-formatted [-Wclang-format-violations]
+inline void append_rect_pts(std::vector<Point>& out, Bbox_edge from, Bbox_edge to, bool ccw) {
+                                              ^
+simplify_geometry.h:393:48: error: code should be clang-formatted [-Wclang-format-violations]
+inline void append_rect_pts(std::vector<Point>& out, Bbox_edge from, Bbox_edge to, bool ccw) {
+                                               ^
+simplify_geometry.h:393:69: error: code should be clang-formatted [-Wclang-format-violations]
+inline void append_rect_pts(std::vector<Point>& out, Bbox_edge from, Bbox_edge to, bool ccw) {
+                                                                    ^
+simplify_geometry.h:399:16: error: code should be clang-formatted [-Wclang-format-violations]
+    if (i == j) return;
+               ^
+simplify_geometry.h:419:52: error: code should be clang-formatted [-Wclang-format-violations]
+inline void configure_bbox(const std::vector<Point>& stream, double EPSILON, double DELTA) {
+                                                   ^
+simplify_geometry.h:419:53: error: code should be clang-formatted [-Wclang-format-violations]
+inline void configure_bbox(const std::vector<Point>& stream, double EPSILON, double DELTA) {
+                                                    ^
+simplify_geometry.h:419:77: error: code should be clang-formatted [-Wclang-format-violations]
+inline void configure_bbox(const std::vector<Point>& stream, double EPSILON, double DELTA) {
+                                                                            ^
+simplify_geometry.h:422:21: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const Point& point : stream) {
+                    ^
+simplify_geometry.h:422:22: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const Point& point : stream) {
+                     ^
+simplify_geometry.h:423:69: error: code should be clang-formatted [-Wclang-format-violations]
+        min_coord = std::min({min_coord, CGAL::to_double(point.x()), CGAL::to_double(point.y())});
+                                                                    ^
+simplify_geometry.h:424:69: error: code should be clang-formatted [-Wclang-format-violations]
+        max_coord = std::max({max_coord, CGAL::to_double(point.x()), CGAL::to_double(point.y())});
+                                                                    ^
+simplify_geometry.h:426:30: error: code should be clang-formatted [-Wclang-format-violations]
+    const double grid_reach = R_val(EPSILON, DELTA) + GRID_val(EPSILON, DELTA) * std::sqrt(2.0);
+                             ^
+simplify_geometry.h:434:59: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                          ^
+simplify_geometry.h:434:60: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                           ^
+simplify_geometry.h:434:79: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                                              ^
+simplify_geometry.h:434:93: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                                                            ^
+simplify_geometry.h:438:20: error: code should be clang-formatted [-Wclang-format-violations]
+    if (DELTA == 0) return std::vector<Point>{p};
+                   ^
+simplify_geometry.h:458:25: error: code should be clang-formatted [-Wclang-format-violations]
+        if (seen[index]) return;
+                        ^
+simplify_geometry.h:462:35: error: code should be clang-formatted [-Wclang-format-violations]
+        expected_frechet_squared = std::max(
+                                  ^
+simplify_geometry.h:462:45: error: code should be clang-formatted [-Wclang-format-violations]
+        expected_frechet_squared = std::max(
+                                            ^
+simplify_geometry.h:463:38: error: code should be clang-formatted [-Wclang-format-violations]
+            expected_frechet_squared, corner_x * corner_x + corner_y * corner_y);
+                                     ^
+simplify_geometry.h:474:68: error: code should be clang-formatted [-Wclang-format-violations]
+            if (nearest_x * nearest_x + nearest_y * nearest_y > r2) continue;
+                                                                   ^
+simplify_geometry.h:475:26: error: code should be clang-formatted [-Wclang-format-violations]
+            add_corner(j,     k);
+                         ^
+simplify_geometry.h:478:26: error: code should be clang-formatted [-Wclang-format-violations]
+            add_corner(j,     k + 1);
+                         ^
+simplify_geometry.h:482:75: error: code should be clang-formatted [-Wclang-format-violations]
+    // Sort corners in row-major order: top-to-bottom (descending y), then left-to-right (ascending x)
+                                                                          ^
+simplify_geometry.h:483:58: error: code should be clang-formatted [-Wclang-format-violations]
+    std::sort(corner_coords.begin(), corner_coords.end(), [](const auto& a, const auto& b) {
+                                                         ^
+simplify_geometry.h:483:72: error: code should be clang-formatted [-Wclang-format-violations]
+    std::sort(corner_coords.begin(), corner_coords.end(), [](const auto& a, const auto& b) {
+                                                                       ^
+simplify_geometry.h:483:73: error: code should be clang-formatted [-Wclang-format-violations]
+    std::sort(corner_coords.begin(), corner_coords.end(), [](const auto& a, const auto& b) {
+                                                                        ^
+simplify_geometry.h:483:87: error: code should be clang-formatted [-Wclang-format-violations]
+    std::sort(corner_coords.begin(), corner_coords.end(), [](const auto& a, const auto& b) {
+                                                                                      ^
+simplify_geometry.h:483:88: error: code should be clang-formatted [-Wclang-format-violations]
+    std::sort(corner_coords.begin(), corner_coords.end(), [](const auto& a, const auto& b) {
+                                                                                       ^
+simplify_geometry.h:483:93: error: code should be clang-formatted [-Wclang-format-violations]
+    std::sort(corner_coords.begin(), corner_coords.end(), [](const auto& a, const auto& b) {
+                                                                                            ^
+simplify_geometry.h:484:34: error: code should be clang-formatted [-Wclang-format-violations]
+        if (a.second != b.second) return a.second > b.second; // y descending (top first)
+                                 ^
+simplify_geometry.h:484:90: error: code should be clang-formatted [-Wclang-format-violations]
+        if (a.second != b.second) return a.second > b.second; // y descending (top first)
+                                                                                         ^
+simplify_geometry.h:485:34: error: code should be clang-formatted [-Wclang-format-violations]
+        return a.first < b.first; // x ascending (left to right)
+                                 ^
+simplify_geometry.h:485:65: error: code should be clang-formatted [-Wclang-format-violations]
+        return a.first < b.first; // x ascending (left to right)
+                                                                ^
+simplify_geometry.h:491:20: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& [ji, ki] : corner_coords) {
+                   ^
+simplify_geometry.h:491:21: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& [ji, ki] : corner_coords) {
+                    ^
+simplify_geometry.h:509:57: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_conv_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                        ^
+simplify_geometry.h:509:58: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_conv_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                         ^
+simplify_geometry.h:509:77: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_conv_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                                            ^
+simplify_geometry.h:510:35: error: code should be clang-formatted [-Wclang-format-violations]
+    thread_local double cached_eps   = std::numeric_limits<double>::quiet_NaN();
+                                  ^
+simplify_geometry.h:515:58: error: code should be clang-formatted [-Wclang-format-violations]
+    if (EPSILON != cached_eps || DELTA != cached_delta || multiplier != cached_mult) {
+                                                         ^
+simplify_geometry.h:516:36: error: code should be clang-formatted [-Wclang-format-violations]
+        std::vector<Point> points = get_points_from_grid(Point(0, 0), EPSILON, DELTA, multiplier);
+                                   ^
+simplify_geometry.h:518:58: error: code should be clang-formatted [-Wclang-format-violations]
+        CGAL::convex_hull_2(points.begin(), points.end(), std::back_inserter(conv));
+                                                         ^
+simplify_geometry.h:521:24: error: code should be clang-formatted [-Wclang-format-violations]
+        for (const auto& q : conv)
+                       ^
+simplify_geometry.h:521:25: error: code should be clang-formatted [-Wclang-format-violations]
+        for (const auto& q : conv)
+                        ^
+simplify_geometry.h:522:36: error: code should be clang-formatted [-Wclang-format-violations]
+            hull_offsets.push_back({CGAL::to_double(q.x()), CGAL::to_double(q.y())});
+                                   ^
+simplify_geometry.h:523:19: error: code should be clang-formatted [-Wclang-format-violations]
+        cached_eps   = EPSILON;
+                  ^
+simplify_geometry.h:525:20: error: code should be clang-formatted [-Wclang-format-violations]
+        cached_mult  = multiplier;
+                   ^
+simplify_geometry.h:532:20: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& off : hull_offsets)
+                   ^
+simplify_geometry.h:532:21: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& off : hull_offsets)
+                    ^
+simplify_geometry.h:540:68: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_boundary_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                                   ^
+simplify_geometry.h:540:69: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_boundary_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                                    ^
+simplify_geometry.h:540:72: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_boundary_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                                       ^
+simplify_geometry.h:540:88: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_boundary_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                                                       ^
+simplify_geometry.h:540:102: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_boundary_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                                                                     ^
+simplify_geometry.h:541:35: error: code should be clang-formatted [-Wclang-format-violations]
+    thread_local double cached_eps   = std::numeric_limits<double>::quiet_NaN();
+                                  ^
+simplify_geometry.h:546:58: error: code should be clang-formatted [-Wclang-format-violations]
+    if (EPSILON != cached_eps || DELTA != cached_delta || multiplier != cached_mult) {
+                                                         ^
+simplify_geometry.h:548:39: error: code should be clang-formatted [-Wclang-format-violations]
+        const std::vector<Point> all = get_points_from_grid(Point(0, 0), EPSILON, DELTA, multiplier);
+                                      ^
+simplify_geometry.h:554:47: error: code should be clang-formatted [-Wclang-format-violations]
+            for (size_t i = 0; i < all.size(); ) {
+                                              ^
+simplify_geometry.h:560:37: error: code should be clang-formatted [-Wclang-format-violations]
+                    boundary.insert(boundary.end(), all.begin() + static_cast<std::ptrdiff_t>(i),
+                                    ^
+simplify_geometry.h:560:52: error: code should be clang-formatted [-Wclang-format-violations]
+                    boundary.insert(boundary.end(), all.begin() + static_cast<std::ptrdiff_t>(i),
+                                                   ^
+simplify_geometry.h:560:98: error: code should be clang-formatted [-Wclang-format-violations]
+                    boundary.insert(boundary.end(), all.begin() + static_cast<std::ptrdiff_t>(i),
+                                                                                                 ^
+simplify_geometry.h:573:24: error: code should be clang-formatted [-Wclang-format-violations]
+        for (const auto& q : boundary)
+                       ^
+simplify_geometry.h:573:25: error: code should be clang-formatted [-Wclang-format-violations]
+        for (const auto& q : boundary)
+                        ^
+simplify_geometry.h:574:40: error: code should be clang-formatted [-Wclang-format-violations]
+            boundary_offsets.push_back({CGAL::to_double(q.x()), CGAL::to_double(q.y())});
+                                       ^
+simplify_geometry.h:575:19: error: code should be clang-formatted [-Wclang-format-violations]
+        cached_eps   = EPSILON;
+                  ^
+simplify_geometry.h:577:20: error: code should be clang-formatted [-Wclang-format-violations]
+        cached_mult  = multiplier;
+                   ^
+simplify_geometry.h:584:20: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& off : boundary_offsets)
+                   ^
+simplify_geometry.h:584:21: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& off : boundary_offsets)
+                    ^
+simplify_geometry.h:602:53: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<int> find_tangent_idx(const Point& p, const std::vector<Point>& S) {
+                                                    ^
+simplify_geometry.h:602:54: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<int> find_tangent_idx(const Point& p, const std::vector<Point>& S) {
+                                                     ^
+simplify_geometry.h:602:57: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<int> find_tangent_idx(const Point& p, const std::vector<Point>& S) {
+                                                        ^
+simplify_geometry.h:602:82: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<int> find_tangent_idx(const Point& p, const std::vector<Point>& S) {
+                                                                                 ^
+simplify_geometry.h:602:83: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<int> find_tangent_idx(const Point& p, const std::vector<Point>& S) {
+                                                                                  ^
+simplify_geometry.h:624:23: error: code should be clang-formatted [-Wclang-format-violations]
+        if (det > 0.0) return  1;
+                      ^
+simplify_geometry.h:624:30: error: code should be clang-formatted [-Wclang-format-violations]
+        if (det > 0.0) return  1;
+                             ^
+simplify_geometry.h:625:23: error: code should be clang-formatted [-Wclang-format-violations]
+        if (det < 0.0) return -1;
+                      ^
+simplify_geometry.h:629:24: error: code should be clang-formatted [-Wclang-format-violations]
+    int rt = 0, lt = 0;   // most-clockwise, most-counterclockwise
+                       ^
+simplify_geometry.h:631:31: error: code should be clang-formatted [-Wclang-format-violations]
+        if (orient(rt, j) < 0) rt = j;   // S[j] strictly right of p->S[rt]
+                              ^
+simplify_geometry.h:631:39: error: code should be clang-formatted [-Wclang-format-violations]
+        if (orient(rt, j) < 0) rt = j;   // S[j] strictly right of p->S[rt]
+                                      ^
+simplify_geometry.h:632:31: error: code should be clang-formatted [-Wclang-format-violations]
+        if (orient(lt, j) > 0) lt = j;   // S[j] strictly left  of p->S[lt]
+                              ^
+simplify_geometry.h:632:39: error: code should be clang-formatted [-Wclang-format-violations]
+        if (orient(lt, j) > 0) lt = j;   // S[j] strictly left  of p->S[lt]
+                                      ^
+simplify_geometry.h:656:42: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool wedge_gi_disjoint(const Point& p, const std::vector<Point>& S,
+                                         ^
+simplify_geometry.h:656:43: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool wedge_gi_disjoint(const Point& p, const std::vector<Point>& S,
+                                          ^
+simplify_geometry.h:656:71: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool wedge_gi_disjoint(const Point& p, const std::vector<Point>& S,
+                                                                      ^
+simplify_geometry.h:656:72: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool wedge_gi_disjoint(const Point& p, const std::vector<Point>& S,
+                                                                       ^
+simplify_geometry.h:657:55: error: code should be clang-formatted [-Wclang-format-violations]
+                              const std::vector<Point>& Gi) {
+                                                      ^
+simplify_geometry.h:657:56: error: code should be clang-formatted [-Wclang-format-violations]
+                              const std::vector<Point>& Gi) {
+                                                       ^
+simplify_geometry.h:659:16: error: code should be clang-formatted [-Wclang-format-violations]
+    if (sn < 3) return false;                    // single point / degenerate: F = bbox
+               ^
+simplify_geometry.h:659:30: error: code should be clang-formatted [-Wclang-format-violations]
+    if (sn < 3) return false;                    // single point / degenerate: F = bbox
+                             ^
+simplify_geometry.h:660:31: error: code should be clang-formatted [-Wclang-format-violations]
+    if (point_in_convex(p, S)) return false;     // p inside S: F = whole bbox
+                              ^
+simplify_geometry.h:660:45: error: code should be clang-formatted [-Wclang-format-violations]
+    if (point_in_convex(p, S)) return false;     // p inside S: F = whole bbox
+                                            ^
+simplify_geometry.h:662:29: error: code should be clang-formatted [-Wclang-format-violations]
+    if (tangent.size() != 2) return false;       // find_F bails here anyway
+                            ^
+simplify_geometry.h:662:43: error: code should be clang-formatted [-Wclang-format-violations]
+    if (tangent.size() != 2) return false;       // find_F bails here anyway
+                                          ^
+simplify_geometry.h:673:23: error: code should be clang-formatted [-Wclang-format-violations]
+    if (orient == 0.0) return false;             // degenerate cone
+                      ^
+simplify_geometry.h:673:37: error: code should be clang-formatted [-Wclang-format-violations]
+    if (orient == 0.0) return false;             // degenerate cone
+                                    ^
+simplify_geometry.h:674:35: error: code should be clang-formatted [-Wclang-format-violations]
+    const bool ccw = orient > 0.0;               // t1 is CCW of t0
+                                  ^
+simplify_geometry.h:684:53: error: code should be clang-formatted [-Wclang-format-violations]
+            const double a = t0x * qy, b = t0y * qx;   // cross(t0, q) = a - b
+                                                    ^
+simplify_geometry.h:689:50: error: code should be clang-formatted [-Wclang-format-violations]
+            if (ccw ? (c0 >= -tol) : (c0 <= tol)) sep0 = false;
+                                                 ^
+simplify_geometry.h:692:53: error: code should be clang-formatted [-Wclang-format-violations]
+            const double a = t1x * qy, b = t1y * qx;   // cross(t1, q) = a - b
+                                                    ^
+simplify_geometry.h:696:50: error: code should be clang-formatted [-Wclang-format-violations]
+            if (ccw ? (c1 <= tol) : (c1 >= -tol)) sep1 = false;
+                                                 ^
+simplify_geometry.h:722:31: error: code should be clang-formatted [-Wclang-format-violations]
+inline void find_F(const Point& p, const std::vector<Point>& S,
+                              ^
+simplify_geometry.h:722:32: error: code should be clang-formatted [-Wclang-format-violations]
+inline void find_F(const Point& p, const std::vector<Point>& S,
+                               ^
+simplify_geometry.h:722:60: error: code should be clang-formatted [-Wclang-format-violations]
+inline void find_F(const Point& p, const std::vector<Point>& S,
+                                                           ^
+simplify_geometry.h:722:61: error: code should be clang-formatted [-Wclang-format-violations]
+inline void find_F(const Point& p, const std::vector<Point>& S,
+                                                            ^
+simplify_geometry.h:723:38: error: code should be clang-formatted [-Wclang-format-violations]
+                   std::vector<Point>& F) {
+                                     ^
+simplify_geometry.h:723:39: error: code should be clang-formatted [-Wclang-format-violations]
+                   std::vector<Point>& F) {
+                                      ^
+simplify_geometry.h:753:47: error: code should be clang-formatted [-Wclang-format-violations]
+    assert(tangent[1] - tangent[0] - 1 >= 1 || tangent[0] + n - tangent[1] - 1 >= 1);
+                                              ^
+simplify_geometry.h:757:66: error: code should be clang-formatted [-Wclang-format-violations]
+    const double ax = CGAL::to_double(S[tangent[0]].x() - p.x()),
+                                                                 ^
+simplify_geometry.h:759:66: error: code should be clang-formatted [-Wclang-format-violations]
+    const double bx = CGAL::to_double(S[tangent[1]].x() - p.x()),
+                                                                 ^
+simplify_geometry.h:763:70: error: code should be clang-formatted [-Wclang-format-violations]
+        std::copy(S.begin() + tangent[0], S.begin() + tangent[1] + 1, std::back_inserter(F));
+                                                                     ^
+tests/check_boundary_lr.cpp:2:77: error: code should be clang-formatted [-Wclang-format-violations]
+// leftmost/rightmost on every y-row, and every sample on topmost/bottommost rows.
+                                                                            ^
+tests/check_boundary_lr.cpp:19:20: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& q : all) {
+                   ^
+tests/check_boundary_lr.cpp:19:21: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& q : all) {
+                    ^
+tests/check_boundary_lr.cpp:24:20: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& q : boundary) {
+                   ^
+tests/check_boundary_lr.cpp:24:21: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& q : boundary) {
+                    ^
+tests/check_boundary_lr.cpp:31:50: error: code should be clang-formatted [-Wclang-format-violations]
+    const double y_top = xs_by_y.rbegin()->first;  // highest y
+                                                 ^
+tests/check_boundary_lr.cpp:32:49: error: code should be clang-formatted [-Wclang-format-violations]
+    const double y_bot = xs_by_y.begin()->first;   // lowest y
+                                                ^
+tests/check_boundary_lr.cpp:34:20: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& [y, xs] : xs_by_y) {
+                   ^
+tests/check_boundary_lr.cpp:34:21: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& [y, xs] : xs_by_y) {
+                    ^
+tests/check_boundary_lr.cpp:35:19: error: code should be clang-formatted [-Wclang-format-violations]
+        const auto& bx = boundary_xs_by_y.at(y);
+                  ^
+tests/check_boundary_lr.cpp:35:20: error: code should be clang-formatted [-Wclang-format-violations]
+        const auto& bx = boundary_xs_by_y.at(y);
+                   ^
+EXIT:1
+py ok
+compdef:153: _comps: assignment to invalid subscript range
+NODE:0

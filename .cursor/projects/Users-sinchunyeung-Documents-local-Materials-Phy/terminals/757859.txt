@@ -1,0 +1,23 @@
+---
+pid: 26238
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/dse"
+command: "cd \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse\" && python3 << 'EOF'\nimport json, sys\nfrom pathlib import Path\nimport fitz\n\nROOT = Path(\"/Users/sinchunyeung/Documents-local/Materials/Phy/dse\")\nsys.path.insert(0, str(ROOT / \"scripts\"))\nfrom preprocess_mc import collect_labels, enforce_label_order, is_formula_sheet\n\nsrc = fitz.open(ROOT / \"Year\" / \"MC\" / \"2013p1a.pdf\")\ncontent = [i for i in range(1, len(src)) if not is_formula_sheet(src[i])]\nlabels = collect_labels(src, content, 5.0, 36, {})\n# Manual q1 from psm4 strip OCR\nlabels[1] = (1, 51.7, 134.0)\nlabels = enforce_label_order(labels, 36)\nmissing = sorted(set(range(1,37)) - labels.keys())\nprint(\"missing\", missing, \"count\", len(labels))\nif missing:\n    raise SystemExit(\"still missing\")\noverrides = {str(n): [p, round(x,1), round(y,1)] for n,(p,x,y) in sorted(labels.items())}\npath = ROOT / \"preprocessed\" / \"overrides_2013p1a.json\"\npath.write_text(json.dumps(overrides, indent=2) + \"\\n\")\nprint(\"wrote\", path, \"q1=\", overrides[\"1\"])\nsrc.close()\n\nimport subprocess\nr = subprocess.run([\n    sys.executable, str(ROOT/\"scripts\"/\"preprocess_mc.py\"),\n    str(ROOT/\"Year\"/\"MC\"/\"2013p1a.pdf\"),\n    str(ROOT/\"preprocessed\"/\"anchored_2013p1a.pdf\"),\n    \"--questions\", \"36\", \"--cover-pages\", \"1\", \"--scale\", \"5.0\",\n    \"--overrides\", str(path),\n], capture_output=True, text=True)\nprint(r.stdout[-600:])\nprint(r.stderr[-400:] if r.returncode else \"OK\")\nsys.exit(r.returncode)\nEOF\n"
+started_at: 2026-08-21T20:19:53.954Z
+running_for_ms: 2040105  
+---
+missing [] count 36
+wrote /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/overrides_2013p1a.json q1= [1, 51.7, 134.0]
+op=74.8 bottom=785.0 footer=787.0 marker_x=51.5 questions=3
+page 10: rail_x=51.3 left=37.3 right=506.3 top=74.4 bottom=783.4 footer=785.4 marker_x=43.3 questions=2
+page 11: rail_x=59.4 left=45.4 right=514.4 top=75.4 bottom=786.6 footer=788.6 marker_x=51.4 questions=2
+page 12: rail_x=48.3 left=34.3 right=503.3 top=74.2 bottom=785.0 footer=787.0 marker_x=40.3 questions=3
+page 13: rail_x=59.3 left=45.3 right=514.3 top=74.4 bottom=783.4 footer=785.4 marker_x=51.3 questions=4
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/anchored_2013p1a.pdf with 12 pages and 36 anchors.
+
+OK
+
+---
+exit_code: 0
+elapsed_ms: 2042974
+ended_at: 2026-08-21T20:53:56.928Z
+---

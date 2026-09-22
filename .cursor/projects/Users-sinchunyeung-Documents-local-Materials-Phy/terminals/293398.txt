@@ -1,0 +1,30 @@
+---
+pid: 68787
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy"
+command: "python3 << 'PY'\nimport sys, io\nsys.path.insert(0, '/Users/sinchunyeung/Documents-local/Materials/Phy/dse/scripts')\nfrom preprocess_lq import native_scale, render_display, extract_fullpage_display, find_question_starts, find_starts_on_image\nimport fitz\nfrom PIL import Image\n\npdf = fitz.open('/Users/sinchunyeung/Documents-local/Materials/Phy/dse/Year/LQ/2020p1b.pdf')\npage = pdf[10]\nprint('page 10 native_scale', native_scale(page, cap=9.0))\next = extract_fullpage_display(page, pdf)\nprint('extract_fullpage_display', ext.size if ext else None)\nfor scale in [1.5, 4.0, 8.33]:\n    img = render_display(page, scale, doc=pdf)\n    print(f'render scale={scale} size={img.size}')\n\n# find Q8\npages = [render_display(pdf[i], 1.5, doc=pdf) for i in range(len(pdf))]\nstarts = find_question_starts(pages, 1, 12)\nprint('starts', starts)\nfor pi in range(len(pdf)):\n    hits = find_starts_on_image(pages[pi], 12)\n    if hits:\n        print(f'page {pi}: {hits}')\npdf.close()\nPY"
+started_at: 2026-08-28T06:51:05.554Z
+running_for_ms: 35042    
+---
+page 10 native_scale 5.8929760041363055
+extract_fullpage_display (3507, 4960)
+render scale=1.5 size=(893, 1263)
+render scale=4.0 size=(2381, 3367)
+render scale=8.33 size=(3507, 4960)
+starts [(1, 1, 186.144)]
+page 0: [(3, 534.5)]
+page 1: [(1, 186.144)]
+page 2: [(5, 697.4064000000001)]
+page 3: [(2, 75.0)]
+page 5: [(3, 101.0), (2, 612.7935483870968)]
+page 7: [(4, 108.5)]
+page 10: [(6, 104.0)]
+page 11: [(7, 75.0)]
+page 13: [(8, 105.0)]
+page 15: [(9, 104.0), (3, 297.288)]
+page 17: [(10, 103.0)]
+
+---
+exit_code: 0
+elapsed_ms: 36474
+ended_at: 2026-08-28T06:51:42.028Z
+---

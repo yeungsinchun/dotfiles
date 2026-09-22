@@ -1,0 +1,26 @@
+---
+pid: 68127
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nimport importlib\nimport preprocess_lq as p\nimportlib.reload(p)\nimport pymupdf as fitz\ndoc=fitz.open('paper/lq/2019p1b.pdf')\nscale=p.native_scale(doc[1], cap=3.5)\npages=p.expand_pdf_pages(doc, scale, cover_pages=1)\nstarts=p.find_question_starts(pages, cover_pages=0, max_questions=12)\nprint('starts', starts)\nfor i in range(min(10,len(pages))):\n    print(f' page{i} hits', p.find_starts_on_image(pages[i], 12))\ndoc.close()\nPY\n"
+title: "Retest LQ starts with fixed line OCR"
+status: succeeded
+started_at: 2026-09-04T16:56:55.545Z
+running_for_ms: 57854    
+---
+starts [(1, 0, 417.0), (2, 0, 1766.7600000000002), (3, 4, 244.0), (4, 6, 265.0), (5, 8, 260.0), (6, 9, 263.5), (7, 10, 117.0), (8, 12, 117.0), (9, 14, 284.0), (10, 16, 237.5)]
+ page0 hits [(1, 417.0), (2, 1766.7600000000002)]
+ page1 hits []
+ page2 hits [(2, 266.5)]
+ page3 hits []
+ page4 hits [(3, 244.0), (5, 2173.1048275862067)]
+ page5 hits []
+ page6 hits [(4, 265.0)]
+ page7 hits []
+ page8 hits [(5, 260.0)]
+ page9 hits [(6, 263.5)]
+
+---
+exit_code: 0
+elapsed_ms: 57854
+ended_at: 2026-09-04T16:57:53.399Z
+---

@@ -1,0 +1,17 @@
+---
+pid: 97802
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && rm -rf output/lq/2019 && mkdir -p output/lq/2019\n# Also make combine_pngs overwrite - check if it skipped\n.venv/bin/python <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nimport preprocess_lq as p\nimport pymupdf as fitz\ndoc=fitz.open('paper/lq/2019p1b.pdf')\npages=p.expand_pdf_pages(doc, 2.5, cover_pages=1)\nprint('pages after expand', len(pages), 'sizes', pages[0].size if pages else None)\nstarts=p.find_question_starts(pages, cover_pages=0, max_questions=12)\nprint('starts', starts)\nPY\n"
+title: "Retest LQ detection after spread fix"
+status: succeeded
+started_at: 2026-09-04T16:47:00.480Z
+running_for_ms: 43638    
+---
+pages after expand 19 sizes (1488, 2104)
+starts [(4, 2, 315.0), (2, 2, 434.58666666666664), (7, 4, 1540.840754716981), (8, 8, 1587.5), (5, 10, 546.8), (3, 10, 1565.0)]
+
+---
+exit_code: 0
+elapsed_ms: 43634
+ended_at: 2026-09-04T16:47:44.114Z
+---

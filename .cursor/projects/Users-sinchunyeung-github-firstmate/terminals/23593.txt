@@ -1,0 +1,15 @@
+---
+pid: 48336
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "export PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:$PATH\"\npython3 /tmp/fm-http-dual.py 8767 /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/.lavish/lq-classified-review"
+title: "Start 501/502 LQ board server on 8767"
+status: failed   
+started_at: 2026-09-11T14:02:53.224Z
+running_for_ms: 493      
+---
+
+---
+exit_code: unknown
+elapsed_ms: 493
+ended_at: 2026-09-11T14:02:53.717Z
+---

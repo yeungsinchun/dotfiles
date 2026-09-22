@@ -1,0 +1,33 @@
+---
+pid: 89222
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/notes/Electricity and Magnetism/Electric circuits/notes"
+command: "python3 \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/scripts/classify_lq_by_topic.py\" 2>&1 | tail -20"
+started_at: 2026-08-28T08:15:38.813Z
+running_for_ms: 75040    
+---
+Force and Motion / Circular motion: 4
+Force and Motion / Gravitation: 3
+Wave Motion / Reflection refraction diffraction interference: 1
+Wave Motion / Sound: 1
+Wave Motion / Lenses and optical instruments: 5
+Wave Motion / Electromagnetic spectrum: 1
+Electricity and Magnetism / Electric circuits: 11
+Electricity and Magnetism / Electrical energy and domestic electricity: 1
+Electricity and Magnetism / Magnetic fields and motors: 8
+Electricity and Magnetism / Electromagnetic induction: 3
+Electricity and Magnetism / Alternating current and transformers: 8
+Radiation / Radioactivity and nuclear radiation: 4
+Radiation / Nuclear reactions and binding energy: 3
+Updated /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/LQ/lq_questions.json
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/notes/lq_classification.json
+LQ questions: 91
+  one topic:  81
+  two topics: 10
+  fallback:   16
+  placements: 101
+
+---
+exit_code: 0
+elapsed_ms: 75331
+ended_at: 2026-08-28T08:16:54.144Z
+---

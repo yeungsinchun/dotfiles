@@ -1,0 +1,17 @@
+---
+pid: 84075
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python - <<'PY'\nimport sys, json\nfrom pathlib import Path\nsys.path.insert(0, 'scripts')\nimport pymupdf as fitz\nfrom preprocess_mc import detect_labels\n\ndef build(year, extras=None):\n    doc = fitz.open(f'paper/mc/{year}p1a.pdf')\n    labels = {}\n    for pi in range(1, doc.page_count):\n        # skip likely non-content trailing pages with junk detections\n        if pi >= 14:\n            continue\n        hits = detect_labels(doc[pi], 5.0, 33)\n        for n, x, y in hits:\n            if 1 <= n <= 33 and n not in labels:\n                labels[n] = (pi, x, y)\n    doc.close()\n    if extras:\n        labels.update(extras)\n    missing = [n for n in range(1, 34) if n not in labels]\n    if missing:\n        raise SystemExit(f'{year} still missing {missing}')\n    # sanity: monotonic page/y\n    prev = (-1, -1)\n    for n in range(1, 34):\n        pi, x, y = labels[n]\n        if (pi, y) < prev:\n            print('WARN order', n, labels[n], 'after', prev)\n        prev = (pi, y)\n    ov = {str(n): [int(pi), round(float(x), 2), round(float(y), 2)] for n, (pi, x, y) in labels.items()}\n    path = Path(f'scripts/overrides_{year}.json')\n    path.write_text(json.dumps(ov, indent=2) + '\\n')\n    print('wrote', path, 'n=', len(ov))\n    return ov\n\nbuild(2019, extras={\n    7: (3, 66.4, 72.5),\n    32: (13, 67.5, 74.4),\n    33: (13, 67.5, 334.4),\n})\nbuild(2020)\nPY"
+title: "Write overrides_2019.json and overrides_2020.json"
+status: succeeded
+started_at: 2026-09-04T08:26:35.679Z
+running_for_ms: 59920    
+---
+wrote scripts/overrides_2019.json n= 33
+wrote scripts/overrides_2020.json n= 33
+
+---
+exit_code: 0
+elapsed_ms: 59917
+ended_at: 2026-09-04T08:27:35.596Z
+---

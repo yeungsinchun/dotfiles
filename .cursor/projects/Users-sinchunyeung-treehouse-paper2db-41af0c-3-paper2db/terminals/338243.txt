@@ -1,0 +1,22 @@
+---
+pid: 20141
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db"
+command: "cd /Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db && .venv/bin/python3 scripts/crop_mc_figures.py --overrides-only --demote 2>&1 | grep 2026:9 && .venv/bin/python3 scripts/render_mc_from_db.py --only-structured 2>&1 | grep 2026 && .venv/bin/python3 << 'PY'\nimport fitz\nfrom pathlib import Path\nfrom collections import defaultdict\nimport sqlite3\nfrom PIL import Image\nimport numpy as np\nconn=sqlite3.connect('paper2db.sqlite')\nrows=conn.execute(\"\"\"SELECT q.paper_id,q.number FROM question q WHERE EXISTS (SELECT 1 FROM asset_role ar WHERE ar.question_id=q.id AND ar.role='option_figure') ORDER BY q.paper_id,q.number\"\"\").fetchall()\nby=defaultdict(list)\nfor p,n in rows: by[p].append(n)\nout=Path('.lavish/samples/recon')\nfor paper,nums in by.items():\n    doc=fitz.open(f'reconstructed/{paper}/combined.pdf')\n    for i,n in enumerate(nums):\n        doc[i].get_pixmap(matrix=fitz.Matrix(1.5,1.5),alpha=False).save(str(out/f'{paper}_q{n}.png'))\n    doc.close()\nfor L in 'ABCD':\n    im=Image.open(f'assets/2026/q9/option_{L}.png')\n    g=np.array(im.convert('L'))\n    ys=np.where((g<170).sum(axis=1)>3)[0]\n    print(L, im.size, 'ink_y', int(ys.min()) if len(ys) else None, int(ys.max()) if len(ys) else None, 'bottom20', int((g[-20:]<170).sum()))\nPY\n"
+title: "Recrop 2026:9 and refresh recon demos"
+status: succeeded
+started_at: 2026-09-04T10:26:44.295Z
+running_for_ms: 3993     
+---
+  2026:9: layout=grid_2x2 y0=95 mid=(527,305) stem=None score=999.00 override
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db/reconstructed/2026/combined.pdf (1 pages)
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+A (391, 223) ink_y 42 197 bottom20 0
+B (391, 223) ink_y 21 193 bottom20 0
+C (391, 223) ink_y 57 214 bottom20 83
+D (391, 223) ink_y 33 210 bottom20 56
+
+---
+exit_code: 0
+elapsed_ms: 3993
+ended_at: 2026-09-04T10:26:48.288Z
+---

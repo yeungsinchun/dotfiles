@@ -1,0 +1,60 @@
+---
+pid: 95446
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "set -e\nexpect=0e09810b6746ce415efb107837c71038d853d6b9\nfor sha in 9489a3a 863b880 25c86db 03c6dd3 7f549d0; do\n  full=$(git rev-parse \"$sha\")\n  echo \"==== pushing $sha ($(git log -1 --format=%s $sha)) ====\"\n  size=$(git rev-list --objects \"${expect}..${full}\" | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | awk '/^blob/ {s+=$3} END {printf \"%.0f\", s/1024/1024}')\n  echo \"approx new blob MB: $size\"\n  if ! git -c http.postBuffer=524288000 -c http.version=HTTP/1.1 push --force-with-lease=\"refs/heads/classify:${expect}\" origin \"${full}:refs/heads/classify\"; then\n    echo \"FAILED at $sha\"\n    exit 1\n  fi\n  expect=$full\n  git fetch origin classify >/dev/null\n  echo \"remote now: $(git rev-parse --short origin/classify)\"\ndone\necho DONE\ngit log -1 --oneline origin/classify\n"
+title: "Incremental push with zsh-safe refspecs"
+status: succeeded
+started_at: 2026-09-05T16:12:57.086Z
+running_for_ms: 524767   
+---
+==== pushing 9489a3a (feat: classify MC questions into curriculum sections) ====
+approx new blob MB: 212
+To https://github.com/yeungsinchun/paper2db.git
+ + 0e09810...9489a3a 9489a3af955459db20001b8d2921900905d35917 -> classify (forced update)
+From https://github.com/yeungsinchun/paper2db
+ * branch            classify   -> FETCH_HEAD
+remote now: 9489a3a
+==== pushing 863b880 (feat: classify LQ questions into curriculum sections) ====
+approx new blob MB: 1204
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File output/lq/2020/ans/combined.pdf is 81.61 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File output/lq/2018/combined.pdf is 79.18 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To https://github.com/yeungsinchun/paper2db.git
+   9489a3a..863b880  863b880a775c5258d6c20d849514f4f4f02d6866 -> classify
+From https://github.com/yeungsinchun/paper2db
+ * branch            classify   -> FETCH_HEAD
+remote now: 863b880
+==== pushing 25c86db (chore: clean LQ assets and drop page-render caches) ====
+approx new blob MB: 1274
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File output/lq/2018/questions.pdf is 51.94 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File output/lq/2025/combined.pdf is 56.69 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To https://github.com/yeungsinchun/paper2db.git
+   863b880..25c86db  25c86dbd297eee1c494e438694cf7dbe29171b39 -> classify
+From https://github.com/yeungsinchun/paper2db
+ * branch            classify   -> FETCH_HEAD
+remote now: 25c86db
+==== pushing 03c6dd3 (no-mistakes(review): Drop legacy MC names; preserve LQ crops) ====
+approx new blob MB: 0
+To https://github.com/yeungsinchun/paper2db.git
+   25c86db..03c6dd3  03c6dd31743b3eef68cac0fd7aaf3c2cb344bf02 -> classify
+From https://github.com/yeungsinchun/paper2db
+ * branch            classify   -> FETCH_HEAD
+remote now: 03c6dd3
+==== pushing 7f549d0 (no-mistakes(document): Align docs with split classification outputs) ====
+approx new blob MB: 0
+To https://github.com/yeungsinchun/paper2db.git
+   03c6dd3..7f549d0  7f549d07352407e1a87569666562663116f6417b -> classify
+From https://github.com/yeungsinchun/paper2db
+ * branch            classify   -> FETCH_HEAD
+remote now: 7f549d0
+DONE
+7f549d0 no-mistakes(document): Align docs with split classification outputs
+
+---
+exit_code: 0
+elapsed_ms: 524767
+ended_at: 2026-09-05T16:21:41.853Z
+---

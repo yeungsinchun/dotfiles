@@ -1,0 +1,18 @@
+---
+pid: 10666
+cwd: "/Users/sinchunyeung/github/simplification-of-trajectory-streams"
+command: "python3 - <<'PY'\nfrom pathlib import Path\n\ndef read_xy_polyline(path):\n    if not path.exists():\n        return None\n    with open(path) as f:\n        n = int(f.readline().strip())\n        points = []\n        for _ in range(n):\n            parts = f.readline().split()\n            if len(parts) >= 2:\n                points.append([float(parts[0]), float(parts[1])])\n        return points\n\nfor name in ('original.txt','simplify.txt','dots_simplified.txt'):\n    pts = read_xy_polyline(Path('data/1')/name)\n    print(name, len(pts) if pts else None)\n\n# Verify GUI binary linked\nimport os\nprint('gui', os.path.exists('build/simplify_with_gui'), os.path.getsize('build/simplify_with_gui'))\nPY\n# smoke: ensure --help mentions dots\n./build/simplify_with_gui -h 2>&1 | head -20"
+status: failed   
+started_at: 2026-09-04T09:45:18.467Z
+running_for_ms: 48778    
+---
+original.txt 588
+simplify.txt 92
+dots_simplified.txt 571
+gui True 243952
+
+---
+exit_code: unknown
+elapsed_ms: 48699
+ended_at: 2026-09-04T09:46:07.166Z
+---

@@ -1,0 +1,67 @@
+---
+pid: 94340
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy"
+command: "python3 \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/scripts/batch_convert_lq_pages.py\" 2>&1"
+started_at: 2026-08-28T08:43:12.739Z
+running_for_ms: 350081   
+---
+
+=== 2012p1b.pdf -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2012/pages ===
+  page export scale=8.34
+  saved 36 page PNGs -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2012/pages
+
+=== 2013p1b.pdf -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2013/pages ===
+  page export scale=2.78
+  saved 18 page PNGs -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2013/pages
+
+=== 2014p1b.pdf -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2014/pages ===
+  page export scale=4.17
+  saved 19 page PNGs -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2014/pages
+
+=== 2015p1b.pdf -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2015/pages ===
+  page export scale=5.56
+  saved 9 page PNGs -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2015/pages
+
+=== 2016p1b.pdf -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2016/pages ===
+  page export scale=4.17
+  saved 19 page PNGs -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2016/pages
+
+=== 2017p1b.pdf -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2017/pages ===
+  page export scale=2.78
+  saved 19 page PNGs -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2017/pages
+
+=== 2018p1b.pdf -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2018/pages ===
+  page export scale=4.17
+  saved 18 page PNGs -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2018/pages
+
+=== 2019p1b.pdf -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2019/pages ===
+  page export scale=5.89
+  saved 38 page PNGs -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2019/pages
+
+=== 2020p1b.pdf -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2020/pages ===
+  page export scale=5.89
+  saved 38 page PNGs -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2020/pages
+
+=== 2021p1b.pdf -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2021/pages ===
+  page export scale=4.17
+  saved 19 page PNGs -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2021/pages
+
+=== 2022p1b.pdf -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2022/pages ===
+  page export scale=4.17
+  saved 19 page PNGs -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2022/pages
+
+=== 2023q1b.pdf -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2023/pages ===
+  page export scale=5.89
+  saved 38 page PNGs -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2023/pages
+
+=== ppp1b.pdf -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/ppp/pages ===
+  page export scale=3.50
+  saved 24 page PNGs -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/ppp/pages
+
+Done. 314 page PNGs across 13 papers.
+
+---
+exit_code: 0
+elapsed_ms: 351213
+ended_at: 2026-08-28T08:49:03.952Z
+---

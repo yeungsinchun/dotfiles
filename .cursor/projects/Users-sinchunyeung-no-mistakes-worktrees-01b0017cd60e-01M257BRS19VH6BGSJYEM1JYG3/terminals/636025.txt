@@ -1,0 +1,26 @@
+---
+pid: 76830
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/01b0017cd60e/01M257BRS19VH6BGSJYEM1JYG3"
+command: "EVIDENCE_DIR=\"/Users/sinchunyeung/.no-mistakes/evidence/01M257BRS19VH6BGSJYEM1JYG3\" node --test --test-name-pattern='3d scenes magnify' notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs"
+title: "Retry failing 3D scenes test in isolation"
+status: succeeded
+started_at: 2026-09-10T08:56:40.269Z
+running_for_ms: 115822   
+---
+▶ Book 5 Ch.1 notes interactives
+  ✔ 3d scenes magnify, label the tube, keep β drift, and pulse radially (113219.36075ms)
+✔ Book 5 Ch.1 notes interactives (114466.017792ms)
+ℹ tests 1
+ℹ suites 1
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 114895.113792
+
+---
+exit_code: 0
+elapsed_ms: 115822
+ended_at: 2026-09-10T08:58:36.091Z
+---

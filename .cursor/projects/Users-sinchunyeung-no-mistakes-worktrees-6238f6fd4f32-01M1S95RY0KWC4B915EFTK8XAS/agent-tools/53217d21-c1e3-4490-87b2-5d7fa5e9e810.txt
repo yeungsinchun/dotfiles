@@ -1,0 +1,1170 @@
+diff --git a/scripts/combine_lq_section_pdfs.py b/scripts/combine_lq_section_pdfs.py
+new file mode 100644
+index 0000000..5d97947
+--- /dev/null
++++ b/scripts/combine_lq_section_pdfs.py
+@@ -0,0 +1,226 @@
++#!/usr/bin/env python3
++"""Build per-section LQ review PDFs under classified/lq/.
++
++For each syllabus section that has at least one primary LQ:
++  - questions.pdf  - question crops (year order)
++  - answers.pdf    - marking-scheme answer crops (same order; skips missing)
++  - performance.pdf - candidate-performance notes as text pages
++
++Skips empty sections. Overwrites existing PDFs by default.
++"""
++from __future__ import annotations
++
++import argparse
++import csv
++import json
++import re
++import textwrap
++from collections import defaultdict
++from pathlib import Path
++
++import pymupdf as fitz
++
++from classify_mc_llm import BOOK_NAMES, SECTION_BY_NUM, SECTIONS, year_key
++
++ROOT = Path(__file__).resolve().parents[1]
++CLASSIFIED_LQ = ROOT / "classified" / "lq"
++CSV_PATH = CLASSIFIED_LQ / "classification.csv"
++PERF_PATH = CLASSIFIED_LQ / "candidate_performance.json"
++
++YEAR_RE = re.compile(r"^(?P<year>\d{4}|pp|sap)$", re.I)
++
++
++def parse_args() -> argparse.Namespace:
++    p = argparse.ArgumentParser(description=__doc__)
++    p.add_argument("--overwrite", action="store_true", default=True)
++    return p.parse_args()
++
++
++def load_rows() -> list[dict]:
++    rows = list(csv.DictReader(CSV_PATH.open(encoding="utf-8")))
++    rows.sort(key=lambda r: (year_key(r["Year"]), int(r["Question"])))
++    return rows
++
++
++def load_performance() -> dict[str, dict[str, str]]:
++    if not PERF_PATH.is_file():
++        return {}
++    return json.loads(PERF_PATH.read_text(encoding="utf-8"))
++
++
++def section_dir(section_num: int) -> Path:
++    book, folder, _name = SECTION_BY_NUM[section_num]
++    return CLASSIFIED_LQ / book / folder
++
++
++def resolve_question_png(row: dict) -> Path | None:
++    year, q = row["Year"], row["Question"]
++    candidates = [
++        ROOT / (row.get("PNG") or ""),
++        section_dir(int(row["Primary"])) / f"{year}-q{q}.png",
++        ROOT / "output" / "lq" / year / f"q{q}.png",
++    ]
++    for path in candidates:
++        if path.is_file():
++            return path
++    return None
++
++
++def resolve_answer_png(row: dict) -> Path | None:
++    year, q = row["Year"], row["Question"]
++    candidates = [
++        ROOT / (row.get("AnswerPNG") or ""),
++        section_dir(int(row["Primary"])) / f"{year}-q{q}-ans.png",
++        ROOT / "output" / "lq" / year / "ans" / f"q{q}.png",
++    ]
++    for path in candidates:
++        if path.is_file():
++            return path
++    return None
++
++
++def write_image_pdf(paths: list[Path], dest: Path, *, title: str | None = None) -> int:
++    """One PDF page per image. Optional title page if title set."""
++    if not paths:
++        return 0
++    doc = fitz.open()
++    try:
++        if title:
++            page = doc.new_page(width=595, height=842)
++            page.insert_text((40, 60), title, fontsize=16, fontname="helv")
++            page.insert_text(
++                (40, 86),
++                f"{len(paths)} item(s)",
++                fontsize=11,
++                fontname="helv",
++            )
++        for path in paths:
++            image = fitz.open(path)
++            try:
++                rect = image[0].rect
++                # Cap very tall crops so PDF viewers stay usable.
++                max_h = 2000.0
++                width, height = rect.width, rect.height
++                if height > max_h:
++                    scale = max_h / height
++                    width *= scale
++                    height *= scale
++                page = doc.new_page(width=width, height=height)
++                page.insert_image(page.rect, filename=str(path))
++            finally:
++                image.close()
++        dest.parent.mkdir(parents=True, exist_ok=True)
++        doc.save(dest, garbage=4, deflate=True)
++    finally:
++        doc.close()
++    return len(paths)
++
++
++def write_performance_pdf(
++    items: list[tuple[str, int, str]],
++    dest: Path,
++    *,
++    section_label: str,
++) -> int:
++    """Render candidate-performance notes as wrapped text pages."""
++    if not items:
++        return 0
++    doc = fitz.open()
++    page_w, page_h = 595.0, 842.0
++    margin = 40.0
++    try:
++        for year, qn, text in items:
++            page = doc.new_page(width=page_w, height=page_h)
++            y = margin
++            header = f"{section_label}  |  {year} Q{qn}"
++            page.insert_text((margin, y + 14), header, fontsize=13, fontname="helv")
++            y += 28
++            page.draw_line(
++                fitz.Point(margin, y),
++                fitz.Point(page_w - margin, y),
++            )
++            y += 16
++            body = (text or "").strip() or "(No Section B candidate-performance note.)"
++            # Simple wrap; keep paragraphs.
++            for para in body.splitlines() or [body]:
++                para = para.strip()
++                if not para:
++                    y += 10
++                    continue
++                for line in textwrap.wrap(para, width=92) or [""]:
++                    if y > page_h - margin - 16:
++                        page = doc.new_page(width=page_w, height=page_h)
++                        y = margin
++                    page.insert_text(
++                        (margin, y + 10),
++                        line,
++                        fontsize=10,
++                        fontname="helv",
++                    )
++                    y += 14
++                y += 6
++        dest.parent.mkdir(parents=True, exist_ok=True)
++        doc.save(dest, garbage=4, deflate=True)
++    finally:
++        doc.close()
++    return len(items)
++
++
++def main() -> None:
++    args = parse_args()
++    rows = load_rows()
++    perf = load_performance()
++
++    by_primary: dict[int, list[dict]] = defaultdict(list)
++    for row in rows:
++        by_primary[int(row["Primary"])].append(row)
++
++    written = 0
++    for num, _book, _folder, name in SECTIONS:
++        items = by_primary.get(num) or []
++        if not items:
++            continue
++        out_dir = section_dir(num)
++        out_dir.mkdir(parents=True, exist_ok=True)
++        label = f"S{num:02d} {name}"
++
++        q_paths: list[Path] = []
++        a_paths: list[Path] = []
++        perf_items: list[tuple[str, int, str]] = []
++        for row in items:
++            year, qn = row["Year"], int(row["Question"])
++            q_png = resolve_question_png(row)
++            if q_png:
++                q_paths.append(q_png)
++            a_png = resolve_answer_png(row)
++            if a_png:
++                a_paths.append(a_png)
++            note = (perf.get(str(year)) or {}).get(str(qn), "")
++            perf_items.append((str(year), qn, note))
++
++        q_pdf = out_dir / "questions.pdf"
++        a_pdf = out_dir / "answers.pdf"
++        p_pdf = out_dir / "performance.pdf"
++        if (
++            not args.overwrite
++            and q_pdf.is_file()
++            and a_pdf.is_file()
++            and p_pdf.is_file()
++        ):
++            print(f"Keeping {out_dir.relative_to(ROOT)}")
++            continue
++
++        nq = write_image_pdf(q_paths, q_pdf)
++        na = write_image_pdf(a_paths, a_pdf)
++        np_ = write_performance_pdf(perf_items, p_pdf, section_label=label)
++        written += 1
++        print(
++            f"{label}: questions.pdf ({nq}), answers.pdf ({na}), "
++            f"performance.pdf ({np_}) -> {out_dir.relative_to(ROOT)}"
++        )
++
++    print(f"\nDone: {written} sections with 3 PDFs each")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/combine_section_pdfs.py b/scripts/combine_section_pdfs.py
+new file mode 100644
+index 0000000..0b6d5e8
+--- /dev/null
++++ b/scripts/combine_section_pdfs.py
+@@ -0,0 +1,222 @@
++#!/usr/bin/env python3
++"""Write per-section question + answer PDFs under classified/.
++
++For each section folder:
++  - combined.pdf: question PNGs sorted easiest -> hardest by Correct %
++    (higher % first). Items without a known % (pp/sap/2022/2026, deleted,
++    missing keys) are placed last.
++  - answer.pdf: same order, one page per question listing year, Q#, answer,
++    and correct percentage.
++"""
++from __future__ import annotations
++
++import argparse
++import json
++import re
++from pathlib import Path
++
++import pymupdf as fitz
++
++ROOT = Path(__file__).resolve().parents[1]
++CLASSIFIED = ROOT / "classified"
++DEFAULT_KEYS = ROOT / "processed" / "MC" / "answer_keys.json"
++
++PNG_RE = re.compile(r"^(?P<year>\d{4}|pp|sap)_q(?P<q>\d+)\.png$", re.I)
++YEAR_RANK = {
++    "2012": 0, "2013": 1, "2014": 2, "2015": 3, "2016": 4, "2017": 5, "2018": 6,
++    "2019": 7, "2020": 8, "2021": 9, "2022": 10, "2023": 11, "2024": 12,
++    "2025": 13, "2026": 14, "pp": 15, "sap": 16,
++}
++
++
++def parse_args() -> argparse.Namespace:
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("--keys", type=Path, default=DEFAULT_KEYS)
++    parser.add_argument("--classified", type=Path, default=CLASSIFIED)
++    parser.add_argument(
++        "--overwrite",
++        action="store_true",
++        default=True,
++        help="Overwrite existing PDFs (default: yes)",
++    )
++    return parser.parse_args()
++
++
++def load_keys(path: Path) -> dict[tuple[str, int], dict]:
++    raw = json.loads(path.read_text(encoding="utf-8"))
++    out: dict[tuple[str, int], dict] = {}
++    for year, questions in raw.items():
++        for q_str, payload in questions.items():
++            out[(str(year), int(q_str))] = dict(payload)
++    return out
++
++
++def load_percentages(keys: dict[tuple[str, int], dict]) -> dict[tuple[str, int], int | None]:
++    out: dict[tuple[str, int], int | None] = {}
++    for key, payload in keys.items():
++        pct = payload.get("Correct percentage")
++        if payload.get("deleted"):
++            pct = None
++        out[key] = pct if isinstance(pct, int) else None
++    return out
++
++
++def section_dirs(classified: Path) -> list[Path]:
++    dirs: list[Path] = []
++    for book in sorted(classified.iterdir()):
++        if not book.is_dir() or book.name.startswith(".") or book.name in {
++            "ocr_cache",
++        }:
++            continue
++        if not re.match(r"^\d", book.name):
++            continue
++        for section in sorted(book.iterdir()):
++            if section.is_dir() and re.match(r"^\d{2}_", section.name):
++                dirs.append(section)
++    return dirs
++
++
++def pngs_in_section(section: Path) -> list[Path]:
++    return sorted(p for p in section.glob("*.png") if PNG_RE.fullmatch(p.name))
++
++
++def sort_key(
++    path: Path,
++    percentages: dict[tuple[str, int], int | None],
++) -> tuple:
++    match = PNG_RE.fullmatch(path.name)
++    assert match
++    year = match.group("year")
++    q = int(match.group("q"))
++    pct = percentages.get((year, q))
++    # Easiest first: higher % first. Missing % -> last.
++    has_pct = 0 if pct is not None else 1
++    neg_pct = -(pct if pct is not None else 0)
++    return (has_pct, neg_pct, YEAR_RANK.get(year, 99), q)
++
++
++def write_combined(paths: list[Path], dest: Path) -> None:
++    document = fitz.open()
++    try:
++        for path in paths:
++            image = fitz.open(path)
++            try:
++                rect = image[0].rect
++                page = document.new_page(width=rect.width, height=rect.height)
++                page.insert_image(page.rect, filename=str(path))
++            finally:
++                image.close()
++        dest.parent.mkdir(parents=True, exist_ok=True)
++        document.save(dest, garbage=4, deflate=True)
++    finally:
++        document.close()
++
++
++def write_answer_pdf(
++    paths: list[Path],
++    dest: Path,
++    keys: dict[tuple[str, int], dict],
++    section_label: str,
++) -> None:
++    """One summary page listing every question in the same hard->easy order."""
++    document = fitz.open()
++    try:
++        page_width, page_height = 595.0, 842.0  # A4
++        margin = 40.0
++        y = margin
++        page = document.new_page(width=page_width, height=page_height)
++        title = f"Answers - {section_label}"
++        page.insert_text((margin, y + 14), title, fontsize=14, fontname="helv")
++        y += 28
++        page.insert_text(
++            (margin, y + 11),
++            "Order matches combined.pdf (easiest -> hardest by correct %).",
++            fontsize=9,
++            fontname="helv",
++        )
++        y += 22
++        header = f"{'#':<4} {'Year':<6} {'Q':<4} {'Ans':<5} {'Correct %':<10}"
++        page.insert_text((margin, y + 10), header, fontsize=10, fontname="cour")
++        y += 16
++        page.draw_line(fitz.Point(margin, y), fitz.Point(page_width - margin, y))
++        y += 12
++
++        for index, path in enumerate(paths, start=1):
++            match = PNG_RE.fullmatch(path.name)
++            assert match
++            year = match.group("year")
++            q = int(match.group("q"))
++            payload = keys.get((year, q), {})
++            ans = payload.get("Correct Option") or "?"
++            if payload.get("deleted"):
++                ans = "DEL"
++            pct = payload.get("Correct percentage")
++            pct_s = f"{pct}%" if isinstance(pct, int) else "-"
++            line = f"{index:<4} {year:<6} {q:<4} {str(ans):<5} {pct_s:<10}"
++            if y > page_height - margin - 16:
++                page = document.new_page(width=page_width, height=page_height)
++                y = margin
++            page.insert_text((margin, y + 10), line, fontsize=10, fontname="cour")
++            y += 14
++
++        dest.parent.mkdir(parents=True, exist_ok=True)
++        document.save(dest, garbage=4, deflate=True)
++    finally:
++        document.close()
++
++
++def main() -> None:
++    args = parse_args()
++    if not args.keys.is_file():
++        raise SystemExit(
++            f"Missing answer keys: {args.keys}\nRun scripts/extract_answer_keys.py first."
++        )
++
++    keys = load_keys(args.keys)
++    percentages = load_percentages(keys)
++    known = sum(1 for v in percentages.values() if v is not None)
++    print(f"Loaded {len(keys)} keys ({known} with correct %)")
++
++    total_pdfs = 0
++    total_pages = 0
++    missing_examples: list[str] = []
++    for section in section_dirs(args.classified):
++        pngs = pngs_in_section(section)
++        if not pngs:
++            continue
++        ordered = sorted(pngs, key=lambda p: sort_key(p, percentages))
++        combined = section / "combined.pdf"
++        answers = section / "answer.pdf"
++        if combined.is_file() and answers.is_file() and not args.overwrite:
++            print(f"Keeping {combined.relative_to(args.classified)}")
++            continue
++        write_combined(ordered, combined)
++        section_label = section.name.replace("_", " ")
++        write_answer_pdf(ordered, answers, keys, section_label)
++        total_pdfs += 1
++        total_pages += len(ordered)
++
++        with_pct = 0
++        for path in ordered:
++            m = PNG_RE.fullmatch(path.name)
++            assert m
++            pct = percentages.get((m.group("year"), int(m.group("q"))))
++            if pct is not None:
++                with_pct += 1
++            elif len(missing_examples) < 12:
++                missing_examples.append(path.name)
++        rel = combined.relative_to(args.classified)
++        print(
++            f"Wrote {rel} + answer.pdf ({len(ordered)} pages, {with_pct} with %)"
++        )
++
++    print(f"\nDone: {total_pdfs} section pairs, {total_pages} question pages")
++    if missing_examples:
++        print(
++            "Examples without correct % (placed last):",
++            ", ".join(missing_examples),
++        )
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/crop_lq_from_pages.py b/scripts/crop_lq_from_pages.py
+new file mode 100644
+index 0000000..29cde05
+--- /dev/null
++++ b/scripts/crop_lq_from_pages.py
+@@ -0,0 +1,72 @@
++#!/usr/bin/env python3
++"""Crop full LQ questions from exported page PNGs + starts.json."""
++from __future__ import annotations
++
++import argparse
++import json
++import sys
++from pathlib import Path
++
++from PIL import Image
++
++ROOT = Path(__file__).resolve().parents[1]
++sys.path.insert(0, str(ROOT / "scripts"))
++
++from png_pdf import combine_pngs_to_pdf  # noqa: E402
++from preprocess_lq import (  # noqa: E402
++    crop_questions,
++    load_page_pngs,
++    crisp_scan,
++)
++
++Image.MAX_IMAGE_PIXELS = 250_000_000
++
++
++def crop_year(year_dir: Path) -> int:
++    meta_path = year_dir / "starts.json"
++    pages_dir = year_dir / "pages"
++    if not meta_path.is_file() or not pages_dir.is_dir():
++        print(f"  skip {year_dir.name}: missing pages/starts")
++        return 0
++    meta = json.loads(meta_path.read_text(encoding="utf-8"))
++    pages = load_page_pngs(pages_dir)
++    if not pages:
++        return 0
++    starts = [
++        (int(q["q"]), int(q["page_from"]), float(q.get("y") or 0))
++        for q in meta.get("questions", [])
++    ]
++    if not starts:
++        return 0
++    # crop_questions uses end at next start; page_to in meta is inclusive for
++    # page stacks - y on next question is what matters for full-problem crops.
++    images = crop_questions(pages, starts, clean_answer_lines=True)
++    for old in year_dir.glob("q*.png"):
++        old.unlink()
++    for qn, image in sorted(images.items()):
++        image = crisp_scan(image, enabled=True)
++        image.save(year_dir / f"q{qn}.png", format="PNG", optimize=False)
++        print(f"  {year_dir.name} q{qn}.png {image.size[0]}x{image.size[1]}")
++    # Question review PDF from crops (answers stay under ans/).
++    combine_pngs_to_pdf(year_dir, output=year_dir / "questions.pdf", overwrite=True)
++    return len(images)
++
++
++def main() -> None:
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("--years", nargs="*", default=None)
++    args = parser.parse_args()
++    root = ROOT / "output" / "lq"
++    total = 0
++    for year_dir in sorted(root.iterdir()):
++        if not year_dir.is_dir():
++            continue
++        if args.years and year_dir.name not in args.years:
++            continue
++        print(f"=== {year_dir.name} ===")
++        total += crop_year(year_dir)
++    print(f"Wrote {total} full-question crops")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/extract_answer_keys.py b/scripts/extract_answer_keys.py
+index b6128ca..9f0948e 100644
+--- a/scripts/extract_answer_keys.py
++++ b/scripts/extract_answer_keys.py
+@@ -223,33 +223,109 @@ MANUAL_KEYS: dict[str, dict[int, dict]] = {
+         33: {"Correct Option": "A", "Correct percentage": 62},
+     },
+     "2019": {
+-        1: {"Correct Option": "D", "Correct percentage": None},
+-        2: {"Correct Option": "B", "Correct percentage": None},
+-        3: {"Correct Option": "A", "Correct percentage": None},
+-        4: {"Correct Option": "D", "Correct percentage": None},
+-        5: {"Correct Option": "A", "Correct percentage": None},
+-        6: {"Correct Option": "C", "Correct percentage": None},
+-        7: {"Correct Option": "B", "Correct percentage": None},
+-        8: {"Correct Option": "D", "Correct percentage": None},
+-        9: {"Correct Option": "B", "Correct percentage": None},
+-        10: {"Correct Option": "A", "Correct percentage": None},
+-        11: {"Correct Option": "B", "Correct percentage": None},
+-        12: {"Correct Option": "A", "Correct percentage": None},
+-        13: {"Correct Option": "C", "Correct percentage": None},
+-        14: {"Correct Option": "C", "Correct percentage": None},
+-        15: {"Correct Option": "A", "Correct percentage": None},
+-        16: {"Correct Option": "C", "Correct percentage": None},
+-        17: {"Correct Option": "B", "Correct percentage": None},
+-        18: {"Correct Option": "A", "Correct percentage": None},
+-        19: {"Correct Option": "D", "Correct percentage": None},
+-        26: {"Correct Option": "C", "Correct percentage": None},
+-        27: {"Correct Option": "D", "Correct percentage": None},
+-        28: {"Correct Option": "D", "Correct percentage": None},
+-        29: {"Correct Option": "C", "Correct percentage": None},
+-        30: {"Correct Option": "B", "Correct percentage": None},
+-        31: {"Correct Option": "D", "Correct percentage": None},
+-        32: {"Correct Option": "B", "Correct percentage": None},
+-        33: {"Correct Option": "C", "Correct percentage": None},
++        1: {"Correct Option": "D", "Correct percentage": 67},
++        2: {"Correct Option": "B", "Correct percentage": 66},
++        3: {"Correct Option": "A", "Correct percentage": 67},
++        4: {"Correct Option": "D", "Correct percentage": 57},
++        5: {"Correct Option": "A", "Correct percentage": 50},
++        6: {"Correct Option": "C", "Correct percentage": 60},
++        7: {"Correct Option": "B", "Correct percentage": 65},
++        8: {"Correct Option": "D", "Correct percentage": 83},
++        9: {"Correct Option": "B", "Correct percentage": 62},
++        10: {"Correct Option": "A", "Correct percentage": 40},
++        11: {"Correct Option": "B", "Correct percentage": 27},
++        12: {"Correct Option": "A", "Correct percentage": 34},
++        13: {"Correct Option": "C", "Correct percentage": 66},
++        14: {"Correct Option": "C", "Correct percentage": 35},
++        15: {"Correct Option": "A", "Correct percentage": 76},
++        16: {"Correct Option": "C", "Correct percentage": 56},
++        17: {"Correct Option": "B", "Correct percentage": 50},
++        18: {"Correct Option": "A", "Correct percentage": 68},
++        19: {"Correct Option": "D", "Correct percentage": 54},
++        20: {"Correct Option": "A", "Correct percentage": 65},
++        21: {"Correct Option": "D", "Correct percentage": 68},
++        22: {"Correct Option": "A", "Correct percentage": 70},
++        23: {"Correct Option": "A", "Correct percentage": 34},
++        24: {"Correct Option": "C", "Correct percentage": 49},
++        25: {"Correct Option": "B", "Correct percentage": 64},
++        26: {"Correct Option": "C", "Correct percentage": 58},
++        27: {"Correct Option": "D", "Correct percentage": 44},
++        28: {"Correct Option": "D", "Correct percentage": 71},
++        29: {"Correct Option": "C", "Correct percentage": 79},
++        30: {"Correct Option": "B", "Correct percentage": 45},
++        31: {"Correct Option": "D", "Correct percentage": 68},
++        32: {"Correct Option": "B", "Correct percentage": 64},
++        33: {"Correct Option": "C", "Correct percentage": 67},
++    },
++    "2020": {
++        1: {"Correct Option": "D", "Correct percentage": 56},
++        2: {"Correct Option": "C", "Correct percentage": 65},
++        3: {"Correct Option": "D", "Correct percentage": 52},
++        4: {"Correct Option": "A", "Correct percentage": 64},
++        5: {"Correct Option": "C", "Correct percentage": 52},
++        6: {"Correct Option": "B", "Correct percentage": 66},
++        7: {"Correct Option": "D", "Correct percentage": 29},
++        8: {"Correct Option": "C", "Correct percentage": 81},
++        9: {"Correct Option": "A", "Correct percentage": 59},
++        10: {"Correct Option": "C", "Correct percentage": 60},
++        11: {"Correct Option": "D", "Correct percentage": 59},
++        12: {"Correct Option": "C", "Correct percentage": 45},
++        13: {"Correct Option": "C", "Correct percentage": 67},
++        14: {"Correct Option": "A", "Correct percentage": 70},
++        15: {"Correct Option": "C", "Correct percentage": 52},
++        16: {"Correct Option": "A", "Correct percentage": 45},
++        17: {"Correct Option": "D", "Correct percentage": 41},
++        18: {"Correct Option": "A", "Correct percentage": 45},
++        19: {"Correct Option": "B", "Correct percentage": 49},
++        20: {"Correct Option": "B", "Correct percentage": 31},
++        21: {"Correct Option": "A", "Correct percentage": 75},
++        22: {"Correct Option": "B", "Correct percentage": 62},
++        23: {"Correct Option": "B", "Correct percentage": 32},
++        24: {"Correct Option": "D", "Correct percentage": 52},
++        25: {"Correct Option": "A", "Correct percentage": 71},
++        26: {"Correct Option": "A", "Correct percentage": 42},
++        27: {"Correct Option": "B", "Correct percentage": 38},
++        28: {"Correct Option": "D", "Correct percentage": 32},
++        29: {"Correct Option": "B", "Correct percentage": 56},
++        30: {"Correct Option": "D", "Correct percentage": 63},
++        31: {"Correct Option": "B", "Correct percentage": 55},
++        32: {"Correct Option": "D", "Correct percentage": 49},
++        33: {"Correct Option": "C", "Correct percentage": 38},
++    },
++    "2022": {
++        1: {"Correct Option": "A", "Correct percentage": 76},
++        2: {"Correct Option": "B", "Correct percentage": 54},
++        3: {"Correct Option": "D", "Correct percentage": 80},
++        4: {"Correct Option": "C", "Correct percentage": 56},
++        5: {"Correct Option": "A", "Correct percentage": 51},
++        6: {"Correct Option": "B", "Correct percentage": 47},
++        7: {"Correct Option": "B", "Correct percentage": 84},
++        8: {"Correct Option": "B", "Correct percentage": 49},
++        9: {"Correct Option": "D", "Correct percentage": 61},
++        10: {"Correct Option": "D", "Correct percentage": 32},
++        11: {"Correct Option": "A", "Correct percentage": 46},
++        12: {"Correct Option": "D", "Correct percentage": 75},
++        13: {"Correct Option": "C", "Correct percentage": 67},
++        14: {"Correct Option": "A", "Correct percentage": 52},
++        15: {"Correct Option": "B", "Correct percentage": 70},
++        16: {"Correct Option": "C", "Correct percentage": 71},
++        17: {"Correct Option": "D", "Correct percentage": 67},
++        18: {"Correct Option": "B", "Correct percentage": 63},
++        19: {"Correct Option": "C", "Correct percentage": 55},
++        20: {"Correct Option": "A", "Correct percentage": 72},
++        21: {"Correct Option": "C", "Correct percentage": 44},
++        22: {"Correct Option": "D", "Correct percentage": 64},
++        23: {"Correct Option": "C", "Correct percentage": 24},
++        24: {"Correct Option": "D", "Correct percentage": 28},
++        25: {"Correct Option": "D", "Correct percentage": 54},
++        26: {"Correct Option": "B", "Correct percentage": 65},
++        27: {"Correct Option": "A", "Correct percentage": 61},
++        28: {"Correct Option": "C", "Correct percentage": 26},
++        29: {"Correct Option": "B", "Correct percentage": 34},
++        30: {"Correct Option": "A", "Correct percentage": 45},
++        31: {"Correct Option": "C", "Correct percentage": 63},
++        32: {"Correct Option": "A", "Correct percentage": 50},
++        33: {"Correct Option": "C", "Correct percentage": 83},
+     },
+     "2023": {
+         1: {"Correct Option": "B", "Correct percentage": 61},
+diff --git a/scripts/preprocess_mc.py b/scripts/preprocess_mc.py
+index 61ac00c..587f698 100644
+--- a/scripts/preprocess_mc.py
++++ b/scripts/preprocess_mc.py
+@@ -23,12 +23,19 @@ RAIL_TOLERANCE = 12.0
+ # Scanned pages shift left/right, so absolute --left/--right alone drift vs "N.".
+ LEFT_PAD = 36.0  # crop starts this far left of the number rail
+ ANCHOR_GAP = 16.0  # marker centre sits this far left of the leftmost number ink
+-RIGHT_FROM_RAIL = 455.0  # fallback / cap: crop right = rail_x + this
+-RIGHT_PAD = 18.0  # keep this much whitespace past detected content ink
++RIGHT_FROM_RAIL = 530.0  # fallback when content-right detection fails
++RIGHT_PAD = 24.0  # keep this much whitespace past detected content ink
+ FIRST_LABEL_PAD = 20.0  # crop starts this far above the first question number on a page
+ MARKER_LEFT_PAD = 8.0  # keep this much crop to the left of the marker centre
+ FOOTER_GAP = 2.0  # crop bottom this far above detected footer text
+-FOOTER_RE = re.compile(r"(dse[- ]?phy|phy\s*1a|section\s*a)", re.I)
++# Min vertical gap between consecutive same-page anchors. Option lines are
++# closer than this; midpoint gap-fills used to land on them and truncate crops.
++MIN_QUESTION_GAP = 90.0
++FOOTER_RE = re.compile(
++    r"(dse[- ]?phy|phy\s*1a|end\s+of\s+section|section\s*a|"
++    r"go\s+on\s+to\s+the\s+next\s+page|next\s+page)",
++    re.I,
++)
+ LABEL_RE = re.compile(r"[#*]?(\d{1,2})([.,])?")
+ SUBPART_RE = re.compile(r"^[A-Za-z]\d")
+ Q1_CONFUSION_RE = re.compile(r"^[lIi|\|][.,]$")
+@@ -44,6 +51,9 @@ def _normalize_label_token(text: str) -> str:
+     # "11." is often read as "1]" or "1}".
+     if re.fullmatch(r"1[\]}]", text):
+         return "11."
++    # "*19." is often read as "*]", "*y", "*]!" (']'/'y' ≈ '9').
++    if re.fullmatch(r"[*#][\]yY!]+\.?", text):
++        return "19."
+     # Leading junk before digits / asterisk.
+     text = re.sub(r"^[^0-9#*]+", "", text)
+     return text
+@@ -352,7 +362,12 @@ def collect_labels(
+     questions: int,
+     page_hits: dict[int, list[tuple[int, float, float]]] | None = None,
+ ) -> dict[int, tuple[int, float, float]]:
+-    """Detect labels on each page, then assign in reading order (OCR hits only)."""
++    """Detect labels on each page, then assign in reading order (OCR hits only).
++
++    Only accept the exact next expected number. Accepting OCR "near misses"
++    (e.g. reading 2. as 4.) then inventing midpoints for the skipped numbers
++    places anchors on option lines and produces tiny / option-only crops.
++    """
+     labels: dict[int, tuple[int, float, float]] = {}
+     if page_hits is None:
+         page_hits = {}
+@@ -364,17 +379,19 @@ def collect_labels(
+     for page_index in content_pages:
+         hits = sorted(page_hits[page_index], key=lambda item: item[2])
+         for number, x, y in hits:
+-            if number in labels or number < expected:
++            # "*12." is often OCR'd as "*1"/"+1" (leading digit only). Only
++            # promote that case - mapping any N==expected%10 also matched
++            # footer junk "2" as Q12 on later pages.
++            if number != expected and expected == 12 and number == 1:
++                number = 12
++            if number != expected or number in labels:
+                 continue
+             if (page_index, y) <= last_pos:
+                 continue
+-            # Accept the next number, or a short OCR miss (e.g. Q1/Q2 misread but Q3 visible).
+-            if number > expected + 4:
++            if last_pos[0] == page_index and (y - last_pos[1]) < MIN_QUESTION_GAP:
+                 continue
+             labels[number] = (page_index, x, y)
+             expected = number + 1
+-            while expected in labels:
+-                expected += 1
+             last_pos = (page_index, y)
+ 
+     return _fill_same_page_gaps(labels, page_hits)
+@@ -384,9 +401,13 @@ def merge_page_hits(
+     source: fitz.Document,
+     content_pages: list[int],
+     questions: int,
+-    scales: tuple[float, ...] = (5.0, 3.0, 8.0),
++    scales: tuple[float, ...] = (2.0, 3.0, 5.0, 8.0),
+ ) -> dict[int, list[tuple[int, float, float]]]:
+-    """Run OCR at several scales and keep the best hit per question per page."""
++    """Run OCR at several scales and keep the best hit per question per page.
++
++    Include the default render scale (2.0): higher scales alone miss some
++    labels on scanned papers (e.g. 2024 Q2), which breaks sequential collect.
++    """
+     merged: dict[int, dict[int, tuple[int, float, float]]] = {pi: {} for pi in content_pages}
+     for page_index in content_pages:
+         for scale in scales:
+@@ -399,32 +420,60 @@ def _fill_same_page_gaps(
+     labels: dict[int, tuple[int, float, float]],
+     page_hits: dict[int, list[tuple[int, float, float]]],
+ ) -> dict[int, tuple[int, float, float]]:
+-    """Fill missing numbers from neighbouring OCR hits (same page, else adjacent pages)."""
++    """Fill missing numbers only from real OCR hits (never invent midpoints).
++
++    Invented y positions land between a stem and its options and create the
++    tiny / option-only crops (e.g. 2018 Q4, 2026 Q2).
++    """
+     filled = dict(labels)
+     if not filled:
+         return filled
+-    questions = max(filled)
+-    for number in range(1, questions + 1):
+-        if number in filled:
+-            continue
+-        prevs = [k for k in filled if k < number]
+-        nexts = [k for k in filled if k > number]
+-        if not prevs or not nexts:
+-            continue
+-        prev_n = max(prevs)
+-        next_n = min(nexts)
+-        p_page, p_x, p_y = filled[prev_n]
+-        n_page, n_x, n_y = filled[next_n]
+-        if p_page == n_page:
+-            filled[number] = (p_page, (p_x + n_x) / 2.0, (p_y + n_y) / 2.0)
+-            continue
+-        if n_page < p_page:
+-            continue
+-        # Next question is low on its page: this one likely starts that page.
+-        if n_y > 160.0:
+-            filled[number] = (n_page, n_x, max(70.0, n_y - 90.0))
+-        else:
+-            filled[number] = (p_page, p_x, p_y + 70.0)
++    questions = max(max(filled), max((n for hits in page_hits.values() for n, *_ in hits), default=0))
++    changed = True
++    while changed:
++        changed = False
++        for number in range(1, questions + 1):
++            if number in filled:
++                continue
++            prevs = [k for k in filled if k < number]
++            nexts = [k for k in filled if k > number]
++            if not prevs:
++                continue
++            prev_n = max(prevs)
++            p_page, _p_x, p_y = filled[prev_n]
++            if nexts:
++                next_n = min(nexts)
++                n_page, _n_x, n_y = filled[next_n]
++            else:
++                n_page, n_y = None, None
++
++            candidates: list[tuple[int, float, float]] = []
++            for page_index, hits in page_hits.items():
++                for hit_n, x, y in hits:
++                    if hit_n != number:
++                        continue
++                    if page_index < p_page:
++                        continue
++                    if page_index == p_page and y <= p_y + MIN_QUESTION_GAP * 0.5:
++                        continue
++                    if n_page is not None:
++                        if page_index > n_page:
++                            continue
++                        if page_index == n_page and y >= n_y - MIN_QUESTION_GAP * 0.5:
++                            continue
++                    candidates.append((page_index, x, y))
++            if not candidates:
++                continue
++            # Prefer reading order: earliest page, then topmost y.
++            candidates.sort(key=lambda item: (item[0], item[2], item[1]))
++            page_index, x, y = candidates[0]
++            # Re-check gap to previous after choosing.
++            if page_index == p_page and (y - p_y) < MIN_QUESTION_GAP:
++                continue
++            if n_page is not None and page_index == n_page and (n_y - y) < MIN_QUESTION_GAP:
++                continue
++            filled[number] = (page_index, x, y)
++            changed = True
+     return filled
+ 
+ 
+@@ -971,11 +1020,12 @@ def main() -> None:
+             bottom,
+         )
+         if content_right is not None:
++            # Trust detected ink. The old min(..., provisional_right) cap at
++            # rail+455 clipped trailing characters on many scanned pages.
+             right = min(page.rect.width - 2.0, content_right + args.right_pad)
+         else:
+             right = provisional_right
+-        # Never keep a huge empty right band past the rail-relative fallback.
+-        right = min(right, provisional_right)
++        right = min(right, page.rect.width - 2.0)
+         right = max(right, left + 80.0)
+ 
+         pixmap = page.get_pixmap(matrix=fitz.Matrix(scale, scale), alpha=False)
+diff --git a/scripts/split_mc.py b/scripts/split_mc.py
+index 4fca5ea..9238d89 100644
+--- a/scripts/split_mc.py
++++ b/scripts/split_mc.py
+@@ -20,7 +20,9 @@ from PIL import Image
+ from png_pdf import combine_pngs_to_pdf
+ 
+ # Extra space above the anchor so the first line (e.g. the top of "m") is not clipped.
+-TOP_PAD_PX = 10
++# Kept in sync with --pad-top (pts * scale): larger top pad than the previous
++# question's bottom gap pulls the prior question's last lines into this crop.
++TOP_PAD_PX = 24
+ 
+ 
+ def trim_question_image(
+@@ -29,18 +31,33 @@ def trim_question_image(
+     pad: int = 10,
+     left_pad: int = 24,
+     preserve_left: bool = False,
++    preserve_right: bool = False,
++    preserve_top: bool = False,
+     dark_threshold: int = 235,
+-    min_row_fraction: float = 0.008,
++    min_row_fraction: float = 0.015,
+     min_col_fraction: float = 0.012,
+ ) -> Image.Image:
+-    """Crop to ink bounds; ignores large blank gaps between marker splits."""
++    """Crop to ink bounds; ignores large blank gaps between marker splits.
++
++    When splitting from page meta, pass preserve_left+preserve_right so every
++    question on a page keeps the same page crop width (short stems must not
++    shrink horizontally and look oversized). Pass preserve_top so a sparse
++    question number in the left rail is not trimmed away before denser diagram
++    ink (e.g. PP Q6).
++
++    Row ink ignores the far-right edge (scan binding bars) so last-on-page
++    questions are not kept tall by thin vertical artifacts.
++    """
+     arr = np.asarray(image.convert("L"))
+     h, w = arr.shape
+     if h < 4 or w < 4:
+         return image
+ 
++    # Ignore right-edge scan noise when judging row content / bottom trim.
++    row_limit = max(1, int(w * 0.97))
++
+     def row_content(y: int) -> bool:
+-        return float((arr[y] < dark_threshold).mean()) >= min_row_fraction
++        return float((arr[y, :row_limit] < dark_threshold).mean()) >= min_row_fraction
+ 
+     def col_content(x: int) -> bool:
+         return float((arr[:, x] < dark_threshold).mean()) >= min_col_fraction
+@@ -50,13 +67,49 @@ def trim_question_image(
+     if not content_rows or not content_cols:
+         return image
+ 
+-    top = max(0, content_rows[0] - pad)
+-    bottom = min(h, content_rows[-1] + 1 + pad)
++    # Page-turn arrows sit in the bottom-right only ("go to next page").
++    # Prefer body ink (left 85%) so those arrows do not keep a tall footer.
++    body_limit = max(1, int(w * 0.85))
++
++    def body_row(y: int) -> bool:
++        return float((arr[y, :body_limit] < dark_threshold).mean()) >= min_row_fraction
++
++    body_rows = [y for y in content_rows if body_row(y)]
++    bottom_rows = body_rows if body_rows else content_rows
++
++    # Drop tiny trailing islands after a tall whitespace gap (page-turn
++    # arrows, scan bars at the page foot).
++    if len(bottom_rows) >= 2:
++        islands: list[tuple[int, int]] = []
++        start = bottom_rows[0]
++        prev = bottom_rows[0]
++        for y in bottom_rows[1:]:
++            if y - prev > 40:
++                islands.append((start, prev))
++                start = y
++            prev = y
++        islands.append((start, prev))
++        while len(islands) > 1:
++            s, e = islands[-1]
++            if (e - s) < 55 and s > int(h * 0.65):
++                islands.pop()
++                continue
++            break
++        bottom_rows = [y for y in bottom_rows if y <= islands[-1][1]]
++
++    if preserve_top:
++        top = 0
++    else:
++        top = max(0, content_rows[0] - pad)
++    bottom = min(h, bottom_rows[-1] + 1 + pad)
+     if preserve_left:
+         left = 0
+     else:
+         left = max(0, content_cols[0] - left_pad)
+-    right = min(w, content_cols[-1] + 1 + pad)
++    if preserve_right:
++        right = w
++    else:
++        right = min(w, content_cols[-1] + 1 + pad)
+     if bottom <= top or right <= left:
+         return image
+     return image.crop((left, top, right, bottom))
+@@ -90,7 +143,7 @@ def parse_args() -> argparse.Namespace:
+     parser.add_argument(
+         "--pad-top",
+         type=float,
+-        default=4.0,
++        default=12.0,
+         help="Padding (PDF pts) between this question's bottom and the next anchor",
+     )
+     parser.add_argument("--pad-bottom", type=float, default=6.0, help="Padding below each question end")
+@@ -181,6 +234,108 @@ def load_meta(path: Path) -> dict[str, Any]:
+     return json.loads(path.read_text())
+ 
+ 
++def clip_end_of_section(
++    page: fitz.Page,
++    left: float,
++    top: float,
++    right: float,
++    bottom: float,
++    *,
++    gap: float = 4.0,
++) -> float:
++    """Raise bottom so 'END OF SECTION A' (and similar) is not included."""
++    markers = (
++        "END OF SECTION",
++        "End of Section",
++        "END OF PAPER",
++        "End of Paper",
++    )
++    limit = bottom
++    for marker in markers:
++        for rect in page.search_for(marker):
++            if rect.y0 < top or rect.y0 > bottom:
++                continue
++            if rect.x1 < left - 20 or rect.x0 > right + 20:
++                continue
++            limit = min(limit, float(rect.y0) - gap)
++    return max(top + 1.0, limit)
++
++
++
++def strip_end_matter_banner(image: Image.Image) -> Image.Image:
++    """Drop trailing 'END OF SECTION A' / 'END OF PAPER' from a question PNG.
++
++    Scanned papers often have no PDF text layer, so search_for cannot see the
++    banner. OCR the lower part of the crop and cut above the banner line.
++    Require the full phrase - matching lone END/SECTION/PAPER false-triggered
++    on normal stems (e.g. 2014 Q1) and deleted the options.
++    """
++    import io
++    import subprocess
++
++    w, h = image.size
++    if h < 40 or w < 40:
++        return image
++    # Only the lower third can hold the end banner.
++    y0 = int(h * 0.55)
++    strip = image.crop((0, y0, w, h))
++    buf = io.BytesIO()
++    strip.save(buf, format="PNG")
++    result = subprocess.run(
++        ["tesseract", "stdin", "stdout", "--psm", "6"],
++        input=buf.getvalue(),
++        stdout=subprocess.PIPE,
++        stderr=subprocess.DEVNULL,
++        check=False,
++    )
++    blob = result.stdout.decode("utf-8", errors="ignore").upper()
++    if "END OF SECTION" not in blob and "END OF PAPER" not in blob:
++        return image
++
++    # Locate the banner line via TSV tops when possible.
++    result_tsv = subprocess.run(
++        ["tesseract", "stdin", "stdout", "--psm", "6", "tsv"],
++        input=buf.getvalue(),
++        stdout=subprocess.PIPE,
++        stderr=subprocess.DEVNULL,
++        check=False,
++    )
++    rows = result_tsv.stdout.decode("utf-8", errors="ignore").splitlines()
++    cut_y: int | None = None
++    if len(rows) >= 2:
++        header = rows[0].split("\t")
++        try:
++            text_i = header.index("text")
++            top_i = header.index("top")
++            conf_i = header.index("conf")
++        except ValueError:
++            text_i = top_i = conf_i = -1
++        if text_i >= 0:
++            for line in rows[1:]:
++                cols = line.split("\t")
++                if len(cols) <= max(text_i, top_i, conf_i):
++                    continue
++                try:
++                    conf = float(cols[conf_i])
++                except ValueError:
++                    continue
++                if conf < 0:
++                    continue
++                word = (cols[text_i] or "").strip().upper()
++                if word != "END":
++                    continue
++                try:
++                    top = int(float(cols[top_i]))
++                except ValueError:
++                    continue
++                abs_y = y0 + top
++                cut_y = abs_y if cut_y is None else min(cut_y, abs_y)
++    if cut_y is None or cut_y < 20:
++        cut_y = int(h * 0.82)
++    return image.crop((0, 0, w, max(20, cut_y - 4)))
++
++
++
+ def split_from_source(
+     source: Path,
+     meta: dict[str, Any],
+@@ -212,29 +367,53 @@ def split_from_source(
+                 next_anchor = anchors[index + 1]
+                 end_page = int(next_anchor["source_page"])
+                 end_y = float(next_anchor["y"])
++                # If the next question is only a short header-band into a later
++                # page, this question ended on the previous page - do not pull
++                # the next page's header into the crop (inflates bottom margin).
++                while end_page > start_page:
++                    next_top = float(page_crops[end_page]["top"])
++                    if end_y - next_top > 120.0:
++                        break
++                    end_page -= 1
++                    if end_page == start_page:
++                        end_y = float(page_crops[start_page]["bottom"])
++                    else:
++                        end_y = float(page_crops[end_page]["bottom"])
+             else:
+                 last_page = max(page_crops)
+                 end_page = last_page
+                 end_y = float(page_crops[last_page]["bottom"])
+ 
+             parts: list[Image.Image] = []
+-            top_pad_pts = TOP_PAD_PX / scale
++            # Same vertical gap above this anchor as below the previous question
++            # (pad_top), so crops abut with no overlap / no leaked prior lines.
++            top_pad_pts = pad_top
++            start_crop = page_crops[start_page]
++            # Keep every strip of this question at the start-page left/right so
++            # width matches siblings that share the starting page (multi-page
++            # tails must not adopt a different page's crop width).
++            # Use page crop left (not marker_x) so the printed question number
++            # and any leading * / # stay inside the clip.
++            left = float(start_crop.get("left", start_crop.get("marker_x", start_x))) - left_margin
++            right = float(start_crop["right"])
+             for page_index in range(start_page, end_page + 1):
+                 crop = page_crops[page_index]
+-                # Crop at the anchor rail (original PDF, no blue dots).
+-                rail_left = float(crop.get("marker_x", start_x))
+-                left = rail_left - left_margin
+                 if page_index == start_page:
+                     top = max(0.0, start_y - top_pad_pts)
+                 else:
+                     top = float(crop["top"])
+-                right = float(crop["right"])
+                 if page_index == end_page and index + 1 < len(anchors) and end_page == int(
+                     next_anchor["source_page"]
+                 ):
+-                    bottom = max(top + 1.0, end_y - pad_top)
++                    # Keep only a tiny gap above the next number so the last
++                    # option line is not clipped (pad_top is for the next
++                    # question's top; sharing it here cut 2016 Q9 option D).
++                    bottom = max(top + 1.0, end_y - 4.0)
+                 else:
+                     bottom = float(crop["bottom"])
++                bottom = clip_end_of_section(
++                    document[page_index], left, top, right, bottom
++                )
+                 if bottom <= top or right <= left:
+                     continue
+                 parts.append(render_clip(document[page_index], left, top, right, bottom, scale))
+@@ -243,7 +422,15 @@ def split_from_source(
+                 raise SystemExit(f"Question {number} produced an empty crop.")
+ 
+             combined = stitch_vertical(parts)
+-            combined = trim_question_image(combined, preserve_left=True)
++            # Keep full page left/right from meta so short questions match
++            # sibling width on the same page; only trim vertical whitespace.
++            combined = trim_question_image(
++                combined,
++                preserve_left=True,
++                preserve_right=True,
++                preserve_top=True,
++            )
++            combined = strip_end_matter_banner(combined)
+             out_path = output_dir / f"q{number}.png"
+             combined.save(out_path, format="PNG")
+             print(f"Wrote {out_path} ({combined.width}x{combined.height})")

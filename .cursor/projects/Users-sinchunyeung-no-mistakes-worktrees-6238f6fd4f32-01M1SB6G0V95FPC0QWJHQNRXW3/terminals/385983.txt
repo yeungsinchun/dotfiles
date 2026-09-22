@@ -1,0 +1,543 @@
+---
+pid: 64025
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/6238f6fd4f32/01M1SB6G0V95FPC0QWJHQNRXW3"
+command: "cd /Users/sinchunyeung/.no-mistakes/worktrees/6238f6fd4f32/01M1SB6G0V95FPC0QWJHQNRXW3 && git diff 5f011325d21f532b21c7f9f04f3c66d21adb6f3b..d38666a76ce17e5c0b1adb4575955e28f8bd3c31 -- .gitignore segment && echo '====' && git show 9489a3a --stat --format='%s%n%b' | head -40 && echo '====' && git show 863b880 --stat --format='%s%n%b' | head -40 && echo '====' && git show 25c86db --stat --format='%s%n%b' | head -40 && echo '====' && git log --format='%h %s' 5f011325d21f532b21c7f9f04f3c66d21adb6f3b..d38666a76ce17e5c0b1adb4575955e28f8bd3c31 | cat && echo '====' && head -80 scripts/classify_mc_sections.py && echo '====' && head -50 scripts/classify_lq_llm.py && echo '====' && git diff 5f011325d21f532b21c7f9f04f3c66d21adb6f3b..d38666a76ce17e5c0b1adb4575955e28f8bd3c31 -- scripts/preprocess_lq.py scripts/preprocess_mc.py scripts/split_mc.py | head -200"
+title: "Inspect key behavioral diffs and commits"
+status: succeeded
+started_at: 2026-09-05T18:08:20.903Z
+running_for_ms: 40048    
+---
+diff --git a/.gitignore b/.gitignore
+index 3d8dfa5..f28602a 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -5,3 +5,4 @@ __pycache__/
+ output/*-intermediate/
+ output/*-test/
+ output/*/intermediate/
++output/**/pages/
+diff --git a/segment b/segment
+index 5c60a7c..0502fe4 100755
+--- a/segment
++++ b/segment
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env python3
+-"""Segment an HKDSE Physics exam PDF into per-question PNGs (q1.png, q2.png, ...).
++"""Segment an HKDSE Physics exam PDF (MC question PNGs, or LQ page splits).
+ 
+ Paper 1A (MC) two-step workflow:
+   Step 1 - place anchors (blue dots) for review:
+@@ -8,12 +8,14 @@ Paper 1A (MC) two-step workflow:
+   Step 2 - split into clean PNGs from the original PDF:
+     ./segment paper.pdf output/2012 --step split --intermediate output/2012-intermediate
+ 
+-Paper 1B (LQ): OCR question numbers and crop each long question directly.
++Paper 1B (LQ): pages-only split (pages/, starts.json, combined.pdf). Does not
++write or delete q*.png; use scripts/crop_lq_from_pages.py for question crops.
++Page renders under output/**/pages/ are gitignored.
+ 
+ Usage:
+   ./segment paper.pdf output_dir/
+   ./segment paper.pdf output_dir/ --type mc
+-  ./segment paper.pdf output_dir/ --type lq --max-questions 12
++  ./segment paper.pdf output_dir/ --type lq --questions 12
+ """
+ from __future__ import annotations
+ 
+@@ -343,7 +345,7 @@ def main() -> None:
+         raise SystemExit("--step anchors/split only applies to MC papers")
+ 
+     max_questions = args.questions if args.questions is not None else 12
+-    print("=== LQ: detect and crop questions ===")
++    print("=== LQ: split exam pages (no question crops) ===")
+     count = segment_lq(
+         pdf,
+         dest,
+@@ -351,10 +353,10 @@ def main() -> None:
+         scale=0.0,
+         max_questions=max_questions,
+         max_scale=args.max_scale,
+-        pages_dir=None,
++        pages_dir=dest / "pages",
++        crop_questions_flag=False,
+     )
+-    combine_pngs_to_pdf(dest)
+-    print(f"Wrote {count} questions -> {dest}")
++    print(f"Wrote {count} questions (page split) -> {dest}")
+     print(f"Review PDF -> {dest / 'combined.pdf'}")
+ 
+ 
+====
+feat: classify MC questions into curriculum sections
+
+
+ .lavish/classified-review/data.json                | 6030 ++++++++++++++++
+ .lavish/classified-review/img/2012_q1.png          |  Bin 0 -> 127513 bytes
+ .lavish/classified-review/img/2012_q10.png         |  Bin 0 -> 114907 bytes
+ .lavish/classified-review/img/2012_q11.png         |  Bin 0 -> 109555 bytes
+ .lavish/classified-review/img/2012_q12.png         |  Bin 0 -> 102653 bytes
+ .lavish/classified-review/img/2012_q13.png         |  Bin 0 -> 149239 bytes
+ .lavish/classified-review/img/2012_q14.png         |  Bin 0 -> 193985 bytes
+ .lavish/classified-review/img/2012_q15.png         |  Bin 0 -> 183395 bytes
+ .lavish/classified-review/img/2012_q16.png         |  Bin 0 -> 86741 bytes
+ .lavish/classified-review/img/2012_q17.png         |  Bin 0 -> 177920 bytes
+ .lavish/classified-review/img/2012_q18.png         |  Bin 0 -> 210063 bytes
+ .lavish/classified-review/img/2012_q19.png         |  Bin 0 -> 60732 bytes
+ .lavish/classified-review/img/2012_q2.png          |  Bin 0 -> 100048 bytes
+ .lavish/classified-review/img/2012_q20.png         |  Bin 0 -> 61086 bytes
+ .lavish/classified-review/img/2012_q21.png         |  Bin 0 -> 80668 bytes
+ .lavish/classified-review/img/2012_q22.png         |  Bin 0 -> 179738 bytes
+ .lavish/classified-review/img/2012_q23.png         |  Bin 0 -> 68520 bytes
+ .lavish/classified-review/img/2012_q24.png         |  Bin 0 -> 94019 bytes
+ .lavish/classified-review/img/2012_q25.png         |  Bin 0 -> 92331 bytes
+ .lavish/classified-review/img/2012_q26.png         |  Bin 0 -> 77367 bytes
+ .lavish/classified-review/img/2012_q27.png         |  Bin 0 -> 45039 bytes
+ .lavish/classified-review/img/2012_q28.png         |  Bin 0 -> 31890 bytes
+ .lavish/classified-review/img/2012_q29.png         |  Bin 0 -> 63592 bytes
+ .lavish/classified-review/img/2012_q3.png          |  Bin 0 -> 115185 bytes
+ .lavish/classified-review/img/2012_q30.png         |  Bin 0 -> 75039 bytes
+ .lavish/classified-review/img/2012_q31.png         |  Bin 0 -> 46807 bytes
+ .lavish/classified-review/img/2012_q32.png         |  Bin 0 -> 132742 bytes
+ .lavish/classified-review/img/2012_q33.png         |  Bin 0 -> 78426 bytes
+ .lavish/classified-review/img/2012_q34.png         |  Bin 0 -> 111159 bytes
+ .lavish/classified-review/img/2012_q35.png         |  Bin 0 -> 52959 bytes
+ .lavish/classified-review/img/2012_q36.png         |  Bin 0 -> 77893 bytes
+ .lavish/classified-review/img/2012_q4.png          |  Bin 0 -> 105525 bytes
+ .lavish/classified-review/img/2012_q5.png          |  Bin 0 -> 74089 bytes
+ .lavish/classified-review/img/2012_q6.png          |  Bin 0 -> 218434 bytes
+ .lavish/classified-review/img/2012_q7.png          |  Bin 0 -> 161742 bytes
+ .lavish/classified-review/img/2012_q8.png          |  Bin 0 -> 119907 bytes
+ .lavish/classified-review/img/2012_q9.png          |  Bin 0 -> 54525 bytes
+====
+feat: classify LQ questions into curriculum sections
+
+
+ .lavish/lq-classified-review/data.json             |   1 +
+ .lavish/lq-classified-review/img/2012-q1-ans.png   | Bin 0 -> 94893 bytes
+ .lavish/lq-classified-review/img/2012-q1.png       | Bin 0 -> 2452758 bytes
+ .lavish/lq-classified-review/img/2012-q10-ans.png  | Bin 0 -> 365986 bytes
+ .lavish/lq-classified-review/img/2012-q10.png      | Bin 0 -> 1305563 bytes
+ .lavish/lq-classified-review/img/2012-q11-ans.png  | Bin 0 -> 1313105 bytes
+ .lavish/lq-classified-review/img/2012-q11.png      | Bin 0 -> 1036430 bytes
+ .lavish/lq-classified-review/img/2012-q2-ans.png   | Bin 0 -> 8062 bytes
+ .lavish/lq-classified-review/img/2012-q2.png       | Bin 0 -> 101899 bytes
+ .lavish/lq-classified-review/img/2012-q3-ans.png   | Bin 0 -> 256657 bytes
+ .lavish/lq-classified-review/img/2012-q3.png       | Bin 0 -> 1020236 bytes
+ .lavish/lq-classified-review/img/2012-q4-ans.png   | Bin 0 -> 58214 bytes
+ .lavish/lq-classified-review/img/2012-q4.png       | Bin 0 -> 1874619 bytes
+ .lavish/lq-classified-review/img/2012-q5-ans.png   | Bin 0 -> 59843 bytes
+ .lavish/lq-classified-review/img/2012-q5.png       | Bin 0 -> 1879756 bytes
+ .lavish/lq-classified-review/img/2012-q6-ans.png   | Bin 0 -> 219229 bytes
+ .lavish/lq-classified-review/img/2012-q6.png       | Bin 0 -> 2079038 bytes
+ .lavish/lq-classified-review/img/2012-q7-ans.png   | Bin 0 -> 343560 bytes
+ .lavish/lq-classified-review/img/2012-q7.png       | Bin 0 -> 1525674 bytes
+ .lavish/lq-classified-review/img/2012-q8-ans.png   | Bin 0 -> 77620 bytes
+ .lavish/lq-classified-review/img/2012-q8.png       | Bin 0 -> 182441 bytes
+ .lavish/lq-classified-review/img/2012-q9-ans.png   | Bin 0 -> 126412 bytes
+ .lavish/lq-classified-review/img/2012-q9.png       | Bin 0 -> 1870390 bytes
+ .lavish/lq-classified-review/img/2013-q1-ans.png   | Bin 0 -> 101277 bytes
+ .lavish/lq-classified-review/img/2013-q1.png       | Bin 0 -> 1577591 bytes
+ .lavish/lq-classified-review/img/2013-q10-ans.png  | Bin 0 -> 4452368 bytes
+ .lavish/lq-classified-review/img/2013-q10.png      | Bin 0 -> 1939377 bytes
+ .lavish/lq-classified-review/img/2013-q11.png      | Bin 0 -> 1337115 bytes
+ .lavish/lq-classified-review/img/2013-q2-ans.png   | Bin 0 -> 80771 bytes
+ .lavish/lq-classified-review/img/2013-q2.png       | Bin 0 -> 1414366 bytes
+ .lavish/lq-classified-review/img/2013-q3-ans.png   | Bin 0 -> 135311 bytes
+ .lavish/lq-classified-review/img/2013-q3.png       | Bin 0 -> 1640124 bytes
+ .lavish/lq-classified-review/img/2013-q4-ans.png   | Bin 0 -> 216257 bytes
+ .lavish/lq-classified-review/img/2013-q4.png       | Bin 0 -> 918077 bytes
+ .lavish/lq-classified-review/img/2013-q5-ans.png   | Bin 0 -> 158370 bytes
+ .lavish/lq-classified-review/img/2013-q5.png       | Bin 0 -> 790220 bytes
+ .lavish/lq-classified-review/img/2013-q6-ans.png   | Bin 0 -> 207242 bytes
+====
+chore: clean LQ assets and drop page-render caches
+Stop tracking output/lq/*/pages intermediates, split MC/LQ classification
+artifacts, and refresh LQ crops, answers, and Lavish review after preprocess
+fixes. Rename mislabeled 2023q1b and add 2024-2026 LQ papers.
+
+
+ .gitignore                                         |    1 +
+ .lavish/lq-classified-review/data.json             |    2 +-
+ .lavish/lq-classified-review/img/2012-q1-ans.png   |  Bin 94893 -> 87654 bytes
+ .lavish/lq-classified-review/img/2012-q1.png       |  Bin 2452758 -> 1090644 bytes
+ .lavish/lq-classified-review/img/2012-q10-ans.png  |  Bin 365986 -> 364198 bytes
+ .lavish/lq-classified-review/img/2012-q10.png      |  Bin 1305563 -> 1468741 bytes
+ .lavish/lq-classified-review/img/2012-q11-ans.png  |  Bin 1313105 -> 87235 bytes
+ .lavish/lq-classified-review/img/2012-q11.png      |  Bin 1036430 -> 534356 bytes
+ .lavish/lq-classified-review/img/2012-q2-ans.png   |  Bin 8062 -> 66330 bytes
+ .lavish/lq-classified-review/img/2012-q2.png       |  Bin 101899 -> 379088 bytes
+ .lavish/lq-classified-review/img/2012-q3-ans.png   |  Bin 256657 -> 81728 bytes
+ .lavish/lq-classified-review/img/2012-q3.png       |  Bin 1020236 -> 523417 bytes
+ .lavish/lq-classified-review/img/2012-q4-ans.png   |  Bin 58214 -> 149826 bytes
+ .lavish/lq-classified-review/img/2012-q4.png       |  Bin 1874619 -> 941341 bytes
+ .lavish/lq-classified-review/img/2012-q5-ans.png   |  Bin 59843 -> 59657 bytes
+ .lavish/lq-classified-review/img/2012-q5.png       |  Bin 1879756 -> 956359 bytes
+ .lavish/lq-classified-review/img/2012-q6-ans.png   |  Bin 219229 -> 127372 bytes
+ .lavish/lq-classified-review/img/2012-q6.png       |  Bin 2079038 -> 999804 bytes
+ .lavish/lq-classified-review/img/2012-q7-ans.png   |  Bin 343560 -> 411171 bytes
+ .lavish/lq-classified-review/img/2012-q7.png       |  Bin 1525674 -> 933422 bytes
+ .lavish/lq-classified-review/img/2012-q8-ans.png   |  Bin 77620 -> 77398 bytes
+ .lavish/lq-classified-review/img/2012-q8.png       |  Bin 182441 -> 682222 bytes
+ .lavish/lq-classified-review/img/2012-q9-ans.png   |  Bin 126412 -> 114035 bytes
+ .lavish/lq-classified-review/img/2012-q9.png       |  Bin 1870390 -> 562501 bytes
+ .lavish/lq-classified-review/img/2013-q1-ans.png   |  Bin 101277 -> 85496 bytes
+ .lavish/lq-classified-review/img/2013-q1.png       |  Bin 1577591 -> 1433511 bytes
+ .lavish/lq-classified-review/img/2013-q10-ans.png  |  Bin 4452368 -> 592384 bytes
+ .lavish/lq-classified-review/img/2013-q10.png      |  Bin 1939377 -> 1702875 bytes
+ .lavish/lq-classified-review/img/2013-q11.png      |  Bin 1337115 -> 1238153 bytes
+ .lavish/lq-classified-review/img/2013-q2-ans.png   |  Bin 80771 -> 79926 bytes
+ .lavish/lq-classified-review/img/2013-q2.png       |  Bin 1414366 -> 1293653 bytes
+ .lavish/lq-classified-review/img/2013-q3-ans.png   |  Bin 135311 -> 133618 bytes
+ .lavish/lq-classified-review/img/2013-q3.png       |  Bin 1640124 -> 1489381 bytes
+ .lavish/lq-classified-review/img/2013-q4-ans.png   |  Bin 216257 -> 199025 bytes
+====
+d38666a no-mistakes(document): Document LQ performance --years merge
+48a9c19 no-mistakes(review): Merge LQ performance JSON on --years
+9ab09b0 no-mistakes(document): Align CLI docs with merge and pages-only
+d99a4cb no-mistakes(review): Merge MC partial runs; drop S5 stubs
+38c12e8 chore: merge main for no-mistakes no_ci config
+eaa142b no-mistakes(review): Merge partial classifier runs; abort LQ LLM failures
+7f549d0 no-mistakes(document): Align docs with split classification outputs
+03c6dd3 no-mistakes(review): Drop legacy MC names; preserve LQ crops
+25c86db chore: clean LQ assets and drop page-render caches
+863b880 feat: classify LQ questions into curriculum sections
+9489a3a feat: classify MC questions into curriculum sections
+====
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Classify output/ MC PNGs into Book 1-5 / Sections 1-27.
+
+Writes:
+  classified/<book>/<NN_section>/  (PNG copies; cross-topic Qs appear in each)
+  classified/uncertain.csv
+  classified/mc_classification.csv
+  classified/mc_classification.json
+  classified/summary.json
+
+--years merges into existing mc_ocr.* / mc_classification.* and only refreshes
+touched section PNGs (same shared MC paths as classify_mc_llm.py).
+"""
+from __future__ import annotations
+
+import argparse
+import csv
+import io
+import json
+import re
+import shutil
+import subprocess
+from concurrent.futures import ProcessPoolExecutor, as_completed
+from pathlib import Path
+
+from PIL import Image
+
+ROOT = Path(__file__).resolve().parents[1]
+OUTPUT = ROOT / "output"
+CLASSIFIED = ROOT / "classified"
+OCR_CACHE = CLASSIFIED / "ocr_cache"
+
+YEAR_ORDER = [
+    "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020",
+    "2021", "2022", "2023", "2024", "2025", "2026", "pp", "sap",
+]
+
+OPTION_SPLIT = re.compile(r"(?:^|\n)\s*([A-D])\s*[.．、)]\s*", re.M)
+LEADING_NUM = re.compile(r"^\s*\*?\s*\d{1,2}\s*[.．、)]\s*")
+
+# (section_num, book_folder, section_folder, display_name)
+SECTIONS: list[tuple[int, str, str, str]] = [
+    (1, "01_Heat_and_Gases", "01_Temperature_and_Heat_Transfer", "Temperature and Heat Transfer"),
+    (2, "01_Heat_and_Gases", "02_Heat_Capacity", "Heat Capacity"),
+    (3, "01_Heat_and_Gases", "03_Change_of_State", "Change of State"),
+    (4, "01_Heat_and_Gases", "04_Gas_Law_and_Kinetic_Theory", "Gas Law and Kinetic Theory"),
+    (5, "02_Force_and_Motion", "05_Motion", "Motion"),
+    (6, "02_Force_and_Motion", "06_Force", "Force"),
+    (7, "02_Force_and_Motion", "07_More_about_Forces", "More about Forces"),
+    (8, "02_Force_and_Motion", "08_Work_Energy_and_Power", "Work, Energy and Power"),
+    (9, "02_Force_and_Motion", "09_Momentum", "Momentum"),
+    (10, "02_Force_and_Motion", "10_Projectile_Motion", "Projectile Motion"),
+    (11, "02_Force_and_Motion", "11_Uniform_Circular_Motion", "Uniform Circular Motion"),
+    (12, "02_Force_and_Motion", "12_Gravitation", "Gravitation"),
+    (13, "03A_Wave_Motion", "13_Wave_Motion", "Wave Motion"),
+    (14, "03A_Wave_Motion", "14_Reflection_Refraction_and_Diffraction", "Reflection, Refraction and Diffraction"),
+    (15, "03A_Wave_Motion", "15_Interference_and_Stationary_Wave", "Interference and Stationary Wave"),
+    (16, "03A_Wave_Motion", "16_Light_and_Sound", "Light and Sound"),
+    (17, "03B_Ray_Optics", "17_Reflection_of_Light", "Reflection of Light"),
+    (18, "03B_Ray_Optics", "18_Refraction_of_Light", "Refraction of Light"),
+    (19, "03B_Ray_Optics", "19_Lenses", "Lenses"),
+    (20, "04_Electricity_and_Magnetism", "20_Electrostatics", "Electrostatics"),
+    (21, "04_Electricity_and_Magnetism", "21_Circuit_and_Power", "Circuit and Power"),
+    (22, "04_Electricity_and_Magnetism", "22_AC_and_Domestic_Electricity", "AC and Domestic Electricity"),
+    (23, "04_Electricity_and_Magnetism", "23_Electromagnetism", "Electromagnetism"),
+    (24, "04_Electricity_and_Magnetism", "24_Electromagnetic_Induction", "Electromagnetic Induction"),
+    (25, "05_Radioactivity_and_Nuclear_Energy", "25_Radiation_and_Radioactivity", "Radiation and Radioactivity"),
+    (26, "05_Radioactivity_and_Nuclear_Energy", "26_Rate_of_Decay_and_Uses_of_Radionuclides", "Rate of Decay and Uses of Radionuclides"),
+    (27, "05_Radioactivity_and_Nuclear_Energy", "27_Nuclear_Energy", "Nuclear Energy"),
+]
+
+SECTION_BY_NUM = {n: (book, folder, name) for n, book, folder, name in SECTIONS}
+BOOK_NAMES = {
+    "01_Heat_and_Gases": "Heat and Gases",
+    "02_Force_and_Motion": "Force and Motion",
+    "03A_Wave_Motion": "Wave Motion",
+    "03B_Ray_Optics": "Ray Optics",
+    "04_Electricity_and_Magnetism": "Electricity and Magnetism",
+    "05_Radioactivity_and_Nuclear_Energy": "Radioactivity and Nuclear Energy",
+====
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Classify LQ (Paper 1B) questions into the same 27 sections as MC.
+
+Reads crops from output/lq/<year>/qN.png, writes nested LQ outputs only:
+  classified/lq/llm_classifications.json
+  classified/lq/classification.csv
+  classified/lq/<book>/<section>/ year-qN.png (+ optional answer copy)
+
+Top-level classified/lq_classification.csv|json come from classify_lq_keywords.py.
+Any LLM failure aborts before write_outputs so nested outputs stay unchanged.
+
+Env: same as classify_mc_llm.py (LLM_API_KEY / OPENAI_API_KEY / TOGETHER_API_KEY).
+"""
+from __future__ import annotations
+
+import argparse
+import csv
+import io
+import json
+import re
+import shutil
+import subprocess
+import time
+import urllib.error
+from pathlib import Path
+
+from PIL import Image
+
+from classify_mc_llm import (
+    SECTION_BY_NUM,
+    SECTIONS,
+    SYSTEM_PROMPT as MC_SYSTEM,
+    chat_json,
+    llm_config,
+    normalize_sections,
+    year_key,
+)
+
+ROOT = Path(__file__).resolve().parents[1]
+OUTPUT_LQ = ROOT / "output" / "lq"
+CLASSIFIED_LQ = ROOT / "classified" / "lq"
+OCR_CACHE = CLASSIFIED_LQ / "ocr_cache"
+
+YEAR_ORDER = [
+    "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020",
+    "2021", "2022", "2023", "pp",
+]
+
+SYSTEM_PROMPT = MC_SYSTEM.replace(
+====
+diff --git a/scripts/preprocess_lq.py b/scripts/preprocess_lq.py
+index c9f4506..8d6f11a 100644
+--- a/scripts/preprocess_lq.py
++++ b/scripts/preprocess_lq.py
+@@ -1,14 +1,16 @@
+ #!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+-"""Split HKDSE Physics Paper 1B (LQ) into per-question PNGs.
++"""Split HKDSE Physics Paper 1B (LQ) into upright full pages (+ optional crops).
+ 
+-Works in *displayed* pixel space (handles rotated scans). Keeps question
+-stems + diagrams; strips dotted answer lines and margin warnings.
++Default: export exam pages and starts.json (no within-page question crops).
++Answer crops stay in preprocess_lq_answers.py.
+ """
+ from __future__ import annotations
+ 
+ import argparse
+ import io
++import json
++import math
+ import re
+ import subprocess
+ from pathlib import Path
+@@ -134,9 +136,15 @@ def apply_page_rotation(image: Image.Image, rot: int) -> Image.Image:
+ 
+ 
+ def is_two_page_spread(image: Image.Image) -> bool:
+-    """Detect side-by-side two-page scans (e.g. 2020 Paper 1B at 3507x4960)."""
++    """Detect side-by-side two-page scans (landscape, much wider than tall).
++
++    Portrait A4 at high DPI (e.g. 3508x4961) must NOT match - that used to
++    bisect every page and invent fake question numbers.
++    """
+     w, h = image.size
+-    return w >= 3400 and h >= 4800 and h > w
++    if w <= h:
++        return False
++    return w >= 3400 and h >= 2400 and (w / h) >= 1.25
+ 
+ 
+ def split_spread(image: Image.Image) -> list[Image.Image]:
+@@ -226,11 +234,20 @@ def export_pdf_pages(
+         doc.close()
+ 
+ 
++def _placement_rotation_deg(transform: tuple | list) -> int:
++    """Snap the CTM image-x axis angle to 0/90/180/270."""
++    a, b = float(transform[0]), float(transform[1])
++    ang = math.degrees(math.atan2(b, a)) % 360.0
++    return int(min((0, 90, 180, 270), key=lambda c: min(abs(ang - c), abs(ang - c - 360))))
++
++
+ def extract_fullpage_display(page: fitz.Page, doc: fitz.Document) -> Image.Image | None:
+     """Copy the embedded full-page raster (no MuPDF resample) when safe.
+ 
+     Photocopy JPEGs stay at native pixels; 1-bit CCITT stays sharp. Skip when the
+-    page composites a soft backdrop with sharper overlays (e.g. 2022).
++    page composites a soft backdrop with sharper overlays (e.g. 2022), or when the
++    placement CTM rotates/clips a two-page scan (2019/2020/2023) - get_pixmap
++    handles that correctly and extract alone would stay sideways.
+     """
+     layers = _page_image_layers(page)
+     if not layers:
+@@ -239,6 +256,11 @@ def extract_fullpage_display(page: fitz.Page, doc: fitz.Document) -> Image.Image
+     if len(full) != 1:
+         return None
+     base = full[0]
++    # Content-stream rotation (page.rotation may still be 0). 90/270 usually means
++    # a landscape booklet scan clipped per PDF page - do not extract raw pixels.
++    trot = _placement_rotation_deg(base.get("transform", (1, 0, 0, 1, 0, 0)))
++    if trot in (90, 270):
++        return None
+     sharper = [
+         L
+         for L in layers
+@@ -258,6 +280,22 @@ def extract_fullpage_display(page: fitz.Page, doc: fitz.Document) -> Image.Image
+     rot = page.rotation % 360
+     if rot:
+         image = apply_page_rotation(image, rot)
++    # Placement 180° with page.rotation 0 (e.g. 2017) leaves the raster inverted.
++    if trot == 180:
++        image = image.transpose(Image.Transpose.ROTATE_180)
++    # Embedded rasters are sometimes stored rotated relative to the page
++    # rect (page.rotation still 0). Align aspect ratio with the page.
++    pw = max(abs(page.rect.width), 1.0)
++    ph = max(abs(page.rect.height), 1.0)
++    if (pw > ph) != (image.width > image.height):
++        target = pw / ph
++
++        def _aspect_score(im: Image.Image) -> float:
++            return abs((im.width / max(im.height, 1)) - target)
++
++        cand90 = image.transpose(Image.Transpose.ROTATE_90)
++        cand270 = image.transpose(Image.Transpose.ROTATE_270)
++        image = min((cand90, cand270), key=_aspect_score)
+     if image.mode not in ("RGB", "L"):
+         image = image.convert("RGB")
+     elif image.mode == "L":
+@@ -361,46 +399,69 @@ def ocr_tsv(image: Image.Image) -> list[dict]:
+ def find_starts_on_image(image: Image.Image, max_questions: int) -> list[tuple[int, float]]:
+     """Return (question_number, y_px) on one displayed page image."""
+     w, h = image.size
+-    # Left band where question numbers sit.
+-    strip = image.crop((int(w * 0.02), int(h * 0.06), int(w * 0.28), int(h * 0.94)))
+-    strip = strip.resize((strip.width * 2, strip.height * 2))
++    top0 = int(h * 0.035)
+     hits: list[tuple[int, float, float]] = []
+ 
+-    for row in ocr_tsv(strip):
+-        if row["conf"] < 15:
+-            continue
+-        match = match_question_number(row["text"])
+-        if not match:
+-            continue
+-        qn = int(match.group(1))
+-        if not (1 <= qn <= max_questions):
+-            continue
+-        if row["left"] > strip.width * 0.55:
+-            continue
+-        y = int(h * 0.06) + row["top"] / 2.0
+-        hits.append((qn, y, row["conf"]))
++    # Two strip widths: narrow avoids body text; wide keeps "1. Stem..." intact.
++    strips: list[Image.Image] = []
++    for left_f, right_f in ((0.035, 0.20), (0.035, 0.32)):
++        strip = image.crop((int(w * left_f), top0, int(w * right_f), int(h * 0.96)))
++        strips.append(strip.resize((strip.width * 2, strip.height * 2)))
+ 
+-    tsv_qns = {qn for qn, _, _ in hits}
+-    buf = io.BytesIO()
+-    strip.save(buf, format="PNG")
+-    result = subprocess.run(
+-        ["tesseract", "stdin", "stdout", "--psm", "6"],
+-        input=buf.getvalue(),
+-        stdout=subprocess.PIPE,
+-        stderr=subprocess.DEVNULL,
+-        check=False,
+-    )
+-    text = result.stdout.decode("utf-8", errors="ignore")
+-    lines = text.splitlines()
+-    for i, line in enumerate(lines):
+-        m = re.match(r"^\s*[\"'*#]?\s*(\d{1,2})\s*[.)]+(?:\s+\S|$)", line)
+-        if not m:
+-            continue
+-        qn = int(m.group(1))
+-        if not (1 <= qn <= max_questions) or qn in tsv_qns:
+-            continue
+-        y = int(h * 0.06) + (i / max(1, len(lines))) * (h * 0.88)
+-        hits.append((qn, y, 25.0))
++    for strip in strips:
++        for row in ocr_tsv(strip):
++            if row["conf"] < 15:
++                continue
++            text = _normalize_qnum_text(row["text"])
++            match = match_question_number(text)
++            if not match:
++                starred = re.fullmatch(r"[*#]?(\d{1,2})\s*[.)]?", text)
++                if starred:
++                    match = starred
++                else:
++                    continue
++            qn = int(match.group(1))
++            if not (1 <= qn <= max_questions):
++                continue
++            if row["left"] > strip.width * 0.55:
++                continue
++            y = top0 + row["top"] / 2.0
++            hits.append((qn, y, row["conf"]))
++
++        buf = io.BytesIO()
++        strip.save(buf, format="PNG")
++        result = subprocess.run(
++            ["tesseract", "stdin", "stdout", "--psm", "6"],
++            input=buf.getvalue(),
++            stdout=subprocess.PIPE,
++            stderr=subprocess.DEVNULL,
++            check=False,
++        )
++        lines = result.stdout.decode("utf-8", errors="ignore").splitlines()
++        # After N./N,/N) require EOL or a real stem char - not dotted-line noise.
++        line_q_re = re.compile(
++            r"^[|\[\]Il\"'*#\s]*[*#]?\s*(\d{1,2})\s*[.,)](?:\s*$|\s+[^\s.·•])"
++        )
++        fig_re = re.compile(r"Figure\s+(\d{1,2})\s*\.\s*1\b", re.I)
++        tsv_qns = {qn for qn, _, _ in hits}
++        for i, line in enumerate(lines):
++            stripped = line.strip()
++            m = line_q_re.match(stripped)
++            if m:
++                qn = int(m.group(1))
++                if 1 <= qn <= max_questions and qn not in tsv_qns:
++                    y = top0 + (i / max(1, len(lines))) * (h * 0.92)
++                    hits.append((qn, y, 25.0))
++                    tsv_qns.add(qn)
++                continue
++            fm = fig_re.search(stripped)
++            if fm:
++                qn = int(fm.group(1))
++                if 1 <= qn <= max_questions and qn not in tsv_qns:
++                    # Question number sits just above "Figure N.1".
+
+---
+exit_code: 0
+elapsed_ms: 40048
+ended_at: 2026-09-05T18:09:00.951Z
+---

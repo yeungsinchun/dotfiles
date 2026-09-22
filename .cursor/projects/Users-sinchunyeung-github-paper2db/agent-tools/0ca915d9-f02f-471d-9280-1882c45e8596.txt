@@ -1,0 +1,1237 @@
+On branch classify
+Your branch is ahead of 'origin/classify' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   .lavish/lq-classified-review/data.json
+	modified:   .lavish/lq-classified-review/img/2012-q1-ans.png
+	modified:   .lavish/lq-classified-review/img/2012-q1.png
+	modified:   .lavish/lq-classified-review/img/2012-q10-ans.png
+	modified:   .lavish/lq-classified-review/img/2012-q10.png
+	modified:   .lavish/lq-classified-review/img/2012-q11-ans.png
+	modified:   .lavish/lq-classified-review/img/2012-q11.png
+	modified:   .lavish/lq-classified-review/img/2012-q2-ans.png
+	modified:   .lavish/lq-classified-review/img/2012-q2.png
+	modified:   .lavish/lq-classified-review/img/2012-q3-ans.png
+	modified:   .lavish/lq-classified-review/img/2012-q3.png
+	modified:   .lavish/lq-classified-review/img/2012-q4-ans.png
+	modified:   .lavish/lq-classified-review/img/2012-q4.png
+	modified:   .lavish/lq-classified-review/img/2012-q5-ans.png
+	modified:   .lavish/lq-classified-review/img/2012-q5.png
+	modified:   .lavish/lq-classified-review/img/2012-q6-ans.png
+	modified:   .lavish/lq-classified-review/img/2012-q6.png
+	modified:   .lavish/lq-classified-review/img/2012-q7-ans.png
+	modified:   .lavish/lq-classified-review/img/2012-q7.png
+	modified:   .lavish/lq-classified-review/img/2012-q8-ans.png
+	modified:   .lavish/lq-classified-review/img/2012-q8.png
+	modified:   .lavish/lq-classified-review/img/2012-q9-ans.png
+	modified:   .lavish/lq-classified-review/img/2012-q9.png
+	modified:   .lavish/lq-classified-review/img/2013-q1-ans.png
+	modified:   .lavish/lq-classified-review/img/2013-q1.png
+	modified:   .lavish/lq-classified-review/img/2013-q10-ans.png
+	modified:   .lavish/lq-classified-review/img/2013-q10.png
+	modified:   .lavish/lq-classified-review/img/2013-q11.png
+	modified:   .lavish/lq-classified-review/img/2013-q2-ans.png
+	modified:   .lavish/lq-classified-review/img/2013-q2.png
+	modified:   .lavish/lq-classified-review/img/2013-q3-ans.png
+	modified:   .lavish/lq-classified-review/img/2013-q3.png
+	modified:   .lavish/lq-classified-review/img/2013-q4-ans.png
+	modified:   .lavish/lq-classified-review/img/2013-q4.png
+	modified:   .lavish/lq-classified-review/img/2013-q5-ans.png
+	modified:   .lavish/lq-classified-review/img/2013-q5.png
+	modified:   .lavish/lq-classified-review/img/2013-q6-ans.png
+	modified:   .lavish/lq-classified-review/img/2013-q6.png
+	modified:   .lavish/lq-classified-review/img/2013-q7-ans.png
+	modified:   .lavish/lq-classified-review/img/2013-q7.png
+	deleted:    .lavish/lq-classified-review/img/2013-q8-ans.png
+	modified:   .lavish/lq-classified-review/img/2013-q8.png
+	deleted:    .lavish/lq-classified-review/img/2013-q9-ans.png
+	modified:   .lavish/lq-classified-review/img/2013-q9.png
+	modified:   .lavish/lq-classified-review/img/2014-q1-ans.png
+	modified:   .lavish/lq-classified-review/img/2014-q1.png
+	modified:   .lavish/lq-classified-review/img/2014-q10-ans.png
+	modified:   .lavish/lq-classified-review/img/2014-q10.png
+	modified:   .lavish/lq-classified-review/img/2014-q2-ans.png
+	modified:   .lavish/lq-classified-review/img/2014-q2.png
+	modified:   .lavish/lq-classified-review/img/2014-q3-ans.png
+	modified:   .lavish/lq-classified-review/img/2014-q3.png
+	modified:   .lavish/lq-classified-review/img/2014-q4-ans.png
+	modified:   .lavish/lq-classified-review/img/2014-q4.png
+	modified:   .lavish/lq-classified-review/img/2014-q5-ans.png
+	modified:   .lavish/lq-classified-review/img/2014-q5.png
+	modified:   .lavish/lq-classified-review/img/2014-q6-ans.png
+	modified:   .lavish/lq-classified-review/img/2014-q6.png
+	modified:   .lavish/lq-classified-review/img/2014-q7-ans.png
+	modified:   .lavish/lq-classified-review/img/2014-q7.png
+	modified:   .lavish/lq-classified-review/img/2014-q8-ans.png
+	modified:   .lavish/lq-classified-review/img/2014-q8.png
+	modified:   .lavish/lq-classified-review/img/2014-q9-ans.png
+	modified:   .lavish/lq-classified-review/img/2014-q9.png
+	deleted:    .lavish/lq-classified-review/img/2015-q1-ans.png
+	modified:   .lavish/lq-classified-review/img/2015-q1.png
+	modified:   .lavish/lq-classified-review/img/2015-q10-ans.png
+	modified:   .lavish/lq-classified-review/img/2015-q10.png
+	modified:   .lavish/lq-classified-review/img/2015-q2-ans.png
+	modified:   .lavish/lq-classified-review/img/2015-q2.png
+	modified:   .lavish/lq-classified-review/img/2015-q3-ans.png
+	modified:   .lavish/lq-classified-review/img/2015-q3.png
+	modified:   .lavish/lq-classified-review/img/2015-q4-ans.png
+	modified:   .lavish/lq-classified-review/img/2015-q4.png
+	modified:   .lavish/lq-classified-review/img/2015-q5-ans.png
+	modified:   .lavish/lq-classified-review/img/2015-q5.png
+	modified:   .lavish/lq-classified-review/img/2015-q6-ans.png
+	modified:   .lavish/lq-classified-review/img/2015-q6.png
+	modified:   .lavish/lq-classified-review/img/2015-q7-ans.png
+	modified:   .lavish/lq-classified-review/img/2015-q7.png
+	deleted:    .lavish/lq-classified-review/img/2015-q8-ans.png
+	modified:   .lavish/lq-classified-review/img/2015-q8.png
+	modified:   .lavish/lq-classified-review/img/2015-q9-ans.png
+	modified:   .lavish/lq-classified-review/img/2015-q9.png
+	modified:   .lavish/lq-classified-review/img/2016-q1-ans.png
+	modified:   .lavish/lq-classified-review/img/2016-q1.png
+	modified:   .lavish/lq-classified-review/img/2016-q2-ans.png
+	modified:   .lavish/lq-classified-review/img/2016-q2.png
+	modified:   .lavish/lq-classified-review/img/2016-q3-ans.png
+	modified:   .lavish/lq-classified-review/img/2016-q3.png
+	modified:   .lavish/lq-classified-review/img/2016-q4-ans.png
+	modified:   .lavish/lq-classified-review/img/2016-q4.png
+	modified:   .lavish/lq-classified-review/img/2016-q5-ans.png
+	modified:   .lavish/lq-classified-review/img/2016-q5.png
+	modified:   .lavish/lq-classified-review/img/2016-q6-ans.png
+	modified:   .lavish/lq-classified-review/img/2016-q6.png
+	modified:   .lavish/lq-classified-review/img/2016-q7-ans.png
+	modified:   .lavish/lq-classified-review/img/2016-q7.png
+	modified:   .lavish/lq-classified-review/img/2016-q8-ans.png
+	modified:   .lavish/lq-classified-review/img/2016-q8.png
+	modified:   .lavish/lq-classified-review/img/2016-q9-ans.png
+	modified:   .lavish/lq-classified-review/img/2016-q9.png
+	modified:   .lavish/lq-classified-review/img/2017-q1-ans.png
+	modified:   .lavish/lq-classified-review/img/2017-q1.png
+	modified:   .lavish/lq-classified-review/img/2017-q10-ans.png
+	modified:   .lavish/lq-classified-review/img/2017-q10.png
+	modified:   .lavish/lq-classified-review/img/2017-q2-ans.png
+	modified:   .lavish/lq-classified-review/img/2017-q2.png
+	deleted:    .lavish/lq-classified-review/img/2017-q3-ans.png
+	modified:   .lavish/lq-classified-review/img/2017-q3.png
+	deleted:    .lavish/lq-classified-review/img/2017-q4-ans.png
+	modified:   .lavish/lq-classified-review/img/2017-q4.png
+	modified:   .lavish/lq-classified-review/img/2017-q5-ans.png
+	modified:   .lavish/lq-classified-review/img/2017-q5.png
+	modified:   .lavish/lq-classified-review/img/2017-q6.png
+	modified:   .lavish/lq-classified-review/img/2017-q7-ans.png
+	modified:   .lavish/lq-classified-review/img/2017-q7.png
+	modified:   .lavish/lq-classified-review/img/2017-q8.png
+	modified:   .lavish/lq-classified-review/img/2017-q9-ans.png
+	modified:   .lavish/lq-classified-review/img/2017-q9.png
+	modified:   .lavish/lq-classified-review/img/2018-q1.png
+	modified:   .lavish/lq-classified-review/img/2018-q2-ans.png
+	modified:   .lavish/lq-classified-review/img/2018-q2.png
+	modified:   .lavish/lq-classified-review/img/2018-q3-ans.png
+	modified:   .lavish/lq-classified-review/img/2018-q3.png
+	modified:   .lavish/lq-classified-review/img/2018-q4-ans.png
+	modified:   .lavish/lq-classified-review/img/2018-q4.png
+	modified:   .lavish/lq-classified-review/img/2018-q5-ans.png
+	modified:   .lavish/lq-classified-review/img/2018-q5.png
+	modified:   .lavish/lq-classified-review/img/2018-q6.png
+	modified:   .lavish/lq-classified-review/img/2018-q7.png
+	modified:   .lavish/lq-classified-review/img/2018-q8.png
+	modified:   .lavish/lq-classified-review/img/2019-q1-ans.png
+	modified:   .lavish/lq-classified-review/img/2019-q1.png
+	modified:   .lavish/lq-classified-review/img/2019-q10-ans.png
+	modified:   .lavish/lq-classified-review/img/2019-q10.png
+	modified:   .lavish/lq-classified-review/img/2019-q2-ans.png
+	modified:   .lavish/lq-classified-review/img/2019-q2.png
+	modified:   .lavish/lq-classified-review/img/2019-q3.png
+	modified:   .lavish/lq-classified-review/img/2019-q4-ans.png
+	modified:   .lavish/lq-classified-review/img/2019-q4.png
+	modified:   .lavish/lq-classified-review/img/2019-q5-ans.png
+	modified:   .lavish/lq-classified-review/img/2019-q5.png
+	modified:   .lavish/lq-classified-review/img/2019-q6-ans.png
+	modified:   .lavish/lq-classified-review/img/2019-q6.png
+	modified:   .lavish/lq-classified-review/img/2019-q7-ans.png
+	modified:   .lavish/lq-classified-review/img/2019-q7.png
+	modified:   .lavish/lq-classified-review/img/2019-q8-ans.png
+	modified:   .lavish/lq-classified-review/img/2019-q8.png
+	modified:   .lavish/lq-classified-review/img/2019-q9-ans.png
+	modified:   .lavish/lq-classified-review/img/2019-q9.png
+	modified:   .lavish/lq-classified-review/img/2020-q1-ans.png
+	modified:   .lavish/lq-classified-review/img/2020-q1.png
+	modified:   .lavish/lq-classified-review/img/2020-q10-ans.png
+	modified:   .lavish/lq-classified-review/img/2020-q10.png
+	modified:   .lavish/lq-classified-review/img/2020-q2-ans.png
+	modified:   .lavish/lq-classified-review/img/2020-q2.png
+	modified:   .lavish/lq-classified-review/img/2020-q3-ans.png
+	modified:   .lavish/lq-classified-review/img/2020-q3.png
+	modified:   .lavish/lq-classified-review/img/2020-q4-ans.png
+	modified:   .lavish/lq-classified-review/img/2020-q4.png
+	modified:   .lavish/lq-classified-review/img/2020-q5-ans.png
+	modified:   .lavish/lq-classified-review/img/2020-q5.png
+	modified:   .lavish/lq-classified-review/img/2020-q6-ans.png
+	modified:   .lavish/lq-classified-review/img/2020-q6.png
+	modified:   .lavish/lq-classified-review/img/2020-q7-ans.png
+	modified:   .lavish/lq-classified-review/img/2020-q7.png
+	modified:   .lavish/lq-classified-review/img/2020-q8-ans.png
+	modified:   .lavish/lq-classified-review/img/2020-q8.png
+	modified:   .lavish/lq-classified-review/img/2020-q9-ans.png
+	modified:   .lavish/lq-classified-review/img/2020-q9.png
+	modified:   .lavish/lq-classified-review/img/2021-q1-ans.png
+	modified:   .lavish/lq-classified-review/img/2021-q1.png
+	modified:   .lavish/lq-classified-review/img/2021-q2-ans.png
+	modified:   .lavish/lq-classified-review/img/2021-q2.png
+	modified:   .lavish/lq-classified-review/img/2021-q3-ans.png
+	modified:   .lavish/lq-classified-review/img/2021-q3.png
+	deleted:    .lavish/lq-classified-review/img/2021-q4-ans.png
+	modified:   .lavish/lq-classified-review/img/2021-q4.png
+	deleted:    .lavish/lq-classified-review/img/2021-q5-ans.png
+	modified:   .lavish/lq-classified-review/img/2021-q5.png
+	modified:   .lavish/lq-classified-review/img/2021-q6-ans.png
+	modified:   .lavish/lq-classified-review/img/2021-q6.png
+	modified:   .lavish/lq-classified-review/img/2021-q7-ans.png
+	modified:   .lavish/lq-classified-review/img/2021-q7.png
+	modified:   .lavish/lq-classified-review/img/2021-q8-ans.png
+	modified:   .lavish/lq-classified-review/img/2021-q8.png
+	modified:   .lavish/lq-classified-review/img/2021-q9-ans.png
+	modified:   .lavish/lq-classified-review/img/2021-q9.png
+	modified:   .lavish/lq-classified-review/img/2022-q1-ans.png
+	modified:   .lavish/lq-classified-review/img/2022-q1.png
+	modified:   .lavish/lq-classified-review/img/2022-q10-ans.png
+	modified:   .lavish/lq-classified-review/img/2022-q10.png
+	modified:   .lavish/lq-classified-review/img/2022-q2-ans.png
+	modified:   .lavish/lq-classified-review/img/2022-q2.png
+	modified:   .lavish/lq-classified-review/img/2022-q3-ans.png
+	modified:   .lavish/lq-classified-review/img/2022-q3.png
+	modified:   .lavish/lq-classified-review/img/2022-q4-ans.png
+	modified:   .lavish/lq-classified-review/img/2022-q4.png
+	modified:   .lavish/lq-classified-review/img/2022-q5.png
+	modified:   .lavish/lq-classified-review/img/2022-q6-ans.png
+	modified:   .lavish/lq-classified-review/img/2022-q6.png
+	modified:   .lavish/lq-classified-review/img/2022-q7-ans.png
+	modified:   .lavish/lq-classified-review/img/2022-q7.png
+	modified:   .lavish/lq-classified-review/img/2022-q8-ans.png
+	modified:   .lavish/lq-classified-review/img/2022-q8.png
+	modified:   .lavish/lq-classified-review/img/2022-q9-ans.png
+	modified:   .lavish/lq-classified-review/img/2022-q9.png
+	modified:   .lavish/lq-classified-review/img/2023-q1-ans.png
+	modified:   .lavish/lq-classified-review/img/2023-q1.png
+	modified:   .lavish/lq-classified-review/img/2023-q2-ans.png
+	modified:   .lavish/lq-classified-review/img/2023-q2.png
+	modified:   .lavish/lq-classified-review/img/2023-q3-ans.png
+	modified:   .lavish/lq-classified-review/img/2023-q3.png
+	modified:   .lavish/lq-classified-review/img/2023-q4-ans.png
+	modified:   .lavish/lq-classified-review/img/2023-q4.png
+	modified:   .lavish/lq-classified-review/img/2023-q5-ans.png
+	modified:   .lavish/lq-classified-review/img/2023-q5.png
+	modified:   .lavish/lq-classified-review/img/2023-q6-ans.png
+	modified:   .lavish/lq-classified-review/img/2023-q6.png
+	modified:   .lavish/lq-classified-review/img/2023-q7.png
+	modified:   .lavish/lq-classified-review/img/2023-q8-ans.png
+	modified:   .lavish/lq-classified-review/img/2023-q8.png
+	modified:   .lavish/lq-classified-review/img/2023-q9-ans.png
+	modified:   .lavish/lq-classified-review/img/2023-q9.png
+	modified:   .lavish/lq-classified-review/index.html
+	deleted:    classified/classification.csv
+	deleted:    classified/classification.json
+	modified:   classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/2013-q2-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/2013-q2.png
+	deleted:    classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/2017-q1-ans.png
+	deleted:    classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/2017-q1.png
+	modified:   classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/2022-q1-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/2022-q1.png
+	deleted:    classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/2022-q2-ans.png
+	deleted:    classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/2022-q2.png
+	modified:   classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2012-q1-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2012-q1.png
+	modified:   classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2013-q1-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2013-q1.png
+	modified:   classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2014-q1-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2014-q1.png
+	modified:   classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2016-q1-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2016-q1.png
+	modified:   classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2018-q1.png
+	deleted:    classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2019-q1-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2019-q1.png
+	modified:   classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2020-q1-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2020-q1.png
+	modified:   classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2021-q1-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2021-q1.png
+	deleted:    classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2023-q1-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2023-q1.png
+	modified:   classified/lq/01_Heat_and_Gases/03_Change_of_State/2012-q1-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/03_Change_of_State/2012-q1.png
+	deleted:    classified/lq/01_Heat_and_Gases/03_Change_of_State/2015-q1-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/03_Change_of_State/2015-q1.png
+	deleted:    classified/lq/01_Heat_and_Gases/03_Change_of_State/2019-q1-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/03_Change_of_State/2019-q1.png
+	modified:   classified/lq/01_Heat_and_Gases/03_Change_of_State/2021-q1-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/03_Change_of_State/2021-q1.png
+	modified:   classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2012-q2-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2012-q2.png
+	modified:   classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2016-q2-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2016-q2.png
+	deleted:    classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2017-q3-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2017-q3.png
+	deleted:    classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2018-q2-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2018-q2.png
+	modified:   classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2020-q2-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2020-q2.png
+	deleted:    classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2021-q2-ans.png
+	deleted:    classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2021-q2.png
+	modified:   classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2023-q2-ans.png
+	modified:   classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2023-q2.png
+	deleted:    classified/lq/02_Force_and_Motion/05_Motion/2012-q11-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/05_Motion/2012-q11.png
+	deleted:    classified/lq/02_Force_and_Motion/05_Motion/2013-q5-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/05_Motion/2013-q5.png
+	modified:   classified/lq/02_Force_and_Motion/05_Motion/2014-q3-ans.png
+	modified:   classified/lq/02_Force_and_Motion/05_Motion/2014-q3.png
+	deleted:    classified/lq/02_Force_and_Motion/05_Motion/2014-q4-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/05_Motion/2014-q4.png
+	deleted:    classified/lq/02_Force_and_Motion/05_Motion/2015-q2-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/05_Motion/2015-q2.png
+	modified:   classified/lq/02_Force_and_Motion/05_Motion/2015-q4-ans.png
+	modified:   classified/lq/02_Force_and_Motion/05_Motion/2015-q4.png
+	deleted:    classified/lq/02_Force_and_Motion/05_Motion/2015-q5-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/05_Motion/2015-q5.png
+	modified:   classified/lq/02_Force_and_Motion/05_Motion/2016-q3-ans.png
+	modified:   classified/lq/02_Force_and_Motion/05_Motion/2016-q3.png
+	deleted:    classified/lq/02_Force_and_Motion/05_Motion/2017-q2-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/05_Motion/2017-q2.png
+	modified:   classified/lq/02_Force_and_Motion/05_Motion/2017-q6.png
+	deleted:    classified/lq/02_Force_and_Motion/05_Motion/2019-q2-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/05_Motion/2019-q2.png
+	deleted:    classified/lq/02_Force_and_Motion/05_Motion/2020-q5-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/05_Motion/2020-q5.png
+	deleted:    classified/lq/02_Force_and_Motion/05_Motion/2020-q6-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/05_Motion/2020-q6.png
+	modified:   classified/lq/02_Force_and_Motion/05_Motion/2023-q3-ans.png
+	modified:   classified/lq/02_Force_and_Motion/05_Motion/2023-q3.png
+	deleted:    classified/lq/02_Force_and_Motion/06_Force/2013-q3-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/06_Force/2013-q3.png
+	modified:   classified/lq/02_Force_and_Motion/06_Force/2016-q4-ans.png
+	modified:   classified/lq/02_Force_and_Motion/06_Force/2016-q4.png
+	deleted:    classified/lq/02_Force_and_Motion/06_Force/2021-q4-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/06_Force/2021-q4.png
+	modified:   classified/lq/02_Force_and_Motion/06_Force/2022-q3-ans.png
+	modified:   classified/lq/02_Force_and_Motion/06_Force/2022-q3.png
+	deleted:    classified/lq/02_Force_and_Motion/07_More_about_Forces/2012-q6-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/07_More_about_Forces/2012-q6.png
+	deleted:    classified/lq/02_Force_and_Motion/07_More_about_Forces/2013-q6-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/07_More_about_Forces/2013-q6.png
+	deleted:    classified/lq/02_Force_and_Motion/07_More_about_Forces/2015-q9-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/07_More_about_Forces/2015-q9.png
+	deleted:    classified/lq/02_Force_and_Motion/07_More_about_Forces/2018-q4-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/07_More_about_Forces/2018-q4.png
+	deleted:    classified/lq/02_Force_and_Motion/07_More_about_Forces/2023-q3-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/07_More_about_Forces/2023-q3.png
+	deleted:    classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2015-q10-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2015-q10.png
+	deleted:    classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2017-q3-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2017-q3.png
+	deleted:    classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2018-q3-ans.png
+	modified:   classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2018-q3.png
+	deleted:    classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2020-q10-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2020-q10.png
+	modified:   classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2021-q3-ans.png
+	modified:   classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2021-q3.png
+	deleted:    classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2022-q2-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2022-q2.png
+	deleted:    classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2022-q4-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2022-q4.png
+	modified:   classified/lq/02_Force_and_Motion/09_Momentum/2012-q4-ans.png
+	modified:   classified/lq/02_Force_and_Motion/09_Momentum/2012-q4.png
+	deleted:    classified/lq/02_Force_and_Motion/09_Momentum/2018-q4-ans.png
+	modified:   classified/lq/02_Force_and_Motion/09_Momentum/2018-q4.png
+	modified:   classified/lq/02_Force_and_Motion/10_Projectile_Motion/2012-q5-ans.png
+	modified:   classified/lq/02_Force_and_Motion/10_Projectile_Motion/2012-q5.png
+	deleted:    classified/lq/02_Force_and_Motion/10_Projectile_Motion/2016-q6-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/10_Projectile_Motion/2016-q6.png
+	deleted:    classified/lq/02_Force_and_Motion/10_Projectile_Motion/2017-q4-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/10_Projectile_Motion/2017-q4.png
+	modified:   classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/2012-q3-ans.png
+	modified:   classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/2012-q3.png
+	deleted:    classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/2019-q4-ans.png
+	modified:   classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/2019-q4.png
+	modified:   classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/2023-q4-ans.png
+	modified:   classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/2023-q4.png
+	deleted:    classified/lq/02_Force_and_Motion/12_Gravitation/2017-q10-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/12_Gravitation/2017-q10.png
+	deleted:    classified/lq/02_Force_and_Motion/12_Gravitation/2021-q5-ans.png
+	deleted:    classified/lq/02_Force_and_Motion/12_Gravitation/2021-q5.png
+	deleted:    classified/lq/03A_Wave_Motion/13_Wave_Motion/2012-q6-ans.png
+	deleted:    classified/lq/03A_Wave_Motion/13_Wave_Motion/2012-q6.png
+	deleted:    classified/lq/03A_Wave_Motion/13_Wave_Motion/2013-q7-ans.png
+	deleted:    classified/lq/03A_Wave_Motion/13_Wave_Motion/2013-q7.png
+	modified:   classified/lq/03A_Wave_Motion/13_Wave_Motion/2017-q6.png
+	deleted:    classified/lq/03A_Wave_Motion/13_Wave_Motion/2019-q5-ans.png
+	deleted:    classified/lq/03A_Wave_Motion/13_Wave_Motion/2019-q5.png
+	deleted:    classified/lq/03A_Wave_Motion/13_Wave_Motion/2021-q6-ans.png
+	deleted:    classified/lq/03A_Wave_Motion/13_Wave_Motion/2021-q6.png
+	deleted:    classified/lq/03A_Wave_Motion/13_Wave_Motion/2023-q5-ans.png
+	deleted:    classified/lq/03A_Wave_Motion/13_Wave_Motion/2023-q5.png
+	modified:   classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/2014-q7-ans.png
+	modified:   classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/2014-q7.png
+	modified:   classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/2018-q7.png
+	modified:   classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/2019-q5-ans.png
+	modified:   classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/2019-q5.png
+	modified:   classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/2013-q7-ans.png
+	modified:   classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/2013-q7.png
+	modified:   classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/2015-q7-ans.png
+	modified:   classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/2015-q7.png
+	modified:   classified/lq/03A_Wave_Motion/16_Light_and_Sound/2022-q6-ans.png
+	modified:   classified/lq/03A_Wave_Motion/16_Light_and_Sound/2022-q6.png
+	modified:   classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2014-q5-ans.png
+	modified:   classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2014-q5.png
+	modified:   classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2015-q6-ans.png
+	modified:   classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2015-q6.png
+	modified:   classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2017-q7-ans.png
+	modified:   classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2017-q7.png
+	modified:   classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2020-q7-ans.png
+	modified:   classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2020-q7.png
+	modified:   classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2021-q6-ans.png
+	modified:   classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2021-q6.png
+	modified:   classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2023-q6-ans.png
+	modified:   classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2023-q6.png
+	modified:   classified/lq/03B_Ray_Optics/19_Lenses/2012-q7-ans.png
+	modified:   classified/lq/03B_Ray_Optics/19_Lenses/2012-q7.png
+	deleted:    classified/lq/03B_Ray_Optics/19_Lenses/2013-q8-ans.png
+	modified:   classified/lq/03B_Ray_Optics/19_Lenses/2013-q8.png
+	modified:   classified/lq/03B_Ray_Optics/19_Lenses/2014-q6-ans.png
+	modified:   classified/lq/03B_Ray_Optics/19_Lenses/2014-q6.png
+	modified:   classified/lq/03B_Ray_Optics/19_Lenses/2015-q6-ans.png
+	modified:   classified/lq/03B_Ray_Optics/19_Lenses/2015-q6.png
+	modified:   classified/lq/03B_Ray_Optics/19_Lenses/2016-q5-ans.png
+	modified:   classified/lq/03B_Ray_Optics/19_Lenses/2016-q5.png
+	modified:   classified/lq/03B_Ray_Optics/19_Lenses/2018-q6.png
+	modified:   classified/lq/03B_Ray_Optics/19_Lenses/2019-q6-ans.png
+	modified:   classified/lq/03B_Ray_Optics/19_Lenses/2019-q6.png
+	modified:   classified/lq/03B_Ray_Optics/19_Lenses/2022-q5.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/2013-q11.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/2016-q8-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/2016-q8.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/2020-q9-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/2020-q9.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2013-q10-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2013-q10.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2015-q8-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2015-q8.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2016-q7-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2016-q7.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2017-q8.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2019-q3.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2019-q7-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2019-q7.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2020-q4-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2020-q4.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2020-q8-ans.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2020-q8.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2021-q8-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2021-q8.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2022-q8-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2022-q8.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2022-q9-ans.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2022-q9.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2023-q7.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2012-q2-ans.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2012-q2.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2012-q8-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2012-q8.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2012-q9-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2012-q9.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2014-q2-ans.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2014-q2.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2014-q8-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2014-q8.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2015-q3-ans.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2015-q3.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2017-q5-ans.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2017-q5.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2018-q2-ans.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2018-q2.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2018-q5-ans.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2018-q5.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2018-q8.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2019-q8-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2019-q8.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2021-q2-ans.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2021-q2.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2023-q2-ans.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2023-q2.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2012-q10-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2012-q10.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2013-q4-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2013-q4.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2017-q9-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2017-q9.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2019-q9-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2019-q9.png
+	deleted:    classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2020-q3-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2020-q3.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2022-q7-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2022-q7.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2023-q8-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2023-q8.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/2014-q9-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/2014-q9.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/2015-q9-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/2015-q9.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/2021-q7-ans.png
+	modified:   classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/2021-q7.png
+	deleted:    classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2013-q9-ans.png
+	modified:   classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2013-q9.png
+	modified:   classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2014-q10-ans.png
+	modified:   classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2014-q10.png
+	modified:   classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2016-q9-ans.png
+	modified:   classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2016-q9.png
+	modified:   classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2017-q10-ans.png
+	modified:   classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2017-q10.png
+	deleted:    classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2019-q10-ans.png
+	deleted:    classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2019-q10.png
+	modified:   classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2021-q9-ans.png
+	modified:   classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2021-q9.png
+	modified:   classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2023-q9-ans.png
+	modified:   classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2023-q9.png
+	modified:   classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2015-q10-ans.png
+	modified:   classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2015-q10.png
+	modified:   classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2019-q10-ans.png
+	modified:   classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2019-q10.png
+	modified:   classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2022-q10-ans.png
+	modified:   classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2022-q10.png
+	modified:   classified/lq/classification.csv
+	modified:   classified/lq/llm_classifications.json
+	modified:   output/lq/2012/ans/combined.pdf
+	modified:   output/lq/2012/ans/q1.png
+	modified:   output/lq/2012/ans/q10.png
+	modified:   output/lq/2012/ans/q11.png
+	modified:   output/lq/2012/ans/q2.png
+	modified:   output/lq/2012/ans/q3.png
+	modified:   output/lq/2012/ans/q4.png
+	modified:   output/lq/2012/ans/q5.png
+	modified:   output/lq/2012/ans/q6.png
+	modified:   output/lq/2012/ans/q7.png
+	modified:   output/lq/2012/ans/q8.png
+	modified:   output/lq/2012/ans/q9.png
+	modified:   output/lq/2012/starts.json
+	modified:   output/lq/2013/ans/combined.pdf
+	modified:   output/lq/2013/ans/q1.png
+	modified:   output/lq/2013/ans/q10.png
+	modified:   output/lq/2013/ans/q2.png
+	modified:   output/lq/2013/ans/q3.png
+	modified:   output/lq/2013/ans/q4.png
+	modified:   output/lq/2013/ans/q5.png
+	modified:   output/lq/2013/ans/q6.png
+	modified:   output/lq/2013/ans/q7.png
+	deleted:    output/lq/2013/ans/q8.png
+	deleted:    output/lq/2013/ans/q9.png
+	modified:   output/lq/2013/starts.json
+	modified:   output/lq/2014/ans/combined.pdf
+	modified:   output/lq/2014/ans/q1.png
+	modified:   output/lq/2014/ans/q10.png
+	modified:   output/lq/2014/ans/q2.png
+	modified:   output/lq/2014/ans/q3.png
+	modified:   output/lq/2014/ans/q4.png
+	modified:   output/lq/2014/ans/q5.png
+	modified:   output/lq/2014/ans/q6.png
+	modified:   output/lq/2014/ans/q7.png
+	modified:   output/lq/2014/ans/q8.png
+	modified:   output/lq/2014/ans/q9.png
+	modified:   output/lq/2014/starts.json
+	modified:   output/lq/2015/ans/combined.pdf
+	deleted:    output/lq/2015/ans/q1.png
+	modified:   output/lq/2015/ans/q10.png
+	deleted:    output/lq/2015/ans/q12.png
+	modified:   output/lq/2015/ans/q2.png
+	modified:   output/lq/2015/ans/q3.png
+	modified:   output/lq/2015/ans/q4.png
+	modified:   output/lq/2015/ans/q5.png
+	modified:   output/lq/2015/ans/q6.png
+	modified:   output/lq/2015/ans/q7.png
+	deleted:    output/lq/2015/ans/q8.png
+	modified:   output/lq/2015/ans/q9.png
+	modified:   output/lq/2015/starts.json
+	modified:   output/lq/2016/ans/combined.pdf
+	modified:   output/lq/2016/ans/q1.png
+	modified:   output/lq/2016/ans/q2.png
+	modified:   output/lq/2016/ans/q3.png
+	modified:   output/lq/2016/ans/q4.png
+	modified:   output/lq/2016/ans/q5.png
+	modified:   output/lq/2016/ans/q6.png
+	modified:   output/lq/2016/ans/q7.png
+	modified:   output/lq/2016/ans/q8.png
+	modified:   output/lq/2016/ans/q9.png
+	modified:   output/lq/2016/starts.json
+	modified:   output/lq/2017/ans/combined.pdf
+	modified:   output/lq/2017/ans/q1.png
+	modified:   output/lq/2017/ans/q10.png
+	modified:   output/lq/2017/ans/q2.png
+	deleted:    output/lq/2017/ans/q3.png
+	deleted:    output/lq/2017/ans/q4.png
+	modified:   output/lq/2017/ans/q5.png
+	modified:   output/lq/2017/ans/q7.png
+	modified:   output/lq/2017/ans/q9.png
+	modified:   output/lq/2017/starts.json
+	modified:   output/lq/2018/ans/combined.pdf
+	modified:   output/lq/2018/ans/q2.png
+	modified:   output/lq/2018/ans/q3.png
+	modified:   output/lq/2018/ans/q4.png
+	modified:   output/lq/2018/ans/q5.png
+	modified:   output/lq/2018/starts.json
+	modified:   output/lq/2019/ans/combined.pdf
+	modified:   output/lq/2019/ans/q1.png
+	modified:   output/lq/2019/ans/q10.png
+	modified:   output/lq/2019/ans/q2.png
+	modified:   output/lq/2019/ans/q4.png
+	modified:   output/lq/2019/ans/q5.png
+	modified:   output/lq/2019/ans/q6.png
+	modified:   output/lq/2019/ans/q7.png
+	modified:   output/lq/2019/ans/q8.png
+	modified:   output/lq/2019/ans/q9.png
+	modified:   output/lq/2019/starts.json
+	modified:   output/lq/2020/ans/combined.pdf
+	modified:   output/lq/2020/ans/q1.png
+	modified:   output/lq/2020/ans/q10.png
+	deleted:    output/lq/2020/ans/q12.png
+	modified:   output/lq/2020/ans/q2.png
+	modified:   output/lq/2020/ans/q3.png
+	modified:   output/lq/2020/ans/q4.png
+	modified:   output/lq/2020/ans/q5.png
+	modified:   output/lq/2020/ans/q6.png
+	modified:   output/lq/2020/ans/q7.png
+	modified:   output/lq/2020/ans/q8.png
+	modified:   output/lq/2020/ans/q9.png
+	modified:   output/lq/2020/starts.json
+	modified:   output/lq/2021/ans/combined.pdf
+	modified:   output/lq/2021/ans/q1.png
+	deleted:    output/lq/2021/ans/q10.png
+	deleted:    output/lq/2021/ans/q12.png
+	modified:   output/lq/2021/ans/q2.png
+	modified:   output/lq/2021/ans/q3.png
+	deleted:    output/lq/2021/ans/q4.png
+	deleted:    output/lq/2021/ans/q5.png
+	modified:   output/lq/2021/ans/q6.png
+	modified:   output/lq/2021/ans/q7.png
+	modified:   output/lq/2021/ans/q8.png
+	modified:   output/lq/2021/ans/q9.png
+	modified:   output/lq/2021/starts.json
+	modified:   output/lq/2022/ans/combined.pdf
+	modified:   output/lq/2022/ans/q1.png
+	modified:   output/lq/2022/ans/q10.png
+	modified:   output/lq/2022/ans/q2.png
+	modified:   output/lq/2022/ans/q3.png
+	modified:   output/lq/2022/ans/q4.png
+	modified:   output/lq/2022/ans/q6.png
+	modified:   output/lq/2022/ans/q7.png
+	modified:   output/lq/2022/ans/q8.png
+	modified:   output/lq/2022/ans/q9.png
+	modified:   output/lq/2022/starts.json
+	modified:   output/lq/2023/ans/combined.pdf
+	modified:   output/lq/2023/ans/q1.png
+	deleted:    output/lq/2023/ans/q10.png
+	modified:   output/lq/2023/ans/q2.png
+	modified:   output/lq/2023/ans/q3.png
+	modified:   output/lq/2023/ans/q4.png
+	modified:   output/lq/2023/ans/q5.png
+	modified:   output/lq/2023/ans/q6.png
+	modified:   output/lq/2023/ans/q8.png
+	modified:   output/lq/2023/ans/q9.png
+	modified:   output/lq/2023/starts.json
+	modified:   output/lq/pp/starts.json
+	deleted:    paper/lq/2023q1b.pdf
+	modified:   scripts/build_lq_lavish_review.py
+	modified:   scripts/classify_lq_keywords.py
+	modified:   scripts/classify_mc_llm.py
+	modified:   scripts/classify_mc_sections.py
+	modified:   scripts/preprocess_lq.py
+	modified:   scripts/preprocess_lq_answers.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.lavish/lq-classified-review/img/2018-q1-ans.png
+	.lavish/lq-classified-review/img/2018-q10-ans.png
+	.lavish/lq-classified-review/img/2018-q10.png
+	.lavish/lq-classified-review/img/2018-q6-ans.png
+	.lavish/lq-classified-review/img/2018-q7-ans.png
+	.lavish/lq-classified-review/img/2018-q8-ans.png
+	.lavish/lq-classified-review/img/2018-q9-ans.png
+	.lavish/lq-classified-review/img/2018-q9.png
+	.lavish/lq-classified-review/img/2019-q3-ans.png
+	.lavish/lq-classified-review/img/2022-q5-ans.png
+	.lavish/lq-classified-review/img/2023-q7-ans.png
+	.lavish/lq-classified-review/img/2024-q1-ans.png
+	.lavish/lq-classified-review/img/2024-q1.png
+	.lavish/lq-classified-review/img/2024-q10-ans.png
+	.lavish/lq-classified-review/img/2024-q10.png
+	.lavish/lq-classified-review/img/2024-q11-ans.png
+	.lavish/lq-classified-review/img/2024-q11.png
+	.lavish/lq-classified-review/img/2024-q12-ans.png
+	.lavish/lq-classified-review/img/2024-q12.png
+	.lavish/lq-classified-review/img/2024-q2-ans.png
+	.lavish/lq-classified-review/img/2024-q2.png
+	.lavish/lq-classified-review/img/2024-q3-ans.png
+	.lavish/lq-classified-review/img/2024-q3.png
+	.lavish/lq-classified-review/img/2024-q4-ans.png
+	.lavish/lq-classified-review/img/2024-q4.png
+	.lavish/lq-classified-review/img/2024-q5-ans.png
+	.lavish/lq-classified-review/img/2024-q5.png
+	.lavish/lq-classified-review/img/2024-q6-ans.png
+	.lavish/lq-classified-review/img/2024-q6.png
+	.lavish/lq-classified-review/img/2024-q7-ans.png
+	.lavish/lq-classified-review/img/2024-q7.png
+	.lavish/lq-classified-review/img/2024-q8-ans.png
+	.lavish/lq-classified-review/img/2024-q8.png
+	.lavish/lq-classified-review/img/2024-q9-ans.png
+	.lavish/lq-classified-review/img/2024-q9.png
+	.lavish/lq-classified-review/img/2025-q1-ans.png
+	.lavish/lq-classified-review/img/2025-q1.png
+	.lavish/lq-classified-review/img/2025-q10-ans.png
+	.lavish/lq-classified-review/img/2025-q10.png
+	.lavish/lq-classified-review/img/2025-q11-ans.png
+	.lavish/lq-classified-review/img/2025-q11.png
+	.lavish/lq-classified-review/img/2025-q12-ans.png
+	.lavish/lq-classified-review/img/2025-q12.png
+	.lavish/lq-classified-review/img/2025-q2-ans.png
+	.lavish/lq-classified-review/img/2025-q2.png
+	.lavish/lq-classified-review/img/2025-q3-ans.png
+	.lavish/lq-classified-review/img/2025-q3.png
+	.lavish/lq-classified-review/img/2025-q4-ans.png
+	.lavish/lq-classified-review/img/2025-q4.png
+	.lavish/lq-classified-review/img/2025-q5-ans.png
+	.lavish/lq-classified-review/img/2025-q5.png
+	.lavish/lq-classified-review/img/2025-q6-ans.png
+	.lavish/lq-classified-review/img/2025-q6.png
+	.lavish/lq-classified-review/img/2025-q7-ans.png
+	.lavish/lq-classified-review/img/2025-q7.png
+	.lavish/lq-classified-review/img/2025-q8-ans.png
+	.lavish/lq-classified-review/img/2025-q8.png
+	.lavish/lq-classified-review/img/2025-q9-ans.png
+	.lavish/lq-classified-review/img/2025-q9.png
+	.lavish/lq-classified-review/img/2026-q1.png
+	.lavish/lq-classified-review/img/2026-q10.png
+	.lavish/lq-classified-review/img/2026-q11.png
+	.lavish/lq-classified-review/img/2026-q12.png
+	.lavish/lq-classified-review/img/2026-q2.png
+	.lavish/lq-classified-review/img/2026-q3.png
+	.lavish/lq-classified-review/img/2026-q4.png
+	.lavish/lq-classified-review/img/2026-q5.png
+	.lavish/lq-classified-review/img/2026-q6.png
+	.lavish/lq-classified-review/img/2026-q7.png
+	.lavish/lq-classified-review/img/2026-q8.png
+	.lavish/lq-classified-review/img/2026-q9.png
+	.lavish/lq-classified-review/img/pp-q1.png
+	.lavish/lq-classified-review/img/pp-q10.png
+	.lavish/lq-classified-review/img/pp-q11.png
+	.lavish/lq-classified-review/img/pp-q12.png
+	.lavish/lq-classified-review/img/pp-q2.png
+	.lavish/lq-classified-review/img/pp-q3.png
+	.lavish/lq-classified-review/img/pp-q4.png
+	.lavish/lq-classified-review/img/pp-q5.png
+	.lavish/lq-classified-review/img/pp-q6.png
+	.lavish/lq-classified-review/img/pp-q7.png
+	.lavish/lq-classified-review/img/pp-q8.png
+	.lavish/lq-classified-review/img/pp-q9.png
+	classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/answers.pdf
+	classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/performance.pdf
+	classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/questions.pdf
+	classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2025-q1-ans.png
+	classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2025-q1.png
+	classified/lq/01_Heat_and_Gases/02_Heat_Capacity/answers.pdf
+	classified/lq/01_Heat_and_Gases/02_Heat_Capacity/performance.pdf
+	classified/lq/01_Heat_and_Gases/02_Heat_Capacity/questions.pdf
+	classified/lq/01_Heat_and_Gases/03_Change_of_State/2024-q1-ans.png
+	classified/lq/01_Heat_and_Gases/03_Change_of_State/2024-q1.png
+	classified/lq/01_Heat_and_Gases/03_Change_of_State/2026-q1.png
+	classified/lq/01_Heat_and_Gases/03_Change_of_State/answers.pdf
+	classified/lq/01_Heat_and_Gases/03_Change_of_State/performance.pdf
+	classified/lq/01_Heat_and_Gases/03_Change_of_State/questions.pdf
+	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2015-q2-ans.png
+	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2015-q2.png
+	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2019-q2-ans.png
+	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2019-q2.png
+	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2022-q2-ans.png
+	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2022-q2.png
+	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2024-q2-ans.png
+	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2024-q2.png
+	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2024-q5-ans.png
+	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2024-q5.png
+	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2025-q9-ans.png
+	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2025-q9.png
+	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2026-q2.png
+	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2026-q9.png
+	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/answers.pdf
+	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/performance.pdf
+	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/pp-q1.png
+	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/questions.pdf
+	classified/lq/02_Force_and_Motion/05_Motion/2024-q9-ans.png
+	classified/lq/02_Force_and_Motion/05_Motion/2024-q9.png
+	classified/lq/02_Force_and_Motion/05_Motion/2025-q3-ans.png
+	classified/lq/02_Force_and_Motion/05_Motion/2025-q3.png
+	classified/lq/02_Force_and_Motion/05_Motion/2026-q11.png
+	classified/lq/02_Force_and_Motion/05_Motion/answers.pdf
+	classified/lq/02_Force_and_Motion/05_Motion/performance.pdf
+	classified/lq/02_Force_and_Motion/05_Motion/pp-q10.png
+	classified/lq/02_Force_and_Motion/05_Motion/pp-q4.png
+	classified/lq/02_Force_and_Motion/05_Motion/pp-q9.png
+	classified/lq/02_Force_and_Motion/05_Motion/questions.pdf
+	classified/lq/02_Force_and_Motion/06_Force/2014-q4-ans.png
+	classified/lq/02_Force_and_Motion/06_Force/2014-q4.png
+	classified/lq/02_Force_and_Motion/06_Force/2015-q5-ans.png
+	classified/lq/02_Force_and_Motion/06_Force/2015-q5.png
+	classified/lq/02_Force_and_Motion/06_Force/2017-q1-ans.png
+	classified/lq/02_Force_and_Motion/06_Force/2017-q1.png
+	classified/lq/02_Force_and_Motion/06_Force/2017-q5-ans.png
+	classified/lq/02_Force_and_Motion/06_Force/2017-q5.png
+	classified/lq/02_Force_and_Motion/06_Force/2020-q5-ans.png
+	classified/lq/02_Force_and_Motion/06_Force/2020-q5.png
+	classified/lq/02_Force_and_Motion/06_Force/2024-q3-ans.png
+	classified/lq/02_Force_and_Motion/06_Force/2024-q3.png
+	classified/lq/02_Force_and_Motion/06_Force/2025-q4-ans.png
+	classified/lq/02_Force_and_Motion/06_Force/2025-q4.png
+	classified/lq/02_Force_and_Motion/06_Force/answers.pdf
+	classified/lq/02_Force_and_Motion/06_Force/performance.pdf
+	classified/lq/02_Force_and_Motion/06_Force/questions.pdf
+	classified/lq/02_Force_and_Motion/07_More_about_Forces/2014-q2-ans.png
+	classified/lq/02_Force_and_Motion/07_More_about_Forces/2014-q2.png
+	classified/lq/02_Force_and_Motion/07_More_about_Forces/2018-q5.png
+	classified/lq/02_Force_and_Motion/07_More_about_Forces/answers.pdf
+	classified/lq/02_Force_and_Motion/07_More_about_Forces/performance.pdf
+	classified/lq/02_Force_and_Motion/07_More_about_Forces/questions.pdf
+	classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2013-q5-ans.png
+	classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2013-q5.png
+	classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2026-q4.png
+	classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/answers.pdf
+	classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/performance.pdf
+	classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/pp-q2.png
+	classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/questions.pdf
+	classified/lq/02_Force_and_Motion/09_Momentum/2017-q2-ans.png
+	classified/lq/02_Force_and_Motion/09_Momentum/2017-q2.png
+	classified/lq/02_Force_and_Motion/09_Momentum/2024-q10-ans.png
+	classified/lq/02_Force_and_Motion/09_Momentum/2024-q10.png
+	classified/lq/02_Force_and_Motion/09_Momentum/2025-q5-ans.png
+	classified/lq/02_Force_and_Motion/09_Momentum/2025-q5.png
+	classified/lq/02_Force_and_Motion/09_Momentum/2026-q3.png
+	classified/lq/02_Force_and_Motion/09_Momentum/answers.pdf
+	classified/lq/02_Force_and_Motion/09_Momentum/performance.pdf
+	classified/lq/02_Force_and_Motion/09_Momentum/questions.pdf
+	classified/lq/02_Force_and_Motion/10_Projectile_Motion/answers.pdf
+	classified/lq/02_Force_and_Motion/10_Projectile_Motion/performance.pdf
+	classified/lq/02_Force_and_Motion/10_Projectile_Motion/pp-q3.png
+	classified/lq/02_Force_and_Motion/10_Projectile_Motion/questions.pdf
+	classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/2024-q4-ans.png
+	classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/2024-q4.png
+	classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/answers.pdf
+	classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/performance.pdf
+	classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/questions.pdf
+	classified/lq/03A_Wave_Motion/13_Wave_Motion/2016-q6-ans.png
+	classified/lq/03A_Wave_Motion/13_Wave_Motion/2016-q6.png
+	classified/lq/03A_Wave_Motion/13_Wave_Motion/2026-q5.png
+	classified/lq/03A_Wave_Motion/13_Wave_Motion/answers.pdf
+	classified/lq/03A_Wave_Motion/13_Wave_Motion/performance.pdf
+	classified/lq/03A_Wave_Motion/13_Wave_Motion/pp-q5.png
+	classified/lq/03A_Wave_Motion/13_Wave_Motion/questions.pdf
+	classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/2012-q6-ans.png
+	classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/2012-q6.png
+	classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/2024-q6-ans.png
+	classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/2024-q6.png
+	classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/answers.pdf
+	classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/performance.pdf
+	classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/questions.pdf
+	classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/2025-q10-ans.png
+	classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/2025-q10.png
+	classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/2026-q5.png
+	classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/answers.pdf
+	classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/performance.pdf
+	classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/questions.pdf
+	classified/lq/03A_Wave_Motion/16_Light_and_Sound/2020-q6-ans.png
+	classified/lq/03A_Wave_Motion/16_Light_and_Sound/2020-q6.png
+	classified/lq/03A_Wave_Motion/16_Light_and_Sound/2021-q2-ans.png
+	classified/lq/03A_Wave_Motion/16_Light_and_Sound/2021-q2.png
+	classified/lq/03A_Wave_Motion/16_Light_and_Sound/2023-q5-ans.png
+	classified/lq/03A_Wave_Motion/16_Light_and_Sound/2023-q5.png
+	classified/lq/03A_Wave_Motion/16_Light_and_Sound/2024-q7-ans.png
+	classified/lq/03A_Wave_Motion/16_Light_and_Sound/2024-q7.png
+	classified/lq/03A_Wave_Motion/16_Light_and_Sound/2026-q6.png
+	classified/lq/03A_Wave_Motion/16_Light_and_Sound/answers.pdf
+	classified/lq/03A_Wave_Motion/16_Light_and_Sound/performance.pdf
+	classified/lq/03A_Wave_Motion/16_Light_and_Sound/questions.pdf
+	classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2024-q8-ans.png
+	classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2024-q8.png
+	classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2026-q10.png
+	classified/lq/03B_Ray_Optics/18_Refraction_of_Light/answers.pdf
+	classified/lq/03B_Ray_Optics/18_Refraction_of_Light/performance.pdf
+	classified/lq/03B_Ray_Optics/18_Refraction_of_Light/questions.pdf
+	classified/lq/03B_Ray_Optics/19_Lenses/2021-q6-ans.png
+	classified/lq/03B_Ray_Optics/19_Lenses/2021-q6.png
+	classified/lq/03B_Ray_Optics/19_Lenses/2022-q5-ans.png
+	classified/lq/03B_Ray_Optics/19_Lenses/2025-q6-ans.png
+	classified/lq/03B_Ray_Optics/19_Lenses/2025-q6.png
+	classified/lq/03B_Ray_Optics/19_Lenses/answers.pdf
+	classified/lq/03B_Ray_Optics/19_Lenses/performance.pdf
+	classified/lq/03B_Ray_Optics/19_Lenses/questions.pdf
+	classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/2026-q7.png
+	classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/answers.pdf
+	classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/performance.pdf
+	classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/questions.pdf
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2013-q3-ans.png
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2013-q3.png
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2015-q3-ans.png
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2015-q3.png
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2017-q4.png
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2021-q4.png
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2021-q5.png
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2022-q4-ans.png
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2022-q4.png
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2024-q11-ans.png
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2024-q11.png
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2025-q11-ans.png
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2025-q11.png
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2025-q2-ans.png
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2025-q2.png
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2025-q7-ans.png
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2025-q7.png
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2026-q8.png
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/answers.pdf
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/performance.pdf
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/pp-q11.png
+	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/questions.pdf
+	classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2020-q8-ans.png
+	classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2020-q8.png
+	classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/answers.pdf
+	classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/performance.pdf
+	classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/pp-q8.png
+	classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/questions.pdf
+	classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2022-q9-ans.png
+	classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2022-q9.png
+	classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2025-q8-ans.png
+	classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2025-q8.png
+	classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/answers.pdf
+	classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/performance.pdf
+	classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/questions.pdf
+	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/2012-q9-ans.png
+	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/2012-q9.png
+	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/2018-q9.png
+	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/answers.pdf
+	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/performance.pdf
+	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/pp-q12.png
+	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/pp-q6.png
+	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/pp-q7.png
+	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/questions.pdf
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2013-q6-ans.png
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2013-q6.png
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2018-q10.png
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2024-q12-ans.png
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2024-q12.png
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2025-q12-ans.png
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2025-q12.png
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/answers.pdf
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/performance.pdf
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/questions.pdf
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2012-q11-ans.png
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2012-q11.png
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2016-q9-ans.png
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2016-q9.png
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2017-q10-ans.png
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2017-q10.png
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2020-q10-ans.png
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2020-q10.png
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2023-q9-ans.png
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2023-q9.png
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2026-q12.png
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/answers.pdf
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/performance.pdf
+	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/questions.pdf
+	classified/lq/candidate_performance.json
+	classified/lq/ocr_cache/2018/q10.txt
+	classified/lq/ocr_cache/2018/q9.txt
+	classified/lq/ocr_cache/2024/
+	classified/lq/ocr_cache/2025/
+	classified/lq/ocr_cache/2026/
+	classified/lq/ocr_cache/pp/
+	classified/lq_classification.csv
+	classified/lq_classification.json
+	classified/mc_classification.csv
+	classified/mc_classification.json
+	output/lq/2012/q1.png
+	output/lq/2012/q10.png
+	output/lq/2012/q11.png
+	output/lq/2012/q2.png
+	output/lq/2012/q3.png
+	output/lq/2012/q4.png
+	output/lq/2012/q5.png
+	output/lq/2012/q6.png
+	output/lq/2012/q7.png
+	output/lq/2012/q8.png
+	output/lq/2012/q9.png
+	output/lq/2012/questions.pdf
+	output/lq/2013/q1.png
+	output/lq/2013/q10.png
+	output/lq/2013/q11.png
+	output/lq/2013/q2.png
+	output/lq/2013/q3.png
+	output/lq/2013/q4.png
+	output/lq/2013/q5.png
+	output/lq/2013/q6.png
+	output/lq/2013/q7.png
+	output/lq/2013/q8.png
+	output/lq/2013/q9.png
+	output/lq/2013/questions.pdf
+	output/lq/2014/q1.png
+	output/lq/2014/q10.png
+	output/lq/2014/q2.png
+	output/lq/2014/q3.png
+	output/lq/2014/q4.png
+	output/lq/2014/q5.png
+	output/lq/2014/q6.png
+	output/lq/2014/q7.png
+	output/lq/2014/q8.png
+	output/lq/2014/q9.png
+	output/lq/2014/questions.pdf
+	output/lq/2015/q1.png
+	output/lq/2015/q10.png
+	output/lq/2015/q2.png
+	output/lq/2015/q3.png
+	output/lq/2015/q4.png
+	output/lq/2015/q5.png
+	output/lq/2015/q6.png
+	output/lq/2015/q7.png
+	output/lq/2015/q8.png
+	output/lq/2015/q9.png
+	output/lq/2015/questions.pdf
+	output/lq/2016/q1.png
+	output/lq/2016/q2.png
+	output/lq/2016/q3.png
+	output/lq/2016/q4.png
+	output/lq/2016/q5.png
+	output/lq/2016/q6.png
+	output/lq/2016/q7.png
+	output/lq/2016/q8.png
+	output/lq/2016/q9.png
+	output/lq/2016/questions.pdf
+	output/lq/2017/q1.png
+	output/lq/2017/q10.png
+	output/lq/2017/q2.png
+	output/lq/2017/q3.png
+	output/lq/2017/q4.png
+	output/lq/2017/q5.png
+	output/lq/2017/q6.png
+	output/lq/2017/q7.png
+	output/lq/2017/q8.png
+	output/lq/2017/q9.png
+	output/lq/2017/questions.pdf
+	output/lq/2018/ans/q1.png
+	output/lq/2018/ans/q10.png
+	output/lq/2018/ans/q6.png
+	output/lq/2018/ans/q7.png
+	output/lq/2018/ans/q8.png
+	output/lq/2018/ans/q9.png
+	output/lq/2018/q1.png
+	output/lq/2018/q10.png
+	output/lq/2018/q2.png
+	output/lq/2018/q3.png
+	output/lq/2018/q4.png
+	output/lq/2018/q5.png
+	output/lq/2018/q6.png
+	output/lq/2018/q7.png
+	output/lq/2018/q8.png
+	output/lq/2018/q9.png
+	output/lq/2018/questions.pdf
+	output/lq/2019/ans/q3.png
+	output/lq/2019/q1.png
+	output/lq/2019/q10.png
+	output/lq/2019/q2.png
+	output/lq/2019/q3.png
+	output/lq/2019/q4.png
+	output/lq/2019/q5.png
+	output/lq/2019/q6.png
+	output/lq/2019/q7.png
+	output/lq/2019/q8.png
+	output/lq/2019/q9.png
+	output/lq/2019/questions.pdf
+	output/lq/2020/q1.png
+	output/lq/2020/q10.png
+	output/lq/2020/q2.png
+	output/lq/2020/q3.png
+	output/lq/2020/q4.png
+	output/lq/2020/q5.png
+	output/lq/2020/q6.png
+	output/lq/2020/q7.png
+	output/lq/2020/q8.png
+	output/lq/2020/q9.png
+	output/lq/2020/questions.pdf
+	output/lq/2021/q1.png
+	output/lq/2021/q2.png
+	output/lq/2021/q3.png
+	output/lq/2021/q4.png
+	output/lq/2021/q5.png
+	output/lq/2021/q6.png
+	output/lq/2021/q7.png
+	output/lq/2021/q8.png
+	output/lq/2021/q9.png
+	output/lq/2021/questions.pdf
+	output/lq/2022/ans/q5.png
+	output/lq/2022/q1.png
+	output/lq/2022/q10.png
+	output/lq/2022/q2.png
+	output/lq/2022/q3.png
+	output/lq/2022/q4.png
+	output/lq/2022/q5.png
+	output/lq/2022/q6.png
+	output/lq/2022/q7.png
+	output/lq/2022/q8.png
+	output/lq/2022/q9.png
+	output/lq/2022/questions.pdf
+	output/lq/2023/ans/q7.png
+	output/lq/2023/q1.png
+	output/lq/2023/q2.png
+	output/lq/2023/q3.png
+	output/lq/2023/q4.png
+	output/lq/2023/q5.png
+	output/lq/2023/q6.png
+	output/lq/2023/q7.png
+	output/lq/2023/q8.png
+	output/lq/2023/q9.png
+	output/lq/2023/questions.pdf
+	output/lq/2024/
+	output/lq/2025/
+	output/lq/2026/
+	output/lq/pp/q1.png
+	output/lq/pp/q10.png
+	output/lq/pp/q11.png
+	output/lq/pp/q12.png
+	output/lq/pp/q2.png
+	output/lq/pp/q3.png
+	output/lq/pp/q4.png
+	output/lq/pp/q5.png
+	output/lq/pp/q6.png
+	output/lq/pp/q7.png
+	output/lq/pp/q8.png
+	output/lq/pp/q9.png
+	output/lq/pp/questions.pdf
+	paper/lq/2023p1b.pdf
+	paper/lq/2024p1b.pdf
+	paper/lq/2025p1b.pdf
+	paper/lq/2026p1b.pdf
+	scripts/combine_lq_section_pdfs.py
+	scripts/crop_lq_from_pages.py
+	scripts/extract_lq_performance.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+---
+* classify                0243ff9 [origin/classify: ahead 1] feat: classify LQ questions into curriculum sections
++ sqlite                  665252d (/Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db) Merge pull request #2 from yeungsinchun/reorganize
+  reorganize              6f95bad [origin/reorganize] chore(paper): organize PDFs into mc, lq, and ans folders
++ db                      50d6aa2 (/Users/sinchunyeung/.treehouse/paper2db-41af0c/1/paper2db) fix(scripts): trim end-of-section lines from MC crops
+  fix/trim-end-of-section 50d6aa2 fix(scripts): trim end-of-section lines from MC crops
++ main                    437e109 (/Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db) [origin/main: behind 2] Add MC segmentation pipeline and per-year question crops.
+  more-space              437e109 [origin/more-space] Add MC segmentation pipeline and per-year question crops.
+  radiation               437e109 Add MC segmentation pipeline and per-year question crops.
+---
+0243ff9 feat: classify LQ questions into curriculum sections
+0e09810 feat: classify MC questions into curriculum sections
+6f95bad chore(paper): organize PDFs into mc, lq, and ans folders
+437e109 Add MC segmentation pipeline and per-year question crops.
+---
+warning: in the working copy of 'classified/lq/classification.csv', CRLF will be replaced by LF the next time Git touches it
+ .lavish/lq-classified-review/data.json             |    2 +-
+ .lavish/lq-classified-review/img/2012-q1-ans.png   |  Bin 94893 -> 87654 bytes
+ .lavish/lq-classified-review/img/2012-q1.png       |  Bin 2452758 -> 1090644 bytes
+ .lavish/lq-classified-review/img/2012-q10-ans.png  |  Bin 365986 -> 364198 bytes
+ .lavish/lq-classified-review/img/2012-q10.png      |  Bin 1305563 -> 1468741 bytes
+ .lavish/lq-classified-review/img/2012-q11-ans.png  |  Bin 1313105 -> 87235 bytes
+ .lavish/lq-classified-review/img/2012-q11.png      |  Bin 1036430 -> 534356 bytes
+ .lavish/lq-classified-review/img/2012-q2-ans.png   |  Bin 8062 -> 66330 bytes
+ .lavish/lq-classified-review/img/2012-q2.png       |  Bin 101899 -> 379088 bytes
+ .lavish/lq-classified-review/img/2012-q3-ans.png   |  Bin 256657 -> 81728 bytes
+ .lavish/lq-classified-review/img/2012-q3.png       |  Bin 1020236 -> 523417 bytes
+ .lavish/lq-classified-review/img/2012-q4-ans.png   |  Bin 58214 -> 149826 bytes
+ .lavish/lq-classified-review/img/2012-q4.png       |  Bin 1874619 -> 941341 bytes
+ .lavish/lq-classified-review/img/2012-q5-ans.png   |  Bin 59843 -> 59657 bytes
+ .lavish/lq-classified-review/img/2012-q5.png       |  Bin 1879756 -> 956359 bytes
+ .lavish/lq-classified-review/img/2012-q6-ans.png   |  Bin 219229 -> 127372 bytes
+ .lavish/lq-classified-review/img/2012-q6.png       |  Bin 2079038 -> 999804 bytes
+ .lavish/lq-classified-review/img/2012-q7-ans.png   |  Bin 343560 -> 411171 bytes
+ .lavish/lq-classified-review/img/2012-q7.png       |  Bin 1525674 -> 933422 bytes
+ .lavish/lq-classified-review/img/2012-q8-ans.png   |  Bin 77620 -> 77398 bytes
+ .lavish/lq-classified-review/img/2012-q8.png       |  Bin 182441 -> 682222 bytes
+ .lavish/lq-classified-review/img/2012-q9-ans.png   |  Bin 126412 -> 114035 bytes
+ .lavish/lq-classified-review/img/2012-q9.png       |  Bin 1870390 -> 562501 bytes
+ .lavish/lq-classified-review/img/2013-q1-ans.png   |  Bin 101277 -> 85496 bytes
+ .lavish/lq-classified-review/img/2013-q1.png       |  Bin 1577591 -> 1433511 bytes
+ .lavish/lq-classified-review/img/2013-q10-ans.png  |  Bin 4452368 -> 592384 bytes
+ .lavish/lq-classified-review/img/2013-q10.png      |  Bin 1939377 -> 1702875 bytes
+ .lavish/lq-classified-review/img/2013-q11.png      |  Bin 1337115 -> 1238153 bytes
+ .lavish/lq-classified-review/img/2013-q2-ans.png   |  Bin 80771 -> 79926 bytes
+ .lavish/lq-classified-review/img/2013-q2.png       |  Bin 1414366 -> 1293653 bytes
+ .lavish/lq-classified-review/img/2013-q3-ans.png   |  Bin 135311 -> 133618 bytes
+ .lavish/lq-classified-review/img/2013-q3.png       |  Bin 1640124 -> 1489381 bytes
+ .lavish/lq-classified-review/img/2013-q4-ans.png   |  Bin 216257 -> 199025 bytes
+ .lavish/lq-classified-review/img/2013-q4.png       |  Bin 918077 -> 825696 bytes
+ .lavish/lq-classified-review/img/2013-q5-ans.png   |  Bin 158370 -> 157622 bytes
+ .lavish/lq-classified-review/img/2013-q5.png       |  Bin 790220 -> 734472 bytes
+ .lavish/lq-classified-review/img/2013-q6-ans.png   |  Bin 207242 -> 187181 bytes
+ .lavish/lq-classified-review/img/2013-q6.png       |  Bin 1775422 -> 921345 bytes
+ .lavish/lq-classified-review/img/2013-q7-ans.png   |  Bin 205881 -> 1026588 bytes
+ .lavish/lq-classified-review/img/2013-q7.png       |  Bin 1553765 -> 2068358 bytes
+ .lavish/lq-classified-review/img/2013-q8-ans.png   |  Bin 751601 -> 0 bytes
+ .lavish/lq-classified-review/img/2013-q8.png       |  Bin 1540326 -> 1364446 bytes
+ .lavish/lq-classified-review/img/2013-q9-ans.png   |  Bin 101905 -> 0 bytes
+ .lavish/lq-classified-review/img/2013-q9.png       |  Bin 916633 -> 835560 bytes
+ .lavish/lq-classified-review/img/2014-q1-ans.png   |  Bin 32392 -> 315188 bytes
+ .lavish/lq-classified-review/img/2014-q1.png       |  Bin 190981 -> 1350594 bytes
+ .lavish/lq-classified-review/img/2014-q10-ans.png  |  Bin 521741 -> 319028 bytes
+ .lavish/lq-classified-review/img/2014-q10.png      |  Bin 228473 -> 1312350 bytes
+ .lavish/lq-classified-review/img/2014-q2-ans.png   |  Bin 57108 -> 327902 bytes
+ .lavish/lq-classified-review/img/2014-q2.png       |  Bin 172529 -> 888710 bytes
+ .lavish/lq-classified-review/img/2014-q3-ans.png   |  Bin 385158 -> 491412 bytes
+ .lavish/lq-classified-review/img/2014-q3.png       |  Bin 99164 -> 1253396 bytes
+ .lavish/lq-classified-review/img/2014-q4-ans.png   |  Bin 709391 -> 371868 bytes
+ .lavish/lq-classified-review/img/2014-q4.png       |  Bin 330583 -> 1265759 bytes
+ .lavish/lq-classified-review/img/2014-q5-ans.png   |  Bin 760135 -> 256406 bytes
+ .lavish/lq-classified-review/img/2014-q5.png       |  Bin 88289 -> 464600 bytes
+ .lavish/lq-classified-review/img/2014-q6-ans.png   |  Bin 864813 -> 819012 bytes
+ .lavish/lq-classified-review/img/2014-q6.png       |  Bin 105494 -> 997187 bytes
+ .lavish/lq-classified-review/img/2014-q7-ans.png   |  Bin 256330 -> 212393 bytes
+ .lavish/lq-classified-review/img/2014-q7.png       |  Bin 165109 -> 877358 bytes
+ .lavish/lq-classified-review/img/2014-q8-ans.png   |  Bin 561971 -> 515689 bytes
+ .lavish/lq-classified-review/img/2014-q8.png       |  Bin 171087 -> 1041592 bytes
+ .lavish/lq-classified-review/img/2014-q9-ans.png   |  Bin 2541567 -> 401365 bytes
+ .lavish/lq-classified-review/img/2014-q9.png       |  Bin 144839 -> 793649 bytes
+ .lavish/lq-classified-review/img/2015-q1-ans.png   |  Bin 141893 -> 0 bytes
+ .lavish/lq-classified-review/img/2015-q1.png       |  Bin 6589850 -> 2203882 bytes
+ .lavish/lq-classified-review/img/2015-q10-ans.png  |  Bin 810775 -> 275573 bytes
+ .lavish/lq-classified-review/img/2015-q10.png      |  Bin 9414069 -> 3017711 bytes
+ .lavish/lq-classified-review/img/2015-q2-ans.png   |  Bin 203854 -> 177014 bytes
+ .lavish/lq-classified-review/img/2015-q2.png       |  Bin 2784777 -> 911953 bytes
+ .lavish/lq-classified-review/img/2015-q3-ans.png   |  Bin 250610 -> 221447 bytes
+ .lavish/lq-classified-review/img/2015-q3.png       |  Bin 6041322 -> 1926158 bytes
+ .lavish/lq-classified-review/img/2015-q4-ans.png   |  Bin 304343 -> 275094 bytes
+ .lavish/lq-classified-review/img/2015-q4.png       |  Bin 5941359 -> 1854716 bytes
+ .lavish/lq-classified-review/img/2015-q5-ans.png   |  Bin 219514 -> 192396 bytes
+ .lavish/lq-classified-review/img/2015-q5.png       |  Bin 7853570 -> 2546791 bytes
+ .lavish/lq-classified-review/img/2015-q6-ans.png   |  Bin 293042 -> 262951 bytes
+ .lavish/lq-classified-review/img/2015-q6.png       |  Bin 10226797 -> 3124880 bytes
+ .lavish/lq-classified-review/img/2015-q7-ans.png   |  Bin 715096 -> 1034317 bytes
+ .lavish/lq-classified-review/img/2015-q7.png       |  Bin 8483223 -> 2566870 bytes
+---
+total 80
+drwxr-xr-x@  3 sinchunyeung  staff     96 31 Aug 08:25 __pycache__
+drwxr-xr-x@ 17 sinchunyeung  staff    544  4 Sep 17:47 .
+drwxr-xr-x  12 sinchunyeung  staff    384  3 Sep 23:30 ..
+drwxr-xr-x@  3 sinchunyeung  staff     96  2 Sep 15:56 .cursor
+-rw-r--r--@  1 sinchunyeung  staff  18436  5 Sep 00:15 .DS_Store
+drwxr-xr-x@ 15 sinchunyeung  staff    480  5 Sep 22:53 .git
+-rw-r--r--@  1 sinchunyeung  staff     97  2 Sep 18:04 .gitignore
+drwxr-xr-x@  4 sinchunyeung  staff    128  5 Sep 02:13 .lavish
+drwxr-xr-x@  7 sinchunyeung  staff    224 30 Aug 23:07 .venv
+drwxr-xr-x@ 16 sinchunyeung  staff    512  4 Sep 17:17 answer
+drwxr-xr-x@ 22 sinchunyeung  staff    704  5 Sep 11:39 classified
+drwxr-xr-x@ 38 sinchunyeung  staff   1216  5 Sep 00:42 output
+drwxr-xr-x@  7 sinchunyeung  staff    224  4 Sep 18:59 paper
+drwxr-xr-x@  3 sinchunyeung  staff     96  4 Sep 16:37 processed
+-rw-r--r--@  1 sinchunyeung  staff     21 30 Aug 23:11 requirements.txt
+drwxr-xr-x@ 32 sinchunyeung  staff   1024  5 Sep 12:16 scripts
+-rwxr-xr-x@  1 sinchunyeung  staff  11595  5 Sep 08:36 segment
+---
+classified-review
+lq-classified-review

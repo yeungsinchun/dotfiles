@@ -1,0 +1,39 @@
+---
+pid: 58630
+cwd: "/private/tmp/book5-ch1-intake/preview"
+command: "# High-res render of Ch.1 only (PDF pp 1-48). Source is 72dpi scans; 216 dpi is 3x for OCR.\nmkdir -p /tmp/book5-ch1-intake/hires /tmp/book5-ch1-intake/ocr-hi\npdftoppm -png -r 216 -f 1 -l 48 \"/Users/sinchunyeung/github/paper2notes/active-physics/Book 5.pdf\" /tmp/book5-ch1-intake/hires/p\nls /tmp/book5-ch1-intake/hires | wc -l\n# Quick text extract from QB\nmkdir -p /tmp/book5-ch1-intake/qb\npdftotext -layout \"/Users/sinchunyeung/github/paper2notes/QB_501/5_ch01_MC_e.pdf\" /tmp/book5-ch1-intake/qb/mc.txt\npdftotext -layout \"/Users/sinchunyeung/github/paper2notes/QB_501/5_ch01_SQ_e.pdf\" /tmp/book5-ch1-intake/qb/sq.txt\npdftotext -layout \"/Users/sinchunyeung/github/paper2notes/QB_501/5_ch01_LQ_e.pdf\" /tmp/book5-ch1-intake/qb/lq.txt\npdftotext -layout \"/Users/sinchunyeung/github/paper2notes/QB_501/5_ch01_MC_e_ans.pdf\" /tmp/book5-ch1-intake/qb/mc_ans.txt\npdftotext -layout \"/Users/sinchunyeung/github/paper2notes/QB_501/5_ch01_SQ_e_ans.pdf\" /tmp/book5-ch1-intake/qb/sq_ans.txt\npdftotext -layout \"/Users/sinchunyeung/github/paper2notes/QB_501/5_ch01_LQ_e_ans.pdf\" /tmp/book5-ch1-intake/qb/lq_ans.txt\nwc -l /tmp/book5-ch1-intake/qb/*.txt\nhead -c 400 /tmp/book5-ch1-intake/qb/mc.txt; echo; echo \"---SQ---\"; head -c 200 /tmp/book5-ch1-intake/qb/sq.txt"
+title: "Hi-res Ch.1 pages and extract QB text"
+status: succeeded
+started_at: 2026-09-08T16:37:34.601Z
+running_for_ms: 152146   
+---
+      48
+     565 /tmp/book5-ch1-intake/qb/lq_ans.txt
+     294 /tmp/book5-ch1-intake/qb/lq.txt
+    1005 /tmp/book5-ch1-intake/qb/mc_ans.txt
+     624 /tmp/book5-ch1-intake/qb/mc.txt
+     382 /tmp/book5-ch1-intake/qb/sq_ans.txt
+     205 /tmp/book5-ch1-intake/qb/sq.txt
+    3075 total
+<code=PHY15011101>
+<lvl=easy><part=core><type=mc><mark=2><bk=5><ch=01><content>
+    Which of the following statements about ionizing radiation is/are correct?
+    (1) Its energy is high enough to strike electrons out of molecules.
+    (2) It is a radiation in the form of ions.
+    (3) X-ray is an ionizing radiation.
+    A (1) only
+    B (2) only
+    C (1) and (3) only
+    D (2) and (3) only
+
+<code
+---SQ---
+<code=PHY15012101>
+<lvl=avg><part=core><type=sq><mark=6><bk=5><ch=01><content>
+«   X, Y and Z are three common types of nuclear radiations. A radioactive source emits all these
+    radiations. Three 
+---
+exit_code: 0
+elapsed_ms: 152146
+ended_at: 2026-09-08T16:40:06.747Z
+---

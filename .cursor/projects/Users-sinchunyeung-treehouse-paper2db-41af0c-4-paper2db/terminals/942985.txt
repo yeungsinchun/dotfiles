@@ -1,0 +1,63 @@
+---
+pid: 40498
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db"
+command: ".venv/bin/python3 - <<'PY'\nfrom pathlib import Path\nimport subprocess, sys\nsys.path.insert(0, str(Path(\"scripts\").resolve()))\nfrom png_pdf import combine_pngs_to_pdf\nlisted = subprocess.check_output([\"git\", \"ls-files\", \"*combined.pdf\"], text=True).splitlines()\nfor dest in [Path(p) for p in listed if p.startswith(\"output/\")]:\n    combine_pngs_to_pdf(dest.parent, output=dest, overwrite=True)\nprint(\"done year combined\")\nPY"
+title: "Rebuild year combined.pdf with packed layout"
+status: succeeded
+started_at: 2026-09-10T15:18:30.581Z
+running_for_ms: 105994   
+---
+Wrote output/2012/combined.pdf (18 pages, 36 questions)
+Wrote output/2013/combined.pdf (15 pages, 36 questions)
+Wrote output/2014/combined.pdf (12 pages, 33 questions)
+Wrote output/2015/combined.pdf (13 pages, 33 questions)
+Wrote output/2016/combined.pdf (11 pages, 33 questions)
+Wrote output/2017/combined.pdf (15 pages, 33 questions)
+Wrote output/2018/combined.pdf (13 pages, 33 questions)
+Wrote output/2019/combined.pdf (16 pages, 33 questions)
+Wrote output/2020/combined.pdf (14 pages, 33 questions)
+Wrote output/2021/combined.pdf (12 pages, 33 questions)
+Wrote output/2022/combined.pdf (13 pages, 33 questions)
+Wrote output/2023/combined.pdf (14 pages, 33 questions)
+Wrote output/2024/combined.pdf (13 pages, 33 questions)
+Wrote output/2025/combined.pdf (13 pages, 33 questions)
+Wrote output/2026/combined.pdf (13 pages, 33 questions)
+Wrote output/lq/2012/ans/combined.pdf (6 pages, 11 questions)
+Wrote output/lq/2012/combined.pdf (11 pages, 11 questions)
+Wrote output/lq/2013/ans/combined.pdf (5 pages, 8 questions)
+Wrote output/lq/2013/combined.pdf (11 pages, 11 questions)
+Wrote output/lq/2014/ans/combined.pdf (10 pages, 10 questions)
+Wrote output/lq/2014/combined.pdf (10 pages, 10 questions)
+Wrote output/lq/2015/ans/combined.pdf (8 pages, 8 questions)
+Wrote output/lq/2015/combined.pdf (10 pages, 10 questions)
+Wrote output/lq/2016/ans/combined.pdf (9 pages, 9 questions)
+Wrote output/lq/2016/combined.pdf (9 pages, 9 questions)
+Wrote output/lq/2017/ans/combined.pdf (6 pages, 6 questions)
+Wrote output/lq/2017/combined.pdf (10 pages, 10 questions)
+Wrote output/lq/2018/ans/combined.pdf (8 pages, 10 questions)
+Wrote output/lq/2018/combined.pdf (10 pages, 10 questions)
+Wrote output/lq/2019/ans/combined.pdf (8 pages, 10 questions)
+Wrote output/lq/2019/combined.pdf (10 pages, 10 questions)
+Wrote output/lq/2020/ans/combined.pdf (10 pages, 10 questions)
+Wrote output/lq/2020/combined.pdf (10 pages, 10 questions)
+Wrote output/lq/2021/ans/combined.pdf (7 pages, 7 questions)
+Wrote output/lq/2021/combined.pdf (9 pages, 9 questions)
+Wrote output/lq/2022/ans/combined.pdf (10 pages, 10 questions)
+Wrote output/lq/2022/combined.pdf (10 pages, 10 questions)
+Wrote output/lq/2023/ans/combined.pdf (9 pages, 9 questions)
+Wrote output/lq/2023/combined.pdf (9 pages, 9 questions)
+Wrote output/lq/2024/ans/combined.pdf (8 pages, 12 questions)
+Wrote output/lq/2024/combined.pdf (12 pages, 12 questions)
+Wrote output/lq/2025/ans/combined.pdf (9 pages, 12 questions)
+Wrote output/lq/2025/combined.pdf (12 pages, 12 questions)
+Wrote output/lq/2026/combined.pdf (12 pages, 12 questions)
+Wrote output/lq/pp/combined.pdf (12 pages, 12 questions)
+Wrote output/pp/combined.pdf (15 pages, 36 questions)
+Wrote output/sap/combined.pdf (13 pages, 36 questions)
+done year combined
+
+---
+exit_code: 0
+elapsed_ms: 105993
+ended_at: 2026-09-10T15:20:16.574Z
+---

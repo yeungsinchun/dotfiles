@@ -1,0 +1,1118 @@
+diff --git a/.cursor/rules/combined-png-pdf.mdc b/.cursor/rules/combined-png-pdf.mdc
+index b2b6428..e661725 100644
+--- a/.cursor/rules/combined-png-pdf.mdc
++++ b/.cursor/rules/combined-png-pdf.mdc
+@@ -10,5 +10,5 @@ When this project generates PNG files, also leave a single review PDF in the sam
+ - Anchor review: `anchor.pdf` (already written by preprocess). Do not also stitch `pageNN.png` into `combined.pdf`.
+ - MC question crops (`qN.png`): write `combined.pdf` through `scripts/png_pdf.py` (`combine_pngs_to_pdf`). Portrait A4, year/Q labels, original paper (no blue dots). Overwrite when the PNGs are regenerated. Crop the left edge at the anchor. It skips an existing output PDF unless overwrite is set.
+ - LQ answer crops: same PNG-to-A4 helper (`combine_pngs_to_pdf` / `place_pngs_on_a4`).
+-- LQ question reviews (`output/lq/<year>/combined.pdf`, `questions.pdf`, and classified `questions.pdf`) come from source Paper 1B pages via `scripts/lq_pdf_review.py`. Do not stitch `qN.png` into those PDFs.
++- LQ question reviews (`reconstructed/lq/<year>/combined.pdf`, `questions.pdf`, and classified `questions.pdf`) come from source Paper 1B pages via `scripts/lq_pdf_review.py`. Do not stitch `qN.png` into those PDFs.
+ - Point the user at the existing review PDF, not a list of PNGs.
+diff --git a/.gitignore b/.gitignore
+index f28602a..f876663 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -2,7 +2,8 @@
+ __pycache__/
+ *.pyc
+ .DS_Store
+-output/*-intermediate/
+-output/*-test/
+-output/*/intermediate/
+-output/**/pages/
++# Generated trees: regenerate with ./pipeline, never commit.
++output/
++reconstructed/
++classified/
++.lavish/
+diff --git a/AGENTS.md b/AGENTS.md
+index 8dfa5ae..71f5d5f 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -4,8 +4,10 @@ This file is the project's committed home for project-intrinsic agent knowledge:
+ 
+ - Day-to-day entry is `./pipeline` (stages via `--list-stages`, `--from`, `--only`, `--years`, `--force`, `--yes`). Prefer it over calling `scripts/*.py` or `./segment` directly.
+ - Quality bar and failure definitions: `python scripts/quality_audit.py` → `classified/quality_audit.json`. Captain walkthrough: `.lavish/pipeline-review/` (LQ Step C uses multi-page fit previews so whole `page_from`..`page_to` stacks are visible). PR screenshot pack: `.lavish/pr-evidence/`. MC/LQ banks: `.lavish/classified-review/` and `.lavish/lq-classified-review/`.
+-- Human gates that matter: review `output/<year>-intermediate/anchor.pdf` before MC split; skim `classified/mc/uncertain.csv` after classify. Hard MC pages live in `scripts/overrides_YYYY.json` (each counts toward the ≤5% manual-tuning budget). LQ uses whole exam pages only (`page_from`..`page_to`) - no within-page crop. Trailing HKDSE data/formulae sheets and blank "do not write" inserts are excluded (`scripts/formula_sheet.py`). `output/**/pages/` is gitignored; `scripts/crop_lq_from_pages.py` exports missing pages from `paper/lq` without rewriting `starts.json`, then always rewrites `qN.png` so stale y-crops cannot linger. Answer crops under `ans/` stay cropped.
+-- Intermediate dirs (`output/*-intermediate/`, page PNGs) are gitignored; regenerate with `./pipeline --only mc-anchors --years YYYY --force --yes` when you need anchor evidence.
++- Generated trees (`reconstructed/`, `classified/`, `.lavish/`) are gitignored: regenerate with `./pipeline` (see README "Layout"), never commit them; PRs carry scripts, overrides, tests, docs, and visual evidence.
++- Human gates that matter: review `reconstructed/mc/<year>-intermediate/anchor.pdf` before MC split; skim `classified/mc/uncertain.csv` after classify. Hard MC pages live in `scripts/overrides_YYYY.json` (each counts toward the ≤5% manual-tuning budget). LQ uses whole exam pages only (`page_from`..`page_to`) - no within-page crop. Trailing HKDSE data/formulae sheets and blank "do not write" inserts are excluded (`scripts/formula_sheet.py`). `scripts/crop_lq_from_pages.py` exports missing pages from `paper/lq` without rewriting `starts.json`, then always rewrites `qN.png` so stale y-crops cannot linger. Answer crops under `ans/` stay cropped.
++- Regenerate anchor evidence with `./pipeline --only mc-anchors --years YYYY --force --yes` (`reconstructed/mc/<year>-intermediate/`).
++- LQ Book 5 classification is resolved by `classify_book5()` in `scripts/classify_lq_keywords.py` (every tested section is listed); `tests/test_lq_book5_sections.py` pins the per-chapter problem list from OCR fixtures under `tests/fixtures/lq_ocr/`. Section `questions.pdf` include non-primary listings, so a stale PDF means the section-pdfs stage was not re-run.
+ 
+ ## Maintaining this file
+ 
+diff --git a/README.md b/README.md
+index f469371..440b31e 100644
+--- a/README.md
++++ b/README.md
+@@ -13,7 +13,7 @@ pip install -r requirements.txt
+ ./pipeline
+ ```
+ 
+-That one command walks every stage from `paper/` PDFs to `classified/` section folders and review PDFs. It pauses at a few review gates (MC anchors, optional LQ crops, uncertain classifications). Pass `--yes` to print the same paths without waiting for Enter.
++That one command walks every stage from `paper/` PDFs to `reconstructed/` papers and `classified/` section folders with review PDFs. Both trees are generated and gitignored - regenerate them rather than committing them (`./pipeline --force --yes` rebuilds everything). It pauses at a few review gates (MC anchors, optional LQ crops, uncertain classifications). Pass `--yes` to print the same paths without waiting for Enter.
+ 
+ ```bash
+ ./pipeline --years 2025          # one year
+@@ -42,8 +42,8 @@ When no API key is set, both MC and LQ use the keyword classifiers.
+ | `paper/lq/` | Paper 1B PDFs |
+ | `paper/ans/` | Marking schemes (`2012ans.pdf`, ...) |
+ | `paper/performance/` | Candidate-performance notes (markdown; optional, not a pipeline stage) |
+-| `output/<year>/` | MC question PNGs + A4 `combined.pdf` |
+-| `output/lq/<year>/` | LQ pages, `qN.png`, `ans/qN.png`, A4 review PDFs |
++| `reconstructed/mc/` | `combined.pdf` (every year's MC paper) + `<year>/` MC question PNGs with a per-year `combined.pdf` |
++| `reconstructed/lq/` | `combined.pdf` (every year's LQ paper) + `<year>/` LQ pages, `qN.png`, `ans/qN.png`, A4 review PDFs |
+ | `classified/mc/` | Section folders, CSVs, `answer_keys.json`, section PDFs |
+ | `classified/lq/` | Same for long questions (+ optional `candidate_performance.json`) |
+ | `scripts/` | Stage implementations (called by `./pipeline`) |
+@@ -55,15 +55,15 @@ When no API key is set, both MC and LQ use the keyword classifiers.
+ 
+ ## Stages
+ 
+-1. **mc-anchors** - blue dots on each MC paper; **you must review** `output/<year>-intermediate/anchor.pdf`
+-2. **mc-split** - crop clean `qN.png` into `output/<year>/` + A4 `combined.pdf`
++1. **mc-anchors** - blue dots on each MC paper; **you must review** `reconstructed/mc/<year>-intermediate/anchor.pdf`
++2. **mc-split** - crop clean `qN.png` into `reconstructed/mc/<year>/` + A4 `combined.pdf`; then joins every year into `reconstructed/mc/combined.pdf`
+ 3. **lq-pages** - export LQ pages + `starts.json`
+-4. **lq-crops** - whole exam page stack per question (`page_from`..`page_to`); A4 `questions.pdf` from the source paper (no within-page crop; trailing data/formulae sheets excluded)
++4. **lq-crops** - whole exam page stack per question (`page_from`..`page_to`); A4 `questions.pdf` from the source paper (no within-page crop; trailing data/formulae sheets excluded); then joins every year into `reconstructed/lq/combined.pdf`
+ 5. **lq-answers** - marking-scheme answer crops under `ans/`
+ 6. **keys** - MC keys + correct-% → `classified/mc/answer_keys.json`
+ 7. **classify-mc** - 27 syllabus sections (LLM if keyed, else keywords)
+-8. **classify-lq** - same sections for LQ (LLM if keyed, else keywords)
+-9. **section-pdfs** - per-section A4 `combined.pdf` / `questions.pdf` (+ answer PDFs)
++8. **classify-lq** - same sections for LQ (LLM if keyed, else keywords). The keyword scorer OCRs the whole page stack (cache keyed by PNG size under `classified/lq/ocr_cache/`) and lists every Book 5 section a radioactivity LQ tests (e.g. 2014 Q10: ch26 activity + ch25 alpha handling), primary = latest section
++9. **section-pdfs** - per-section A4 `combined.pdf` / `questions.pdf` (+ answer PDFs); an LQ appears in every section it is listed under, not only its primary
+ 10. **lavish** - quality audit + HTML reviews under `.lavish/` (pipeline walkthrough, MC banks, LQ banks)
+ 
+ Candidate-performance extraction stays available as `python scripts/extract_lq_performance.py` when needed; it is not part of `./pipeline`.
+@@ -86,7 +86,7 @@ Captain review surface: `.lavish/pipeline-review/index.html` (step-by-step inter
+ 
+ 1. **Anchors** - every blue dot beside the question number with a clear gap (not on options or diagrams). Wrong anchors poison every later step. Use `scripts/overrides_YYYY.json` for hard pages (each counts toward the 5% budget).
+ 2. **Uncertain MC** - skim `classified/mc/uncertain.csv` and spot-check a few section folders.
+-3. **LQ pages** - skim `output/lq/<year>/questions.pdf` if a question's page range looks wrong (`starts.json`). The last question should stop before any trailing data/formulae sheet or blank "do not write" insert.
++3. **LQ pages** - skim `reconstructed/lq/<year>/questions.pdf` if a question's page range looks wrong (`starts.json`). The last question should stop before any trailing data/formulae sheet or blank "do not write" insert.
+ 4. Trust the section review PDFs under `classified/*/.../combined.pdf` (or `questions.pdf`) rather than browsing PNG lists. Those PDFs are portrait A4 with year and question labels.
+ 5. Skim `.lavish/pipeline-review/` for the measured rates before accepting a new year.
+ 
+diff --git a/pipeline b/pipeline
+index 8409d19..2d5cc63 100755
+--- a/pipeline
++++ b/pipeline
+@@ -2,8 +2,10 @@
+ """HKDSE Physics paper2db - single entry point for the full pipeline.
+ 
+ Reads PDFs under paper/{mc,lq,ans}/ and writes:
+-  output/<year>/          MC question crops + combined.pdf
+-  output/lq/<year>/       LQ pages, whole-page qN.png, answer crops, A4 review PDFs
++  reconstructed/mc/<year>/  MC question crops + per-year combined.pdf
++  reconstructed/mc/combined.pdf  every year's MC paper, one A4 PDF
++  reconstructed/lq/<year>/  LQ pages, whole-page qN.png, answer crops, A4 review PDFs
++  reconstructed/lq/combined.pdf  every year's LQ paper, one A4 PDF
+   classified/mc/          MC section folders, CSVs, section PDFs, answer keys
+   classified/lq/          LQ section folders, CSVs, section PDFs
+   .lavish/pipeline-review/        step-by-step HTML (intermediates + finals)
+@@ -125,8 +127,18 @@ def discover_answer_pdfs(years: list[str] | None) -> list[tuple[Path, str]]:
+     return papers
+ 
+ 
++def mc_dir() -> Path:
++    """reconstructed/mc/ - MC crops per year plus the all-years combined.pdf."""
++    return ROOT / "reconstructed" / "mc"
++
++
++def lq_dir() -> Path:
++    """reconstructed/lq/ - LQ pages per year plus the all-years combined.pdf."""
++    return ROOT / "reconstructed" / "lq"
++
++
+ def mc_output_ready(year: str) -> bool:
+-    year_dir = ROOT / "output" / year
++    year_dir = mc_dir() / year
+     if not year_dir.is_dir():
+         return False
+     pngs = list(year_dir.glob("q*.png"))
+@@ -134,7 +146,7 @@ def mc_output_ready(year: str) -> bool:
+ 
+ 
+ def lq_pages_ready(year: str) -> bool:
+-    year_dir = ROOT / "output" / "lq" / year
++    year_dir = lq_dir() / year
+     pages = year_dir / "pages"
+     return (
+         (year_dir / "starts.json").is_file()
+@@ -175,7 +187,7 @@ def lq_crops_ready(year: str) -> bool:
+ 
+     Leftover within-page y-crops (or qN.png with no pages/ export) are not ready.
+     """
+-    year_dir = ROOT / "output" / "lq" / year
++    year_dir = lq_dir() / year
+     meta_path = year_dir / "starts.json"
+     pages_dir = year_dir / "pages"
+     if not meta_path.is_file() or not pages_dir.is_dir():
+@@ -203,12 +215,12 @@ def lq_crops_ready(year: str) -> bool:
+ 
+ 
+ def lq_answers_ready(year: str) -> bool:
+-    ans_dir = ROOT / "output" / "lq" / year / "ans"
++    ans_dir = lq_dir() / year / "ans"
+     return ans_dir.is_dir() and len(list(ans_dir.glob("q*.png"))) >= 8
+ 
+ 
+ def intermediate_dir(year: str) -> Path:
+-    return ROOT / "output" / f"{year}-intermediate"
++    return mc_dir() / f"{year}-intermediate"
+ 
+ 
+ def pause(message: str, *, yes: bool) -> None:
+@@ -243,7 +255,7 @@ def stage_mc_anchors(years: list[str] | None, *, force: bool, yes: bool) -> list
+     reviewed: list[str] = []
+     for pdf, year in papers:
+         if mc_output_ready(year) and not force:
+-            print(f"skip mc-anchors {year}: output/{year}/ already has crops (use --force)")
++            print(f"skip mc-anchors {year}: reconstructed/mc/{year}/ already has crops (use --force)")
+             continue
+         inter = intermediate_dir(year)
+         print(f"\n=== MC anchors: {year} ({pdf.name}) ===")
+@@ -277,7 +289,7 @@ def stage_mc_anchors(years: list[str] | None, *, force: bool, yes: bool) -> list
+ def stage_mc_split(years: list[str] | None, *, force: bool) -> None:
+     papers = discover_mc_papers(years)
+     for pdf, year in papers:
+-        out = ROOT / "output" / year
++        out = mc_dir() / year
+         if mc_output_ready(year) and not force:
+             print(f"skip mc-split {year}: already ready")
+             continue
+@@ -298,12 +310,13 @@ def stage_mc_split(years: list[str] | None, *, force: bool) -> None:
+             "--intermediate",
+             str(inter),
+         )
++    run_script("combine_reconstructed.py", "--kind", "mc")
+ 
+ 
+ def stage_lq_pages(years: list[str] | None, *, force: bool) -> None:
+     papers = discover_lq_papers(years)
+     for pdf, year in papers:
+-        out = ROOT / "output" / "lq" / year
++        out = lq_dir() / year
+         if lq_pages_ready(year) and not force:
+             print(f"skip lq-pages {year}: starts.json and pages/ already present")
+             continue
+@@ -323,14 +336,16 @@ def stage_lq_crops(years: list[str] | None, *, force: bool, yes: bool) -> None:
+     need = [year for _, year in papers if force or not lq_crops_ready(year)]
+     if not need:
+         print("skip lq-crops: all selected years already have whole-page PNGs")
++        run_script("combine_reconstructed.py", "--kind", "lq")
+         return
+     run_script("crop_lq_from_pages.py", "--years", *need)
++    run_script("combine_reconstructed.py", "--kind", "lq")
+     pause(
+         "LQ PAGE REVIEW (optional but recommended)\n\n"
+-        "Skim output/lq/<year>/questions.pdf. Each qN.png is whole exam page(s)\n"
++        "Skim reconstructed/lq/<year>/questions.pdf. Each qN.png is whole exam page(s)\n"
+         "(page_from..page_to) - no within-page crop. Fix starts.json and re-run\n"
+         "lq-pages / lq-crops if a question's page range is wrong.\n\n"
+-        + "\n".join(f"  output/lq/{y}/questions.pdf" for y in need),
++        + "\n".join(f"  reconstructed/lq/{y}/questions.pdf" for y in need),
+         yes=yes,
+     )
+ 
+@@ -341,14 +356,14 @@ def stage_lq_answers(years: list[str] | None, *, force: bool) -> None:
+         print("No answer PDFs found under paper/ans.")
+         return
+     for pdf, year in answers:
+-        out = ROOT / "output" / "lq" / year / "ans"
++        out = lq_dir() / year / "ans"
+         if lq_answers_ready(year) and not force:
+             print(f"skip lq-answers {year}: ans/ already present")
+             continue
+         # Only crop answers when we have an LQ paper for that year (or force).
+-        lq_dir = ROOT / "output" / "lq" / year
+-        if not lq_dir.is_dir() and not force:
+-            print(f"skip lq-answers {year}: no output/lq/{year}/ yet")
++        year_lq = lq_dir() / year
++        if not year_lq.is_dir() and not force:
++            print(f"skip lq-answers {year}: no reconstructed/lq/{year}/ yet")
+             continue
+         print(f"\n=== LQ answers: {year} ({pdf.name}) ===")
+         out.mkdir(parents=True, exist_ok=True)
+@@ -569,6 +584,8 @@ def main() -> None:
+ 
+     print("\nDone.")
+     print("Review PDFs:")
++    print("  MC papers:   reconstructed/mc/combined.pdf (per year: reconstructed/mc/<year>/combined.pdf)")
++    print("  LQ papers:   reconstructed/lq/combined.pdf (per year: reconstructed/lq/<year>/combined.pdf)")
+     print("  MC sections: classified/mc/<book>/<section>/combined.pdf")
+     print("  LQ sections: classified/lq/<book>/<section>/questions.pdf")
+     print("Lavish HTML (if lavish stage ran):")
+diff --git a/scripts/build_lq_lavish_review.py b/scripts/build_lq_lavish_review.py
+index 8d3c019..1fbe569 100644
+--- a/scripts/build_lq_lavish_review.py
++++ b/scripts/build_lq_lavish_review.py
+@@ -16,7 +16,7 @@ from png_pdf import combine_pngs_to_pdf
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+ CLASSIFIED = ROOT / "classified" / "lq"
+-OUTPUT_LQ = ROOT / "output" / "lq"
++OUTPUT_LQ = ROOT / "reconstructed" / "lq"
+ OUT = ROOT / ".lavish" / "lq-classified-review"
+ IMG = OUT / "img"
+ PERF_JSON = CLASSIFIED / "candidate_performance.json"
+@@ -105,9 +105,11 @@ def main() -> None:
+         if a_src.is_file():
+             shutil.copy2(a_src, IMG / a_name)
+         preview = ""
+-        ocr = CLASSIFIED / "ocr_cache" / str(year) / f"q{q}.txt"
+-        if ocr.is_file():
+-            preview = " ".join(ocr.read_text(encoding="utf-8").split())[:220]
++        # classify_lq_keywords keys the cache by PNG geometry: q{q}.{w}x{h}.txt
++        ocr_files = sorted((CLASSIFIED / "ocr_cache" / str(year)).glob(f"q{q}.*txt"))
++        if ocr_files:
++            latest = max(ocr_files, key=lambda path: path.stat().st_mtime)
++            preview = " ".join(latest.read_text(encoding="utf-8").split())[:220]
+         performance = (perf.get(str(year)) or {}).get(str(q), "")
+         item = {
+             "year": year,
+diff --git a/scripts/build_pipeline_lavish_review.py b/scripts/build_pipeline_lavish_review.py
+index 440ff5a..3d1108c 100644
+--- a/scripts/build_pipeline_lavish_review.py
++++ b/scripts/build_pipeline_lavish_review.py
+@@ -87,7 +87,7 @@ def collect_assets() -> dict:
+     for page in range(1, 4):
+         dest_name = f"anchor-2024-page{page:02d}.png"
+         rel = resolve_sample(
+-            ROOT / "output" / "2024-intermediate" / f"page{page:02d}.png",
++            ROOT / "reconstructed" / "mc" / "2024-intermediate" / f"page{page:02d}.png",
+             dest_name,
+         )
+         if rel:
+@@ -102,7 +102,7 @@ def collect_assets() -> dict:
+     for year, question in (("2012", 1), ("2012", 15), ("2024", 1), ("2024", 4), ("2025", 1)):
+         dest_name = f"mc-{year}-q{question}.png"
+         rel = resolve_sample(
+-            ROOT / "output" / year / f"q{question}.png",
++            ROOT / "reconstructed" / "mc" / year / f"q{question}.png",
+             dest_name,
+         )
+         if rel:
+@@ -122,7 +122,7 @@ def collect_assets() -> dict:
+         ("2024", 10, "pages 10..11 (2-page stack)"),
+         ("2025", 3, "pages 2..3 (2-page stack)"),
+     ):
+-        src = ROOT / "output" / "lq" / year / f"q{question}.png"
++        src = ROOT / "reconstructed" / "lq" / year / f"q{question}.png"
+         dest_name = f"lq-{year}-q{question}-fit.png"
+         rel = write_lq_fit_preview(src, dest_name)
+         if rel:
+@@ -229,9 +229,9 @@ def write_html(audit: dict, assets: dict) -> None:
+     passes = summary["passes_5pct_bar"]
+ 
+     stages = [
+-        ("1. MC anchors", "mc-anchors", "Blue dots on each Paper 1A PDF → output/<year>-intermediate/anchor.pdf"),
+-        ("2. MC split", "mc-split", "Crop empty qN.png + combined.pdf under output/<year>/"),
+-        ("3. LQ pages", "lq-pages", "Export pages + starts.json under output/lq/<year>/"),
++        ("1. MC anchors", "mc-anchors", "Blue dots on each Paper 1A PDF → reconstructed/mc/<year>-intermediate/anchor.pdf"),
++        ("2. MC split", "mc-split", "Crop empty qN.png + combined.pdf under reconstructed/mc/<year>/"),
++        ("3. LQ pages", "lq-pages", "Export pages + starts.json under reconstructed/lq/<year>/"),
+         ("4. LQ pages→PNG", "lq-crops", "Whole exam page stack per question + questions.pdf"),
+         ("5. LQ answers", "lq-answers", "Marking-scheme answer crops under ans/"),
+         ("6. Keys", "keys", "MC answer keys → classified/mc/answer_keys.json"),
+@@ -506,19 +506,19 @@ python scripts/quality_audit.py --strict</div>
+ 
+     <section class="block" id="anchors">
+       <h2>Step A - MC anchors (intermediate)</h2>
+-      <p class="lede">Sample from <code>output/2024-intermediate/</code> (regenerated for this review). Every blue dot must sit beside the question number - not on options, diagrams, or digits.</p>
++      <p class="lede">Sample from <code>reconstructed/mc/2024-intermediate/</code> (regenerated for this review). Every blue dot must sit beside the question number - not on options, diagrams, or digits.</p>
+       {gallery(assets['anchors'])}
+     </section>
+ 
+     <section class="block" id="mc-crops">
+       <h2>Step B - MC empty crops (final per-question)</h2>
+-      <p class="lede">Clean screenshots cut from the paper: full stem + options, no neighboring bleed. Review PDF: <code>output/&lt;year&gt;/combined.pdf</code>.</p>
++      <p class="lede">Clean screenshots cut from the paper: full stem + options, no neighboring bleed. Review PDF: <code>reconstructed/mc/&lt;year&gt;/combined.pdf</code>.</p>
+       {gallery(assets['mc_crops'])}
+     </section>
+ 
+     <section class="block" id="lq-crops">
+       <h2>Step C - LQ whole pages (final per-question)</h2>
+-      <p class="lede">Long questions are whole exam page(s) only (<code>page_from</code>..<code>page_to</code>) - no within-page crop. Samples below are multi-page stacks scaled so every page is visible (not scroll-clipped tops). Review PDF: <code>output/lq/&lt;year&gt;/questions.pdf</code>.</p>
++      <p class="lede">Long questions are whole exam page(s) only (<code>page_from</code>..<code>page_to</code>) - no within-page crop. Samples below are multi-page stacks scaled so every page is visible (not scroll-clipped tops). Review PDF: <code>reconstructed/lq/&lt;year&gt;/questions.pdf</code>.</p>
+       {gallery(assets['lq_crops'], variant="lq")}
+     </section>
+ 
+diff --git a/scripts/classify_lq_keywords.py b/scripts/classify_lq_keywords.py
+index 08ee549..9811f15 100644
+--- a/scripts/classify_lq_keywords.py
++++ b/scripts/classify_lq_keywords.py
+@@ -1,7 +1,10 @@
+ #!/usr/bin/env python3
+ """Keyword-classify LQ crops into the 27 MC sections (no LLM required).
+ 
+-Uses OCR under classified/lq/ocr_cache (or creates it). Writes:
++OCRs each whole page stack (cache classified/lq/ocr_cache/<year>/qN.<w>x<h>.txt,
++keyed by PNG size so a re-crop is re-read). Book 5 questions list every
++radioactivity section they test (classify_book5); other books keep the
++single-primary scoring. Writes:
+   classified/lq/classification.csv
+   classified/lq/llm_classifications.json
+   classified/lq/<book>/<section>/ year-qN.png (+ optional answer copy)
+@@ -27,12 +30,140 @@ from pathlib import Path
+ 
+ from PIL import Image
+ 
++Image.MAX_IMAGE_PIXELS = 250_000_000  # 2-page 4916px-wide stacks exceed the default bomb limit
++
+ from classify_mc_llm import SECTION_BY_NUM, SECTIONS, BOOK_NAMES, year_key
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+-OUTPUT_LQ = ROOT / "output" / "lq"
++OUTPUT_LQ = ROOT / "reconstructed" / "lq"
+ CLASSIFIED_LQ = ROOT / "classified" / "lq"
+ OCR_CACHE = CLASSIFIED_LQ / "ocr_cache"
++OCR_MAX_WIDTH = 2500
++
++# Book 5 gate: any of these marks a radioactivity / nuclear question. Generic
++# words ("fusion" of ice, "activity" of a bungee jumper, "radiation" as heat
++# transfer) deliberately stay out so they cannot pull other books here.
++BOOK5_CONTEXT = (
++    "radioactiv",
++    "radioisotope",
++    "radionuclide",
++    "nuclide",
++    "isotope",
++    "half-life",
++    "half life",
++    "half-lives",
++    "decay constant",
++    "decay series",
++    "nuclear equation",
++    "nuclear reaction",
++    "nuclear fusion",
++    "nuclear fission",
++    "fission",
++    "undergoes decay",
++    "decays to",
++    "decays into",
++    "decays by",
++    "decays with",
++    "undergoes a-decay",
++    "undergoes α-decay",
++    "undergoes alpha decay",
++    "undergoes @ decay",
++    "undergoes a decay",
++    "background radiation",
++)
++
++# Book 5 cues, weighted by how strongly a phrase shows that a *part* tests the
++# section (question wording scores 3-5; passing mentions score 1-2).
++# A section is listed when its total reaches BOOK5_MIN[section].
++BOOK5_CUES: dict[int, list[tuple[str, float]]] = {
++    25: [
++        # nature of alpha/beta/gamma, decay equations, detectors, safety
++        ("nuclear equation", 4),
++        ("equation for the decay", 4),
++        ("equation to represent the decay", 4),
++        ("kind of decay", 4),
++        ("kind of radiation", 4),
++        ("type of radiation", 4),
++        ("type(s) of radiation", 4),
++        ("types of radiation", 4),
++        ("radiation emitted", 3),
++        ("are emitted", 3),
++        ("penetrating", 4),
++        ("penetration", 4),
++        ("penetrate", 4),
++        ("ionizing", 4),
++        ("ionising", 4),
++        ("ionization", 3),
++        ("ionisation", 3),
++        ("background radiation", 4),
++        ("spark counter", 4),
++        ("geiger", 4),
++        ("gm tube", 4),
++        ("cloud chamber", 4),
++        ("photographic film", 3),
++        ("detected", 2),
++        ("detects", 2),
++        ("radiation dose", 2),
++        ("radiation exposure", 2),
++        ("protective", 2),
++        ("bare hands", 3),
++        ("handled", 2),
++        ("casing", 2),
++        ("shield", 3),
++        ("shielded", 3),
++        ("shielding", 3),
++        ("stopped by", 3),
++        ("absorbed by", 3),
++        ("safe to", 3),
++        ("it is safe", 3),
++        ("decay series", 2),
++        ("decay chain", 2),
++        ("a-particle", 2),
++        ("α-particle", 2),
++        ("a particle", 2),
++        ("@ particle", 2),
++        ("α particle", 2),
++        ("alpha particle", 2),
++        ("b-particle", 2),
++        ("β-particle", 2),
++        ("f-particle", 2),
++        ("beta particle", 2),
++        ("gamma", 2),
++        ("isotope", 1),
++        ("stable", 1),
++    ],
++    26: [
++        # rate of decay and uses
++        ("half-life", 4),
++        ("half life", 4),
++        ("half-lives", 4),
++        ("decay constant", 4),
++        ("dating", 3),
++        ("age of the", 3),
++        ("count rate", 3),
++        ("undecayed", 2),
++        ("activity", 2),
++        ("bq", 2),
++        ("tracer", 3),
++    ],
++    27: [
++        # nuclear energy: fission/fusion, mass-energy
++        ("fission", 5),
++        ("fusion", 5),
++        ("binding energy", 5),
++        ("mass defect", 5),
++        ("energy released in the decay", 5),
++        ("chain reaction", 4),
++        ("nuclear reaction", 4),
++        ("nuclear energy", 3),
++        ("bombard", 3),
++        ("bombarded", 3),
++        ("bombards", 3),
++        ("energy released", 2),
++        ("mev", 2),
++    ],
++}
++BOOK5_MIN = {25: 4.0, 26: 4.0, 27: 5.0}
+ 
+ # Weighted keyword cues per section (lowercase). Prefer distinctive phrases.
+ SECTION_KEYWORDS: dict[int, list[tuple[str, float]]] = {
+@@ -79,7 +210,8 @@ SECTION_KEYWORDS: dict[int, list[tuple[str, float]]] = {
+         ("measure the acceleration", 3),
+         ("accelerating frame", 3),
+     ],
+-    7: [("moment", 3), ("torque", 3), ("centre of gravity", 3), ("equilibrium", 2), ("pulley", 2), ("two forces", 1)],
++    # "moment" alone matches "at the moment shown"; keep the mechanics phrasings.
++    7: [("moment of", 3), ("moments", 3), ("turning effect", 3), ("torque", 3), ("centre of gravity", 3), ("equilibrium", 2), ("pulley", 2), ("two forces", 1)],
+     8: [
+         ("mechanical energy", 4),
+         ("potential energy", 4),
+@@ -92,11 +224,12 @@ SECTION_KEYWORDS: dict[int, list[tuple[str, float]]] = {
+         ("conservation of mechanical energy", 5),
+         ("stopping distance", 4),
+         ("height of release", 3),
++        ("energy conversion", 3),
+         ("efficiency", 2),
+         ("power", 1),
+     ],
+     9: [("momentum", 4), ("impulse", 3), ("collision", 3), ("conservation of momentum", 4)],
+-    10: [("projectile", 4), ("horizontal range", 3), ("projected", 2), ("angle of projection", 3)],
++    10: [("projectile", 4), ("horizontal range", 3), ("projected", 2), ("angle of projection", 3), ("time of flight", 3)],
+     11: [("centripetal", 4), ("circular motion", 3), ("angular speed", 2), ("period of revolution", 2)],
+     12: [
+         ("gravitation", 3),
+@@ -108,7 +241,7 @@ SECTION_KEYWORDS: dict[int, list[tuple[str, float]]] = {
+         ("weightlessness", 3),
+         ("newton's law of gravitation", 4),
+     ],
+-    13: [("wavelength", 2), ("transverse", 2), ("longitudinal", 2), ("wave speed", 2), ("amplitude", 1), ("frequency", 1)],
++    13: [("wavelength", 2), ("transverse", 2), ("longitudinal", 2), ("wave speed", 2), ("displacement-distance", 3), ("air particles", 2), ("amplitude", 1), ("frequency", 1)],
+     14: [("diffraction", 4), ("refraction of water", 3), ("wavefront", 3), ("ripple tank", 3)],
+     15: [("interference", 4), ("stationary wave", 4), ("standing wave", 4), ("young", 2), ("beats", 3), ("node", 2), ("antinode", 2)],
+     16: [
+@@ -128,42 +261,17 @@ SECTION_KEYWORDS: dict[int, list[tuple[str, float]]] = {
+         ("series", 1),
+         ("parallel", 1),
+         ("resistance", 2),
++        ("internal resistance", 4),
+         ("circuit", 1),
++        ("circuit diagram", 3),
++        ("voltage across", 2),
+         ("kilowatt", 2),
+         ("electrical power", 2),
+     ],
+     22: [("mains", 3), ("fuse", 2), ("domestic", 3), ("live wire", 3), ("neutral wire", 3), ("earth wire", 3), ("a.c.", 2)],
+     23: [("electromagnet", 3), ("magnetic field", 2), ("motor effect", 3), ("force on a current", 3), ("solenoid", 2)],
+     24: [("induction", 3), ("faraday", 3), ("lenz", 3), ("transformer", 3), ("induced emf", 4), ("generator", 2)],
+-    25: [
+-        ("alpha", 2),
+-        ("beta", 2),
+-        ("gamma", 2),
+-        ("radioactive", 3),
+-        ("ionization", 2),
+-        ("geiger", 3),
+-        ("a-decay", 4),
+-        ("α-decay", 4),
+-        ("alpha-decay", 4),
+-        ("beta-decay", 4),
+-        ("β-decay", 4),
+-        ("nuclear equation", 3),
+-    ],
+-    26: [("half-life", 4), ("half life", 4), ("activity", 2), ("decay constant", 3), ("tracer", 2)],
+-    27: [
+-        ("fission", 4),
+-        ("fusion", 3),
+-        ("binding energy", 4),
+-        ("mass defect", 4),
+-        ("nuclear energy", 3),
+-        ("energy released in the decay", 5),
+-        ("energy released", 3),
+-        ("nuclear equation", 4),
+-        ("mev", 2),
+-        ("radium", 2),
+-        ("uranium", 2),
+-        ("nucleus", 1),
+-    ],
++    # Book 5 (25-27) is resolved by classify_book5(); see BOOK5_CUES.
+ }
+ 
+ 
+@@ -173,15 +281,28 @@ def parse_args() -> argparse.Namespace:
+     return p.parse_args()
+ 
+ 
++def ocr_cache_path(png: Path, year: str, qn: int) -> Path:
++    """Cache file for one whole-page stack, keyed by the PNG geometry.
++
++    A re-cropped qN.png (new page range, new DPI) changes size and therefore
++    gets a fresh OCR pass instead of silently reusing text from an older crop.
++    """
++    with Image.open(png) as image:
++        width, height = image.size
++    return OCR_CACHE / year / f"q{qn}.{width}x{height}.txt"
++
++
+ def ocr_png(path: Path, cache_path: Path) -> str:
+     if cache_path.exists():
+         return cache_path.read_text(encoding="utf-8")
+-    image = Image.open(path).convert("RGB")
++    image = Image.open(path).convert("L")
+     w, h = image.size
+-    # Use most of the page - LQ stems often put key terms mid-question.
+-    band = image.crop((0, 0, w, min(h, max(1200, int(h * 0.7)))))
++    # OCR the whole page stack: later parts (e.g. a half-life sub-question at
++    # the end of a radioactivity LQ) decide sections just as much as the stem.
++    if w > OCR_MAX_WIDTH:
++        image = image.resize((OCR_MAX_WIDTH, int(h * OCR_MAX_WIDTH / w)))
+     buf = io.BytesIO()
+-    band.save(buf, format="PNG")
++    image.save(buf, format="PNG")
+     result = subprocess.run(
+         ["tesseract", "stdin", "stdout", "--psm", "6"],
+         input=buf.getvalue(),
+@@ -191,6 +312,9 @@ def ocr_png(path: Path, cache_path: Path) -> str:
+     )
+     text = result.stdout.decode("utf-8", errors="ignore")
+     cache_path.parent.mkdir(parents=True, exist_ok=True)
++    for stale in cache_path.parent.glob(f"{cache_path.name.split('.', 1)[0]}.*txt"):
++        if stale != cache_path:
++            stale.unlink()
+     cache_path.write_text(text, encoding="utf-8")
+     return text
+ 
+@@ -240,6 +364,9 @@ def score_sections(text: str) -> list[tuple[int, float]]:
+         scores[5] += 4
+     if "describe the motion" in low and ("car" in low or "velocity" in low):
+         scores[5] += 3
++    # "air resistance" is a mechanics phrase, not a circuit cue.
++    if "air resistance" in low and scores[21]:
++        scores[21] = max(0.0, scores[21] - 2.0)
+     # Molecular KE belongs to gas law, not work-energy.
+     if ("gas molecule" in low or "kinetic theory" in low or "monatomic" in low) and scores[8]:
+         scores[8] = max(0.0, scores[8] - 2.0)
+@@ -248,14 +375,54 @@ def score_sections(text: str) -> list[tuple[int, float]]:
+     return ranked
+ 
+ 
++def is_book5(text_low: str) -> bool:
++    return any(phrase_hits(text_low, p) for p in BOOK5_CONTEXT)
++
++
++def score_book5(text: str) -> dict[int, float]:
++    low = text.lower()
++    scores = {sec: 0.0 for sec in BOOK5_CUES}
++    for sec, cues in BOOK5_CUES.items():
++        for phrase, weight in cues:
++            if phrase_hits(low, phrase):
++                scores[sec] += weight
++    return scores
++
++
++def classify_book5(text: str) -> tuple[list[int], str]:
++    """Sections 25-27 for a radioactivity / nuclear question.
++
++    Every section whose cues reach BOOK5_MIN is listed (a Book 5 LQ usually
++    tests two of them, e.g. alpha penetration + activity from half-life);
++    primary is the latest listed section per the curriculum rule.
++    """
++    low = text.lower()
++    scores = score_book5(text)
++    listed = [sec for sec, sc in scores.items() if sc >= BOOK5_MIN[sec]]
++    if not listed:
++        listed = [max(scores, key=lambda sec: (scores[sec], sec))]
++    sections = sorted(listed, reverse=True)
++    primary = sections[0]
++    hits = [p for p, _w in BOOK5_CUES[primary] if phrase_hits(low, p)][:4]
++    reason = f"book5 keywords: {', '.join(hits) if hits else 'score-based'}"
++    for sec in sections[1:]:
++        extra = [p for p, _w in BOOK5_CUES[sec] if phrase_hits(low, p)][:3]
++        reason += f"; also S{sec} ({', '.join(extra)})"
++    return sections, reason
++
++
+ def classify_text(text: str) -> tuple[list[int], str]:
+     """Classify into curriculum sections.
+ 
+     Curriculum rule: if a question needs both Sx and Sy with x < y, primary is Sy
+     (students meet the later topic later). List both only when a significant part
+     is answerable with Sx alone (approximated by a strong exclusive lower-section score).
++    Book 5 (radioactivity) goes through classify_book5, which lists every
++    tested section rather than only the primary.
+     """
+     low = text.lower()
++    if is_book5(low):
++        return classify_book5(text)
+     ranked = score_sections(text)
+     if not ranked or ranked[0][1] < 2:
+         if any(
+@@ -402,16 +569,16 @@ def main() -> None:
+     new_rows = []
+     new_decisions = {}
+     for year, png, qn in jobs:
+-        text = ocr_png(png, OCR_CACHE / year / f"q{qn}.txt")
++        text = ocr_png(png, ocr_cache_path(png, year, qn))
+         sections, reason = classify_text(text)
+-        ans = f"output/lq/{year}/ans/q{qn}.png"
++        ans = f"reconstructed/lq/{year}/ans/q{qn}.png"
+         row = {
+             "Year": year,
+             "Question": qn,
+             "Primary": sections[0],
+             "AllSections": ";".join(str(s) for s in sections),
+             "Reason": reason,
+-            "PNG": f"output/lq/{year}/q{qn}.png",
++            "PNG": f"reconstructed/lq/{year}/q{qn}.png",
+             "AnswerPNG": ans,
+         }
+         new_rows.append(row)
+diff --git a/scripts/classify_lq_llm.py b/scripts/classify_lq_llm.py
+index d265777..8569599 100644
+--- a/scripts/classify_lq_llm.py
++++ b/scripts/classify_lq_llm.py
+@@ -2,7 +2,7 @@
+ # -*- coding: utf-8 -*-
+ """Classify LQ (Paper 1B) questions into the same 27 sections as MC.
+ 
+-Reads crops from output/lq/<year>/qN.png, writes nested LQ outputs only:
++Reads crops from reconstructed/lq/<year>/qN.png, writes nested LQ outputs only:
+   classified/lq/llm_classifications.json
+   classified/lq/classification.csv
+   classified/lq/<book>/<section>/ year-qN.png (+ optional answer copy)
+@@ -38,7 +38,7 @@ from classify_mc_llm import (
+ )
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+-OUTPUT_LQ = ROOT / "output" / "lq"
++OUTPUT_LQ = ROOT / "reconstructed" / "lq"
+ CLASSIFIED_LQ = ROOT / "classified" / "lq"
+ OCR_CACHE = CLASSIFIED_LQ / "ocr_cache"
+ 
+@@ -128,8 +128,8 @@ def _ocr_one(args: tuple[str, str, int]) -> dict:
+         "Year": year,
+         "Question": number,
+         "Statement": cleaned[:2500],
+-        "PNG": f"output/lq/{year}/q{number}.png",
+-        "AnswerPNG": f"output/lq/{year}/ans/q{number}.png",
++        "PNG": f"reconstructed/lq/{year}/q{number}.png",
++        "AnswerPNG": f"reconstructed/lq/{year}/ans/q{number}.png",
+     }
+ 
+ 
+diff --git a/scripts/classify_mc_llm.py b/scripts/classify_mc_llm.py
+index 38e8341..9949842 100644
+--- a/scripts/classify_mc_llm.py
++++ b/scripts/classify_mc_llm.py
+@@ -3,7 +3,7 @@
+ """Classify MC questions into Book 1-5 / Sections 1-27 using an LLM.
+ 
+ Pipeline:
+-  1. Reuse / refresh OCR from output/ PNGs (tesseract cache under classified/mc/ocr_cache)
++  1. Reuse / refresh OCR from reconstructed/mc/ PNGs (tesseract cache under classified/mc/ocr_cache)
+   2. Call an OpenAI-compatible chat API one question (or small batch) at a time
+   3. Write classified/mc/<book>/<section>/ PNG copies plus:
+        classified/mc/classification.csv|json
+@@ -44,7 +44,7 @@ from pathlib import Path
+ from PIL import Image
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+-OUTPUT = ROOT / "output"
++OUTPUT = ROOT / "reconstructed" / "mc"
+ CLASSIFIED = ROOT / "classified" / "mc"
+ OCR_CACHE = CLASSIFIED / "ocr_cache"
+ 
+@@ -192,7 +192,13 @@ def year_key(name: str) -> tuple:
+ def collect_jobs(years: list[str] | None) -> list[tuple[str, str, int]]:
+     jobs: list[tuple[str, str, int]] = []
+     year_dirs = sorted(
+-        [p for p in OUTPUT.iterdir() if p.is_dir() and not p.name.startswith(".")],
++        [
++            p
++            for p in OUTPUT.iterdir()
++            if p.is_dir()
++            and not p.name.startswith(".")
++            and not p.name.endswith("-intermediate")
++        ],
+         key=lambda p: year_key(p.name),
+     )
+     for year_dir in year_dirs:
+@@ -258,7 +264,7 @@ def _ocr_one(args: tuple[str, str, int]) -> dict:
+         "Question": number,
+         "Question statement": statement,
+         "Option": options,
+-        "PNG": f"output/{year}/q{number}.png",
++        "PNG": f"reconstructed/mc/{year}/q{number}.png",
+         "OCR": text,
+     }
+ 
+diff --git a/scripts/classify_mc_sections.py b/scripts/classify_mc_sections.py
+index 6597f63..75faabd 100644
+--- a/scripts/classify_mc_sections.py
++++ b/scripts/classify_mc_sections.py
+@@ -1,6 +1,6 @@
+ #!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+-"""Classify output/ MC PNGs into Book 1-5 / Sections 1-27.
++"""Classify reconstructed/mc/ MC PNGs into Book 1-5 / Sections 1-27.
+ 
+ Writes:
+   classified/mc/<book>/<NN_section>/  (PNG copies; cross-topic Qs appear in each)
+@@ -27,7 +27,7 @@ from pathlib import Path
+ from PIL import Image
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+-OUTPUT = ROOT / "output"
++OUTPUT = ROOT / "reconstructed" / "mc"
+ CLASSIFIED = ROOT / "classified" / "mc"
+ OCR_CACHE = CLASSIFIED / "ocr_cache"
+ 
+@@ -437,7 +437,7 @@ def _ocr_one(args: tuple[str, str, int]) -> dict:
+         "Question": number,
+         "Question statement": statement,
+         "Option": options,
+-        "PNG": f"output/{year}/q{number}.png",
++        "PNG": f"reconstructed/mc/{year}/q{number}.png",
+         "OCR": text,
+     }
+ 
+diff --git a/scripts/combine_lq_section_pdfs.py b/scripts/combine_lq_section_pdfs.py
+index 25c5c9b..5af8ee4 100644
+--- a/scripts/combine_lq_section_pdfs.py
++++ b/scripts/combine_lq_section_pdfs.py
+@@ -1,12 +1,15 @@
+ #!/usr/bin/env python3
+ """Build per-section LQ review PDFs under classified/lq/.
+ 
+-For each syllabus section that has at least one primary LQ:
++For each syllabus section listed in any row's AllSections (primary or not):
+   - questions.pdf  - whole source Paper 1B pages (year then Q; A4)
+   - answers.pdf    - marking-scheme answer crops packed on A4 (same order; skips missing)
+   - performance.pdf - candidate-performance notes as text pages
+ 
+-Skips sections with no classification rows. Overwrites existing PDFs by default.
++A cross-topic LQ (e.g. alpha penetration + activity from half-life) therefore
++appears in every section it tests, matching the PNG copies classify_lq_*
++already place there. Sections with no rows get their stale PDFs removed so an
++old build cannot linger. Overwrites existing PDFs by default.
+ """
+ from __future__ import annotations
+ 
+@@ -52,12 +55,40 @@ def section_dir(section_num: int) -> Path:
+     return CLASSIFIED_LQ / book / folder
+ 
+ 
++def row_sections(row: dict) -> list[int]:
++    """Every section a row belongs to, primary first."""
++    primary = int(row["Primary"])
++    listed = [int(x) for x in (row.get("AllSections") or "").split(";") if x]
++    return [primary] + [sec for sec in listed if sec != primary]
++
++
++def rows_by_section(rows: list[dict]) -> dict[int, list[dict]]:
++    by_section: dict[int, list[dict]] = defaultdict(list)
++    for row in rows:
++        for sec in row_sections(row):
++            by_section[sec].append(row)
++    return by_section
++
++
++SECTION_PDFS = ("questions.pdf", "answers.pdf", "performance.pdf")
++
++
++def remove_stale_pdfs(out_dir: Path) -> list[Path]:
++    removed = []
++    for name in SECTION_PDFS:
++        path = out_dir / name
++        if path.is_file():
++            path.unlink()
++            removed.append(path)
++    return removed
++
++
+ def resolve_answer_png(row: dict) -> Path | None:
+     year, q = row["Year"], row["Question"]
+     candidates = [
+         ROOT / (row.get("AnswerPNG") or ""),
+         section_dir(int(row["Primary"])) / f"{year}-q{q}-ans.png",
+-        ROOT / "output" / "lq" / year / "ans" / f"q{q}.png",
++        ROOT / "reconstructed" / "lq" / year / "ans" / f"q{q}.png",
+     ]
+     for path in candidates:
+         if path.is_file():
+@@ -134,16 +165,16 @@ def main() -> None:
+     rows = load_rows()
+     perf = load_performance()
+ 
+-    by_primary: dict[int, list[dict]] = defaultdict(list)
+-    for row in rows:
+-        by_primary[int(row["Primary"])].append(row)
++    by_section = rows_by_section(rows)
+ 
+     written = 0
+     for num, _book, _folder, name in SECTIONS:
+-        items = by_primary.get(num) or []
++        items = by_section.get(num) or []
+         out_dir = section_dir(num)
+         heading = section_heading_title(num, name)
+         if not items:
++            for stale in remove_stale_pdfs(out_dir):
++                print(f"Removed stale {stale.relative_to(ROOT)} (no LQ in section)")
+             continue
+         out_dir.mkdir(parents=True, exist_ok=True)
+         label = f"S{num:02d} {name}"
+diff --git a/scripts/combine_reconstructed.py b/scripts/combine_reconstructed.py
+new file mode 100644
+index 0000000..0cb95e7
+--- /dev/null
++++ b/scripts/combine_reconstructed.py
+@@ -0,0 +1,79 @@
++#!/usr/bin/env python3
++"""Join every year's reconstructed paper into one PDF per paper type.
++
++  reconstructed/mc/combined.pdf  <- reconstructed/mc/<year>/combined.pdf
++  reconstructed/lq/combined.pdf  <- reconstructed/lq/<year>/combined.pdf
++
++Years are appended in syllabus order (2012.. then pp, sap); the per-year PDFs
++already carry year and question labels on portrait A4, so pages are copied
++as they are. Years without a per-year combined.pdf are skipped and listed.
++"""
++from __future__ import annotations
++
++import argparse
++from pathlib import Path
++
++import pymupdf as fitz
++
++from classify_mc_llm import year_key
++
++ROOT = Path(__file__).resolve().parents[1]
++RECONSTRUCTED = ROOT / "reconstructed"
++KINDS = ("mc", "lq")
++
++
++def parse_args() -> argparse.Namespace:
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("--kind", choices=KINDS, nargs="+", default=list(KINDS))
++    return parser.parse_args()
++
++
++def year_dirs(kind_dir: Path) -> list[Path]:
++    """Per-year folders under reconstructed/<kind>/ (skips *-intermediate)."""
++    if not kind_dir.is_dir():
++        return []
++    found = [
++        path
++        for path in kind_dir.iterdir()
++        if path.is_dir() and not path.name.endswith("-intermediate")
++    ]
++    return sorted(found, key=lambda path: year_key(path.name))
++
++
++def combine_kind(kind_dir: Path) -> tuple[Path | None, list[str]]:
++    """Write kind_dir/combined.pdf from each year's combined.pdf; return (dest, skipped)."""
++    dest = kind_dir / "combined.pdf"
++    skipped: list[str] = []
++    document = fitz.open()
++    try:
++        for year_dir in year_dirs(kind_dir):
++            source = year_dir / "combined.pdf"
++            if not source.is_file():
++                skipped.append(year_dir.name)
++                continue
++            with fitz.open(source) as year_pdf:
++                document.insert_pdf(year_pdf)
++        if document.page_count == 0:
++            return None, skipped
++        document.save(dest, garbage=4, deflate=True)
++    finally:
++        document.close()
++    return dest, skipped
++
++
++def main() -> None:
++    args = parse_args()
++    for kind in args.kind:
++        kind_dir = RECONSTRUCTED / kind
++        dest, skipped = combine_kind(kind_dir)
++        if dest is None:
++            print(f"skip {kind}: no per-year combined.pdf under {kind_dir.relative_to(ROOT)}")
++            continue
++        with fitz.open(dest) as done:
++            print(f"Wrote {dest.relative_to(ROOT)} ({done.page_count} pages)")
++        if skipped:
++            print(f"  missing per-year combined.pdf: {', '.join(skipped)}")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/crop_lq_from_pages.py b/scripts/crop_lq_from_pages.py
+index a1ed15d..93e2dcd 100644
+--- a/scripts/crop_lq_from_pages.py
++++ b/scripts/crop_lq_from_pages.py
+@@ -149,7 +149,7 @@ def sync_classified_question_pngs(years: list[str] | None = None) -> int:
+             if years and year not in years:
+                 continue
+             question = row["Question"]
+-            src = ROOT / "output" / "lq" / year / f"q{question}.png"
++            src = ROOT / "reconstructed" / "lq" / year / f"q{question}.png"
+             if not src.is_file():
+                 continue
+             sections = [int(item) for item in row["AllSections"].split(";") if item]
+@@ -249,7 +249,7 @@ def main() -> None:
+         help="Export missing pages/ without rewriting starts.json or qN.png",
+     )
+     args = parser.parse_args()
+-    root = ROOT / "output" / "lq"
++    root = ROOT / "reconstructed" / "lq"
+     total = 0
+     selected: list[str] = []
+     for year_dir in sorted(root.iterdir()):
+diff --git a/scripts/lq_pdf_review.py b/scripts/lq_pdf_review.py
+index b77b071..f2e59f5 100644
+--- a/scripts/lq_pdf_review.py
++++ b/scripts/lq_pdf_review.py
+@@ -23,7 +23,7 @@ from png_pdf import append_pdf_page_a4
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+ PAPER_LQ = ROOT / "paper" / "lq"
+-OUTPUT_LQ = ROOT / "output" / "lq"
++OUTPUT_LQ = ROOT / "reconstructed" / "lq"
+ 
+ 
+ def paper_year_label(stem: str) -> str:
+diff --git a/scripts/png_pdf.py b/scripts/png_pdf.py
+index 969a233..523c1b3 100644
+--- a/scripts/png_pdf.py
++++ b/scripts/png_pdf.py
+@@ -22,7 +22,7 @@ def png_item_label(path: Path) -> str | None:
+     """Year and question from a crop path: 2012_q36.png -> 2012 Q36.
+ 
+     Bare qN.png takes the year from an ancestor directory named {year}|pp|sap
+-    (output/lq/2013/q2.png -> 2013 Q2; output/lq/2012/ans/q1.png -> 2012 Q1).
++    (reconstructed/lq/2013/q2.png -> 2013 Q2; reconstructed/lq/2012/ans/q1.png -> 2012 Q1).
+     """
+     stem = path.stem
+     found = YEAR_Q_PNG.fullmatch(stem)
+diff --git a/scripts/quality_audit.py b/scripts/quality_audit.py
+index 5902457..8a11408 100644
+--- a/scripts/quality_audit.py
++++ b/scripts/quality_audit.py
+@@ -51,11 +51,14 @@ def load_csv(path: Path) -> list[dict[str, str]]:
+ 
+ def mc_years() -> list[str]:
+     years: list[str] = []
+-    for directory in sorted((ROOT / "output").iterdir()):
++    mc_dir = ROOT / "reconstructed" / "mc"
++    if not mc_dir.is_dir():
++        return years
++    for directory in sorted(mc_dir.iterdir()):
+         if not directory.is_dir():
+             continue
+         name = directory.name
+-        if name in {"lq"} or name.endswith("-intermediate"):
++        if name.endswith("-intermediate"):
+             continue
+         if (directory / "q1.png").is_file():
+             years.append(name)
+@@ -69,7 +72,7 @@ def audit_mc_crops() -> dict:
+     crop_count = 0
+     for year in mc_years():
+         pngs = sorted(
+-            (ROOT / "output" / year).glob("q*.png"),
++            (ROOT / "reconstructed" / "mc" / year).glob("q*.png"),
+             key=lambda path: int(path.stem[1:]),
+         )
+         if len(pngs) < 30:
+@@ -108,7 +111,7 @@ def audit_mc_crops() -> dict:
+         "missing_combined_pdf": [
+             year
+             for year in mc_years()
+-            if not (ROOT / "output" / year / "combined.pdf").is_file()
++            if not (ROOT / "reconstructed" / "mc" / year / "combined.pdf").is_file()
+         ],
+     }
+ 
+@@ -119,7 +122,8 @@ def audit_lq_crops() -> dict:
+     heights: list[int] = []
+     crop_count = 0
+     years = []
+-    for year_dir in sorted((ROOT / "output" / "lq").iterdir()):
++    lq_dir = ROOT / "reconstructed" / "lq"
++    for year_dir in sorted(lq_dir.iterdir()) if lq_dir.is_dir() else []:
+         if not year_dir.is_dir():
+             continue
+         years.append(year_dir.name)
+@@ -166,7 +170,7 @@ def audit_lq_crops() -> dict:
+         "missing_questions_pdf": [
+             year
+             for year in years
+-            if not (ROOT / "output" / "lq" / year / "questions.pdf").is_file()
++            if not (ROOT / "reconstructed" / "lq" / year / "questions.pdf").is_file()
+         ],
+     }
+ 
+diff --git a/segment b/segment
+index 909d3cc..5e9321f 100755
+--- a/segment
++++ b/segment
+@@ -7,14 +7,14 @@ For a reproducible full run over paper/{mc,lq,ans}/, use:
+ 
+ Paper 1A (MC) two-step workflow for a single PDF:
+   Step 1 - place anchors (blue dots) for review:
+-    ./segment paper.pdf output/2012-intermediate --step anchors
+-    Review output/2012-intermediate/anchor.pdf
++    ./segment paper.pdf reconstructed/mc/2012-intermediate --step anchors
++    Review reconstructed/mc/2012-intermediate/anchor.pdf
+   Step 2 - split into clean PNGs from the original PDF:
+-    ./segment paper.pdf output/2012 --step split --intermediate output/2012-intermediate
++    ./segment paper.pdf reconstructed/mc/2012 --step split --intermediate reconstructed/mc/2012-intermediate
+ 
+ Paper 1B (LQ): pages-only split (pages/, starts.json, combined.pdf). Does not
+ write or delete q*.png; ./pipeline runs crop_lq_from_pages afterward.
+-Page renders under output/**/pages/ are gitignored.
++Page renders under reconstructed/**/pages/ are gitignored.
+ 
+ Usage:
+   ./segment paper.pdf output_dir/

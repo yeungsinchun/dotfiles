@@ -1,0 +1,21 @@
+---
+pid: 38888
+cwd: "/private/tmp/dse_inspect"
+command: "python3 -c \"\nimport fitz\nbase = '/Users/sinchunyeung/Documents-local/Materials/Phy/DSE/Topic/'\ndoc = fitz.open(base+'21-electric-circuits.pdf')\nn=len(doc)\nfor p in range(n):\n    pix = doc[p].get_pixmap(dpi=150)\n    pix.save(f'/tmp/dse_inspect/ec_p{p}.png')\n\"\ncd /tmp/dse_inspect && for p in $(seq 0 53); do\n  t=$(tesseract \"ec_p${p}.png\" - --psm 6 2>/dev/null)\n  echo \"$t\" | grep -oE 'HKDSE 20[0-9][0-9]' \ndone | sort -u"
+started_at: 2026-07-31T16:36:45.145Z
+running_for_ms: 70029    
+---
+HKDSE 2012
+HKDSE 2013
+HKDSE 2014
+HKDSE 2015
+HKDSE 2016
+HKDSE 2017
+HKDSE 2019
+HKDSE 2020
+
+---
+exit_code: 0
+elapsed_ms: 71216
+ended_at: 2026-07-31T16:37:56.361Z
+---

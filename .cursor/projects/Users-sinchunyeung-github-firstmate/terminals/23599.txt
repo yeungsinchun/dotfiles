@@ -1,0 +1,451 @@
+---
+pid: 84316
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "export PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:$PATH\"\nP=/Users/sinchunyeung/github/paper2notes\ngit -C \"$P\" status -sb\ngit -C \"$P\" check-ignore -v ch1.pdf ch2.pdf ch3.pdf ch4.pdf ch5.pdf || true\necho '======= pdfinfo ======='\nfor i in 1 2 3 4 5; do\n  echo \"----- ch$i.pdf -----\"\n  pdfinfo \"$P/ch$i.pdf\" 2>/dev/null | rg -n 'Pages|Title|Page size'\n  echo '--- text ---'\n  pdftotext -layout \"$P/ch$i.pdf\" - 2>/dev/null | head -80\ndone\necho '======= dse chapters ======='\nls \"$P/dse-classified/mc/05_Radioactivity_and_Nuclear_Energy\"\nls \"$P/dse-classified/lq/05_Radioactivity_and_Nuclear_Energy\"\n"
+title: "Extract syllabus PDF text and git status"
+status: succeeded
+started_at: 2026-09-12T15:23:40.326Z
+running_for_ms: 1313     
+---
+## main...origin/main
+?? QB_502/
+?? QB_503/
+?? ch1.pdf
+?? ch2.pdf
+?? ch3.pdf
+?? ch4.pdf
+?? ch5.pdf
+======= pdfinfo =======
+----- ch1.pdf -----
+10:Pages:           6
+12:Page size:       595.22 x 842 pts (A4)
+--- text ---
+2.3.1      Compulsory Part (184 hours)
+
+
+I       Heat and Gases (23 hours)
+
+Overview
+
+This topic examines the concept of thermal energy and transfer processes which are crucial
+for the maintenance and quality of our lives. Particular attention is placed on the distinction
+and relationships among temperature, internal energy and energy transfer. Students are also
+encouraged to adopt microscopic interpretations of various important concepts in the topic of
+thermal physics.
+
+
+Calculations involving specific heat capacity will serve to complement the theoretical aspects
+of heat and energy transfer. The practical importance of the high specific heat capacity of
+water can be illustrated with examples close to the experience of students. A study of
+conduction, convection and radiation provides a basis for analysing the containment of
+internal energy and transfer of energy related to heat. The physics involving the change of
+states is examined and numerical problems involving specific latent heat are used to
+consolidate the theoretical aspects of energy conversion.
+
+
+The ideal gas law relating the pressure, temperature and volume of an ideal gas was originally
+derived from the experimentally measured Charles’ law and Boyle’s law. Many common
+gases exhibit behaviour very close to that of an ideal gas at ambient temperature and pressure.
+The ideal gas law is a good approximation for studying the properties of gases because it does
+not deviate much from the ways that real gases behave. The kinetic theory of gases is
+intended to correlate temperature to the kinetic energy of gas molecules and interpret pressure
+in terms of the motion of gas molecules.
+
+
+
+
+                                              18
+Students should
+                         Students should be able to:
+learn:
+a.   Temperature,
+     heat and
+     internal energy
+
+
+     temperature and        realise temperature as the degree of hotness of an object
+     thermometers           interpret temperature as a quantity associated with the average kinetic
+                             energy due to the random motion of molecules in a system
+                            explain the use of temperature-dependent properties in measuring
+                             temperature
+                            define and use degree Celsius as a unit of temperature
+
+
+     heat and               realise that heat is the energy transferred as a result of the temperature
+     internal energy         difference between two objects
+                            describe the effect of mass, temperature and state of matter on the
+                             internal energy of a system
+                            relate internal energy to the sum of the kinetic energy of random motion
+                             and the potential energy of molecules in the system
+
+
+                                                           Q                                     Q
+     heat capacity and      define heat capacity as C       and specific heat capacity as c 
+                                                           T                                   mT
+     specific heat
+                            determine the specific heat capacity of a substance
+     capacity
+                            discuss the practical importance of the high specific heat capacity of
+                             water
+                            solve problems involving heat capacity and specific heat capacity
+
+
+b.   Transfer
+     processes
+
+
+     conduction,            identify the means of energy transfer in terms of conduction, convection
+     convection and          and radiation
+     radiation              interpret energy transfer by conduction in terms of molecular motion
+                            realise the emission of infra-red radiation by hot objects
+                            determine the factors affecting the emission and absorption of radiation
+
+----- ch2.pdf -----
+10:Pages:           9
+12:Page size:       595.22 x 842 pts (A4)
+--- text ---
+II     Force and Motion (50 hours)
+
+Overview
+
+Motion is a common phenomenon in our daily experience. It is an important element in
+physics where students learn to describe how objects move and investigate why objects move
+in the way that they do. In this topic, the fundamentals of mechanics in kinematics and
+dynamics are introduced, and the foundation for describing motion with physics terminology
+is laid. Various types of graphical representation of motion are studied. Students learn
+how to analyse different forms of motion and solve simple problems relating to uniformly
+accelerated motion. They also learn about motion in one or two dimensions and rules
+governing the motion of objects on Earth.
+
+The concept of inertia and its relation to Newton’s First Law of motion are covered. Simple
+addition and resolution of forces are used to illustrate the vector properties of forces.
+Free-body diagrams are used to work out the net force acting on a body. Newton’s Second
+Law of motion, which relates the acceleration of an object to the net force, is examined.
+The concepts of mass, weight and gravitational force are introduced. Newton’s Third Law
+of motion is related to the nature of forces. The study of motion is extended to two
+dimensions, including projectile motion and circular motion which lead to an investigation of
+gravitation.
+
+
+Work is a process of energy transfer. The concepts of mechanical work done and energy
+transfer are examined and used in the derivation of kinetic energy and gravitational potential
+energy. Conservation of energy in a closed system is a fundamental concept in physics.
+The treatment of energy conversion is used to illustrate the law of conservation of energy,
+and the concept of power is also introduced. Students learn how to compute quantities such
+as momentum and energy in examples involving collisions. The relationship among the
+change in the momentum of a body, impact time and impact force is emphasised.
+
+
+
+
+                                             24
+Students should learn:        Students should be able to:
+
+
+a.   Position and movement
+
+
+     position, distance and      describe the change of position of objects in terms of distance
+     displacement                 and displacement
+                                 present information on displacement-time graphs for moving
+                                  objects
+
+
+     scalars and vectors         distinguish between scalar and vector quantities
+                                 use scalars and vectors to represent physical quantities
+
+
+     speed and velocity          define average speed as the distance travelled in a given period
+                                  of time and average velocity as the displacement changed in a
+                                  period of time
+                                 distinguish between instantaneous and average speed/velocity
+                                 describe the motion of objects in terms of speed and velocity
+                                 present information on velocity-time graphs for moving objects
+                                 use displacement-time and velocity-time graphs to determine
+                                  the displacement and velocity of objects
+
+
+     uniform motion              interpret the uniform motion of objects using algebraic and
+                                  graphical methods
+                                 solve problems involving displacement, time and velocity
+
+
+     acceleration                define acceleration as the rate of change of velocity
+                                 use velocity-time graphs to determine the acceleration of
+                                  objects in uniformly accelerated motion
+                                 present information on acceleration-time graphs for moving
+                                  objects
+
+
+     equations of uniformly      derive equations of uniformly accelerated motion
+     accelerated motion                v  u  at
+                                       s  12 (u  v )t
+                                       s  ut  12 at 2
+                                       v 2  u 2  2as
+                                 solve problems involving objects in uniformly accelerated
+                                  motion
+----- ch3.pdf -----
+10:Pages:           7
+12:Page size:       595.22 x 842 pts (A4)
+--- text ---
+III      Wave Motion (47 hours)
+
+Overview
+
+This topic examines the basic nature and properties of waves. Light and sound, in particular,
+are also studied in detail. Students are familiar with examples of energy being transmitted
+from one place to another, together with the transfer of matter. In this topic, the concept of
+waves as a means of transmitting energy without transferring matter is emphasised. The
+foundations for describing wave motion with physics terminology are laid. Students learn
+the graphical representations of travelling waves. The basic properties and characteristics
+displayed by waves are examined; reflection, refraction, diffraction and interference are
+studied, using simple wavefront diagrams.
+
+
+Students acquire specific knowledge about light in two important aspects.                     The
+characteristics of light as a part of the electromagnetic spectrum are studied. Also, the linear
+propagation of light in the absence of significant diffraction and interference effects is used to
+explain image formation in the domain of geometrical optics. The formation of real and
+virtual images using mirrors and lenses is studied with construction rules for light rays.
+
+
+Sound as an example of longitudinal waves is examined and its general properties are
+compared with those of light waves. Students also learn about ultrasound. The general
+descriptions of musical notes are related to the terminology of waves. The effects of noise
+pollution and the importance of acoustic protection are also studied.
+
+
+
+Students should learn:           Students should be able to:
+
+
+a.    Nature and properties of
+      waves
+
+
+      nature of waves               interpret wave motion in terms of oscillation
+                                    realise waves as transmitting energy without transferring
+                                     matter
+
+
+
+
+                                                 33
+Students should learn:          Students should be able to:
+
+
+    wave motion and                 distinguish between transverse and longitudinal waves
+    propagation                     describe wave motion in terms of waveform, crest, trough,
+                                     compression, rarefaction, wavefront, phase, displacement,
+                                     amplitude, period, frequency, wavelength and wave speed
+                                    present information on displacement-time and
+                                     displacement-distance graphs for travelling waves
+                                    determine factors affecting the speed of propagation of waves
+                                     along stretched strings or springs
+                                                1
+                                    apply f      and v = f to solve problems
+                                                T
+
+
+    reflection and refraction       realise the reflection of waves at a plane barrier/reflector/surface
+                                    realise the refraction of waves across a plane boundary
+                                    examine the change in wave speeds during refraction and
+                                     define refractive index in terms of wave speeds
+                                    draw wavefront diagrams to show reflection and refraction
+
+
+    diffraction and interference    describe the diffraction of waves through a narrow gap and
+                                     around a corner
+                                    examine the effect of the width of slit on the degree of
+                                     diffraction
+                                    describe the superposition of two pulses
+                                    realise the interference of waves
+                                    distinguish between constructive and destructive interferences
+                                    examine the interference of waves from two coherent sources
+                                    determine the conditions for constructive and destructive
+                                     interferences in terms of path difference
+                                    draw wavefront diagrams to show diffraction and interference
+
+
+    stationary wave (transverse     explain the formation of a stationary wave
+----- ch4.pdf -----
+10:Pages:           8
+12:Page size:       595.22 x 842 pts (A4)
+--- text ---
+IV      Electricity and Magnetism (48 hours)
+
+Overview
+
+This topic examines the basic principles of electricity and magnetism. The abstract concept
+of an electric field is introduced through its relationship with the electrostatic force. The
+inter-relationships among voltage, current, resistance, charge, energy and power are
+examined and the foundation for basic circuitry is laid. As electricity is the main energy
+source in homes and electrical appliances have become an integral part of daily life, the
+practical use of electricity in households is studied. Particular attention is paid to the safety
+aspects of domestic electricity.
+
+
+The concept of magnetic field is applied to the study of electromagnetism. The magnetic
+effects of electric current and some simple magnetic field patterns are studied. Students also
+learn the factors that affect the strength of an electromagnet. A magnetic force is produced
+when a current-carrying conductor is placed in a magnetic field. An electric motor requires
+the supply of electric current to the coil in a magnetic field to produce a turning force causing
+it to rotate.
+
+
+The general principles of electromagnetic induction are introduced. Electrical energy can be
+generated when there is relative motion between a conductor and a magnetic field.
+Generators reverse the process in motors to convert mechanical energy into electrical energy.
+The operation of simple d.c. and a.c. generators are studied. Students learn how a.c.
+voltages can be stepped up or down with transformers. The system by which electrical
+energy is transmitted over great distances to our homes is also studied.
+
+
+
+Students should learn:          Students should be able to:
+
+
+a.   Electrostatics
+
+
+     electric charges              examine the evidence for two kinds of charges in nature
+                                   realise the attraction and repulsion between charges
+                                                                  QQ
+                                   state Coulomb’s law F  1 2 2
+                                                                 4 o r
+                                   interpret charging in terms of electron transfer
+                                   solve problems involving forces between point charges
+
+
+
+
+                                                40
+Students should learn:       Students should be able to:
+
+
+     electric field             describe the electric field around a point charge and between
+                                 parallel charged plates
+                                represent an electric field using field lines
+                                explain how charges interact via an electric field
+                                define electric field strength E at a point as the force per unit
+                                 charge on a positive test charge placed at that point
+                                state electric field strength around a point charge
+                                              Q                                               V
+                                  by E                  and between parallel plates by E      ,
+                                           4 o r   2
+                                                                                              d
+
+                                  and solve problems
+
+
+
+b.   Circuits and domestic
+     electricity
+
+
+     electric current           define electric current as the rate of flow of electric charges
+                                state the convention for the direction of electric current
+
+
+     electrical energy and      describe the energy transformations in electric circuits
+     electromotive force        define the potential difference (p.d.) between two points in a
+                                 circuit as the electric potential energy converted to other
+                                 forms per unit charge passing between the points outside the
+                                 source
+----- ch5.pdf -----
+10:Pages:           5
+12:Page size:       595.22 x 842 pts (A4)
+--- text ---
+V       Radioactivity and Nuclear Energy (16 hours)
+
+Overview
+
+In this topic, nuclear processes are examined. Ionizing radiation is very useful in industrial
+and medical fields but at the same time is hazardous to us. Nuclear radiation comes from
+natural and artificial sources. It is essential for students to understand the origin of
+radioactivity, the nature and the properties of radiation. Students should also learn simple
+methods to detect radiation and identify major sources of background radiation in our natural
+environment. Simple numerical problems involving half-lives are performed in order to
+understand the long-term effects of some radioactive sources. The potential hazards of
+ionizing radiation are studied scientifically and in a balanced way by bringing in the concept
+of dosage.
+
+
+In the atomic model, the basic structure of a nuclide is represented by a symbolic notation.
+Students learn the concepts of isotopes. They are also introduced to fission and fusion,
+nature’s most powerful energy sources.
+
+
+
+Students should learn:         Students should be able to:
+
+
+a.   Radiation and
+     Radioactivity
+
+
+     X-rays                       realise X-rays as ionizing electromagnetic radiations of short
+                                   wavelengths with high penetrating power
+                                  realise the emission of X-rays when fast electrons hit a heavy
+                                   metal target
+                                  discuss the uses of X-rays
+
+
+     ,  and  radiations        describe the origin and nature of ,  and  radiations
+                                  compare ,  and  radiations in terms of their penetrating
+                                   power, ranges, ionizing power, behaviour in electric field and
+                                   magnetic field, and cloud chamber tracks
+
+
+     radioactive decay            realise the occurrence of radioactive decay in unstable
+                                   nuclides
+                                  examine the random nature of radioactive decay
+
+
+                                                  48
+Students should learn:          Students should be able to:
+
+
+                                   state the proportional relationship between the activity of a
+                                    sample and the number of undecayed nuclei
+                                   define half-life as the period of time over which the number of
+                                    radioactive nuclei decreases by a factor of one-half
+                                   determine the half-life of a radioisotope from its decay graph
+                                    or from numerical data
+                                   realise the existence of background radiation
+                                   solve problems involving radioactive decay
+                                   represent the number of undecayed nuclei by the exponential
+                                    law of decay N = No e-kt
+                                   apply the exponential law of decay N = No e-kt to solve problems
+                                   relate the decay constant and the half-life
+
+
+     detection of radiation        detect radiation with a photographic film and GM counter
+                                   detect radiation in terms of count rate using a GM counter
+
+
+     radiation safety              represent radiation equivalent dose using the unit sievert (Sv)
+                                   discuss potential hazards of ionizing radiation and the ways to
+                                    minimise the radiation dose absorbed
+                                   suggest safety precautions in handling radioactive sources
+
+
+b.   Atomic model
+
+
+     atomic structure              describe the structure of an atom
+                                   define atomic number as the number of protons in the nucleus
+                                    and mass number as the sum of the number of protons and
+======= dse chapters =======
+25_Radiation_and_Radioactivity
+26_Rate_of_Decay_and_Uses_of_Radionuclides
+27_Nuclear_Energy
+25_Radiation_and_Radioactivity
+26_Rate_of_Decay_and_Uses_of_Radionuclides
+27_Nuclear_Energy
+
+---
+exit_code: 0
+elapsed_ms: 1313
+ended_at: 2026-09-12T15:23:41.639Z
+---

@@ -1,0 +1,73 @@
+---
+pid: 80253
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db"
+command: ".venv/bin/python3 scripts/combine_section_pdfs.py && .venv/bin/python3 scripts/combine_lq_section_pdfs.py"
+title: "Rebuild classified review PDFs without item lists"
+status: succeeded
+started_at: 2026-09-10T15:22:25.511Z
+running_for_ms: 107971   
+---
+Loaded 462 keys (438 with correct %)
+Wrote 01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/combined.pdf + answer.pdf (14 pages, 8 with %)
+Wrote 01_Heat_and_Gases/02_Heat_Capacity/combined.pdf + answer.pdf (12 pages, 9 with %)
+Wrote 01_Heat_and_Gases/03_Change_of_State/combined.pdf + answer.pdf (16 pages, 14 with %)
+Wrote 01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/combined.pdf + answer.pdf (21 pages, 16 with %)
+Wrote 02_Force_and_Motion/05_Motion/combined.pdf + answer.pdf (29 pages, 23 with %)
+Wrote 02_Force_and_Motion/06_Force/combined.pdf + answer.pdf (38 pages, 23 with %)
+Wrote 02_Force_and_Motion/07_More_about_Forces/combined.pdf + answer.pdf (22 pages, 16 with %)
+Wrote 02_Force_and_Motion/08_Work_Energy_and_Power/combined.pdf + answer.pdf (17 pages, 14 with %)
+Wrote 02_Force_and_Motion/09_Momentum/combined.pdf + answer.pdf (21 pages, 15 with %)
+Wrote 02_Force_and_Motion/10_Projectile_Motion/combined.pdf + answer.pdf (11 pages, 11 with %)
+Wrote 02_Force_and_Motion/11_Uniform_Circular_Motion/combined.pdf + answer.pdf (9 pages, 6 with %)
+Wrote 02_Force_and_Motion/12_Gravitation/combined.pdf + answer.pdf (14 pages, 11 with %)
+Wrote 03A_Wave_Motion/13_Wave_Motion/combined.pdf + answer.pdf (28 pages, 23 with %)
+Wrote 03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/combined.pdf + answer.pdf (27 pages, 21 with %)
+Wrote 03A_Wave_Motion/15_Interference_and_Stationary_Wave/combined.pdf + answer.pdf (29 pages, 21 with %)
+Wrote 03A_Wave_Motion/16_Light_and_Sound/combined.pdf + answer.pdf (26 pages, 21 with %)
+Wrote 03B_Ray_Optics/17_Reflection_of_Light/combined.pdf + answer.pdf (5 pages, 4 with %)
+Wrote 03B_Ray_Optics/18_Refraction_of_Light/combined.pdf + answer.pdf (13 pages, 12 with %)
+Wrote 03B_Ray_Optics/19_Lenses/combined.pdf + answer.pdf (23 pages, 16 with %)
+Wrote 04_Electricity_and_Magnetism/20_Electrostatics/combined.pdf + answer.pdf (31 pages, 26 with %)
+Wrote 04_Electricity_and_Magnetism/21_Circuit_and_Power/combined.pdf + answer.pdf (45 pages, 34 with %)
+Wrote 04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/combined.pdf + answer.pdf (27 pages, 20 with %)
+Wrote 04_Electricity_and_Magnetism/23_Electromagnetism/combined.pdf + answer.pdf (29 pages, 22 with %)
+Wrote 04_Electricity_and_Magnetism/24_Electromagnetic_Induction/combined.pdf + answer.pdf (26 pages, 20 with %)
+Wrote 05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/combined.pdf + answer.pdf (18 pages, 15 with %)
+Wrote 05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/combined.pdf + answer.pdf (17 pages, 15 with %)
+Wrote 05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/combined.pdf + answer.pdf (13 pages, 10 with %)
+
+Done: 27 section pairs, 581 question pages
+Examples without correct % (placed last): 2018_q1.png, 2026_q1.png, 2026_q2.png, pp_q1.png, pp_q4.png, sap_q1.png, 2026_q3.png, pp_q2.png, pp_q3.png, 2013_q1.png, sap_q2.png, 2013_q3.png
+S01 Temperature and Heat Transfer: questions.pdf (2), answers.pdf (2), performance.pdf (2) -> classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer
+S02 Heat Capacity: questions.pdf (7), answers.pdf (7), performance.pdf (7) -> classified/lq/01_Heat_and_Gases/02_Heat_Capacity
+S03 Change of State: questions.pdf (6), answers.pdf (4), performance.pdf (6) -> classified/lq/01_Heat_and_Gases/03_Change_of_State
+S04 Gas Law and Kinetic Theory: questions.pdf (15), answers.pdf (11), performance.pdf (15) -> classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory
+S05 Motion: questions.pdf (10), answers.pdf (6), performance.pdf (10) -> classified/lq/02_Force_and_Motion/05_Motion
+S06 Force: questions.pdf (9), answers.pdf (9), performance.pdf (9) -> classified/lq/02_Force_and_Motion/06_Force
+S07 More about Forces: questions.pdf (2), answers.pdf (2), performance.pdf (2) -> classified/lq/02_Force_and_Motion/07_More_about_Forces
+S08 Work, Energy and Power: questions.pdf (5), answers.pdf (3), performance.pdf (5) -> classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power
+S09 Momentum: questions.pdf (6), answers.pdf (5), performance.pdf (6) -> classified/lq/02_Force_and_Motion/09_Momentum
+S10 Projectile Motion: questions.pdf (2), answers.pdf (1), performance.pdf (2) -> classified/lq/02_Force_and_Motion/10_Projectile_Motion
+S11 Uniform Circular Motion: questions.pdf (4), answers.pdf (4), performance.pdf (4) -> classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion
+S13 Wave Motion: questions.pdf (3), answers.pdf (1), performance.pdf (3) -> classified/lq/03A_Wave_Motion/13_Wave_Motion
+S14 Reflection, Refraction and Diffraction: questions.pdf (5), answers.pdf (5), performance.pdf (5) -> classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction
+S15 Interference and Stationary Wave: questions.pdf (4), answers.pdf (3), performance.pdf (4) -> classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave
+S16 Light and Sound: questions.pdf (6), answers.pdf (5), performance.pdf (6) -> classified/lq/03A_Wave_Motion/16_Light_and_Sound
+S18 Refraction of Light: questions.pdf (6), answers.pdf (5), performance.pdf (6) -> classified/lq/03B_Ray_Optics/18_Refraction_of_Light
+S19 Lenses: questions.pdf (10), answers.pdf (9), performance.pdf (10) -> classified/lq/03B_Ray_Optics/19_Lenses
+S20 Electrostatics: questions.pdf (4), answers.pdf (2), performance.pdf (4) -> classified/lq/04_Electricity_and_Magnetism/20_Electrostatics
+S21 Circuit and Power: questions.pdf (22), answers.pdf (15), performance.pdf (22) -> classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power
+S22 AC and Domestic Electricity: questions.pdf (6), answers.pdf (5), performance.pdf (6) -> classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity
+S23 Electromagnetism: questions.pdf (9), answers.pdf (9), performance.pdf (9) -> classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism
+S24 Electromagnetic Induction: questions.pdf (8), answers.pdf (5), performance.pdf (8) -> classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction
+ch25 Radiation and Radioactivity: questions.pdf (1) from folder PNGs -> classified/lq/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity
+S26 Rate of Decay and Uses of Radionuclides: questions.pdf (7), answers.pdf (6), performance.pdf (7) -> classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides
+S27 Nuclear Energy: questions.pdf (9), answers.pdf (8), performance.pdf (9) -> classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy
+
+Done: 25 sections with 3 PDFs each
+
+---
+exit_code: 0
+elapsed_ms: 107971
+ended_at: 2026-09-10T15:24:13.482Z
+---

@@ -1,0 +1,21 @@
+---
+pid: 92992
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nimport preprocess_mc as p\nimport pymupdf as fitz\ndoc=fitz.open('paper/mc/2025p1a.pdf')\ncontent=list(range(1,doc.page_count))\nhits=p.merge_page_hits(doc, content, 33)\nlabels=p.collect_labels(doc, content, 2.0, 33, page_hits=hits)\nprint('labels', len(labels), 'missing', sorted(set(range(1,34))-labels.keys()))\nfor n in (11,12,13,18,19,20):\n    print(n, labels.get(n))\nPY\n"
+status: succeeded
+started_at: 2026-09-04T15:45:50.693Z
+running_for_ms: 74731    
+---
+labels 12 missing [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+11 (4, 52.708333333333336, 588.5)
+12 (13, 47.791666666666664, 627.5)
+13 None
+18 None
+19 None
+20 None
+
+---
+exit_code: 0
+elapsed_ms: 74727
+ended_at: 2026-09-04T15:47:05.420Z
+---

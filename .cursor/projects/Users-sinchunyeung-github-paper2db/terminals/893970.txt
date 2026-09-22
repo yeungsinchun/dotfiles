@@ -1,0 +1,52 @@
+---
+pid: 41750
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python - <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nfrom preprocess_lq_answers import render_page, ocr_text, find_main_question_ys, is_section_a_keys, looks_like_section_b, header_text\nimport pymupdf as fitz\n\ndoc=fitz.open('paper/ans/2018ans.pdf')\nfor i in range(len(doc)):\n    im=render_page(doc[i], 2.0)\n    rot=im.rotate(270, expand=True)\n    rot.save(f'/tmp/2018_rot270_p{i+1}.png')\n    w,h=rot.size\n    # after 270, original L/R may become top/bottom or still L/R\n    print(f'p{i+1} rotated size {w}x{h}')\n    print(' hdr', header_text(rot)[:100].replace('\\n',' '))\n    print(' ys', find_main_question_ys(rot,12))\n    # try vertical split (top/bottom) and horizontal\n    midy=h//2; midx=w//2\n    for name,crop in [('T',(0,0,w,midy)),('B',(0,midy,w,h)),('L',(0,0,midx,h)),('R',(midx,0,w,h))]:\n        c=rot.crop(crop)\n        ys=find_main_question_ys(c,12)\n        if ys or name in ('T','B'):\n            print(f'  {name} ys={ys} hdr={header_text(c)[:70]!r}')\ndoc.close()\nPY\n"
+title: "Test 270° rotation layout for 2018"
+status: succeeded
+started_at: 2026-09-05T04:06:13.220Z
+running_for_ms: 30140    
+---
+p1 rotated size 1684x1191
+ hdr Paper 1 Section A | Marking Schemes per I Section | 
+ ys [(2, 529), (3, 607), (4, 685)]
+  T ys=[(2, 528)] hdr=''
+  B ys=[(3, 12)] hdr='CT\n& In a question consisting of several parts each depending on the p'
+p2 rotated size 1684x1191
+ hdr Pape Sct ee 5. (@) Ifthe maximum load is exceeded, the braking distance will 1A Solution Marks Remar
+ ys [(1, 168)]
+  T ys=[(1, 168)] hdr=''
+  B ys=[] hdr='—_—_ i - @ @ 1\nKE+PE= 7 03%4F +(0.3¥9.81X0.2) 1M+1M\nae =24+0:5586=2988'
+  R ys=[(3, 130)] hdr='se i [\n3. (a) Ifthe maximum load is exceeded, the braking distance wil'
+p3 rotated size 1684x1191
+ hdr a a es ee j OS 6. (@) Place the (cylindrical) lens on the piese of paper and Wace is |IA Or Using le
+ ys [(5, 0)]
+  T ys=[] hdr=''
+  B ys=[] hdr='SSSG8 SS SEASSKEA FARES CREES RREES CESS CREE REESE ESS RENEE REE Rees'
+  L ys=[(5, 0)] hdr='a\n- (a) mG.0em)=50g (10.0 cm)\nm= 100g or0.1 kg. 1A\n'
+p4 rotated size 1684x1191
+ hdr aie iY | a a los ae 7 @ ® dames i separation between the double slit and the eel 8. (@) (@  Totermin
+ ys [(7, 0)]
+  T ys=[(7, 0)] hdr='7 | |\n'
+  B ys=[] hdr='[or }Power « ——__\n\n[Using the fringe separation equation to find the w'
+  L ys=[(7, 0)] hdr='ee\n7. (@) (i Increase the separation between the double slit and the r'
+  R ys=[(8, 134)] hdr='| ae (a\n8. (a) @ To terminals x"\n'
+p5 rotated size 1684x1191
+ hdr 9. G Ue Ore hres apne, 7 Ag AOD I 206 ee 0 Cesta of 4 Soe Ve CoE Ne We Foe Seer ee ee ae 1A 
+ ys []
+  T ys=[] hdr=''
+  B ys=[] hdr='(b) (i) Horizontal it) is. endicular to the mast. 1A |\n[Vertical (cor '
+  R ys=[(10, 138)] hdr='ee\n10. (@) (226-206 = 20 (multiple of 4 for a) 1M\nA fae ee er ee 1A\n'
+p6 rotated size 1684x1191
+ hdr Section C : Energy and Use of Energy Section B : Atomic World  [ 4. (52%) | 2.B (58%) | 3. (37%) | 4
+ ys [(4, 124), (5, 143)]
+  T ys=[(4, 124), (5, 143), (2, 214)] hdr=''
+  B ys=[(3, 323)] hdr='= (4.125107) x (5.4x10") z IM a 11000\neee £078 OV gars, u 1A Efficacy '
+  L ys=[(4, 124), (5, 143)] hdr='Section B : Atomic World\n[_4.¢ (46%) | 2.0 (51%) | 3.D (48%) | 4A (15%'
+  R ys=[(1, 115), (5, 134), (8, 199), (3, 199)] hdr='Section C : Energy and Use of Energy\n[4a (52%) [2.8 (58%) | 3.C(37%) |'
+
+---
+exit_code: 0
+elapsed_ms: 30139
+ended_at: 2026-09-05T04:06:43.359Z
+---

@@ -1,0 +1,58 @@
+---
+pid: 43772
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && ./segment paper/mc/ppp1a.pdf output/pp --type mc --step split --intermediate output/pp-intermediate 2>&1 | tail -20\n./segment paper/mc/2014p1a.pdf output/2014 --type mc --step split --intermediate output/2014-intermediate 2>&1 | tail -20\n# verify heights / number presence\n.venv/bin/python <<'PY'\nfrom PIL import Image\nimport numpy as np\nfor p in ['output/pp/q6.png','output/2014/q31.png','output/2014/q30.png']:\n    im=np.array(Image.open(p).convert('L'))\n    ink=im<200\n    cols=np.where(ink.any(0))[0]\n    rows=np.where(ink.any(1))[0]\n    print(p, Image.open(p).size, 'leftmost', cols[0], 'bottom_gap', im.shape[0]-rows[-1]-1)\nImage.open('output/pp/q6.png').crop((0,0,100,80)).save('/tmp/pp_q6_tl_new.png')\nImage.open('output/2014/q31.png').save('/tmp/2014_q31_new.png')\nprint('2014 q31 new h', Image.open('output/2014/q31.png').size)\nPY\n"
+status: succeeded
+started_at: 2026-09-04T15:15:51.355Z
+running_for_ms: 39028    
+---
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q23.png (1046x179)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q24.png (1046x360)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q25.png (1052x423)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q26.png (1052x195)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q27.png (1052x426)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q28.png (1051x454)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q29.png (1051x412)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q30.png (1051x376)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q31.png (1052x411)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q32.png (1052x224)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q33.png (1052x556)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q34.png (1041x246)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q35.png (1041x393)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q36.png (1041x548)
+Wrote 36 questions to /Users/sinchunyeung/github/paper2db/output/pp (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/combined.pdf (36 pages)
+Paper type: MC (ppp1a.pdf)
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 36 questions -> /Users/sinchunyeung/github/paper2db/output/pp
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/pp/combined.pdf
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q20.png (1113x471)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q21.png (1113x371)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q22.png (1124x426)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q23.png (1124x501)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q24.png (1124x355)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q25.png (1108x467)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q26.png (1108x325)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q27.png (1117x566)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q28.png (1117x816)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q29.png (1112x381)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q30.png (1112x252)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q31.png (1112x348)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q32.png (1117x468)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q33.png (1117x447)
+Wrote 33 questions to /Users/sinchunyeung/github/paper2db/output/2014 (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/combined.pdf (33 pages)
+Paper type: MC (2014p1a.pdf)
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2014
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2014/combined.pdf
+output/pp/q6.png (1052, 356) leftmost 144 bottom_gap 9
+output/2014/q31.png (1112, 348) leftmost 70 bottom_gap 8
+output/2014/q30.png (1112, 252) leftmost 72 bottom_gap 9
+2014 q31 new h (1112, 348)
+
+---
+exit_code: 0
+elapsed_ms: 39017
+ended_at: 2026-09-04T15:16:30.372Z
+---

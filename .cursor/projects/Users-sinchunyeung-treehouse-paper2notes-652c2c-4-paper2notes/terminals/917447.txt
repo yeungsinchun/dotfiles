@@ -1,0 +1,79 @@
+---
+pid: 75574
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/4/paper2notes"
+command: "no-mistakes axi respond --action fix --findings ch1-25-1-origin-nature-25-3-mcs --step review --instructions 'Drop 2016/32, 2017/32, and PP/34 from 25.1; keep them on 25.3; keep 2015/31 on 25.1. Relabel every visible DSE citation to YYYY MC Qn / YYYY LQ Qn (e.g. 2022 MC Q4), PP MC Qn, SAP MC Qn. Do not use YYYY/n MC.'"
+title: "Authorize 25.1 paper drop and DSE relabel"
+status: succeeded
+started_at: 2026-09-12T17:20:16.089Z
+running_for_ms: 503382   
+---
+[33mA new version of no-mistakes is available: v1.64.0 -> v1.72.0
+Run "no-mistakes update" to update[0m
+run: running
+  intent: completed
+  rebase: completed
+  review: fixing
+  review: fix_review
+run:
+  id: "01M2B7YV0MTFD9FEWQ1YF0G59C"
+  branch: fm/p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e
+  status: running
+  awaiting_agent: parked 0s
+  head: 540c942c
+  findings: 1 awaiting
+  steps[9]{step,status,findings,duration_ms}:
+    intent,completed,0,2
+    rebase,completed,0,2073
+    review,fix_review,1,2091058
+    test,pending,0,0
+    document,pending,0,0
+    lint,pending,0,0
+    push,pending,0,0
+    pr,pending,0,0
+    ci,pending,0,0
+branch_sync:
+  state: pipeline_owned
+  changed: false
+  local:
+    branch: fm/p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e
+    head: "0910c137ca342c02307776123afa9b3f3d47db1f"
+    clean: true
+  pipeline:
+    run: "01M2B7YV0MTFD9FEWQ1YF0G59C"
+    status: running
+    phase: pre_push
+    submitted_head: "0910c137ca342c02307776123afa9b3f3d47db1f"
+    current_head: 540c942c8b680de0da35a48d63e319193cc884ba
+    pushed_head: ""
+    pushed_at: 0
+    push_generation: 0
+  target:
+    kind: ""
+    remote: origin
+    url: "https://github.com/yeungsinchun/paper2notes.git"
+    ref: ""
+  remote:
+    observed_head: ""
+    freshness: pipeline_push
+    observed_at: 0
+  relation: unknown
+  safety: blocked_pipeline_owned
+  pr_state: none
+  note: the pipeline head has moved but has not been successfully pushed; do not make local follow-up commits yet
+  next_action:
+    code: continue_active_run
+    command: no-mistakes axi status
+gate:
+  step: review
+  status: fix_review
+  risk: medium
+  note: "Review auto-fix is disabled by default (`auto_fix.review: 0`; a repo or global `auto_fix.review > 0` override re-enables it), so blocking and ask-user review findings park for your decision rather than being silently self-fixed."
+  findings[1]{id,severity,file,action,description}:
+    ch1-25-1-origin-nature-2015-31,warning,notes/book5/ch01-radiation-and-radioactivity/25-1.html,ask-user,"Dropping the three 25.3 property papers left the same 25.1 origin-and-nature chip pointing at 2015 MC Q31. That paper (and the page's own copy of it at the 25.1 C check) asks which of β decay of Na-24, neutron capture, and fusion is spontaneous. It does not ask for the origin and nature of α, β and γ (He nucleus / electron / EM). A student who clicks that chip still lands on the wrong LO. Drop the 2015 MC Q31 chip from the origin-and-nature bullet only. Keep the embed and the chip on 'realise the occurrence of radioactive decay in unstable nuclides'."
+help[6]: Run `no-mistakes axi respond --action approve` to accept this step and continue,Run `no-mistakes axi respond --action fix --findings <ids>` to have the pipeline fix the selected findings (do not edit files yourself),Run `no-mistakes axi respond --action skip` to skip this step,Run `no-mistakes axi logs --step review --full` to read the full step log,"A long-running call is working, not stalled - background it if your harness needs to, but the run never advances past a gate on its own. Read every return; on a `gate:`, respond; loop until an `outcome:`.","Commit post-pipeline follow-up work on top of the existing branch so every pipeline fix commit remains present. Never abort-and-restart, reset, or replace the branch in a way that drops prior gate-fix commits."
+
+---
+exit_code: 0
+elapsed_ms: 503379
+ended_at: 2026-09-12T17:28:39.468Z
+---

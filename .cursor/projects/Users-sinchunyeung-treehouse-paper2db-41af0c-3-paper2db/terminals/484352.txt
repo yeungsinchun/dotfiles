@@ -1,0 +1,82 @@
+---
+pid: 60521
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db"
+command: "cd /Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db && .venv/bin/python3 scripts/crop_mc_figures.py --stem-figures --questions $(python3 -c 'print(\" \".join(f\"2013:{i}\" for i in range(1,37)))') 2>&1 | tail -80"
+title: "Re-crop all 2013 stem figures"
+status: succeeded
+started_at: 2026-09-05T15:11:41.718Z
+running_for_ms: 42331    
+---
+  option text override 2012:8
+  option text override 2012:20
+  option text override 2012:26
+  option text override 2012:25
+  option text override 2012:31
+  option text override 2012:34
+  option text override 2012:13
+  option text override 2012:10
+  option text override 2012:29
+  option text override 2013:4
+  option text override 2013:6
+  option text override 2013:7
+  option text override 2013:8
+  option text override 2013:9
+  statement text override 2012:10
+  statement text override 2012:13
+Stem-figure pass over 36 questions ...
+  2013:3: stem=(18, 26, 901, 69) (combo_statements)
+  2013:4: stem=(16, 0, 907, 168) (text_options)
+  2013:5: stem=(22, 0, 770, 234) (numeric_options)
+  2013:6: stem=(19, 0, 938, 301) (text_options)
+  2013:7: stem=(17, 0, 938, 195) (text_options)
+  2013:8: stem=(16, 0, 927, 216) (text_options)
+  2013:9: stem=(19, 0, 940, 257) (text_options)
+  2013:10: stem=(18, 0, 940, 99) (combo_statements)
+  2013:11: stem=(81, 199, 922, 239) (combo_statements)
+  2013:12: stem=(18, 0, 940, 216) (text_options)
+  2013:13: stem=(19, 2, 938, 124) (text_options)
+  2013:14: stem=(20, 0, 519, 297) (combo_statements)
+  2013:15: stem=(26, 23, 934, 53) (numeric_options)
+  2013:16: stem=(16, 0, 793, 194) (numeric_options)
+  2013:17: stem=(78, 335, 941, 422) (numeric_options)
+  2013:18: stem=(17, 0, 938, 168) (combo_statements)
+  2013:19: stem=(16, 0, 939, 215) (numeric_options)
+  2013:20: stem=(16, 0, 942, 261) (numeric_options)
+  2013:21: stem=(22, 40, 943, 79) (combo_statements)
+  2013:22: stem=(18, 0, 852, 214) (combo_statements)
+  2013:23: stem=(215, 3, 931, 212) (text_options)
+  2013:24: stem=(26, 54, 939, 192) (text_options)
+  2013:26: stem=(16, 0, 659, 361) (tabular_options)
+  2013:27: stem=(21, 0, 678, 305) (tabular_options)
+  2013:28: stem=(203, 0, 841, 244) (text_options)
+  2013:29: stem=(138, 1, 924, 284) (text_options)
+  2013:30: stem=(16, 0, 603, 195) (numeric_options)
+  2013:31: stem=(16, 0, 939, 237) (text_options)
+  2013:32: stem=(17, 0, 624, 253) (text_options)
+  2013:33: stem=(16, 37, 791, 67) (text_options)
+  2013:34: stem=(32, 26, 935, 119) (numeric_options)
+Attached stem figures: 31
+  option text override 2012:8
+  option text override 2012:20
+  option text override 2012:26
+  option text override 2012:25
+  option text override 2012:31
+  option text override 2012:34
+  option text override 2012:13
+  option text override 2012:10
+  option text override 2012:29
+  option text override 2013:4
+  option text override 2013:6
+  option text override 2013:7
+  option text override 2013:8
+  option text override 2013:9
+  statement text override 2012:10
+  statement text override 2012:13
+  removed stem figure 2012:36
+  removed stem figure 2012:20
+
+---
+exit_code: 0
+elapsed_ms: 42322
+ended_at: 2026-09-05T15:12:24.040Z
+---

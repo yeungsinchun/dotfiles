@@ -1,0 +1,82 @@
+---
+pid: 20144
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/4/paper2notes"
+command: "no-mistakes axi respond --action fix --findings ch2-26-1-activity-2025-31,ch1-25-2-define-az-series --step review --instructions 'Drop 2025 MC Q31 from the 26.1 A-proportional-to-N bullet only. Keep the embed. Keep SAP MC Q35 and 2023 MC Q31 on that bullet. Drop 2013 MC Q34 and 2021 MC Q31 from the 25.2 define-A/Z bullet only. Keep 2012 MC Q36 there. Keep both papers on transmutation and their other 25.2 homes.'"
+title: "Authorize 26.1 and 25.2 chip classification fixes"
+status: succeeded
+started_at: 2026-09-12T18:01:51.812Z
+running_for_ms: 428384   
+---
+[33mA new version of no-mistakes is available: v1.64.0 -> v1.72.0
+Run "no-mistakes update" to update[0m
+run: running
+  intent: completed
+  rebase: completed
+  review: fixing
+  review: fix_review
+run:
+  id: "01M2B7YV0MTFD9FEWQ1YF0G59C"
+  branch: fm/p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e
+  status: running
+  awaiting_agent: parked 0s
+  head: ac4af201
+  findings: 4 awaiting
+  steps[9]{step,status,findings,duration_ms}:
+    intent,completed,0,2
+    rebase,completed,0,2073
+    review,fix_review,4,3900523
+    test,pending,0,0
+    document,pending,0,0
+    lint,pending,0,0
+    push,pending,0,0
+    pr,pending,0,0
+    ci,pending,0,0
+branch_sync:
+  state: pipeline_owned
+  changed: false
+  local:
+    branch: fm/p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e
+    head: "0910c137ca342c02307776123afa9b3f3d47db1f"
+    clean: true
+  pipeline:
+    run: "01M2B7YV0MTFD9FEWQ1YF0G59C"
+    status: running
+    phase: pre_push
+    submitted_head: "0910c137ca342c02307776123afa9b3f3d47db1f"
+    current_head: ac4af201d39f00a5bd6f59b657a9867db284d747
+    pushed_head: ""
+    pushed_at: 0
+    push_generation: 0
+  target:
+    kind: ""
+    remote: origin
+    url: "https://github.com/yeungsinchun/paper2notes.git"
+    ref: ""
+  remote:
+    observed_head: ""
+    freshness: pipeline_push
+    observed_at: 0
+  relation: unknown
+  safety: blocked_pipeline_owned
+  pr_state: none
+  note: the pipeline head has moved but has not been successfully pushed; do not make local follow-up commits yet
+  next_action:
+    code: continue_active_run
+    command: no-mistakes axi status
+gate:
+  step: review
+  status: fix_review
+  risk: medium
+  note: "Review auto-fix is disabled by default (`auto_fix.review: 0`; a repo or global `auto_fix.review > 0` override re-enables it), so blocking and ask-user review findings park for your decision rather than being silently self-fixed."
+  findings[4]{id,severity,file,action,description}:
+    ch2-26-1-define-hl-2012-35,warning,notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html,ask-user,26.1 'define half-life as the period of time over which the number of radioactive nuclei decreases by a factor of one-half' labels 2012 MC Q35. The page's own copy (half-life 20 hours; remaining fraction after 10 hours) gives T½ and asks for a remaining-fraction inequality. It does not ask students to state the definition. A student who clicks that chip still lands on the wrong LO. Drop 2012 MC Q35 from the define-half-life bullet only. Keep 2023 MC Q31 there. Keep 2012 MC Q35 on its other 26.1 homes.
+    ch2-26-1-determine-hl-given-t,warning,notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html,ask-user,"26.1 'determine the half-life of a radioisotope from its decay graph or from numerical data' labels 2012 MC Q35, 2013 MC Q35, 2016 MC Q33, and 2018 MC Q32. The page's own copy of 2012 MC Q35 gives T½ = 20 h and asks for remaining fraction after 10 h. The chapter intake files 2013/35 as remaining mass after half a given half-life (70 d / 140 d), 2016/33 as an N-ratio after given half-lives, and 2018/32 as a mass-ratio after 4T. None asks students to find T½ from a graph or data. A student who clicks those chips still lands on a remaining-N paper. Drop those four from the determine-half-life bul… (truncated, 699 chars total)"
+    ch1-25-3-count-rate-non-rate,warning,notes/book5/ch01-radiation-and-radioactivity/25-3.html,ask-user,"25.3 'detect radiation in terms of count rate using a GM counter' labels 2019 MC Q31 and 2020 MC Q30. The page's own copy of 2019 MC Q31 (cardboard, 5 mm Al, 10 mm Pb; detectors at X, Y, Z) asks which radiation is present after each slab. 26.1's copy of 2020 MC Q30 (four one-minute background counts) asks which fluctuating set is most probable. Neither asks students to read or use a GM count rate. A student who clicks those chips still lands on the wrong LO. Drop those two from the count-rate bullet only. Keep 2014 MC Q32, PP MC Q35, and SAP MC Q36 there. Keep 2019 MC Q31 on compare-properties… (truncated, 665 chars total)"
+    ch2-26-1-exp-law-mcs,warning,notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html,ask-user,"26.1 'represent the number of undecayed nuclei by the exponential law of decay N = N0 e^{-kt}' and 'apply the exponential law ... to solve problems' both label 2020 MC Q32 and 2019 MC Q32. The page's own copy of 2020 MC Q32 asks whether the decay constant is random, depends on P/T, tracks nucleon count, or is characteristic. The copy of 2019 MC Q32 (C-11 / P-32 / Na-22) uses (1/2)^n half-life arithmetic and a k comparison. Neither writes or applies N = N0 e^{-kt}. A student who clicks those chips still lands on the wrong LO. Drop both MCs from the represent and apply bullets only. Keep them on… (truncated, 747 chars total)"
+help[6]: Run `no-mistakes axi respond --action approve` to accept this step and continue,Run `no-mistakes axi respond --action fix --findings <ids>` to have the pipeline fix the selected findings (do not edit files yourself),Run `no-mistakes axi respond --action skip` to skip this step,Run `no-mistakes axi logs --step review --full` to read the full step log,"A long-running call is working, not stalled - background it if your harness needs to, but the run never advances past a gate on its own. Read every return; on a `gate:`, respond; loop until an `outcome:`.","Commit post-pipeline follow-up work on top of the existing branch so every pipeline fix commit remains present. Never abort-and-restart, reset, or replace the branch in a way that drops prior gate-fix commits."
+
+---
+exit_code: 0
+elapsed_ms: 428383
+ended_at: 2026-09-12T18:09:00.195Z
+---

@@ -1,0 +1,87 @@
+---
+pid: 40703
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python - <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nfrom preprocess_lq_answers import *\nimport pymupdf as fitz\n\nfor path in ['paper/ans/2018ans.pdf','paper/ans/2020ans2.pdf','paper/ans/2020ans.pdf']:\n    doc=fitz.open(path)\n    print(f'\\n==== {path} pages={len(doc)} ====')\n    for i in range(min(len(doc),6)):\n        page=doc[i]\n        im=render_page(page, 1.2)\n        print(f'p{i+1} size={im.size} A={is_section_a_keys(im)} B={looks_like_section_b(im)} front={is_front_matter(im)}')\n        print(' hdr', header_text(im)[:90].replace('\\n',' '))\n        print(' ys', find_main_question_ys(im,12)[:8])\n        nt=page.get_text('text')[:100].replace('\\n',' | ')\n        if nt.strip():\n            print(' nt', nt[:100])\n    doc.close()\nPY\n"
+title: "Compare 2018 and 2020ans2 PDF structure"
+status: succeeded
+started_at: 2026-09-05T04:03:29.203Z
+running_for_ms: 36666    
+---
+
+==== paper/ans/2018ans.pdf pages=6 ====
+p1 size=(715, 1011) A=False B=False front=False
+ hdr HET 
+ ys []
+ nt Provided by dse.life | 
+p2 size=(715, 1011) A=False B=False front=False
+ hdr 
+ ys []
+ nt Provided by dse.life | 
+p3 size=(715, 1011) A=False B=False front=False
+ hdr as gjiys,. 3 2 iG a i i a na & SESS aaa 
+ ys []
+ nt Provided by dse.life | 
+p4 size=(715, 1011) A=False B=False front=False
+ hdr We ea i | 
+ ys []
+ nt Provided by dse.life | 
+p5 size=(715, 1011) A=False B=False front=False
+ hdr 
+ ys []
+ nt Provided by dse.life | 
+p6 size=(715, 1011) A=False B=False front=False
+ hdr 
+ ys []
+ nt Provided by dse.life | 
+
+==== paper/ans/2020ans2.pdf pages=18 ====
+p1 size=(715, 1011) A=False B=False front=False
+ hdr RARASRSH FOR MARKERS’ USE ONLY 1s may 2020 S¥SMRTUR HONG KONG EXAMINATIONS AND ASSESSMENT 
+ ys []
+ nt   | 只限閱卷員參閱  FOR MARKERS’ USE ONLY 18 May 2020  |   | 香港考試及評核局  |   | 保留版權  | Hong Kong Examination
+p2 size=(715, 1011) A=False B=False front=True
+ hdr RARASRSH FOR MARKERS’ USE ONLY 1s may 2020 HKDSE Physics General Marking Instruction 
+ ys [(2, 216), (5, 451)]
+ nt   | 只限閱卷員參閱  FOR MARKERS’ USE ONLY 18 May 2020  |   | 2020-DSE-PHY 1B–2  |   | 只限閱卷員參閱  FOR MARKERS’
+p3 size=(715, 1011) A=False B=False front=False
+ hdr RRASSSH FOR MARKERS’ USE ONLY 18 may 2020 
+ ys []
+ nt   | 只限閱卷員參閱  FOR MARKERS’ USE ONLY 18 May 2020  |   | 2020-DSE-PHY 1B–3  |   | 只限閱卷員參閱  FOR MARKERS’
+p4 size=(715, 1011) A=False B=False front=False
+ hdr RRASSSH FOR MARKERS’ USE ONLY 18 may 2020 2 @ @ _gprmssenacniin 1A |p correctly marked — —
+ ys []
+ nt   | 只限閱卷員參閱  FOR MARKERS’ USE ONLY 18 May 2020  |   | 2020-DSE-PHY 1B–4  |   | 只限閱卷員參閱  FOR MARKERS’
+p5 size=(715, 1011) A=False B=False front=False
+ hdr RRASRSH FOR MARKERS’ USE ONLY 18 may 2020 
+ ys []
+ nt   | 只限閱卷員參閱  FOR MARKERS’ USE ONLY 18 May 2020  |   | 2020-DSE-PHY 1B–4  |   | 只限閱卷員參閱  FOR MARKERS’
+p6 size=(715, 1011) A=False B=False front=False
+ hdr RRASRSH FOR MARKERS’ USE ONLY 18 may 2020 
+ ys []
+ nt   | 只限閱卷員參閱  FOR MARKERS’ USE ONLY 18 May 2020  |   | 2020-DSE-PHY 1B–4  |   | 只限閱卷員參閱  FOR MARKERS’
+
+==== paper/ans/2020ans.pdf pages=19 ====
+p1 size=(2785, 3960) A=False B=False front=True
+ hdr Marking Schemes enn Ne Te 
+ ys []
+p2 size=(2785, 3960) A=True B=False front=False
+ hdr Paper | Section A Question No. Key Question No. Key 
+ ys []
+p3 size=(2785, 3960) A=False B=True front=False
+ hdr Paper 1 Section B 1. (a) Let Tbe the final temperature of the mixture. (5 x0.02) x3300 x(T
+ ys []
+p4 size=(2785, 3960) A=False B=False front=False
+ hdr 2. (a) (i) sgprccnccececceecceccccescesces, PiStON 1A Fp correctly marked — ¢ oa B 
+ ys [(2, 389), (3, 2516)]
+p5 size=(2785, 3960) A=False B=False front=False
+ hdr 4. (a) vB>vco>vp>va | (b) , t«™ 
+ ys [(4, 298)]
+p6 size=(2785, 3960) A=False B=False front=False
+ hdr 5. (a) (i) normal \saen R ot ae 1A Forces R(or N) and Wor Mg) D 1A correctly indicated and
+ ys [(5, 306)]
+
+---
+exit_code: 0
+elapsed_ms: 36666
+ended_at: 2026-09-05T04:04:05.869Z
+---

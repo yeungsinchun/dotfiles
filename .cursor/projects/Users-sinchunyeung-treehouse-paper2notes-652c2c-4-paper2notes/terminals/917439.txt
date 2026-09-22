@@ -1,0 +1,61 @@
+---
+pid: 80220
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/4/paper2notes"
+command: "python3 - <<'PY'\n# tesseract LQ question pngs for mapping (questions only, skip answers)\nimport subprocess, os\nfrom pathlib import Path\nroot=Path('/Users/sinchunyeung/github/paper2notes/dse-classified/lq/05_Radioactivity_and_Nuclear_Energy')\nfor sec in sorted(root.iterdir()):\n    if not sec.is_dir():\n        continue\n    print('\\n####', sec.name)\n    for p in sorted(sec.glob('*.png')):\n        if '-ans' in p.name:\n            continue\n        r=subprocess.run(['tesseract', str(p), 'stdout', '-l', 'eng', '--psm', '6'], capture_output=True, text=True)\n        text=' '.join(r.stdout.split())\n        print(p.name, ':', text[:450])\n        print()\nPY"
+title: "OCR long-question stems for LO mapping"
+status: succeeded
+started_at: 2026-09-12T15:32:12.906Z
+running_for_ms: 37127    
+---
+
+#### 25_Radiation_and_Radioactivity
+2026-q12.png : 12. (a) Bismuth-213 (Bi-Zi3) is a radionuclide currentiy undergoing ciinicai iriais for cancer ireaimeni. Ii is prepared in liquid and injected into the human body, where it targets and destroys cancer cells. Figure 12.1 shows a decay series of Bi-213, 215 213 Pe pectest _ Figure 12.1 a EL 09 | aaa iz wr | Et tT tT $1 82 83 84 85 86 87 88 89 “~The (i) | Write the nuclear equations corresponding to each of these two decay processes. (2 marks) *(il
+
+
+#### 26_Rate_of_Decay_and_Uses_of_Radionuclides
+2013-q6.png : 6. Read the following description about ‘Bungee jumping’ and answer the questions ilai fuliuw. Bungee jumping is an activity that involves jumping from a tall structure while the person is connected to it via a thick elastic cord. When the bungee jumper jumps, the cord stretches after falling a certain distance. The bungee jumper is momentarily at rest at the lowest point but then bounces back up into the air. The bungee jumper continues to oscil
+
+2013-q9.png : 9. Carbon-14 dating can be used to identify the age of some objects which have the '4C isotope, as it radioactive and decays by emitting a f-particle. A piece of wood sample is ‘examined using carbon- dating and its activity is 0.2 Bq. The half-life of '*C is 5730 years. Given: 1 year =3.16 x 10’s *(a) Calculate the decay constant of '“C in s"'. Hence find the number of “C nuclei in this wood sample. (3 mark od Assume that living organisms contai
+
+2014-q10.png : 10. Voyager J is a space probe designed OY io oO anne eee ee eee eee a ota ele thermoelectric generator (RTG) which can convert the energy released from the decay of a radioactive source into electrical power. Voyager I operates with a plutonium-238 radioactive source inat undergoes a-decav Maavews wre oe ¥ (a) The plutonium-238 source is sealed inside a thin metallic casing of the RTG. The photo shows a NAGA staff handline the RTG with his bare 
+
+2016-q9.png : 9. Part of the decay series of uranium-238 (U-238) is shown below. The end product lead-206 (Pb-206) is stable. 281) ——_7__> Th —! > 706 Ph 45x10? years 21 days (a) When a U-238 nucleus decays to a Pb-2U6 nucleus, how many a-particle(s) and /-particie(s) are emitted 7 (2 marks) (b) As the first decay in the above chain from U to Th has a half-life much longer than those of subsequent decays, the decay from U-238 to Pb-206 can be simplified to a s
+
+2017-q10.png : 10. Dust may adhere to the surfaces of photos and films due to electrostatic attraction. To remove the dust effectively, a special brush with a thin slice of polonium-210 (719Po ) fixed near the brush hair as shown in | Figure 10.1 may be used. Polonium-210 undergoes @ decay and the daughter nucleus lead (Pb) is stable. Biante nny thin nAlinn nAfaalaniw. VIN (a) Write a nuclear equation for the decay of polonium-210. (2 marks) {b) Brietly explain
+
+2018-q10.png : 10. (a) Part'of the decay series of radium-226 (Ra-226) is shown below. Ra-226 decays to radon (Rn) by emitting an @ particle with half-life 1600 years. The end product in the series is lead (Pb), which is stable. 226 peg, OS Rg eerie (i) a Pb, ay Pb and fu Pb are three stable isotopes of lead. State, with a reason, which isotope can be the ond product in thic cerisc. <2 marks) *(ii) In a certain laboratory, a Ra-226 source has been used for 50 y
+
+2021-q9.png : 9. Potassium-40 (79K) is a natural radioisotope of potassium. (a) (i) What kind of decay does 43K undergo if it decays to $$Ca ? (1 mark) (ii) As banana is rich in potassium, a student claims that the radiation emitted by 40k after eating a few bananas can be detected outside the human body. Explain whether this claim is justified. (1 mark) *(b) A banana typically contains 0.45 g potassium in which 0.012% by mass is 48K while the rest is 33K. Giv
+
+2023-q9.png : 9. Part of the decay series of thorium-232 (Th-232) is shown below. Th-232 decays to radium-228 (Ra-228) with a half-life of 1.41 x 10!° years. The end product lead-208 (Pb-208) is stable. 434th _——>“42Ra —# src... + “8Spp (a) (i) State the kind of radiation emitted by Th-232. (1 mark) (ii) How many a- and f- decay(s) has occurred betore a ‘Th-232 nucleus becomes a Pb-208 nucleus ” (2 marks) Dd a 3 *(b) Estimate the proportion of Th-232 decaying 
+
+2024-q12.png : 12. Figure 12.1 shows a coil of several turns. Figure 12.1 a = (a) Sketch the magnetic field pattern produced by the coil when it carries a current J as shown. (2 marks) (b) As shown in Figure 12.2(a), this coil is now connected to an a.c. source to serve as a transmitter coil (7). A receiver coil (R) connected to a CRO is placed directly above 7. The time variation of the voltage of anil Din dianlavad an tha CON (Bienes 19 OhY coil Ris displayed
+
+2025-q12.png : iz. Carbon-i4 ( g C) nuclide decays into stabie nitrogen-i4 ( 7 N) nuclide with a hait-life of 5730 years. Assume that the concentration of carbon-14 in the atmosphere remains unchanged over time. (a) (i) | Write an equation to represent the decay of carbon-14. (1 mark) *(ii) Find the decay constant (in yr~') of carbon-14. ) (2 marks) j *qil) 1 g of an ancient wood sample has a carbon-14 activity that gives a count rate of 6.0 counts per minute. 
+
+
+#### 27_Nuclear_Energy
+2012-q11.png : 11. Radium—226 ( are Ra ) undergoes a-decay into radon (Rn). (a) Write a nuclear equation for the decay. (2 marks) *(b) Given: mass of a radium nucleus = 226.0254 u moses of a radon muclows — 299 0174 » mioco ofan x particle — 4.0024 2 Caicuiate the energy reieased in ihe decay in MeV. (2 marks) j : (c) 1 curie (Ci) is defined as the activity of 1 g of radium. The activity of a radium source used in | | : iaboraiories is about 5 pCi. Esiimaie ine
+
+2015-q10.png : 1U. Scientists nad been experimenting controled Tusion in a nuclear reactor in wnicn deuterium Gi H ) and witium (4 H ) undergo the following nuclear fusion: 7H+4H > 3He + jn + energy released Given: mass ofa deuterium nucleus = 2.014102 u pala ies Safer eal eae tae ae a cae ADNAN mises af helises: suclens =Aannren :: mites nfe nertesn —1nnecee.: *(a) Caicuiate the energy reieased, in iMieV, In the above nuciear fusion. (2 marks) 3 a 3 Ss 2 : se 
+
+2016-q9.png : 9. Part of the decay series of uranium-238 (U-238) is shown below. The end product lead-206 (Pb-206) is stable. 281) ——_7__> Th —! > 706 Ph 45x10? years 21 days (a) When a U-238 nucleus decays to a Pb-2U6 nucleus, how many a-particle(s) and /-particie(s) are emitted 7 (2 marks) (b) As the first decay in the above chain from U to Th has a half-life much longer than those of subsequent decays, the decay from U-238 to Pb-206 can be simplified to a s
+
+2017-q10.png : 10. Dust may adhere to the surfaces of photos and films due to electrostatic attraction. To remove the dust effectively, a special brush with a thin slice of polonium-210 (719Po ) fixed near the brush hair as shown in | Figure 10.1 may be used. Polonium-210 undergoes @ decay and the daughter nucleus lead (Pb) is stable. Biante nny thin nAlinn nAfaalaniw. VIN (a) Write a nuclear equation for the decay of polonium-210. (2 marks) {b) Brietly explain
+
+2019-q10.png : 10. (a) The equation below represents nuclear fission of uranium-235 (U-235). *U + gn > Bat 3, Kr+xgn+200 MeV (i) What is the value of x ? (1 mark) (ii) State a necessary condition for chain reaction of fission to occur. (1 mark) Scientists found evidence in Oklo, Africa that natural nuclear fission occurred two billion (2 x 10°) years ago. The uranium mineral ore mined from Oklo at present is found to have 0.6% concentration by mass of U-235 (se
+
+2020-q10.png : 190 Givens moce of eroton — 1.0072 2 cnuue ofa partici =o STS a tmman Af MART wssdinna a 2A AARA ve 441aodd VL JAN muLyiwus ~ 1LI.77FIU mass of '30 nucieus = 16.9947 n When a stationary '4N nucleus is bombarded by an a particle, the following nuclear reaction can be triggered with products 170 and_X fly off: a+ 4N— 30 +x (a) What is X? (1 mark) *(b)Based on energy consideration, estimate the minimum kinetic energy, in MeV, of the a particle requi
+
+2022-q10.png : i0. Deuterium (7H) and tritium (7H) are isotopes of hydrogen. The fusion of two deuierium nuciides can be represented by the following equation: Dey . Dev ‘N 2yr » 4 7H + jH—~> jHe + pn mass of jn = 1.008665 u *(a) 1 in 6420 atoms of hydrogen in nature is a deuterrum. Estimate the maximum energy, in MeV, that could be produced from this fusion reaction with 1 mole of hydrogen nuclides. (3 marks) > } (bd) II conditions are aitered, the fusion of t
+
+2023-q9.png : 9. Part of the decay series of thorium-232 (Th-232) is shown below. Th-232 decays to radium-228 (Ra-228) with a half-life of 1.41 x 10!° years. The end product lead-208 (Pb-208) is stable. 434th _——>“42Ra —# src... + “8Spp (a) (i) State the kind of radiation emitted by Th-232. (1 mark) (ii) How many a- and f- decay(s) has occurred betore a ‘Th-232 nucleus becomes a Pb-208 nucleus ” (2 marks) Dd a 3 *(b) Estimate the proportion of Th-232 decaying 
+
+2026-q12.png : 12. (a) Bismuth-213 (Bi-Zi3) is a radionuclide currentiy undergoing ciinicai iriais for cancer ireaimeni. Ii is prepared in liquid and injected into the human body, where it targets and destroys cancer cells. Figure 12.1 shows a decay series of Bi-213, 215 213 Pe pectest _ Figure 12.1 a EL 09 | aaa iz wr | Et tT tT $1 82 83 84 85 86 87 88 89 “~The (i) | Write the nuclear equations corresponding to each of these two decay processes. (2 marks) *(il
+
+
+---
+exit_code: 0
+elapsed_ms: 37126
+ended_at: 2026-09-12T15:32:50.032Z
+---

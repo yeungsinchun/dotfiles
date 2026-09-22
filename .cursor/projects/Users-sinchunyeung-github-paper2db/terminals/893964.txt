@@ -1,0 +1,25 @@
+---
+pid: 38251
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python - <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nfrom preprocess_lq_answers import ocr_text\nfrom PIL import Image\nfor q in (1,3,4,5):\n    img=Image.open(f'output/lq/2023/ans/q{q}.png')\n    top=ocr_text(img.crop((0,0,img.width,min(250,img.height))))\n    print(f'Q{q} {img.size}', top[:180].replace('\\n',' | '))\n    print('---')\n# How many Qs in 2023 paper?\nimport json\nprint('starts', [q['q'] for q in json.load(open('output/lq/2023/starts.json'))['questions']])\nPY\n.venv/bin/python scripts/build_lq_lavish_review.py 2>&1 | tail -8\n"
+title: "Verify 2023 ans crops; rebuild Lavish"
+status: succeeded
+started_at: 2026-09-05T03:58:56.512Z
+running_for_ms: 57967    
+---
+Q1 (1185, 1415) 1. (a) Heat given out by iron cube = Heat gained by water | 0.2 x 450 x (7-33) = 0.6 x 4200 x (33 — 25) (2M | T= 257 °C) 1A | (b) Some water might become steam (immediately). | (Or | | | |__ i
+---
+Q3 (1111, 1394) 3. (a) | | i ra M 1A | |  | P friction 1 |  | TRY Ad ephatnnd wnccce delice d (Ene cecbh dee cont | | 
+---
+Q4 (1115, 2880) 4. (a) (i) ws the wall of | friction F, the drum | normal reaction 2A | NIR | mg | : | 
+---
+Q5 (1103, 1412) S. (a) (i) alilg | po | (b) (i) wavelength (4 grids) = 4 x 50 em | = 200 cm or 2m 1A | [od | 
+---
+starts [1, 2, 3, 4, 5, 6, 7, 8, 9]
+Wrote /Users/sinchunyeung/github/paper2db/.lavish/lq-classified-review/index.html (179 placements)
+
+---
+exit_code: 0
+elapsed_ms: 57965
+ended_at: 2026-09-05T03:59:54.477Z
+---

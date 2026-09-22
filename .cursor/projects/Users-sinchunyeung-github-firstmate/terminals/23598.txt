@@ -1,0 +1,49 @@
+---
+pid: 42992
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "export PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:$PATH\"\n# retarget only the notes server; do not touch 8766/8768/8769\nkill 48483\nsleep 0.3\npython3 /tmp/fm-http-dual.py 8765 /Users/sinchunyeung/.treehouse/paper2notes-652c2c/3/paper2notes/notes/book5\n"
+title: "Retarget port 8765 to Book 5 chapter menu"
+status: failed   
+started_at: 2026-09-11T16:00:04.202Z
+running_for_ms: 86059935 
+---
+::ffff:127.0.0.1 - - [12/Sep/2026 00:00:13] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 00:00:13] "GET /ch01-radiation-and-radioactivity/index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 00:00:13] "GET /ch02-rate-of-decay-and-uses-of-radionuclides/index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 00:00:13] "GET /ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 00:00:13] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 00:00:28] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 00:00:28] "GET /ch02-rate-of-decay-and-uses-of-radionuclides/index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 00:00:49] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 00:02:02] "GET /ch01-radiation-and-radioactivity/index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 00:02:02] "GET /ch01-radiation-and-radioactivity/css/notes.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 00:02:02] "GET /ch01-radiation-and-radioactivity/js/notes.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 00:02:04] "GET /ch02-rate-of-decay-and-uses-of-radionuclides/index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 00:02:04] "GET /ch02-rate-of-decay-and-uses-of-radionuclides/css/notes.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 00:02:04] "GET /ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 00:02:09] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 00:02:16] "GET /ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 00:02:16] "GET /ch02-rate-of-decay-and-uses-of-radionuclides/js/lib/three.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 00:02:16] "GET /ch02-rate-of-decay-and-uses-of-radionuclides/js/diagrams3d.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 18:46:42] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 18:46:42] "GET /css/notes.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 18:53:02] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 18:53:02] "GET /ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 23:19:50] "GET /ch01-radiation-and-radioactivity/index.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [12/Sep/2026 23:19:50] "GET /ch01-radiation-and-radioactivity/js/notes.js HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [12/Sep/2026 23:19:50] "GET /ch01-radiation-and-radioactivity/css/notes.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 23:19:54] "GET /ch02-rate-of-decay-and-uses-of-radionuclides/index.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [12/Sep/2026 23:19:54] "GET /ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.js HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [12/Sep/2026 23:19:54] "GET /ch02-rate-of-decay-and-uses-of-radionuclides/css/notes.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 23:22:47] "GET /ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 23:22:47] "GET /ch02-rate-of-decay-and-uses-of-radionuclides/js/lib/three.min.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 23:22:47] "GET /ch02-rate-of-decay-and-uses-of-radionuclides/js/diagrams3d.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 23:23:08] "GET /ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [12/Sep/2026 23:23:21] "GET /ch02-rate-of-decay-and-uses-of-radionuclides/summary.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 23:25:37] "GET /index.html HTTP/1.1" 200 -
+
+---
+exit_code: 143
+elapsed_ms: 86059935
+ended_at: 2026-09-12T15:54:24.137Z
+---

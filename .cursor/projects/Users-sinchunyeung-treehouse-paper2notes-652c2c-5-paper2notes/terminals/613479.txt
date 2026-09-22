@@ -1,0 +1,26 @@
+---
+pid: 27095
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes"
+command: "node --test --test-name-pattern='3d scenes magnify, label the tube, keep β drift, and pulse radially' notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs"
+title: "Re-run focused Ch1 3D scene test"
+status: succeeded
+started_at: 2026-09-15T04:49:26.768Z
+running_for_ms: 34631    
+---
+▶ Book 5 Ch.1 notes interactives
+  ✔ 3d scenes magnify, label the tube, keep β drift, and pulse radially (32834.255417ms)
+✔ Book 5 Ch.1 notes interactives (33742.540458ms)
+ℹ tests 1
+ℹ suites 1
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 34091.808
+
+---
+exit_code: 0
+elapsed_ms: 34606
+ended_at: 2026-09-15T04:50:01.374Z
+---

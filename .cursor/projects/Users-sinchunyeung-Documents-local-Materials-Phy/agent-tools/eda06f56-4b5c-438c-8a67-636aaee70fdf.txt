@@ -1,0 +1,736 @@
+DSE-PHY-13-1AS
+
+2013 HKDSE PHYSICS Paper 1A
+
+Suggested Solutions
+
+Prepared by Andy Lai
+
+HKDSE Physics Teacher
+
+Enrollment Hotline: 6772 3001 Website: www.andylai.hk MSN: mrandylai@hotmail.com Address: Rm706, Prosper Commercial Building, 9 Yin Chong Street, Mong Kok, Kowloon, Hong Kong.
+
+MC ?? ABC Grade ???, ????, ????, ???????????!
+
+2013 HKDSE Physics Paper IA Suggested Answers
+
+| 1. | | B | 2. | | | B | 3. | | C | 4. | | D | 5. | | A |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 6. | | D | 7. | | | A | 8. | | D | 9. | | D | 10. | | D |
+| 11. | | B | 12. | | | A | 13. | | D | 14. | | A | 15. | | B |
+| 16. | | B | 17. | | | A | 18. | | D | 19. | | C | 20. | | C |
+| 21. | | A | 22. | | | C | 23. | | A | 24. | | D | 25. | | C |
+| 26. | | C | 27. | | | C | 28. | | C | 29. | | D | 30. | | B |
+| 31. | | A | 32. | | | C | 33. | | B | 34. | | A | 35. | | B |
+| 36. | | B | | | | | | | | | | | | | |
+| | | | | | MC | ?? | ABC Grade | | ???, | | | | | | |
+
+MC ?? ABC Grade ???, ????, ????! ???, ???! ????! ???????????!
+
+Andy’s predicted M.C. Grade boundaries: 5**: 34 / 36 5*: 31 / 36 5: 28 / 36 4: 24 / 36 3: 20 / 36 2: 16 / 36
+
+P. 1
+
+Section A 1. B
+
+? Sir ??? :
+
+1. Energy is absorbed in both boiling and evaporation. Therefore, statement 1 is incorrect.
+
+2. Evaporation can take place at any temperature. Therefore, statement 2 is incorrect.
+
+3. Boiling occurs throughout the liquid and so all the particles have enough potential energy to overcome the attractive between them and go further and further apart to become gas state. While evaporation only takes place at the liquid’s surface because only the particles on the surface gain enough potential energy to overcome the attractive forces between them to go further and further apart to become gas state. Therefore, statement 3 is correct.
+
+P. 2
+
+2. B
+
+? Sir ??? :
+
+1. Experimental results of specific latent heat of vaporization of water < Standard value of specific latent heat of vaporization of water ? Less energy is needed for vaporization ? Some energy is absorbed by the water but not supplied by the heater.
+
+2. A is incorrect. If the energy is lost to surroundings, more energy is used and the results should be higher than the actual value.
+
+3. B is correct. Water splashing out means less water is needed to boil, less energy is needed for vaporization and so the experimental result is smaller than the standard value.
+
+4. C is incorrect. If the steam condenses on the cooler part of the heater and drops back to the beaker, more energy is needed to re-boil the water dropped back to the beaker and so the experimental result is larger than that standard value.
+
+5. D is incorrect. If the heater is not completely immersed in water, some energy is lost to surroundings and so more energy are used to boil the water and so the experimental result is larger than that standard value.
+
+6. Remember, don’t just use the equation
+
+m
+
+E l ? and you will fall into a trap!
+
+P. 3
+
+3. C
+
+? Sir ??? :
+
+1. By
+
+A
+
+K
+
+N
+
+RT
+
+E
+
+2
+
+3 ? ,
+
+NA
+
+RT mc
+
+2
+
+3
+
+2
+
+1 2 ? , mNA
+
+RT
+
+c
+
+3 ? where c is the r.m.s. speed of molecules. The equation above shows that the r.m.s. speed of molecule depends on the Kelvin temperature only! If the gas is heated under constant volume, the kelvin temperature of the gas increase, therefore, from the equation above, the r.m.s. speed of the molecules increase. Therefore, statement 1 is correct.
+
+2. By PV ? nRT and
+
+mNA
+
+RT
+
+c
+
+3 ? , if the gas expands under constant pressure,
+
+the volume of the gas increases and so the Kelvin temperature increases. 
+Therefore, the r.m.s. speed of molecules increase. 
+Therefore, statement 2 is correct. 
+
+3. Since the temperature is constant, therefore, the r.m.s. speed of molecules remain unchanged. Therefore, statement 3 is incorrect.
+
+P. 4
+
+4. D
+
+? Sir ??? :
+
+1. By PV ? nRT and before S is opened, in vessel X, 2pV ? nxRT while in vessel Y, p(2V) ? nYRT. Therefore, the number of moles of gas molecules in
+
+vessel X and vessel Y are
+
+RT pV nx
+
+2 ? and
+
+RT pV nY
+
+2 ? .
+
+Therefore, A is correct.
+
+2. By
+
+A
+
+K
+
+N
+
+RT
+
+E
+
+2
+
+3 ? and before S is opened, the Kelvin temperature of vessel X
+
+and vessel Y are the same. Therefore, the average kinetic energy of the gas 
+molecules in both vessels is the same. 
+Therefore, B is correct. 
+
+3. When S is opened, since the gas pressure in vessel X is 2p and that in vessel Y is p, the pressure difference (2p – p) makes a net flow of gas molecules from vessel X to vessel Y until equilibrium is reached. Therefore, C is correct.
+
+4. In equilibrium, the pressure in vessel X and vessel Y should be the same.
+
+Therefore, By PV ? nRT , P(3V) ? (nx ? nY)RT ?
+
+V
+
+n n RT
+
+P
+
+x Y 3
+
+( ? ) ? . Since
+
+V
+
+n RT
+
+p x 2
+
+? and x Y n ?n , therefore,
+
+V
+
+n RT
+
+P
+
+x 3
+
+2 ? ? P p p 3
+
+2
+
+3
+
+4 ? ? .
+
+Therefore, D is incorrect.
+
+5. A
+
+6. D
+
+| ? 1. 2. 3. | ??? Sir : Resolving the weight of the block into 2 perpendicular components. ? ? ? T 20cos 25 ? Set up two equations: where T is the tension in the string. ? ? ? F 20sin 25 ?? By solving equations above, F?8.45?8.5 N. |
+| --- | --- |
+| | |
+| ? 1. 2. 3. 4. 5. | ??? Sir : Along AD direction, Resultant force (F1) = 4 – 1 = 3 N (Towards D) Along CF direction, Resultant force (F2) = 6 – 3 = 3 N (Towards F) Along BE direction, Resultant force (F3) = 5 – 2 = 3 N (Towards E) The resultant force of F1 and F2 = equals 3N (Towards E) Therefore, the resultant force of all six forces = 6 N (Towards E) |
+| | |
+| ? 1. 2. 3. | ??? Sir : At first, the block is moving to the left with constant speed. Therefore, the friction acting on the block = 12 – 2 = 10 N (To the right) If the force of 12 N is suddenly removed, since the block is still moving to the left, the friction is still acting on the block to the right to oppose the motion and its magnitude is still the same as that of before.. Therefore, resultant force acting on the block = 2 + 10 = 12 N (To the right) |
+
+7. A
+
+P. 5
+
+8. D
+
+| ? 1. ? ? ? ? ? ? ? ? (1)/(2) | Sir By 9 ? (9 | ??? s ? 1 ? 2 16) ? gives | ut ? 2 ... (1) gt 1 ? ? 9 25 3 5 3 t 1 | 1 at 2 1 g 2 ? ? t ? t 1 : t 2 | : 2 ( ? t 1 2 t 1 ( ? t 1 t 1 ? t 1 2 3 ? t 2 3: ? | 2 ) ...(2) t 2 2 ) t 2 5 t 1 2 | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | |
+| ? 1. 2. | Sir Taking moment at Y, by principle of moment Sum of clockwise moment at Y = sum of anti-clockwise moment at Y, Do you know why I choose to take moment at Y instead of other point? | ??? | | | : | 154(0.5) | (0.7) ? FX ?110 N FX |
+
+9. D
+
+P. 6
+
+10. D
+
+| ? 1. 2. 3. 4. 5. | ??? Sir By Law of conservation of momentum, take right as positive. Before collision, Total momentum = In case (1), the total momentum after collision = Therefore, case (1) is not possible. In case (2), the total momentum after collision = Therefore, case (2) is possible. In case (3), the total momentum after collision = If Mv case (3) is possible. | : 0. Mu ? Mv ? M(u ? v) ? v). ? Mu ? 0, ? M(u ? v). ? Mv ? Mu ? M(u ? 0. Mv ? v), , which is possible since v. Therefore, u ? 2v v ? u ?v u ? ? M(u ? |
+| --- | --- | --- |
+| | | |
+| ? 1. 2. 3. | ??? Sir For velocity-time graph, at t = 1 s, the sign of velocity is still negative, which means P travel in the same direction but slower. Therefore, statement 1 is incorrect. At t = 2 s, the displacement of Q from the starting point = (2 x 2)/2) = 2 m At t = 2 s, the displacement of P from the starting point = (2 x -2)/2) = - Therefore, the separation between P and Q is 2 - Therefore, statement 2 is correct. At t = 4 s, the displacement of Q from the starting point = (2 x 4)/2 = 4 m At t = 4 s, the displacement of P from the starting point Therefore, P and Q cannot meet each other at t = 4 s. Therefore, statement 3 is incorrect. | : 2 m (-2) = 4 meters. ? = (2 x -2)/2 + (2 x 4)/2 = -2 + 4 = 2 m 4 m |
+
+11. B
+
+P. 7
+
+12. A
+
+| ? ??? Sir 1. By Law of conservation of energy, Loss of kinetic energy = work done against friction. 1 (0.05)(400) 2 f ? 40625 | : 2 ? ? 4.06?10 | 1 (0.05)(250) 2 | 2 # (0.06) ? f 4 N |
+| --- | --- | --- | --- |
+| | | | |
+
+13. D
+
+? Sir ??? :
+
+1. For the whole projectile motion, the kinetic energy of the particle is non-zero because at every position, there is still horizontal velocity.
+
+2. Define: m be the mass of the particle, u be the initial velocity and ? is the projection angle to the ground.
+
+xv and yv are the horizontal and vertical components of velocity at
+
+any time t. 
+g is magnitude of the acceleration due to gravity. 
+
+3. The relationship between the kinetic energy and the time is shown below: 2 2 ( )
+
+1
+
+1 . . x y K E ? m v ? m v
+
+( )
+
+2
+
+2
+
+1
+
+1 K.E. ? m u ? ? m u ? ? gt
+
+2 2 ( sin )
+
+( cos )
+
+2
+
+2
+
+1
+
+1
+
+2 2 2 2 2 K E ? m u ? ? m u ? ? ugt ? ? g t ( sin 2 sin )
+
+( cos )
+
+. .
+
+2
+
+2
+
+1
+
+1 K.E. ? mu ? ? ? ? mug ? t ? mg t (cos sin ) ( sin )
+
+2 2 2 2 2 2
+
+2
+
+1
+
+2
+
+1 2 mg ? , b = ?(mugsin?), c =
+
+K E ? at ?bt ? c
+
+mu .
+
+2 . . where a = 0 2
+
+2
+
+4. Therefore, the graph should be a parabola opening upwards without touching the time axis.
+
+P. 8
+
+14. A
+
+| ? 1. 2. 3. | ??? Sir Tension in the spring balances the weight. Therefore, statement 1 is correct. Since equilibrium (Resultant Force = Zero) and rotational equilibrium (Resultant Torque = Zero) acting along the same line of force to make the resultant torque become zero. Therefore, statement 2 is correct. The reading of the balance is only become less but not zero since the acceleration due to gravity of the moon is not zero, there still be a weight acting on the cardboard. Therefore, statement 3 is incorrect. | the card board is in static equilibrium, which means both translation | | : are achieved. Therefore, the weight and the tension should be | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | | |
+| ? 1. 2. 3. | ??? Sir Let the mass and the radius of the Earth be M and r respectively. The gravitation acceleration g on the Earth’s surface is: The gravitational acceleration on the surface of Mars is: gMars | 2? | G (0.1 (0.5 | : M ) ? 2 r ) | GM 0.4 ? r | g 0.4 | g ? | GM 2 r |
+
+15. B
+
+P. 9
+
+P. 10
+
+16. B
+
+? Sir ??? :
+
+1. Label the diagram as shown below:
+
+2. The dotted line represents the next moment of the transverse wave.
+
+3. For particle P, at t = 0, it is on the crest and momentarily at rest. But it will then start to vibrate and going downwards.
+
+4. At t = 1.5 s, particle P passes the equilibrium position for a second time,
+
+which implies that 1.5 4
+
+3
+
+T ? ? T ? 2 s ? Hz T
+
+f
+
+2
+
+1 1 ? ? .
+
+5. From the graph, the wave length = 30 – 6 = 24 m
+
+6. Therefore, by v ? f?, the wave speed = (0.5)(24) = 12
+
+?1
+
+cm s
+
+P. 11
+
+17. A
+
+? Sir ??? :
+
+1. To deal with longitudinal wave question, we have to find out some particles which are in equilibrium position.
+
+2. In the question, particle b, f and j are in equilibrium.
+
+3. Then define the direction of particle by: To the right is positive!
+
+4. Stretch the figure (2) as a transverse wave graph as follows:
+
+5. Therefore, particle d and h attains its amplitude and from the graph, the amplitude = 6 cm .
+
+6. Moreover, the wavelength = distance between particle b and j = 8 x 5 = 40 cm.
+
+7. Therefore, by v ? f? , 80 ? f (40), f ? 2 Hz.
+
+18. D
+
+| ? 1. 2. 3. | Sir For stationary wave, Particle P and Q are both attaining their amplitude in which they are momentarily at rest. However, in this question, there is no mention about whether particle P and Q are attaining their amplitude or not. Therefore, statement 1 is incorrect. For stationary wave, Particle Q and R are exactly out of phase / anti-phase. Therefore, they will go back to the equilibrium positions at the same time. Therefore, statement For stationary wave, Particle P and R always in antiphase. Therefore, statement is correct. | ??? | | : | 2 is correct. | | | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | | | | | | | |
+| ? 1. 2. 3. | Sir Let the speed of sound in the By Solving equation (1) and (2) gives v = | ??? the time needed to hear the first clapping sound be t. Speed | ? | : Dis tan Time | ce , v ? | atmosphere of this planet be v, 600 | ? 400 t | … 200 | (1) and m | 1 ? s | ? v and t = 1 s | 400 | 600 ? … (2) 4 ? t |
+
+19. C
+
+P. 12
+
+20. C
+
+? Sir ??? :
+
+? sin air
+
+1. By Law of reversibility of light, refractive index of medium X =
+
+? sin
+
+medium X
+
+where ? air is the angle between the light ray in air and the normal and ? medium X is the angle between the light ray in medium X and the normal.
+
+? ? ? ? 90 ? 40 ? 50 ? mediumX and
+
+? ? ? ? ?air ?180 ? 50 ? 70 ? 60
+
+2.
+
+?
+
+sin 60
+
+.
+
+3. Therefore, the refractive index of medium X = ?
+
+sin50
+
+21. A
+
+| | |
+| --- | --- |
+| ? 1. 2. 3. | ??? Sir : ? Different colours of light have different speed in glass prism Different refractive indices. Therefore, statement 1 is correct. In vacuum (or even air), the speed of different colours of light are the same. Therefore, statement 2 is incorrect. Frequency of light depends on the sources only! No matter where they travel, the frequency of different colour of light is fixed! Therefore, statement 3 is incorrect. |
+
+P. 13
+
+22. C
+
+? Sir ??? :
+
+1. Label the diagram as shown below. The construction line is drawn parallel to the emerging light ray from the lens and by law of reversibility of light! From the graph, the focal length is shorter than 20 cm. Therefore, statement 1 is correct.
+
+1 1 1 ? ? , Given the focal length is fixed,
+
+2. By lens formula,
+
+u v f
+
+1 1
+
+? u ? ? ? ? ? ? ? ?
+
+.
+
+v OY u v
+
+Therefore, statement 2 is incorrect.
+
+OX
+
+v m . Therefore, the image is diminished.
+
+3. By linear magnification ? ? ?1 OY
+
+u
+
+Therefore, statement 3 is correct.
+
+23. A
+
+| | | | | | |
+| --- | --- | --- | --- | --- | --- |
+| ? 1. 2. 3. | ??? Sir By d sin? Maximize ? ?green ?blue lines per mm will produce the greatest angle | : n?, For n = 1, ? ? Maximize ? and d ? | 1 400 | sin? sin? ? d ? | ? . ? d ? ? ? ? d and . 1 ? Green light and grating with 400 200 ? |
+
+P. 14
+
+24. D
+
+| ? 1. 2. 3. 4. | Sir Before touching each other, By ? After touching each other, The sphere, it carries charges of (6-2)/2 = +2Q. By Therefore, the magnitude of the electrostatic force becomes sign means repulsive. | ??? Magnitude of F | 1 ? 4 ?? | ( ? | : 2 Q ? | F )( ? 2 r | 1 ? 4 ?? 2 ) Q | 12 Q r ? ? ? 4 ?? | F ? 2 2 charges are shared and therefore, for each 4 1 Q r ? | 1 4 ?? ? 2 2 | ( 2 )( Q ? ? 2 r | 6 ) Q ? ? | 12 1 4 ?? ? 1 F 3 | 2 Q 2 r and positive |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | | | | | | | | |
+| ? 1. 2. 3. | Sir By By Therefore, order of magnitude of energy released = | ??? E V | V ? d U ? Q | ? ? | : 3 ? 1.5 | 10 10 ? | 6 ? 500 9 ? | V ? U 20 | V U ? | ?1.5?10 ? 3?10 | 9 V 10 J | 10 10 | | |
+
+25. C
+
+P. 15
+
+P. 16
+
+26. C
+
+? Sir ??? :
+
+1. Magnetic field is a vector.
+
+2. In the combined field below, on the left side, field lines is denser ? Field lines add together in the same direction!
+
+3. While on the right side, field lines is less dense ? Filed lines cancel out each other in the opposite direction!
+
+4. By right hand grip rule, the current I in the wire will induce a clockwise magnetic field around the wire.
+
+5. Therefore, you can predict the magnetic field lines are directed from the bottom to the top which implies that Y (Lower) is the north pole while X (Upper) is the south pole.
+
+6. Finally, by Fleming’s left hand rule, External magnetic field + Current ? the magnetic force acting on the wire!
+
+27. C
+
+| ? 1. 2. | ??? Sir : By right-hand grip rule, the magnetic field induced by the wire P, Q, R and S are shown as in the figure below. Removing the magnetic field induced by wire R (BR) will increase the magnetic field strength at O since all other three magnetic field are into paper only is out of paper. BR |
+| --- | --- |
+| | |
+| ? 1. | ??? Sir : External magnetic field + Current, By Fleming’s left hand rule, There is a magnetic force acting on the rod to the left when it is viewed from end Y. |
+
+28. C
+
+P. 17
+
+P. 18
+
+29. D
+
+? Sir ??? :
+
+1. Change in magnetic flux cutting ? Induced voltage across the rod OP!
+
+2. There is no complete circuit connected the rod OP ? No induced current!
+
+3. To determine which end (P or O) is at a higher potential, we have to
+
+? Imagine there is a complete circuit connected as shown in the figure below: 
+? After the rod OP is rotated about O to OP’ ? Area A to Area A+B! 
+? There is an increase in magnetic flux linkage into paper. 
+? By Lenz’s Law, there should be an induced current flowing anticlockwise to 
+oppose the increase in magnetic flux linkage into paper. 
+? The rod OP is regarded as a battery, therefore, P should be at a higher 
+potential. 
+
+?
+
+30. B
+
+| ? 1. 2. 3. 4. 5. | ??? Sir Resistor Y and resistor X are in-series; resistor X are the same. The resistance of X, Y and Z are the same (Let it be R), By power dissipated by Y and Z are the same. The equivalent resistance across Y//Z = R/2, therefore, the ratio of the potential difference (voltage) across X to the potential difference (voltage) across Y//Z = 2:1 . Therefore, By ratio of the power dissipated in X to that Y to that of Z = 4 : 1 : 1 Therefore, the power dissipated in resistor Z = 4 W. | : P | the voltage across resistor Y and 2 V so the P ? R 2 V , Given the resistance of X, Y and Z are the same, the ? R |
+| --- | --- | --- | --- |
+| | | | |
+| ? 1. 2. 3. 4. | ??? Sir On the left The voltage across S increases and so the voltage across S increases. On the right side, Parallel circuit. The potential difference bulb 2 remains unchanged Therefore, Blub | : side, In-series circuit. Shift to the right | resistance of S ? ? (voltage) across no matter where S is shifted. become brighter while L2Bulb 2 remains unchanged. L1 |
+
+31. A
+
+P. 19
+
+32. C
+
+33. B
+
+| ? 1. 2. | ??? Sir : When the switch is closed, both X and Y does not light up but there is reading in voltmeter Reading of the voltmeter equals the E.M.F. of the battery. ? Therefore, Bulb X is burnt out and becomes open circuit. |
+| --- | --- |
+| | |
+| ? 1. 2. 3. 4. 5. | ??? Sir : By common sense, the power of electric fan is a few hundred watts. By common sense, the power of computer and notebook is between 50W to 300W normally. By common sense, the power of TV is about less than 1kW. By common sense, the power of fluorescent lamp is only less than 100 W. By common sense, the power of microwave oven is between 800W to 1kW. |
+
+P. 20
+
+34. A
+
+| ? 1. 2. 3. 4. 5. | Sir 238 U 92 234 U 90 234 U 91 234 U 92 Atomic numbers: 90; Mass numbers: 230 | ??? ? ?? ?? ? | 4 ?? 2 0 ?? 1 0 ?? 1 4 ?? 2 | 234 90 234 91 234 92 230 90 | : P Q R S | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | | | | |
+| ? 1. | Sir By | ??? N | N ? | ?? e ? | : t , | N 420e ? | ln ( ? 140 | 2 )(7 0) ? | 296.98 297 ? | mg |
+| | | | | | | | | | | |
+| ? 1. | Sir By | ??? E | ? mc | 2 , | : 3.8?10 | 26 | ? m(3?10 | 8 2 ) | m ? 4.2?10 , | 9 kg |
+
+35. B
+
+36. B
+
+The end.
+
+P. 21
+
+? sir ???? 2013 ? 8 ???
+
+????????????? ?? ??? ?? ????
+
+Physics R01 ???? (Wed) 9a.m. – 10a.m. 8 ? 7,14,21,28
+
+????:
+
+HKDSE Physics Core Section 5: Radioactivity and Nuclear Energy ? Radiation and radioactivity / Atomic model / Nuclear energy ? ?????? + ?????? ?? ??? ?? ????
+
+Physics A01 ???? (Wed) 10a.m. – 11a.m. 8 ? 7,14,21,28
+
+????:
+
+HKDSE Physics Elective Section 7: Atomic World ? Rutherford’s atomic model / Photoelectric effect ? Bohr’s atomic model of hydrogen / Waves-particles duality
+
+? Probing into Nano scale ? ?????? + ?????? ?? ??? ?? ????
+
+Physics E01 ???? (Wed) 11a.m. – 12a.m. 8 ? 7,14,21,28
+
+????:
+
+HKDSE Physics Core Section 4a: Electrostatics ? Electric charges / Electric field / Electric potential ? ?????? + ?????? ?? ??? ?? ????
+
+Physics E02 ???? (Wed) 12a.m. – 1p.m. 8 ? 7,14,21,28
+
+????:
+
+HKDSE Physics Core Section 4b: Circuits and domestic electricity ? Electric Current / Electrical energy / Electromotive force (e.m.f)
+
+? Resistance and its complex connection ? Series and parallel circuits / Earthed points as zero potential ? Electrical power / Domestic electricity ? ?????? + ?????? ?? ??? ?? ????
+
+Physics E03 ???? (Wed) 1p.m. – 2p.m. 8 ? 7,14,21,28
+
+????:
+
+HKDSE Physics Core Section 4c: Electromagnetism ? Magnetic force and magnetic field ? Magnetic effect of electric current ? Current-carrying conductor in magnetic field ? Hall effect and its application ? Electromagnetic induction / Lenz’ Law / Faraday’s Law ? Alternating current (a.c.) / Transformer ? High voltage transmission of electrical energy ? ?????? + ?????? ?? ??? ?? ????
+
+Physics M01 ???? (Wed) 2p.m. – 3p.m. 8 ? 7,14,21,28
+
+????:
+
+HKDSE Physics Core Section 2abce: Mechanics Part 1 ? Position and Movement / Force and Motion ? Work and Power / Momentum ? ?????? + ?????? ?? ??? ?? ????
+
+Physics M02 ???? (Wed) 3p.m. – 4p.m. 8 ? 7,14,21,28
+
+????:
+
+HKDSE Physics Core Section 2dfg: Mechanics Part 2
+
+? Projectile motion ? Uniform circular motion ? Gravitation
+
+? ?????? + ?????? ? sir ?????????:
+
+? ??????????????.
+
+? ??????, ????.
+
+? ????: ????????.
+
+? ??????? 7 ?.
+
+? ????? ??? HKD 960 ??, ?? 1 ??.
+
+(???????????????????.)
+
+? ???????/??, ????????????, ????.
+
+? ????????, ????, ????, ??????.
+
+? ????? 6772 3001
+
+? ????: ????????? 9 ??????? 706 ? ??: ?? E2 ??, ??? A2 ?? ??: 1, 1A, 2, 3C, 6, 6C, 6F, 9, 30X, 35A, 41A, 42A, 60X, 63X, 68X, 69X, 81S, 87D, 93K, 95, 104, 117, 203, 212, 230X, 234P, 234X, 238P, 238S, 259B, 270P, 281A
+
+| ??: | | 21K, 74, 74S |
+| --- | --- | --- |
+| ????: | | 6772 3001 |
+| ????: | | enquiry@andylai.hk |
+| ??: | | www.andylai.hk |
+
+? sir ?? Andy Lai BEng CUHK, MIEEE
+
+? ???????????????, ? sir ???????. 
+? ?? 15 ??????? / IB Diploma / GCE / HSC / SAT / AP / GCSE / IGCSE / IB MYP ????. 
+? ??????????????????,? sir ????,????????? 5**,??????. 
+? ??????, ????????; ????????, ????????. 
+? ?????????, ????, ??????; ????, ?????????????. 
+? ??????, ?????????????; ?????????, ????????????. 
+? ? sir ????????????????, ????????????????????. 
+? ??????????????, ??????, ??????, ??????????. 
+? ????: ?????, ???, ???, ???, ???, ???. 
+
+? sir ??????:
+
+? ???????? (HKDSE), ?????? 5/5*/5**?????. ?????? 5 ? 
+5**? 2 ? 5*? 1 ? 5 ?????, ??? 72620 ???, ?? 28, ???????. 
+? ???? (GCE AS/AL), ?????? A*/A ????, ?????? 5 ? A*. 
+? ???? (IB Diploma), ?????? 6 / 7 ??, ???????? 40 ???. 
+? ???? (IGCSE / GCSE), ?????? A / A*??, ?????? 8 ? A*? 
+? ??????? (CESI) ???? MCV4U , ?? 98 / 100, 99 / 100 ??? 
+? ?????? (EAS), ????????????????. 
+? ?????? (HKCEE), ?????? 20 ?????. 
+? ?????????? (BIMC 2013) ?????. 
+? ?????/???/??, ?????????/??/???/?????. 
+? ????, ?????, ?????????: www.andylai.hk/result.htm 
+
+? sir ??????:
+
+? ???? (1 – 6 ?), ??????; ????????, ????. 
+? ??????, ???? 30 ?????????????. 
+? ????, ??????; ????????????. 
+? ??????????, ?????????????. 
+? ?????????: www.andylai.hk 
+
+? sir ?? A Lai Learning Center
+
+HKDSE / IB Diploma / GCE AS AL / AP / SAT / HSC
+
+IGCSE / GCSE / IB MYP / KS3 / MO / F.1 – F.6 / Y9 – Y13 ???????? ???? ????!!!
+
+? sir ?? Andy Lai BEng CUHK, MIEEE
+
+? ?????????, ? sir ???????. 
+? ?? 15 ??? ???? / IB Diploma / GCE / HSC / SAT / AP / GCSE / IGCSE / IB MYP ????. 
+? ??????????????????,? sir ????,????????? 5**,??????. 
+? ??? sir ???????, ?????????, ????, ??????????. 
+? ????????, ????????; ????????, ???????? 
+? ?????????, ????, ??????; ????, ?????????????. 
+? ??????,?????????????; ?????????,????????????. 
+? ? sir ????????????????, ???????????????????; 
+??????????????, ??????, ????????, ??????????. 
+? ? sir ??????????????????????????, ????????????? 
+?????, ?????????????????????????????. 
+? ??????????????????? 50%. ?????????"?????? Outstanding 
+Performer", ?????????????????. 
+? ? sir ??????, ??????, ????????, ???????????????? 
+
+? sir ?? ????
+
+? ???? (1 – 6 ?), ??????; ????????, ????. 
+? ??????, ???? 30 ?????????????. 
+? ????, ??????; ????????????. 
+? ??????????, ?????????????. 
+? ????????????: www.andylai.hk 
+??: ?? E2 ??, ??? A2 ?? 
+??: 1, 1A, 2, 3C, 6, 6C, 6F, 9, 30X, 35A, 41A, 42A, 
+60X, 63X, 68X, 69X, 81S, 87D, 93K, 95, 104, 117, 
+203, 212, 230X, 234P, 234X, 238P, 238S, 259B, 
+270P, 281A 
+??: 21K, 74, 74S 
+
+| | | | ??: | | | 21K, 74, 74S |
+| --- | --- | --- | --- | --- | --- | --- |
+| | | | ????: | | ????????? | ??????? 9 706 ?. |
+| | | | ????: | | | 6772 3001 |
+| | | | ????: | | | enquiry@andylai.hk |
+| | | | ??: | | | www.andylai.hk |
+

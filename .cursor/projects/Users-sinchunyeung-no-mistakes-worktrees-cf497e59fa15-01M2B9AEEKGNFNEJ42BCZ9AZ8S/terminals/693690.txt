@@ -1,0 +1,749 @@
+---
+pid: 49022
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2B9AEEKGNFNEJ42BCZ9AZ8S"
+command: "git rebase 2a9f98fe95bd2ec5cc605000e2d52fd2960eea17"
+title: "Rebase feature branch onto specified base"
+status: failed   
+started_at: 2026-09-14T01:57:39.891Z
+running_for_ms: 31788    
+---
+Rebasing (1/4)Auto-merging .lavish/lq-classified-review/data.json
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/data.json
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2012-q1.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2012-q1.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2012-q1.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2012-q10.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2012-q10.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2012-q10.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2012-q11.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2012-q11.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2012-q11.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2012-q2.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2012-q2.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2012-q2.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2012-q3.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2012-q3.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2012-q3.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2012-q4.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2012-q4.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2012-q4.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2012-q5.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2012-q5.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2012-q5.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2012-q6.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2012-q6.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2012-q6.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2012-q7.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2012-q7.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2012-q7.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2012-q8.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2012-q8.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2012-q8.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2012-q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2012-q9.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2012-q9.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2014-q1.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2014-q1.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2014-q1.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2014-q10.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2014-q10.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2014-q10.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2014-q2.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2014-q2.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2014-q2.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2014-q3.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2014-q3.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2014-q3.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2014-q4.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2014-q4.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2014-q4.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2014-q5.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2014-q5.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2014-q5.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2014-q6.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2014-q6.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2014-q6.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2014-q7.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2014-q7.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2014-q7.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2014-q8.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2014-q8.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2014-q8.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2014-q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2014-q9.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2014-q9.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2015-q1.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2015-q1.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2015-q1.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2015-q10.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2015-q10.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2015-q10.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2015-q2.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2015-q2.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2015-q2.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2015-q3.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2015-q3.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2015-q3.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2015-q4.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2015-q4.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2015-q4.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2015-q5.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2015-q5.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2015-q5.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2015-q6.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2015-q6.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2015-q6.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2015-q7.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2015-q7.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2015-q7.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2015-q8.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2015-q8.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2015-q8.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2015-q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2015-q9.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2015-q9.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2016-q1.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2016-q1.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2016-q1.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2016-q2.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2016-q2.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2016-q2.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2016-q3.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2016-q3.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2016-q3.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2016-q4.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2016-q4.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2016-q4.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2016-q5.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2016-q5.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2016-q5.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2016-q6.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2016-q6.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2016-q6.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2016-q7.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2016-q7.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2016-q7.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2016-q8.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2016-q8.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2016-q8.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2016-q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2016-q9.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2016-q9.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2018-q1.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2018-q1.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2018-q1.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2018-q10.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2018-q10.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2018-q10.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2018-q2.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2018-q2.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2018-q2.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2018-q3.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2018-q3.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2018-q3.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2018-q4.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2018-q4.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2018-q4.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2018-q5.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2018-q5.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2018-q5.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2018-q6.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2018-q6.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2018-q6.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2018-q7.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2018-q7.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2018-q7.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2018-q8.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2018-q8.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2018-q8.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2018-q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2018-q9.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2018-q9.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2019-q1.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2019-q1.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2019-q1.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2019-q10.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2019-q10.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2019-q10.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2019-q2.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2019-q2.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2019-q2.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2019-q3.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2019-q3.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2019-q3.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2019-q4.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2019-q4.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2019-q4.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2019-q5.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2019-q5.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2019-q5.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2019-q6.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2019-q6.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2019-q6.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2019-q7.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2019-q7.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2019-q7.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2019-q8.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2019-q8.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2019-q8.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2019-q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2019-q9.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2019-q9.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2020-q1.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2020-q1.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2020-q1.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2020-q10.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2020-q10.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2020-q10.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2020-q2.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2020-q2.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2020-q2.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2020-q3.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2020-q3.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2020-q3.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2020-q4.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2020-q4.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2020-q4.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2020-q5.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2020-q5.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2020-q5.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2020-q6.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2020-q6.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2020-q6.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2020-q7.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2020-q7.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2020-q7.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2020-q8.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2020-q8.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2020-q8.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2020-q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2020-q9.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2020-q9.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2021-q1.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2021-q1.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2021-q1.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2021-q2.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2021-q2.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2021-q2.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2021-q3.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2021-q3.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2021-q3.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2021-q4.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2021-q4.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2021-q4.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2021-q5.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2021-q5.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2021-q5.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2021-q6.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2021-q6.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2021-q6.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2021-q7.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2021-q7.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2021-q7.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2021-q8.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2021-q8.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2021-q8.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2021-q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2021-q9.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2021-q9.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2022-q1.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2022-q1.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2022-q1.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2022-q10.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2022-q10.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2022-q10.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2022-q2.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2022-q2.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2022-q2.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2022-q3.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2022-q3.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2022-q3.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2022-q4.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2022-q4.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2022-q4.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2022-q5.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2022-q5.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2022-q5.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2022-q6.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2022-q6.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2022-q6.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2022-q7.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2022-q7.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2022-q7.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2022-q8.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2022-q8.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2022-q8.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2022-q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2022-q9.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2022-q9.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2023-q1.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2023-q1.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2023-q1.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2023-q2.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2023-q2.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2023-q2.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2023-q3.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2023-q3.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2023-q3.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2023-q4.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2023-q4.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2023-q4.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2023-q5.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2023-q5.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2023-q5.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2023-q6.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2023-q6.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2023-q6.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2023-q7.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2023-q7.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2023-q7.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2023-q8.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2023-q8.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2023-q8.png
+warning: Cannot merge binary files: .lavish/lq-classified-review/img/2023-q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging .lavish/lq-classified-review/img/2023-q9.png
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/img/2023-q9.png
+Auto-merging .lavish/lq-classified-review/index.html
+CONFLICT (content): Merge conflict in .lavish/lq-classified-review/index.html
+Auto-merging AGENTS.md
+CONFLICT (content): Merge conflict in AGENTS.md
+warning: Cannot merge binary files: classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/answers.pdf
+warning: Cannot merge binary files: classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/performance.pdf
+warning: Cannot merge binary files: classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/questions.pdf
+warning: Cannot merge binary files: classified/lq/01_Heat_and_Gases/02_Heat_Capacity/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/01_Heat_and_Gases/02_Heat_Capacity/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/01_Heat_and_Gases/02_Heat_Capacity/answers.pdf
+warning: Cannot merge binary files: classified/lq/01_Heat_and_Gases/02_Heat_Capacity/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/01_Heat_and_Gases/02_Heat_Capacity/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/01_Heat_and_Gases/02_Heat_Capacity/performance.pdf
+warning: Cannot merge binary files: classified/lq/01_Heat_and_Gases/02_Heat_Capacity/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/01_Heat_and_Gases/02_Heat_Capacity/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/01_Heat_and_Gases/02_Heat_Capacity/questions.pdf
+warning: Cannot merge binary files: classified/lq/01_Heat_and_Gases/03_Change_of_State/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/01_Heat_and_Gases/03_Change_of_State/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/01_Heat_and_Gases/03_Change_of_State/answers.pdf
+warning: Cannot merge binary files: classified/lq/01_Heat_and_Gases/03_Change_of_State/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/01_Heat_and_Gases/03_Change_of_State/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/01_Heat_and_Gases/03_Change_of_State/performance.pdf
+warning: Cannot merge binary files: classified/lq/01_Heat_and_Gases/03_Change_of_State/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/01_Heat_and_Gases/03_Change_of_State/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/01_Heat_and_Gases/03_Change_of_State/questions.pdf
+warning: Cannot merge binary files: classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/answers.pdf
+warning: Cannot merge binary files: classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/performance.pdf
+warning: Cannot merge binary files: classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/questions.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/05_Motion/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/05_Motion/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/05_Motion/answers.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/05_Motion/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/05_Motion/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/05_Motion/performance.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/05_Motion/pp-q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/05_Motion/pp-q9.png
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/05_Motion/pp-q9.png
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/05_Motion/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/05_Motion/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/05_Motion/questions.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/06_Force/2022-q3.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/06_Force/2022-q3.png
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/06_Force/2022-q3.png
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/06_Force/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/06_Force/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/06_Force/answers.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/06_Force/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/06_Force/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/06_Force/performance.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/06_Force/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/06_Force/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/06_Force/questions.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/07_More_about_Forces/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/07_More_about_Forces/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/07_More_about_Forces/answers.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/07_More_about_Forces/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/07_More_about_Forces/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/07_More_about_Forces/performance.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/07_More_about_Forces/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/07_More_about_Forces/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/07_More_about_Forces/questions.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/answers.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/performance.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/questions.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/09_Momentum/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/09_Momentum/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/09_Momentum/answers.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/09_Momentum/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/09_Momentum/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/09_Momentum/performance.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/09_Momentum/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/09_Momentum/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/09_Momentum/questions.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/10_Projectile_Motion/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/10_Projectile_Motion/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/10_Projectile_Motion/answers.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/10_Projectile_Motion/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/10_Projectile_Motion/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/10_Projectile_Motion/performance.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/10_Projectile_Motion/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/10_Projectile_Motion/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/10_Projectile_Motion/questions.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/answers.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/performance.pdf
+warning: Cannot merge binary files: classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/questions.pdf
+warning: Cannot merge binary files: classified/lq/03A_Wave_Motion/13_Wave_Motion/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/03A_Wave_Motion/13_Wave_Motion/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/03A_Wave_Motion/13_Wave_Motion/answers.pdf
+warning: Cannot merge binary files: classified/lq/03A_Wave_Motion/13_Wave_Motion/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/03A_Wave_Motion/13_Wave_Motion/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/03A_Wave_Motion/13_Wave_Motion/performance.pdf
+warning: Cannot merge binary files: classified/lq/03A_Wave_Motion/13_Wave_Motion/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/03A_Wave_Motion/13_Wave_Motion/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/03A_Wave_Motion/13_Wave_Motion/questions.pdf
+warning: Cannot merge binary files: classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/answers.pdf
+warning: Cannot merge binary files: classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/performance.pdf
+warning: Cannot merge binary files: classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/questions.pdf
+warning: Cannot merge binary files: classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/answers.pdf
+warning: Cannot merge binary files: classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/performance.pdf
+warning: Cannot merge binary files: classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/questions.pdf
+warning: Cannot merge binary files: classified/lq/03A_Wave_Motion/16_Light_and_Sound/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/03A_Wave_Motion/16_Light_and_Sound/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/03A_Wave_Motion/16_Light_and_Sound/answers.pdf
+warning: Cannot merge binary files: classified/lq/03A_Wave_Motion/16_Light_and_Sound/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/03A_Wave_Motion/16_Light_and_Sound/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/03A_Wave_Motion/16_Light_and_Sound/performance.pdf
+warning: Cannot merge binary files: classified/lq/03A_Wave_Motion/16_Light_and_Sound/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/03A_Wave_Motion/16_Light_and_Sound/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/03A_Wave_Motion/16_Light_and_Sound/questions.pdf
+warning: Cannot merge binary files: classified/lq/03B_Ray_Optics/18_Refraction_of_Light/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/03B_Ray_Optics/18_Refraction_of_Light/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/03B_Ray_Optics/18_Refraction_of_Light/answers.pdf
+warning: Cannot merge binary files: classified/lq/03B_Ray_Optics/18_Refraction_of_Light/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/03B_Ray_Optics/18_Refraction_of_Light/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/03B_Ray_Optics/18_Refraction_of_Light/performance.pdf
+warning: Cannot merge binary files: classified/lq/03B_Ray_Optics/18_Refraction_of_Light/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/03B_Ray_Optics/18_Refraction_of_Light/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/03B_Ray_Optics/18_Refraction_of_Light/questions.pdf
+warning: Cannot merge binary files: classified/lq/03B_Ray_Optics/19_Lenses/2022-q5.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/03B_Ray_Optics/19_Lenses/2022-q5.png
+CONFLICT (content): Merge conflict in classified/lq/03B_Ray_Optics/19_Lenses/2022-q5.png
+warning: Cannot merge binary files: classified/lq/03B_Ray_Optics/19_Lenses/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/03B_Ray_Optics/19_Lenses/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/03B_Ray_Optics/19_Lenses/answers.pdf
+warning: Cannot merge binary files: classified/lq/03B_Ray_Optics/19_Lenses/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/03B_Ray_Optics/19_Lenses/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/03B_Ray_Optics/19_Lenses/performance.pdf
+warning: Cannot merge binary files: classified/lq/03B_Ray_Optics/19_Lenses/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/03B_Ray_Optics/19_Lenses/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/03B_Ray_Optics/19_Lenses/questions.pdf
+warning: Cannot merge binary files: classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/answers.pdf
+warning: Cannot merge binary files: classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/performance.pdf
+warning: Cannot merge binary files: classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/questions.pdf
+warning: Cannot merge binary files: classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2022-q8.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2022-q8.png
+CONFLICT (content): Merge conflict in classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2022-q8.png
+warning: Cannot merge binary files: classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/answers.pdf
+warning: Cannot merge binary files: classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/performance.pdf
+warning: Cannot merge binary files: classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/questions.pdf
+warning: Cannot merge binary files: classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/answers.pdf
+warning: Cannot merge binary files: classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/performance.pdf
+warning: Cannot merge binary files: classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/pp-q8.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/pp-q8.png
+CONFLICT (content): Merge conflict in classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/pp-q8.png
+warning: Cannot merge binary files: classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/questions.pdf
+warning: Cannot merge binary files: classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/answers.pdf
+warning: Cannot merge binary files: classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/performance.pdf
+warning: Cannot merge binary files: classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/questions.pdf
+warning: Cannot merge binary files: classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/answers.pdf
+warning: Cannot merge binary files: classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/performance.pdf
+CONFLICT (modify/delete): classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/pp-q12.png deleted in HEAD and modified in b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.).  Version b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.) of classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/pp-q12.png left in tree.
+warning: Cannot merge binary files: classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/pp-q7.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/pp-q7.png
+CONFLICT (content): Merge conflict in classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/pp-q7.png
+warning: Cannot merge binary files: classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/questions.pdf
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/2026-q12.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/2026-q12.png
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/2026-q12.png
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/questions.pdf
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2014-q10.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2014-q10.png
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2014-q10.png
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2016-q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2016-q9.png
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2016-q9.png
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2017-q10.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2017-q10.png
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2017-q10.png
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2021-q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2021-q9.png
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2021-q9.png
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2023-q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2023-q9.png
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2023-q9.png
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/answers.pdf
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/performance.pdf
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/questions.pdf
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2016-q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2016-q9.png
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2016-q9.png
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2017-q10.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2017-q10.png
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2017-q10.png
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2019-q10.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2019-q10.png
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2019-q10.png
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2020-q10.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2020-q10.png
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2020-q10.png
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2022-q10.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2022-q10.png
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2022-q10.png
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2023-q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2023-q9.png
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2023-q9.png
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2026-q12.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2026-q12.png
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2026-q12.png
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/answers.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/answers.pdf
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/answers.pdf
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/performance.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/performance.pdf
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/performance.pdf
+warning: Cannot merge binary files: classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/questions.pdf
+CONFLICT (content): Merge conflict in classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/questions.pdf
+warning: Cannot merge binary files: output/lq/2012/combined.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2012/combined.pdf
+CONFLICT (content): Merge conflict in output/lq/2012/combined.pdf
+warning: Cannot merge binary files: output/lq/2012/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2012/questions.pdf
+CONFLICT (content): Merge conflict in output/lq/2012/questions.pdf
+warning: Cannot merge binary files: output/lq/2013/combined.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2013/combined.pdf
+CONFLICT (content): Merge conflict in output/lq/2013/combined.pdf
+warning: Cannot merge binary files: output/lq/2013/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2013/questions.pdf
+CONFLICT (content): Merge conflict in output/lq/2013/questions.pdf
+warning: Cannot merge binary files: output/lq/2014/combined.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2014/combined.pdf
+CONFLICT (content): Merge conflict in output/lq/2014/combined.pdf
+warning: Cannot merge binary files: output/lq/2014/q10.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2014/q10.png
+CONFLICT (content): Merge conflict in output/lq/2014/q10.png
+warning: Cannot merge binary files: output/lq/2014/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2014/questions.pdf
+CONFLICT (content): Merge conflict in output/lq/2014/questions.pdf
+warning: Cannot merge binary files: output/lq/2015/combined.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2015/combined.pdf
+CONFLICT (content): Merge conflict in output/lq/2015/combined.pdf
+warning: Cannot merge binary files: output/lq/2015/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2015/questions.pdf
+CONFLICT (content): Merge conflict in output/lq/2015/questions.pdf
+warning: Cannot merge binary files: output/lq/2016/combined.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2016/combined.pdf
+CONFLICT (content): Merge conflict in output/lq/2016/combined.pdf
+warning: Cannot merge binary files: output/lq/2016/q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2016/q9.png
+CONFLICT (content): Merge conflict in output/lq/2016/q9.png
+warning: Cannot merge binary files: output/lq/2016/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2016/questions.pdf
+CONFLICT (content): Merge conflict in output/lq/2016/questions.pdf
+warning: Cannot merge binary files: output/lq/2017/combined.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2017/combined.pdf
+CONFLICT (content): Merge conflict in output/lq/2017/combined.pdf
+warning: Cannot merge binary files: output/lq/2017/q10.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2017/q10.png
+CONFLICT (content): Merge conflict in output/lq/2017/q10.png
+warning: Cannot merge binary files: output/lq/2017/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2017/questions.pdf
+CONFLICT (content): Merge conflict in output/lq/2017/questions.pdf
+warning: Cannot merge binary files: output/lq/2018/combined.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2018/combined.pdf
+CONFLICT (content): Merge conflict in output/lq/2018/combined.pdf
+warning: Cannot merge binary files: output/lq/2018/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2018/questions.pdf
+CONFLICT (content): Merge conflict in output/lq/2018/questions.pdf
+warning: Cannot merge binary files: output/lq/2019/combined.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2019/combined.pdf
+CONFLICT (content): Merge conflict in output/lq/2019/combined.pdf
+warning: Cannot merge binary files: output/lq/2019/q10.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2019/q10.png
+CONFLICT (content): Merge conflict in output/lq/2019/q10.png
+warning: Cannot merge binary files: output/lq/2019/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2019/questions.pdf
+CONFLICT (content): Merge conflict in output/lq/2019/questions.pdf
+warning: Cannot merge binary files: output/lq/2020/combined.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2020/combined.pdf
+CONFLICT (content): Merge conflict in output/lq/2020/combined.pdf
+warning: Cannot merge binary files: output/lq/2020/q10.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2020/q10.png
+CONFLICT (content): Merge conflict in output/lq/2020/q10.png
+warning: Cannot merge binary files: output/lq/2020/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2020/questions.pdf
+CONFLICT (content): Merge conflict in output/lq/2020/questions.pdf
+warning: Cannot merge binary files: output/lq/2021/combined.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2021/combined.pdf
+CONFLICT (content): Merge conflict in output/lq/2021/combined.pdf
+warning: Cannot merge binary files: output/lq/2021/q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2021/q9.png
+CONFLICT (content): Merge conflict in output/lq/2021/q9.png
+warning: Cannot merge binary files: output/lq/2021/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2021/questions.pdf
+CONFLICT (content): Merge conflict in output/lq/2021/questions.pdf
+warning: Cannot merge binary files: output/lq/2022/combined.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2022/combined.pdf
+CONFLICT (content): Merge conflict in output/lq/2022/combined.pdf
+warning: Cannot merge binary files: output/lq/2022/q10.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2022/q10.png
+CONFLICT (content): Merge conflict in output/lq/2022/q10.png
+warning: Cannot merge binary files: output/lq/2022/q3.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2022/q3.png
+CONFLICT (content): Merge conflict in output/lq/2022/q3.png
+warning: Cannot merge binary files: output/lq/2022/q5.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2022/q5.png
+CONFLICT (content): Merge conflict in output/lq/2022/q5.png
+warning: Cannot merge binary files: output/lq/2022/q8.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2022/q8.png
+CONFLICT (content): Merge conflict in output/lq/2022/q8.png
+warning: Cannot merge binary files: output/lq/2022/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2022/questions.pdf
+CONFLICT (content): Merge conflict in output/lq/2022/questions.pdf
+warning: Cannot merge binary files: output/lq/2023/combined.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2023/combined.pdf
+CONFLICT (content): Merge conflict in output/lq/2023/combined.pdf
+warning: Cannot merge binary files: output/lq/2023/q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2023/q9.png
+CONFLICT (content): Merge conflict in output/lq/2023/q9.png
+warning: Cannot merge binary files: output/lq/2023/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2023/questions.pdf
+CONFLICT (content): Merge conflict in output/lq/2023/questions.pdf
+warning: Cannot merge binary files: output/lq/2024/combined.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2024/combined.pdf
+CONFLICT (content): Merge conflict in output/lq/2024/combined.pdf
+warning: Cannot merge binary files: output/lq/2024/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2024/questions.pdf
+CONFLICT (content): Merge conflict in output/lq/2024/questions.pdf
+warning: Cannot merge binary files: output/lq/2025/combined.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2025/combined.pdf
+CONFLICT (content): Merge conflict in output/lq/2025/combined.pdf
+warning: Cannot merge binary files: output/lq/2025/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2025/questions.pdf
+CONFLICT (content): Merge conflict in output/lq/2025/questions.pdf
+warning: Cannot merge binary files: output/lq/2026/combined.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2026/combined.pdf
+CONFLICT (content): Merge conflict in output/lq/2026/combined.pdf
+warning: Cannot merge binary files: output/lq/2026/q12.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2026/q12.png
+CONFLICT (content): Merge conflict in output/lq/2026/q12.png
+warning: Cannot merge binary files: output/lq/2026/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/2026/questions.pdf
+CONFLICT (content): Merge conflict in output/lq/2026/questions.pdf
+warning: Cannot merge binary files: output/lq/pp/combined.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/pp/combined.pdf
+CONFLICT (content): Merge conflict in output/lq/pp/combined.pdf
+warning: Cannot merge binary files: output/lq/pp/q12.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/pp/q12.png
+CONFLICT (content): Merge conflict in output/lq/pp/q12.png
+warning: Cannot merge binary files: output/lq/pp/q7.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/pp/q7.png
+CONFLICT (content): Merge conflict in output/lq/pp/q7.png
+warning: Cannot merge binary files: output/lq/pp/q8.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/pp/q8.png
+CONFLICT (content): Merge conflict in output/lq/pp/q8.png
+warning: Cannot merge binary files: output/lq/pp/q9.png (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/pp/q9.png
+CONFLICT (content): Merge conflict in output/lq/pp/q9.png
+warning: Cannot merge binary files: output/lq/pp/questions.pdf (HEAD vs. b2c8365 (Regenerate every LQ as whole exam pages, not leftover y-crops.))
+Auto-merging output/lq/pp/questions.pdf
+CONFLICT (content): Merge conflict in output/lq/pp/questions.pdf
+Auto-merging scripts/crop_lq_from_pages.py
+CONFLICT (content): Merge conflict in scripts/crop_lq_from_pages.py
+Auto-merging scripts/lq_pdf_review.py
+CONFLICT (content): Merge conflict in scripts/lq_pdf_review.py
+Auto-merging tests/test_lq_whole_pages.py
+CONFLICT (content): Merge conflict in tests/test_lq_whole_pages.py
+error: could not apply b2c8365... Regenerate every LQ as whole exam pages, not leftover y-crops.
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+hint: Disable this message with "git config set advice.mergeConflict false"
+Could not apply b2c8365... # Regenerate every LQ as whole exam pages, not leftover y-crops.
+
+---
+exit_code: 1
+elapsed_ms: 31788
+ended_at: 2026-09-14T01:58:11.679Z
+---

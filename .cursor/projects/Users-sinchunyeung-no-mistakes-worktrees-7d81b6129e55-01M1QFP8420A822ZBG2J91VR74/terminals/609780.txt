@@ -1,0 +1,49 @@
+---
+pid: 97812
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QFP8420A822ZBG2J91VR74"
+command: "EVID=/Users/sinchunyeung/.no-mistakes/evidence/01M1QFP8420A822ZBG2J91VR74\nwhich julia; julia -e 'using FrechetDist; println(\"ok\")' 2>&1 | tail -5\npython3 scripts/local_ci_gate.py \\\n  --baseline \"$(pwd)/baseline-src/build-base/simplify\" \\\n  --new \"$(pwd)/build-new/simplify\" \\\n  --baseline-cwd \"$(pwd)/baseline-src\" \\\n  --new-cwd \"$(pwd)\" \\\n  --epsilon 299 --delta 1 --a 1 --b 10 \\\n  2>&1 | tee \"$EVID/local_ci_gate_e299_d1.txt\"\necho GATE_EXIT:$?\n"
+title: "Re-run CI gate with isolated cwds"
+status: succeeded
+started_at: 2026-09-05T18:02:30.924Z
+running_for_ms: 113932   
+---
+/opt/homebrew/bin/julia
+ok
+Gate params: e=299.0 d=1.0 dist_tol=0.01 points_tol=0 slowdown=1.5x min_ms=20.0
+baseline=/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QFP8420A822ZBG2J91VR74/baseline-src/build-base/simplify
+new     =/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QFP8420A822ZBG2J91VR74/build-new/simplify
+
+=== Correctness (Frechet + points) ===
+  id     orig_dist      new_dist      d_dist  orig_pts   new_pts   d_pts  status
+   1    299.000000    299.000000    0.000000        92        92       0  OK
+   2    299.002120    299.002120    0.000000       516       516       0  OK
+   3    299.002245    299.002245    0.000000       120       120       0  OK
+   4    299.000000    299.000000    0.000000        66        66       0  OK
+   5    299.002784    299.002784    0.000000       176       176       0  OK
+   6    299.000000    299.000000    0.000000        52        52       0  OK
+   7    299.000000    299.000000    0.000000       156       156       0  OK
+   8    299.000000    299.000000    0.000000         6         6       0  OK
+   9    299.001589    299.001589    0.000000       186       186       0  OK
+  10    299.000000    299.000000    0.000000       204       204       0  OK
+
+=== Benchmark (avg of 3, limit 1.5x) ===
+  id     prev_ms      new_ms     ratio  status
+   1      2.2261      2.2597     1.015  OK
+   2      4.9251      5.0113     1.018  OK
+   3      4.0817      4.0993     1.004  OK
+   4      2.7518      2.8807     1.047  OK
+   5      2.6958      2.5137     0.932  OK
+   6      2.5312      2.6119     1.032  OK
+   7      1.4388      1.4439     1.004  OK
+   8      0.0367      0.0430     1.174  OK
+   9      2.0801      2.1370     1.027  OK
+  10     20.2462     20.0177     0.989  OK
+
+✅ Local CI gate OK
+GATE_EXIT:0
+
+---
+exit_code: 0
+elapsed_ms: 113932
+ended_at: 2026-09-05T18:04:24.856Z
+---

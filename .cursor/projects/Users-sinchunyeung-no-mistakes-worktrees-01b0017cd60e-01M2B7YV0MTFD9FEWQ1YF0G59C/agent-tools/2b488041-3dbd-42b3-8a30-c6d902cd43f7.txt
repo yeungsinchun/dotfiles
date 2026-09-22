@@ -1,0 +1,1052 @@
+commit 540c942c8b680de0da35a48d63e319193cc884ba
+Author: TYeung <scyeungaf@connect.ust.hk>
+Date:   Sun Sep 13 01:24:04 2026 +0800
+
+    no-mistakes(review): Drop 25.1 property papers and relabel chips
+
+ .../ch01-radiation-and-radioactivity/25-1.html     |  37 ++---
+ .../ch01-radiation-and-radioactivity/25-2.html     | 118 ++++++++--------
+ .../ch01-radiation-and-radioactivity/25-3.html     |  66 ++++-----
+ .../js/notes.interactives.test.mjs                 |  43 ++++--
+ .../26-1.html                                      | 150 ++++++++++-----------
+ .../26-2.html                                      |  40 +++---
+ .../26-3.html                                      |  30 ++---
+ .../js/notes.interactives.test.mjs                 |  33 +++--
+ notes/book5/index.html                             | 122 ++++++++---------
+ 9 files changed, 328 insertions(+), 311 deletions(-)
+==== DIFF ====
+commit 540c942c8b680de0da35a48d63e319193cc884ba
+Author:     TYeung <scyeungaf@connect.ust.hk>
+AuthorDate: Sun Sep 13 01:24:04 2026 +0800
+Commit:     TYeung <scyeungaf@connect.ust.hk>
+CommitDate: Sun Sep 13 01:24:04 2026 +0800
+
+    no-mistakes(review): Drop 25.1 property papers and relabel chips
+
+diff --git a/notes/book5/ch01-radiation-and-radioactivity/25-1.html b/notes/book5/ch01-radiation-and-radioactivity/25-1.html
+index f233c5d..efdd325 100644
+--- a/notes/book5/ch01-radiation-and-radioactivity/25-1.html
++++ b/notes/book5/ch01-radiation-and-radioactivity/25-1.html
+@@ -323,11 +323,11 @@
+       <h2 id="lo-close-heading">Learning objectives</h2>
+       <p class="lo-stem">Students should be able to:</p>
+       <ul class="lo-list">
+-        <li><p>realise X-rays as ionizing electromagnetic radiations of short wavelengths with high penetrating power</p><p class="dse-labels"><a href="#dse-mc-2022-31">2022/31 MC</a></p></li>
+-        <li><p>realise the emission of X-rays when fast electrons hit a heavy metal target</p><p class="dse-labels"><a href="#dse-mc-2022-31">2022/31 MC</a></p></li>
+-        <li><p>discuss the uses of X-rays</p><p class="dse-labels"><a href="#dse-mc-2022-31">2022/31 MC</a></p></li>
+-        <li><p>describe the origin and nature of α, β and γ radiations</p><p class="dse-labels"><a href="#dse-mc-2015-31">2015/31 MC</a><a href="#dse-mc-2017-32">2017/32 MC</a><a href="#dse-mc-pp-34">PP/34 MC</a><a href="#dse-mc-2016-32">2016/32 MC</a></p></li>
+-        <li><p>realise the occurrence of radioactive decay in unstable nuclides</p><p class="dse-labels"><a href="#dse-mc-2015-31">2015/31 MC</a></p></li>
++        <li><p>realise X-rays as ionizing electromagnetic radiations of short wavelengths with high penetrating power</p><p class="dse-labels"><a href="#dse-mc-2022-31">2022 MC Q31</a></p></li>
++        <li><p>realise the emission of X-rays when fast electrons hit a heavy metal target</p><p class="dse-labels"><a href="#dse-mc-2022-31">2022 MC Q31</a></p></li>
++        <li><p>discuss the uses of X-rays</p><p class="dse-labels"><a href="#dse-mc-2022-31">2022 MC Q31</a></p></li>
++        <li><p>describe the origin and nature of α, β and γ radiations</p><p class="dse-labels"><a href="#dse-mc-2015-31">2015 MC Q31</a></p></li>
++        <li><p>realise the occurrence of radioactive decay in unstable nuclides</p><p class="dse-labels"><a href="#dse-mc-2015-31">2015 MC Q31</a></p></li>
+       </ul>
+     </section>
+ 
+@@ -337,29 +337,14 @@
+       <div class="dse-group">
+         <h3>Multiple choice</h3>
+       <figure class="dse-paper" id="dse-mc-2022-31">
+-        <figcaption>2022/31 MC</figcaption>
+-        <p class="dse-slot">Slot: 2022/31 MC</p>
+-        <img src="../_local/dse/mc/25/2022_q31.png" alt="HKDSE 2022/31 MC">
++        <figcaption>2022 MC Q31</figcaption>
++        <p class="dse-slot">Slot: 2022 MC Q31</p>
++        <img src="../_local/dse/mc/25/2022_q31.png" alt="HKDSE 2022 MC Q31">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2015-31">
+-        <figcaption>2015/31 MC</figcaption>
+-        <p class="dse-slot">Slot: 2015/31 MC</p>
+-        <img src="../_local/dse/mc/25/2015_q31.png" alt="HKDSE 2015/31 MC">
+-      </figure>
+-      <figure class="dse-paper" id="dse-mc-2017-32">
+-        <figcaption>2017/32 MC</figcaption>
+-        <p class="dse-slot">Slot: 2017/32 MC</p>
+-        <img src="../_local/dse/mc/25/2017_q32.png" alt="HKDSE 2017/32 MC">
+-      </figure>
+-      <figure class="dse-paper" id="dse-mc-pp-34">
+-        <figcaption>PP/34 MC</figcaption>
+-        <p class="dse-slot">Slot: PP/34 MC</p>
+-        <img src="../_local/dse/mc/25/pp_q34.png" alt="HKDSE PP/34 MC">
+-      </figure>
+-      <figure class="dse-paper" id="dse-mc-2016-32">
+-        <figcaption>2016/32 MC</figcaption>
+-        <p class="dse-slot">Slot: 2016/32 MC</p>
+-        <img src="../_local/dse/mc/25/2016_q32.png" alt="HKDSE 2016/32 MC">
++        <figcaption>2015 MC Q31</figcaption>
++        <p class="dse-slot">Slot: 2015 MC Q31</p>
++        <img src="../_local/dse/mc/25/2015_q31.png" alt="HKDSE 2015 MC Q31">
+       </figure>
+       </div>
+     </section>
+diff --git a/notes/book5/ch01-radiation-and-radioactivity/25-2.html b/notes/book5/ch01-radiation-and-radioactivity/25-2.html
+index 3fa6c09..4d94d26 100644
+--- a/notes/book5/ch01-radiation-and-radioactivity/25-2.html
++++ b/notes/book5/ch01-radiation-and-radioactivity/25-2.html
+@@ -421,14 +421,14 @@
+       <p class="lo-stem">Students should be able to:</p>
+       <ul class="lo-list">
+         <li><p>describe the structure of an atom</p></li>
+-        <li><p>define atomic number as the number of protons in the nucleus and mass number as the sum of the number of protons and neutrons in the nucleus of an atom</p><p class="dse-labels"><a href="#dse-mc-2012-36">2012/36 MC</a><a href="#dse-mc-2013-34">2013/34 MC</a><a href="#dse-mc-2021-31">2021/31 MC</a></p></li>
+-        <li><p>use symbolic notations to represent nuclides</p><p class="dse-labels"><a href="#dse-mc-2013-34">2013/34 MC</a><a href="#dse-mc-2014-31">2014/31 MC</a><a href="#dse-mc-2020-31">2020/31 MC</a><a href="#dse-mc-2021-31">2021/31 MC</a><a href="#dse-mc-2025-32">2025/32 MC</a><a href="#dse-lq-2026-12">2026/12 LQ</a></p></li>
+-        <li><p>define isotope</p><p class="dse-labels"><a href="#dse-mc-2012-36">2012/36 MC</a><a href="#dse-mc-2014-31">2014/31 MC</a><a href="#dse-mc-2020-31">2020/31 MC</a></p></li>
+-        <li><p>realise the existence of radioactive isotopes in some elements</p><p class="dse-labels"><a href="#dse-mc-2021-33">2021/33 MC</a></p></li>
+-        <li><p>represent radioactive transmutations in α, β and γ decays using equations</p><p class="dse-labels"><a href="#dse-mc-2013-34">2013/34 MC</a><a href="#dse-mc-2014-31">2014/31 MC</a><a href="#dse-mc-2020-31">2020/31 MC</a><a href="#dse-mc-2021-31">2021/31 MC</a><a href="#dse-mc-2025-32">2025/32 MC</a><a href="#dse-lq-2016-9">2016/9 LQ</a><a href="#dse-lq-2017-10">2017/10 LQ</a><a href="#dse-lq-2018-10">2018/10 LQ</a><a href="#dse-lq-2021-9">2021/9 LQ</a><a href="#dse-lq-2023-9">2023/9 LQ</a><a href="#dse-lq-2026-12">2026/12 LQ</a></p></li>
+-        <li><p>realise the occurrence of radioactive decay in unstable nuclides</p><p class="dse-labels"><a href="#dse-mc-2015-31">2015/31 MC</a></p></li>
+-        <li><p>realise the existence of background radiation</p><p class="dse-labels"><a href="#dse-mc-2021-33">2021/33 MC</a><a href="#dse-mc-2020-30">2020/30 MC</a></p></li>
+-        <li><p>suggest safety precautions in handling radioactive sources</p><p class="dse-labels"><a href="#dse-mc-2015-32">2015/32 MC</a><a href="#dse-lq-2014-10">2014/10 LQ</a></p></li>
++        <li><p>define atomic number as the number of protons in the nucleus and mass number as the sum of the number of protons and neutrons in the nucleus of an atom</p><p class="dse-labels"><a href="#dse-mc-2012-36">2012 MC Q36</a><a href="#dse-mc-2013-34">2013 MC Q34</a><a href="#dse-mc-2021-31">2021 MC Q31</a></p></li>
++        <li><p>use symbolic notations to represent nuclides</p><p class="dse-labels"><a href="#dse-mc-2013-34">2013 MC Q34</a><a href="#dse-mc-2014-31">2014 MC Q31</a><a href="#dse-mc-2020-31">2020 MC Q31</a><a href="#dse-mc-2021-31">2021 MC Q31</a><a href="#dse-mc-2025-32">2025 MC Q32</a><a href="#dse-lq-2026-12">2026 LQ Q12</a></p></li>
++        <li><p>define isotope</p><p class="dse-labels"><a href="#dse-mc-2012-36">2012 MC Q36</a><a href="#dse-mc-2014-31">2014 MC Q31</a><a href="#dse-mc-2020-31">2020 MC Q31</a></p></li>
++        <li><p>realise the existence of radioactive isotopes in some elements</p><p class="dse-labels"><a href="#dse-mc-2021-33">2021 MC Q33</a></p></li>
++        <li><p>represent radioactive transmutations in α, β and γ decays using equations</p><p class="dse-labels"><a href="#dse-mc-2013-34">2013 MC Q34</a><a href="#dse-mc-2014-31">2014 MC Q31</a><a href="#dse-mc-2020-31">2020 MC Q31</a><a href="#dse-mc-2021-31">2021 MC Q31</a><a href="#dse-mc-2025-32">2025 MC Q32</a><a href="#dse-lq-2016-9">2016 LQ Q9</a><a href="#dse-lq-2017-10">2017 LQ Q10</a><a href="#dse-lq-2018-10">2018 LQ Q10</a><a href="#dse-lq-2021-9">2021 LQ Q9</a><a href="#dse-lq-2023-9">2023 LQ Q9</a><a href="#dse-lq-2026-12">2026 LQ Q12</a></p></li>
++        <li><p>realise the occurrence of radioactive decay in unstable nuclides</p><p class="dse-labels"><a href="#dse-mc-2015-31">2015 MC Q31</a></p></li>
++        <li><p>realise the existence of background radiation</p><p class="dse-labels"><a href="#dse-mc-2021-33">2021 MC Q33</a><a href="#dse-mc-2020-30">2020 MC Q30</a></p></li>
++        <li><p>suggest safety precautions in handling radioactive sources</p><p class="dse-labels"><a href="#dse-mc-2015-32">2015 MC Q32</a><a href="#dse-lq-2014-10">2014 LQ Q10</a></p></li>
+       </ul>
+     </section>
+ 
+@@ -438,92 +438,92 @@
+       <div class="dse-group">
+         <h3>Multiple choice</h3>
+       <figure class="dse-paper" id="dse-mc-2012-36">
+-        <figcaption>2012/36 MC</figcaption>
+-        <p class="dse-slot">Slot: 2012/36 MC</p>
+-        <img src="../_local/dse/mc/25/2012_q36.png" alt="HKDSE 2012/36 MC">
++        <figcaption>2012 MC Q36</figcaption>
++        <p class="dse-slot">Slot: 2012 MC Q36</p>
++        <img src="../_local/dse/mc/25/2012_q36.png" alt="HKDSE 2012 MC Q36">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2013-34">
+-        <figcaption>2013/34 MC</figcaption>
+-        <p class="dse-slot">Slot: 2013/34 MC</p>
+-        <img src="../_local/dse/mc/25/2013_q34.png" alt="HKDSE 2013/34 MC">
++        <figcaption>2013 MC Q34</figcaption>
++        <p class="dse-slot">Slot: 2013 MC Q34</p>
++        <img src="../_local/dse/mc/25/2013_q34.png" alt="HKDSE 2013 MC Q34">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2021-31">
+-        <figcaption>2021/31 MC</figcaption>
+-        <p class="dse-slot">Slot: 2021/31 MC</p>
+-        <img src="../_local/dse/mc/25/2021_q31.png" alt="HKDSE 2021/31 MC">
++        <figcaption>2021 MC Q31</figcaption>
++        <p class="dse-slot">Slot: 2021 MC Q31</p>
++        <img src="../_local/dse/mc/25/2021_q31.png" alt="HKDSE 2021 MC Q31">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2014-31">
+-        <figcaption>2014/31 MC</figcaption>
+-        <p class="dse-slot">Slot: 2014/31 MC</p>
+-        <img src="../_local/dse/mc/25/2014_q31.png" alt="HKDSE 2014/31 MC">
++        <figcaption>2014 MC Q31</figcaption>
++        <p class="dse-slot">Slot: 2014 MC Q31</p>
++        <img src="../_local/dse/mc/25/2014_q31.png" alt="HKDSE 2014 MC Q31">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2020-31">
+-        <figcaption>2020/31 MC</figcaption>
+-        <p class="dse-slot">Slot: 2020/31 MC</p>
+-        <img src="../_local/dse/mc/25/2020_q31.png" alt="HKDSE 2020/31 MC">
++        <figcaption>2020 MC Q31</figcaption>
++        <p class="dse-slot">Slot: 2020 MC Q31</p>
++        <img src="../_local/dse/mc/25/2020_q31.png" alt="HKDSE 2020 MC Q31">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2025-32">
+-        <figcaption>2025/32 MC</figcaption>
+-        <p class="dse-slot">Slot: 2025/32 MC</p>
+-        <img src="../_local/dse/mc/25/2025_q32.png" alt="HKDSE 2025/32 MC">
++        <figcaption>2025 MC Q32</figcaption>
++        <p class="dse-slot">Slot: 2025 MC Q32</p>
++        <img src="../_local/dse/mc/25/2025_q32.png" alt="HKDSE 2025 MC Q32">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2021-33">
+-        <figcaption>2021/33 MC</figcaption>
+-        <p class="dse-slot">Slot: 2021/33 MC</p>
+-        <img src="../_local/dse/mc/25/2021_q33.png" alt="HKDSE 2021/33 MC">
++        <figcaption>2021 MC Q33</figcaption>
++        <p class="dse-slot">Slot: 2021 MC Q33</p>
++        <img src="../_local/dse/mc/25/2021_q33.png" alt="HKDSE 2021 MC Q33">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2015-31">
+-        <figcaption>2015/31 MC</figcaption>
+-        <p class="dse-slot">Slot: 2015/31 MC</p>
+-        <img src="../_local/dse/mc/25/2015_q31.png" alt="HKDSE 2015/31 MC">
++        <figcaption>2015 MC Q31</figcaption>
++        <p class="dse-slot">Slot: 2015 MC Q31</p>
++        <img src="../_local/dse/mc/25/2015_q31.png" alt="HKDSE 2015 MC Q31">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2020-30">
+-        <figcaption>2020/30 MC</figcaption>
+-        <p class="dse-slot">Slot: 2020/30 MC</p>
+-        <img src="../_local/dse/mc/25/2020_q30.png" alt="HKDSE 2020/30 MC">
++        <figcaption>2020 MC Q30</figcaption>
++        <p class="dse-slot">Slot: 2020 MC Q30</p>
++        <img src="../_local/dse/mc/25/2020_q30.png" alt="HKDSE 2020 MC Q30">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2015-32">
+-        <figcaption>2015/32 MC</figcaption>
+-        <p class="dse-slot">Slot: 2015/32 MC</p>
+-        <img src="../_local/dse/mc/26/2015_q32.png" alt="HKDSE 2015/32 MC">
++        <figcaption>2015 MC Q32</figcaption>
++        <p class="dse-slot">Slot: 2015 MC Q32</p>
++        <img src="../_local/dse/mc/26/2015_q32.png" alt="HKDSE 2015 MC Q32">
+       </figure>
+       </div>
+       <div class="dse-group">
+         <h3>Long questions</h3>
+       <figure class="dse-paper" id="dse-lq-2026-12">
+-        <figcaption>2026/12 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2026/12 LQ</p>
+-        <img src="../_local/dse/lq/25/2026-q12.png" alt="HKDSE 2026/12 LQ">
++        <figcaption>2026 LQ Q12</figcaption>
++        <p class="dse-slot">Slot: 2026 LQ Q12</p>
++        <img src="../_local/dse/lq/25/2026-q12.png" alt="HKDSE 2026 LQ Q12">
+       </figure>
+       <figure class="dse-paper" id="dse-lq-2016-9">
+-        <figcaption>2016/9 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2016/9 LQ</p>
+-        <img src="../_local/dse/lq/26/2016-q9.png" alt="HKDSE 2016/9 LQ">
++        <figcaption>2016 LQ Q9</figcaption>
++        <p class="dse-slot">Slot: 2016 LQ Q9</p>
++        <img src="../_local/dse/lq/26/2016-q9.png" alt="HKDSE 2016 LQ Q9">
+       </figure>
+       <figure class="dse-paper" id="dse-lq-2017-10">
+-        <figcaption>2017/10 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2017/10 LQ</p>
+-        <img src="../_local/dse/lq/26/2017-q10.png" alt="HKDSE 2017/10 LQ">
++        <figcaption>2017 LQ Q10</figcaption>
++        <p class="dse-slot">Slot: 2017 LQ Q10</p>
++        <img src="../_local/dse/lq/26/2017-q10.png" alt="HKDSE 2017 LQ Q10">
+       </figure>
+       <figure class="dse-paper" id="dse-lq-2018-10">
+-        <figcaption>2018/10 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2018/10 LQ</p>
+-        <img src="../_local/dse/lq/26/2018-q10.png" alt="HKDSE 2018/10 LQ">
++        <figcaption>2018 LQ Q10</figcaption>
++        <p class="dse-slot">Slot: 2018 LQ Q10</p>
++        <img src="../_local/dse/lq/26/2018-q10.png" alt="HKDSE 2018 LQ Q10">
+       </figure>
+       <figure class="dse-paper" id="dse-lq-2021-9">
+-        <figcaption>2021/9 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2021/9 LQ</p>
+-        <img src="../_local/dse/lq/26/2021-q9.png" alt="HKDSE 2021/9 LQ">
++        <figcaption>2021 LQ Q9</figcaption>
++        <p class="dse-slot">Slot: 2021 LQ Q9</p>
++        <img src="../_local/dse/lq/26/2021-q9.png" alt="HKDSE 2021 LQ Q9">
+       </figure>
+       <figure class="dse-paper" id="dse-lq-2023-9">
+-        <figcaption>2023/9 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2023/9 LQ</p>
+-        <img src="../_local/dse/lq/26/2023-q9.png" alt="HKDSE 2023/9 LQ">
++        <figcaption>2023 LQ Q9</figcaption>
++        <p class="dse-slot">Slot: 2023 LQ Q9</p>
++        <img src="../_local/dse/lq/26/2023-q9.png" alt="HKDSE 2023 LQ Q9">
+       </figure>
+       <figure class="dse-paper" id="dse-lq-2014-10">
+-        <figcaption>2014/10 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2014/10 LQ</p>
+-        <img src="../_local/dse/lq/26/2014-q10.png" alt="HKDSE 2014/10 LQ">
++        <figcaption>2014 LQ Q10</figcaption>
++        <p class="dse-slot">Slot: 2014 LQ Q10</p>
++        <img src="../_local/dse/lq/26/2014-q10.png" alt="HKDSE 2014 LQ Q10">
+       </figure>
+       </div>
+     </section>
+diff --git a/notes/book5/ch01-radiation-and-radioactivity/25-3.html b/notes/book5/ch01-radiation-and-radioactivity/25-3.html
+index 985e877..3bf405c 100644
+--- a/notes/book5/ch01-radiation-and-radioactivity/25-3.html
++++ b/notes/book5/ch01-radiation-and-radioactivity/25-3.html
+@@ -424,9 +424,9 @@
+       <h2 id="lo-close-heading">Learning objectives</h2>
+       <p class="lo-stem">Students should be able to:</p>
+       <ul class="lo-list">
+-        <li><p>compare α, β and γ radiations in terms of their penetrating power, ranges, ionizing power, behaviour in electric field and magnetic field, and cloud chamber tracks</p><p class="dse-labels"><a href="#dse-mc-2014-32">2014/32 MC</a><a href="#dse-mc-2016-32">2016/32 MC</a><a href="#dse-mc-2017-31">2017/31 MC</a><a href="#dse-mc-2017-32">2017/32 MC</a><a href="#dse-mc-2019-31">2019/31 MC</a><a href="#dse-mc-pp-34">PP/34 MC</a><a href="#dse-mc-pp-35">PP/35 MC</a><a href="#dse-mc-sap-36">SAP/36 MC</a></p></li>
+-        <li><p>detect radiation with a photographic film and GM counter</p><p class="dse-labels"><a href="#dse-mc-2017-32">2017/32 MC</a><a href="#dse-mc-2014-32">2014/32 MC</a><a href="#dse-mc-2015-32">2015/32 MC</a><a href="#dse-mc-pp-35">PP/35 MC</a><a href="#dse-mc-sap-36">SAP/36 MC</a></p></li>
+-        <li><p>detect radiation in terms of count rate using a GM counter</p><p class="dse-labels"><a href="#dse-mc-2014-32">2014/32 MC</a><a href="#dse-mc-2019-31">2019/31 MC</a><a href="#dse-mc-2020-30">2020/30 MC</a><a href="#dse-mc-pp-35">PP/35 MC</a><a href="#dse-mc-sap-36">SAP/36 MC</a></p></li>
++        <li><p>compare α, β and γ radiations in terms of their penetrating power, ranges, ionizing power, behaviour in electric field and magnetic field, and cloud chamber tracks</p><p class="dse-labels"><a href="#dse-mc-2014-32">2014 MC Q32</a><a href="#dse-mc-2016-32">2016 MC Q32</a><a href="#dse-mc-2017-31">2017 MC Q31</a><a href="#dse-mc-2017-32">2017 MC Q32</a><a href="#dse-mc-2019-31">2019 MC Q31</a><a href="#dse-mc-pp-34">PP MC Q34</a><a href="#dse-mc-pp-35">PP MC Q35</a><a href="#dse-mc-sap-36">SAP MC Q36</a></p></li>
++        <li><p>detect radiation with a photographic film and GM counter</p><p class="dse-labels"><a href="#dse-mc-2017-32">2017 MC Q32</a><a href="#dse-mc-2014-32">2014 MC Q32</a><a href="#dse-mc-2015-32">2015 MC Q32</a><a href="#dse-mc-pp-35">PP MC Q35</a><a href="#dse-mc-sap-36">SAP MC Q36</a></p></li>
++        <li><p>detect radiation in terms of count rate using a GM counter</p><p class="dse-labels"><a href="#dse-mc-2014-32">2014 MC Q32</a><a href="#dse-mc-2019-31">2019 MC Q31</a><a href="#dse-mc-2020-30">2020 MC Q30</a><a href="#dse-mc-pp-35">PP MC Q35</a><a href="#dse-mc-sap-36">SAP MC Q36</a></p></li>
+       </ul>
+     </section>
+ 
+@@ -436,54 +436,54 @@
+       <div class="dse-group">
+         <h3>Multiple choice</h3>
+       <figure class="dse-paper" id="dse-mc-2014-32">
+-        <figcaption>2014/32 MC</figcaption>
+-        <p class="dse-slot">Slot: 2014/32 MC</p>
+-        <img src="../_local/dse/mc/25/2014_q32.png" alt="HKDSE 2014/32 MC">
++        <figcaption>2014 MC Q32</figcaption>
++        <p class="dse-slot">Slot: 2014 MC Q32</p>
++        <img src="../_local/dse/mc/25/2014_q32.png" alt="HKDSE 2014 MC Q32">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2016-32">
+-        <figcaption>2016/32 MC</figcaption>
+-        <p class="dse-slot">Slot: 2016/32 MC</p>
+-        <img src="../_local/dse/mc/25/2016_q32.png" alt="HKDSE 2016/32 MC">
++        <figcaption>2016 MC Q32</figcaption>
++        <p class="dse-slot">Slot: 2016 MC Q32</p>
++        <img src="../_local/dse/mc/25/2016_q32.png" alt="HKDSE 2016 MC Q32">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2017-31">
+-        <figcaption>2017/31 MC</figcaption>
+-        <p class="dse-slot">Slot: 2017/31 MC</p>
+-        <img src="../_local/dse/mc/25/2017_q31.png" alt="HKDSE 2017/31 MC">
++        <figcaption>2017 MC Q31</figcaption>
++        <p class="dse-slot">Slot: 2017 MC Q31</p>
++        <img src="../_local/dse/mc/25/2017_q31.png" alt="HKDSE 2017 MC Q31">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2017-32">
+-        <figcaption>2017/32 MC</figcaption>
+-        <p class="dse-slot">Slot: 2017/32 MC</p>
+-        <img src="../_local/dse/mc/25/2017_q32.png" alt="HKDSE 2017/32 MC">
++        <figcaption>2017 MC Q32</figcaption>
++        <p class="dse-slot">Slot: 2017 MC Q32</p>
++        <img src="../_local/dse/mc/25/2017_q32.png" alt="HKDSE 2017 MC Q32">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2019-31">
+-        <figcaption>2019/31 MC</figcaption>
+-        <p class="dse-slot">Slot: 2019/31 MC</p>
+-        <img src="../_local/dse/mc/25/2019_q31.png" alt="HKDSE 2019/31 MC">
++        <figcaption>2019 MC Q31</figcaption>
++        <p class="dse-slot">Slot: 2019 MC Q31</p>
++        <img src="../_local/dse/mc/25/2019_q31.png" alt="HKDSE 2019 MC Q31">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-pp-34">
+-        <figcaption>PP/34 MC</figcaption>
+-        <p class="dse-slot">Slot: PP/34 MC</p>
+-        <img src="../_local/dse/mc/25/pp_q34.png" alt="HKDSE PP/34 MC">
++        <figcaption>PP MC Q34</figcaption>
++        <p class="dse-slot">Slot: PP MC Q34</p>
++        <img src="../_local/dse/mc/25/pp_q34.png" alt="HKDSE PP MC Q34">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-pp-35">
+-        <figcaption>PP/35 MC</figcaption>
+-        <p class="dse-slot">Slot: PP/35 MC</p>
+-        <img src="../_local/dse/mc/25/pp_q35.png" alt="HKDSE PP/35 MC">
++        <figcaption>PP MC Q35</figcaption>
++        <p class="dse-slot">Slot: PP MC Q35</p>
++        <img src="../_local/dse/mc/25/pp_q35.png" alt="HKDSE PP MC Q35">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-sap-36">
+-        <figcaption>SAP/36 MC</figcaption>
+-        <p class="dse-slot">Slot: SAP/36 MC</p>
+-        <img src="../_local/dse/mc/25/sap_q36.png" alt="HKDSE SAP/36 MC">
++        <figcaption>SAP MC Q36</figcaption>
++        <p class="dse-slot">Slot: SAP MC Q36</p>
++        <img src="../_local/dse/mc/25/sap_q36.png" alt="HKDSE SAP MC Q36">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2015-32">
+-        <figcaption>2015/32 MC</figcaption>
+-        <p class="dse-slot">Slot: 2015/32 MC</p>
+-        <img src="../_local/dse/mc/26/2015_q32.png" alt="HKDSE 2015/32 MC">
++        <figcaption>2015 MC Q32</figcaption>
++        <p class="dse-slot">Slot: 2015 MC Q32</p>
++        <img src="../_local/dse/mc/26/2015_q32.png" alt="HKDSE 2015 MC Q32">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2020-30">
+-        <figcaption>2020/30 MC</figcaption>
+-        <p class="dse-slot">Slot: 2020/30 MC</p>
+-        <img src="../_local/dse/mc/25/2020_q30.png" alt="HKDSE 2020/30 MC">
++        <figcaption>2020 MC Q30</figcaption>
++        <p class="dse-slot">Slot: 2020 MC Q30</p>
++        <img src="../_local/dse/mc/25/2020_q30.png" alt="HKDSE 2020 MC Q30">
+       </figure>
+       </div>
+     </section>
+diff --git a/notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs b/notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs
+index 545e9ed..b8ad1d8 100644
+--- a/notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs
++++ b/notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs
+@@ -1257,30 +1257,46 @@ chromeTest("Ch.1 section pages keep syllabus LOs at the top and DSE papers at th
+     return {
+       top: document.querySelector(".lo-block").innerText,
+       close: document.querySelector(".lo-close").innerText,
++      chips: Array.from(document.querySelectorAll(".lo-close .dse-labels a")).map(function (a) { return a.textContent; }),
+       has2022: !!document.getElementById("dse-mc-2022-31"),
++      has2015: !!document.getElementById("dse-mc-2015-31"),
+       has2014: !!document.getElementById("dse-lq-2014-10"),
+-      has2017: !!document.getElementById("dse-lq-2017-10")
++      has2017: !!document.getElementById("dse-lq-2017-10"),
++      has2016mc: !!document.getElementById("dse-mc-2016-32"),
++      has2017mc: !!document.getElementById("dse-mc-2017-32"),
++      hasPp34: !!document.getElementById("dse-mc-pp-34")
+     };
+   })()`);
+   assert.match(xray.top, /realise X-rays as ionizing electromagnetic radiations of short wavelengths with high penetrating power/);
+-  assert.doesNotMatch(xray.top, /2022\/31 MC/);
+-  assert.match(xray.close, /2022\/31 MC/);
+-  assert.doesNotMatch(xray.close, /2014\/10 LQ/);
+-  assert.doesNotMatch(xray.close, /2017\/10 LQ/);
++  assert.doesNotMatch(xray.top, /2022 MC Q31/);
++  assert.match(xray.close, /2022 MC Q31/);
++  assert.match(xray.close, /2015 MC Q31/);
++  assert.doesNotMatch(xray.close, /2014 LQ Q10/);
++  assert.doesNotMatch(xray.close, /2017 LQ Q10/);
++  assert.doesNotMatch(xray.close, /2016 MC Q32/);
++  assert.doesNotMatch(xray.close, /2017 MC Q32/);
++  assert.doesNotMatch(xray.close, /PP MC Q34/);
++  assert.ok(xray.chips.every(function (t) { return /^(?:\d{4}|PP|SAP) (?:MC|LQ) Q\d+$/.test(t); }), "25.1 chips should use YYYY MC Qn");
+   assert.equal(xray.has2022, true);
++  assert.equal(xray.has2015, true);
+   assert.equal(xray.has2014, false);
+   assert.equal(xray.has2017, false);
++  assert.equal(xray.has2016mc, false);
++  assert.equal(xray.has2017mc, false);
++  assert.equal(xray.hasPp34, false);
+ 
+   await cdp.goto(pageUrl("25-2.html"));
+   const nuclides = await cdp.evaluate(`(function () {
+     return {
+       close: document.querySelector(".lo-close").innerText,
++      chips: Array.from(document.querySelectorAll(".lo-close .dse-labels a")).map(function (a) { return a.textContent; }),
+       has2026: !!document.getElementById("dse-lq-2026-12"),
+       has2014: !!document.getElementById("dse-lq-2014-10"),
+       has2017: !!document.getElementById("dse-lq-2017-10")
+     };
+   })()`);
+-  assert.match(nuclides.close || "", /2017\/10 LQ/);
++  assert.match(nuclides.close || "", /2017 LQ Q10/);
++  assert.ok(nuclides.chips.every(function (t) { return /^(?:\d{4}|PP|SAP) (?:MC|LQ) Q\d+$/.test(t); }), "25.2 chips should use YYYY MC Qn");
+   assert.equal(nuclides.has2026, true);
+   assert.equal(nuclides.has2014, true);
+   assert.equal(nuclides.has2017, true);
+@@ -1289,11 +1305,22 @@ chromeTest("Ch.1 section pages keep syllabus LOs at the top and DSE papers at th
+   const props = await cdp.evaluate(`(function () {
+     return {
+       close: document.querySelector(".lo-close").innerText,
+-      has2014: !!document.getElementById("dse-lq-2014-10")
++      chips: Array.from(document.querySelectorAll(".lo-close .dse-labels a")).map(function (a) { return a.textContent; }),
++      has2014: !!document.getElementById("dse-lq-2014-10"),
++      has2016mc: !!document.getElementById("dse-mc-2016-32"),
++      has2017mc: !!document.getElementById("dse-mc-2017-32"),
++      hasPp34: !!document.getElementById("dse-mc-pp-34")
+     };
+   })()`);
+-  assert.doesNotMatch(props.close || "", /2014\/10 LQ/);
++  assert.doesNotMatch(props.close || "", /2014 LQ Q10/);
++  assert.match(props.close || "", /2016 MC Q32/);
++  assert.match(props.close || "", /2017 MC Q32/);
++  assert.match(props.close || "", /PP MC Q34/);
++  assert.ok(props.chips.every(function (t) { return /^(?:\d{4}|PP|SAP) (?:MC|LQ) Q\d+$/.test(t); }), "25.3 chips should use YYYY MC Qn");
+   assert.equal(props.has2014, false);
++  assert.equal(props.has2016mc, true);
++  assert.equal(props.has2017mc, true);
++  assert.equal(props.hasPp34, true);
+ 
+   await cdp.goto(pageUrl("summary.html"));
+   const summary = await cdp.evaluate(`({
+diff --git a/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html b/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html
+index 3ba3cef..fd547aa 100644
+--- a/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html
++++ b/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html
+@@ -312,15 +312,15 @@
+       <h2 id="lo-close-heading">Learning objectives</h2>
+       <p class="lo-stem">Students should be able to:</p>
+       <ul class="lo-list">
+-        <li><p>examine the random nature of radioactive decay</p><p class="dse-labels"><a href="#dse-mc-2020-30">2020/30 MC</a></p></li>
+-        <li><p>state the proportional relationship between the activity of a sample and the number of undecayed nuclei</p><p class="dse-labels"><a href="#dse-mc-sap-35">SAP/35 MC</a><a href="#dse-mc-2025-31">2025/31 MC</a><a href="#dse-mc-2023-31">2023/31 MC</a></p></li>
+-        <li><p>define half-life as the period of time over which the number of radioactive nuclei decreases by a factor of one-half</p><p class="dse-labels"><a href="#dse-mc-2023-31">2023/31 MC</a><a href="#dse-mc-2012-35">2012/35 MC</a></p></li>
+-        <li><p>determine the half-life of a radioisotope from its decay graph or from numerical data</p><p class="dse-labels"><a href="#dse-mc-2012-35">2012/35 MC</a><a href="#dse-mc-2013-35">2013/35 MC</a><a href="#dse-mc-2016-33">2016/33 MC</a><a href="#dse-mc-2018-32">2018/32 MC</a><a href="#dse-mc-2020-33">2020/33 MC</a><a href="#dse-mc-2022-32">2022/32 MC</a><a href="#dse-mc-2024-32">2024/32 MC</a><a href="#dse-lq-2013-9">2013/9 LQ</a><a href="#dse-lq-2016-9">2016/9 LQ</a><a href="#dse-lq-2018-10">2018/10 LQ</a><a href="#dse-lq-2023-9">2023/9 LQ</a><a href="#dse-lq-2025-12">2025/12 LQ</a></p></li>
+-        <li><p>realise the existence of background radiation</p><p class="dse-labels"><a href="#dse-mc-2021-33">2021/33 MC</a><a href="#dse-mc-2020-30">2020/30 MC</a></p></li>
+-        <li><p>solve problems involving radioactive decay</p><p class="dse-labels"><a href="#dse-mc-2012-35">2012/35 MC</a><a href="#dse-mc-2013-35">2013/35 MC</a><a href="#dse-mc-2016-33">2016/33 MC</a><a href="#dse-mc-2018-32">2018/32 MC</a><a href="#dse-mc-2019-32">2019/32 MC</a><a href="#dse-mc-2020-33">2020/33 MC</a><a href="#dse-mc-2021-32">2021/32 MC</a><a href="#dse-mc-2022-32">2022/32 MC</a><a href="#dse-mc-2023-31">2023/31 MC</a><a href="#dse-mc-2024-32">2024/32 MC</a><a href="#dse-mc-2015-33">2015/33 MC</a><a href="#dse-lq-2013-9">2013/9 LQ</a><a href="#dse-lq-2016-9">2016/9 LQ</a><a href="#dse-lq-2018-10">2018/10 LQ</a><a href="#dse-lq-2021-9">2021/9 LQ</a><a href="#dse-lq-2023-9">2023/9 LQ</a><a href="#dse-lq-2025-12">2025/12 LQ</a></p></li>
+-        <li><p>represent the number of undecayed nuclei by the exponential law of decay \( N = N_0 e^{-kt} \) <span class="lo-ext">extension</span></p><p class="dse-labels"><a href="#dse-mc-2020-32">2020/32 MC</a><a href="#dse-mc-2019-32">2019/32 MC</a><a href="#dse-lq-2013-9">2013/9 LQ</a><a href="#dse-lq-2025-12">2025/12 LQ</a></p></li>
+-        <li><p>apply the exponential law of decay \( N = N_0 e^{-kt} \) to solve problems <span class="lo-ext">extension</span></p><p class="dse-labels"><a href="#dse-mc-2020-32">2020/32 MC</a><a href="#dse-mc-2019-32">2019/32 MC</a><a href="#dse-lq-2013-9">2013/9 LQ</a><a href="#dse-lq-2025-12">2025/12 LQ</a></p></li>
+-        <li><p>relate the decay constant and the half-life <span class="lo-ext">extension</span></p><p class="dse-labels"><a href="#dse-mc-2020-32">2020/32 MC</a><a href="#dse-mc-2019-32">2019/32 MC</a><a href="#dse-lq-2013-9">2013/9 LQ</a><a href="#dse-lq-2025-12">2025/12 LQ</a></p></li>
++        <li><p>examine the random nature of radioactive decay</p><p class="dse-labels"><a href="#dse-mc-2020-30">2020 MC Q30</a></p></li>
++        <li><p>state the proportional relationship between the activity of a sample and the number of undecayed nuclei</p><p class="dse-labels"><a href="#dse-mc-sap-35">SAP MC Q35</a><a href="#dse-mc-2025-31">2025 MC Q31</a><a href="#dse-mc-2023-31">2023 MC Q31</a></p></li>
++        <li><p>define half-life as the period of time over which the number of radioactive nuclei decreases by a factor of one-half</p><p class="dse-labels"><a href="#dse-mc-2023-31">2023 MC Q31</a><a href="#dse-mc-2012-35">2012 MC Q35</a></p></li>
++        <li><p>determine the half-life of a radioisotope from its decay graph or from numerical data</p><p class="dse-labels"><a href="#dse-mc-2012-35">2012 MC Q35</a><a href="#dse-mc-2013-35">2013 MC Q35</a><a href="#dse-mc-2016-33">2016 MC Q33</a><a href="#dse-mc-2018-32">2018 MC Q32</a><a href="#dse-mc-2020-33">2020 MC Q33</a><a href="#dse-mc-2022-32">2022 MC Q32</a><a href="#dse-mc-2024-32">2024 MC Q32</a><a href="#dse-lq-2013-9">2013 LQ Q9</a><a href="#dse-lq-2016-9">2016 LQ Q9</a><a href="#dse-lq-2018-10">2018 LQ Q10</a><a href="#dse-lq-2023-9">2023 LQ Q9</a><a href="#dse-lq-2025-12">2025 LQ Q12</a></p></li>
++        <li><p>realise the existence of background radiation</p><p class="dse-labels"><a href="#dse-mc-2021-33">2021 MC Q33</a><a href="#dse-mc-2020-30">2020 MC Q30</a></p></li>
++        <li><p>solve problems involving radioactive decay</p><p class="dse-labels"><a href="#dse-mc-2012-35">2012 MC Q35</a><a href="#dse-mc-2013-35">2013 MC Q35</a><a href="#dse-mc-2016-33">2016 MC Q33</a><a href="#dse-mc-2018-32">2018 MC Q32</a><a href="#dse-mc-2019-32">2019 MC Q32</a><a href="#dse-mc-2020-33">2020 MC Q33</a><a href="#dse-mc-2021-32">2021 MC Q32</a><a href="#dse-mc-2022-32">2022 MC Q32</a><a href="#dse-mc-2023-31">2023 MC Q31</a><a href="#dse-mc-2024-32">2024 MC Q32</a><a href="#dse-mc-2015-33">2015 MC Q33</a><a href="#dse-lq-2013-9">2013 LQ Q9</a><a href="#dse-lq-2016-9">2016 LQ Q9</a><a href="#dse-lq-2018-10">2018 LQ Q10</a><a href="#dse-lq-2021-9">2021 LQ Q9</a><a href="#dse-lq-2023-9">2023 LQ Q9</a><a href="#dse-lq-2025-12">2025 LQ Q12</a></p></li>
++        <li><p>represent the number of undecayed nuclei by the exponential law of decay \( N = N_0 e^{-kt} \) <span class="lo-ext">extension</span></p><p class="dse-labels"><a href="#dse-mc-2020-32">2020 MC Q32</a><a href="#dse-mc-2019-32">2019 MC Q32</a><a href="#dse-lq-2013-9">2013 LQ Q9</a><a href="#dse-lq-2025-12">2025 LQ Q12</a></p></li>
++        <li><p>apply the exponential law of decay \( N = N_0 e^{-kt} \) to solve problems <span class="lo-ext">extension</span></p><p class="dse-labels"><a href="#dse-mc-2020-32">2020 MC Q32</a><a href="#dse-mc-2019-32">2019 MC Q32</a><a href="#dse-lq-2013-9">2013 LQ Q9</a><a href="#dse-lq-2025-12">2025 LQ Q12</a></p></li>
++        <li><p>relate the decay constant and the half-life <span class="lo-ext">extension</span></p><p class="dse-labels"><a href="#dse-mc-2020-32">2020 MC Q32</a><a href="#dse-mc-2019-32">2019 MC Q32</a><a href="#dse-lq-2013-9">2013 LQ Q9</a><a href="#dse-lq-2025-12">2025 LQ Q12</a></p></li>
+       </ul>
+     </section>
+ 
+@@ -330,117 +330,117 @@
+       <div class="dse-group">
+         <h3>Multiple choice</h3>
+       <figure class="dse-paper" id="dse-mc-2020-30">
+-        <figcaption>2020/30 MC</figcaption>
+-        <p class="dse-slot">Slot: 2020/30 MC</p>
+-        <img src="../_local/dse/mc/25/2020_q30.png" alt="HKDSE 2020/30 MC">
++        <figcaption>2020 MC Q30</figcaption>
++        <p class="dse-slot">Slot: 2020 MC Q30</p>
++        <img src="../_local/dse/mc/25/2020_q30.png" alt="HKDSE 2020 MC Q30">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2021-33">
+-        <figcaption>2021/33 MC</figcaption>
+-        <p class="dse-slot">Slot: 2021/33 MC</p>
+-        <img src="../_local/dse/mc/25/2021_q33.png" alt="HKDSE 2021/33 MC">
++        <figcaption>2021 MC Q33</figcaption>
++        <p class="dse-slot">Slot: 2021 MC Q33</p>
++        <img src="../_local/dse/mc/25/2021_q33.png" alt="HKDSE 2021 MC Q33">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-sap-35">
+-        <figcaption>SAP/35 MC</figcaption>
+-        <p class="dse-slot">Slot: SAP/35 MC</p>
+-        <img src="../_local/dse/mc/26/sap_q35.png" alt="HKDSE SAP/35 MC">
++        <figcaption>SAP MC Q35</figcaption>
++        <p class="dse-slot">Slot: SAP MC Q35</p>
++        <img src="../_local/dse/mc/26/sap_q35.png" alt="HKDSE SAP MC Q35">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2025-31">
+-        <figcaption>2025/31 MC</figcaption>
+-        <p class="dse-slot">Slot: 2025/31 MC</p>
+-        <img src="../_local/dse/mc/26/2025_q31.png" alt="HKDSE 2025/31 MC">
++        <figcaption>2025 MC Q31</figcaption>
++        <p class="dse-slot">Slot: 2025 MC Q31</p>
++        <img src="../_local/dse/mc/26/2025_q31.png" alt="HKDSE 2025 MC Q31">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2023-31">
+-        <figcaption>2023/31 MC</figcaption>
+-        <p class="dse-slot">Slot: 2023/31 MC</p>
+-        <img src="../_local/dse/mc/26/2023_q31.png" alt="HKDSE 2023/31 MC">
++        <figcaption>2023 MC Q31</figcaption>
++        <p class="dse-slot">Slot: 2023 MC Q31</p>
++        <img src="../_local/dse/mc/26/2023_q31.png" alt="HKDSE 2023 MC Q31">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2012-35">
+-        <figcaption>2012/35 MC</figcaption>
+-        <p class="dse-slot">Slot: 2012/35 MC</p>
+-        <img src="../_local/dse/mc/26/2012_q35.png" alt="HKDSE 2012/35 MC">
++        <figcaption>2012 MC Q35</figcaption>
++        <p class="dse-slot">Slot: 2012 MC Q35</p>
++        <img src="../_local/dse/mc/26/2012_q35.png" alt="HKDSE 2012 MC Q35">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2013-35">
+-        <figcaption>2013/35 MC</figcaption>
+-        <p class="dse-slot">Slot: 2013/35 MC</p>
+-        <img src="../_local/dse/mc/26/2013_q35.png" alt="HKDSE 2013/35 MC">
++        <figcaption>2013 MC Q35</figcaption>
++        <p class="dse-slot">Slot: 2013 MC Q35</p>
++        <img src="../_local/dse/mc/26/2013_q35.png" alt="HKDSE 2013 MC Q35">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2016-33">
+-        <figcaption>2016/33 MC</figcaption>
+-        <p class="dse-slot">Slot: 2016/33 MC</p>
+-        <img src="../_local/dse/mc/26/2016_q33.png" alt="HKDSE 2016/33 MC">
++        <figcaption>2016 MC Q33</figcaption>
++        <p class="dse-slot">Slot: 2016 MC Q33</p>
++        <img src="../_local/dse/mc/26/2016_q33.png" alt="HKDSE 2016 MC Q33">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2018-32">
+-        <figcaption>2018/32 MC</figcaption>
+-        <p class="dse-slot">Slot: 2018/32 MC</p>
+-        <img src="../_local/dse/mc/26/2018_q32.png" alt="HKDSE 2018/32 MC">
++        <figcaption>2018 MC Q32</figcaption>
++        <p class="dse-slot">Slot: 2018 MC Q32</p>
++        <img src="../_local/dse/mc/26/2018_q32.png" alt="HKDSE 2018 MC Q32">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2020-33">
+-        <figcaption>2020/33 MC</figcaption>
+-        <p class="dse-slot">Slot: 2020/33 MC</p>
+-        <img src="../_local/dse/mc/26/2020_q33.png" alt="HKDSE 2020/33 MC">
++        <figcaption>2020 MC Q33</figcaption>
++        <p class="dse-slot">Slot: 2020 MC Q33</p>
++        <img src="../_local/dse/mc/26/2020_q33.png" alt="HKDSE 2020 MC Q33">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2022-32">
+-        <figcaption>2022/32 MC</figcaption>
+-        <p class="dse-slot">Slot: 2022/32 MC</p>
+-        <img src="../_local/dse/mc/26/2022_q32.png" alt="HKDSE 2022/32 MC">
++        <figcaption>2022 MC Q32</figcaption>
++        <p class="dse-slot">Slot: 2022 MC Q32</p>
++        <img src="../_local/dse/mc/26/2022_q32.png" alt="HKDSE 2022 MC Q32">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2024-32">
+-        <figcaption>2024/32 MC</figcaption>
+-        <p class="dse-slot">Slot: 2024/32 MC</p>
+-        <img src="../_local/dse/mc/26/2024_q32.png" alt="HKDSE 2024/32 MC">
++        <figcaption>2024 MC Q32</figcaption>
++        <p class="dse-slot">Slot: 2024 MC Q32</p>
++        <img src="../_local/dse/mc/26/2024_q32.png" alt="HKDSE 2024 MC Q32">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2019-32">
+-        <figcaption>2019/32 MC</figcaption>
+-        <p class="dse-slot">Slot: 2019/32 MC</p>
+-        <img src="../_local/dse/mc/26/2019_q32.png" alt="HKDSE 2019/32 MC">
++        <figcaption>2019 MC Q32</figcaption>
++        <p class="dse-slot">Slot: 2019 MC Q32</p>
++        <img src="../_local/dse/mc/26/2019_q32.png" alt="HKDSE 2019 MC Q32">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2021-32">
+-        <figcaption>2021/32 MC</figcaption>
+-        <p class="dse-slot">Slot: 2021/32 MC</p>
+-        <img src="../_local/dse/mc/26/2021_q32.png" alt="HKDSE 2021/32 MC">
++        <figcaption>2021 MC Q32</figcaption>
++        <p class="dse-slot">Slot: 2021 MC Q32</p>
++        <img src="../_local/dse/mc/26/2021_q32.png" alt="HKDSE 2021 MC Q32">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2015-33">
+-        <figcaption>2015/33 MC</figcaption>
+-        <p class="dse-slot">Slot: 2015/33 MC</p>
+-        <img src="../_local/dse/mc/26/2015_q33.png" alt="HKDSE 2015/33 MC">
++        <figcaption>2015 MC Q33</figcaption>
++        <p class="dse-slot">Slot: 2015 MC Q33</p>
++        <img src="../_local/dse/mc/26/2015_q33.png" alt="HKDSE 2015 MC Q33">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2020-32">
+-        <figcaption>2020/32 MC</figcaption>
+-        <p class="dse-slot">Slot: 2020/32 MC</p>
+-        <img src="../_local/dse/mc/26/2020_q32.png" alt="HKDSE 2020/32 MC">
++        <figcaption>2020 MC Q32</figcaption>
++        <p class="dse-slot">Slot: 2020 MC Q32</p>
++        <img src="../_local/dse/mc/26/2020_q32.png" alt="HKDSE 2020 MC Q32">
+       </figure>
+       </div>
+       <div class="dse-group">
+         <h3>Long questions</h3>
+       <figure class="dse-paper" id="dse-lq-2013-9">
+-        <figcaption>2013/9 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2013/9 LQ</p>
+-        <img src="../_local/dse/lq/26/2013-q9.png" alt="HKDSE 2013/9 LQ">
++        <figcaption>2013 LQ Q9</figcaption>
++        <p class="dse-slot">Slot: 2013 LQ Q9</p>
++        <img src="../_local/dse/lq/26/2013-q9.png" alt="HKDSE 2013 LQ Q9">
+       </figure>
+       <figure class="dse-paper" id="dse-lq-2016-9">
+-        <figcaption>2016/9 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2016/9 LQ</p>
+-        <img src="../_local/dse/lq/26/2016-q9.png" alt="HKDSE 2016/9 LQ">
++        <figcaption>2016 LQ Q9</figcaption>
++        <p class="dse-slot">Slot: 2016 LQ Q9</p>
++        <img src="../_local/dse/lq/26/2016-q9.png" alt="HKDSE 2016 LQ Q9">
+       </figure>
+       <figure class="dse-paper" id="dse-lq-2018-10">
+-        <figcaption>2018/10 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2018/10 LQ</p>
+-        <img src="../_local/dse/lq/26/2018-q10.png" alt="HKDSE 2018/10 LQ">
++        <figcaption>2018 LQ Q10</figcaption>
++        <p class="dse-slot">Slot: 2018 LQ Q10</p>
++        <img src="../_local/dse/lq/26/2018-q10.png" alt="HKDSE 2018 LQ Q10">
+       </figure>
+       <figure class="dse-paper" id="dse-lq-2023-9">
+-        <figcaption>2023/9 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2023/9 LQ</p>
+-        <img src="../_local/dse/lq/26/2023-q9.png" alt="HKDSE 2023/9 LQ">
++        <figcaption>2023 LQ Q9</figcaption>
++        <p class="dse-slot">Slot: 2023 LQ Q9</p>
++        <img src="../_local/dse/lq/26/2023-q9.png" alt="HKDSE 2023 LQ Q9">
+       </figure>
+       <figure class="dse-paper" id="dse-lq-2025-12">
+-        <figcaption>2025/12 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2025/12 LQ</p>
+-        <img src="../_local/dse/lq/26/2025-q12.png" alt="HKDSE 2025/12 LQ">
++        <figcaption>2025 LQ Q12</figcaption>
++        <p class="dse-slot">Slot: 2025 LQ Q12</p>
++        <img src="../_local/dse/lq/26/2025-q12.png" alt="HKDSE 2025 LQ Q12">
+       </figure>
+       <figure class="dse-paper" id="dse-lq-2021-9">
+-        <figcaption>2021/9 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2021/9 LQ</p>
+-        <img src="../_local/dse/lq/26/2021-q9.png" alt="HKDSE 2021/9 LQ">
++        <figcaption>2021 LQ Q9</figcaption>
++        <p class="dse-slot">Slot: 2021 LQ Q9</p>
++        <img src="../_local/dse/lq/26/2021-q9.png" alt="HKDSE 2021 LQ Q9">
+       </figure>
+       </div>
+     </section>
+diff --git a/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html b/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html
+index b7fc1da..072b3d4 100644
+--- a/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html
++++ b/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html
+@@ -235,8 +235,8 @@
+       <h2 id="lo-close-heading">Learning objectives</h2>
+       <p class="lo-stem">Students should be able to:</p>
+       <ul class="lo-list">
+-        <li><p>discuss uses of radioactive isotopes</p><p class="dse-labels"><a href="#dse-mc-2024-33">2024/33 MC</a><a href="#dse-mc-2015-33">2015/33 MC</a><a href="#dse-lq-2014-10">2014/10 LQ</a><a href="#dse-lq-2017-10">2017/10 LQ</a><a href="#dse-lq-2026-12">2026/12 LQ</a></p></li>
+-        <li><p>realise the existence of radioactive isotopes in some elements</p><p class="dse-labels"><a href="#dse-mc-2021-33">2021/33 MC</a></p></li>
++        <li><p>discuss uses of radioactive isotopes</p><p class="dse-labels"><a href="#dse-mc-2024-33">2024 MC Q33</a><a href="#dse-mc-2015-33">2015 MC Q33</a><a href="#dse-lq-2014-10">2014 LQ Q10</a><a href="#dse-lq-2017-10">2017 LQ Q10</a><a href="#dse-lq-2026-12">2026 LQ Q12</a></p></li>
++        <li><p>realise the existence of radioactive isotopes in some elements</p><p class="dse-labels"><a href="#dse-mc-2021-33">2021 MC Q33</a></p></li>
+       </ul>
+     </section>
+ 
+@@ -246,37 +246,37 @@
+       <div class="dse-group">
+         <h3>Multiple choice</h3>
+       <figure class="dse-paper" id="dse-mc-2024-33">
+-        <figcaption>2024/33 MC</figcaption>
+-        <p class="dse-slot">Slot: 2024/33 MC</p>
+-        <img src="../_local/dse/mc/26/2024_q33.png" alt="HKDSE 2024/33 MC">
++        <figcaption>2024 MC Q33</figcaption>
++        <p class="dse-slot">Slot: 2024 MC Q33</p>
++        <img src="../_local/dse/mc/26/2024_q33.png" alt="HKDSE 2024 MC Q33">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2015-33">
+-        <figcaption>2015/33 MC</figcaption>
+-        <p class="dse-slot">Slot: 2015/33 MC</p>
+-        <img src="../_local/dse/mc/26/2015_q33.png" alt="HKDSE 2015/33 MC">
++        <figcaption>2015 MC Q33</figcaption>
++        <p class="dse-slot">Slot: 2015 MC Q33</p>
++        <img src="../_local/dse/mc/26/2015_q33.png" alt="HKDSE 2015 MC Q33">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2021-33">
+-        <figcaption>2021/33 MC</figcaption>
+-        <p class="dse-slot">Slot: 2021/33 MC</p>
+-        <img src="../_local/dse/mc/25/2021_q33.png" alt="HKDSE 2021/33 MC">
++        <figcaption>2021 MC Q33</figcaption>
++        <p class="dse-slot">Slot: 2021 MC Q33</p>
++        <img src="../_local/dse/mc/25/2021_q33.png" alt="HKDSE 2021 MC Q33">
+       </figure>
+       </div>
+       <div class="dse-group">
+         <h3>Long questions</h3>
+       <figure class="dse-paper" id="dse-lq-2014-10">
+-        <figcaption>2014/10 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2014/10 LQ</p>
+-        <img src="../_local/dse/lq/26/2014-q10.png" alt="HKDSE 2014/10 LQ">
++        <figcaption>2014 LQ Q10</figcaption>
++        <p class="dse-slot">Slot: 2014 LQ Q10</p>
++        <img src="../_local/dse/lq/26/2014-q10.png" alt="HKDSE 2014 LQ Q10">
+       </figure>
+       <figure class="dse-paper" id="dse-lq-2017-10">
+-        <figcaption>2017/10 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2017/10 LQ</p>
+-        <img src="../_local/dse/lq/26/2017-q10.png" alt="HKDSE 2017/10 LQ">
++        <figcaption>2017 LQ Q10</figcaption>
++        <p class="dse-slot">Slot: 2017 LQ Q10</p>
++        <img src="../_local/dse/lq/26/2017-q10.png" alt="HKDSE 2017 LQ Q10">
+       </figure>
+       <figure class="dse-paper" id="dse-lq-2026-12">
+-        <figcaption>2026/12 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2026/12 LQ</p>
+-        <img src="../_local/dse/lq/25/2026-q12.png" alt="HKDSE 2026/12 LQ">
++        <figcaption>2026 LQ Q12</figcaption>
++        <p class="dse-slot">Slot: 2026 LQ Q12</p>
++        <img src="../_local/dse/lq/25/2026-q12.png" alt="HKDSE 2026 LQ Q12">
+       </figure>
+       </div>
+     </section>
+diff --git a/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html b/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html
+index 3750e0a..9f836b7 100644
+--- a/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html
++++ b/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html
+@@ -143,9 +143,9 @@
+       <h2 id="lo-close-heading">Learning objectives</h2>
+       <p class="lo-stem">Students should be able to:</p>
+       <ul class="lo-list">
+-        <li><p>represent radiation equivalent dose using the unit sievert (Sv)</p><p class="dse-labels"><a href="#dse-mc-2026-32">2026/32 MC</a></p></li>
+-        <li><p>discuss potential hazards of ionizing radiation and the ways to minimise the radiation dose absorbed</p><p class="dse-labels"><a href="#dse-mc-2026-32">2026/32 MC</a><a href="#dse-mc-2015-32">2015/32 MC</a><a href="#dse-lq-2021-9">2021/9 LQ</a></p></li>
+-        <li><p>suggest safety precautions in handling radioactive sources</p><p class="dse-labels"><a href="#dse-mc-2015-32">2015/32 MC</a><a href="#dse-lq-2014-10">2014/10 LQ</a></p></li>
++        <li><p>represent radiation equivalent dose using the unit sievert (Sv)</p><p class="dse-labels"><a href="#dse-mc-2026-32">2026 MC Q32</a></p></li>
++        <li><p>discuss potential hazards of ionizing radiation and the ways to minimise the radiation dose absorbed</p><p class="dse-labels"><a href="#dse-mc-2026-32">2026 MC Q32</a><a href="#dse-mc-2015-32">2015 MC Q32</a><a href="#dse-lq-2021-9">2021 LQ Q9</a></p></li>
++        <li><p>suggest safety precautions in handling radioactive sources</p><p class="dse-labels"><a href="#dse-mc-2015-32">2015 MC Q32</a><a href="#dse-lq-2014-10">2014 LQ Q10</a></p></li>
+       </ul>
+     </section>
+ 
+@@ -155,27 +155,27 @@
+       <div class="dse-group">
+         <h3>Multiple choice</h3>
+       <figure class="dse-paper" id="dse-mc-2026-32">
+-        <figcaption>2026/32 MC</figcaption>
+-        <p class="dse-slot">Slot: 2026/32 MC</p>
+-        <img src="../_local/dse/mc/26/2026_q32.png" alt="HKDSE 2026/32 MC">
++        <figcaption>2026 MC Q32</figcaption>
++        <p class="dse-slot">Slot: 2026 MC Q32</p>
++        <img src="../_local/dse/mc/26/2026_q32.png" alt="HKDSE 2026 MC Q32">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2015-32">
+-        <figcaption>2015/32 MC</figcaption>
+-        <p class="dse-slot">Slot: 2015/32 MC</p>
+-        <img src="../_local/dse/mc/26/2015_q32.png" alt="HKDSE 2015/32 MC">
++        <figcaption>2015 MC Q32</figcaption>
++        <p class="dse-slot">Slot: 2015 MC Q32</p>
++        <img src="../_local/dse/mc/26/2015_q32.png" alt="HKDSE 2015 MC Q32">
+       </figure>
+       </div>
+       <div class="dse-group">
+         <h3>Long questions</h3>
+       <figure class="dse-paper" id="dse-lq-2021-9">
+-        <figcaption>2021/9 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2021/9 LQ</p>
+-        <img src="../_local/dse/lq/26/2021-q9.png" alt="HKDSE 2021/9 LQ">
++        <figcaption>2021 LQ Q9</figcaption>
++        <p class="dse-slot">Slot: 2021 LQ Q9</p>
++        <img src="../_local/dse/lq/26/2021-q9.png" alt="HKDSE 2021 LQ Q9">
+       </figure>
+       <figure class="dse-paper" id="dse-lq-2014-10">
+-        <figcaption>2014/10 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2014/10 LQ</p>
+-        <img src="../_local/dse/lq/26/2014-q10.png" alt="HKDSE 2014/10 LQ">
++        <figcaption>2014 LQ Q10</figcaption>
++        <p class="dse-slot">Slot: 2014 LQ Q10</p>
++        <img src="../_local/dse/lq/26/2014-q10.png" alt="HKDSE 2014 LQ Q10">
+       </figure>
+       </div>
+     </section>
+diff --git a/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.interactives.test.mjs b/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.interactives.test.mjs
+index e0dcb6a..f87eb22 100644
+--- a/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.interactives.test.mjs
++++ b/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.interactives.test.mjs
+@@ -479,7 +479,7 @@ chromeTest("Ch.2 section pages keep syllabus LOs at the top and DSE papers at th
+         heading: top && top.querySelector("h2") && top.querySelector("h2").textContent,
+         stem: top && top.innerText,
+         topChips: !!(top && top.querySelector(".dse-labels")),
+-        closeChips: close ? Array.from(close.querySelectorAll(".dse-labels a")).length : 0,
++        closeChips: close ? Array.from(close.querySelectorAll(".dse-labels a")).map(function (a) { return a.textContent; }) : [],
+         nPapers: papers.length,
+         loaded: loaded,
+         remote: scripts.some(function (src) { return /^https?:\\/\\//.test(src); }),
+@@ -490,7 +490,8 @@ chromeTest("Ch.2 section pages keep syllabus LOs at the top and DSE papers at th
+     assert.match(info.heading, /Learning objectives/i);
+     assert.match(info.stem, /Students should be able to/);
+     assert.equal(info.topChips, false, "top LO must not link questions on " + page);
+-    assert.ok(info.closeChips >= 1, "close LO should label DSE papers on " + page);
++    assert.ok(info.closeChips.length >= 1, "close LO should label DSE papers on " + page);
++    assert.ok(info.closeChips.every(function (t) { return /^(?:\d{4}|PP|SAP) (?:MC|LQ) Q\d+$/.test(t); }), "chips should use YYYY MC Qn on " + page);
+     assert.ok(info.nPapers >= 1, "expected section DSE embeds on " + page + ", n=" + info.nPapers);
+     assert.ok(info.loaded >= 1, "localhost DSE images should load on " + page + ", loaded=" + info.loaded);
+     assert.equal(info.remote, false, "no remote scripts on " + page);
+@@ -555,7 +556,7 @@ chromeTest("Ch.2 section pages keep syllabus LOs at the top and DSE papers at th
+     return info;
+   }, 10000, "26.1 chip to 2021/33");
+   assert.equal(bg.hash, "#dse-mc-2021-33");
+-  assert.match(bg.caption || "", /2021\/33 MC/);
++  assert.match(bg.caption || "", /2021 MC Q33/);
+   assert.match(bg.src || "", /mc\/25\/2021_q33\.png$/);
+ 
+   await cdp.goto(pageUrl("26-2.html"));
+@@ -580,15 +581,15 @@ chromeTest("Ch.2 section pages keep syllabus LOs at the top and DSE papers at th
+   assert.match(uses.top || "", /discuss uses of radioactive isotopes/);
+   assert.doesNotMatch(uses.top || "", /determine the half-life of a radioisotope/);
+   assert.doesNotMatch(uses.top || "", /solve problems involving radioactive decay/);
+-  assert.match(uses.close || "", /2015\/33 MC/);
+-  assert.match(uses.close || "", /2024\/33 MC/);
+-  assert.match(uses.close || "", /2014\/10 LQ/);
+-  assert.match(uses.close || "", /2017\/10 LQ/);
+-  assert.match(uses.close || "", /2026\/12 LQ/);
+-  assert.doesNotMatch(uses.close || "", /2013\/9 LQ/);
+-  assert.doesNotMatch(uses.close || "", /2025\/12 LQ/);
+-  assert.doesNotMatch(uses.close || "", /2018\/10 LQ/);
+-  assert.doesNotMatch(uses.close || "", /2021\/9 LQ/);
++  assert.match(uses.close || "", /2015 MC Q33/);
++  assert.match(uses.close || "", /2024 MC Q33/);
++  assert.match(uses.close || "", /2014 LQ Q10/);
++  assert.match(uses.close || "", /2017 LQ Q10/);
++  assert.match(uses.close || "", /2026 LQ Q12/);
++  assert.doesNotMatch(uses.close || "", /2013 LQ Q9/);
++  assert.doesNotMatch(uses.close || "", /2025 LQ Q12/);
++  assert.doesNotMatch(uses.close || "", /2018 LQ Q10/);
++  assert.doesNotMatch(uses.close || "", /2021 LQ Q9/);
+   assert.equal(uses.has2013, false);
+   assert.equal(uses.has2025, false);
+   assert.equal(uses.has2015, true);
+@@ -627,7 +628,7 @@ chromeTest("Ch.2 section pages keep syllabus LOs at the top and DSE papers at th
+     return info;
+   }, 10000, "26.2 chip to 2021/33");
+   assert.equal(land.hash, "#dse-mc-2021-33");
+-  assert.match(land.caption || "", /2021\/33 MC/);
++  assert.match(land.caption || "", /2021 MC Q33/);
+   assert.ok(land.loaded);
+   if (evidenceDir) {
+     await cdp.screenshot(path.join(evidenceDir, "ch02-26-2-chip-lands-on-2021-33.png"), "#dse-mc-2021-33");
+@@ -648,7 +649,7 @@ chromeTest("Ch.2 section pages keep syllabus LOs at the top and DSE papers at th
+     return info;
+   }, 8000, "Ch.1 25.2 still embeds 2021/33");
+   assert.match(ch1.src || "", /mc\/25\/2021_q33\.png$/);
+-  assert.match(ch1.caption || "", /2021\/33 MC/);
++  assert.match(ch1.caption || "", /2021 MC Q33/);
+   if (evidenceDir) {
+     await cdp.screenshot(path.join(evidenceDir, "ch01-25-2-dse-mc-2021-33.png"), "#dse-mc-2021-33");
+   }
+@@ -664,10 +665,12 @@ chromeTest("Book 5 menu keeps two chapter cards and hosts nuclear-energy LOs wit
+       return img && img.complete && img.naturalWidth > 0;
+     }).length;
+     var lo = document.querySelector("#nuclear-energy");
++    var chips = Array.from(document.querySelectorAll(".dse-labels a")).map(function (a) { return a.textContent; });
+     return {
+       nCards: cards.length,
+       title: document.querySelector("h1") && document.querySelector("h1").textContent,
+       loText: lo && lo.innerText,
++      chips: chips,
+       nPapers: papers.length,
+       loaded: loaded,
+       katex: !!document.querySelector(".katex"),
+@@ -682,6 +685,8 @@ chromeTest("Book 5 menu keeps two chapter cards and hosts nuclear-energy LOs wit
+   assert.match(menu.loText, /realise the release of energy in nuclear fission and fusion/);
+   assert.equal(menu.remote, false);
+   assert.equal(menu.katex, true);
++  assert.ok(menu.chips.length >= 1, "nuclear LOs should label DSE papers");
++  assert.ok(menu.chips.every(function (t) { return /^(?:\d{4}|PP|SAP) (?:MC|LQ) Q\d+$/.test(t); }), "nuclear chips should use YYYY MC Qn");
+   assert.ok(menu.nPapers >= 10, "expected nuclear DSE embeds, n=" + menu.nPapers);
+   assert.ok(menu.loaded >= 1, "nuclear DSE images should load, loaded=" + menu.loaded);
+   if (evidenceDir) {
+diff --git a/notes/book5/index.html b/notes/book5/index.html
+index 7b010cb..1e212c7 100644
+--- a/notes/book5/index.html
++++ b/notes/book5/index.html
+@@ -49,13 +49,13 @@
+       <p class="lede">No Book 5 student chapter covers fission, fusion, or \( \Delta E = \Delta m c^{2} \) yet. These syllabus bullets live here until that chapter exists.</p>
+       <p class="lo-stem">Students should be able to:</p>
+       <ul class="lo-list">
+-        <li><p>realise the release of energy in nuclear fission and fusion</p><p class="dse-labels"><a href="#dse-mc-2018-31">2018/31 MC</a><a href="#dse-mc-2023-33">2023/33 MC</a><a href="#dse-mc-2022-33">2022/33 MC</a><a href="#dse-mc-sap-34">SAP/34 MC</a><a href="#dse-mc-pp-36">PP/36 MC</a><a href="#dse-lq-2015-10">2015/10 LQ</a><a href="#dse-lq-2019-10">2019/10 LQ</a><a href="#dse-lq-2022-10">2022/10 LQ</a></p></li>
+-        <li><p>realise nuclear chain reaction</p><p class="dse-labels"><a href="#dse-mc-2018-31">2018/31 MC</a><a href="#dse-lq-2019-10">2019/10 LQ</a></p></li>
+-        <li><p>realise nuclear fusion as the source of solar energy</p><p class="dse-labels"><a href="#dse-mc-2013-36">2013/36 MC</a></p></li>
+-        <li><p>state mass-energy relationship \( \Delta E = \Delta m c^{2} \)</p><p class="dse-labels"><a href="#dse-mc-2013-36">2013/36 MC</a><a href="#dse-mc-2014-33">2014/33 MC</a><a href="#dse-mc-2025-33">2025/33 MC</a><a href="#dse-lq-2012-11">2012/11 LQ</a><a href="#dse-lq-2015-10">2015/10 LQ</a></p></li>
+-        <li><p>use atomic mass unit as a unit of energy</p><p class="dse-labels"><a href="#dse-mc-2017-33">2017/33 MC</a><a href="#dse-mc-2018-33">2018/33 MC</a><a href="#dse-mc-2023-32">2023/32 MC</a><a href="#dse-mc-2025-33">2025/33 MC</a><a href="#dse-mc-2026-33">2026/33 MC</a><a href="#dse-mc-pp-36">PP/36 MC</a></p></li>
+-        <li><p>determine the energy release in nuclear reactions</p><p class="dse-labels"><a href="#dse-mc-2013-36">2013/36 MC</a><a href="#dse-mc-2014-33">2014/33 MC</a><a href="#dse-mc-2017-33">2017/33 MC</a><a href="#dse-mc-2018-33">2018/33 MC</a><a href="#dse-mc-2019-33">2019/33 MC</a><a href="#dse-mc-2023-32">2023/32 MC</a><a href="#dse-mc-2025-33">2025/33 MC</a><a href="#dse-mc-2026-33">2026/33 MC</a><a href="#dse-mc-pp-36">PP/36 MC</a><a href="#dse-lq-2012-11">2012/11 LQ</a><a href="#dse-lq-2015-10">2015/10 LQ</a><a href="#dse-lq-2020-10">2020/10 LQ</a><a href="#dse-lq-2022-10">2022/10 LQ</a></p></li>
+-        <li><p>apply \( \Delta E = \Delta m c^{2} \) to solve problems</p><p class="dse-labels"><a href="#dse-mc-2013-36">2013/36 MC</a><a href="#dse-mc-2014-33">2014/33 MC</a><a href="#dse-mc-2017-33">2017/33 MC</a><a href="#dse-mc-2018-33">2018/33 MC</a><a href="#dse-mc-2019-33">2019/33 MC</a><a href="#dse-mc-2023-32">2023/32 MC</a><a href="#dse-mc-2025-33">2025/33 MC</a><a href="#dse-mc-2026-33">2026/33 MC</a><a href="#dse-mc-pp-36">PP/36 MC</a><a href="#dse-lq-2012-11">2012/11 LQ</a><a href="#dse-lq-2015-10">2015/10 LQ</a><a href="#dse-lq-2020-10">2020/10 LQ</a><a href="#dse-lq-2022-10">2022/10 LQ</a></p></li>
++        <li><p>realise the release of energy in nuclear fission and fusion</p><p class="dse-labels"><a href="#dse-mc-2018-31">2018 MC Q31</a><a href="#dse-mc-2023-33">2023 MC Q33</a><a href="#dse-mc-2022-33">2022 MC Q33</a><a href="#dse-mc-sap-34">SAP MC Q34</a><a href="#dse-mc-pp-36">PP MC Q36</a><a href="#dse-lq-2015-10">2015 LQ Q10</a><a href="#dse-lq-2019-10">2019 LQ Q10</a><a href="#dse-lq-2022-10">2022 LQ Q10</a></p></li>
++        <li><p>realise nuclear chain reaction</p><p class="dse-labels"><a href="#dse-mc-2018-31">2018 MC Q31</a><a href="#dse-lq-2019-10">2019 LQ Q10</a></p></li>
++        <li><p>realise nuclear fusion as the source of solar energy</p><p class="dse-labels"><a href="#dse-mc-2013-36">2013 MC Q36</a></p></li>
++        <li><p>state mass-energy relationship \( \Delta E = \Delta m c^{2} \)</p><p class="dse-labels"><a href="#dse-mc-2013-36">2013 MC Q36</a><a href="#dse-mc-2014-33">2014 MC Q33</a><a href="#dse-mc-2025-33">2025 MC Q33</a><a href="#dse-lq-2012-11">2012 LQ Q11</a><a href="#dse-lq-2015-10">2015 LQ Q10</a></p></li>
++        <li><p>use atomic mass unit as a unit of energy</p><p class="dse-labels"><a href="#dse-mc-2017-33">2017 MC Q33</a><a href="#dse-mc-2018-33">2018 MC Q33</a><a href="#dse-mc-2023-32">2023 MC Q32</a><a href="#dse-mc-2025-33">2025 MC Q33</a><a href="#dse-mc-2026-33">2026 MC Q33</a><a href="#dse-mc-pp-36">PP MC Q36</a></p></li>
++        <li><p>determine the energy release in nuclear reactions</p><p class="dse-labels"><a href="#dse-mc-2013-36">2013 MC Q36</a><a href="#dse-mc-2014-33">2014 MC Q33</a><a href="#dse-mc-2017-33">2017 MC Q33</a><a href="#dse-mc-2018-33">2018 MC Q33</a><a href="#dse-mc-2019-33">2019 MC Q33</a><a href="#dse-mc-2023-32">2023 MC Q32</a><a href="#dse-mc-2025-33">2025 MC Q33</a><a href="#dse-mc-2026-33">2026 MC Q33</a><a href="#dse-mc-pp-36">PP MC Q36</a><a href="#dse-lq-2012-11">2012 LQ Q11</a><a href="#dse-lq-2015-10">2015 LQ Q10</a><a href="#dse-lq-2020-10">2020 LQ Q10</a><a href="#dse-lq-2022-10">2022 LQ Q10</a></p></li>
++        <li><p>apply \( \Delta E = \Delta m c^{2} \) to solve problems</p><p class="dse-labels"><a href="#dse-mc-2013-36">2013 MC Q36</a><a href="#dse-mc-2014-33">2014 MC Q33</a><a href="#dse-mc-2017-33">2017 MC Q33</a><a href="#dse-mc-2018-33">2018 MC Q33</a><a href="#dse-mc-2019-33">2019 MC Q33</a><a href="#dse-mc-2023-32">2023 MC Q32</a><a href="#dse-mc-2025-33">2025 MC Q33</a><a href="#dse-mc-2026-33">2026 MC Q33</a><a href="#dse-mc-pp-36">PP MC Q36</a><a href="#dse-lq-2012-11">2012 LQ Q11</a><a href="#dse-lq-2015-10">2015 LQ Q10</a><a href="#dse-lq-2020-10">2020 LQ Q10</a><a href="#dse-lq-2022-10">2022 LQ Q10</a></p></li>
+       </ul>
+     </section>
+ 
+@@ -65,97 +65,97 @@
+       <div class="dse-group">
+         <h3>Multiple choice</h3>
+       <figure class="dse-paper" id="dse-mc-2013-36">
+-        <figcaption>2013/36 MC</figcaption>
+-        <p class="dse-slot">Slot: 2013/36 MC</p>
+-        <img src="_local/dse/mc/27/2013_q36.png" alt="HKDSE 2013/36 MC">
++        <figcaption>2013 MC Q36</figcaption>
++        <p class="dse-slot">Slot: 2013 MC Q36</p>
++        <img src="_local/dse/mc/27/2013_q36.png" alt="HKDSE 2013 MC Q36">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2014-33">
+-        <figcaption>2014/33 MC</figcaption>
+-        <p class="dse-slot">Slot: 2014/33 MC</p>
+-        <img src="_local/dse/mc/27/2014_q33.png" alt="HKDSE 2014/33 MC">
++        <figcaption>2014 MC Q33</figcaption>
++        <p class="dse-slot">Slot: 2014 MC Q33</p>
++        <img src="_local/dse/mc/27/2014_q33.png" alt="HKDSE 2014 MC Q33">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2017-33">
+-        <figcaption>2017/33 MC</figcaption>
+-        <p class="dse-slot">Slot: 2017/33 MC</p>
+-        <img src="_local/dse/mc/27/2017_q33.png" alt="HKDSE 2017/33 MC">
++        <figcaption>2017 MC Q33</figcaption>
++        <p class="dse-slot">Slot: 2017 MC Q33</p>
++        <img src="_local/dse/mc/27/2017_q33.png" alt="HKDSE 2017 MC Q33">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2018-31">
+-        <figcaption>2018/31 MC</figcaption>
+-        <p class="dse-slot">Slot: 2018/31 MC</p>
+-        <img src="_local/dse/mc/27/2018_q31.png" alt="HKDSE 2018/31 MC">
++        <figcaption>2018 MC Q31</figcaption>
++        <p class="dse-slot">Slot: 2018 MC Q31</p>
++        <img src="_local/dse/mc/27/2018_q31.png" alt="HKDSE 2018 MC Q31">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2018-33">
+-        <figcaption>2018/33 MC</figcaption>
+-        <p class="dse-slot">Slot: 2018/33 MC</p>
+-        <img src="_local/dse/mc/27/2018_q33.png" alt="HKDSE 2018/33 MC">
++        <figcaption>2018 MC Q33</figcaption>
++        <p class="dse-slot">Slot: 2018 MC Q33</p>
++        <img src="_local/dse/mc/27/2018_q33.png" alt="HKDSE 2018 MC Q33">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2019-33">
+-        <figcaption>2019/33 MC</figcaption>
+-        <p class="dse-slot">Slot: 2019/33 MC</p>
+-        <img src="_local/dse/mc/27/2019_q33.png" alt="HKDSE 2019/33 MC">
++        <figcaption>2019 MC Q33</figcaption>
++        <p class="dse-slot">Slot: 2019 MC Q33</p>
++        <img src="_local/dse/mc/27/2019_q33.png" alt="HKDSE 2019 MC Q33">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2022-33">
+-        <figcaption>2022/33 MC</figcaption>
+-        <p class="dse-slot">Slot: 2022/33 MC</p>
+-        <img src="_local/dse/mc/27/2022_q33.png" alt="HKDSE 2022/33 MC">
++        <figcaption>2022 MC Q33</figcaption>
++        <p class="dse-slot">Slot: 2022 MC Q33</p>
++        <img src="_local/dse/mc/27/2022_q33.png" alt="HKDSE 2022 MC Q33">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2023-32">
+-        <figcaption>2023/32 MC</figcaption>
+-        <p class="dse-slot">Slot: 2023/32 MC</p>
+-        <img src="_local/dse/mc/27/2023_q32.png" alt="HKDSE 2023/32 MC">
++        <figcaption>2023 MC Q32</figcaption>
++        <p class="dse-slot">Slot: 2023 MC Q32</p>
++        <img src="_local/dse/mc/27/2023_q32.png" alt="HKDSE 2023 MC Q32">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2023-33">
+-        <figcaption>2023/33 MC</figcaption>
+-        <p class="dse-slot">Slot: 2023/33 MC</p>
+-        <img src="_local/dse/mc/27/2023_q33.png" alt="HKDSE 2023/33 MC">
++        <figcaption>2023 MC Q33</figcaption>
++        <p class="dse-slot">Slot: 2023 MC Q33</p>
++        <img src="_local/dse/mc/27/2023_q33.png" alt="HKDSE 2023 MC Q33">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2025-33">
+-        <figcaption>2025/33 MC</figcaption>
+-        <p class="dse-slot">Slot: 2025/33 MC</p>
+-        <img src="_local/dse/mc/27/2025_q33.png" alt="HKDSE 2025/33 MC">
++        <figcaption>2025 MC Q33</figcaption>
++        <p class="dse-slot">Slot: 2025 MC Q33</p>
++        <img src="_local/dse/mc/27/2025_q33.png" alt="HKDSE 2025 MC Q33">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-2026-33">
+-        <figcaption>2026/33 MC</figcaption>
+-        <p class="dse-slot">Slot: 2026/33 MC</p>
+-        <img src="_local/dse/mc/27/2026_q33.png" alt="HKDSE 2026/33 MC">
++        <figcaption>2026 MC Q33</figcaption>
++        <p class="dse-slot">Slot: 2026 MC Q33</p>
++        <img src="_local/dse/mc/27/2026_q33.png" alt="HKDSE 2026 MC Q33">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-pp-36">
+-        <figcaption>PP/36 MC</figcaption>
+-        <p class="dse-slot">Slot: PP/36 MC</p>
+-        <img src="_local/dse/mc/27/pp_q36.png" alt="HKDSE PP/36 MC">
++        <figcaption>PP MC Q36</figcaption>
++        <p class="dse-slot">Slot: PP MC Q36</p>
++        <img src="_local/dse/mc/27/pp_q36.png" alt="HKDSE PP MC Q36">
+       </figure>
+       <figure class="dse-paper" id="dse-mc-sap-34">
+-        <figcaption>SAP/34 MC</figcaption>
+-        <p class="dse-slot">Slot: SAP/34 MC</p>
+-        <img src="_local/dse/mc/27/sap_q34.png" alt="HKDSE SAP/34 MC">
++        <figcaption>SAP MC Q34</figcaption>
++        <p class="dse-slot">Slot: SAP MC Q34</p>
++        <img src="_local/dse/mc/27/sap_q34.png" alt="HKDSE SAP MC Q34">
+       </figure>
+       </div>
+       <div class="dse-group">
+         <h3>Long questions</h3>
+       <figure class="dse-paper" id="dse-lq-2012-11">
+-        <figcaption>2012/11 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2012/11 LQ</p>
+-        <img src="_local/dse/lq/27/2012-q11.png" alt="HKDSE 2012/11 LQ">
++        <figcaption>2012 LQ Q11</figcaption>
++        <p class="dse-slot">Slot: 2012 LQ Q11</p>
++        <img src="_local/dse/lq/27/2012-q11.png" alt="HKDSE 2012 LQ Q11">
+       </figure>
+       <figure class="dse-paper" id="dse-lq-2015-10">
+-        <figcaption>2015/10 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2015/10 LQ</p>
+-        <img src="_local/dse/lq/27/2015-q10.png" alt="HKDSE 2015/10 LQ">
++        <figcaption>2015 LQ Q10</figcaption>
++        <p class="dse-slot">Slot: 2015 LQ Q10</p>
++        <img src="_local/dse/lq/27/2015-q10.png" alt="HKDSE 2015 LQ Q10">
+       </figure>
+       <figure class="dse-paper" id="dse-lq-2019-10">
+-        <figcaption>2019/10 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2019/10 LQ</p>
+-        <img src="_local/dse/lq/27/2019-q10.png" alt="HKDSE 2019/10 LQ">
++        <figcaption>2019 LQ Q10</figcaption>
++        <p class="dse-slot">Slot: 2019 LQ Q10</p>
++        <img src="_local/dse/lq/27/2019-q10.png" alt="HKDSE 2019 LQ Q10">
+       </figure>
+       <figure class="dse-paper" id="dse-lq-2020-10">
+-        <figcaption>2020/10 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2020/10 LQ</p>
+-        <img src="_local/dse/lq/27/2020-q10.png" alt="HKDSE 2020/10 LQ">
++        <figcaption>2020 LQ Q10</figcaption>
++        <p class="dse-slot">Slot: 2020 LQ Q10</p>
++        <img src="_local/dse/lq/27/2020-q10.png" alt="HKDSE 2020 LQ Q10">
+       </figure>
+       <figure class="dse-paper" id="dse-lq-2022-10">
+-        <figcaption>2022/10 LQ</figcaption>
+-        <p class="dse-slot">Slot: 2022/10 LQ</p>
+-        <img src="_local/dse/lq/27/2022-q10.png" alt="HKDSE 2022/10 LQ">
++        <figcaption>2022 LQ Q10</figcaption>
++        <p class="dse-slot">Slot: 2022 LQ Q10</p>
++        <img src="_local/dse/lq/27/2022-q10.png" alt="HKDSE 2022 LQ Q10">
+       </figure>
+       </div>
+     </section>

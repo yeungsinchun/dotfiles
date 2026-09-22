@@ -1,0 +1,34 @@
+---
+pid: 18827
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python - <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nfrom preprocess_lq_answers import *\nimport pymupdf as fitz\ndoc=fitz.open('answer/2021ans.pdf')\nprint('pages', len(doc))\npages=[]; section_b=False; seen_a=False\nfor index in range(len(doc)):\n  image=render_page(doc[index],2.0)\n  if not section_b:\n    if is_section_a_keys(image):\n      seen_a=True; print(f'skip A {index+1}'); continue\n    if is_front_matter(image):\n      print(f'skip front {index+1}'); continue\n    if looks_like_section_b(image):\n      section_b=True\n    elif seen_a:\n      section_b=True\n    else:\n      print(f'skip unmarked {index+1}'); continue\n  else:\n    if is_paper_2_page(image) or is_section_a_keys(image):\n      print(f'stop {index+1} P2={is_paper_2_page(image)} A={is_section_a_keys(image)}')\n      print(' hdr', header_text(image)[:120].replace('\\n',' | '))\n      break\n  pages.append(image)\n  ys=find_main_question_ys(image,12)\n  print(f'include idx={len(pages)-1} pdf={index+1} ys={ys}')\n  if not ys and index < 8:\n    strip=image.crop((0,0,220,image.height))\n    print('  strip:', ocr_text(strip)[:250].replace('\\n',' | '))\ncands=[]\nfor pi,im in enumerate(pages):\n  for qn,y in find_main_question_ys(im,12):\n    cands.append((qn,pi,int(y)))\nprint('starts', longest_question_chain(cands,12))\ndoc.close()\nPY\n"
+title: "Debug 2021 answer question detection"
+status: succeeded
+started_at: 2026-09-05T03:13:55.261Z
+running_for_ms: 43183    
+---
+pages 14
+skip A 1
+include idx=0 pdf=2 ys=[]
+  strip: ——— ———— | Paper 1 § | -— | | (b) | (c) |  | i! (@) |  | i ( |  | st |  | yt ‘ |  | i |  | i |  | a |  | il |  | i |  | Fi |  | | |  | 7 |  | a | 
+include idx=1 pdf=3 ys=[(10, 1022)]
+include idx=2 pdf=4 ys=[(3, 155)]
+include idx=3 pdf=5 ys=[]
+  strip: “a BEREEE, | () | | slotted w | (ii) Smaller tha | therefore b; | for the di | Or | therefore b | is provide | (both F an | (iii) Applying | mg = (M- | (b) slope of the gra | mg=(M+ 0.1) | =o | a= Toa” | po | _ ea | 
+include idx=4 pdf=6 ys=[(6, 785)]
+include idx=5 pdf=7 ys=[]
+  strip: 6 (iii) | Location « | Correct lis | Correct pc | Focal leng |  | 8 (iv) White ligh | Since the r | are differet | the sizes o | different. | ‘When thes | seen. | — | 
+include idx=6 pdf=8 ys=[(7, 152)]
+include idx=7 pdf=9 ys=[]
+include idx=8 pdf=10 ys=[(9, 184)]
+include idx=9 pdf=11 ys=[(6, 176), (7, 190), (2, 1512), (1, 1582)]
+include idx=10 pdf=12 ys=[(1, 139), (5, 168), (2, 265)]
+include idx=11 pdf=13 ys=[(5, 170)]
+include idx=12 pdf=14 ys=[(1, 103), (5, 132), (4, 230)]
+starts [(10, 1, 1022)]
+
+---
+exit_code: 0
+elapsed_ms: 43175
+ended_at: 2026-09-05T03:14:38.436Z
+---

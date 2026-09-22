@@ -1,0 +1,44 @@
+---
+pid: 25075
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "GATE=/Users/sinchunyeung/.no-mistakes/repos/6238f6fd4f32.git\ngit fetch \"$GATE\" \"+refs/heads/classify:refs/no-mistakes-recover/classify\" 2>&1\ngit log --oneline -8 refs/no-mistakes-recover/classify\necho '===='\n# Compare to what's on origin\ngit fetch origin classify 2>&1\necho \"origin: $(git rev-parse --short origin/classify)\"\ngit rev-list --objects origin/classify..refs/no-mistakes-recover/classify | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | awk '/^blob/ {s+=$3; n++} END {printf \"new blobs %d size %.1f MB\\n\", n, s/1024/1024}'\n# Also commits only\ngit log --oneline origin/classify..refs/no-mistakes-recover/classify | head -20\n# Reset local and push\ngit reset --hard refs/no-mistakes-recover/classify\ngit -c http.postBuffer=524288000 -c http.version=HTTP/1.1 push --force-with-lease=\"refs/heads/classify:$(git rev-parse origin/classify)\" origin HEAD:refs/heads/classify 2>&1\n"
+title: "Force-adopt tip and push rebase delta"
+status: failed   
+started_at: 2026-09-05T17:47:43.643Z
+running_for_ms: 222633   
+---
+From /Users/sinchunyeung/.no-mistakes/repos/6238f6fd4f32
+ + 7f549d0...104959c classify   -> refs/no-mistakes-recover/classify  (forced update)
+104959c no-mistakes(document): Align CLI docs with merge and pages-only
+3616ca2 no-mistakes(review): Merge MC partial runs; drop S5 stubs
+32bd070 no-mistakes(review): Merge partial classifier runs; abort LQ LLM failures
+d00275d no-mistakes(document): Align docs with split classification outputs
+ec89af5 no-mistakes(review): Drop legacy MC names; preserve LQ crops
+59f3c88 chore: clean LQ assets and drop page-render caches
+2edf42c feat: classify LQ questions into curriculum sections
+97ddfb3 feat: classify MC questions into curriculum sections
+====
+From https://github.com/yeungsinchun/paper2db
+ * branch            classify   -> FETCH_HEAD
+origin: eaa142b
+new blobs 2582 size 2690.4 MB
+104959c no-mistakes(document): Align CLI docs with merge and pages-only
+3616ca2 no-mistakes(review): Merge MC partial runs; drop S5 stubs
+32bd070 no-mistakes(review): Merge partial classifier runs; abort LQ LLM failures
+d00275d no-mistakes(document): Align docs with split classification outputs
+ec89af5 no-mistakes(review): Drop legacy MC names; preserve LQ crops
+59f3c88 chore: clean LQ assets and drop page-render caches
+2edf42c feat: classify LQ questions into curriculum sections
+97ddfb3 feat: classify MC questions into curriculum sections
+5f01132 chore: declare no_ci for no-mistakes (no Actions workflows)
+HEAD is now at 104959c no-mistakes(document): Align CLI docs with merge and pages-only
+error: RPC failed; HTTP 500 curl 22 The requested URL returned error: 500
+send-pack: unexpected disconnect while reading sideband packet
+fatal: the remote end hung up unexpectedly
+Everything up-to-date
+
+---
+exit_code: 1
+elapsed_ms: 222633
+ended_at: 2026-09-05T17:51:26.276Z
+---

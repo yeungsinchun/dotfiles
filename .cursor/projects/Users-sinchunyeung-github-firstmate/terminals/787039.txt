@@ -1,0 +1,15 @@
+---
+pid: 4807
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "/usr/bin/env -i PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/usr/local/bin:/Users/sinchunyeung/.local/bin:/Users/sinchunyeung/.nvm/versions/node/v24.20.0/bin\" HOME=\"/Users/sinchunyeung\" FM_HOME=\"/Users/sinchunyeung/github/firstmate\" /Users/sinchunyeung/github/firstmate/bin/fm-wake-drain.sh 2>&1\n"
+title: "Drain durable wake queue"
+status: succeeded
+started_at: 2026-09-07T13:55:51.756Z
+running_for_ms: 1829     
+---
+
+---
+exit_code: 0
+elapsed_ms: 1829
+ended_at: 2026-09-07T13:55:53.585Z
+---

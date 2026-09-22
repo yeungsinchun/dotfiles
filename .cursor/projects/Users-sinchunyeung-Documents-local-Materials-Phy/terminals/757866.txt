@@ -1,0 +1,19 @@
+---
+pid: 62651
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy"
+command: "python3 << 'PY'\nimport sys\nsys.path.insert(0,\"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/scripts\")\nimport preprocess_lq as p\nprint([a for a in dir(p) if 'wipe' in a or 'native' in a or 'render' in a or 'process' in a])\nimport fitz\ndoc=fitz.open(\"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/Year/LQ/2012p1b.pdf\")\ndoc.authenticate(\"\")\nprint(\"native 2012\", p.native_scale(doc[1], cap=5.0))\n# Does process_one work? quick on 2012 only\nfrom pathlib import Path\nout=Path(\"/tmp/lq2012_test\")\nn=p.process_one(Path(\"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/Year/LQ/2012p1b.pdf\"), out, cover_pages=1, scale=0.0, max_questions=12, max_scale=5.0)\nprint(\"wrote\", n)\nfrom PIL import Image\nimport numpy as np\nim=Image.open(out/\"q1.png\")\na=np.asarray(im.convert(\"L\"))\nprint(\"q1\", im.size, \"unique\", len(np.unique(a)), \"black\", float((a<128).mean()))\ndoc.close()\nPY\n"
+started_at: 2026-08-23T02:18:59.468Z
+running_for_ms: 40007    
+---
+['native_scale', 'process_one', 'render_display', 'subprocess', 'wipe_answer_lines']
+native 2012 5.0
+  render scale=5.00
+  detected Q1-Q10 (10 questions)
+wrote 10
+q1 (2439, 7129) unique 219 black 0.029708704998398
+
+---
+exit_code: 0
+elapsed_ms: 42476
+ended_at: 2026-08-23T02:19:41.944Z
+---

@@ -1,0 +1,86 @@
+---
+pid: 59250
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/2/paper2notes"
+command: "no-mistakes axi respond --action fix --findings replay-strips-play-zoom"
+title: "Authorize pipeline fix for replay zoom snap"
+status: succeeded
+started_at: 2026-09-10T15:45:55.582Z
+running_for_ms: 417161157
+---
+[33mA new version of no-mistakes is available: v1.64.0 -> v1.72.0
+Run "no-mistakes update" to update[0m
+run: running
+  intent: completed
+  rebase: completed
+  review: fixing
+  review: completed
+  test: running
+  test: completed
+  document: running
+  document: completed
+  lint: running
+  lint: completed
+  push: running
+  push: completed
+  pr: running
+  pr: completed
+  ci: running
+run: completed
+  ci: completed
+run:
+  id: "01M25ZJP3ESET41GSCJQ2MFVGJ"
+  branch: fm/p2n-b5ch1-notes-book-5-ch1-first-draft-visual-html-notes-87
+  status: completed
+  head: e1f23f0e
+  pr: "https://github.com/yeungsinchun/paper2notes/pull/1"
+  findings: none
+  steps[9]{step,status,findings,duration_ms}:
+    intent,completed,0,3
+    rebase,completed,0,2004
+    review,completed,0,862416
+    test,completed,0,506083
+    document,completed,0,133333
+    lint,completed,0,69
+    push,completed,0,5742
+    pr,completed,0,243133
+    ci,completed,0,216245823
+  shared_work[1]{attributed_to,scope,duration_ms}:
+    document,document+lint housekeeping,133333
+branch_sync:
+  state: closed
+  changed: false
+  local:
+    branch: fm/p2n-b5ch1-notes-book-5-ch1-first-draft-visual-html-notes-87
+    head: da69c5a8a4e44c728d76898adbb3449b51c91b8b
+    clean: true
+  pipeline:
+    run: "01M25ZJP3ESET41GSCJQ2MFVGJ"
+    status: completed
+    phase: ""
+    submitted_head: da69c5a8a4e44c728d76898adbb3449b51c91b8b
+    current_head: e1f23f0e377a56dc5352516ab3a04cb65420587a
+    pushed_head: e1f23f0e377a56dc5352516ab3a04cb65420587a
+    pushed_at: 1789056289
+    push_generation: 1
+  target:
+    kind: upstream
+    remote: origin
+    url: "https://github.com/yeungsinchun/paper2notes.git"
+    ref: refs/heads/fm/p2n-b5ch1-notes-book-5-ch1-first-draft-visual-html-notes-87
+  remote:
+    observed_head: e1f23f0e377a56dc5352516ab3a04cb65420587a
+    freshness: pipeline_push
+    observed_at: 1789056289
+  relation: unknown
+  safety: blocked_closed
+  pr_state: closed
+outcome: passed
+fixes[1]{step,summary}:
+  review,Preserve per-box zoom across Replay
+help[5]: "Open the PR: https://github.com/yeungsinchun/paper2notes/pull/1","Summarize this pipeline run for the user in a concise, easily readable format: what was validated and what was found.",The pipeline fixed findings the original change missed (see `fixes`) - acknowledge the misses and list each fix so the user can review them.,"Commit post-pipeline follow-up work on top of the existing branch so every pipeline fix commit remains present. Never abort-and-restart, reset, or replace the branch in a way that drops prior gate-fix commits.","Before a post-pipeline local commit or fresh run, follow the structured `branch_sync.next_action`. Run `no-mistakes axi sync` only when its code is `sync`; that guarded sync may be a strict fast-forward or a content-equivalent diverged advance that anchors the pre-sync head before moving the branch with reset semantics. Run `no-mistakes axi sync --recover` only when its code is `recover_custody` (a terminal run left unpublished pipeline commits preserved in the local gate). A `user_owned` state means cancellation released the branch before changing the submitted head: the exact branch and head are yours, immediately usable, and no sync action is needed. Process blocked or pipeline-owned states instead of improvising reset, stash, merge, rebase, force, or branch replacement."
+
+---
+exit_code: 0
+elapsed_ms: 417161157
+ended_at: 2026-09-15T11:38:36.739Z
+---

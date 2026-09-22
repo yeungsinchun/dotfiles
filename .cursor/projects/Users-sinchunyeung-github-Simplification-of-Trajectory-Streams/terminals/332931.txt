@@ -1,0 +1,59 @@
+---
+pid: 26673
+cwd: "/Users/sinchunyeung/github/simplification-of-trajectory-streams"
+command: "gh pr checks 11 --watch --interval 20 2>&1"
+title: "Watch PR checks until complete"
+status: succeeded
+started_at: 2026-09-05T17:48:33.606Z
+running_for_ms: 209105   
+---
+Refreshing checks status every 20 seconds. Press Ctrl+C to quit.
+
+New build frechet distance and	pending	0	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062305/job/101348927984	
+New build must not slow down by >1.5x	pending	0	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062217/job/101348927575	
+Refreshing checks status every 20 seconds. Press Ctrl+C to quit.
+
+New build frechet distance and	pending	0	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062305/job/101348927984	
+New build must not slow down by >1.5x	pass	52s	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062217/job/101348927575	
+Refreshing checks status every 20 seconds. Press Ctrl+C to quit.
+
+New build frechet distance and	pending	0	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062305/job/101348927984	
+New build must not slow down by >1.5x	pass	52s	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062217/job/101348927575	
+Refreshing checks status every 20 seconds. Press Ctrl+C to quit.
+
+New build frechet distance and	pending	0	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062305/job/101348927984	
+New build must not slow down by >1.5x	pass	52s	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062217/job/101348927575	
+Refreshing checks status every 20 seconds. Press Ctrl+C to quit.
+
+New build frechet distance and	pending	0	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062305/job/101348927984	
+New build must not slow down by >1.5x	pass	52s	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062217/job/101348927575	
+Refreshing checks status every 20 seconds. Press Ctrl+C to quit.
+
+New build frechet distance and	pending	0	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062305/job/101348927984	
+New build must not slow down by >1.5x	pass	52s	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062217/job/101348927575	
+Refreshing checks status every 20 seconds. Press Ctrl+C to quit.
+
+New build frechet distance and	pending	0	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062305/job/101348927984	
+New build must not slow down by >1.5x	pass	52s	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062217/job/101348927575	
+Refreshing checks status every 20 seconds. Press Ctrl+C to quit.
+
+New build frechet distance and	pending	0	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062305/job/101348927984	
+New build must not slow down by >1.5x	pass	52s	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062217/job/101348927575	
+Refreshing checks status every 20 seconds. Press Ctrl+C to quit.
+
+New build frechet distance and	pending	0	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062305/job/101348927984	
+New build must not slow down by >1.5x	pass	52s	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062217/job/101348927575	
+Refreshing checks status every 20 seconds. Press Ctrl+C to quit.
+
+New build frechet distance and	pending	0	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062305/job/101348927984	
+New build must not slow down by >1.5x	pass	52s	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062217/job/101348927575	
+New build frechet distance and	pass	4m13s	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062305/job/101348927984	
+New build must not slow down by >1.5x	pass	52s	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062217/job/101348927575	
+New build frechet distance and	pass	4m13s	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062305/job/101348927984	
+New build must not slow down by >1.5x	pass	52s	https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33982062217/job/101348927575	
+
+---
+exit_code: 0
+elapsed_ms: 209105
+ended_at: 2026-09-05T17:52:02.711Z
+---

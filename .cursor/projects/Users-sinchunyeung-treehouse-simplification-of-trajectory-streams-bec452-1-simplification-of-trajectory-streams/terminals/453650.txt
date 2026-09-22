@@ -1,0 +1,58 @@
+---
+pid: 70337
+cwd: "/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams"
+command: "python3 scripts/local_ci_gate.py \\\n  --baseline /tmp/simplify-baseline/build/simplify \\\n  --baseline-cwd /tmp/simplify-baseline \\\n  --new /tmp/simplify-new/simplify \\\n  --new-cwd /tmp/simplify-new \\\n  --epsilon 299 --delta 1 \\\n  --bench-runs 3 2>&1 | tee results/p0_ci_gate.log\necho EXIT:$?\n\n# Also verify identical outputs at CI params for all IDs\npython3 - <<'PY'\nimport subprocess\nfrom pathlib import Path\nbase=Path('/tmp/simplify-baseline'); new=Path('/tmp/simplify-new')\nok=True\nfor idv in range(1,11):\n    subprocess.run([str(base/'build/simplify'), str(idv), '-e','299','-d','1'], cwd=base, capture_output=True)\n    subprocess.run([str(new/'simplify'), str(idv), '-e','299','-d','1'], cwd=new, capture_output=True)\n    b=(base/'data'/str(idv)/'simplify.txt').read_bytes()\n    n=(new/'data'/str(idv)/'simplify.txt').read_bytes()\n    print(f'id={idv} identical={b==n} bytes={len(b)}')\n    if b!=n: ok=False\nprint('ALL_IDENTICAL' if ok else 'DIFFERS')\nPY"
+title: "Full local CI gate + identical-output check"
+status: succeeded
+started_at: 2026-09-04T15:29:52.018Z
+running_for_ms: 150786   
+---
+Gate params: e=299.0 d=1.0 dist_tol=0.01 points_tol=0 slowdown=1.5x min_ms=20.0
+baseline=/tmp/simplify-baseline/build/simplify
+new     =/tmp/simplify-new/simplify
+
+=== Correctness (Frechet + points) ===
+  id     orig_dist      new_dist      d_dist  orig_pts   new_pts   d_pts  status
+   1    299.000000    299.000000    0.000000        92        92       0  OK
+   2    299.002120    299.002120    0.000000       516       516       0  OK
+   3    299.002245    299.002245    0.000000       120       120       0  OK
+   4    299.000000    299.000000    0.000000        66        66       0  OK
+   5    299.002784    299.002784    0.000000       176       176       0  OK
+   6    299.000000    299.000000    0.000000        52        52       0  OK
+   7    299.000000    299.000000    0.000000       156       156       0  OK
+   8    299.000000    299.000000    0.000000         6         6       0  OK
+   9    299.001589    299.001589    0.000000       186       186       0  OK
+  10    299.000000    299.000000    0.000000       204       204       0  OK
+
+=== Benchmark (avg of 3, limit 1.5x) ===
+  id     prev_ms      new_ms     ratio  status
+   1      2.8830      2.6308     0.913  OK
+   2      6.8008      5.9932     0.881  OK
+   3      5.4379      5.0956     0.937  OK
+   4      3.4110      3.1698     0.929  OK
+   5      3.1439      2.8090     0.893  OK
+   6      3.0046      2.8667     0.954  OK
+   7      1.8462      1.6136     0.874  OK
+   8      0.0447      0.0408     0.912  OK
+   9      3.4681      3.0923     0.892  OK
+  10     25.5350     24.8940     0.975  OK
+
+✅ Local CI gate OK
+EXIT:0
+id=1 identical=True bytes=3552
+id=2 identical=True bytes=19961
+id=3 identical=True bytes=4632
+id=4 identical=True bytes=2572
+id=5 identical=True bytes=6849
+id=6 identical=True bytes=2027
+id=7 identical=True bytes=6074
+id=8 identical=True bytes=209
+id=9 identical=True bytes=7353
+id=10 identical=True bytes=7829
+ALL_IDENTICAL
+
+---
+exit_code: 0
+elapsed_ms: 150785
+ended_at: 2026-09-04T15:32:22.803Z
+---

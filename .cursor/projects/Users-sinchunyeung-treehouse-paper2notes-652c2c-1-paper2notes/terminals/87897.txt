@@ -1,0 +1,16 @@
+---
+pid: 47610
+cwd: "/tmp/book5-ch1-intake/preview"
+command: "# Convert remaining pages at 100 dpi for structure scan\npdftoppm -png -r 100 -f 21 -l 112 \"/Users/sinchunyeung/github/paper2notes/active-physics/Book 5.pdf\" /tmp/book5-ch1-intake/preview/p\nls /tmp/book5-ch1-intake/preview/*.png | wc -l"
+title: "Render remaining Book 5 pages for OCR scan"
+status: succeeded
+started_at: 2026-09-08T16:35:03.399Z
+running_for_ms: 63666    
+---
+     112
+
+---
+exit_code: 0
+elapsed_ms: 63666
+ended_at: 2026-09-08T16:36:07.065Z
+---

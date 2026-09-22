@@ -1,0 +1,46 @@
+---
+pid: 12991
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nimport preprocess_mc as p\nimport pymupdf as fitz\ndoc=fitz.open('paper/mc/2025p1a.pdf')\ncontent=list(range(1,doc.page_count))\nhits={pi: p.detect_labels(doc[pi], 2.0, 33) for pi in content}\nlabels=p.collect_labels(doc, content, 2.0, 33, page_hits=hits)\nprint('labels', len(labels), 'missing', sorted(set(range(1,34))-labels.keys()))\nfor n in (11,12,13,18,19,20):\n    print(n, labels.get(n))\nPY\n# full segment with 33\n./segment paper/mc/2025p1a.pdf output/2025 --type mc --step all --intermediate output/2025-intermediate --questions 33 2>&1 | tee /tmp/2025-seg2.log | tail -25\n"
+status: succeeded
+started_at: 2026-09-04T15:48:13.187Z
+running_for_ms: 145163   
+---
+labels 33 missing []
+11 (4, 52.708333333333336, 588.5)
+12 (5, 109.47916666666667, 70.5)
+13 (5, 109.47916666666667, 288.75)
+18 (7, 109.58333333333333, 72.5)
+19 (7, 109.58333333333333, 235.9375)
+20 (7, 109.58333333333333, 519.375)
+Wrote /Users/sinchunyeung/github/paper2db/output/2025/q20.png (1023x443)
+Wrote /Users/sinchunyeung/github/paper2db/output/2025/q21.png (1022x281)
+Wrote /Users/sinchunyeung/github/paper2db/output/2025/q22.png (1022x191)
+Wrote /Users/sinchunyeung/github/paper2db/output/2025/q23.png (1022x578)
+Wrote /Users/sinchunyeung/github/paper2db/output/2025/q24.png (1150x587)
+Wrote /Users/sinchunyeung/github/paper2db/output/2025/q25.png (1150x186)
+Wrote /Users/sinchunyeung/github/paper2db/output/2025/q26.png (1020x474)
+Wrote /Users/sinchunyeung/github/paper2db/output/2025/q27.png (1020x548)
+Wrote /Users/sinchunyeung/github/paper2db/output/2025/q28.png (1023x694)
+Wrote /Users/sinchunyeung/github/paper2db/output/2025/q29.png (1023x193)
+Wrote /Users/sinchunyeung/github/paper2db/output/2025/q30.png (1023x211)
+Wrote /Users/sinchunyeung/github/paper2db/output/2025/q31.png (1023x169)
+Wrote /Users/sinchunyeung/github/paper2db/output/2025/q32.png (1023x692)
+Wrote /Users/sinchunyeung/github/paper2db/output/2025/q33.png (1023x357)
+Wrote 33 questions to /Users/sinchunyeung/github/paper2db/output/2025 (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/2025/combined.pdf (33 pages)
+Paper type: MC (2025p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Wrote /Users/sinchunyeung/github/paper2db/output/2025-intermediate/anchor.pdf
+Wrote /Users/sinchunyeung/github/paper2db/output/2025-intermediate/anchor.meta.json
+Wrote 12 preview PNGs (page01.png, ...) in /Users/sinchunyeung/github/paper2db/output/2025-intermediate
+Review anchor.pdf (blue dots next to each question number), then run step 2.
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2025
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2025/combined.pdf
+
+---
+exit_code: 0
+elapsed_ms: 145162
+ended_at: 2026-09-04T15:50:38.349Z
+---

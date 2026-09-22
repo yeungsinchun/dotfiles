@@ -1,0 +1,51 @@
+---
+pid: 27600
+cwd: "/Users/sinchunyeung/github/simplification-of-trajectory-streams"
+command: "\"/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/.venv/bin/python\" \"/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/server.py\""
+title: "Start local trajectory web viewer"
+status: failed   
+started_at: 2026-09-07T03:59:16.784Z
+running_for_ms: 1789728  
+---
+Repo root: /Users/sinchunyeung/github/simplification-of-trajectory-streams
+Binary: /Users/sinchunyeung/github/simplification-of-trajectory-streams/build/simplify
+Baselines: dots=True dp=True squish=True
+Starting Flask server on http://0.0.0.0:5051
+ * Serving Flask app 'server'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5051
+ * Running on http://192.168.31.91:5051
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [07/Sep/2026 11:59:41] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 11:59:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 11:59:41] "GET /viewer.js?v=frechet-distance-1 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 11:59:41] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 11:59:41] "[33mGET /apple-touch-icon-precomposed.png HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:59:41] "[33mGET /apple-touch-icon.png HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:59:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:59:45] "GET /api/trace/1?epsilon=299&delta=1 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 11:59:46] "GET /api/trace/1/compare?algorithm=none HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 11:59:56] "POST /api/frechet HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:00:23] "GET /api/trace/1/compare?algorithm=dots&run=1&lssd=1000000 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:00:23] "GET /api/trace/1/compare?algorithm=dp&run=1&epsilon=0.9 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:00:23] "GET /api/trace/1/compare?algorithm=squish&run=1&ratio=0.2 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:00:32] "GET /api/trace/1/frechet/dots HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:00:32] "GET /api/trace/1/frechet/dp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:00:32] "GET /api/trace/1/frechet/squish HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:00:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:00:32] "[36mGET /viewer.js?v=frechet-distance-1 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [07/Sep/2026 12:00:32] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:08:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:08:24] "[36mGET /viewer.js?v=frechet-distance-1 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [07/Sep/2026 12:08:24] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:12:27] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:12:27] "[36mGET /viewer.js?v=frechet-distance-1 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [07/Sep/2026 12:12:27] "GET /api/traces HTTP/1.1" 200 -
+
+---
+exit_code: 143
+elapsed_ms: 1789728
+ended_at: 2026-09-07T04:29:06.512Z
+---

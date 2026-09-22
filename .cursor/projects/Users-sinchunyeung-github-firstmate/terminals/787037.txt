@@ -1,0 +1,27 @@
+---
+pid: 11505
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "/usr/bin/env -i PATH=\"/usr/bin:/bin:/opt/homebrew/bin:/usr/local/bin:/Users/sinchunyeung/.local/bin:$HOME/.nvm/versions/node/v24.20.0/bin\" HOME=\"/Users/sinchunyeung\" /bin/bash <<'SCRIPT'\nREPO=yeungsinchun/Simplification-of-Trajectory-Streams\n# Ensure tip is on origin\nCLONE=/Users/sinchunyeung/github/firstmate/projects/simplification-of-trajectory-streams\ncd \"$CLONE\"\ngit fetch origin main gnhf/fix-any-usability-pr-5460d8 2>&1 | tail -3\necho \"ahead: $(git rev-list --count origin/main..origin/gnhf/fix-any-usability-pr-5460d8)\"\ngit log --oneline origin/main..origin/gnhf/fix-any-usability-pr-5460d8 | head -20\n\n# Double-check no existing open PR\nEXISTING=$(gh pr list -R \"$REPO\" --state open --head gnhf/fix-any-usability-pr-5460d8 --base main --json number,url -q '.[0].url')\nif [ -n \"$EXISTING\" ]; then\n  echo \"ALREADY_OPEN $EXISTING\"\n  exit 0\nfi\n\ngh pr create -R \"$REPO\" \\\n  --base main \\\n  --head gnhf/fix-any-usability-pr-5460d8 \\\n  --title \"Usability + discrete P hull outline on GNHF tip\" \\\n  --body \"$(cat <<'EOF'\n## Summary\n- Brings the current GNHF usability line onto `main`, including paper ε/δ labels, Map math overlays, and viewer polish from `gnhf/fix-any-usability-pr-5460d8`.\n- Includes merged [#16](https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/pull/16): P boundary is leftmost/rightmost on every y-row plus every sample on the topmost and bottommost rows (discrete hull outline); Status gloss removed; overlay parentheses dropped; Instructions shortened; match-limit chip restored while saved Match stays removed.\n\n## Test plan\n- [ ] Benchmark + Correctness CI green on this PR\n- [ ] Viewer: P anchors form hull outline (full top/bottom rows, L/R sides)\n- [ ] Map overlays show math labels without extra parentheses\n- [ ] Right-panel Instructions are shorter; no Status description gloss; no saved Match chip; match limit chip present\n\nEOF\n)\"\nSCRIPT\n"
+status: succeeded
+started_at: 2026-09-07T10:46:38.648Z
+running_for_ms: 5155     
+---
+From https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams
+ * branch            main       -> FETCH_HEAD
+ * branch            gnhf/fix-any-usability-pr-5460d8 -> FETCH_HEAD
+ahead: 8
+2c4aa06 Merge pull request #16 from yeungsinchun/fm/boundary-lr-fix
+6defabb no-mistakes(document): Refresh stale USABILITY and boundary docs
+965df98 no-mistakes(review): Restore match-limit chip; refresh status-gloss PNG
+9221ad0 fix(web): drop overlay gloss parens and shorten Instructions
+96a2163 fix: P boundary is L/R per row plus full top/bottom rows
+43948cf fix: L/R P anchors per y-row and restore tour UX on GNHF tip
+aeb1382 fix(web): restore paper ε/δ labels and polish compare UI
+4daf0c5 gnhf 87: Merged PR #12 after green CI, Deploy published simplify-viewer-00012-mkv with novice copy live (HTTP 200), and marked the Cloud Run refresh resolved in USABILITY.md.
+https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/pull/17
+
+---
+exit_code: 0
+elapsed_ms: 5155
+ended_at: 2026-09-07T10:46:43.803Z
+---

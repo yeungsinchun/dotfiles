@@ -1,0 +1,1002 @@
+db5bd9db921f4cae680d8e36ea4064409c352b29 Merge pull request #5 from yeungsinchun/reduce-latency
+==== FULL DIFF ====
+diff --git a/.github/workflows/README.md b/.github/workflows/README.md
+index eea64a3..8917f33 100644
+--- a/.github/workflows/README.md
++++ b/.github/workflows/README.md
+@@ -1,63 +1,9 @@
+ # GitHub Actions Workflows
+ 
+-This directory contains CI/CD workflows for the trajectory simplification project.
+-
+-## Workflows
+-
+-### ci.yml - Basic CI
+-**Triggers:** Push to any branch, Pull requests
+-**Duration:** ~2-3 minutes
+-
+-Tests:
+-- Builds the project in Release mode
+-- Runs correctness test on dataset 1
+-- Measures performance baseline (ε=299, δ=1)
+-- Posts results as PR comment
+-
+-Pass criteria:
+-- Build succeeds
+-- Output has correct number of points (92 for dataset 1)
+-- Performance is under 200ms threshold
+-
+-### benchmark.yml - Comprehensive Benchmarks
+-**Triggers:** Push to main, Pull requests, Daily at 00:00 UTC, Manual dispatch
+-**Duration:** ~3-5 minutes
+-
+-Tests:
+-- Builds in Release mode
+-- Tests 5 different epsilon values (50, 100, 200, 299, 500)
+-- Calculates compression ratios and throughput
+-- Stores historical data on main branch
+-- Posts detailed report as PR comment
+-
+-Pass criteria:
+-- All builds succeed
+-- Baseline performance (ε=299) under 200ms
+-- Results stored in benchmark_history/ for trending
+-
+-## Expected Performance
+-
+-With Release build on modern hardware:
+-- **Target:** ~10-20ms for 588 points
+-- **Threshold:** 200ms (workflow fails if exceeded)
+-- **Throughput:** ~30,000-60,000 points/second
++Workflow triggers, jobs, and pass criteria are defined in the YAML files
++in this directory (`correctness.yml`, `benchmark.yml`).
+ 
+ ## Local Testing
+ 
+-To run the same tests locally:
+-
+-```bash
+-# Build
+-mkdir -p build && cd build
+-cmake .. -DCMAKE_BUILD_TYPE=Release
+-cmake --build . --target simplify -j$(nproc)
+-
+-# Test
+-cd ..
+-./build/simplify 1 -e 299 -d 1
+-
+-# Should see:
+-# Loaded 588 points.
+-# SIMPLIFY_CORE_MS: 10-20
+-# Simplified to 92 points (15.6%)
+-```
++To run the same Frechet, point-count, and performance checks locally, use
++`scripts/local_ci_gate.py`. See that script's module docstring and `--help`.
+diff --git a/README.md b/README.md
+index 40f6a50..d254a36 100644
+--- a/README.md
++++ b/README.md
+@@ -16,6 +16,8 @@ dependencies.
+ - `scripts/prepare_dataset.py`: download T-Drive and normalize it into the canonical curve format.
+ - `scripts/benchmark.py`: long-running comparison against the DOTS baseline.
+ - `scripts/frechet.jl`: Julia wrapper for continuous Frechet distance.
++- `scripts/local_ci_gate.py`: local Frechet, point-count, and performance gate matching CI.
++- `scripts/profile_hotspots.py`: epsilon/delta hotspot sweep driven by `simplify --time`.
+ - `traj-compression/`: vendored baseline source used by the benchmark.
+ - `algorithms/`: legacy baseline sources, when present in a checkout.
+ - `papers/` paper references.
+@@ -102,7 +104,7 @@ x y
+ 
+ This reads `data/1/original.txt` and writes `data/1/simplify.txt`. The
+ shorthand `./build/simplify 1` is equivalent to `--in 1 --out`. Useful options
+-include `-d DELTA`, `-e EPSILON`, `--dist`, and `--gui` on the GUI target.
++include `-d DELTA`, `-e EPSILON`, `--dist`, `--time` (hot-path timing on stderr), and `--gui` on the GUI target.
+ 
+ ### Visualize output
+ 
+diff --git a/scripts/local_ci_gate.py b/scripts/local_ci_gate.py
+new file mode 100644
+index 0000000..90976ac
+--- /dev/null
++++ b/scripts/local_ci_gate.py
+@@ -0,0 +1,157 @@
++#!/usr/bin/env python3
++"""Local CI gate: compare NEW simplify binary vs BASELINE on IDs 1..10.
++
++Mirrors .github/workflows/correctness.yml and benchmark.yml:
++  - Frechet: new_dist <= orig_dist + DIST_TOL
++  - Points:  new_points <= orig_points + POINTS_TOL
++  - Perf:    new_ms <= orig_ms * SLOWDOWN_LIMIT  (when orig_ms >= MIN_BENCH_MS)
++
++Uses the same CI params (EPSILON=299, DELTA=1) by default.
++"""
++from __future__ import annotations
++
++import argparse
++import re
++import statistics
++import subprocess
++import sys
++from pathlib import Path
++
++REPO = Path(__file__).resolve().parent.parent
++CORE_RE = re.compile(r"SIMPLIFY_CORE_MS:\s*([\d.]+)")
++RAW_DIST_RE = re.compile(r"^[0-9]+(?:\.[0-9]+)?$", re.M)
++LABEL_DIST_RE = re.compile(r"Frechet distance:\s*([0-9]+(?:\.[0-9]+)?)", re.I)
++
++
++def count_points(path: Path) -> int:
++    with path.open() as f:
++        return int(f.readline().strip())
++
++
++def run_simplify(bin_path: Path, idv: int, eps: float, delta: float,
++                 *, dist: bool, cwd: Path, timeout: int = 180) -> tuple[str, str]:
++    cmd = [str(bin_path), str(idv), "-e", str(eps), "-d", str(delta)]
++    if dist:
++        cmd.append("--dist")
++    proc = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, timeout=timeout)
++    if proc.returncode != 0:
++        raise RuntimeError(
++            f"{bin_path} id={idv} failed rc={proc.returncode}\n"
++            f"stdout:\n{proc.stdout[-1000:]}\nstderr:\n{proc.stderr[-1000:]}"
++        )
++    return proc.stdout, proc.stderr
++
++
++def parse_core_ms(stderr: str, stdout: str) -> float:
++    for text in (stderr, stdout):
++        m = CORE_RE.search(text)
++        if m:
++            return float(m.group(1))
++    raise RuntimeError("missing SIMPLIFY_CORE_MS")
++
++
++def parse_dist(stdout: str, stderr: str) -> float:
++    text = stdout + "\n" + stderr
++    ms = RAW_DIST_RE.findall(text)
++    if ms:
++        return float(ms[-1])
++    m = LABEL_DIST_RE.search(text)
++    if m:
++        return float(m.group(1))
++    raise RuntimeError(f"could not parse Frechet distance\n{text[-1500:]}")
++
++
++def main() -> int:
++    ap = argparse.ArgumentParser()
++    ap.add_argument("--baseline", type=Path, required=True)
++    ap.add_argument("--new", type=Path, required=True)
++    ap.add_argument("--baseline-cwd", type=Path, default=None,
++                    help="cwd for baseline runs (isolates data/<id>/simplify.txt)")
++    ap.add_argument("--new-cwd", type=Path, default=None)
++    ap.add_argument("--a", type=int, default=1)
++    ap.add_argument("--b", type=int, default=10)
++    ap.add_argument("--epsilon", type=float, default=299.0)
++    ap.add_argument("--delta", type=float, default=1.0)
++    ap.add_argument("--dist-tol", type=float, default=0.01)
++    ap.add_argument("--points-tol", type=int, default=0)
++    ap.add_argument("--slowdown-limit", type=float, default=1.50)
++    ap.add_argument("--min-bench-ms", type=float, default=20.0)
++    ap.add_argument("--bench-runs", type=int, default=3)
++    ap.add_argument("--skip-dist", action="store_true")
++    ap.add_argument("--skip-bench", action="store_true")
++    args = ap.parse_args()
++
++    base_cwd = args.baseline_cwd or REPO
++    new_cwd = args.new_cwd or REPO
++    ids = list(range(args.a, args.b + 1))
++
++    overall_ok = True
++    print(f"Gate params: e={args.epsilon} d={args.delta} "
++          f"dist_tol={args.dist_tol} points_tol={args.points_tol} "
++          f"slowdown={args.slowdown_limit}x min_ms={args.min_bench_ms}")
++    print(f"baseline={args.baseline}")
++    print(f"new     ={args.new}")
++    print()
++
++    # ---- Correctness ----
++    if not args.skip_dist:
++        print("=== Correctness (Frechet + points) ===")
++        print(f"{'id':>4}  {'orig_dist':>12}  {'new_dist':>12}  {'d_dist':>10}  "
++              f"{'orig_pts':>8}  {'new_pts':>8}  {'d_pts':>6}  status")
++        for idv in ids:
++            out_b, err_b = run_simplify(args.baseline, idv, args.epsilon, args.delta,
++                                        dist=True, cwd=base_cwd)
++            orig_dist = parse_dist(out_b, err_b)
++            orig_pts = count_points(base_cwd / "data" / str(idv) / "simplify.txt")
++
++            out_n, err_n = run_simplify(args.new, idv, args.epsilon, args.delta,
++                                        dist=True, cwd=new_cwd)
++            new_dist = parse_dist(out_n, err_n)
++            new_pts = count_points(new_cwd / "data" / str(idv) / "simplify.txt")
++
++            status = "OK"
++            if new_dist > orig_dist + args.dist_tol + 1e-9:
++                status = "FAIL_DIST"
++                overall_ok = False
++            elif new_pts - orig_pts > args.points_tol:
++                status = "FAIL_POINTS"
++                overall_ok = False
++
++            print(f"{idv:4d}  {orig_dist:12.6f}  {new_dist:12.6f}  "
++                  f"{new_dist - orig_dist:10.6f}  {orig_pts:8d}  {new_pts:8d}  "
++                  f"{new_pts - orig_pts:6d}  {status}")
++        print()
++
++    # ---- Benchmark ----
++    if not args.skip_bench:
++        print(f"=== Benchmark (avg of {args.bench_runs}, limit {args.slowdown_limit}x) ===")
++        print(f"{'id':>4}  {'prev_ms':>10}  {'new_ms':>10}  {'ratio':>8}  status")
++        for idv in ids:
++            orig_times = []
++            new_times = []
++            for _ in range(args.bench_runs):
++                _, err = run_simplify(args.baseline, idv, args.epsilon, args.delta,
++                                      dist=False, cwd=base_cwd)
++                orig_times.append(parse_core_ms(err, ""))
++                _, err = run_simplify(args.new, idv, args.epsilon, args.delta,
++                                      dist=False, cwd=new_cwd)
++                new_times.append(parse_core_ms(err, ""))
++            orig_ms = statistics.mean(orig_times)
++            new_ms = statistics.mean(new_times)
++            ratio = new_ms / orig_ms if orig_ms > 0 else float("inf")
++            status = "OK"
++            if orig_ms >= args.min_bench_ms and new_ms > orig_ms * args.slowdown_limit + 1e-9:
++                status = "FAIL"
++                overall_ok = False
++            print(f"{idv:4d}  {orig_ms:10.4f}  {new_ms:10.4f}  {ratio:8.3f}  {status}")
++        print()
++
++    if overall_ok:
++        print("✅ Local CI gate OK")
++        return 0
++    print("❌ Local CI gate FAILED")
++    return 1
++
++
++if __name__ == "__main__":
++    sys.exit(main())
+diff --git a/scripts/profile_hotspots.py b/scripts/profile_hotspots.py
+new file mode 100644
+index 0000000..9038aa0
+--- /dev/null
++++ b/scripts/profile_hotspots.py
+@@ -0,0 +1,290 @@
++#!/usr/bin/env python3
++"""Profile simplify hotspots across epsilon/delta on taxi trajectories.
++
++Runs build-release/simplify with --time, parses the hierarchical timing
++summary plus counter lines, and writes:
++  results/profile_sweep.csv   - one row per (id, epsilon, delta) with component ms
++  results/profile_summary.txt - aggregated human-readable report
++"""
++from __future__ import annotations
++
++import argparse
++import csv
++import re
++import statistics
++import subprocess
++import sys
++from pathlib import Path
++
++REPO = Path(__file__).resolve().parent.parent
++BIN = REPO / "build-release" / "simplify"
++DATA = REPO / "data"
++OUT_CSV = REPO / "results" / "profile_sweep.csv"
++OUT_TXT = REPO / "results" / "profile_summary.txt"
++
++CORE_RE = re.compile(r"SIMPLIFY_CORE_MS:\s*([\d.]+)")
++COUNTER_RE = re.compile(
++    r"^(BOUNDARY_CANDIDATES_SUM|STAB_STEPS|ALIVE_CANDIDATE_ITERS|SIMPLIFIED_POINTS):\s*(\d+)"
++)
++# Matches a timing-summary data line: name, wall, self, calls, %total, %parent
++TIMING_RE = re.compile(
++    r"^(\s*)(\S.*?)\s+([\d.]+)\s+([\d.]+)\s+(\d+)\s+([\d.]+)%\s+([\d.]+)%\s*$"
++)
++
++HOTSPOTS = [
++    "intersect",
++    "find_F",
++    "get_longest_stab",
++    "get_boundary_points",
++    "get_conv_from_grid",
++    "update_S",
++]
++
++EPSILONS = [0.25, 0.5, 1.0, 2.0, 5.0, 10.0]
++DELTAS = [50, 100, 200, 400]
++
++
++def count_points(path: Path) -> int:
++    with path.open() as f:
++        return int(f.readline().strip())
++
++
++def parse_profile(stderr: str) -> dict:
++    out: dict = {"core_ms": None, "hotspots": {}, "counters": {}}
++    for line in stderr.splitlines():
++        m = CORE_RE.match(line)
++        if m:
++            out["core_ms"] = float(m.group(1))
++            continue
++        m = COUNTER_RE.match(line)
++        if m:
++            out["counters"][m.group(1)] = int(m.group(2))
++            continue
++        m = TIMING_RE.match(line)
++        if m:
++            name = m.group(2).strip()
++            wall = float(m.group(3))
++            self_ms = float(m.group(4))
++            calls = int(m.group(5))
++            pct = float(m.group(6))
++            out["hotspots"][name] = {
++                "wall_ms": wall,
++                "self_ms": self_ms,
++                "calls": calls,
++                "pct_total": pct,
++            }
++    return out
++
++
++def run_once(idv: int, eps: float, delta: float, timeout: int) -> dict:
++    cmd = [str(BIN), "--in", str(idv), "-e", str(eps), "-d", str(delta), "--time"]
++    try:
++        proc = subprocess.run(
++            cmd, cwd=REPO, capture_output=True, text=True, timeout=timeout
++        )
++    except subprocess.TimeoutExpired:
++        return {"status": "timeout", "core_ms": None, "hotspots": {}, "counters": {}}
++    parsed = parse_profile(proc.stderr)
++    parsed["status"] = "ok" if proc.returncode == 0 and parsed["core_ms"] is not None else "error"
++    parsed["stderr_tail"] = proc.stderr[-500:] if proc.returncode != 0 else ""
++    return parsed
++
++
++def median_run(idv: int, eps: float, delta: float, repeats: int, timeout: int) -> dict:
++    runs = []
++    for _ in range(repeats):
++        r = run_once(idv, eps, delta, timeout)
++        if r["status"] == "ok":
++            runs.append(r)
++    if not runs:
++        return run_once(idv, eps, delta, timeout)
++    # Pick the run whose core_ms is the median (so hotspot breakdown matches).
++    runs.sort(key=lambda r: r["core_ms"])
++    return runs[len(runs) // 2]
++
++
++def main() -> int:
++    ap = argparse.ArgumentParser()
++    ap.add_argument("--a", type=int, default=1)
++    ap.add_argument("--b", type=int, default=10)
++    ap.add_argument("--repeats", type=int, default=3)
++    ap.add_argument("--timeout", type=int, default=120)
++    ap.add_argument("--epsilons", type=float, nargs="+", default=EPSILONS)
++    ap.add_argument("--deltas", type=float, nargs="+", default=DELTAS)
++    args = ap.parse_args()
++
++    if not BIN.exists():
++        print(f"missing binary: {BIN}", file=sys.stderr)
++        return 1
++
++    ids = [i for i in range(args.a, args.b + 1) if (DATA / str(i) / "original.txt").exists()]
++    rows = []
++    OUT_CSV.parent.mkdir(parents=True, exist_ok=True)
++
++    print(f"Profiling {len(ids)} IDs x {len(args.epsilons)} eps x {len(args.deltas)} deltas "
++          f"x {args.repeats} repeats")
++
++    for idv in ids:
++        npts = count_points(DATA / str(idv) / "original.txt")
++        for eps in args.epsilons:
++            for delta in args.deltas:
++                r = median_run(idv, eps, delta, args.repeats, args.timeout)
++                hs = r.get("hotspots", {})
++                ctr = r.get("counters", {})
++                row = {
++                    "id": idv,
++                    "original_points": npts,
++                    "epsilon": eps,
++                    "delta": delta,
++                    "status": r["status"],
++                    "core_ms": r.get("core_ms") if r.get("core_ms") is not None else -1,
++                    "simplified_points": ctr.get("SIMPLIFIED_POINTS", -1),
++                    "stab_steps": ctr.get("STAB_STEPS", -1),
++                    "alive_iters": ctr.get("ALIVE_CANDIDATE_ITERS", -1),
++                    "boundary_candidates_sum": ctr.get("BOUNDARY_CANDIDATES_SUM", -1),
++                }
++                for name in HOTSPOTS:
++                    h = hs.get(name, {})
++                    row[f"{name}_ms"] = h.get("wall_ms", -1)
++                    row[f"{name}_pct"] = h.get("pct_total", -1)
++                    row[f"{name}_calls"] = h.get("calls", -1)
++                # get_longest_stab self time is the unaccounted loop overhead
++                gls = hs.get("get_longest_stab", {})
++                row["get_longest_stab_self_ms"] = gls.get("self_ms", -1)
++                rows.append(row)
++                print(
++                    f"[id={idv:2d} n={npts:5d}] e={eps:5.2f} d={delta:6.1f}  "
++                    f"core={row['core_ms']:8.2f} ms  "
++                    f"intersect={row.get('intersect_pct', -1):5.1f}%  "
++                    f"find_F={row.get('find_F_pct', -1):5.1f}%  "
++                    f"simp={row['simplified_points']:4d}  [{row['status']}]"
++                )
++
++    fieldnames = list(rows[0].keys()) if rows else []
++    with OUT_CSV.open("w", newline="") as f:
++        w = csv.DictWriter(f, fieldnames=fieldnames)
++        w.writeheader()
++        w.writerows(rows)
++
++    # ---- aggregate report ----
++    ok = [r for r in rows if r["status"] == "ok"]
++    lines = []
++    lines.append("PROFILE SUMMARY - streaming delta-simplification on T-Drive taxi data")
++    lines.append("=" * 72)
++    lines.append(f"IDs: {ids}")
++    lines.append(f"epsilons: {args.epsilons}")
++    lines.append(f"deltas: {args.deltas}")
++    lines.append(f"repeats/median: {args.repeats}")
++    lines.append(f"ok rows: {len(ok)} / {len(rows)}")
++    lines.append("")
++
++    # Hotspot share averaged over all ok runs
++    lines.append("1) Where does time go? (mean % of core across all ok runs)")
++    lines.append("-" * 72)
++    for name in HOTSPOTS:
++        vals = [r[f"{name}_pct"] for r in ok if r[f"{name}_pct"] >= 0]
++        if vals:
++            lines.append(f"  {name:24s}  mean={statistics.mean(vals):5.1f}%  "
++                         f"median={statistics.median(vals):5.1f}%  "
++                         f"max={max(vals):5.1f}%")
++    self_vals = [r["get_longest_stab_self_ms"] / r["core_ms"] * 100
++                 for r in ok if r["core_ms"] > 0 and r["get_longest_stab_self_ms"] >= 0]
++    if self_vals:
++        lines.append(f"  {'get_longest_stab self':24s}  mean={statistics.mean(self_vals):5.1f}%  "
++                     f"median={statistics.median(self_vals):5.1f}%  "
++                     f"max={max(self_vals):5.1f}%")
++    lines.append("")
++
++    # Epsilon effect at fixed delta=200 (or nearest available)
++    fixed_d = 200.0 if 200.0 in args.deltas else args.deltas[len(args.deltas) // 2]
++    lines.append(f"2) Epsilon sweep at delta={fixed_d} (median core_ms across IDs)")
++    lines.append("-" * 72)
++    lines.append(f"  {'eps':>6}  {'core_ms':>10}  {'intersect%':>10}  {'find_F%':>8}  "
++                 f"{'alive_iters':>12}  {'simp_pts':>8}")
++    for eps in args.epsilons:
++        subset = [r for r in ok if r["epsilon"] == eps and r["delta"] == fixed_d]
++        if not subset:
++            continue
++        lines.append(
++            f"  {eps:6.2f}  {statistics.median(r['core_ms'] for r in subset):10.2f}  "
++            f"{statistics.median(r['intersect_pct'] for r in subset):10.1f}  "
++            f"{statistics.median(r['find_F_pct'] for r in subset):8.1f}  "
++            f"{statistics.median(r['alive_iters'] for r in subset):12.0f}  "
++            f"{statistics.median(r['simplified_points'] for r in subset):8.0f}"
++        )
++    lines.append("")
++
++    # Delta effect at fixed epsilon=0.5
++    fixed_e = 0.5 if 0.5 in args.epsilons else args.epsilons[0]
++    lines.append(f"3) Delta sweep at epsilon={fixed_e} (median core_ms across IDs)")
++    lines.append("-" * 72)
++    lines.append(f"  {'delta':>6}  {'core_ms':>10}  {'intersect%':>10}  {'find_F%':>8}  "
++                 f"{'stab_steps':>10}  {'simp_pts':>8}")
++    for delta in args.deltas:
++        subset = [r for r in ok if r["epsilon"] == fixed_e and r["delta"] == delta]
++        if not subset:
++            continue
++        lines.append(
++            f"  {delta:6.1f}  {statistics.median(r['core_ms'] for r in subset):10.2f}  "
++            f"{statistics.median(r['intersect_pct'] for r in subset):10.1f}  "
++            f"{statistics.median(r['find_F_pct'] for r in subset):8.1f}  "
++            f"{statistics.median(r['stab_steps'] for r in subset):10.0f}  "
++            f"{statistics.median(r['simplified_points'] for r in subset):8.0f}"
++        )
++    lines.append("")
++
++    # Per-ID at default-ish params
++    lines.append(f"4) Per-trajectory at e={fixed_e}, d={fixed_d}")
++    lines.append("-" * 72)
++    lines.append(f"  {'id':>4}  {'n':>6}  {'core_ms':>10}  {'intersect%':>10}  "
++                 f"{'find_F%':>8}  {'alive':>10}  {'simp':>6}")
++    for idv in ids:
++        subset = [r for r in ok if r["id"] == idv and r["epsilon"] == fixed_e and r["delta"] == fixed_d]
++        if not subset:
++            continue
++        r = subset[0]
++        lines.append(
++            f"  {idv:4d}  {r['original_points']:6d}  {r['core_ms']:10.2f}  "
++            f"{r['intersect_pct']:10.1f}  {r['find_F_pct']:8.1f}  "
++            f"{r['alive_iters']:10d}  {r['simplified_points']:6d}"
++        )
++    lines.append("")
++
++    # Scaling: core_ms vs alive_iters correlation hint
++    lines.append("5) Cost drivers")
++    lines.append("-" * 72)
++    if ok:
++        by_alive = sorted(ok, key=lambda r: r["alive_iters"])
++        lines.append(
++            f"  alive_candidate_iters range: "
++            f"{by_alive[0]['alive_iters']} .. {by_alive[-1]['alive_iters']}"
++        )
++        lines.append(
++            f"  core_ms range: "
++            f"{min(r['core_ms'] for r in ok):.2f} .. {max(r['core_ms'] for r in ok):.2f}"
++        )
++        # Pn proxy: boundary_candidates_sum / number of prefixes ~= avg Pn
++        # prefixes ~= simplified_points/2
++        pn_est = []
++        for r in ok:
++            prefixes = max(1, r["simplified_points"] // 2)
++            if r["boundary_candidates_sum"] > 0:
++                pn_est.append(r["boundary_candidates_sum"] / prefixes)
++        if pn_est:
++            lines.append(
++                f"  estimated avg boundary candidates |P|: "
++                f"median={statistics.median(pn_est):.0f}  "
++                f"max={max(pn_est):.0f}"
++            )
++    lines.append("")
++    lines.append(f"Raw CSV: {OUT_CSV}")
++
++    report = "\n".join(lines) + "\n"
++    OUT_TXT.write_text(report)
++    print()
++    print(report)
++    return 0
++
++
++if __name__ == "__main__":
++    sys.exit(main())
+diff --git a/simplify.cpp b/simplify.cpp
+index 6444669..3ceb473 100644
+--- a/simplify.cpp
++++ b/simplify.cpp
+@@ -4,19 +4,27 @@
+ 
+ #include "simplify_geometry.h"
+ #include "simplify_io.h"
++#include "timer.h"
+ 
+ // ===========================================================================
+-//  Core algorithm — bare (no instrumentation)
++//  Core algorithm
+ // ===========================================================================
+ 
+ 
+ int get_longest_stab(const std::vector<Point>& stream, int cur,
+                      std::vector<Point>& simplified,
+                      double EPSILON, double DELTA) {
++    TIMER("get_longest_stab");
+     const Point& p0 = stream[cur];
+-    std::vector<Point> P = get_boundary_points_from_grid(p0, EPSILON, DELTA);
++    std::vector<Point> P;
++    {
++        TIMER("get_boundary_points");
++        P = get_boundary_points_from_grid(p0, EPSILON, DELTA);
++    }
+     std::array<Point, 2> buffer = {p0, p0};
+     const int Pn = (int)P.size();
++    if (timer_detail::enabled())
++        timer_detail::counters()["boundary_candidates"] += Pn;
+     std::vector<std::vector<Point>> S(Pn);
+     for (int i = 0; i < Pn; ++i) S[i] = {P[i]};
+     int dead_cnt = 0;
+@@ -24,16 +32,51 @@ int get_longest_stab(const std::vector<Point>& stream, int cur,
+     std::vector<std::vector<Point>> new_S(Pn);
+     std::vector<std::vector<Point>> F(Pn);
+     std::vector<Point> Gi;
++    std::vector<Point> Gi_dedup;
++    std::vector<int> tangents;
++    tangents.reserve(2);
+ 
+     cur++;
+     while (cur < int(stream.size())) {
+-        Gi = get_conv_from_grid(stream[cur], EPSILON, DELTA);
++        if (timer_detail::enabled())
++            timer_detail::counters()["stab_steps"]++;
++        {
++            TIMER("get_conv_from_grid");
++            Gi = get_conv_from_grid(stream[cur], EPSILON, DELTA);
++        }
++        dedup_into(Gi, Gi_dedup);
+         for (int i = 0; i < Pn; ++i) {
+             if (dead[i]) continue;
+-            
+-            find_F(P[i], S[i], F[i]);
++            if (timer_detail::enabled())
++                timer_detail::counters()["alive_candidate_iters"]++;
++
++            // Conservative Frechet-safe prune: if Gi is robustly outside the
++            // tangent cone of S at P[i], F n Gi is empty and the candidate dies
++            // without building F or running the clip.  On a miss, reuse the
++            // tangents already computed for find_F.
++            tangents.clear();
++            if (wedge_gi_disjoint(P[i], S[i], Gi, &tangents)) {
++                if (timer_detail::enabled())
++                    timer_detail::counters()["wedge_prune_hits"]++;
++                dead[i] = true;
++                dead_cnt++;
++                continue;
++            }
++
++            {
++                TIMER("find_F");
++                const std::vector<int>* tan_ptr =
++                    (tangents.size() == 2) ? &tangents : nullptr;
++                find_F(P[i], S[i], F[i], tan_ptr);
++            }
+ 
+-            if (!intersect(F[i], Gi, new_S[i])) {
++            bool hit;
++            {
++                TIMER("intersect");
++                // Gi_dedup is shared across candidates for this stream step.
++                hit = intersect(F[i], Gi_dedup, new_S[i], /*q_pre_deduped=*/true);
++            }
++            if (!hit) {
+                 dead[i] = true;
+                 dead_cnt++;
+             }
+@@ -46,8 +89,11 @@ int get_longest_stab(const std::vector<Point>& stream, int cur,
+             has_candidate = true;
+         }
+         if (!has_candidate || dead_cnt == Pn) break;
+-        for (int i = 0; i < Pn; ++i)
+-            if (!dead[i]) S[i].swap(new_S[i]);
++        {
++            TIMER("update_S");
++            for (int i = 0; i < Pn; ++i)
++                if (!dead[i]) S[i].swap(new_S[i]);
++        }
+         cur++;
+     }
+     simplified.emplace_back(buffer[0]);
+@@ -229,6 +275,9 @@ int get_longest_stab_web(const std::vector<Point>& stream, int cur,
+     std::vector<std::vector<Point>> new_S(Pn);
+     std::vector<std::vector<Point>> F(Pn);
+     std::vector<Point> Gi;
++    std::vector<Point> Gi_dedup;
++    std::vector<int> tangents;
++    tangents.reserve(2);
+ 
+     webtrace::PrefixTrace trace;
+     trace.p0 = p0;
+@@ -238,6 +287,7 @@ int get_longest_stab_web(const std::vector<Point>& stream, int cur,
+     cur++;
+     while (cur < int(stream.size())) {
+         Gi = get_conv_from_grid(stream[cur], EPSILON, DELTA);
++        dedup_into(Gi, Gi_dedup);
+ 
+         webtrace::StepTrace step;
+         step.stream_idx = cur;
+@@ -253,11 +303,21 @@ int get_longest_stab_web(const std::vector<Point>& stream, int cur,
+                 step.candidates.push_back(std::move(cand));
+                 continue;
+             }
+-            
+-            find_F(P[i], S[i], F[i]);
++
++            tangents.clear();
++            if (wedge_gi_disjoint(P[i], S[i], Gi, &tangents)) {
++                dead[i] = true;
++                dead_cnt++;
++                cand.alive = false;
++                step.candidates.push_back(std::move(cand));
++                continue;
++            }
++
++            find_F(P[i], S[i], F[i],
++                   (tangents.size() == 2) ? &tangents : nullptr);
+             cand.F = F[i];
+-            
+-            if (!intersect(F[i], Gi, new_S[i])) {
++
++            if (!intersect(F[i], Gi_dedup, new_S[i], /*q_pre_deduped=*/true)) {
+                 dead[i] = true;
+                 dead_cnt++;
+                 cand.alive = false;
+@@ -344,16 +404,37 @@ std::vector<Point> simplify_web(const std::vector<Point>& stream,
+ std::vector<Point> simplify(const std::vector<Point>& stream,
+                             double EPSILON, double DELTA) {
+     std::vector<Point> simplified;
+-    configure_bbox(stream, EPSILON, DELTA);
+-    auto t0 = std::chrono::high_resolution_clock::now();
+-    int cur = 0;
+-    while (cur != int(stream.size()))
+-        cur = get_longest_stab(stream, cur, simplified, EPSILON, DELTA);
+-    double ms = std::chrono::duration<double, std::milli>(
+-        std::chrono::high_resolution_clock::now() - t0).count();
+-    
++    double ms = 0.0;
++    {
++        TIMER("total");
++        configure_bbox(stream, EPSILON, DELTA);
++        auto t0 = std::chrono::high_resolution_clock::now();
++        {
++            TIMER("simplify");
++            int cur = 0;
++            while (cur != int(stream.size()))
++                cur = get_longest_stab(stream, cur, simplified, EPSILON, DELTA);
++        }
++        ms = std::chrono::duration<double, std::milli>(
++            std::chrono::high_resolution_clock::now() - t0).count();
++    }
++
+     std::cerr << "SIMPLIFY_CORE_MS: " << std::fixed << std::setprecision(4) << ms << '\n';
+-    
++    if (time_flag) {
++        // Extra counters that are not TIMER scopes: emit as KEY: value lines
++        // so the benchmark harness can scrape them without parsing the tree.
++        std::cerr << "BOUNDARY_CANDIDATES_SUM: "
++                  << timer_detail::counters()["boundary_candidates"] << '\n';
++        std::cerr << "STAB_STEPS: "
++                  << timer_detail::counters()["stab_steps"] << '\n';
++        std::cerr << "ALIVE_CANDIDATE_ITERS: "
++                  << timer_detail::counters()["alive_candidate_iters"] << '\n';
++        std::cerr << "WEDGE_PRUNE_HITS: "
++                  << timer_detail::counters()["wedge_prune_hits"] << '\n';
++        std::cerr << "SIMPLIFIED_POINTS: " << simplified.size() << '\n';
++        print_timing_summary();
++    }
++
+     return simplified;
+ }
+ 
+@@ -363,7 +444,7 @@ std::vector<Point> simplify(const std::vector<Point>& stream,
+ 
+ int main(int argc, char** argv) {
+     std::ios::sync_with_stdio(false);
+-    
++
+     int test_case_no = -1;
+     int code = get_repo_root(argv, repo_root);
+     if (code != 0) {
+@@ -374,6 +455,7 @@ int main(int argc, char** argv) {
+     if (code != 0) {
+         return code;
+     }
++    if (time_flag) timer_detail::enabled() = true;
+ 
+     std::vector<Point> stream;
+     if (help_flag) {
+diff --git a/simplify_geometry.h b/simplify_geometry.h
+index a6c28a1..1dbd95e 100644
+--- a/simplify_geometry.h
++++ b/simplify_geometry.h
+@@ -66,8 +66,12 @@ inline ClipWorkspace& get_clip_workspace() {
+ // duplicate) in Epick points, or an empty vector when the intersection is
+ // degenerate (<3 vertices).  The returned reference is valid until the next
+ // clip() call on the same thread.
++//
++// When `assume_ccw` is true, both inputs are already CCW and the signed-area
++// orientation fix is skipped (F from find_F and conv(G) from CGAL are CCW).
+ inline const std::vector<Point>& clip(const std::vector<Point>& P_verts,
+-                                      const std::vector<Point>& Q_verts) {
++                                      const std::vector<Point>& Q_verts,
++                                      bool assume_ccw = true) {
+     // Reuse thread-local workspace to avoid allocations
+     ClipWorkspace& ws = get_clip_workspace();
+ 
+@@ -83,8 +87,10 @@ inline const std::vector<Point>& clip(const std::vector<Point>& P_verts,
+         ws.subj.push_back({CGAL::to_double(p.x()), CGAL::to_double(p.y())});
+     for (const auto& q : Q_verts)
+         ws.clipv.push_back({CGAL::to_double(q.x()), CGAL::to_double(q.y())});
+-    to_ccw(ws.subj);
+-    to_ccw(ws.clipv);
++    if (!assume_ccw) {
++        to_ccw(ws.subj);
++        to_ccw(ws.clipv);
++    }
+ 
+     // subj is not read after this; swap avoids copying the subject polygon.
+     ws.out.swap(ws.subj);
+@@ -171,18 +177,27 @@ inline std::vector<Point> dedup_consecutive(const std::vector<Point>& poly) {
+ // Convex-convex intersection of P_in and Q_in.  Deduplicates both inputs,
+ // runs the Sutherland-Hodgman clip, and returns true with the CCW result in
+ // `result` when the intersection is a non-degenerate polygon (>=3 vertices).
++//
++// When `q_pre_deduped` is true, Q_in is assumed already free of consecutive
++// near-duplicates (e.g. Gi deduped once per stab step) and is not scanned
++// again.
+ inline bool intersect(const std::vector<Point>& P_in,
+                       const std::vector<Point>& Q_in,
+-                      std::vector<Point>& result) {
++                      std::vector<Point>& result,
++                      bool q_pre_deduped = false) {
+     // Thread-local scratch for the deduplicated inputs; reused across calls so
+     // the steady state performs no heap allocation here.
+     thread_local std::vector<Point> P_verts, Q_verts;
+     dedup_into(P_in, P_verts);
+-    dedup_into(Q_in, Q_verts);
++    const std::vector<Point>* Q_ptr = &Q_in;
++    if (!q_pre_deduped) {
++        dedup_into(Q_in, Q_verts);
++        Q_ptr = &Q_verts;
++    }
+ 
+     // clip returns a reference to its own thread-local buffer, distinct from
+     // `result`, so deduping straight into `result` is safe.
+-    dedup_into(sh_double::clip(P_verts, Q_verts), result);
++    dedup_into(sh_double::clip(P_verts, *Q_ptr), result);
+     if (result.size() < 3) {
+         result.clear();
+         return false;
+@@ -555,10 +570,13 @@ inline std::vector<Point> get_boundary_points_from_grid(const Point& p, double E
+ // keeping the most-clockwise and most-counterclockwise vertices finds both
+ // tangents in O(n).  The orientation sign is pure-double: on a collinear tie
+ // either vertex is an equally valid supporting vertex.
+-inline std::vector<int> find_tangent_idx(const Point& p, const std::vector<Point>& S) {
+-    std::vector<int> tangent;
+-    tangent.reserve(2);
++//
++// Writes 0 or 2 indices into `out` (cleared first).
++inline void find_tangent_idx(const Point& p, const std::vector<Point>& S,
++                             std::vector<int>& out) {
++    out.clear();
+     const int n = static_cast<int>(S.size());
++    if (n < 1) return;
+ 
+     // Cache p and S coordinates as doubles once (S is scanned 2n times).
+     thread_local std::vector<double> sx, sy;
+@@ -588,9 +606,15 @@ inline std::vector<int> find_tangent_idx(const Point& p, const std::vector<Point
+         if (orient(lt, j) > 0) lt = j;   // S[j] strictly left  of p->S[lt]
+     }
+     if (rt != lt) {
+-        tangent.push_back(std::min(rt, lt));
+-        tangent.push_back(std::max(rt, lt));
++        out.push_back(std::min(rt, lt));
++        out.push_back(std::max(rt, lt));
+     }
++}
++
++inline std::vector<int> find_tangent_idx(const Point& p, const std::vector<Point>& S) {
++    std::vector<int> tangent;
++    tangent.reserve(2);
++    find_tangent_idx(p, S, tangent);
+     return tangent;
+ }
+ 
+@@ -599,6 +623,10 @@ inline std::vector<int> find_tangent_idx(const Point& p, const std::vector<Point
+ // F(S,p), so the caller can skip the expensive clip and declare the candidate
+ // dead without computing F at all.
+ //
++// When the prune does not fire and two supporting vertices were found,
++// `tangent_out` (if non-null) holds those indices so find_F can reuse them
++// instead of scanning S again.
++//
+ // F(S,p) is always contained in the cone with apex p bounded by the two tangent
+ // rays p->S[t0] and p->S[t1] (all of S, its arc, and the bbox hits lie inside
+ // that angular wedge).  The cone is the intersection of two half-planes H0, H1
+@@ -613,11 +641,17 @@ inline std::vector<int> find_tangent_idx(const Point& p, const std::vector<Point
+ // guarantee is preserved (a wrongly-kept candidate is impossible; a wrongly
+ // dropped one cannot occur because we only prune on robust separation).
+ inline bool wedge_gi_disjoint(const Point& p, const std::vector<Point>& S,
+-                              const std::vector<Point>& Gi) {
++                              const std::vector<Point>& Gi,
++                              std::vector<int>* tangent_out = nullptr) {
+     const int sn = static_cast<int>(S.size());
+     if (sn < 3) return false;                    // single point / degenerate: F = bbox
+     if (point_in_convex(p, S)) return false;     // p inside S: F = whole bbox
+-    std::vector<int> tangent = find_tangent_idx(p, S);
++
++    // Prefer writing tangents straight into the caller's buffer to avoid an
++    // extra allocation on the hot miss path.
++    thread_local std::vector<int> local_tangent;
++    std::vector<int>& tangent = tangent_out ? *tangent_out : local_tangent;
++    find_tangent_idx(p, S, tangent);
+     if (tangent.size() != 2) return false;       // find_F bails here anyway
+ 
+     const double px = CGAL::to_double(p.x()), py = CGAL::to_double(p.y());
+@@ -663,23 +697,39 @@ inline bool wedge_gi_disjoint(const Point& p, const std::vector<Point>& S,
+ // is a single point) every bbox point is reachable, so F is the whole bbox;
+ // otherwise F is bounded by the two tangent rays from p to S, the arc of S
+ // between the tangent vertices, and the bbox boundary between the two ray hits.
++//
++// Optional `tangent_in`: when non-null and size==2, skips find_tangent_idx
++// (caller already computed the supporting vertices, e.g. during a prune miss).
+ inline void find_F(const Point& p, const std::vector<Point>& S,
+-                   std::vector<Point>& F) {
++                   std::vector<Point>& F,
++                   const std::vector<int>* tangent_in = nullptr) {
+     F.clear();
+     assert(S.size() != 2);
+-    bool p_in_S = point_in_convex(p, S);
+-    if (S.size() == 1 || p_in_S) {
++
++    // Precomputed tangents imply p is outside S (prune already established that).
++    if (!(tangent_in && tangent_in->size() == 2)) {
++        bool p_in_S = point_in_convex(p, S);
++        if (S.size() == 1 || p_in_S) {
++            F = current_bbox();
++            return;
++        }
++    } else if (S.size() == 1) {
+         F = current_bbox();
+         return;
+     }
+ 
+-    std::vector<int> tangent = find_tangent_idx(p, S);
+-    if (tangent.size() != 2) {
++    std::vector<int> tangent_storage;
++    const std::vector<int>* tangent = tangent_in;
++    if (!tangent || tangent->size() != 2) {
++        find_tangent_idx(p, S, tangent_storage);
++        tangent = &tangent_storage;
++    }
++    if (tangent->size() != 2) {
+         return;
+     }
+ 
+-    auto hit1 = ray_hit_bbox(p, S[tangent[0]]);
+-    auto hit2 = ray_hit_bbox(p, S[tangent[1]]);
++    auto hit1 = ray_hit_bbox(p, S[(*tangent)[0]]);
++    auto hit2 = ray_hit_bbox(p, S[(*tangent)[1]]);
+     if (!hit1 || !hit2) {
+         F = current_bbox();
+         return;
+@@ -694,23 +744,23 @@ inline void find_F(const Point& p, const std::vector<Point>& S,
+ 
+     int n = int(S.size());
+     assert(n >= 3);
+-    assert(tangent[1] - tangent[0] - 1 >= 1 || tangent[0] + n - tangent[1] - 1 >= 1);
++    assert((*tangent)[1] - (*tangent)[0] - 1 >= 1 || (*tangent)[0] + n - (*tangent)[1] - 1 >= 1);
+ 
+     F.reserve(n + 4);
+     // Raw-double right_turn: sign((S[t1] - p) x (S[t2] - p))
+-    const double ax = CGAL::to_double(S[tangent[0]].x() - p.x()),
+-                  ay = CGAL::to_double(S[tangent[0]].y() - p.y());
+-    const double bx = CGAL::to_double(S[tangent[1]].x() - p.x()),
+-                  by = CGAL::to_double(S[tangent[1]].y() - p.y());
++    const double ax = CGAL::to_double(S[(*tangent)[0]].x() - p.x()),
++                  ay = CGAL::to_double(S[(*tangent)[0]].y() - p.y());
++    const double bx = CGAL::to_double(S[(*tangent)[1]].x() - p.x()),
++                  by = CGAL::to_double(S[(*tangent)[1]].y() - p.y());
+     const bool is_right_turn = (ax * by - ay * bx) < 0;
+     if (is_right_turn) {
+-        std::copy(S.begin() + tangent[0], S.begin() + tangent[1] + 1, std::back_inserter(F));
++        std::copy(S.begin() + (*tangent)[0], S.begin() + (*tangent)[1] + 1, std::back_inserter(F));
+         F.push_back(hit2.value());
+         append_rect_pts(F, e2.value(), e1.value(), true);
+         F.push_back(hit1.value());
+     } else {
+-        std::copy(S.begin() + tangent[1], S.end(), std::back_inserter(F));
+-        std::copy(S.begin(), S.begin() + tangent[0] + 1, std::back_inserter(F));
++        std::copy(S.begin() + (*tangent)[1], S.end(), std::back_inserter(F));
++        std::copy(S.begin(), S.begin() + (*tangent)[0] + 1, std::back_inserter(F));
+         F.push_back(hit1.value());
+         append_rect_pts(F, e1.value(), e2.value(), true);
+         F.push_back(hit2.value());
+diff --git a/simplify_io.h b/simplify_io.h
+index 43ba28e..812e947 100644
+--- a/simplify_io.h
++++ b/simplify_io.h
+@@ -24,6 +24,7 @@ inline double EPSILON = 0.5;
+ inline std::filesystem::path repo_root;
+ inline bool out_flag = false;
+ inline bool dist_flag = false;
++inline bool time_flag = false;
+ inline bool web_server_flag = false;
+ inline bool json_stream_flag = false;
+ inline bool help_flag = false;
+@@ -40,6 +41,7 @@ inline void print_help(const char* prog) {
+               << "  --dist           After output, compute Frechet distance by invoking 'julia scripts/frechet.jl' with --in <id> --path <simplify.txt>" << '\n'
+               << "  -d <delta>       Override DELTA (default " << DELTA << ")\n"
+               << "  -e <epsilon>     Override EPSILON (default " << EPSILON << ")\n"
++              << "  --time           Print a hierarchical timing summary of the hot path to stderr\n"
+               << "  --dump-intersect Dump every (F_poly, Gi_poly) pair fed to "
+                  "intersect() to data/<id>/intersect_pairs.txt\n"
+               << "  --web-server     Emit a machine-readable JSON trace of the algorithm to "
+@@ -55,6 +57,7 @@ inline int parse_arguments(int argc, char** argv, int& test_case_no) {
+     for (int i = 1; i < argc; ++i) {
+         if (strcmp(argv[i],"--out") == 0) out_flag = true;
+         else if (strcmp(argv[i],"--dist") == 0) dist_flag = true;
++        else if (strcmp(argv[i],"--time") == 0) time_flag = true;
+         else if (strcmp(argv[i],"--web-server") == 0) web_server_flag = true;
+         else if (strcmp(argv[i],"--json-stream") == 0) json_stream_flag = true;
+         else if (strcmp(argv[i],"--json-output") == 0 && i+1 < argc) {

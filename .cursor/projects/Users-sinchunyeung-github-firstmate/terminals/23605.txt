@@ -1,0 +1,24 @@
+---
+pid: 40827
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "export PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:$PATH\"\nexport FM_HOME=/Users/sinchunyeung/github/firstmate\n/Users/sinchunyeung/github/firstmate/bin/fm-wake-drain.sh\n"
+title: "Drain durable wake queue first"
+status: succeeded
+started_at: 2026-09-12T19:09:08.062Z
+running_for_ms: 958386   
+---
+1789240121	308	check	inactive-outcome:4dbbfc18dab9629bd49f67c0c1d82086	inactive terminal outcome awaiting captain presentation: child=p2db-exclude-lq-data-and-formulae-sheets-a6 state=done pr=https://github.com/yeungsinchun/paper2db/pull/7
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 308 --recovery-generation 37664.1789240122.Rs8eqn
+OPEN DECISIONS (still open, folded from the durable status logs - not just the latest line):
+p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e blocked: https://github.com/yeungsinchun/paper2notes/pull/3 is open and validated through PR, but GitHub has 0 Actions workflows and 0 checks so the CI mo [truncated]
+p2n-b5ch1-notes-book-5-ch1-first-draft-visual-html-notes-87 [key=nm-01M25ZJP3ESET41GSCJQ2MFVGJ-ci] needs-decision: GitHub has no checks on https://github.com/yeungsinchun/paper2notes/pull/1; run 01M25ZJP3ESE [truncated]
+p2n-b5ch2-book-5-ch2-first-draft-visual-html-notes-27 [key=nm-01M28JZW8CM1QX7PBNETAP2GPQ-ci] needs-decision: PR https://github.com/yeungsinchun/paper2notes/pull/2 has no GitHub checks; review/test/lint/push/ [truncated]
+OPEN DECISIONS: close one by answering it: bin/fm-send.sh <task> --resolve-key <key> '<answer>'
+WARNING: watcher still down (same stale episode; last beat: 994s ago, grace 300s) - full banner already printed this episode.
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+
+---
+exit_code: 0
+elapsed_ms: 958381
+ended_at: 2026-09-12T19:25:06.443Z
+---

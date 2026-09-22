@@ -1,0 +1,1248 @@
+{
+ "sha": "9e693a2cac97d64729e6953a65c90c8dde81a07c",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/9e693a2cac97d64729e6953a65c90c8dde81a07c",
+ "tree": [
+ {
+ "path": ".airlock",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "7ca86745e8a878d8c5bfedd2555a84eda29b51ee",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/7ca86745e8a878d8c5bfedd2555a84eda29b51ee"
+ },
+ {
+ "path": ".airlock/lint.sh",
+ "mode": "100755",
+ "type": "blob",
+ "sha": "352e3a68906043c4ae4123dacb619bb2813fcf49",
+ "size": 95,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/352e3a68906043c4ae4123dacb619bb2813fcf49"
+ },
+ {
+ "path": ".github",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "1d8fdfc2279b9036a366fe81b5de931674a012cd",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/1d8fdfc2279b9036a366fe81b5de931674a012cd"
+ },
+ {
+ "path": ".github/workflows",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "744733b5136c7a3818786bcfe03d693327940f23",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/744733b5136c7a3818786bcfe03d693327940f23"
+ },
+ {
+ "path": ".github/workflows/ci.yml",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "e17110689e894c95dfa976383e7c2ace6cb38518",
+ "size": 810,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/e17110689e894c95dfa976383e7c2ace6cb38518"
+ },
+ {
+ "path": ".github/workflows/guard-generated-files.yml",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "42d5d9e1413c80a15b73835039e7a86163f4be9e",
+ "size": 2909,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/42d5d9e1413c80a15b73835039e7a86163f4be9e"
+ },
+ {
+ "path": ".github/workflows/no-mistakes-required.yml",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "380e9260576b989ad355e7c81d000101aa7cf701",
+ "size": 3283,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/380e9260576b989ad355e7c81d000101aa7cf701"
+ },
+ {
+ "path": ".github/workflows/release-please.yml",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "a8bce140a10f1074508c1cbb856b2aad7e909d56",
+ "size": 1015,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/a8bce140a10f1074508c1cbb856b2aad7e909d56"
+ },
+ {
+ "path": ".gitignore",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "9eb56d1cb4e1da1e65c137300b252b91dd327741",
+ "size": 81,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/9eb56d1cb4e1da1e65c137300b252b91dd327741"
+ },
+ {
+ "path": ".no-mistakes",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "74fd8649a1b5165363088c7149af8afc09ec0393",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/74fd8649a1b5165363088c7149af8afc09ec0393"
+ },
+ {
+ "path": ".no-mistakes/evidence",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "19ed04dd3e189484a0d8a67bed0492546b456459",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/19ed04dd3e189484a0d8a67bed0492546b456459"
+ },
+ {
+ "path": ".no-mistakes/evidence/fm",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "3211f8c64da82a5e7870322d5bd90f8e01ae1a96",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/3211f8c64da82a5e7870322d5bd90f8e01ae1a96"
+ },
+ {
+ "path": ".no-mistakes/evidence/fm/quota-axi-agy-drift-r7",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "21baa50bce82ff1a7dbb0b9ba44797997a22290d",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/21baa50bce82ff1a7dbb0b9ba44797997a22290d"
+ },
+ {
+ "path": ".no-mistakes/evidence/fm/quota-axi-agy-drift-r7/summary.json",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "8ce6f287fa1d6793001d9596a80cbc70cb5d69b8",
+ "size": 1120,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/8ce6f287fa1d6793001d9596a80cbc70cb5d69b8"
+ },
+ {
+ "path": ".prettierignore",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "5b08d0adb0e299618d8681bd9dac3814dcb38f1c",
+ "size": 45,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/5b08d0adb0e299618d8681bd9dac3814dcb38f1c"
+ },
+ {
+ "path": ".release-please-manifest.json",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "a31ca47e091d6eae9862de3fafc0b9e0c3615da5",
+ "size": 20,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/a31ca47e091d6eae9862de3fafc0b9e0c3615da5"
+ },
+ {
+ "path": "AGENTS.md",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "c0c898f9da8eb16df78ccfc33654a5566fade722",
+ "size": 32597,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/c0c898f9da8eb16df78ccfc33654a5566fade722"
+ },
+ {
+ "path": "CHANGELOG.md",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "9a5d537e8c32d6672c32f2af0ab9cfbc9087c8d1",
+ "size": 18815,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/9a5d537e8c32d6672c32f2af0ab9cfbc9087c8d1"
+ },
+ {
+ "path": "CLAUDE.md",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "6d51ec8aa9e2769e7bc5b77fa8b5dd1263b8fc22",
+ "size": 91,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/6d51ec8aa9e2769e7bc5b77fa8b5dd1263b8fc22"
+ },
+ {
+ "path": "CONTRIBUTING.md",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "c244dd7f44b37bf7ef94cba8bfbd20782ea33338",
+ "size": 4538,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/c244dd7f44b37bf7ef94cba8bfbd20782ea33338"
+ },
+ {
+ "path": "LICENSE",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "5043b3a58af9c1ee101d4f7dec2d527d7ba0b2a4",
+ "size": 1065,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/5043b3a58af9c1ee101d4f7dec2d527d7ba0b2a4"
+ },
+ {
+ "path": "README.md",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "99b3869b37d25405bcd44309ff012381ebf3a1d7",
+ "size": 124708,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/99b3869b37d25405bcd44309ff012381ebf3a1d7"
+ },
+ {
+ "path": "VISION.md",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "5d4af72b036146ef69ac5c398165b8cec4f3a0f2",
+ "size": 8408,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/5d4af72b036146ef69ac5c398165b8cec4f3a0f2"
+ },
+ {
+ "path": "bin",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "281a80ba3f63f142b6791ff38b970a201fd6d550",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/281a80ba3f63f142b6791ff38b970a201fd6d550"
+ },
+ {
+ "path": "bin/quota-axi.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "4697448082a9611a215d0defb5a4b816262f8776",
+ "size": 410,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/4697448082a9611a215d0defb5a4b816262f8776"
+ },
+ {
+ "path": "eslint.config.mjs",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "ca26917f19f0a909e4b74e3029775f473e06c9fa",
+ "size": 749,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/ca26917f19f0a909e4b74e3029775f473e06c9fa"
+ },
+ {
+ "path": "package.json",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "1e58c843a2f3eac0908338ef43a99c9b69e19518",
+ "size": 1770,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/1e58c843a2f3eac0908338ef43a99c9b69e19518"
+ },
+ {
+ "path": "pnpm-lock.yaml",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "707d192ae3443222a3c42a5184af66ad308e4942",
+ "size": 72352,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/707d192ae3443222a3c42a5184af66ad308e4942"
+ },
+ {
+ "path": "pnpm-workspace.yaml",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "81dd2ef74b099787116f5efc58f2f9215a5da24e",
+ "size": 90,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/81dd2ef74b099787116f5efc58f2f9215a5da24e"
+ },
+ {
+ "path": "release-please-config.json",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "08859d39e70a2986d01e4b818e992e8ef26f69db",
+ "size": 343,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/08859d39e70a2986d01e4b818e992e8ef26f69db"
+ },
+ {
+ "path": "scripts",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "b4437a941e983aa193daf00c6bd3f3e13351e0dc",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/b4437a941e983aa193daf00c6bd3f3e13351e0dc"
+ },
+ {
+ "path": "scripts/build-skill.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "9093b614cd986f60cf67443f0b871fcac16326f0",
+ "size": 1420,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/9093b614cd986f60cf67443f0b871fcac16326f0"
+ },
+ {
+ "path": "scripts/refresh-model-kb.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "69360f4b2b95d68eec25440031421052da620f5a",
+ "size": 4216,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/69360f4b2b95d68eec25440031421052da620f5a"
+ },
+ {
+ "path": "skills",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "a2fb78e82b069b0b824839bc2756afc2ae0893dc",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/a2fb78e82b069b0b824839bc2756afc2ae0893dc"
+ },
+ {
+ "path": "skills/quota-axi",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "12c0164283038c038f5495e13d04fe96fda382d2",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/12c0164283038c038f5495e13d04fe96fda382d2"
+ },
+ {
+ "path": "skills/quota-axi/SKILL.md",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "79b3de553a25b3eb4068f8ac89f9708e4cfe0aa2",
+ "size": 1861,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/79b3de553a25b3eb4068f8ac89f9708e4cfe0aa2"
+ },
+ {
+ "path": "src",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "fce9a34a12acb080a1f9f72da99ac2edd9cc342b",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/fce9a34a12acb080a1f9f72da99ac2edd9cc342b"
+ },
+ {
+ "path": "src/advice.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "5a48716a285d6ffc9be1a375376e81a8fc51487d",
+ "size": 4501,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/5a48716a285d6ffc9be1a375376e81a8fc51487d"
+ },
+ {
+ "path": "src/args.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "d9f1433c513446223354e7c827d5871591b80ccd",
+ "size": 7726,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/d9f1433c513446223354e7c827d5871591b80ccd"
+ },
+ {
+ "path": "src/cache.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "7c7ad9a152f4d9337325c9d765ef6bddcaac7137",
+ "size": 15039,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/7c7ad9a152f4d9337325c9d765ef6bddcaac7137"
+ },
+ {
+ "path": "src/cli.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "169adb3ceef9e65e019da58a0e21f2bcf8888857",
+ "size": 4550,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/169adb3ceef9e65e019da58a0e21f2bcf8888857"
+ },
+ {
+ "path": "src/commands.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "a6b6d82211f36a1e57a8ff9c6d7ff931e06ba147",
+ "size": 7341,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/a6b6d82211f36a1e57a8ff9c6d7ff931e06ba147"
+ },
+ {
+ "path": "src/index.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "001740e1ee13b762f95fb0f3b9e74e2713a28358",
+ "size": 228,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/001740e1ee13b762f95fb0f3b9e74e2713a28358"
+ },
+ {
+ "path": "src/interpretation.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "5231a337707584912acfd1bcbdbc86318bb41f3b",
+ "size": 22350,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/5231a337707584912acfd1bcbdbc86318bb41f3b"
+ },
+ {
+ "path": "src/lib",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "1dc58dda9d9bd9a65449a47d19462348196b4ecd",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/1dc58dda9d9bd9a65449a47d19462348196b4ecd"
+ },
+ {
+ "path": "src/lib/fs.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "c21df01e54b2084699f3bb92bc9e8bd2de48e01b",
+ "size": 3886,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/c21df01e54b2084699f3bb92bc9e8bd2de48e01b"
+ },
+ {
+ "path": "src/lib/http.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "f6049f7655293780eb732326d0294c073cf696ed",
+ "size": 1507,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/f6049f7655293780eb732326d0294c073cf696ed"
+ },
+ {
+ "path": "src/lib/pi-auth-store.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "0aae9d382727054f0a22d4a8429697a29f081f96",
+ "size": 643,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/0aae9d382727054f0a22d4a8429697a29f081f96"
+ },
+ {
+ "path": "src/lib/process.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "b2881f42cdc634dc581c8efafac98de9f575e6c1",
+ "size": 5522,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/b2881f42cdc634dc581c8efafac98de9f575e6c1"
+ },
+ {
+ "path": "src/lib/running-processes.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "f1d667a204393b6378626f30148cb5f06b0957f5",
+ "size": 2004,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/f1d667a204393b6378626f30148cb5f06b0957f5"
+ },
+ {
+ "path": "src/lib/secret.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "6dba7f9a2fa8aa51390cdf317ab9d00db2e0bcca",
+ "size": 887,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/6dba7f9a2fa8aa51390cdf317ab9d00db2e0bcca"
+ },
+ {
+ "path": "src/lib/source-attempts.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "9fc65f78f0e35847defc7e116aed9e58ce73610d",
+ "size": 1668,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/9fc65f78f0e35847defc7e116aed9e58ce73610d"
+ },
+ {
+ "path": "src/lib/time.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "97c8dbfdf21a404267b09f4bb1e391c15399e294",
+ "size": 1223,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/97c8dbfdf21a404267b09f4bb1e391c15399e294"
+ },
+ {
+ "path": "src/model-kb.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "9b379d5d7f78449c4f4a84fe63e8719ef19e7f10",
+ "size": 2617,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/9b379d5d7f78449c4f4a84fe63e8719ef19e7f10"
+ },
+ {
+ "path": "src/models.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "1f202be0a45ef1c8c7999701939bdfa52e08b79f",
+ "size": 8308,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/1f202be0a45ef1c8c7999701939bdfa52e08b79f"
+ },
+ {
+ "path": "src/pace.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "13ebbab7639fff8a1568d85a7c492931b5b3dbdf",
+ "size": 18928,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/13ebbab7639fff8a1568d85a7c492931b5b3dbdf"
+ },
+ {
+ "path": "src/providers",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "394b9474b6dd34546f3ee4d9577ed55f3501171f",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/394b9474b6dd34546f3ee4d9577ed55f3501171f"
+ },
+ {
+ "path": "src/providers/agy.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "a013b0a93770e419156854d00c476fb99a026e38",
+ "size": 29752,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/a013b0a93770e419156854d00c476fb99a026e38"
+ },
+ {
+ "path": "src/providers/alibaba.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "13b156a13f7a81ec92710c9480bb69716bc9eb9f",
+ "size": 11348,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/13b156a13f7a81ec92710c9480bb69716bc9eb9f"
+ },
+ {
+ "path": "src/providers/claude.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "3798dfb9e0840f00af5bd9c75bcdbaa23c1402ae",
+ "size": 38014,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/3798dfb9e0840f00af5bd9c75bcdbaa23c1402ae"
+ },
+ {
+ "path": "src/providers/codex.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "a25fc24f7bca8887ee81bc6c22c81fc245bbe283",
+ "size": 33635,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/a25fc24f7bca8887ee81bc6c22c81fc245bbe283"
+ },
+ {
+ "path": "src/providers/common.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "86a0c5b10fe8228dd41a9b11fd358a9afcc68dd8",
+ "size": 2358,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/86a0c5b10fe8228dd41a9b11fd358a9afcc68dd8"
+ },
+ {
+ "path": "src/providers/copilot.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "45c657cb41ffb4b6b86f76a7c2b11b59003d7d80",
+ "size": 11288,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/45c657cb41ffb4b6b86f76a7c2b11b59003d7d80"
+ },
+ {
+ "path": "src/providers/credential-selection.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "c5faaf6c18372086c96b6f6498abb79980e59a44",
+ "size": 7898,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/c5faaf6c18372086c96b6f6498abb79980e59a44"
+ },
+ {
+ "path": "src/providers/cursor-cli-credential.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "2fb14c787a095084b2bdb5f1b6673b3e52f0c245",
+ "size": 9780,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/2fb14c787a095084b2bdb5f1b6673b3e52f0c245"
+ },
+ {
+ "path": "src/providers/cursor.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "34d6289b8098641b4564ecdd1cf5a385b3e44d81",
+ "size": 21449,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/34d6289b8098641b4564ecdd1cf5a385b3e44d81"
+ },
+ {
+ "path": "src/providers/delegated-refresh.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "3f373eb6786e3889a92c0f8c95935c216ba47017",
+ "size": 9019,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/3f373eb6786e3889a92c0f8c95935c216ba47017"
+ },
+ {
+ "path": "src/providers/grok.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "f40e9b64bba1664d0740cfd73e3dcf70233d2b29",
+ "size": 46279,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/f40e9b64bba1664d0740cfd73e3dcf70233d2b29"
+ },
+ {
+ "path": "src/providers/index.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "9720a23100c70f69cc13c51765fca6a89b67e6ed",
+ "size": 1372,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/9720a23100c70f69cc13c51765fca6a89b67e6ed"
+ },
+ {
+ "path": "src/providers/kimi-cache-context.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "156ef217cde55f6a329c3fcfeb49b7f1271dcda2",
+ "size": 1391,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/156ef217cde55f6a329c3fcfeb49b7f1271dcda2"
+ },
+ {
+ "path": "src/providers/kimi-code-cli-credential.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "54eb4441896019a51913d918a36bbd70acca9464",
+ "size": 11990,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/54eb4441896019a51913d918a36bbd70acca9464"
+ },
+ {
+ "path": "src/providers/kimi-code-config.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "96bb7400352fa0617e136ead197adfa7abe74036",
+ "size": 17588,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/96bb7400352fa0617e136ead197adfa7abe74036"
+ },
+ {
+ "path": "src/providers/kimi.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "0a1b66e1eceefa00337c2377d9a5ac1623a59c0b",
+ "size": 41605,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/0a1b66e1eceefa00337c2377d9a5ac1623a59c0b"
+ },
+ {
+ "path": "src/providers/opencode-go.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "2345a2edd9588f71ddedc85194dce9eb11c0c3db",
+ "size": 16128,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/2345a2edd9588f71ddedc85194dce9eb11c0c3db"
+ },
+ {
+ "path": "src/providers/pi-codex-credential.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "a7bef024dcc8764b91d1fb51d34d3487ed83d456",
+ "size": 6977,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/a7bef024dcc8764b91d1fb51d34d3487ed83d456"
+ },
+ {
+ "path": "src/providers/pi-kimi-credential.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "f64bbdb9d7b977bebfb81d03f65b4a568fbb1e9d",
+ "size": 6629,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/f64bbdb9d7b977bebfb81d03f65b4a568fbb1e9d"
+ },
+ {
+ "path": "src/providers/pi-xai-credential.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "0831674a191426d66750d0041d97c27e842a6a5b",
+ "size": 7160,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/0831674a191426d66750d0041d97c27e842a6a5b"
+ },
+ {
+ "path": "src/providers/usage-fetch-failure.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "28399e9f996f256c8b6cfdcf2407d0f2a9f6fb79",
+ "size": 555,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/28399e9f996f256c8b6cfdcf2407d0f2a9f6fb79"
+ },
+ {
+ "path": "src/providers/zai.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "f7f6bb71eddc3d7d62783eba6ebe2298eca4a3be",
+ "size": 25215,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/f7f6bb71eddc3d7d62783eba6ebe2298eca4a3be"
+ },
+ {
+ "path": "src/render.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "99c3c0a3d392990f87f2d4641dd6ba1bc2e56ad1",
+ "size": 19915,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/99c3c0a3d392990f87f2d4641dd6ba1bc2e56ad1"
+ },
+ {
+ "path": "src/skill.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "b1ae98e5632b99d18d091fc05528d64449ca914b",
+ "size": 3160,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/b1ae98e5632b99d18d091fc05528d64449ca914b"
+ },
+ {
+ "path": "src/tui-live.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "19356b6e97a1594ea8d1dfb564f9f3e56872f96c",
+ "size": 8393,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/19356b6e97a1594ea8d1dfb564f9f3e56872f96c"
+ },
+ {
+ "path": "src/tui-viewport.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "103aeed603a6368acb57d2df9e986f573da46ee4",
+ "size": 10806,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/103aeed603a6368acb57d2df9e986f573da46ee4"
+ },
+ {
+ "path": "src/tui.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "5722be6be48da8c657611db9e62d926b9c245167",
+ "size": 33767,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/5722be6be48da8c657611db9e62d926b9c245167"
+ },
+ {
+ "path": "src/types.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "9c86dc409f4817873fba4bac18beedeb3a2a6f4d",
+ "size": 12612,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/9c86dc409f4817873fba4bac18beedeb3a2a6f4d"
+ },
+ {
+ "path": "src/version.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "5c207f89fd9b02306a05ea1b7ef206d0245bedb1",
+ "size": 666,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/5c207f89fd9b02306a05ea1b7ef206d0245bedb1"
+ },
+ {
+ "path": "test",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "da4a07927c9f9a91ce0b94fc86510f9451541494",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/da4a07927c9f9a91ce0b94fc86510f9451541494"
+ },
+ {
+ "path": "test/cache.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "0507b702b86be09b23a5f9e9e6fbbba57ccec9c1",
+ "size": 13903,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/0507b702b86be09b23a5f9e9e6fbbba57ccec9c1"
+ },
+ {
+ "path": "test/cli.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "11067946183f083060a2f2bd0af90116a3d42806",
+ "size": 55005,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/11067946183f083060a2f2bd0af90116a3d42806"
+ },
+ {
+ "path": "test/codex-built-cli-weekly.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "5572ad6f3711b13f24438a0b7a474f1d8f3ea37b",
+ "size": 3168,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/5572ad6f3711b13f24438a0b7a474f1d8f3ea37b"
+ },
+ {
+ "path": "test/credential-contract.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "68fdf01bb9cb60771a5552c24e15b6efd24316db",
+ "size": 6918,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/68fdf01bb9cb60771a5552c24e15b6efd24316db"
+ },
+ {
+ "path": "test/credential-source-fallback.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "e86cd52df5a6d27d4be020a785c9bfc339fdb1ee",
+ "size": 11851,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/e86cd52df5a6d27d4be020a785c9bfc339fdb1ee"
+ },
+ {
+ "path": "test/fixtures",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "3cf20fb7b2f768a92b4243c73321b0d59d160c94",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/3cf20fb7b2f768a92b4243c73321b0d59d160c94"
+ },
+ {
+ "path": "test/fixtures/agy",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "63defc3a25d4f22a05fc81a3e89d4a249b6418ce",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/63defc3a25d4f22a05fc81a3e89d4a249b6418ce"
+ },
+ {
+ "path": "test/fixtures/agy/quota-summary.json",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "ba55b2bb43cd7b4a45e8f141a91d72bee8650572",
+ "size": 1444,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/ba55b2bb43cd7b4a45e8f141a91d72bee8650572"
+ },
+ {
+ "path": "test/fixtures/agy/user-status.json",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "c760d53a96c7208ffc7a0bc3ab6dafb555240c00",
+ "size": 837,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/c760d53a96c7208ffc7a0bc3ab6dafb555240c00"
+ },
+ {
+ "path": "test/fixtures/alibaba",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "1893c7f836e230bb74837d0bc9d0ec64d676cbb2",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/1893c7f836e230bb74837d0bc9d0ec64d676cbb2"
+ },
+ {
+ "path": "test/fixtures/alibaba/usage-summary.json",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "4eedc9df591f4c3f8c107b72f4e940e2a05e1801",
+ "size": 82,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/4eedc9df591f4c3f8c107b72f4e940e2a05e1801"
+ },
+ {
+ "path": "test/fixtures/alibaba/usage-with-model-limits.json",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "92cc73f4e12548bbd6bffbaeb55fc27f672c277d",
+ "size": 363,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/92cc73f4e12548bbd6bffbaeb55fc27f672c277d"
+ },
+ {
+ "path": "test/fixtures/claude",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "56ddf8bdd59c84c08b09c23984b774f72da6d52a",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/56ddf8bdd59c84c08b09c23984b774f72da6d52a"
+ },
+ {
+ "path": "test/fixtures/claude/oauth-profile.json",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "4d485ccf274385e4eaae7fc82cc68c50f10b0cdf",
+ "size": 225,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/4d485ccf274385e4eaae7fc82cc68c50f10b0cdf"
+ },
+ {
+ "path": "test/fixtures/claude/oauth-scoped-limits.json",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "ba3ac4cb32244c753bbcd9687d7a835add111258",
+ "size": 1102,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/ba3ac4cb32244c753bbcd9687d7a835add111258"
+ },
+ {
+ "path": "test/fixtures/claude/oauth.json",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "62648a48e8d31fe6ae904680f2ede68fc9c3cbd5",
+ "size": 360,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/62648a48e8d31fe6ae904680f2ede68fc9c3cbd5"
+ },
+ {
+ "path": "test/fixtures/codex",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "930e7936ac91e0bc25fff54a5eafcf55777ca72a",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/930e7936ac91e0bc25fff54a5eafcf55777ca72a"
+ },
+ {
+ "path": "test/fixtures/codex/oauth-additional-limits.json",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "a94678761061b762cbb7f5770dd9a6f621fb1de3",
+ "size": 992,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/a94678761061b762cbb7f5770dd9a6f621fb1de3"
+ },
+ {
+ "path": "test/fixtures/codex/oauth-camel.json",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "6659cfda620b18cbbcd6687c00adc4e2bc5f0ff1",
+ "size": 385,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/6659cfda620b18cbbcd6687c00adc4e2bc5f0ff1"
+ },
+ {
+ "path": "test/fixtures/codex/oauth-snake.json",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "a5f4ef03c6915bcd3b79b5bd74465707c48a3793",
+ "size": 395,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/a5f4ef03c6915bcd3b79b5bd74465707c48a3793"
+ },
+ {
+ "path": "test/fixtures/module-trace",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "9fdec9701355b9e196ceb7e09b7baea1473a64b0",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/9fdec9701355b9e196ceb7e09b7baea1473a64b0"
+ },
+ {
+ "path": "test/fixtures/module-trace/hooks.mjs",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "e45dcebc02074d83650dcd71fb1ce1ab11f691c0",
+ "size": 279,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/e45dcebc02074d83650dcd71fb1ce1ab11f691c0"
+ },
+ {
+ "path": "test/fixtures/module-trace/register.mjs",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "aa948837ad0d3b5cf89360d9869c04e891077b1c",
+ "size": 83,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/aa948837ad0d3b5cf89360d9869c04e891077b1c"
+ },
+ {
+ "path": "test/fixtures/public-contract-consumer.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "be862736ecd6dcf7a1ebc8613a65e390c118cdef",
+ "size": 1344,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/be862736ecd6dcf7a1ebc8613a65e390c118cdef"
+ },
+ {
+ "path": "test/fixtures/tui-response.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "49bec88b6a39f1f5695f3f03ab01a7961abaea25",
+ "size": 6577,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/49bec88b6a39f1f5695f3f03ab01a7961abaea25"
+ },
+ {
+ "path": "test/interpretation.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "d1a217c526c4547a0e71a0623c2ff571a9aca14e",
+ "size": 35955,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/d1a217c526c4547a0e71a0623c2ff571a9aca14e"
+ },
+ {
+ "path": "test/kimi-built-cli-response-cleanup.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "3025f7dc9b30f87c26619dfbbbb5bb12c2704313",
+ "size": 4743,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/3025f7dc9b30f87c26619dfbbbb5bb12c2704313"
+ },
+ {
+ "path": "test/kimi-cli-readonly.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "853a9fe4cb95f8be6f3dbe684a9212a595d4b7db",
+ "size": 11024,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/853a9fe4cb95f8be6f3dbe684a9212a595d4b7db"
+ },
+ {
+ "path": "test/kimi-code-environment.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "8aec2bcb2c0e363d785d7de2b9ded0fee5e6492a",
+ "size": 36257,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/8aec2bcb2c0e363d785d7de2b9ded0fee5e6492a"
+ },
+ {
+ "path": "test/lib",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "9bbf6e25670bce784b8faf1bd8990fa5eecddda9",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/9bbf6e25670bce784b8faf1bd8990fa5eecddda9"
+ },
+ {
+ "path": "test/lib/fs.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "eba01663b694f1bd4359f9ea1e3771c05a0af1bc",
+ "size": 4232,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/eba01663b694f1bd4359f9ea1e3771c05a0af1bc"
+ },
+ {
+ "path": "test/lib/http.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "c793ab145c55e6bf897a49d7905425c02c2d70da",
+ "size": 5544,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/c793ab145c55e6bf897a49d7905425c02c2d70da"
+ },
+ {
+ "path": "test/lib/pi-auth-store.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "fb9ca069e547c79f489cba8790bc0aa876d67f84",
+ "size": 3101,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/fb9ca069e547c79f489cba8790bc0aa876d67f84"
+ },
+ {
+ "path": "test/lib/process-windows.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "a039153418d76eb304739ab213e413ce92cf5466",
+ "size": 5131,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/a039153418d76eb304739ab213e413ce92cf5466"
+ },
+ {
+ "path": "test/lib/process.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "16545f22fa94586db9d3baaa030c081352253c26",
+ "size": 2798,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/16545f22fa94586db9d3baaa030c081352253c26"
+ },
+ {
+ "path": "test/lib/source-attempts.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "ce080cc386b67ce5def462de82f3d557fa321f80",
+ "size": 2218,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/ce080cc386b67ce5def462de82f3d557fa321f80"
+ },
+ {
+ "path": "test/models-command.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "9514860514397ad5c302594eed15a161ca9b2f0b",
+ "size": 5563,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/9514860514397ad5c302594eed15a161ca9b2f0b"
+ },
+ {
+ "path": "test/models.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "911e4d657a0bd645ffc82451dd9facd5cb516eda",
+ "size": 8288,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/911e4d657a0bd645ffc82451dd9facd5cb516eda"
+ },
+ {
+ "path": "test/pace.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "98c15dae0698c876a697c6fb6ade608435dfc8cf",
+ "size": 28990,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/98c15dae0698c876a697c6fb6ade608435dfc8cf"
+ },
+ {
+ "path": "test/providers",
+ "mode": "040000",
+ "type": "tree",
+ "sha": "e9649318b2516cf1c8b11d42dcca9a6ef4b85846",
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/trees/e9649318b2516cf1c8b11d42dcca9a6ef4b85846"
+ },
+ {
+ "path": "test/providers/agy.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "28bee8f9878a957f3b2bb1b9b9961112addd49d5",
+ "size": 21744,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/28bee8f9878a957f3b2bb1b9b9961112addd49d5"
+ },
+ {
+ "path": "test/providers/alibaba.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "1f5fe0e6b107ebb63f037a75952bef1ab25e2435",
+ "size": 10041,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/1f5fe0e6b107ebb63f037a75952bef1ab25e2435"
+ },
+ {
+ "path": "test/providers/claude-auth.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "b84b70ad787569cacd0883e2e9c39aae701ec777",
+ "size": 57647,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/b84b70ad787569cacd0883e2e9c39aae701ec777"
+ },
+ {
+ "path": "test/providers/claude.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "2d604c41c9fd93d354c0b7590f3032e874df2bda",
+ "size": 3770,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/2d604c41c9fd93d354c0b7590f3032e874df2bda"
+ },
+ {
+ "path": "test/providers/codex-auth.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "3f8ed4ce875be1d4f7013426d912c721e2e0d0c3",
+ "size": 36694,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/3f8ed4ce875be1d4f7013426d912c721e2e0d0c3"
+ },
+ {
+ "path": "test/providers/codex.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "6c363cc73c61ceab325bf3d6b3ff74bf7044e844",
+ "size": 9220,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/6c363cc73c61ceab325bf3d6b3ff74bf7044e844"
+ },
+ {
+ "path": "test/providers/common.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "c122c02b783d923761d67bc4efe2d2a1a8ecc9f7",
+ "size": 784,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/c122c02b783d923761d67bc4efe2d2a1a8ecc9f7"
+ },
+ {
+ "path": "test/providers/copilot.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "a039045950a6233c184be0baf83684b493baef14",
+ "size": 9016,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/a039045950a6233c184be0baf83684b493baef14"
+ },
+ {
+ "path": "test/providers/credential-selection.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "1d6c7cce052aad7db904ea00480e3d4eacd48d1c",
+ "size": 8730,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/1d6c7cce052aad7db904ea00480e3d4eacd48d1c"
+ },
+ {
+ "path": "test/providers/cursor-auth.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "cf0ac44ce3099154ddab06d65575af3ab8dcaea4",
+ "size": 12899,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/cf0ac44ce3099154ddab06d65575af3ab8dcaea4"
+ },
+ {
+ "path": "test/providers/cursor-cli-credential.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "77cfcc35ad579fc9ff842d35c51159c1c9d36284",
+ "size": 22413,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/77cfcc35ad579fc9ff842d35c51159c1c9d36284"
+ },
+ {
+ "path": "test/providers/cursor-cli-quota.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "a6f86dee2e76cd1feb03171a308b865400c021a0",
+ "size": 13086,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/a6f86dee2e76cd1feb03171a308b865400c021a0"
+ },
+ {
+ "path": "test/providers/cursor.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "505a6d48fbc6eefcc226893919a0c4244d00712b",
+ "size": 8025,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/505a6d48fbc6eefcc226893919a0c4244d00712b"
+ },
+ {
+ "path": "test/providers/delegated-refresh.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "6c1282a20c4890e6a1b7ce2d284d763fad8a2f82",
+ "size": 42361,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/6c1282a20c4890e6a1b7ce2d284d763fad8a2f82"
+ },
+ {
+ "path": "test/providers/grok.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "8f84ec59b0aac732080e00cbb8009fb7333baad6",
+ "size": 91887,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/8f84ec59b0aac732080e00cbb8009fb7333baad6"
+ },
+ {
+ "path": "test/providers/kimi-code-cli-credential.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "b7f54a106e277abaa4b8d0123ef7e090a1ce549c",
+ "size": 8998,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/b7f54a106e277abaa4b8d0123ef7e090a1ce549c"
+ },
+ {
+ "path": "test/providers/kimi.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "271649f968edd913ccca292fa70fef2e5b7fb385",
+ "size": 50489,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/271649f968edd913ccca292fa70fef2e5b7fb385"
+ },
+ {
+ "path": "test/providers/opencode-go.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "cd5257d0c83c977e80e5b8d939f8a4cb60fd929a",
+ "size": 18035,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/cd5257d0c83c977e80e5b8d939f8a4cb60fd929a"
+ },
+ {
+ "path": "test/providers/pi-codex-credential.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "dc168b50370748abd370205cfaf56374084fe8ed",
+ "size": 11689,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/dc168b50370748abd370205cfaf56374084fe8ed"
+ },
+ {
+ "path": "test/providers/pi-kimi-credential.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "946846ac847d3b0f7bf05e38fa4b091daf093679",
+ "size": 22348,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/946846ac847d3b0f7bf05e38fa4b091daf093679"
+ },
+ {
+ "path": "test/providers/pi-xai-credential.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "985e4af0422e2d35509072023d8b8e79b4f524ff",
+ "size": 8266,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/985e4af0422e2d35509072023d8b8e79b4f524ff"
+ },
+ {
+ "path": "test/providers/zai.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "bf94c031ebf40323b2c4372a1b3d8b3c2560fde1",
+ "size": 34791,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/bf94c031ebf40323b2c4372a1b3d8b3c2560fde1"
+ },
+ {
+ "path": "test/public-contract.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "210a6909f4807cc4c594ed96b4d72e06021afaa3",
+ "size": 764,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/210a6909f4807cc4c594ed96b4d72e06021afaa3"
+ },
+ {
+ "path": "test/release-ci-exclusions.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "2cd77e222082fb4dbd0ce44ebcb5cc86ab94259d",
+ "size": 16628,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/2cd77e222082fb4dbd0ce44ebcb5cc86ab94259d"
+ },
+ {
+ "path": "test/setup.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "2275ef715840d54fa80da4ad42a9eb2bf758e397",
+ "size": 180,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/2275ef715840d54fa80da4ad42a9eb2bf758e397"
+ },
+ {
+ "path": "test/tui-live.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "7463c6566e28fdec5b359504e33c57a4a1fed2d2",
+ "size": 15591,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/7463c6566e28fdec5b359504e33c57a4a1fed2d2"
+ },
+ {
+ "path": "test/tui-viewport.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "6f3c30d53d765549ef9291dd7913acf59c972b4f",
+ "size": 9053,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/6f3c30d53d765549ef9291dd7913acf59c972b4f"
+ },
+ {
+ "path": "test/tui.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "f1dc23afd19e1c6da48573467ed7b9ff419ded86",
+ "size": 33474,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/f1dc23afd19e1c6da48573467ed7b9ff419ded86"
+ },
+ {
+ "path": "test/version-fast-path.test.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "03a6f8cafc84d78eb5eb5f68ea630d8e1856bcdf",
+ "size": 3456,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/03a6f8cafc84d78eb5eb5f68ea630d8e1856bcdf"
+ },
+ {
+ "path": "tsconfig.json",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "a5bbbe257409ec27ff566695336ada979326f241",
+ "size": 392,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/a5bbbe257409ec27ff566695336ada979326f241"
+ },
+ {
+ "path": "vitest.config.ts",
+ "mode": "100644",
+ "type": "blob",
+ "sha": "260712ba70792bc933d4d26e8c180dca82d63061",
+ "size": 133,
+ "url": "https://api.github.com/repos/kunchenguid/quota-axi/git/blobs/260712ba70792bc933d4d26e8c180dca82d63061"
+ }
+ ],
+ "truncated": false
+}

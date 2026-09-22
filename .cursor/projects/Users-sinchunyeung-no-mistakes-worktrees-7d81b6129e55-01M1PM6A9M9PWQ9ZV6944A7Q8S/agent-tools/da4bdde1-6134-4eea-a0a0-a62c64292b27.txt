@@ -1,0 +1,2648 @@
+7c38612 feat(web): add DOTS, DP, and SQUISH baseline comparison
+====
+commit 7c386127b1283dda03c09352f02d224a0b59f734
+Author:     TYeung <scyeungaf@connect.ust.hk>
+AuthorDate: Sat Sep 5 00:29:47 2026 +0800
+Commit:     TYeung <scyeungaf@connect.ust.hk>
+CommitDate: Sat Sep 5 00:29:47 2026 +0800
+
+    feat(web): add DOTS, DP, and SQUISH baseline comparison
+---
+ .gitignore            |   4 +-
+ CMakeLists.txt        |   4 +
+ simplify_geometry.h   | 375 ++++++++++++----------
+ simplify_with_gui.cpp |  54 +++-
+ web/index.html        | 633 ++++++++++++++++++++++++++++++++++----
+ web/server.py         | 269 ++++++++++++++++
+ web/viewer.js         | 837 +++++++++++++++++++++++++++++++++++++++++++++++++-
+ 7 files changed, 1948 insertions(+), 228 deletions(-)
+
+diff --git a/.gitignore b/.gitignore
+index 531c9d8..90345dc 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -90,4 +90,6 @@ ui_*.h
+ /simplify_SH
+ /normalize
+ 
+-*.log
+\ No newline at end of file
++*.log
++
++/.lavish
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c412fa9..0a89a59 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -24,6 +24,10 @@ target_link_libraries(simplify
+   CGAL::CGAL
+ )
+ 
++# Baseline binaries used by the web compare pane (no Qt).
++add_executable(dp traj-compression/batch/DP/DP_adapted.cpp)
++add_executable(squish traj-compression/online/SQUISH/SQUISH_adapted.cpp)
++
+ if(BUILD_GUI)
+   # Qt-only builds need AUTOMOC for the Q_OBJECT types in the GUI target.
+   set(CMAKE_AUTOMOC ON)
+diff --git a/simplify_geometry.h b/simplify_geometry.h
+index a6c28a1..902484c 100644
+--- a/simplify_geometry.h
++++ b/simplify_geometry.h
+@@ -21,114 +21,146 @@ using Point  = Kernel::Point_2;
+ using Polygon = CGAL::Polygon_2<Kernel>;
+ 
+ // ===========================================================================
+-//  Convex-convex intersection by double-precision Sutherland-Hodgman
++//  Polygon intersection: double-precision Sutherland-Hodgman
+ // ===========================================================================
+ //
+-// Both inputs are convex (F(S,p) is a convex wedge clipped to the axis-aligned
+-// bbox; conv(G) is a convex grid-cell polygon), so their intersection is the
+-// subject polygon successively clipped by each half-plane of the clip polygon.
+-// Sutherland-Hodgman only ever *removes* subject area against each clip
+-// half-plane, so the output is always a subset of the subject and can never
+-// balloon; it needs no convexity guard, no containment guard, and no exact
+-// fallback.  Complexity is O(n*m) but both polygons are tiny (n,m ~ 4..20) and
+-// every operation is a plain double.
++// Used for F(S,p) ∩ conv(G_i). Both are convex here, but SH only requires the
++// cropping polygon to be convex. O(n*m) in doubles; n,m are small (~4..20).
+ namespace sh_double {
+ 
+-// Reverse the polygon in place if it is clockwise, so callers can assume CCW.
+-inline void to_ccw(std::vector<std::array<double, 2>>& v) {
+-    double a = 0.0;
+-    const int n = static_cast<int>(v.size());
++using Vec2 = std::array<double, 2>;
++
++inline Vec2 sub(const Vec2& u, const Vec2& v) {
++    return {u[0] - v[0], u[1] - v[1]};
++}
++
++inline double cross(const Vec2& u, const Vec2& v) {
++    return u[0] * v[1] - u[1] * v[0];
++}
++
++inline Vec2 lerp(const Vec2& p, const Vec2& q, double t) {
++    return {p[0] + t * (q[0] - p[0]), p[1] + t * (q[1] - p[1])};
++}
++
++// orient(a,b,p) = cross(b-a, p-a) = 2 * signed area of triangle (a,b,p).
++// Positive => p is left of directed edge a→b.
++inline double orient(const Vec2& a, const Vec2& b, const Vec2& p) {
++    return cross(sub(b, a), sub(p, a));
++}
++
++// Point on segment p→q where orient along that segment is zero:
++//   (1-t)*orient_p + t*orient_q = 0  =>  t = orient_p / (orient_p - orient_q).
++inline Vec2 crossing_on_segment(const Vec2& p, const Vec2& q,
++                                double orient_p, double orient_q) {
++    return lerp(p, q, orient_p / (orient_p - orient_q));
++}
++
++inline void make_ccw(std::vector<Vec2>& polygon) {
++    double twice_area = 0.0;
++    const int n = static_cast<int>(polygon.size());
++    for (int i = 0; i < n; ++i)
++        twice_area += cross(polygon[i], polygon[(i + 1) % n]);
++    if (twice_area < 0.0) std::reverse(polygon.begin(), polygon.end());
++}
++
++inline Vec2 to_vec2(const Point& p) {
++    return {CGAL::to_double(p.x()), CGAL::to_double(p.y())};
++}
++
++inline void assign_ccw_doubles(const std::vector<Point>& src, std::vector<Vec2>& dst) {
++    dst.clear();
++    dst.reserve(src.size());
++    for (const auto& p : src) dst.push_back(to_vec2(p));
++    make_ccw(dst);
++}
++
++inline void assign_points(const std::vector<Vec2>& src, std::vector<Point>& dst) {
++    dst.clear();
++    dst.reserve(src.size());
++    for (const auto& p : src) dst.emplace_back(p[0], p[1]);
++}
++
++inline const Vec2& next_ccw_vertex(const std::vector<Vec2>& polygon, int i) {
++    const int n = static_cast<int>(polygon.size());
++    return polygon[i + 1 == n ? 0 : i + 1];
++}
++
++// Keep the part of `polygon` that lies in the closed left half-plane of edge
++// edge_start→edge_end. Writes the cropped ring into `cropped` (O(|polygon|)).
++inline void crop_to_left_of_edge(const std::vector<Vec2>& polygon,
++                                 const Vec2& edge_start,
++                                 const Vec2& edge_end,
++                                 std::vector<Vec2>& cropped) {
++    cropped.clear();
++    const int n = static_cast<int>(polygon.size());
++    if (n == 0) return;
++
++    int prev_i = n - 1;
+     for (int i = 0; i < n; ++i) {
+-        const auto& p = v[i];
+-        const auto& q = v[(i + 1) % n];
+-        a += p[0] * q[1] - q[0] * p[1];
++        const Vec2& curr = polygon[i];
++        const Vec2& prev = polygon[prev_i];
++        prev_i = i;
++
++        const double orient_curr = orient(edge_start, edge_end, curr);
++        const double orient_prev = orient(edge_start, edge_end, prev);
++        const bool curr_inside = orient_curr >= 0.0;
++        const bool prev_inside = orient_prev >= 0.0;
++
++        if (curr_inside) {
++            if (!prev_inside)
++                cropped.push_back(
++                    crossing_on_segment(prev, curr, orient_prev, orient_curr));
++            cropped.push_back(curr);
++        } else if (prev_inside) {
++            cropped.push_back(
++                crossing_on_segment(prev, curr, orient_prev, orient_curr));
++        }
+     }
+-    if (a < 0.0) std::reverse(v.begin(), v.end());
+ }
+ 
+-// Thread-local workspace to avoid repeated allocations in clip().
+-// Each thread gets its own workspace, reused across all clip() calls.
+-struct ClipWorkspace {
+-    std::vector<std::array<double, 2>> subj;
+-    std::vector<std::array<double, 2>> clipv;
+-    std::vector<std::array<double, 2>> out;
+-    std::vector<std::array<double, 2>> in;
+-    std::vector<Point> result;
++// Retains vector capacity across clip() calls on this thread so steady-state
++// intersection work does not heap-allocate.
++struct ReusableClipBuffers {
++    std::vector<Vec2> current_polygon;
++    std::vector<Vec2> cropped_polygon;
++    std::vector<Vec2> cropping_polygon;
++    std::vector<Point> intersection;
+ };
+ 
+-inline ClipWorkspace& get_clip_workspace() {
+-    thread_local ClipWorkspace ws;
+-    return ws;
+-}
+-
+-// Clip convex subject P by convex clip Q; both given as Epick points.  Returns
+-// a const reference to the thread-local intersection polygon (CCW, no closing
+-// duplicate) in Epick points, or an empty vector when the intersection is
+-// degenerate (<3 vertices).  The returned reference is valid until the next
+-// clip() call on the same thread.
+-inline const std::vector<Point>& clip(const std::vector<Point>& P_verts,
+-                                      const std::vector<Point>& Q_verts) {
+-    // Reuse thread-local workspace to avoid allocations
+-    ClipWorkspace& ws = get_clip_workspace();
+-
+-    const int n = static_cast<int>(P_verts.size());
+-    const int m = static_cast<int>(Q_verts.size());
+-    if (n < 3 || m < 3) { ws.result.clear(); return ws.result; }
+-
+-    ws.subj.clear();
+-    ws.clipv.clear();
+-    ws.subj.reserve(n);
+-    ws.clipv.reserve(m);
+-    for (const auto& p : P_verts)
+-        ws.subj.push_back({CGAL::to_double(p.x()), CGAL::to_double(p.y())});
+-    for (const auto& q : Q_verts)
+-        ws.clipv.push_back({CGAL::to_double(q.x()), CGAL::to_double(q.y())});
+-    to_ccw(ws.subj);
+-    to_ccw(ws.clipv);
+-
+-    // subj is not read after this; swap avoids copying the subject polygon.
+-    ws.out.swap(ws.subj);
+-    ws.in.clear();
+-    for (int e = 0; e < m && ws.out.size() >= 3; ++e) {
+-        const int e1 = (e + 1 == m) ? 0 : e + 1;   // avoid per-iteration modulo
+-        const double ax = ws.clipv[e][0],  ay = ws.clipv[e][1];
+-        const double bx = ws.clipv[e1][0], by = ws.clipv[e1][1];
+-        const double ex = bx - ax, ey = by - ay;
+-        // Signed area of triangle (a,b,pt); >=0 means pt is on/left of edge a->b
+-        // (inside, since the clip is CCW).
+-        auto side = [&](const std::array<double, 2>& pt) {
+-            return ex * (pt[1] - ay) - ey * (pt[0] - ax);
+-        };
+-        ws.in.swap(ws.out);
+-        ws.out.clear();
+-        const int sz = static_cast<int>(ws.in.size());
+-        int prev = sz - 1;                          // walk the previous index
+-        for (int i = 0; i < sz; ++i) {
+-            const auto& cur = ws.in[i];
+-            const auto& prv = ws.in[prev];
+-            prev = i;
+-            const double sc = side(cur), sp = side(prv);
+-            const bool cin = sc >= 0.0, pin = sp >= 0.0;
+-            if (cin) {
+-                if (!pin) {
+-                    const double t = sp / (sp - sc);
+-                    ws.out.push_back({prv[0] + t * (cur[0] - prv[0]),
+-                                      prv[1] + t * (cur[1] - prv[1])});
+-                }
+-                ws.out.push_back(cur);
+-            } else if (pin) {
+-                const double t = sp / (sp - sc);
+-                ws.out.push_back({prv[0] + t * (cur[0] - prv[0]),
+-                                  prv[1] + t * (cur[1] - prv[1])});
+-            }
+-        }
++inline ReusableClipBuffers& reusable_clip_buffers() {
++    thread_local ReusableClipBuffers buffers;
++    return buffers;
++}
++
++// Crop current_polygon by each left half-plane of CCW convex cropping_polygon.
++// O(n·m). Returned reference is valid until the next clip() on this thread.
++inline const std::vector<Point>& clip(const std::vector<Point>& current_polygon,
++                                      const std::vector<Point>& cropping_polygon) {
++    auto& buffers = reusable_clip_buffers();
++
++    if (current_polygon.size() < 3 || cropping_polygon.size() < 3) {
++        buffers.intersection.clear();
++        return buffers.intersection;
+     }
+-    ws.result.clear();
+-    if (ws.out.size() < 3) return ws.result;
+ 
+-    ws.result.reserve(ws.out.size());
+-    for (const auto& p : ws.out) ws.result.emplace_back(p[0], p[1]);
+-    return ws.result;
++    assign_ccw_doubles(current_polygon, buffers.current_polygon);
++    assign_ccw_doubles(cropping_polygon, buffers.cropping_polygon);
++
++    const int num_halfplanes = static_cast<int>(buffers.cropping_polygon.size());
++    for (int e = 0; e < num_halfplanes && buffers.current_polygon.size() >= 3; ++e) {
++        const Vec2& edge_start = buffers.cropping_polygon[e];
++        const Vec2& edge_end   = next_ccw_vertex(buffers.cropping_polygon, e);
++        crop_to_left_of_edge(buffers.current_polygon, edge_start, edge_end,
++                             buffers.cropped_polygon);
++        buffers.current_polygon.swap(buffers.cropped_polygon);
++    }
++
++    if (buffers.current_polygon.size() < 3) {
++        buffers.intersection.clear();
++        return buffers.intersection;
++    }
++    assign_points(buffers.current_polygon, buffers.intersection);
++    return buffers.intersection;
+ }
+ 
+ }  // namespace sh_double
+@@ -137,13 +169,15 @@ inline const std::vector<Point>& clip(const std::vector<Point>& P_verts,
+ //  Intersection (public API)
+ // ===========================================================================
+ 
+-// Collapse consecutive near-coincident vertices (including the wrap-around
+-// pair).  Near-duplicate points reach the intersector via find_F, producing
+-// edges only a few ULPs long; removing them up front avoids spurious
+-// near-zero-length clip edges.  EPS2 is a squared distance: 1e-12 == (1e-6)^2,
+-// far above the ~1e-13 duplicate noise yet far below any real feature.
+-// Core dedup, writing into a caller-provided buffer (reused across calls to
+-// avoid per-call allocation).  `out` must not alias `poly`.
++/**
++ * @brief Remove consecutive near-duplicates (incl. wrap-around first/last).
++ *
++ * @param poly Input ring (must not alias @p out).
++ * @param out  Cleared then filled; reused by callers to avoid allocation.
++ *
++ * Threshold EPS2 = 1e-12 (= (1e-6)^2): above ULP noise from find_F, below
++ * real feature size. Prevents near-zero-length edges from reaching clip().
++ */
+ inline void dedup_into(const std::vector<Point>& poly, std::vector<Point>& out) {
+     out.clear();
+     const int n = static_cast<int>(poly.size());
+@@ -162,26 +196,29 @@ inline void dedup_into(const std::vector<Point>& poly, std::vector<Point>& out)
+     while (out.size() >= 2 && close(out.front(), out.back())) out.pop_back();
+ }
+ 
++/** @brief Allocating wrapper around dedup_into(). */
+ inline std::vector<Point> dedup_consecutive(const std::vector<Point>& poly) {
+     std::vector<Point> out;
+     dedup_into(poly, out);
+     return out;
+ }
+ 
+-// Convex-convex intersection of P_in and Q_in.  Deduplicates both inputs,
+-// runs the Sutherland-Hodgman clip, and returns true with the CCW result in
+-// `result` when the intersection is a non-degenerate polygon (>=3 vertices).
++/**
++ * @brief Convex-convex intersection P ∩ Q via dedup + Sutherland-Hodgman.
++ *
++ * @param P_in   Subject polygon (typically F(S,p)).
++ * @param Q_in   Clip polygon; must be convex (typically conv(G_i)).
++ * @param result Cleared; on success holds CCW intersection (>=3 verts).
++ * @return true iff result is a non-degenerate polygon.
++ */
+ inline bool intersect(const std::vector<Point>& P_in,
+                       const std::vector<Point>& Q_in,
+                       std::vector<Point>& result) {
+-    // Thread-local scratch for the deduplicated inputs; reused across calls so
+-    // the steady state performs no heap allocation here.
+     thread_local std::vector<Point> P_verts, Q_verts;
+     dedup_into(P_in, P_verts);
+     dedup_into(Q_in, Q_verts);
+ 
+-    // clip returns a reference to its own thread-local buffer, distinct from
+-    // `result`, so deduping straight into `result` is safe.
++    // clip's thread-local buffer is distinct from result, so this is safe.
+     dedup_into(sh_double::clip(P_verts, Q_verts), result);
+     if (result.size() < 3) {
+         result.clear();
+@@ -497,9 +534,8 @@ inline std::vector<Point> get_conv_from_grid(const Point& p, double EPSILON, dou
+     return conv;
+ }
+ 
+-// Boundary anchors for P: every grid sample on the convex-hull boundary.
+-// CGAL's hull keeps extreme vertices only; flat hull edges still contain
+-// collinear grid corners that must remain boundary anchors.
++// Boundary anchors for P: leftmost and rightmost grid sample on every y-row,
++// plus every sample on the topmost and bottommost rows.
+ inline std::vector<Point> get_boundary_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+     thread_local double cached_eps   = std::numeric_limits<double>::quiet_NaN();
+     thread_local double cached_delta = std::numeric_limits<double>::quiet_NaN();
+@@ -507,30 +543,30 @@ inline std::vector<Point> get_boundary_points_from_grid(const Point& p, double E
+     thread_local std::vector<std::array<double, 2>> boundary_offsets;
+ 
+     if (EPSILON != cached_eps || DELTA != cached_delta || multiplier != cached_mult) {
++        // get_points_from_grid is row-major: y descending, then x ascending.
+         const std::vector<Point> all = get_points_from_grid(Point(0, 0), EPSILON, DELTA, multiplier);
+-        std::vector<Point> hull;
+-        if (all.size() <= 2) {
+-            hull = all;
+-        } else {
+-            CGAL::convex_hull_2(all.begin(), all.end(), std::back_inserter(hull));
+-        }
+-
+         std::vector<Point> boundary;
+         boundary.reserve(all.size());
+-        if (hull.size() < 3) {
+-            boundary = all;
+-        } else {
+-            for (const Point& q : all) {
+-                if (!strictly_inside_convex(q, hull)) boundary.push_back(q);
++        if (!all.empty()) {
++            const double y_top = CGAL::to_double(all.front().y());
++            const double y_bot = CGAL::to_double(all.back().y());
++            for (size_t i = 0; i < all.size(); ) {
++                size_t j = i + 1;
++                const double y = CGAL::to_double(all[i].y());
++                while (j < all.size() && CGAL::to_double(all[j].y()) == y)
++                    ++j;
++                if (y == y_top || y == y_bot) {
++                    boundary.insert(boundary.end(), all.begin() + static_cast<std::ptrdiff_t>(i),
++                                    all.begin() + static_cast<std::ptrdiff_t>(j));
++                } else {
++                    boundary.push_back(all[i]);
++                    if (j - 1 != i)
++                        boundary.push_back(all[j - 1]);
++                }
++                i = j;
+             }
+         }
+ 
+-        std::sort(boundary.begin(), boundary.end(), [](const Point& a, const Point& b) {
+-            const double ay = CGAL::to_double(a.y()), by = CGAL::to_double(b.y());
+-            if (ay != by) return ay > by;
+-            return CGAL::to_double(a.x()) < CGAL::to_double(b.x());
+-        });
+-
+         boundary_offsets.clear();
+         boundary_offsets.reserve(boundary.size());
+         for (const auto& q : boundary)
+@@ -549,12 +585,19 @@ inline std::vector<Point> get_boundary_points_from_grid(const Point& p, double E
+     return out;
+ }
+ 
+-// The two tangent (supporting) vertices from external point p to convex
+-// polygon S.  Since p lies outside S, all of S falls within an angular wedge
+-// of <180 degrees where bearing is a total order, so a single linear scan
+-// keeping the most-clockwise and most-counterclockwise vertices finds both
+-// tangents in O(n).  The orientation sign is pure-double: on a collinear tie
+-// either vertex is an equally valid supporting vertex.
++/**
++ * @brief Indices of the two supporting (tangent) vertices from p to convex S.
++ *
++ * @pre p lies outside convex S. Then all of S sits in a <180° angular wedge
++ *      from p, so bearing is a total order.
++ * @param p External query point.
++ * @param S Convex polygon vertices.
++ * @return {min_idx, max_idx} of the most-CW and most-CCW vertices, or empty
++ *         if both coincide (degenerate).
++ *
++ * Algorithm: O(n) scan; keep argmin / argmax of orientation(p, S[i], S[j])
++ * in pure doubles. Collinear ties: either vertex is a valid support.
++ */
+ inline std::vector<int> find_tangent_idx(const Point& p, const std::vector<Point>& S) {
+     std::vector<int> tangent;
+     tangent.reserve(2);
+@@ -594,24 +637,21 @@ inline std::vector<int> find_tangent_idx(const Point& p, const std::vector<Point
+     return tangent;
+ }
+ 
+-// Conservative separating-axis prune for the stab loop.  Returns true only when
+-// the delta-disk region Gi is *provably* disjoint from the free-space wedge
+-// F(S,p), so the caller can skip the expensive clip and declare the candidate
+-// dead without computing F at all.
+-//
+-// F(S,p) is always contained in the cone with apex p bounded by the two tangent
+-// rays p->S[t0] and p->S[t1] (all of S, its arc, and the bbox hits lie inside
+-// that angular wedge).  The cone is the intersection of two half-planes H0, H1
+-// whose boundary lines pass through p.  Hence if every vertex of the convex Gi
+-// lies strictly outside H0 (or strictly outside H1), then Gi cannot meet the
+-// cone and therefore cannot meet F, so F n Gi is empty.
+-//
+-// The test is one-sided: it uses the same raw-double tangents as find_F and an
+-// a-priori rounding margin, so it fires only when the separation is robust.
+-// Near-boundary cases fall through to the exact clip.  It can therefore never
+-// drop a candidate the exact intersection would have kept -- the Frechet
+-// guarantee is preserved (a wrongly-kept candidate is impossible; a wrongly
+-// dropped one cannot occur because we only prune on robust separation).
++/**
++ * @brief Conservative prune: true ⇒ Gi is provably disjoint from F(S,p).
++ *
++ * Lets the stab loop skip find_F + clip when separation is robust.
++ *
++ * Idea: F ⊆ cone(p; rays to tangent verts t0,t1) = H0 ∩ H1. If every vertex
++ * of convex Gi lies strictly outside H0 (or outside H1), then Gi ∩ F = ∅.
++ *
++ * One-sided: uses raw-double tangents + a-priori rounding margin. Near-boundary
++ * cases return false and fall through to the exact clip. Never drops a
++ * candidate that exact intersection would keep.
++ *
++ * Early exits (return false = "not proven disjoint"):
++ *   |S|<3, p ∈ S, no two tangents, or degenerate cone (orient == 0).
++ */
+ inline bool wedge_gi_disjoint(const Point& p, const std::vector<Point>& S,
+                               const std::vector<Point>& Gi) {
+     const int sn = static_cast<int>(S.size());
+@@ -658,11 +698,26 @@ inline bool wedge_gi_disjoint(const Point& p, const std::vector<Point>& S,
+     return sep0 || sep1;
+ }
+ 
+-// The free-space wedge F(S,p): the region of the bbox reachable from the
+-// convex stab region S through the external point p.  When p is inside S (or S
+-// is a single point) every bbox point is reachable, so F is the whole bbox;
+-// otherwise F is bounded by the two tangent rays from p to S, the arc of S
+-// between the tangent vertices, and the bbox boundary between the two ray hits.
++/**
++ * @brief Build free-space wedge F(S,p) into @p F (cleared first).
++ *
++ * F is the region of the working bbox reachable from convex stab region S
++ * through external point p.
++ *
++ * Cases:
++ *   1. |S|==1 or p ∈ S     → F = whole bbox.
++ *   2. No two tangents     → F left empty (return).
++ *   3. Ray miss / unclassified hit → F = whole bbox.
++ *   4. Otherwise (p outside S):
++ *        F = S-arc between tangents  ∪  bbox chain between ray hits
++ *            ∪  the two ray-hit points.
++ *      Arc choice: if (S[t0]-p)×(S[t1]-p) < 0 (right turn), copy t0..t1;
++ *      else copy the wrap-around arc t1..end + begin..t0.
++ *
++ * @param p External (or interior) query point.
++ * @param S Convex stab region; must not have exactly 2 vertices (assert).
++ * @param F Output polygon, CCW.
++ */
+ inline void find_F(const Point& p, const std::vector<Point>& S,
+                    std::vector<Point>& F) {
+     F.clear();
+diff --git a/simplify_with_gui.cpp b/simplify_with_gui.cpp
+index 9639035..265962f 100644
+--- a/simplify_with_gui.cpp
++++ b/simplify_with_gui.cpp
+@@ -31,6 +31,8 @@ bool showS = false;
+ bool keep_polygons = false;
+ bool show_simplified = true;
+ bool show_labels = false;
++bool show_dots = true;
++bool help_flag = false;
+ 
+ // ===========================================================================
+ //  Help
+@@ -44,12 +46,14 @@ static void print_help() {
+               << "  --keep           Do not clear F/G/S polygons between steps\n"
+               << "  --no-simp        Do not show the simplified curve in GUI\n"
+               << "  --labels         Show vertex labels (indices) in GUI\n"
++              << "  --no-dots        Do not overlay data/<id>/dots_simplified.txt when present\n"
+               << "  -F/-G/-S         Show F, G, or S debug polygons in GUI\n"
+               << "  -d <delta>       Override DELTA (default " << DELTA << ")\n"
+               << "  -e <epsilon>     Override EPSILON (default " << EPSILON << ")\n"
+               << "  -h               Show this help and exit\n"
+               << "\n"
+-              << "Shorthand: simplify_with_gui <id> [flags] is equivalent to '--in <id> --out [flags]'\n";
++              << "Shorthand: simplify_with_gui <id> [flags] is equivalent to '--in <id> --out [flags]'\n"
++              << "If data/<id>/dots_simplified.txt (or DOTS.txt) exists, it is overlaid as a DOTS curve.\n";
+ }
+ 
+ int parse_arguments(int argc, char** argv, int& test_case_no) {
+@@ -59,6 +63,7 @@ int parse_arguments(int argc, char** argv, int& test_case_no) {
+         else if (std::strcmp(argv[i], "--keep") == 0) keep_polygons = true;
+         else if (std::strcmp(argv[i], "--no-simp") == 0) show_simplified = false;
+         else if (std::strcmp(argv[i], "--labels") == 0) show_labels = true;
++        else if (std::strcmp(argv[i], "--no-dots") == 0) show_dots = false;
+         else if (std::strcmp(argv[i], "-F") == 0) showF = true;
+         else if (std::strcmp(argv[i], "-G") == 0) showG = true;
+         else if (std::strcmp(argv[i], "-S") == 0) showS = true;
+@@ -72,6 +77,7 @@ int parse_arguments(int argc, char** argv, int& test_case_no) {
+         }
+         else if (std::strcmp(argv[i], "-h") == 0) {
+             print_help();
++            help_flag = true;
+             return 0;
+         }
+         else if (std::strcmp(argv[i], "--in") == 0 && i + 1 < argc) {
+@@ -94,6 +100,7 @@ int parse_arguments(int argc, char** argv, int& test_case_no) {
+ 
+     if (argc == 1) {
+         print_help();
++        help_flag = true;
+         return 0;
+     }
+     return 0;
+@@ -166,6 +173,47 @@ int out_stream(int test_case_no, const std::vector<Point>& stream) {
+     return 0;
+ }
+ 
++// Load N\\n x y polyline files written by dots / simplify / benchmarks.
++bool load_polyline_file(const std::filesystem::path& path, std::vector<Point>& out) {
++    std::ifstream fin(path);
++    if (!fin) return false;
++    int count = 0;
++    if (!(fin >> count) || count < 0) return false;
++    out.clear();
++    out.reserve(count);
++    for (int i = 0; i < count; ++i) {
++        double x, y;
++        if (!(fin >> x >> y)) return false;
++        out.emplace_back(x, y);
++    }
++    return !out.empty();
++}
++
++// Overlay DOTS (or other named baseline) when its output file is present.
++void maybe_overlay_baseline(MultiViewer& viewer, int test_case_no) {
++    if (!show_dots || test_case_no == -1) return;
++    const std::filesystem::path dir = repo_root / "data" / std::to_string(test_case_no);
++    const std::filesystem::path candidates[] = {
++        dir / "dots_simplified.txt",
++        dir / "DOTS.txt",
++    };
++    std::vector<Point> dots;
++    std::filesystem::path used;
++    for (const auto& path : candidates) {
++        if (load_polyline_file(path, dots)) {
++            used = path;
++            break;
++        }
++    }
++    if (used.empty()) {
++        std::cout << "No DOTS overlay found under " << dir.string() << '\n';
++        return;
++    }
++    // Hot pink matches the web compare layer (#f472b6).
++    viewer.addCurve(dots, QColor(244, 114, 182), QStringLiteral("DOTS"));
++    std::cout << "Overlaid DOTS (" << dots.size() << " points) from " << used.string() << '\n';
++}
++
+ // ===========================================================================
+ //  Core algorithm
+ // ===========================================================================
+@@ -288,6 +336,7 @@ int main(int argc, char** argv) {
+ 
+     code = parse_arguments(argc, argv, test_case_no);
+     if (code != 0) return code;
++    if (help_flag) return 0;
+ 
+     std::vector<Point> stream;
+     code = read_stream(test_case_no, stream);
+@@ -310,6 +359,9 @@ int main(int argc, char** argv) {
+         viewer_process_events();
+     }
+ 
++    maybe_overlay_baseline(viewer, test_case_no);
++    viewer_process_events();
++
+     if (out_flag) {
+         code = out_stream(test_case_no, stream);
+         if (code != 0) return code;
+diff --git a/web/index.html b/web/index.html
+index e7e5ce1..f0f5bb1 100644
+--- a/web/index.html
++++ b/web/index.html
+@@ -98,6 +98,415 @@
+     border-width: 2px;
+     flex-shrink: 0;
+   }
++
++  /* Results compare — left off-canvas panel (not in header) */
++  #resultsPanel {
++    position: absolute;
++    top: 0;
++    bottom: 0;
++    left: 0;
++    width: var(--results-panel-width, 340px);
++    max-width: min(80vw, 720px);
++    min-width: 260px;
++    z-index: 40;
++    display: flex;
++    flex-direction: column;
++    background: var(--panel);
++    border-right: 1px solid var(--panel-border);
++    box-shadow: 8px 0 24px rgba(0, 0, 0, 0.35);
++    transform: translateX(-105%);
++    transition: transform 0.2s ease;
++    pointer-events: none;
++  }
++  #resultsPanel[hidden] { display: none !important; }
++  body.results-panel-open #resultsPanel {
++    transform: translateX(0);
++    pointer-events: auto;
++  }
++  body.results-panel-resizing #resultsPanel {
++    transition: none;
++  }
++  .results-panel-resizer {
++    position: absolute;
++    top: 0;
++    right: -3px;
++    width: 6px;
++    height: 100%;
++    cursor: col-resize;
++    z-index: 41;
++    background: transparent;
++  }
++  .results-panel-resizer:hover,
++  body.results-panel-resizing .results-panel-resizer {
++    background: rgba(79, 157, 255, 0.35);
++  }
++  .results-panel-backdrop {
++    position: absolute;
++    inset: 0;
++    z-index: 35;
++    background: rgba(0, 0, 0, 0.4);
++    opacity: 0;
++    pointer-events: none;
++    transition: opacity 0.2s ease;
++  }
++  body.results-panel-open .results-panel-backdrop {
++    opacity: 1;
++    pointer-events: auto;
++  }
++  .results-panel-header {
++    display: flex;
++    align-items: center;
++    justify-content: space-between;
++    gap: 10px;
++    padding: 12px 14px;
++    border-bottom: 1px solid var(--panel-border);
++    flex-shrink: 0;
++  }
++  .results-panel-header h2 {
++    margin: 0;
++    font-size: 13px;
++    font-weight: 650;
++    letter-spacing: 0.04em;
++    text-transform: uppercase;
++    color: var(--text);
++  }
++  .results-panel-close {
++    background: transparent;
++    border: 1px solid var(--panel-border);
++    border-radius: 6px;
++    padding: 6px;
++    color: var(--text);
++    cursor: pointer;
++    display: flex;
++    align-items: center;
++    justify-content: center;
++  }
++  .results-panel-close:hover { background: #262c3d; }
++  .results-panel-close svg { width: 16px; height: 16px; }
++  .results-panel-body {
++    flex: 1 1 auto;
++    overflow-y: auto;
++    padding: 12px 14px 18px;
++    display: flex;
++    flex-direction: column;
++    gap: 14px;
++  }
++  .results-section-label {
++    margin: 0 0 8px;
++    font-size: 11px;
++    font-weight: 650;
++    letter-spacing: 0.04em;
++    text-transform: uppercase;
++    color: var(--text-dim);
++  }
++  .results-chips {
++    display: flex;
++    flex-direction: column;
++    gap: 6px;
++  }
++  .results-chip {
++    display: flex;
++    align-items: center;
++    gap: 8px;
++    width: 100%;
++    padding: 9px 11px;
++    font-size: 13px;
++    color: var(--text-dim);
++    background: #1a1f29;
++    border: 1px solid var(--panel-border);
++    border-radius: 8px;
++    cursor: pointer;
++    text-align: left;
++  }
++  .results-chip.on {
++    color: var(--text);
++    border-color: var(--accent-dim, #2a4a72);
++    background: #1c2533;
++  }
++  .results-chip .swatch {
++    width: 8px;
++    height: 8px;
++    border-radius: 50%;
++    display: inline-block;
++    flex-shrink: 0;
++  }
++  .results-chip[hidden] { display: none !important; }
++  .compare-metrics-wrap { overflow-x: auto; }
++  .compare-metrics-table {
++    width: 100%;
++    border-collapse: collapse;
++    font-size: 12px;
++    background: #0f131a;
++    border: 1px solid var(--panel-border);
++    border-radius: 8px;
++    overflow: hidden;
++  }
++  .compare-metrics-table th,
++  .compare-metrics-table td {
++    text-align: left;
++    padding: 8px 10px;
++    border-bottom: 1px solid var(--panel-border);
++    font-variant-numeric: tabular-nums;
++  }
++  .compare-metrics-table th {
++    color: var(--text-dim);
++    font-weight: 600;
++    font-size: 10px;
++    text-transform: uppercase;
++    letter-spacing: 0.03em;
++  }
++  .compare-metrics-table tr:last-child td { border-bottom: none; }
++  .compare-metrics-table .win { color: var(--ok); font-weight: 650; }
++  .compare-metrics-empty { color: var(--text-dim); text-align: center; }
++  .results-panel-open-btn {
++    position: absolute;
++    left: 0;
++    top: 50%;
++    z-index: 25;
++    display: none;
++    flex-direction: column;
++    align-items: center;
++    justify-content: center;
++    gap: 8px;
++    min-width: 36px;
++    padding: 14px 8px;
++    transform: translateY(-50%);
++    background: var(--panel);
++    border: 1px solid var(--panel-border);
++    border-left: none;
++    border-radius: 0 10px 10px 0;
++    color: var(--text);
++    font-size: 11px;
++    font-weight: 650;
++    letter-spacing: 0.04em;
++    text-transform: uppercase;
++    cursor: pointer;
++    box-shadow: 4px 0 16px rgba(0, 0, 0, 0.35);
++  }
++  .results-panel-open-btn:hover {
++    border-color: var(--accent);
++    color: var(--accent);
++  }
++  .results-panel-open-btn .results-panel-open-arrow {
++    width: 22px;
++    height: 22px;
++    display: flex;
++    align-items: center;
++    justify-content: center;
++    border-radius: 50%;
++    background: var(--accent-dim, #2a4a72);
++    color: var(--accent);
++  }
++  .results-panel-open-btn .results-panel-open-arrow svg {
++    width: 14px;
++    height: 14px;
++  }
++  .results-panel-open-btn .results-panel-open-label {
++    writing-mode: vertical-rl;
++    transform: rotate(180deg);
++    line-height: 1.1;
++  }
++  .baseline-controls {
++    display: flex;
++    flex-direction: column;
++    gap: 10px;
++  }
++  .baseline-algo-row {
++    display: flex;
++    flex-wrap: wrap;
++    gap: 8px;
++  }
++  .baseline-algo-pill {
++    appearance: none;
++    border: 1px solid var(--panel-border);
++    background: #1a1f29;
++    color: var(--text-dim);
++    border-radius: 999px;
++    padding: 7px 14px;
++    font-size: 12px;
++    font-weight: 650;
++    letter-spacing: 0.02em;
++    cursor: pointer;
++  }
++  .baseline-algo-pill:hover {
++    border-color: var(--accent);
++    color: var(--text);
++  }
++  .baseline-algo-pill.active {
++    background: var(--accent-dim, #2a4a72);
++    border-color: var(--accent);
++    color: var(--text);
++  }
++  .header-baseline {
++    display: inline-flex;
++    align-items: center;
++    flex-wrap: wrap;
++    gap: 8px;
++    padding: 4px 0;
++  }
++  .header-baseline-label {
++    font-size: 12px;
++    color: var(--text-dim);
++    font-weight: 600;
++    white-space: nowrap;
++  }
++  .header-baseline .baseline-algo-row {
++    gap: 6px;
++  }
++  .header-baseline .baseline-algo-pill {
++    padding: 5px 12px;
++    font-size: 11px;
++  }
++  .baseline-field {
++    display: flex;
++    flex-direction: column;
++    gap: 4px;
++    font-size: 12px;
++    color: var(--text-dim);
++  }
++  .baseline-param-owner {
++    font-weight: 750;
++    letter-spacing: 0.04em;
++    margin-right: 2px;
++  }
++  .baseline-param-owner.owner-dots { color: #f472b6; }
++  .baseline-param-owner.owner-dp { color: #a78bfa; }
++  .baseline-param-owner.owner-squish { color: #fb923c; }
++  .baseline-field-input-row {
++    display: flex;
++    align-items: center;
++    gap: 6px;
++  }
++  .baseline-field input {
++    background: #1a1f29;
++    color: var(--text);
++    border: 1px solid var(--panel-border);
++    border-radius: 6px;
++    padding: 8px 10px;
++    font-size: 13px;
++  }
++  .baseline-field-unit {
++    font-weight: 650;
++    color: var(--text-dim);
++    font-size: 12px;
++    letter-spacing: 0.02em;
++  }
++  .baseline-field--inline {
++    flex-direction: row;
++    align-items: center;
++    gap: 6px;
++  }
++  .baseline-field--inline input {
++    width: 56px;
++    padding: 4px 8px;
++    font-size: 12px;
++  }
++  .baseline-param-fields { display: flex; flex-direction: column; gap: 8px; }
++  #baselineLssdField[hidden],
++  #headerBaselineLssdField[hidden],
++  #baselineDpEpsField[hidden],
++  #headerBaselineDpEpsField[hidden],
++  #baselineSquishRatioField[hidden],
++  #headerBaselineSquishRatioField[hidden] { display: none !important; }
++  .baseline-run-btn {
++    align-self: stretch;
++    background: var(--accent);
++    color: #061018;
++    border: none;
++    border-radius: 6px;
++    padding: 8px 12px;
++    font-size: 13px;
++    font-weight: 650;
++    cursor: pointer;
++  }
++  .baseline-run-btn:disabled {
++    opacity: 0.45;
++    cursor: not-allowed;
++  }
++  .baseline-status {
++    margin: 0;
++    min-height: 1.2em;
++    font-size: 12px;
++    color: var(--text-dim);
++  }
++  .baseline-status.error { color: #ff5f6d; }
++  .baseline-status.ok { color: var(--ok); }
++  .compare-original-count {
++    margin: 0 0 8px;
++    font-size: 12px;
++    color: var(--text);
++  }
++  .compare-original-count[hidden] { display: none !important; }
++  .compare-original-count b { font-weight: 650; }
++  .compare-frechet-note {
++    margin: 8px 0 0;
++    font-size: 11px;
++    line-height: 1.4;
++    color: var(--text-dim);
++  }
++  .compare-frechet-note a {
++    color: var(--accent);
++    text-decoration: none;
++  }
++  .compare-frechet-note a:hover { text-decoration: underline; }
++  .compare-metrics-footer {
++    margin: 8px 0 0;
++    font-size: 11px;
++    line-height: 1.45;
++    color: var(--text-dim);
++  }
++  .compare-metrics-footer a {
++    color: var(--accent);
++    text-decoration: none;
++  }
++  .compare-metrics-footer a:hover { text-decoration: underline; }
++  .compare-frechet-note[hidden] { display: none !important; }
++  .layer-accordion {
++    display: flex;
++    flex-direction: column;
++    gap: 8px;
++  }
++  .layer-acc {
++    border: 1px solid var(--panel-border);
++    border-radius: 8px;
++    background: #12151c;
++    overflow: hidden;
++  }
++  .layer-acc > summary {
++    list-style: none;
++    cursor: pointer;
++    padding: 10px 12px;
++    font-size: 12px;
++    font-weight: 650;
++    letter-spacing: 0.03em;
++    text-transform: uppercase;
++    color: var(--text);
++    user-select: none;
++  }
++  .layer-acc > summary::-webkit-details-marker { display: none; }
++  .layer-acc > summary::after {
++    content: "▸";
++    float: right;
++    color: var(--text-dim);
++    transition: transform 0.15s ease;
++  }
++  .layer-acc[open] > summary::after { transform: rotate(90deg); }
++  .layer-acc-body {
++    padding: 0 10px 10px;
++    display: flex;
++    flex-direction: column;
++    gap: 2px;
++  }
++  .baseline-layer-hint {
++    margin: 6px 2px 0;
++    font-size: 11px;
++    color: var(--text-dim);
++    line-height: 1.4;
++  }
++  .baseline-layer-hint[hidden] { display: none !important; }
++  body.results-available .results-panel-open-btn { display: inline-flex; }
++  body.results-panel-open .results-panel-open-btn { display: none; }
++
+   #uploadStatus.upload-status-loading {
+     display: inline-flex;
+     align-items: center;
+@@ -383,13 +792,6 @@
+     accent-color: var(--accent);
+   }
+   input[type="file"] { display: none; }
+-  #trajectoryFileName {
+-    font-size: 12px;
+-    color: var(--text-dim);
+-  }
+-  @media (max-width: 720px) {
+-    #trajectoryFileName { display: none; }
+-  }
+   input[type="number"] {
+     width: 62px;
+     background: #1e2330;
+@@ -554,6 +956,14 @@
+       font-size: 14px;
+       box-sizing: border-box;
+     }
++    .upload-form .header-baseline .baseline-algo-pill {
++      width: auto;
++      padding: 8px 14px;
++      min-height: 0;
++    }
++    .upload-form .header-baseline .baseline-field--inline input {
++      width: 80px;
++    }
+     .upload-form #traceSelect { max-width: none; }
+     .upload-form .or-divider { text-align: center; }
+     .params { margin-left: 0; width: 100%; justify-content: center; }
+@@ -741,9 +1151,9 @@
+     }
+     .preloaded-row,
+     .upload-form #uploadBtn,
+-    .upload-form #trajectoryFileName,
+     .upload-form #loadBtn,
+-    .upload-form #uploadStatus {
++    .upload-form #uploadStatus,
++    .upload-form .header-baseline {
+       grid-column: 1 / -1;
+     }
+     .upload-form .or-divider {
+@@ -752,8 +1162,7 @@
+       font-size: 11px !important;
+     }
+     .upload-form .or-divider,
+-    .upload-form #uploadBtn,
+-    .upload-form #trajectoryFileName {
++    .upload-form #uploadBtn {
+       display: none;
+     }
+     .upload-form label {
+@@ -767,6 +1176,12 @@
+       color: var(--text);
+       font-size: 14px;
+     }
++    .upload-form .header-baseline .baseline-field--inline {
++      padding: 6px 10px;
++      background: #1e2330;
++      border: 1px solid var(--panel-border);
++      border-radius: 8px;
++    }
+     .upload-form label input[type="number"] {
+       min-width: 0;
+       padding: 4px 6px;
+@@ -985,11 +1400,6 @@
+     gap: 8px;
+     flex-wrap: nowrap;
+   }
+-  .preloaded-label {
+-    font-size: 12px;
+-    color: var(--text-dim);
+-    flex-shrink: 0;
+-  }
+   .preloaded-trigger {
+     display: none; /* hidden on desktop — the real <select> is used */
+     flex: 1 1 auto;
+@@ -1124,28 +1534,33 @@
+   @media (max-width: 720px) {
+     /* On mobile, hide the real <select> and show the trigger button. */
+     .preloaded-row { width: 100%; }
+-    .preloaded-label { display: none; }
+     .preloaded-trigger { display: flex; }
+     #traceSelect.visually-hidden-mobile { display: none; }
+   }
+   @media (min-width: 721px) {
+-    /* On desktop, show the native select inline. */
++    /* On desktop, show the native select inline — width set to fit longest option. */
+     .preloaded-trigger { display: none !important; }
++    .preloaded-row {
++      flex: 0 0 auto;
++      width: auto;
++    }
+     #traceSelect {
+       position: static !important;
+-      width: auto !important;
++      width: max-content;
+       height: auto !important;
+       padding: 3px 6px !important;
+       margin: 0 !important;
+       overflow: visible !important;
+       clip: auto !important;
+-      white-space: normal !important;
++      white-space: nowrap !important;
+       background: #1e2330;
+       color: var(--text);
+       border: 1px solid var(--panel-border);
+       border-radius: 5px;
+       font-size: 12px;
+-      max-width: 170px;
++      max-width: none;
++      flex: 0 0 auto;
++      field-sizing: content;
+     }
+   }
+ </style>
+@@ -1165,7 +1580,6 @@
+       <div class="file-controls">
+         <div class="upload-form">
+           <div class="preloaded-row">
+-            <span class="preloaded-label">Preloaded:</span>
+             <button type="button" id="preloadedTrigger" class="preloaded-trigger">
+               <span id="preloadedLabel">Select trace…</span>
+               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+@@ -1180,9 +1594,30 @@
+           <span class="or-divider" style="color: var(--text-dim); font-size: 12px; margin: 0 8px;">or</span>
+           <button id="uploadBtn" class="primary">Upload original.txt</button>
+           <input type="file" id="trajectoryInput" accept=".txt,text/plain" />
+-          <span id="trajectoryFileName">no file chosen</span>
+           <label>&epsilon; <input type="number" id="epsilonInput" value="0.9" step="0.1" min="0.001" /></label>
+           <label>&delta; <input type="number" id="deltaInput" value="500" step="10" min="1" /></label>
++          <div class="header-baseline" aria-label="Baseline algorithm to benchmark against">
++            <span class="header-baseline-label">Baseline:</span>
++            <div class="baseline-algo-row" id="headerBaselineAlgoRow" role="group" aria-label="Baseline algorithms">
++              <button type="button" class="baseline-algo-pill" data-algo="dots" aria-pressed="false">DOTS</button>
++              <button type="button" class="baseline-algo-pill" data-algo="dp" aria-pressed="false">DP</button>
++              <button type="button" class="baseline-algo-pill" data-algo="squish" aria-pressed="false">SQUISH</button>
++            </div>
++            <label class="baseline-field baseline-field--inline" id="headerBaselineLssdField" hidden>
++              <span><span class="baseline-param-owner owner-dots">DOTS</span> LSSD</span>
++              <input type="number" id="headerBaselineLssdInput" value="1000" step="1" min="0.000001" />
++              <span class="baseline-field-unit" title="Thousand">K</span>
++            </label>
++            <label class="baseline-field baseline-field--inline" id="headerBaselineDpEpsField" hidden>
++              <span><span class="baseline-param-owner owner-dp">DP</span> PED ε</span>
++              <input type="number" id="headerBaselineDpEpsInput" value="0.9" step="0.1" min="0.000000001" />
++            </label>
++            <label class="baseline-field baseline-field--inline" id="headerBaselineSquishRatioField" hidden>
++              <span><span class="baseline-param-owner owner-squish">SQUISH</span> Ratio</span>
++              <input type="number" id="headerBaselineSquishRatioInput" value="20" step="1" min="0.01" max="100" />
++              <span class="baseline-field-unit" title="Percent">%</span>
++            </label>
++          </div>
+           <button id="loadBtn" class="primary">Load Trace</button>
+           <span class="sub" id="uploadStatus"></span>
+         </div>
+@@ -1192,6 +1627,7 @@
+         <h2>Instructions</h2>
+         <ul>
+           <li>Select a preloaded trajectory.</li>
++          <li>Optionally pick a <b>Baseline</b> (e.g. DOTS) to benchmark against.</li>
+           <li>Adjust <b>&epsilon;</b> and <b>&delta;</b>, then tap <b>Load Trace</b>.</li>
+           <li>Drag the visualization to pan and pinch to zoom.</li>
+           <li>Use <b>Controls</b> to view status and toggle layers.</li>
+@@ -1202,6 +1638,78 @@
+   </header>
+   <main>
+     <div id="mainContent">
++      <div id="resultsPanelBackdrop" class="results-panel-backdrop" hidden></div>
++      <aside id="resultsPanel" hidden aria-label="Results compare">
++        <div class="results-panel-header">
++          <h2>Results</h2>
++          <button type="button" id="resultsPanelClose" class="results-panel-close" aria-label="Close results panel">
++            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
++          </button>
++        </div>
++        <div class="results-panel-body">
++          <div>
++            <p class="results-section-label">Baseline algorithm</p>
++            <div class="baseline-controls">
++              <div class="baseline-algo-row" id="baselineAlgoRow" role="group" aria-label="Baseline algorithms">
++                <button type="button" class="baseline-algo-pill" data-algo="dots" aria-pressed="false">DOTS</button>
++                <button type="button" class="baseline-algo-pill" data-algo="dp" aria-pressed="false">DP</button>
++                <button type="button" class="baseline-algo-pill" data-algo="squish" aria-pressed="false">SQUISH</button>
++              </div>
++              <div id="baselineParamFields" class="baseline-param-fields">
++                <label class="baseline-field" id="baselineLssdField" hidden>
++                  <span><span class="baseline-param-owner owner-dots">DOTS</span> LSSD</span>
++                  <div class="baseline-field-input-row">
++                    <input type="number" id="baselineLssdInput" value="1000" step="1" min="0.000001" />
++                    <span class="baseline-field-unit" title="Thousand">K</span>
++                  </div>
++                </label>
++                <label class="baseline-field" id="baselineDpEpsField" hidden>
++                  <span><span class="baseline-param-owner owner-dp">DP</span> PED ε</span>
++                  <input type="number" id="baselineDpEpsInput" value="0.9" step="0.1" min="0.000000001" />
++                </label>
++                <label class="baseline-field" id="baselineSquishRatioField" hidden>
++                  <span><span class="baseline-param-owner owner-squish">SQUISH</span> Ratio</span>
++                  <div class="baseline-field-input-row">
++                    <input type="number" id="baselineSquishRatioInput" value="20" step="1" min="0.01" max="100" />
++                    <span class="baseline-field-unit" title="Percent">%</span>
++                  </div>
++                </label>
++              </div>
++              <button type="button" id="baselineRunBtn" class="baseline-run-btn" disabled>Run baseline</button>
++              <p id="baselineStatus" class="baseline-status"></p>
++            </div>
++          </div>
++          <div>
++            <p class="results-section-label">Compare</p>
++            <p id="compareOriginalCount" class="compare-original-count" hidden></p>
++            <div class="compare-metrics-wrap">
++            <table class="compare-metrics-table" id="compareMetricsTable">
++              <thead>
++                <tr id="compareMetricsHead">
++                  <th>Metric</th>
++                  <th>Simplify</th>
++                </tr>
++              </thead>
++              <tbody id="compareMetricsBody">
++                <tr><td colspan="2" class="compare-metrics-empty">Load a trace, then run a baseline.</td></tr>
++              </tbody>
++            </table>
++            </div>
++            <p class="compare-metrics-footer">
++              Frechet is the discrete Fréchet distance of each simplified curve against the original trajectory.
++              <a href="https://en.wikipedia.org/wiki/Fr%C3%A9chet_distance" target="_blank" rel="noopener noreferrer">What is Fréchet distance?</a>
++            </p>
++            <p id="compareFrechetNote" class="compare-frechet-note" hidden></p>
++          </div>
++        </div>
++        <div id="resultsPanelResizer" class="results-panel-resizer" role="separator" aria-orientation="vertical" aria-label="Resize results panel"></div>
++      </aside>
++      <button type="button" id="resultsPanelOpen" class="results-panel-open-btn" aria-controls="resultsPanel" aria-expanded="false" title="Open results panel">
++        <span class="results-panel-open-arrow" aria-hidden="true">
++          <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
++        </span>
++        <span class="results-panel-open-label">Results</span>
++      </button>
+       <div id="canvasWrap">
+         <div id="canvasContainer">
+           <canvas id="canvas"></canvas>
+@@ -1221,7 +1729,7 @@
+             </div>
+             <div class="big">Upload a trajectory to get started</div>
+             <div class="dropHint-sub">
+-              Click <b>Upload original.txt</b> or select a <b>preloaded trace</b>, pick &epsilon;/&delta;, then <b>Load Trace</b>
++              Click <b>Upload original.txt</b> or select a <b>preloaded trace</b>, pick a <b>Baseline</b> to benchmark against, set &epsilon;/&delta;, then <b>Load Trace</b>
+             </div>
+             <div class="dropHint-format">
+               Format: first line <code>N</code>, then <code>N</code> lines of <code>"x y"</code>
+@@ -1329,35 +1837,52 @@
+           Layers
+           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+         </button>
+-        <div class="toggle-row">
+-          <label><input type="checkbox" id="toggle-stream" checked /><span class="swatch" style="background:#5a6272"></span>Full stream</label>
+-        </div>
+-        <div class="toggle-row">
+-          <label><input type="checkbox" id="toggle-simplified" checked /><span class="swatch" style="background:#3ddc97"></span>Simplified so far</label>
+-        </div>
+-        <div class="toggle-row">
+-          <label><input type="checkbox" id="toggle-ball-p0" checked /><span class="swatch" style="background:#c47aff"></span>\(B_p\) (δ-ball at start vertex)</label>
+-        </div>
+-        <div class="toggle-row">
+-          <label><input type="checkbox" id="toggle-ball-pi" checked /><span class="swatch" style="background:#ff7ae8"></span>\(B_{v_i}\) (δ-ball at current vertex)</label>
+-        </div>
+-        <div class="toggle-row">
+-          <label><input type="checkbox" id="toggle-Gi" checked /><span class="swatch" style="background:#e8c547"></span>\(\mathrm{conv}(G_{v_i})\)</label>
+-        </div>
+-        <div class="toggle-row">
+-          <label><input type="checkbox" id="toggle-F" checked /><span class="swatch" style="background:#4f9dff"></span>\(F(S_{i-1}[p], p)\)</label>
+-        </div>
+-        <div class="toggle-row">
+-          <label><input type="checkbox" id="toggle-F-Si" /><span class="swatch" style="background:#22d3ee"></span>\(F(S_i[p], p)\)</label>
+-        </div>
+-        <div class="toggle-row">
+-          <label><input type="checkbox" id="toggle-S" checked /><span class="swatch" style="background:#a78bfa"></span>\(S_i[p] = \mathrm{conv}(G_{v_i}) \cap F(S_{i-1}[p], p)\)</label>
+-        </div>
+-        <div class="toggle-row">
+-          <label><input type="checkbox" id="toggle-P" checked /><span class="swatch" style="background:#ff9f43"></span>\(P\) (boundary anchors in \(G_{v_0}\) )</label>
+-        </div>
+-        <div class="toggle-row">
+-          <label><input type="checkbox" id="toggle-dead-candidates" checked /><span class="swatch" style="background:#ff3c3c"></span>Dead candidates</label>
++        <div class="layer-accordion" id="layerAccordion">
++          <details class="layer-acc" id="accordionSimplify" open>
++            <summary>Simplify</summary>
++            <div class="layer-acc-body">
++              <div class="toggle-row">
++                <label><input type="checkbox" id="toggle-stream" checked /><span class="swatch" style="background:#5a6272"></span>Full stream</label>
++              </div>
++              <div class="toggle-row">
++                <label><input type="checkbox" id="toggle-simplified" checked /><span class="swatch" style="background:#3ddc97"></span>Simplified so far</label>
++              </div>
++              <div class="toggle-row">
++                <label><input type="checkbox" id="toggle-final-simplify" /><span class="swatch" style="background:#3ddc97"></span>Final simplified</label>
++              </div>
++              <div class="toggle-row">
++                <label><input type="checkbox" id="toggle-ball-p0" checked /><span class="swatch" style="background:#c47aff"></span>\(B_p\) (δ-ball at start vertex)</label>
++              </div>
++              <div class="toggle-row">
++                <label><input type="checkbox" id="toggle-ball-pi" checked /><span class="swatch" style="background:#ff7ae8"></span>\(B_{v_i}\) (δ-ball at current vertex)</label>
++              </div>
++              <div class="toggle-row">
++                <label><input type="checkbox" id="toggle-Gi" checked /><span class="swatch" style="background:#e8c547"></span>\(\mathrm{conv}(G_{v_i})\)</label>
++              </div>
++              <div class="toggle-row">
++                <label><input type="checkbox" id="toggle-F" checked /><span class="swatch" style="background:#4f9dff"></span>\(F(S_{i-1}[p], p)\)</label>
++              </div>
++              <div class="toggle-row">
++                <label><input type="checkbox" id="toggle-F-Si" /><span class="swatch" style="background:#22d3ee"></span>\(F(S_i[p], p)\)</label>
++              </div>
++              <div class="toggle-row">
++                <label><input type="checkbox" id="toggle-S" checked /><span class="swatch" style="background:#a78bfa"></span>\(S_i[p] = \mathrm{conv}(G_{v_i}) \cap F(S_{i-1}[p], p)\)</label>
++              </div>
++              <div class="toggle-row">
++                <label><input type="checkbox" id="toggle-P" checked /><span class="swatch" style="background:#ff9f43"></span>\(P\) (boundary anchors in \(G_{v_0}\) )</label>
++              </div>
++              <div class="toggle-row">
++                <label><input type="checkbox" id="toggle-dead-candidates" checked /><span class="swatch" style="background:#ff3c3c"></span>Dead candidates</label>
++              </div>
++            </div>
++          </details>
++          <details class="layer-acc" id="accordionBaseline">
++            <summary id="accordionBaselineSummary">Baseline</summary>
++            <div class="layer-acc-body">
++              <div id="baselineLayerToggles"></div>
++              <p id="baselineLayerHint" class="baseline-layer-hint">Run a baseline from the Results panel to enable these layers.</p>
++            </div>
++          </details>
+         </div>
+       </div>
+ 
+@@ -1437,6 +1962,6 @@
+   </svg>
+ </button>
+ 
+-<script src="viewer.js"></script>
++<script src="viewer.js?v=baseline-hidden-1"></script>
+ </body>
+ </html>
+diff --git a/web/server.py b/web/server.py
+index 93b5a15..379cb5d 100644
+--- a/web/server.py
++++ b/web/server.py
+@@ -12,6 +12,7 @@ import uuid
+ import shutil
+ import json
+ import gzip
++import re
+ from pathlib import Path
+ from flask import Flask, request, jsonify, send_from_directory, Response
+ 
+@@ -21,10 +22,85 @@ app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024  # 50MB max upload
+ # Resolve repo root (server.py lives in web/, repo root is parent)
+ REPO_ROOT = Path(__file__).parent.parent.resolve()
+ SIMPLIFY_BIN = REPO_ROOT / "build" / "simplify"
++DOTS_BIN = REPO_ROOT / "build" / "dots"
++DP_BIN = REPO_ROOT / "build" / "dp"
++SQUISH_BIN = REPO_ROOT / "build" / "squish"
+ FRECHET_BIN  = REPO_ROOT / "scripts" / "frechet.jl"
+ DATA_DIR = REPO_ROOT / "data"
+ WEB_DIR = REPO_ROOT / "web"
+ 
++# Baseline polyline files under data/<id>/ (first hit wins per layer key).
++LAYER_FILES = {
++    'dots': ('dots_simplified.txt', 'DOTS.txt'),
++    'dp': ('dp_simplified.txt', 'DP.txt'),
++    'squish': ('squish_simplified.txt', 'SQUISH.txt'),
++    'simplify': ('simplify.txt',),
++}
++
++BASELINE_ALGOS = {
++    'dots': {
++        'label': 'DOTS',
++        'bin': DOTS_BIN,
++        'core_ms_re': r'DOTS_CORE_MS:\s*([\d.]+)',
++        'files': LAYER_FILES['dots'],
++    },
++    'dp': {
++        'label': 'DP',
++        'bin': DP_BIN,
++        'core_ms_re': r'DP_CORE_MS:\s*([\d.]+)',
++        'files': LAYER_FILES['dp'],
++    },
++    'squish': {
++        'label': 'SQUISH',
++        'bin': SQUISH_BIN,
++        'core_ms_re': r'SQUISH_CORE_MS:\s*([\d.]+)',
++        'files': LAYER_FILES['squish'],
++    },
++}
++
++
++def read_xy_polyline(path: Path):
++    """Parse N\\n x y files used by simplify/dots. Returns list[[x,y]] or None."""
++    if not path.exists():
++        return None
++    try:
++        with open(path, 'r') as f:
++            first = f.readline().strip()
++            if not first:
++                return None
++            n = int(first)
++            points = []
++            for _ in range(n):
++                line = f.readline()
++                if not line:
++                    break
++                parts = line.split()
++                if len(parts) >= 2:
++                    points.append([float(parts[0]), float(parts[1])])
++            return points if points else None
++    except Exception:
++        return None
++
++
++def load_trace_layers(trace_id: int):
++    """Load available compare layers for a preloaded trace id."""
++    trace_dir = DATA_DIR / str(trace_id)
++    layers = {}
++    sources = {}
++    for key, names in LAYER_FILES.items():
++        for name in names:
++            pts = read_xy_polyline(trace_dir / name)
++            if pts is not None:
++                layers[key] = pts
++                sources[key] = name
++                break
++    original = read_xy_polyline(trace_dir / 'original.txt')
++    if original is not None:
++        layers['original'] = original
++        sources['original'] = 'original.txt'
++    return layers, sources
++
++
+ def trace_json_response(tracejson):
+     """Return compact JSON, gzipped when the client supports it."""
+     payload = json.dumps(tracejson, separators=(',', ':')).encode('utf-8')
+@@ -188,6 +264,199 @@ def get_original_trace(trace_id):
+     except Exception as e:
+         return jsonify({'error': str(e)}), 500
+ 
++
++@app.route('/api/trace/<int:trace_id>/layers', methods=['GET'])
++def get_trace_layers(trace_id):
++    """
++    GET /api/trace/<id>/layers
++    Returns available compare polylines from data/<id>/ (original, simplify, dots).
++    Missing files are omitted from `layers`.
++    """
++    trace_dir = DATA_DIR / str(trace_id)
++    if not trace_dir.exists() or not (trace_dir / 'original.txt').exists():
++        return jsonify({'error': f'Trace {trace_id} not found'}), 404
++    layers, sources = load_trace_layers(trace_id)
++    return jsonify({
++        'trace_id': trace_id,
++        'layers': layers,
++        'sources': sources,
++        'available': sorted(layers.keys()),
++    })
++
++
++@app.route('/api/trace/<int:trace_id>/compare', methods=['GET'])
++def get_trace_compare(trace_id):
++    """
++    GET /api/trace/<id>/compare
++    Query:
++      algorithm: none|dots|dp|squish (default none)
++      run: 1 to execute the baseline binary
++      lssd: DOTS LSSD threshold (default 1e6 / 1000K)
++      epsilon: DP PED epsilon (default 0.9)
++      ratio: SQUISH compression ratio in (0, 1] (default 0.2)
++    """
++    trace_dir = DATA_DIR / str(trace_id)
++    if not trace_dir.exists() or not (trace_dir / 'original.txt').exists():
++        return jsonify({'error': f'Trace {trace_id} not found'}), 404
++
++    algorithm = (request.args.get('algorithm') or 'none').lower().strip()
++    if algorithm in ('', 'none', 'null'):
++        algorithm = 'none'
++    run = request.args.get('run', '0') in ('1', 'true', 'yes')
++    # Back-compat with earlier clients.
++    if request.args.get('run_dots', '0') in ('1', 'true', 'yes'):
++        algorithm = 'dots'
++        run = True
++
++    if algorithm not in ('none',) and algorithm not in BASELINE_ALGOS:
++        return jsonify({'error': f'Unknown algorithm: {algorithm}'}), 400
++
++    lssd = 1e6
++    dp_eps = 0.9
++    squish_ratio = 0.2
++    try:
++        if request.args.get('lssd') is not None:
++            lssd = float(request.args.get('lssd'))
++            if lssd <= 0:
++                return jsonify({'error': 'lssd must be positive'}), 400
++        if request.args.get('epsilon') is not None:
++            dp_eps = float(request.args.get('epsilon'))
++            if dp_eps <= 0:
++                return jsonify({'error': 'epsilon must be positive'}), 400
++        if request.args.get('ratio') is not None:
++            squish_ratio = float(request.args.get('ratio'))
++            if squish_ratio <= 0 or squish_ratio > 1:
++                return jsonify({'error': 'ratio must be in (0, 1]'}), 400
++    except ValueError:
++        return jsonify({'error': 'Invalid numeric baseline parameter'}), 400
++
++    baseline_core_ms = None
++    baseline_error = None
++    baseline_label = BASELINE_ALGOS[algorithm]['label'] if algorithm in BASELINE_ALGOS else None
++
++    if algorithm in BASELINE_ALGOS and run:
++        meta = BASELINE_ALGOS[algorithm]
++        binary = meta['bin']
++        if not binary.exists():
++            baseline_error = f'{algorithm} binary not found at {binary}'
++        else:
++            original = trace_dir / 'original.txt'
++            out_name = meta['files'][0]
++            out_path = trace_dir / out_name
++            if algorithm == 'dots':
++                cmd = [str(binary), str(trace_id), '-lssd', str(lssd)]
++                cwd = REPO_ROOT / 'build'
++            elif algorithm == 'dp':
++                cmd = [str(binary), str(original), str(dp_eps), str(out_path)]
++                cwd = REPO_ROOT
++            else:
++                cmd = [str(binary), str(original), str(squish_ratio), str(out_path)]
++                cwd = REPO_ROOT
++            try:
++                result = subprocess.run(
++                    cmd,
++                    cwd=cwd,
++                    capture_output=True,
++                    text=True,
++                    timeout=120,
++                )
++                out = (result.stdout or '') + (result.stderr or '')
++                m = re.search(meta['core_ms_re'], out)
++                if m:
++                    baseline_core_ms = float(m.group(1))
++                if result.returncode != 0 and baseline_core_ms is None:
++                    baseline_error = (result.stderr or result.stdout or f'{algorithm} failed').strip()
++            except Exception as e:
++                baseline_error = str(e)
++
++    layers, sources = load_trace_layers(trace_id)
++    if algorithm in BASELINE_ALGOS and algorithm in layers:
++        layers['baseline'] = layers[algorithm]
++        sources['baseline'] = sources.get(algorithm)
++
++    metrics = {
++        'algorithm': algorithm,
++        'baseline_label': baseline_label,
++        'lssd': lssd if algorithm == 'dots' else None,
++        'epsilon': dp_eps if algorithm == 'dp' else None,
++        'ratio': squish_ratio if algorithm == 'squish' else None,
++        'original_points': len(layers['original']) if 'original' in layers else None,
++        'simplify_points': len(layers['simplify']) if 'simplify' in layers else None,
++        'baseline_points': len(layers['baseline']) if 'baseline' in layers else None,
++        'baseline_core_ms': baseline_core_ms,
++        'simplify_core_ms': None,
++        'dots_points': len(layers['dots']) if 'dots' in layers else None,
++        'dots_core_ms': baseline_core_ms if algorithm == 'dots' else None,
++    }
++    return jsonify({
++        'trace_id': trace_id,
++        'algorithm': algorithm,
++        'layers': layers,
++        'sources': sources,
++        'available': sorted(layers.keys()),
++        'metrics': metrics,
++        'baseline_error': baseline_error,
++        'dots_error': baseline_error if algorithm == 'dots' else None,
++        'algorithms': [
++            {'id': 'dots', 'label': 'DOTS', 'params': [
++                {'id': 'lssd', 'label': 'DOTS LSSD', 'type': 'number', 'default': 1e6, 'unit': 'K', 'min': 1e-3, 'step': 1},
++            ]},
++            {'id': 'dp', 'label': 'DP', 'params': [
++                {'id': 'epsilon', 'label': 'DP PED ε', 'type': 'number', 'default': 0.9, 'min': 1e-9, 'step': 0.1},
++            ]},
++            {'id': 'squish', 'label': 'SQUISH', 'params': [
++                {'id': 'ratio', 'label': 'SQUISH Ratio', 'type': 'number', 'default': 20, 'unit': '%', 'min': 0.01, 'max': 100, 'step': 1},
++            ]},
++        ],
++    })
++
++
++@app.route('/api/trace/<int:trace_id>/frechet/<curve>', methods=['GET'])
++def frechet_existing_curve(trace_id, curve):
++    """
++    GET /api/trace/<id>/frechet/<curve>
++    Frechet distance between original.txt and an existing result file.
++    curve: simplify | dots
++    """
++    curve = curve.lower()
++    name_map = {
++        'simplify': ('simplify.txt',),
++        'dots': ('dots_simplified.txt', 'DOTS.txt'),
++        'dp': ('dp_simplified.txt', 'DP.txt'),
++        'squish': ('squish_simplified.txt', 'SQUISH.txt'),
++        'baseline': ('dots_simplified.txt', 'DOTS.txt', 'dp_simplified.txt', 'DP.txt',
++                     'squish_simplified.txt', 'SQUISH.txt'),
++    }
++    if curve not in name_map:
++        return jsonify({'error': f'Unknown curve {curve}'}), 400
++
++    trace_dir = DATA_DIR / str(trace_id)
++    original = trace_dir / 'original.txt'
++    if not original.exists():
++        return jsonify({'error': f'Trace {trace_id} not found'}), 404
++
++    simplified = None
++    for name in name_map[curve]:
++        candidate = trace_dir / name
++        if candidate.exists():
++            simplified = candidate
++            break
++    if simplified is None:
++        return jsonify({'error': f'No {curve} polyline file for trace {trace_id}'}), 404
++
++    request_id = f'{trace_id}_{curve}_{uuid.uuid4().hex[:8]}'
++    try:
++        distance = _run_frechet(request_id, original, simplified)
++        return jsonify({
++            'trace_id': trace_id,
++            'curve': curve,
++            'path': simplified.name,
++            'distance': distance,
++        })
++    except Exception as e:
++        return jsonify({'error': str(e)}), 500
++
++
+ @app.route('/api/trace/<int:trace_id>', methods=['GET'])
+ def get_trace(trace_id):
+     """
+diff --git a/web/viewer.js b/web/viewer.js
+index b10029a..2e5fcaf 100644
+--- a/web/viewer.js
++++ b/web/viewer.js
+@@ -20,6 +20,13 @@
+ 
+   const state = {
+     trace: null,        // parsed JSON
++    compare: null,      // baseline compare payload for Results panel
++    resultVisible: { original: true, simplify: false, dots: false, dp: false, squish: false },
++    baselineAlgos: [],
++    baselineLssd: 1e6, // stored as raw DOTS threshold; UI shows thousands (K)
++    baselineDpEps: 0.9,
++    baselineSquishRatio: 0.2,
++    baselineCache: {},
+     prefixIdx: 0,
+     stepIdx: 0,
+     candidateIdx: 0,     // which candidate to show F/S for (cycles through alive and dead)
+@@ -52,7 +59,6 @@
+ 
+   const uploadBtn = el("uploadBtn");
+   const trajectoryInput = el("trajectoryInput");
+-  const trajectoryFileName = el("trajectoryFileName");
+   const epsilonInput = el("epsilonInput");
+   const deltaInput = el("deltaInput");
+   const uploadStatus = el("uploadStatus");
+@@ -101,6 +107,636 @@
+     toggles[key] = el(`toggle-${key}`);
+   }
+ 
++  const resultsPanel = el("resultsPanel");
++  const resultsPanelBackdrop = el("resultsPanelBackdrop");
++  const resultsPanelOpen = el("resultsPanelOpen");
++  const resultsPanelClose = el("resultsPanelClose");
++  const compareMetricsBody = el("compareMetricsBody");
++  const compareMetricsHead = el("compareMetricsHead");
++  const compareOriginalCount = el("compareOriginalCount");
++  const compareFrechetNote = el("compareFrechetNote");
++  const toggleFinalSimplify = el("toggle-final-simplify");
++  const accordionBaseline = el("accordionBaseline");
++  const accordionBaselineSummary = el("accordionBaselineSummary");
++  const baselineLayerHint = el("baselineLayerHint");
++  const baselineLayerToggles = el("baselineLayerToggles");
++  const baselineAlgoRow = el("baselineAlgoRow");
++  const headerBaselineAlgoRow = el("headerBaselineAlgoRow");
++  const resultsPanelResizer = el("resultsPanelResizer");
++  const baselineLssdField = el("baselineLssdField");
++  const baselineLssdInput = el("baselineLssdInput");
++  const headerBaselineLssdField = el("headerBaselineLssdField");
++  const headerBaselineLssdInput = el("headerBaselineLssdInput");
++  const baselineDpEpsField = el("baselineDpEpsField");
++  const baselineDpEpsInput = el("baselineDpEpsInput");
++  const headerBaselineDpEpsField = el("headerBaselineDpEpsField");
++  const headerBaselineDpEpsInput = el("headerBaselineDpEpsInput");
++  const baselineSquishRatioField = el("baselineSquishRatioField");
++  const baselineSquishRatioInput = el("baselineSquishRatioInput");
++  const headerBaselineSquishRatioField = el("headerBaselineSquishRatioField");
++  const headerBaselineSquishRatioInput = el("headerBaselineSquishRatioInput");
++  const baselineRunBtn = el("baselineRunBtn");
++  const baselineStatus = el("baselineStatus");
++
++  function baselineAlgoRows() {
++    return [headerBaselineAlgoRow, baselineAlgoRow].filter(Boolean);
++  }
++
++  const LSSD_UNIT_K = 1000; // UI unit "K" = thousands
++
++  function lssdDisplayFromRaw(raw) {
++    return raw / LSSD_UNIT_K;
++  }
++
++  function lssdRawFromDisplay(display) {
++    return display * LSSD_UNIT_K;
++  }
++
++  function syncBaselineLssdInputs() {
++    const display = lssdDisplayFromRaw(state.baselineLssd);
++    const text = Number.isInteger(display) ? String(display) : String(display);
++    if (baselineLssdInput && document.activeElement !== baselineLssdInput) {
++      baselineLssdInput.value = text;
++    }
++    if (headerBaselineLssdInput && document.activeElement !== headerBaselineLssdInput) {
++      headerBaselineLssdInput.value = text;
++    }
++  }
++
++  function readBaselineLssdFromInputs() {
++    const rawDisplay = (document.activeElement === headerBaselineLssdInput && headerBaselineLssdInput)
++      ? headerBaselineLssdInput.value
++      : (baselineLssdInput?.value ?? headerBaselineLssdInput?.value);
++    const display = parseFloat(rawDisplay);
++    if (Number.isFinite(display) && display > 0) {
++      state.baselineLssd = lssdRawFromDisplay(display);
++      syncBaselineLssdInputs();
++    }
++    return state.baselineLssd;
++  }
++
++  function closeResultsPanel() {
++    document.body.classList.remove("results-panel-open");
++    if (resultsPanelOpen) resultsPanelOpen.setAttribute("aria-expanded", "false");
++    if (resultsPanelBackdrop) resultsPanelBackdrop.hidden = true;
++  }
++
++  function openResultsPanel() {
++    if (!resultsPanel || resultsPanel.hidden) return;
++    document.body.classList.add("results-panel-open");
++    if (resultsPanelOpen) resultsPanelOpen.setAttribute("aria-expanded", "true");
++    if (resultsPanelBackdrop) resultsPanelBackdrop.hidden = false;
++  }
++
++  function fmtNum(v, digits = 4) {
++    if (v == null || Number.isNaN(v)) return "—";
++    if (typeof v !== "number") return String(v);
++    if (v === 0) return "0";
++    const abs = Math.abs(v);
++    // Avoid showing 3.8e-10 as "0.0000" (looks wrongly exact).
++    if (abs < 1e-3 || abs >= 1e6) return v.toExponential(3);
++    return v.toFixed(digits);
++  }
++
++  const BASELINE_ORDER = ["dots", "dp", "squish"];
++  const BASELINE_COLORS = { dots: "#f472b6", dp: "#a78bfa", squish: "#fb923c" };
++
++  function baselineAlgoLabel(algo) {
++    if (algo === "dots") return "DOTS";
++    if (algo === "dp") return "DP";
++    if (algo === "squish") return "SQUISH";
++    return "Baseline";
++  }
++
++  function selectedBaselineAlgos() {
++    return BASELINE_ORDER.filter((a) => state.baselineAlgos.includes(a));
++  }
++
++  function setBaselineStatus(text, kind) {
++    if (!baselineStatus) return;
++    baselineStatus.textContent = text || "";
++    baselineStatus.classList.remove("error", "ok");
++    if (kind) baselineStatus.classList.add(kind);
++  }
++
++  function syncBaselinePills() {
++    const selected = new Set(state.baselineAlgos);
++    for (const row of baselineAlgoRows()) {
++      for (const btn of row.querySelectorAll(".baseline-algo-pill")) {
++        const on = selected.has(btn.dataset.algo);
++        btn.classList.toggle("active", on);
++        btn.setAttribute("aria-pressed", String(on));
++      }
++    }
++  }
++
++  function toggleBaselineAlgo(algo) {
++    if (!BASELINE_ORDER.includes(algo)) return;
++    const i = state.baselineAlgos.indexOf(algo);
++    if (i >= 0) {
++      state.baselineAlgos.splice(i, 1);
++      state.resultVisible[algo] = false;
++    } else {
++      state.baselineAlgos.push(algo);
++    }
++    const labels = selectedBaselineAlgos().map(baselineAlgoLabel);
++    setBaselineStatus(
++      labels.length
++        ? (currentTraceId
++          ? `Selected ${labels.join(", ")}. Click Run baseline (or reload the trace to auto-run).`
++          : `Selected ${labels.join(", ")}. Load a preloaded trace to run the benchmark.`)
++        : ""
++    );
++    syncBaselinePills();
++    syncBaselineParamFields();
++    renderBaselineLayerToggles();
++    renderCompareMetrics();
++    render();
++  }
++
++  function baselineParamsFor(algo, { lssd, dpEps, squishRatio }) {
++    if (algo === "dots") return { lssd };
++    if (algo === "dp") return { epsilon: dpEps };
++    if (algo === "squish") return { ratio: squishRatio };
++    return {};
++  }
++
++  function baselineParamsEqual(a, b) {
++    if (!a || !b) return false;
++    const keys = Object.keys(a);
++    if (keys.length !== Object.keys(b).length) return false;
++    return keys.every((k) => a[k] === b[k]);
++  }
++
++  function baselineCacheKey(algo) {
++    return `${currentTraceId}:${algo}`;
++  }
++
++  function rememberBaselineRun(algo, params) {
++    if (!currentTraceId || !algo || !state.compare) return;
++    state.baselineCache[baselineCacheKey(algo)] = {
++      params: { ...params },
++      layers: state.compare.layers?.[algo] || null,
++      metrics: state.compare.metricsByAlgo?.[algo] || null,
++      frechet: state.compare.frechet?.byAlgo?.[algo] || null,
++    };
++  }
++
++  function restoreCachedBaseline(algo, params) {
++    const hit = state.baselineCache[baselineCacheKey(algo)];
++    if (!hit || !baselineParamsEqual(hit.params, params)) return false;
++    if (!Array.isArray(hit.layers) || !hit.layers.length) return false;
++    if (!state.compare) {
++      state.compare = {
++        layers: {},
++        metrics: {},
++        metricsByAlgo: {},
++        frechet: { simplify: null, byAlgo: {} },
++      };
++    }
++    state.compare.layers[algo] = hit.layers;
++    if (hit.metrics) state.compare.metricsByAlgo[algo] = hit.metrics;
++    state.compare.frechet = state.compare.frechet || { simplify: null, byAlgo: {} };
++    state.compare.frechet.byAlgo = state.compare.frechet.byAlgo || {};
++    if (hit.frechet) state.compare.frechet.byAlgo[algo] = hit.frechet;
++    return true;
++  }
++
++  function squishDisplayFromRaw(raw) {
++    return raw * 100;
++  }
++
++  function squishRawFromDisplay(display) {
++    return display / 100;
++  }
++
++  function syncPairedNumberInputs(a, b, value) {
++    const text = String(value);
++    if (a && document.activeElement !== a) a.value = text;
++    if (b && document.activeElement !== b) b.value = text;
++  }
++
++  function readPairedNumber(a, b, fallback) {
++    const raw = (document.activeElement === a && a)
++      ? a.value
++      : (a?.value ?? b?.value);
++    const v = parseFloat(raw);
++    return Number.isFinite(v) ? v : fallback;
++  }
++
++  function syncBaselineParamFields() {
++    const selected = new Set(selectedBaselineAlgos());
++    if (baselineLssdField) baselineLssdField.hidden = !selected.has("dots");
++    if (headerBaselineLssdField) headerBaselineLssdField.hidden = !selected.has("dots");
++    if (baselineDpEpsField) baselineDpEpsField.hidden = !selected.has("dp");
++    if (headerBaselineDpEpsField) headerBaselineDpEpsField.hidden = !selected.has("dp");
++    if (baselineSquishRatioField) baselineSquishRatioField.hidden = !selected.has("squish");
++    if (headerBaselineSquishRatioField) headerBaselineSquishRatioField.hidden = !selected.has("squish");
++    syncBaselineLssdInputs();
++    syncPairedNumberInputs(baselineDpEpsInput, headerBaselineDpEpsInput, state.baselineDpEps);
++    syncPairedNumberInputs(
++      baselineSquishRatioInput,
++      headerBaselineSquishRatioInput,
++      squishDisplayFromRaw(state.baselineSquishRatio)
++    );
++    if (baselineRunBtn) {
++      baselineRunBtn.disabled = !currentTraceId || selected.size === 0 || baselineRunBtn.dataset.busy === "1";
++      baselineRunBtn.textContent = selected.size > 1 ? "Run baselines" : "Run baseline";
++    }
++  }
++
++  function emptyCompareMessage(colspan) {
++    return `<tr><td colspan="${colspan}" class="compare-metrics-empty">Load a trace, then run a baseline.</td></tr>`;
++  }
++
++  function clearCompare() {
++    state.compare = null;
++    for (const a of BASELINE_ORDER) state.resultVisible[a] = false;
++    closeResultsPanel();
++    document.body.classList.remove("results-available");
++    if (resultsPanel) resultsPanel.hidden = true;
++    if (accordionBaselineSummary) accordionBaselineSummary.textContent = "Baseline";
++    if (baselineLayerHint) baselineLayerHint.hidden = false;
++    if (compareFrechetNote) {
++      compareFrechetNote.hidden = true;
++      compareFrechetNote.textContent = "";
++    }
++    if (compareOriginalCount) {
++      compareOriginalCount.hidden = true;
++      compareOriginalCount.textContent = "";
++    }
++    setBaselineStatus("");
++    renderBaselineLayerToggles();
++    renderCompareMetrics();
++    syncBaselineParamFields();
++  }
++
++  function syncLayerTogglesFromState() {
++    if (toggles.stream) toggles.stream.checked = !!state.resultVisible.original;
++    if (toggleFinalSimplify) toggleFinalSimplify.checked = !!state.resultVisible.simplify;
++    if (baselineLayerToggles) {
++      for (const input of baselineLayerToggles.querySelectorAll("input[data-baseline-algo]")) {
++        input.checked = !!state.resultVisible[input.dataset.baselineAlgo];
++      }
++    }
++  }
++
++  function renderBaselineLayerToggles() {
++    if (!baselineLayerToggles) return;
++    const ready = selectedBaselineAlgos().filter((a) => state.compare?.layers?.[a]?.length);
++    baselineLayerToggles.innerHTML = ready.map((a) => `
++      <div class="toggle-row">
++        <label>
++          <input type="checkbox" data-baseline-algo="${a}" ${state.resultVisible[a] ? "checked" : ""} />
++          <span class="swatch" style="background:${BASELINE_COLORS[a]}"></span>${baselineAlgoLabel(a)}
++        </label>
++      </div>`).join("");
++    if (baselineLayerHint) baselineLayerHint.hidden = ready.length > 0;
++    if (accordionBaselineSummary) {
++      accordionBaselineSummary.textContent = ready.length
++        ? ready.map(baselineAlgoLabel).join(" / ")
++        : "Baseline";
++    }
++  }
++
++  function winClass(values, idx) {
++    const nums = values.filter((v) => v != null && Number.isFinite(v));
++    if (nums.length < 2) return "";
++    const best = Math.min(...nums);
++    return values[idx] === best ? "win" : "";
++  }
++
++  function renderCompareMetrics() {
++    if (!compareMetricsBody) return;
++    const t = state.trace;
++    const c = state.compare;
++    const algos = selectedBaselineAlgos();
++    const colCount = 2 + algos.length;
++    const frechetSpinner =
++      '<span class="button-spinner params-spinner" aria-hidden="true"></span>';
++
++    if (compareMetricsHead) {
++      compareMetricsHead.innerHTML =
++        `<th>Metric</th><th>Simplify</th>` +
++        algos.map((a) => `<th>${baselineAlgoLabel(a)}</th>`).join("");
++    }
++
++    if (!t && !c) {
++      if (compareOriginalCount) {
++        compareOriginalCount.hidden = true;
++        compareOriginalCount.textContent = "";
++      }
++      compareMetricsBody.innerHTML = emptyCompareMessage(colCount);
++      return;
++    }
++
++    const nOrig = c?.metrics?.original_points ?? t?.stream?.length ?? null;
++    if (compareOriginalCount) {
++      if (nOrig != null) {
++        compareOriginalCount.hidden = false;
++        compareOriginalCount.innerHTML = `Original points: <b>${nOrig}</b>`;
++      } else {
++        compareOriginalCount.hidden = true;
++        compareOriginalCount.textContent = "";
++      }
++    }
++    const nSimp = t?.simplified?.length ?? c?.metrics?.simplify_points ?? null;
++    const simpMs = t?.time_ms ?? c?.metrics?.simplify_core_ms ?? null;
++    const simpFr = state.computedFrechet ?? c?.frechet?.simplify ?? null;
++    const simpFrLoading = !!state.computingFrechet;
++
++    const pct = (n, total) =>
++      (n != null && total) ? `${((100 * n) / total).toFixed(1)}%` : "—";
++
++    const basePts = algos.map((a) =>
++      c?.layers?.[a]?.length ?? c?.metricsByAlgo?.[a]?.points ?? null);
++    const baseMs = algos.map((a) => c?.metricsByAlgo?.[a]?.core_ms ?? null);
++    const baseFrLoading = algos.map((a) => !!c?.frechet?.byAlgo?.[a]?.loading);
++    const baseFr = algos.map((a) =>
++      baseFrLoading[algos.indexOf(a)] ? null : (c?.frechet?.byAlgo?.[a]?.value ?? null));
++
++    const ptsAll = [nSimp, ...basePts];
++    const msAll = [simpMs, ...baseMs];
++    const frAll = [
++      simpFrLoading ? null : simpFr,
++      ...algos.map((_, i) => (baseFrLoading[i] ? null : baseFr[i])),
++    ];
++
++    const cell = (html, win) => `<td class="${win ? "win" : ""}">${html}</td>`;
++    const numOrDash = (v, digits) => (v == null ? "—" : (typeof v === "number" ? fmtNum(v, digits) : String(v)));
++
++    const frSimpCell = simpFrLoading ? frechetSpinner : numOrDash(simpFr, 4);
++    const frBaseCells = algos.map((_, i) => baseFrLoading[i] ? frechetSpinner : numOrDash(baseFr[i], 4));
++
++    if (compareFrechetNote) {
++      const tiny = algos.some((a, i) => {
++        const v = baseFr[i];
++        const n = basePts[i];
++        return !baseFrLoading[i] && n != null && v != null && Math.abs(v) > 0 && Math.abs(v) < 1e-3;
++      });
++      if (tiny) {
++        compareFrechetNote.hidden = false;
++        compareFrechetNote.textContent =
++          "A baseline Frechet value is tiny but not exact zero; that can happen when the baseline keeps most of the original points.";
++      } else {
++        compareFrechetNote.hidden = true;
++        compareFrechetNote.textContent = "";
++      }
++    }
++
++    if (!algos.length) {
++      compareMetricsBody.innerHTML = `
++      <tr><td>Simplified points</td>${cell(nSimp ?? "—", false)}</tr>
++      <tr><td>Compression</td>${cell(pct(nSimp, nOrig), false)}</tr>
++      <tr><td>time (ms)</td>${cell(numOrDash(simpMs, 4), false)}</tr>
++      <tr><td>Frechet</td>${cell(frSimpCell, false)}</tr>`;
++      return;
++    }
++
++    compareMetricsBody.innerHTML = `
++      <tr>
++        <td>Simplified points</td>
++        ${cell(nSimp ?? "—", winClass(ptsAll, 0))}
++        ${algos.map((_, i) => cell(basePts[i] ?? "—", winClass(ptsAll, i + 1))).join("")}
++      </tr>
++      <tr>
++        <td>Compression</td>
++        ${cell(pct(nSimp, nOrig), winClass(ptsAll, 0))}
++        ${algos.map((_, i) => cell(pct(basePts[i], nOrig), winClass(ptsAll, i + 1))).join("")}
++      </tr>
++      <tr>
++        <td>time (ms)</td>
++        ${cell(numOrDash(simpMs, 4), winClass(msAll, 0))}
++        ${algos.map((_, i) => cell(numOrDash(baseMs[i], 4), winClass(msAll, i + 1))).join("")}
++      </tr>
++      <tr>
++        <td>Frechet</td>
++        ${cell(frSimpCell, winClass(frAll, 0))}
++        ${algos.map((_, i) => cell(frBaseCells[i], winClass(frAll, i + 1))).join("")}
++      </tr>
++    `;
++  }
++
++  function showResultsPanel(hasBaseline) {
++    if (!resultsPanel) return;
++    resultsPanel.hidden = false;
++    document.body.classList.add("results-available");
++    closeResultsPanel();
++
++    if (accordionBaseline) accordionBaseline.open = false;
++    renderBaselineLayerToggles();
++    syncLayerTogglesFromState();
++    syncBaselineParamFields();
++    renderCompareMetrics();
++  }
++
++  function applyComparePayload(data) {
++    const layersIn = data.layers || {};
++    const algo = data.algorithm || data.metrics?.algorithm || null;
++    if (!state.compare) {
++      state.compare = {
++        layers: {},
++        metrics: {},
++        metricsByAlgo: {},
++        frechet: { simplify: null, byAlgo: {} },
++      };
++    }
++    if (layersIn.original) state.compare.layers.original = layersIn.original;
++    if (layersIn.simplify) state.compare.layers.simplify = layersIn.simplify;
++    if (data.metrics) {
++      if (data.metrics.original_points != null) state.compare.metrics.original_points = data.metrics.original_points;
++      if (data.metrics.simplify_points != null) state.compare.metrics.simplify_points = data.metrics.simplify_points;
++      if (data.metrics.simplify_core_ms != null) state.compare.metrics.simplify_core_ms = data.metrics.simplify_core_ms;
++    }
++    if (algo && algo !== "none") {
++      const pts = layersIn[algo] || layersIn.baseline;
++      if (Array.isArray(pts) && pts.length) {
++        const copy = pts.map((p) => [p[0], p[1]]);
++        if (isSampleTraceId()) copy.forEach((p) => { p[1] += 500; });
++        state.compare.layers[algo] = copy;
++      }
++      state.compare.metricsByAlgo[algo] = {
++        label: data.metrics?.baseline_label || baselineAlgoLabel(algo),
++        points: data.metrics?.baseline_points ?? state.compare.layers[algo]?.length ?? null,
++        core_ms: data.metrics?.baseline_core_ms ?? null,
++        error: data.baseline_error || data.dots_error || null,
++      };
++    }
++    return selectedBaselineAlgos().some((a) => Array.isArray(state.compare.layers[a]) && state.compare.layers[a].length > 0);
++  }
++
++  async function loadCompare() {
++    clearCompare();
++    if (!currentTraceId) {
++      if (state.trace) showResultsPanel(false);
++      return;
++    }
++    try {
++      const resp = await fetch(`/api/trace/${currentTraceId}/compare?algorithm=none`);
++      if (!resp.ok) {
++        if (state.trace) showResultsPanel(false);
++        return;
++      }
++      const data = await resp.json();
++      applyComparePayload(data);
++      showResultsPanel(false);
++      if (selectedBaselineAlgos().length) {
++        setBaselineStatus(`Running selected baseline(s)…`);
++        await runSelectedBaseline();
++      } else {
++        setBaselineStatus("Choose one or more baseline algorithms and click Run.");
++      }
++    } catch (err) {
++      console.warn("[Compare] Failed to load compare shell:", err);
++      if (state.trace) showResultsPanel(false);
++    }
++  }
++
++  async function runSelectedBaseline() {
++    if (!currentTraceId) {
++      setBaselineStatus("Load a preloaded trace first.", "error");
++      return;
++    }
++    const algos = selectedBaselineAlgos();
++    if (!algos.length) {
++      setBaselineStatus("Select a baseline algorithm first.", "error");
++      return;
++    }
++
++    let lssd = state.baselineLssd;
++    let dpEps = state.baselineDpEps;
++    let squishRatio = state.baselineSquishRatio;
++    if (algos.includes("dots")) {
++      lssd = readBaselineLssdFromInputs();
++      if (!Number.isFinite(lssd) || lssd <= 0) {
++        setBaselineStatus("LSSD must be a positive number.", "error");
++        return;
++      }
++    }
++    if (algos.includes("dp")) {
++      dpEps = readPairedNumber(baselineDpEpsInput, headerBaselineDpEpsInput, state.baselineDpEps);
++      if (!Number.isFinite(dpEps) || dpEps <= 0) {
++        setBaselineStatus("DP PED ε must be a positive number.", "error");
++        return;
++      }
++      state.baselineDpEps = dpEps;
++      syncPairedNumberInputs(baselineDpEpsInput, headerBaselineDpEpsInput, dpEps);
++    }
++    if (algos.includes("squish")) {
++      const pct = readPairedNumber(
++        baselineSquishRatioInput,
++        headerBaselineSquishRatioInput,
++        squishDisplayFromRaw(state.baselineSquishRatio)
++      );
++      if (!Number.isFinite(pct) || pct <= 0 || pct > 100) {
++        setBaselineStatus("SQUISH ratio must be in (0, 100].", "error");
++        return;
++      }
++      squishRatio = squishRawFromDisplay(pct);
++      state.baselineSquishRatio = squishRatio;
++      syncPairedNumberInputs(
++        baselineSquishRatioInput,
++        headerBaselineSquishRatioInput,
++        squishDisplayFromRaw(squishRatio)
++      );
++    }
++
++    if (baselineRunBtn) {
++      baselineRunBtn.dataset.busy = "1";
++      baselineRunBtn.disabled = true;
++      baselineRunBtn.textContent = "Running…";
++    }
++
++    const errors = [];
++    const skipped = [];
++    const ran = [];
++    const needFrechet = [];
++    let anyReady = false;
++    try {
++      for (const algo of algos) {
++        const params = baselineParamsFor(algo, { lssd, dpEps, squishRatio });
++        if (restoreCachedBaseline(algo, params)) {
++          skipped.push(baselineAlgoLabel(algo));
++          anyReady = true;
++          const fr = state.compare.frechet?.byAlgo?.[algo];
++          if (fr == null || (fr.value == null && !fr.loading)) needFrechet.push(algo);
++          renderCompareMetrics();
++          renderBaselineLayerToggles();
++          continue;
++        }
++        setBaselineStatus(`Running ${baselineAlgoLabel(algo)}…`);
++        const qs = new URLSearchParams({ algorithm: algo, run: "1" });
++        if (algo === "dots") qs.set("lssd", String(lssd));
++        if (algo === "dp") qs.set("epsilon", String(dpEps));
++        if (algo === "squish") qs.set("ratio", String(squishRatio));
++        const resp = await fetch(`/api/trace/${currentTraceId}/compare?${qs.toString()}`);
++        if (!resp.ok) throw new Error(await apiErrorMessage(resp));
++        const data = await resp.json();
++        if (data.baseline_error || data.dots_error) {
++          errors.push(`${baselineAlgoLabel(algo)}: ${data.baseline_error || data.dots_error}`);
++        } else {
++          ran.push(algo);
++        }
++        if (applyComparePayload(data)) anyReady = true;
++        if (!(data.baseline_error || data.dots_error)) rememberBaselineRun(algo, params);
++        renderCompareMetrics();
++        renderBaselineLayerToggles();
++      }
++      if (errors.length) setBaselineStatus(errors.join(" "), "error");
++      else {
++        const ready = selectedBaselineAlgos().filter((a) => state.compare?.layers?.[a]?.length);
++        const bits = ready.map((a) => {
++          const n = state.compare.metricsByAlgo?.[a]?.points ?? state.compare.layers[a].length;
++          return `${baselineAlgoLabel(a)} (${n} pts)`;
++        });
++        const extra = skipped.length && !ran.length
++          ? " Parameters unchanged; reused previous run."
++          : (skipped.length ? ` Reused ${skipped.join(", ")} (unchanged).` : "");
++        setBaselineStatus((bits.length ? `${bits.join(", ")} ready.` : "Baselines ready.") + extra, "ok");
++      }
++      showResultsPanel(anyReady);
++      if (anyReady) {
++        openResultsPanel();
++        for (const algo of [...ran, ...needFrechet]) startBaselineFrechet(algo);
++        render();
++      }
++    } catch (err) {
++      console.warn("[Compare] Baseline run failed:", err);
++      setBaselineStatus(err.message || "Baseline run failed", "error");
++    } finally {
++      if (baselineRunBtn) {
++        baselineRunBtn.dataset.busy = "0";
++        syncBaselineParamFields();
++      }
++    }
++  }
++
++  function startBaselineFrechet(algo) {
++    if (!currentTraceId || !algo || !state.compare?.layers?.[algo]) return;
++    state.compare.frechet = state.compare.frechet || { byAlgo: {} };
++    state.compare.frechet.byAlgo = state.compare.frechet.byAlgo || {};
++    state.compare.frechet.byAlgo[algo] = { loading: true, value: null };
++    renderCompareMetrics();
++    fetch(`/api/trace/${currentTraceId}/frechet/${encodeURIComponent(algo)}`)
++      .then(async (r) => {
++        if (!r.ok) throw new Error(await apiErrorMessage(r));
++        return r.json();
++      })
++      .then((j) => {
++        if (!state.compare) return;
++        state.compare.frechet.byAlgo[algo] = { loading: false, value: j.distance };
++        const hit = state.baselineCache[baselineCacheKey(algo)];
++        if (hit) hit.frechet = state.compare.frechet.byAlgo[algo];
++        renderCompareMetrics();
++      })
++      .catch((err) => {
++        console.warn("[Compare] Baseline Frechet failed:", err);
++        if (!state.compare) return;
++        state.compare.frechet.byAlgo[algo] = { loading: false, value: null };
++        renderCompareMetrics();
++      });
++  }
++
+   // -------------------------------------------------------------------------
+   //  Play button state helper (defined early)
+   // -------------------------------------------------------------------------
+@@ -375,6 +1011,8 @@
+     if (window.MathJax) {
+       MathJax.typesetPromise([paramsBar]).catch(() => {});
+     }
++    // Fire-and-forget: Results strip + DOTS metrics after the live simplify trace.
++    loadCompare().then(() => render());
+   }
+ 
+   async function loadTraceStream(resp) {
+@@ -551,16 +1189,14 @@
+   uploadBtn.addEventListener("click", () => trajectoryInput.click());
+   trajectoryInput.addEventListener("change", async (e) => {
+     const f = e.target.files && e.target.files[0];
+-    trajectoryFileName.textContent = f ? f.name : "no file chosen";
+-    
+     if (!f) return;
+-    
++
+     currentFile = f;
+     currentTraceId = null;
++    clearCompare();
+     traceSelect.value = "";
+     syncPreloadedTrigger();
+-    uploadStatus.textContent = "File selected. Click 'Load Trace' to generate.";
+-    uploadStatus.style.color = "#8b93a3";
++    uploadStatus.textContent = "";
+   });
+ 
+   // Load button handler - generates trace from current file or preloaded trace
+@@ -745,6 +1381,36 @@
+     }
+   }
+ 
++  function fitTraceSelectWidth() {
++    if (!traceSelect) return;
++    // Mobile uses the full-width trigger; only size the desktop native select.
++    if (window.matchMedia && window.matchMedia("(max-width: 720px)").matches) {
++      traceSelect.style.width = "";
++      return;
++    }
++    const probe = document.createElement("span");
++    const cs = getComputedStyle(traceSelect);
++    probe.style.cssText = [
++      "position:absolute",
++      "visibility:hidden",
++      "white-space:nowrap",
++      "pointer-events:none",
++      `font:${cs.font}`,
++      `letter-spacing:${cs.letterSpacing}`,
++    ].join(";");
++    document.body.appendChild(probe);
++    let max = 0;
++    for (const opt of traceSelect.options) {
++      if (opt.disabled) continue;
++      probe.textContent = opt.textContent || "";
++      max = Math.max(max, probe.offsetWidth);
++    }
++    probe.remove();
++    // Native select needs room for padding + dropdown arrow.
++    traceSelect.style.width = `${Math.ceil(max + 28)}px`;
++    traceSelect.style.maxWidth = "none";
++  }
++
+   if (preloadedTrigger) preloadedTrigger.addEventListener("click", openTracePicker);
+   if (tracePickerClose) tracePickerClose.addEventListener("click", closeTracePicker);
+   if (tracePickerBackdrop) tracePickerBackdrop.addEventListener("click", closeTracePicker);
+@@ -897,6 +1563,7 @@
+             traceSelect.appendChild(opt);
+           });
+           renderTracePicker();
++          fitTraceSelectWidth();
+           console.log(`[Traces] Added ${data.traces.length} traces to dropdown`);
+         } else {
+           console.warn('[Traces] No traces in response');
+@@ -917,6 +1584,7 @@
+       state.trace = null;
+       currentFile = null;
+       currentTraceId = null;
++      clearCompare();
+       render();
+       uploadStatus.textContent = "";
+       dropHint.style.display = "flex";
+@@ -929,7 +1597,6 @@
+ 
+     currentTraceId = traceId;
+     currentFile = null;
+-    trajectoryFileName.textContent = "no file chosen";
+     syncPreloadedTrigger();
+     if (headerBody && headerBody.classList.contains("open")) closeHeader();
+ 
+@@ -938,9 +1605,7 @@
+     if (meta && meta.epsilon != null) epsilonInput.value = meta.epsilon;
+     if (meta && meta.delta   != null) deltaInput.value   = meta.delta;
+ 
+-    const name = (meta && meta.label) ? meta.label : `Trace ${traceId}`;
+-    uploadStatus.textContent = `${name} selected. Click 'Load Trace' to generate.`;
+-    uploadStatus.style.color = "#8b93a3";
++    uploadStatus.textContent = "";
+   });
+ 
+   function computeBBox(points) {
+@@ -1405,7 +2070,9 @@
+     if (!state.trace) return;
+     resetFrechetState();
+     state.computingFrechet = true;
++    if (state.compare?.frechet) state.compare.frechet.simplify = null;
+     renderParamsBar();
++    renderCompareMetrics();
+ 
+     try {
+       let body;
+@@ -1432,11 +2099,13 @@
+       state.computedFrechet = data.distance;
+       state.computingFrechet = false;
+       renderParamsBar();
++      renderCompareMetrics();
+     } catch (e) {
+       console.error('Fréchet computation error:', e);
+       state.computingFrechet = false;
+       state.frechetError = e.message || "failed";
+       renderParamsBar();
++      renderCompareMetrics();
+     }
+   }
+ 
+@@ -1487,7 +2156,131 @@
+     }
+   });
+ 
+-  for (const t of Object.values(toggles)) t.addEventListener("change", render);
++  for (const t of Object.values(toggles)) {
++    if (t) t.addEventListener("change", () => {
++      if (t === toggles.stream) state.resultVisible.original = t.checked;
++      render();
++    });
++  }
++  if (toggleFinalSimplify) {
++    toggleFinalSimplify.addEventListener("change", () => {
++      state.resultVisible.simplify = toggleFinalSimplify.checked;
++      render();
++    });
++  }
++  if (baselineLayerToggles) {
++    baselineLayerToggles.addEventListener("change", (e) => {
++      const input = e.target.closest("input[data-baseline-algo]");
++      if (!input) return;
++      state.resultVisible[input.dataset.baselineAlgo] = input.checked;
++      render();
++    });
++  }
++
++  function onBaselineAlgoPillClick(e) {
++    const btn = e.target.closest(".baseline-algo-pill");
++    if (!btn) return;
++    const row = btn.closest(".baseline-algo-row");
++    if (!row || !baselineAlgoRows().includes(row)) return;
++    toggleBaselineAlgo(btn.dataset.algo || "none");
++  }
++
++  for (const row of baselineAlgoRows()) {
++    row.addEventListener("click", onBaselineAlgoPillClick);
++  }
++
++  function onBaselineLssdChange(input) {
++    if (!input) return;
++    input.addEventListener("change", () => {
++      const display = parseFloat(input.value);
++      if (Number.isFinite(display) && display > 0) {
++        state.baselineLssd = lssdRawFromDisplay(display);
++        syncBaselineLssdInputs();
++      }
++    });
++  }
++  onBaselineLssdChange(baselineLssdInput);
++  onBaselineLssdChange(headerBaselineLssdInput);
++
++  function onPairedNumberChange(input, key, validate) {
++    if (!input) return;
++    input.addEventListener("change", () => {
++      const v = parseFloat(input.value);
++      if (!validate(v)) return;
++      if (key === "baselineDpEps") {
++        state.baselineDpEps = v;
++        syncPairedNumberInputs(baselineDpEpsInput, headerBaselineDpEpsInput, v);
++      } else if (key === "baselineSquishRatio") {
++        state.baselineSquishRatio = squishRawFromDisplay(v);
++        syncPairedNumberInputs(
++          baselineSquishRatioInput,
++          headerBaselineSquishRatioInput,
++          v
++        );
++      }
++    });
++  }
++  onPairedNumberChange(baselineDpEpsInput, "baselineDpEps", (v) => Number.isFinite(v) && v > 0);
++  onPairedNumberChange(headerBaselineDpEpsInput, "baselineDpEps", (v) => Number.isFinite(v) && v > 0);
++  onPairedNumberChange(baselineSquishRatioInput, "baselineSquishRatio", (v) => Number.isFinite(v) && v > 0 && v <= 100);
++  onPairedNumberChange(headerBaselineSquishRatioInput, "baselineSquishRatio", (v) => Number.isFinite(v) && v > 0 && v <= 100);
++
++  if (baselineRunBtn) {
++    baselineRunBtn.addEventListener("click", () => { runSelectedBaseline(); });
++  }
++  syncBaselinePills();
++  syncBaselineParamFields();
++
++  if (resultsPanelOpen) {
++    resultsPanelOpen.addEventListener("click", () => openResultsPanel());
++  }
++  if (resultsPanelClose) {
++    resultsPanelClose.addEventListener("click", () => closeResultsPanel());
++  }
++  if (resultsPanelBackdrop) {
++    resultsPanelBackdrop.addEventListener("click", () => {
++      if (document.body.classList.contains("results-panel-resizing")) return;
++      closeResultsPanel();
++    });
++  }
++
++  // Adjustable Results panel width.
++  if (resultsPanel && resultsPanelResizer) {
++    const storedWidth = Number.parseFloat(localStorage.getItem("resultsPanelWidth") || "");
++    if (Number.isFinite(storedWidth) && storedWidth >= 260) {
++      document.documentElement.style.setProperty("--results-panel-width", `${storedWidth}px`);
++    }
++    let resizing = false;
++    let startX = 0;
++    let startWidth = 0;
++    const onMove = (e) => {
++      if (!resizing) return;
++      const dx = e.clientX - startX;
++      const maxW = Math.min(window.innerWidth * 0.8, 720);
++      const next = Math.max(260, Math.min(maxW, startWidth + dx));
++      document.documentElement.style.setProperty("--results-panel-width", `${next}px`);
++    };
++    const onUp = () => {
++      if (!resizing) return;
++      resizing = false;
++      document.body.classList.remove("results-panel-resizing");
++      window.removeEventListener("pointermove", onMove);
++      window.removeEventListener("pointerup", onUp);
++      const raw = getComputedStyle(document.documentElement).getPropertyValue("--results-panel-width").trim();
++      const px = Number.parseFloat(raw);
++      if (Number.isFinite(px)) localStorage.setItem("resultsPanelWidth", String(px));
++    };
++    resultsPanelResizer.addEventListener("pointerdown", (e) => {
++      if (resultsPanel.hidden || !document.body.classList.contains("results-panel-open")) return;
++      e.preventDefault();
++      resizing = true;
++      startX = e.clientX;
++      startWidth = resultsPanel.getBoundingClientRect().width;
++      document.body.classList.add("results-panel-resizing");
++      window.addEventListener("pointermove", onMove);
++      window.addEventListener("pointerup", onUp);
++    });
++  }
+ 
+   // -------------------------------------------------------------------------
+   //  Drawing helpers
+@@ -1711,7 +2504,10 @@
+     if (mobilePlayBtn) mobilePlayBtn.disabled = traceNotReady;
+ 
+     // 1. Full input stream (faint polyline + small filled dots).
+-    if (toggles.stream.checked) {
++    const showOriginal = toggles.stream
++      ? toggles.stream.checked
++      : !!state.resultVisible.original;
++    if (showOriginal) {
+       strokePath(t.stream, "#3d4456", 1.25);
+       
+       // Collect all simplified output points to avoid drawing them twice
+@@ -1768,6 +2564,23 @@
+       }
+     }
+ 
++    // DOTS / final Simplify result curves (Results strip — not Layers).
++    // Final simplified result curve (accordion: Simplify → Final simplified).
++    if (state.resultVisible.simplify && t.simplified && t.simplified.length >= 2) {
++      strokePath(t.simplified, "#3ddc97", 2.5);
++      for (const p of t.simplified) dot(p, 1.7, "#3ddc97", null);
++    }
++    // Baseline result curves (one dashed overlay per selected algorithm).
++    for (const algo of BASELINE_ORDER) {
++      if (!state.resultVisible[algo] || !state.compare?.layers?.[algo]) continue;
++      const basePts = state.compare.layers[algo];
++      const color = BASELINE_COLORS[algo] || "#f472b6";
++      ctx.setLineDash([7, 4]);
++      strokePath(basePts, color, 2.25);
++      ctx.setLineDash([]);
++      for (const p of basePts) dot(p, 1.6, color, null);
++    }
++
+     if (pfx) {
+       // Determine "best" candidate index for this step (the one the buffer
+       // was pulled from — mirrors the reverse scan in get_longest_stab).

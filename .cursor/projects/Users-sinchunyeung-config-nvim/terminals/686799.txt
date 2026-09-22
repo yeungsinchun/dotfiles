@@ -1,0 +1,24 @@
+---
+pid: 97751
+cwd: "/Users/sinchunyeung/.config/nvim"
+command: "nvim --headless \"+lua vim.cmd.edit('/tmp/ts-demo.lua')\" \"+lua vim.bo.filetype='lua'\" \"+lua vim.api.nvim_buf_set_lines(0, 0, -1, false, {'local function add(a, b)', '  return a + b', 'end'})\" \"+lua local ok, parser = pcall(vim.treesitter.get_parser, 0); if not ok then print('NO PARSER:', parser) else local tree = parser:parse()[1]; local root = tree:root(); print('root:', root:type()); for _, child in root:children() do print(' ', child:type(), table.concat({child:range()}, ',')) end end\" +qa 2>&1"
+title: "Demo treesitter AST on lua buffer"
+status: aborted  
+started_at: 2026-08-31T13:10:45.406Z
+running_for_ms: 4478835  
+---
+root: chunk
+Error in command line:
+E5108: Lua: [string ":lua"]:1: attempt to call method 'children' (a nil value)
+stack traceback:
+	[string ":lua"]:1: in main chunk
+E37: No write since last change
+E162: No write since last change for buffer "/tmp/ts-demo.lua"Nvim: Caught deadly signal 'SIGTERM'
+Nvim: preserving files...
+Nvim: Finished.
+
+---
+exit_code: unknown
+elapsed_ms: 4478835
+ended_at: 2026-08-31T14:25:24.241Z
+---

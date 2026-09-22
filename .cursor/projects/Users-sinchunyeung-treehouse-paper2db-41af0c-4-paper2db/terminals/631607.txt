@@ -1,0 +1,61 @@
+---
+pid: 68104
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db"
+command: "rm -rf scripts/__pycache__\n.venv/bin/python - <<'PY'\nfrom __future__ import annotations\nimport sys\nfrom pathlib import Path\nROOT = Path('.').resolve()\nsys.path.insert(0, str(ROOT / 'scripts'))\nfrom preprocess_lq import collapse_near_white_gaps, trim_whitespace\nfrom PIL import Image\nprint('import ok', collapse_near_white_gaps)\n\ndef refresh(path: Path):\n    im = Image.open(path).convert('RGB')\n    before = im.size\n    im2 = trim_whitespace(collapse_near_white_gaps(im))\n    if im2.size == before:\n        return None\n    im2.save(path, format='PNG', optimize=False)\n    return before[1], im2.size[1]\n\nchanged = skipped = 0\npaths = sorted((ROOT/'output'/'lq').glob('*/q*.png'))\nfor p in sorted((ROOT/'classified'/'lq').rglob('*.png')):\n    if '-ans' in p.name: continue\n    paths.append(p)\nfor p in paths:\n    result = refresh(p)\n    if result is None:\n        skipped += 1\n        continue\n    changed += 1\n    if changed <= 10 or 'q1.png' in p.name or '2012-q1' in p.name:\n        print(f'{p.relative_to(ROOT)}: {result[0]} -> {result[1]}')\nprint(f'changed={changed} unchanged={skipped} total={len(paths)}')\n# verify 2012 q1\nim=Image.open('output/lq/2012/q1.png'); print('2012 q1 now', im.size)\nPY\n.venv/bin/python -m unittest tests.test_lq_gap_collapse -v 2>&1\n"
+title: "Apply gap collapse to LQ crops; run tests"
+status: failed   
+started_at: 2026-09-07T09:34:04.064Z
+running_for_ms: 129924   
+---
+import ok <function collapse_near_white_gaps at 0x107b7c250>
+output/lq/2012/q1.png: 4989 -> 3959
+output/lq/2012/q10.png: 6260 -> 5253
+output/lq/2012/q2.png: 2786 -> 1772
+output/lq/2012/q4.png: 5208 -> 4792
+output/lq/2012/q5.png: 5079 -> 4320
+output/lq/2012/q6.png: 5186 -> 5078
+output/lq/2012/q7.png: 5204 -> 4849
+output/lq/2012/q8.png: 5131 -> 4684
+output/lq/2013/q1.png: 4015 -> 3324
+output/lq/2013/q11.png: 4080 -> 3451
+output/lq/2014/q1.png: 4904 -> 4485
+output/lq/2015/q1.png: 2761 -> 2545
+output/lq/2016/q1.png: 5102 -> 3807
+output/lq/2018/q1.png: 2667 -> 2578
+output/lq/2019/q1.png: 5032 -> 4836
+output/lq/2020/q1.png: 5015 -> 4245
+output/lq/2021/q1.png: 4958 -> 3380
+output/lq/2022/q1.png: 5012 -> 4772
+output/lq/2023/q1.png: 5047 -> 4760
+output/lq/2024/q1.png: 2137 -> 1817
+output/lq/2025/q1.png: 4784 -> 2794
+classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/2022-q1.png: 5012 -> 4772
+classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2012-q1.png: 4989 -> 3959
+classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2013-q1.png: 4015 -> 3324
+classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2014-q1.png: 4904 -> 4485
+classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2016-q1.png: 5102 -> 3807
+classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2018-q1.png: 2667 -> 2578
+classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2019-q1.png: 5032 -> 4836
+classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2020-q1.png: 5015 -> 4245
+classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2021-q1.png: 4958 -> 3380
+classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2023-q1.png: 5047 -> 4760
+classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2025-q1.png: 4784 -> 2794
+classified/lq/01_Heat_and_Gases/03_Change_of_State/2012-q1.png: 4989 -> 3959
+classified/lq/01_Heat_and_Gases/03_Change_of_State/2015-q1.png: 2761 -> 2545
+classified/lq/01_Heat_and_Gases/03_Change_of_State/2019-q1.png: 5032 -> 4836
+classified/lq/01_Heat_and_Gases/03_Change_of_State/2021-q1.png: 4958 -> 3380
+classified/lq/01_Heat_and_Gases/03_Change_of_State/2024-q1.png: 2137 -> 1817
+classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2012-q10.png: 6260 -> 5253
+changed=304 unchanged=42 total=346
+2012 q1 now (1750, 3959)
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+NO TESTS RAN
+
+---
+exit_code: 5
+elapsed_ms: 129918
+ended_at: 2026-09-07T09:36:13.982Z
+---

@@ -1,0 +1,23 @@
+---
+pid: 19336
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/6/paper2db"
+command: "git add AGENTS.md README.md scripts/formula_sheet.py scripts/crop_lq_from_pages.py scripts/lq_pdf_review.py scripts/png_pdf.py scripts/preprocess_lq.py scripts/preprocess_mc.py tests/test_lq_whole_pages.py output/lq classified/lq .lavish/lq-classified-review && git commit -m \"$(cat <<'EOF'\nExclude trailing HKDSE data/formulae sheets from LQ page ranges.\n\nThe last long question was taking page_to through the final exported page, so the official List of data, formulae and relationships insert (and the same sheet under nearby wordings) was stacked onto that question. Detect those pages with the MC phrases plus the official title, drop them from starts.json, qN.png stacks, and review PDFs, and rebuild the LQ banks.\n\nEOF\n)\" && git status"
+title: "Stage fix artifacts and create git commit"
+status: succeeded
+started_at: 2026-09-12T17:49:40.952Z
+running_for_ms: 41114    
+---
+[fm/p2db-exclude-lq-data-and-formulae-sheets-a6 f3a304b] Exclude trailing HKDSE data/formulae sheets from LQ page ranges.
+ 303 files changed, 611 insertions(+), 112 deletions(-)
+ create mode 100644 scripts/formula_sheet.py
+On branch fm/p2db-exclude-lq-data-and-formulae-sheets-a6
+Your branch is ahead of 'origin/fm/p2db-make-combined-pdf-review-pdfs-a4-31' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+---
+exit_code: 0
+elapsed_ms: 41005
+ended_at: 2026-09-12T17:50:21.957Z
+---

@@ -1,0 +1,39 @@
+---
+pid: 38498
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/2/paper2notes"
+command: "node --test 'notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs'"
+title: "Run full chapter interactive tests"
+status: failed   
+started_at: 2026-09-10T12:11:30.797Z
+running_for_ms: 448474   
+---
+▶ Book 5 Ch.1 notes interactives
+  ✔ 25.1 spectrum is static with the ionizing barrier in UV (11798.53025ms)
+  ✔ 25.1 imaging is X-rays down through a hand onto film that starts white (8133.649625ms)
+  ✔ 25.2 pie wedge is 20% and Pu-239 bookkeeping is static n_α=8 (7883.706417ms)
+  ✔ 25.2 decay labels sit on the parent and outgoing particle (16737.068416ms)
+
+Interrupted while running:
+
+⚠ notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs (notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:1:1)
+✖ notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs (447907.363417ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 1
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 447910.950334
+
+✖ failing tests:
+
+test at notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:1:1
+✖ notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs (447907.363417ms)
+  'Promise resolution is still pending but the event loop has already resolved'
+
+---
+exit_code: unknown
+elapsed_ms: 448473
+ended_at: 2026-09-10T12:18:59.270Z
+---

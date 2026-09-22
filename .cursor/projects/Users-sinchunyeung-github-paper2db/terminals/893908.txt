@@ -1,0 +1,22 @@
+---
+pid: 59217
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nimport preprocess_lq as p\nimport pymupdf as fitz\ndoc=fitz.open('paper/lq/2019p1b.pdf')\n# detect scale like expand\npages=p.expand_pdf_pages(doc, 0.0, cover_pages=1)  # wait scale 0 may break\n# use native via export path\npages=p.expand_pdf_pages(doc, p.native_scale(doc[1], cap=4.0), cover_pages=1)\nprint('npages', len(pages), 'size0', pages[0].size)\npages[0].crop((0,0,min(500,pages[0].width),min(600,pages[0].height))).save('/tmp/lq2019_fixed_tl.png')\nstarts=p.find_question_starts(pages, cover_pages=0, max_questions=12)\nprint('starts', starts)\nfor i in range(min(5,len(pages))):\n    print(f' page{i} hits', p.find_starts_on_image(pages[i], 12))\ndoc.close()\nPY\n"
+title: "Retest 2019 LQ starts after CTM fix"
+status: succeeded
+started_at: 2026-09-04T16:53:46.333Z
+running_for_ms: 67172    
+---
+npages 19 size0 (2381, 3367)
+starts []
+ page0 hits []
+ page1 hits []
+ page2 hits [(2, 304.5)]
+ page3 hits []
+ page4 hits [(3, 278.5)]
+
+---
+exit_code: 0
+elapsed_ms: 67167
+ended_at: 2026-09-04T16:54:53.500Z
+---

@@ -1,0 +1,33 @@
+---
+pid: 71877
+cwd: "/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams"
+command: "ls -la build build-release 2>/dev/null; ls data/*/original.txt 2>/dev/null | wc -l; for i in 1 2 3 4 5 6 7 8 9 10; do f=data/$i/original.txt; if [ -f \"$f\" ]; then echo -n \"id=$i pts=\"; head -1 \"$f\"; fi; done; which cmake cgal 2>/dev/null; brew list cgal cmake 2>/dev/null | head -5; ls results/ 2>/dev/null"
+title: "Check build, data sizes, deps"
+status: failed   
+started_at: 2026-09-04T13:34:00.426Z
+running_for_ms: 59596    
+---
+      10
+id=1 pts=588
+id=2 pts=1674
+id=3 pts=1371
+id=4 pts=672
+id=5 pts=798
+id=6 pts=792
+id=7 pts=454
+id=8 pts=5
+id=9 pts=643
+id=10 pts=5617
+/opt/homebrew/bin/cmake
+cgal not found
+/opt/homebrew/Cellar/cgal/6.1/LICENSE.LGPL
+/opt/homebrew/Cellar/cgal/6.1/INSTALL_RECEIPT.json
+/opt/homebrew/Cellar/cgal/6.1/LICENSE
+/opt/homebrew/Cellar/cgal/6.1/bin/cgal_create_cmake_script
+/opt/homebrew/Cellar/cgal/6.1/bin/cgal_create_CMakeLists
+
+---
+exit_code: unknown
+elapsed_ms: 59596
+ended_at: 2026-09-04T13:35:00.022Z
+---

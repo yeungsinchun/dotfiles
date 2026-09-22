@@ -1,0 +1,72 @@
+---
+pid: 5393
+cwd: "/Users/sinchunyeung/github/personal-page"
+command: "./scripts/dev.sh"
+title: "Restart personal page and SOTS stack"
+status: running  
+started_at: 2026-09-02T15:24:04.688Z
+running_for_ms: 1760174  
+---
+Personal page: http://127.0.0.1:8765
+SOTS visualizer: http://127.0.0.1:63612
+Repo root: /Users/sinchunyeung/github/simplification-of-trajectory-streams
+Binary: /Users/sinchunyeung/github/simplification-of-trajectory-streams/build/simplify
+Starting Flask server on http://127.0.0.1:63612
+ * Serving Flask app 'server'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:63612
+[33mPress CTRL+C to quit[0m
+::ffff:127.0.0.1 - - [02/Sep/2026 23:24:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 23:24:15] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:32:25] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:32:25] "GET /main.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:32:25] "GET /dev-config.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:32:25] "GET /projects/sots.json HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:32:25] "GET /projects/paper2qb.json HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:32:28] "GET /assets/projects/sots-preview.png HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:32:37] "GET /assets/projects/paper2qb-preview.png HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:33:14] "GET /dev-config.json HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 23:34:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 23:34:09] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 23:34:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 23:34:53] "GET /viewer.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 23:34:54] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 23:34:54] "GET /api/trace/53?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:29] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:29] "GET /dev-config.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:33] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:33] "GET /dev-config.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:33] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:33] "GET /dev-config.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:44] code 404, message File not found
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:44] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:44] code 404, message File not found
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:44] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:44] code 404, message File not found
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:44] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:47] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:47] "GET /styles.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:47] "GET /main.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:48] "GET /projects/paper2qb.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:48] "GET /projects/sots.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:48] "GET /dev-config.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:48] code 404, message File not found
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:48] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:49] "GET /assets/projects/paper2qb-preview.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:42:53] "GET /assets/projects/sots-preview.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:43:06] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:43:06] "GET /styles.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:43:06] "GET /main.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:43:06] "GET /projects/sots.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:43:06] "GET /dev-config.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:43:06] "GET /projects/paper2qb.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:43:06] code 404, message File not found
+::ffff:127.0.0.1 - - [02/Sep/2026 23:43:06] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Sep/2026 23:45:28] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 23:45:28] "GET /dev-config.json HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 23:45:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 23:45:37] "GET /viewer.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 23:45:37] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 23:45:38] "GET /api/trace/53?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 23:45:48] "POST /api/frechet HTTP/1.1" 200 -

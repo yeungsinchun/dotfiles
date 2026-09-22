@@ -1,0 +1,39 @@
+---
+pid: 23794
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "tasks-axi update paper2db-pipeline --file /Users/sinchunyeung/github/firstmate/data/backlog.md --body \"mode=no-mistakes yolo=off; continue pipeline branch; evidence ≤5% manual; lavish HTML intermediates+finals; PR to main\" --repo paper2db 2>&1; FM_HOME=/Users/sinchunyeung/github/firstmate /Users/sinchunyeung/github/firstmate/bin/fm-spawn.sh paper2db-pipeline /Users/sinchunyeung/github/firstmate/projects/paper2db --mode no-mistakes --yolo off --harness cursor --effort xhigh 2>&1"
+title: "Spawn paper2db pipeline worker"
+status: succeeded
+started_at: 2026-09-07T04:22:15.970Z
+running_for_ms: 32627    
+---
+ok: updated paper2db-pipeline (body, repo)
+task:
+  id: paper2db-pipeline
+  title: Robust paper2db PDF→classified crop pipeline with evidence and lavish review
+  state: queued
+  blocked: no
+  blocked_by: none
+  held: no
+  hold_reason: "-"
+  hold_kind: "-"
+  hold_until: "-"
+  kind: task
+  repo: paper2db
+  priority: "-"
+  created: 2026-09-07
+  closed: "-"
+  deps: none
+  links: none
+  body: mode=no-mistakes yolo=off; continue pipeline branch; evidence ≤5% manual; lavish HTML intermediates+finals; PR to main
+help[1]:
+  - Run `tasks-axi show paper2db-pipeline --full --file=/Users/sinchunyeung/github/firstmate/data/backlog.md` to see the result
+WARNING: watcher still down (same stale episode; last beat: 428s ago, grace 300s) - full banner already printed this episode.
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+spawned paper2db-pipeline harness=cursor kind=ship mode=no-mistakes yolo=off window=0:fm-paper2db-pipeline worktree=/Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db
+
+---
+exit_code: 0
+elapsed_ms: 32615
+ended_at: 2026-09-07T04:22:48.585Z
+---

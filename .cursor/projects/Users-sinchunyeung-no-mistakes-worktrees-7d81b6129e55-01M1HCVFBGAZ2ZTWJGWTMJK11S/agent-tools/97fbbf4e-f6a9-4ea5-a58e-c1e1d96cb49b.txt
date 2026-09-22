@@ -1,0 +1,532 @@
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/.probe_boundary.cpp:1:
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3597:58: warning: 'denorm_absent' is deprecated [-Wdeprecated-declarations]
+ 3597 |    static constexpr float_denorm_style has_denorm      = denorm_absent;
+      |                                                          ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/.probe_boundary.cpp:1:
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3597:21: warning: 'float_denorm_style' is deprecated [-Wdeprecated-declarations]
+ 3597 |    static constexpr float_denorm_style has_denorm      = denorm_absent;
+      |                     ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/.probe_boundary.cpp:1:
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3647:11: warning: 'float_denorm_style' is deprecated [-Wdeprecated-declarations]
+ 3647 | constexpr float_denorm_style numeric_limits<boost::multiprecision::number<boost::multiprecision::gmp_float<Digits10>, ExpressionTemplates> >::has_denorm;
+      |           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/.probe_boundary.cpp:1:
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3696:64: warning: 'denorm_absent' is deprecated [-Wdeprecated-declarations]
+ 3696 |    static constexpr float_denorm_style       has_denorm      = denorm_absent;
+      |                                                                ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/.probe_boundary.cpp:1:
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3696:21: warning: 'float_denorm_style' is deprecated [-Wdeprecated-declarations]
+ 3696 |    static constexpr float_denorm_style       has_denorm      = denorm_absent;
+      |                     ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/.probe_boundary.cpp:1:
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3746:11: warning: 'float_denorm_style' is deprecated [-Wdeprecated-declarations]
+ 3746 | constexpr float_denorm_style numeric_limits<boost::multiprecision::number<boost::multiprecision::gmp_float<0>, ExpressionTemplates> >::has_denorm;
+      |           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/.probe_boundary.cpp:1:
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3805:64: warning: 'denorm_absent' is deprecated [-Wdeprecated-declarations]
+ 3805 |    static constexpr float_denorm_style       has_denorm      = denorm_absent;
+      |                                                                ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/.probe_boundary.cpp:1:
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3805:21: warning: 'float_denorm_style' is deprecated [-Wdeprecated-declarations]
+ 3805 |    static constexpr float_denorm_style       has_denorm      = denorm_absent;
+      |                     ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/.probe_boundary.cpp:1:
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3855:11: warning: 'float_denorm_style' is deprecated [-Wdeprecated-declarations]
+ 3855 | constexpr float_denorm_style numeric_limits<boost::multiprecision::number<boost::multiprecision::gmp_int, ExpressionTemplates> >::has_denorm;
+      |           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/.probe_boundary.cpp:1:
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3915:64: warning: 'denorm_absent' is deprecated [-Wdeprecated-declarations]
+ 3915 |    static constexpr float_denorm_style       has_denorm      = denorm_absent;
+      |                                                                ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/.probe_boundary.cpp:1:
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3915:21: warning: 'float_denorm_style' is deprecated [-Wdeprecated-declarations]
+ 3915 |    static constexpr float_denorm_style       has_denorm      = denorm_absent;
+      |                     ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/.probe_boundary.cpp:1:
+In file included from /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1HCVFBGAZ2ZTWJGWTMJK11S/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3965:11: warning: 'float_denorm_style' is deprecated [-Wdeprecated-declarations]
+ 3965 | constexpr float_denorm_style numeric_limits<boost::multiprecision::number<boost::multiprecision::gmp_rational, ExpressionTemplates> >::has_denorm;
+      |           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+12 warnings generated.
+eps=0.9 delta=500 GRID=159.099 R=725 full=109 boundary=32
+  B -477.297,795.495
+  B -318.198,795.495
+  B -159.099,795.495
+  B 0,795.495
+  B 159.099,795.495
+eps=299 delta=1 GRID=105.712 R=150.5 full=25 boundary=16
+  B -211.425,211.425
+  B -105.712,211.425
+  B 0,211.425
+  B 105.712,211.425
+  B 211.425,211.425
+eps=0.5 delta=200 GRID=35.3553 R=250 full=225 boundary=48
+  B -70.7107,282.843
+  B -35.3553,282.843
+  B 0,282.843
+  B 35.3553,282.843
+  B 70.7107,282.843
+eps=0.5 delta=300 GRID=53.033 R=375 full=225 boundary=48
+  B -106.066,424.264
+  B -53.033,424.264
+  B 0,424.264
+  B 53.033,424.264
+  B 106.066,424.264
+In file included from .cmp-base/.probe.cpp:1:
+In file included from .cmp-base/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3597:58: warning: 'denorm_absent' is deprecated [-Wdeprecated-declarations]
+ 3597 |    static constexpr float_denorm_style has_denorm      = denorm_absent;
+      |                                                          ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from .cmp-base/.probe.cpp:1:
+In file included from .cmp-base/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3597:21: warning: 'float_denorm_style' is deprecated [-Wdeprecated-declarations]
+ 3597 |    static constexpr float_denorm_style has_denorm      = denorm_absent;
+      |                     ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from .cmp-base/.probe.cpp:1:
+In file included from .cmp-base/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3647:11: warning: 'float_denorm_style' is deprecated [-Wdeprecated-declarations]
+ 3647 | constexpr float_denorm_style numeric_limits<boost::multiprecision::number<boost::multiprecision::gmp_float<Digits10>, ExpressionTemplates> >::has_denorm;
+      |           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from .cmp-base/.probe.cpp:1:
+In file included from .cmp-base/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3696:64: warning: 'denorm_absent' is deprecated [-Wdeprecated-declarations]
+ 3696 |    static constexpr float_denorm_style       has_denorm      = denorm_absent;
+      |                                                                ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from .cmp-base/.probe.cpp:1:
+In file included from .cmp-base/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3696:21: warning: 'float_denorm_style' is deprecated [-Wdeprecated-declarations]
+ 3696 |    static constexpr float_denorm_style       has_denorm      = denorm_absent;
+      |                     ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from .cmp-base/.probe.cpp:1:
+In file included from .cmp-base/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3746:11: warning: 'float_denorm_style' is deprecated [-Wdeprecated-declarations]
+ 3746 | constexpr float_denorm_style numeric_limits<boost::multiprecision::number<boost::multiprecision::gmp_float<0>, ExpressionTemplates> >::has_denorm;
+      |           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from .cmp-base/.probe.cpp:1:
+In file included from .cmp-base/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3805:64: warning: 'denorm_absent' is deprecated [-Wdeprecated-declarations]
+ 3805 |    static constexpr float_denorm_style       has_denorm      = denorm_absent;
+      |                                                                ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from .cmp-base/.probe.cpp:1:
+In file included from .cmp-base/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3805:21: warning: 'float_denorm_style' is deprecated [-Wdeprecated-declarations]
+ 3805 |    static constexpr float_denorm_style       has_denorm      = denorm_absent;
+      |                     ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from .cmp-base/.probe.cpp:1:
+In file included from .cmp-base/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3855:11: warning: 'float_denorm_style' is deprecated [-Wdeprecated-declarations]
+ 3855 | constexpr float_denorm_style numeric_limits<boost::multiprecision::number<boost::multiprecision::gmp_int, ExpressionTemplates> >::has_denorm;
+      |           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from .cmp-base/.probe.cpp:1:
+In file included from .cmp-base/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3915:64: warning: 'denorm_absent' is deprecated [-Wdeprecated-declarations]
+ 3915 |    static constexpr float_denorm_style       has_denorm      = denorm_absent;
+      |                                                                ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from .cmp-base/.probe.cpp:1:
+In file included from .cmp-base/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3915:21: warning: 'float_denorm_style' is deprecated [-Wdeprecated-declarations]
+ 3915 |    static constexpr float_denorm_style       has_denorm      = denorm_absent;
+      |                     ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+In file included from .cmp-base/.probe.cpp:1:
+In file included from .cmp-base/simplify_geometry.h:4:
+In file included from /opt/homebrew/include/CGAL/Exact_predicates_inexact_constructions_kernel.h:21:
+In file included from /opt/homebrew/include/CGAL/Filtered_kernel.h:22:
+In file included from /opt/homebrew/include/CGAL/Exact_kernel_selector.h:26:
+In file included from /opt/homebrew/include/CGAL/Number_types/internal/Exact_type_selector.h:27:
+In file included from /opt/homebrew/include/CGAL/cpp_float.h:17:
+In file included from /opt/homebrew/include/CGAL/boost_mp.h:15:
+In file included from /opt/homebrew/include/CGAL/boost_mp_type.h:40:
+/opt/homebrew/include/boost/multiprecision/gmp.hpp:3965:11: warning: 'float_denorm_style' is deprecated [-Wdeprecated-declarations]
+ 3965 | constexpr float_denorm_style numeric_limits<boost::multiprecision::number<boost::multiprecision::gmp_rational, ExpressionTemplates> >::has_denorm;
+      |           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/limits:130:6: note: 'float_denorm_style' has been explicitly marked deprecated here
+  130 | enum _LIBCPP_DEPRECATED_IN_CXX23 float_denorm_style {
+      |      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:593:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX23'
+  593 | #    define _LIBCPP_DEPRECATED_IN_CXX23 _LIBCPP_DEPRECATED
+      |                                         ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:554:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  554 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+12 warnings generated.
+base full=109
+base full=25

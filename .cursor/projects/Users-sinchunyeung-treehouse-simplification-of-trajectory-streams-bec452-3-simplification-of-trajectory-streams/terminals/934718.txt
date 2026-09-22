@@ -1,0 +1,40 @@
+---
+pid: 15832
+cwd: "/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams"
+command: "ls -la build/simplify 2>/dev/null; ls web/usability/; python3 -c \"import flask; print('flask', flask.__version__)\" 2>/dev/null; which npx node; ls node_modules/playwright 2>/dev/null; find /Users/sinchunyeung -name 'chromium*' -path '*playwright*' 2>/dev/null | head -5; python3 -c \"from playwright.sync_api import sync_playwright; print('pw ok')\" 2>/dev/null"
+title: "Check server binary, flask, playwright availability"
+status: failed   
+started_at: 2026-09-04T17:11:07.005Z
+running_for_ms: 55307    
+---
+canvas-loading-hud.html
+canvas-loading-hud.png
+desktop-canvas-loading-hud-live.png
+desktop-drop-hint-heading.html
+desktop-drop-hint-heading.png
+desktop-params-metrics.png
+mobile-canvas-loading-hud-live.png
+mobile-delta-field-live.png
+mobile-delta-field.html
+mobile-delta-field.png
+mobile-loaded-params.html
+mobile-loaded-params.png
+mobile-params-metrics.png
+mobile-playback-dock-loading-live.png
+mobile-playback-dock-loading.html
+mobile-playback-dock-loading.png
+mobile-select-overflow-live.png
+mobile-select-overflow.html
+mobile-select-overflow.png
+mobile-sidebar-loading-live.png
+mobile-sidebar-loading.html
+mobile-sidebar-loading.png
+params-metric-states.html
+/Users/sinchunyeung/.nvm/versions/node/v24.20.0/bin/npx
+/Users/sinchunyeung/.nvm/versions/node/v24.20.0/bin/node
+
+---
+exit_code: unknown
+elapsed_ms: 55307
+ended_at: 2026-09-04T17:12:02.312Z
+---

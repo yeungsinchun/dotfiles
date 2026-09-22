@@ -1,0 +1,15 @@
+---
+pid: 60925
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/7/paper2notes"
+command: "cd /Users/sinchunyeung/.treehouse/paper2notes-652c2c/7/paper2notes && (node --test notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs > /tmp/ch1-tests.log 2>&1; echo \"exit=$?\" >> /tmp/ch1-tests.log; node --test notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.interactives.test.mjs > /tmp/ch2-tests.log 2>&1; echo \"exit=$?\" >> /tmp/ch2-tests.log)"
+title: "Run Ch.1 and Ch.2 interactive test suites"
+status: succeeded
+started_at: 2026-09-15T14:41:39.027Z
+running_for_ms: 265607   
+---
+
+---
+exit_code: 0
+elapsed_ms: 265606
+ended_at: 2026-09-15T14:46:04.633Z
+---

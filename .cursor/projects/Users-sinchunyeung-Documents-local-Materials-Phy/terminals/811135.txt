@@ -1,0 +1,20 @@
+---
+pid: 10626
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy"
+command: "python3 - <<'PY'\nimport sys\nfrom pathlib import Path\nsys.path.insert(0, \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/scripts\")\nimport fitz\nfrom preprocess_lq import expand_pdf_pages, find_question_starts, native_scale, load_page_pngs\n\npdf = Path(\"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/Year/LQ/2019p1b.pdf\")\npages_dir = Path(\"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2019/pages\")\ndoc = fitz.open(pdf)\nscale = native_scale(doc[1], cap=9.0)\ndetect_scale = max(2.5, scale * 0.55)\nprint(f\"scale={scale:.2f} detect={detect_scale:.2f} pdf_pages={len(doc)}\")\nfor i in range(min(3, len(doc))):\n    p = doc[i]\n    print(f\" page{i}: rot={p.rotation} rect={p.rect}\")\n\ndetect_pages = expand_pdf_pages(doc, detect_scale, cover_pages=1)\nprint(f\"detect pages: {len(detect_pages)}, size0={detect_pages[0].size}\")\nfull_pages = load_page_pngs(pages_dir)\nprint(f\"page pngs: {len(full_pages)}, size0={full_pages[0].size if full_pages else None}\")\n\nstarts = find_question_starts(detect_pages, cover_pages=0, max_questions=12)\nprint(\"starts:\", starts)\ndoc.close()\nPY"
+started_at: 2026-08-28T09:37:23.136Z
+running_for_ms: 100057   
+---
+scale=5.89 detect=3.24 pdf_pages=20
+ page0: rot=0 rect=Rect(0.0, 0.0, 595.3200073242188, 841.9199829101562)
+ page1: rot=0 rect=Rect(0.0, 0.0, 595.3200073242188, 841.9199829101562)
+ page2: rot=0 rect=Rect(0.0, 0.0, 595.3200073242188, 841.9199829101562)
+detect pages: 38, size0=(964, 2728)
+page pngs: 38, size0=(1754, 4961)
+starts: [(7, 0, 607.562962962963), (2, 4, 360.99092783505154)]
+
+---
+exit_code: 0
+elapsed_ms: 100164
+ended_at: 2026-08-28T09:39:03.300Z
+---

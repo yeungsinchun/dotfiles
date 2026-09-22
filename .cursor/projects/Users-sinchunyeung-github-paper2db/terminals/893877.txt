@@ -1,0 +1,15 @@
+---
+pid: 85286
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "# Wait until pp finishes (next paper starts or DONE/FAIL)\nwhile true; do\n  if rg -q \"=== .*sapp1a|FAIL paper/mc/ppp1a|DONE \" /tmp/paper2db-resegment/run.log 2>/dev/null; then\n    break\n  fi\n  sleep 5\ndone\ntail -40 /tmp/paper2db-resegment/run.log\n# Check pp q2 right pad\n.venv/bin/python <<'PY'\nfrom PIL import Image\nimport numpy as np\nfrom pathlib import Path\nim=Image.open('output/pp/q2.png')\narr=np.asarray(im.convert('L'))\nink=arr<235\nlast=np.where(ink.any(axis=0))[0][-1]\nprint('pp q2 size', im.size, 'right pad', arr.shape[1]-1-last)\n# compare right strip words\nim.crop((im.size[0]-100,0,im.size[0],200)).save('/tmp/pp_q2_right2.png')\nPY\n"
+title: "Wait for PP resegment; check Q2 right pad"
+status: failed   
+started_at: 2026-09-04T14:07:38.559Z
+running_for_ms: 317186   
+---
+
+---
+exit_code: unknown
+elapsed_ms: 317185
+ended_at: 2026-09-04T14:12:55.744Z
+---

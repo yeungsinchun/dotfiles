@@ -1,0 +1,33 @@
+---
+pid: 90833
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/7fc22fb6f4d7/01M1NS2HQBXE33N3Y5AV0ZE41P"
+command: "ls -la ~/.local/share/nvim/lazy 2>/dev/null | head -30; echo '---'; ls ~/.local/share/nvim/lazy/fzf-lua 2>/dev/null | head -5; echo '---'; pyright --version 2>/dev/null || npx --yes pyright --version 2>/dev/null || echo 'no pyright'; which python3; clangd --version | head -1"
+title: "Check lazy plugins and language servers"
+status: failed   
+started_at: 2026-09-04T08:40:38.005Z
+running_for_ms: 47376    
+---
+total 0
+drwxr-xr-x@ 10 sinchunyeung  staff   320 Sep  2 12:19 .
+drwx------   8 sinchunyeung  staff   256 Aug 31 15:20 ..
+drwxr-xr-x@ 21 sinchunyeung  staff   672 Aug 31 15:20 catppuccin
+drwxr-xr-x@ 21 sinchunyeung  staff   672 Sep  2 12:19 fzf-lua
+drwxr-xr-x@ 24 sinchunyeung  staff   768 Aug 31 15:20 lazy.nvim
+drwxr-xr-x@ 26 sinchunyeung  staff   832 Aug 31 15:20 nvim-lspconfig
+drwxr-xr-x@ 20 sinchunyeung  staff   640 Sep  2 12:19 nvim-web-devicons
+drwxr-xr-x@ 31 sinchunyeung  staff   992 Aug 31 15:20 ultisnips
+drwxr-xr-x@ 13 sinchunyeung  staff   416 Aug 31 15:20 vim-airline
+drwxr-xr-x@ 34 sinchunyeung  staff  1088 Aug 31 15:20 vimtex
+---
+LICENSE
+Makefile
+OPTIONS.md
+README-Win.md
+README.md
+---
+
+---
+exit_code: unknown
+elapsed_ms: 47376
+ended_at: 2026-09-04T08:41:25.381Z
+---

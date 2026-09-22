@@ -1,0 +1,26 @@
+---
+pid: 14613
+cwd: "/Users/sinchunyeung/github/simplification-of-trajectory-streams"
+command: "ls /Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome 2>/dev/null; ls \"/Applications/Chromium.app/Contents/MacOS/Chromium\" 2>/dev/null; which npx 2>/dev/null; node -e \"console.log(process.version)\" 2>/dev/null; ls /tmp/*chrome* 2>/dev/null | head -5; find /Users/sinchunyeung -name \"puppeteer*\" -type d 2>/dev/null | head -5; ls web/usability/first-visit-tour.html | head -1"
+title: "Locate Chrome and screenshot tooling"
+status: failed   
+started_at: 2026-09-05T16:21:25.529Z
+running_for_ms: 39317    
+---
+/Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+npx () {
+	lazy_load_nvm
+	npx "$@"
+}
+v24.20.0
+/tmp/p1-chrome.log
+
+/tmp/chrome-dots-compare-e2e4:
+Default
+Variations
+
+---
+exit_code: unknown
+elapsed_ms: 39317
+ended_at: 2026-09-05T16:22:04.846Z
+---

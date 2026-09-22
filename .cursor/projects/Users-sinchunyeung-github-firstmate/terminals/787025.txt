@@ -1,0 +1,16 @@
+---
+pid: 87978
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "rm -rf /Users/sinchunyeung/github/firstmate/projects/paper2db && git clone --branch main https://github.com/yeungsinchun/paper2db.git /Users/sinchunyeung/github/firstmate/projects/paper2db && git -C /Users/sinchunyeung/github/firstmate/projects/paper2db fetch /Users/sinchunyeung/github/paper2db pipeline:pipeline && git -C /Users/sinchunyeung/github/firstmate/projects/paper2db branch -vv && git -C /Users/sinchunyeung/github/firstmate/projects/paper2db log pipeline -2 --oneline && ls /Users/sinchunyeung/github/firstmate/projects/paper2db | head -15"
+title: "Reclone paper2db and import pipeline"
+status: failed   
+started_at: 2026-09-07T04:15:34.419Z
+running_for_ms: 228680   
+---
+Cloning into '/Users/sinchunyeung/github/firstmate/projects/paper2db'...
+
+---
+exit_code: unknown
+elapsed_ms: 228675
+ended_at: 2026-09-07T04:19:23.094Z
+---

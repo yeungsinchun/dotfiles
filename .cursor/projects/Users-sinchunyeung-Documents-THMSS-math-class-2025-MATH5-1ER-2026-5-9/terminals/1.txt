@@ -1,0 +1,42 @@
+---
+pid: 85505
+cwd: /Users/sinchunyeung/Documents
+---
+(base) sinchunyeung@SinMacBookPro 2026.5.9 % ls
+2023p1b.pdf
+20260509 MATH5.1EL OSM_MiniMock_S5_P1E_set1.pdf
+20260509 MATH5.1EL OSM_MiniMock_S5_P1E_set1_sol.pdf
+20260509 MATH5.1EL OSM_MiniMock_S5_P2E_set1.pdf
+20260509 MATH5.1EL OSM_MiniMock_S5_P2E_set1_sol.pdf
+dse2023
+dse2023-latex
+ocorner-01.png
+(base) sinchunyeung@SinMacBookPro 2026.5.9 % cd ..
+(base) sinchunyeung@SinMacBookPro MATH5.1ER % ls
+ls: .: Operation not permitted
+(base) sinchunyeung@SinMacBookPro MATH5.1ER % ls
+ls: .: Operation not permitted
+(base) sinchunyeung@SinMacBookPro MATH5.1ER % ls
+ls: .: Operation not permitted
+(base) sinchunyeung@SinMacBookPro MATH5.1ER % cd ..
+(base) sinchunyeung@SinMacBookPro 2025 % ls
+ls: .: Operation not permitted
+(base) sinchunyeung@SinMacBookPro 2025 % cd ..
+(base) sinchunyeung@SinMacBookPro THMSS_math_class % cd ..
+(base) sinchunyeung@SinMacBookPro Documents % latexmk
+Rc files read:
+  NONE
+Latexmk: This is Latexmk, John Collins, 17 Mar. 2022. Version 4.77, version: 4.77.
+
+Latexmk: No file name specified, and I couldn't find any
+Use
+   latexmk -help
+to get usage information
+(base) sinchunyeung@SinMacBookPro Documents % ls
+ls: .: Operation not permitted
+(base) sinchunyeung@SinMacBookPro Documents % ls
+ls: .: Operation not permitted
+(base) sinchunyeung@SinMacBookPro Documents % ls
+ *  History restored 
+
+(base) sinchunyeung@SinMacBookPro Documents % 

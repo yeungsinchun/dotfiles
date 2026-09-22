@@ -1,0 +1,25 @@
+---
+pid: 25822
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db"
+command: "cd /Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db && rm -f paper2db.sqlite && .venv/bin/python3 scripts/build_mc_db.py --init --years 2012 2>&1"
+title: "Ingest 2012 questions with OCR"
+status: failed   
+started_at: 2026-09-03T15:57:21.797Z
+running_for_ms: 34159556 
+---
+Initializing /Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db/paper2db.sqlite
+Loading answer keys ...
+  keys 2012: 36 entries
+  keys 2013: 36 entries
+  keys 2014: 33 entries
+  keys 2015: 34 entries
+  keys 2016: 33 entries
+  keys 2017: 32 entries
+  keys 2018: 33 entries
+  keys 2019: 33 entries
+
+---
+exit_code: unknown
+elapsed_ms: 34159556
+ended_at: 2026-09-04T01:26:41.353Z
+---

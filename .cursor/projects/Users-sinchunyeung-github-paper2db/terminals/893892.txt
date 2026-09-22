@@ -1,0 +1,29 @@
+---
+pid: 59960
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python <<'PY'\nfrom PIL import Image\nimport numpy as np\nfor p in ['output/2019/q6.png','output/2019/q10.png','output/2016/q9.png']:\n    im=Image.open(p)\n    arr=np.array(im.convert('L'))\n    h,w=arr.shape\n    row_limit=int(w*0.97)\n    content=[y for y in range(h) if (arr[y,:row_limit]<235).mean()>=0.015]\n    print(p, im.size, 'last_dense', content[-1], 'gap', h-1-content[-1])\nPY\n# resplit 2016 with bottom-gap fix; 2019 already resplit once - resplit again for bottom gap on same-page qs\n./segment paper/mc/2016p1a.pdf output/2016 --type mc --step split --intermediate output/2016-intermediate 2>&1 | tail -6\n./segment paper/mc/2019p1a.pdf output/2019 --type mc --step split --intermediate output/2019-intermediate 2>&1 | tail -6\n"
+status: succeeded
+started_at: 2026-09-04T15:24:33.836Z
+running_for_ms: 65239    
+---
+output/2019/q6.png (983, 331) last_dense 320 gap 10
+output/2019/q10.png (983, 805) last_dense 794 gap 10
+output/2016/q9.png (1014, 426) last_dense 425 gap 0
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/combined.pdf (33 pages)
+Paper type: MC (2016p1a.pdf)
+Using MC overrides: overrides_2016.json
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2016
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2016/combined.pdf
+Wrote /Users/sinchunyeung/github/paper2db/output/2019/combined.pdf (33 pages)
+Paper type: MC (2019p1a.pdf)
+Using MC overrides: overrides_2019.json
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2019
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2019/combined.pdf
+
+---
+exit_code: 0
+elapsed_ms: 65232
+ended_at: 2026-09-04T15:25:39.068Z
+---

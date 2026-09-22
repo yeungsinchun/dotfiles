@@ -1,0 +1,45 @@
+---
+pid: 68673
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && for year in 2015 2016 2019 2022 2023 sap; do echo \"=== $year ===\"; ./segment \"paper/${year}p1a.pdf\" \"output/$year\" --type mc && echo OK || echo FAIL; done 2>&1 | tail -30"
+title: "Re-segment previously failed papers"
+status: succeeded
+started_at: 2026-09-01T07:13:18.526Z
+running_for_ms: 406069   
+---
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q13.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q14.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q15.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q16.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q17.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q18.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q19.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q20.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q21.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q22.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q23.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q24.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q25.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q26.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q27.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q28.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q29.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q30.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q31.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q32.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q33.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q34.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q35.png (927x2)
+Wrote /Users/sinchunyeung/github/paper2db/output/sap/q36.png (927x8)
+Wrote 36 questions to /Users/sinchunyeung/github/paper2db/output/sap (from original PDF)
+Paper type: MC (sapp1a.pdf)
+=== MC step 1/2: anchor questions ===
+=== MC step 2/2: split into PNGs ===
+Wrote 36 questions -> /Users/sinchunyeung/github/paper2db/output/sap
+OK
+
+---
+exit_code: 0
+elapsed_ms: 406068
+ended_at: 2026-09-01T07:20:04.594Z
+---

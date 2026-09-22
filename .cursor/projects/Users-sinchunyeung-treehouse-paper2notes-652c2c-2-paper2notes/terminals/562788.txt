@@ -1,0 +1,30 @@
+---
+pid: 32666
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/2/paper2notes/notes/book5/ch01-radiation-and-radioactivity"
+command: "python3 -m http.server 8765"
+title: "Serve notes chapter over HTTP"
+status: failed   
+started_at: 2026-09-09T02:36:05.914Z
+running_for_ms: 130895   
+---
+::ffff:127.0.0.1 - - [09/Sep/2026 10:36:23] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [09/Sep/2026 10:36:23] "GET /css/notes.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [09/Sep/2026 10:36:23] code 404, message File not found
+::ffff:127.0.0.1 - - [09/Sep/2026 10:36:23] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [09/Sep/2026 10:36:29] "GET /25-1.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [09/Sep/2026 10:36:29] "GET /js/notes.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [09/Sep/2026 10:36:53] "GET /25-3.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [09/Sep/2026 10:36:53] "GET /css/notes.css HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [09/Sep/2026 10:36:53] "GET /js/notes.js HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [09/Sep/2026 10:37:29] "GET /25-2.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [09/Sep/2026 10:37:29] "GET /css/notes.css HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [09/Sep/2026 10:37:29] "GET /js/notes.js HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [09/Sep/2026 10:37:51] "GET /summary.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [09/Sep/2026 10:37:51] "GET /css/notes.css HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [09/Sep/2026 10:37:51] "GET /js/notes.js HTTP/1.1" 304 -
+
+---
+exit_code: unknown
+elapsed_ms: 130847
+ended_at: 2026-09-09T02:38:16.761Z
+---

@@ -1,0 +1,16 @@
+---
+pid: 13800
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "export PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:$PATH\"\npython3 /tmp/fm-http-dual.py 8770 \"/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams/draft\""
+title: "Serve SOTS explainer HTML on port 8770"
+status: aborted  
+started_at: 2026-09-12T16:32:20.992Z
+running_for_ms: 221751764
+---
+::ffff:127.0.0.1 - - [13/Sep/2026 00:32:24] "HEAD /trajectory-stream-simplification-explainer.html HTTP/1.1" 200 -
+
+---
+exit_code: unknown
+elapsed_ms: 221751763
+ended_at: 2026-09-15T06:08:12.755Z
+---

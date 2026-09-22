@@ -1,0 +1,922 @@
+# iTerm2 Shell Integration Protocol
+
+- Owner: tep
+- Created: 2026-02-18T02:04:47Z
+- Public: yes
+- Comments: 0
+- Forks: 0
+
+## rfc-iterm2-shell-integration-gfm.md
+
+Language: Markdown
+
+ 
+ Internet-Draft T. Peoples 
+ Intended status: Informational Olympic Research Laboratories 
+ - February 17, 2026 
+ 
+
+# iTerm2 - Shell Integration Protocol Specification
+
+---
+
+## Abstract
+
+This document specifies the communication protocol used between interactive shell sessions and the iTerm2 terminal emulator to provide semantic markup of shell activity. The protocol enables a terminal emulator to distinguish between shell prompts, user-entered commands, and command output, and to receive metadata about the remote execution environment.
+
+The protocol is derived from escape sequences originally pioneered by the FinalTerm terminal emulator (now defunct) and subsequently adopted and extended by iTerm2. This specification is distilled from the four reference implementations (bash, zsh, fish, tcsh) provided by the iTerm2 project and corroborated against the iTerm2 source code and official documentation.
+
+This document is shell-agnostic and intended to enable correct implementation in any interactive command interpreter.
+
+## Status of This Memo
+
+This document is an informational specification produced independently of the iTerm2 project. It carries no official endorsement. The canonical source of truth remains the iTerm2 source code repository at.
+
+---
+
+## Table of Contents
+
+- [1. Introduction](#1-introduction)
+- [2. Terminology](#2-terminology)
+- [3. Notation and Encoding](#3-notation-and-encoding)
+- [4. Protocol Overview](#4-protocol-overview)
+- [5. Session Lifecycle](#5-session-lifecycle)
+- [6. FinalTerm Command Sequences (OSC 133)](#6-finalterm-command-sequences-osc-133)
+ - [6.1. FTCS_PROMPT (A)](#61-ftcs_prompt-a)
+ - [6.2. FTCS_COMMAND_START (B)](#62-ftcs_command_start-b)
+ - [6.3. FTCS_COMMAND_EXECUTED (C)](#63-ftcs_command_executed-c)
+ - [6.4. FTCS_COMMAND_FINISHED (D)](#64-ftcs_command_finished-d)
+ - [6.5. Sequence Ordering Constraints](#65-sequence-ordering-constraints)
+ - [6.6. State Machine](#66-state-machine)
+- [7. iTerm2 Extension Sequences (OSC 1337)](#7-iterm2-extension-sequences-osc-1337)
+ - [7.1. RemoteHost](#71-remotehost)
+ - [7.2. CurrentDir](#72-currentdir)
+ - [7.3. SetUserVar](#73-setuservar)
+ - [7.4. ShellIntegrationVersion](#74-shellintegrationversion)
+- [8. Composite Lifecycle Sequences](#8-composite-lifecycle-sequences)
+ - [8.1. Initialization Phase](#81-initialization-phase)
+ - [8.2. Prompt-Command Cycle](#82-prompt-command-cycle)
+ - [8.3. Interrupted Command (Ctrl-C) Handling](#83-interrupted-command-ctrl-c-handling)
+- [9. Implementation-Specific Behaviors](#9-implementation-specific-behaviors)
+ - [9.1. Carriage Return in FTCS_COMMAND_EXECUTED](#91-carriage-return-in-ftcs_command_executed)
+ - [9.2. Prompt Mark Suppression (ITERM2_SQUELCH_MARK)](#92-prompt-mark-suppression-iterm2_squelch_mark)
+ - [9.3. tmux/screen Exclusion](#93-tmuxscreen-exclusion)
+ - [9.4. Hostname Caching](#94-hostname-caching)
+- [10. Cross-Implementation Comparison](#10-cross-implementation-comparison)
+ - [10.1. Feature Parity Matrix](#101-feature-parity-matrix)
+ - [10.2. Version Numbers](#102-version-numbers)
+ - [10.3. Sequence Emission Ordering](#103-sequence-emission-ordering)
+ - [10.4. Notable Divergences](#104-notable-divergences)
+- [11. Security Considerations](#11-security-considerations)
+- [12. IANA Considerations](#12-iana-considerations)
+- [13. References](#13-references)
+- [Appendix A. Formal Grammar](#appendix-a-formal-grammar)
+- [Appendix B. Minimal Conformant Implementation (Pseudocode)](#appendix-b-minimal-conformant-implementation-pseudocode)
+- [Appendix C. Relationship to OSC 7](#appendix-c-relationship-to-osc-7)
+
+---
+
+## 1. Introduction
+
+Modern terminal emulators benefit from semantic understanding of shell session structure. Without protocol-level markup, a terminal emulator sees only an undifferentiated stream of characters and cannot distinguish between a shell prompt, user input, and command output.
+
+The iTerm2 Shell Integration protocol addresses this by defining a set of Operating System Command (OSC) escape sequences that a shell emits at well-defined points in its read-eval-print loop. These sequences are invisible to the user but are intercepted and interpreted by the terminal emulator to enable features including:
+
+- Prompt detection and navigation (jump between prompts)
+- Command history tracking (per-host, per-user)
+- Exit status visualization (success/failure marks)
+- Output selection (click to select a command's output)
+- Automatic Profile Switching (based on host/user/directory)
+- Recent directory tracking ("frecency"-sorted)
+- Auto Composer (native text editing for command input)
+- Scrollback prompt overlay (pinned command when scrolled)
+- Remote file operations (scp upload/download)
+
+The protocol consists of two families of escape sequences:
+
+1. **FinalTerm sequences (OSC 133)**, providing semantic markup of the prompt-command-output cycle.
+
+2. **iTerm2 extension sequences (OSC 1337)**, providing environmental metadata such as hostname, working directory, user-defined variables, and version reporting.
+
+Reference implementations exist for four shells: bash, zsh, fish (2.3+), and tcsh. This specification aims to be shell-agnostic, noting implementation divergences only where they reveal protocol ambiguities or constraints.
+
+## 2. Terminology
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119][RFC2119].
+
+The following terms are used throughout this document:
+
+| Term | Definition |
+|------|-----------|
+| **Shell** | An interactive command interpreter (e.g., bash, zsh, fish, tcsh) that reads commands from a user and executes them. |
+| **Terminal Emulator** | The application rendering the shell session's output and forwarding user input (e.g., iTerm2). |
+| **Prompt** | The text displayed by the shell to indicate readiness for user input. |
+| **Command Region** | The portion of the terminal screen containing the user's entered command text, between the end of the prompt and the start of command output. |
+| **Output Region** | The portion of the terminal screen containing a command's standard output and standard error. |
+| **Prompt-Command Cycle** | One complete iteration of: prompt display, command entry, command execution, and output. |
+| **FinalTerm Sequences** | OSC escape sequences with command number 133, originally defined by the FinalTerm terminal emulator. |
+| **Extension Sequences** | OSC escape sequences with command number 1337, defined by the iTerm2 project. |
+
+## 3. Notation and Encoding
+
+This document uses the following notation for control characters and escape sequences:
+
+| Symbol | Meaning | Hex |
+|--------|---------|-----|
+| `ESC` | The Escape character | `0x1B` |
+| `BEL` | The Bell character | `0x07` |
+| `CR` | The Carriage Return character | `0x0D` |
+| `ST` | String Terminator: either `BEL` or `ESC \` | `0x07` or `0x1B 0x5C` |
+| `OSC` | Operating System Command: `ESC ]` | `0x1B 0x5D` |
+| `SP` | A literal space character | `0x20` |
+
+All OSC sequences in this protocol take the form:
+
+```
+OSC <command> ; <body> ST
+```
+
+Where ` ` is a decimal number (`133` or `1337`) and ` ` varies by sequence. No whitespace is permitted between structural elements unless explicitly noted.
+
+Both `BEL` and `ESC \` are valid string terminators per ECMA-48. All four reference implementations use `BEL` (`0x07`) exclusively. Implementations SHOULD accept both forms when receiving and MAY use either when transmitting, though `BEL` is RECOMMENDED for maximum compatibility.
+
+## 4. Protocol Overview
+
+The protocol defines a state machine layered atop the shell's read-eval-print loop (REPL). Each iteration of the REPL produces a defined sequence of escape codes:
+
+```
+┌──────────────────────────────────────────────────┐
+│  FTCS_COMMAND_FINISHED (D) with exit status      │
+│  [from previous command, if any]                 │
+└──────────────────────┬───────────────────────────┘
+                       │
+                       ▼
+┌──────────────────────────────────────────────────┐
+│  RemoteHost, CurrentDir, SetUserVar (metadata)   │
+└──────────────────────┬───────────────────────────┘
+                       │
+                       ▼
+┌──────────────────────────────────────────────────┐
+│  FTCS_PROMPT (A)                                 │
+│  <shell prompt text rendered here>               │
+│  FTCS_COMMAND_START (B)                          │
+└──────────────────────┬───────────────────────────┘
+                       │
+                       ▼
+┌──────────────────────────────────────────────────┐
+│  <user types and edits command>                  │
+└──────────────────────┬───────────────────────────┘
+                       │
+                       ▼
+┌──────────────────────────────────────────────────┐
+│  FTCS_COMMAND_EXECUTED (C)                       │
+└──────────────────────┬───────────────────────────┘
+                       │
+                       ▼
+┌──────────────────────────────────────────────────┐
+│  <command output>                                │
+└──────────────────────┬───────────────────────────┘
+                       │
+                       ▼
+               (cycle repeats)
+```
+
+The shell emits these sequences by hooking into its native lifecycle mechanisms (`precmd`/`preexec` in zsh, `PROMPT_COMMAND` and DEBUG trap in bash, fish events, and `precmd`/`postcmd` aliases in tcsh). The specific hooking mechanism is an implementation detail outside the scope of this protocol.
+
+## 5. Session Lifecycle
+
+A shell session supporting this protocol passes through the following phases:
+
+### 5.1. Initialization
+
+When the shell integration script is sourced, the shell MUST emit the following sequences, in order:
+
+1. `RemoteHost` ([Section 7.1](#71-remotehost))
+2. `CurrentDir` ([Section 7.2](#72-currentdir))
+3. `SetUserVar` ([Section 7.3](#73-setuservar), zero or more, OPTIONAL)
+4. `ShellIntegrationVersion` ([Section 7.4](#74-shellintegrationversion))
+
+These sequences inform the terminal emulator of the initial execution environment and the protocol version in use.
+
+### 5.2. Steady State
+
+After initialization, the shell enters a repeating prompt-command cycle as described in [Section 8.2](#82-prompt-command-cycle).
+
+### 5.3. Termination
+
+No explicit termination sequence is defined. The terminal emulator detects session end via the underlying transport (e.g., EOF on the PTY file descriptor).
+
+## 6. FinalTerm Command Sequences (OSC 133)
+
+These sequences segment the terminal's character stream into semantically meaningful regions. They use OSC command number `133`, followed by a single uppercase letter identifying the boundary type.
+
+### 6.1. FTCS_PROMPT (A)
+
+**Syntax:**
+
+```
+OSC 133 ; A ST
+```
+
+**Semantics:**
+
+Marks the beginning of a shell prompt. The terminal emulator SHOULD record the cursor position at the time this sequence is received. This position defines the start of the "prompt region."
+
+This sequence also causes the terminal emulator to create a visible "mark" (typically rendered as a small triangle in the left margin) at the current line, enabling prompt-to-prompt navigation.
+
+**Emission Point:**
+
+MUST be emitted immediately before the first character of the shell prompt is written to the terminal.
+
+**Notes:**
+
+When the shell prompt itself already contains this sequence (e.g., because the user has manually embedded it), the shell integration script SHOULD detect this and avoid emitting a duplicate. The reference implementations check for the presence of the `iterm2_prompt_mark` function call within PS1 and suppress automatic emission if found.
+
+The `ITERM2_SQUELCH_MARK` environment variable ([Section 9.2](#92-prompt-mark-suppression-iterm2_squelch_mark)) provides an additional suppression mechanism.
+
+### 6.2. FTCS_COMMAND_START (B)
+
+**Syntax:**
+
+```
+OSC 133 ; B ST
+```
+
+**Semantics:**
+
+Marks the end of the shell prompt and the beginning of the command input region. All text rendered after this sequence and before `FTCS_COMMAND_EXECUTED` is considered part of the user-entered command.
+
+**Emission Point:**
+
+MUST be emitted immediately after the last character of the shell prompt, before the cursor is positioned for user input.
+
+### 6.3. FTCS_COMMAND_EXECUTED (C)
+
+**Syntax:**
+
+```
+OSC 133 ; C ; ST
+OSC 133 ; C ; CR ST       (see Section 9.1)
+OSC 133 ; C ST            (also valid per documentation)
+```
+
+**Semantics:**
+
+Marks the end of the user's command input and the beginning of command output.
+
+Upon receipt, the terminal emulator captures the text between the cursor position recorded at `FTCS_COMMAND_START` (B) and the cursor position at the time of this sequence's receipt, excluding trailing whitespace. This captured text is recorded as the "command" for history and display purposes.
+
+If the cursor's position at receipt time is before (above, or on the same line but to the left of) its position at the time `FTCS_COMMAND_START` was received, the command SHALL be treated as the empty string.
+
+**Emission Point:**
+
+MUST be emitted after the user has pressed Return (or equivalent) and the shell has accepted the command, but before the command begins producing output. This is typically the "preexec" hook point.
+
+**Notes:**
+
+All four reference implementations emit the variant with a trailing semicolon: `133;C;` rather than bare `133;C`. The trailing semicolon SHOULD be included for compatibility.
+
+See [Section 9.1](#91-carriage-return-in-ftcs_command_executed) for discussion of the conditional carriage return.
+
+### 6.4. FTCS_COMMAND_FINISHED (D)
+
+**Syntax:**
+
+```
+OSC 133 ; D ; [exit_status] ST
+OSC 133 ; D ST
+```
+
+**Semantics:**
+
+Signals the end of a command's output region. The interpretation depends on which FTCS sequence was most recently received:
+
+**(a) After `FTCS_COMMAND_EXECUTED` (C):**
+
+The first form SHOULD be used. `[exit_status]` is the command's exit code, represented as one or more ASCII decimal digits in the range 0–255. An exit status of 0 indicates success; any non-zero value indicates failure. The terminal emulator MAY use this value to adjust the visual appearance of the associated prompt mark (e.g., coloring it red for failure).
+
+**(b) After `FTCS_COMMAND_START` (B), before `FTCS_COMMAND_EXECUTED`:**
+
+This indicates the command was aborted (e.g., the user pressed Ctrl-C during command entry). Either form is accepted. If `[exit_status]` is present, it SHALL be ignored. All state associated with the preceding prompt and command region SHALL be discarded.
+
+**(c) If neither `FTCS_COMMAND_START` nor `FTCS_COMMAND_EXECUTED` was previously received:**
+
+The sequence SHALL be ignored.
+
+**Emission Point:**
+
+MUST be emitted after a command completes (or is aborted) and before the next prompt is displayed. This is typically the "precmd" hook point.
+
+**Notes:**
+
+The bash implementation emits `FTCS_COMMAND_FINISHED` with `$?` (literal dollar-question-mark for deferred evaluation) as part of the prompt prefix, causing it to be evaluated at prompt rendering time. This is a shell-specific technique for capturing the exit status and is functionally equivalent to the approach used by other shells, which capture the status in a variable and emit it explicitly.
+
+The fish implementation emits `FTCS_COMMAND_FINISHED` with the status value as an argument to its `iterm2_status` function, but notes that it cannot emit D between preexec and the prompt because fish does not expose the previous command's status at preexec time. Instead, it captures `$status` at the start of the prompt function.
+
+### 6.5. Sequence Ordering Constraints
+
+Within a single prompt-command cycle, the FinalTerm sequences MUST be emitted in the following order:
+
+```
+D → A → B → C → (output) → D → A → B → …
+```
+
+Where:
+
+- **D** precedes **A** (reporting the previous command's status before the new prompt)
+- **A** precedes **B** (prompt start before prompt end)
+- **B** precedes **C** (command entry before command execution)
+- **C** precedes **D** (command output before command completion)
+
+The initial prompt-command cycle after session initialization MAY omit the leading D if no previous command has been executed. However, the bash reference implementation still emits `D;$?` even for the initial prompt (where `$?` is the shell's initial exit status, typically 0).
+
+### 6.6. State Machine
+
+The terminal emulator maintains the following state machine for FinalTerm sequence processing:
+
+```
+                    ┌──────────────────────────────────┐
+                    │                                  │
+                    ▼                                  │
+              ┌──────────┐                             │
+      ┌──────▶│   IDLE   │◀────────────┐               │
+      │       └────┬─────┘             │               │
+      │            │ A                 │ D (record     │
+      │            ▼                   │  exit status) │
+      │       ┌──────────┐             │               │
+      │       │  PROMPT  │             │               │
+      │       └────┬─────┘             │               │
+      │            │ B                 │               │
+      │            ▼                   │               │
+      │       ┌──────────────┐         │               │
+      │       │COMMAND_INPUT │─────────┘               │
+      │       └────┬─────────┘  D (abort)              │
+      │            │ C                                 │
+      │            ▼                                   │
+      │       ┌────────────────┐                       │
+      │       │COMMAND_OUTPUT  │───────────────────────┘
+      │       └────┬───────────┘  D (with status)
+      │            │
+      │            │ A (implicit D,
+      │            │    unknown status)
+      └────────────┘
+```
+
+| Current State | On Receipt Of | Action | Next State |
+|---------------|---------------|--------|------------|
+| `IDLE` | A | Record cursor position | `PROMPT` |
+| `IDLE` | D | If previous state was `COMMAND_OUTPUT`, record exit status | `IDLE` |
+| `PROMPT` | B | Record prompt region boundaries | `COMMAND_INPUT` |
+| `COMMAND_INPUT` | C | Capture command text from screen | `COMMAND_OUTPUT` |
+| `COMMAND_INPUT` | D | Command aborted; discard state | `IDLE` |
+| `COMMAND_OUTPUT` | D | Record exit status; mark output region | `IDLE` |
+| `COMMAND_OUTPUT` | A | Implicit D with unknown status | `PROMPT` |
+
+Implementations SHOULD be resilient to out-of-order or missing sequences, as real-world conditions (subshells, job control, interrupted scripts) may produce incomplete cycles.
+
+## 7. iTerm2 Extension Sequences (OSC 1337)
+
+These sequences convey metadata about the shell execution environment. They use OSC command number `1337`.
+
+### 7.1. RemoteHost
+
+**Syntax:**
+
+```
+OSC 1337 ; RemoteHost= [username] @ [hostname] ST
+```
+
+**Parameters:**
+
+| Parameter | Description |
+|-----------|-------------|
+| `[username]` | The current user's login name (e.g., the value of the `USER` environment variable). |
+| `[hostname]` | The fully-qualified domain name of the host. Implementations SHOULD use the output of `hostname -f` where available. |
+
+**Semantics:**
+
+Reports the user and host for the current session. The terminal emulator uses this for:
+
+- Automatic Profile Switching (matching rules based on user\@host)
+- Remote file operations (scp target determination)
+- Command history segregation (per-user, per-host)
+
+**Emission Points:**
+
+MUST be emitted during session initialization and at the start of each prompt-command cycle (typically within the precmd/PROMPT_COMMAND handler, after `FTCS_COMMAND_FINISHED` but before `FTCS_PROMPT`).
+
+**Synonym:**
+
+`OSC 7` with a `file://` URL combining host and path may serve as a combined RemoteHost + CurrentDir signal. See [Appendix C](#appendix-c-relationship-to-osc-7).
+
+### 7.2. CurrentDir
+
+**Syntax:**
+
+```
+OSC 1337 ; CurrentDir= [path] ST
+```
+
+**Parameters:**
+
+| Parameter | Description |
+|-----------|-------------|
+| `[path]` | The absolute path of the current working directory (e.g., the value of `$PWD`). |
+
+**Semantics:**
+
+Reports the current working directory. The terminal emulator uses this for:
+
+- Recent directory tracking and ranking by "frecency"
+- Semantic history (Cmd-click on filenames resolves relative paths)
+- Automatic Profile Switching (directory-based rules)
+
+**Emission Points:**
+
+MUST be emitted during session initialization and at the start of each prompt-command cycle, immediately after RemoteHost.
+
+### 7.3. SetUserVar
+
+**Syntax:**
+
+```
+OSC 1337 ; SetUserVar= [key] = [base64_value] ST
+```
+
+**Parameters:**
+
+| Parameter | Description |
+|-----------|-------------|
+| `[key]` | An ASCII string identifying the variable. Keys SHOULD be descriptive identifiers (e.g., `currentDirectory`, `gitBranch`). |
+| `[base64_value]` | The variable's value, encoded in Base64 ([RFC 4648][RFC4648]) with no line breaks. An empty value is represented as an empty Base64 string. |
+
+**Semantics:**
+
+Sets a user-defined variable in the terminal emulator's session dictionary. These variables are accessible within iTerm2 for string interpolation, notably in badge configurations via the syntax `\(user.[key])`.
+
+**Emission Points:**
+
+SHOULD be emitted during session initialization and at the start of each prompt-command cycle, after RemoteHost and CurrentDir. The shell integration scripts provide a hook function (`iterm2_print_user_vars`) that users MAY override to emit custom variables.
+
+**Notes:**
+
+The tcsh implementation provides only a minimal alias for SetUserVar. The default hook (`_iterm2_user_defined_vars`) is an empty alias that users must override using tcsh alias syntax, which is considerably less ergonomic than the function-based approach available in bash, zsh, and fish. See [Section 10.4](#104-notable-divergences).
+
+### 7.4. ShellIntegrationVersion
+
+**Syntax (current form):**
+
+```
+OSC 1337 ; ShellIntegrationVersion= [Pn] ; shell= [Ps] ST
+```
+
+**Syntax (deprecated form, SHOULD NOT be used):**
+
+```
+OSC 1337 ; ShellIntegrationVersion= [Pn] ST
+```
+
+**Parameters:**
+
+| Parameter | Description |
+|-----------|-------------|
+| `[Pn]` | A decimal integer representing the version of the shell integration script. |
+| `[Ps]` | An ASCII string identifying the shell (e.g., `bash`, `zsh`, `fish`, `tcsh`). |
+
+**Semantics:**
+
+Reports the protocol implementation version. The terminal emulator maintains a per-shell expected version number. If the received version is lower than the expected version, the terminal emulator MAY prompt the user to upgrade.
+
+**Emission Point:**
+
+MUST be emitted exactly once during session initialization, after all other initialization sequences.
+
+**Notes:**
+
+Version numbers are NOT comparable across shells. Each shell has an independent version sequence. As of the reference implementations analyzed for this document, the version numbers are:
+
+| Shell | Version |
+|-------|---------|
+| bash | 18 |
+| zsh | 14 |
+| fish | 19 |
+| tcsh | 7 |
+
+## 8. Composite Lifecycle Sequences
+
+This section describes the complete sequence of escape codes emitted during each phase of the protocol, in exact order.
+
+### 8.1. Initialization Phase
+
+Upon sourcing the shell integration script, the following sequences MUST be emitted:
+
+| Order | Sequence |
+|-------|----------|
+| 1 | `OSC 1337 ; RemoteHost= [user] @ [host] ST` |
+| 2 | `OSC 1337 ; CurrentDir= [cwd] ST` |
+| 3 | `OSC 1337 ; SetUserVar= [k] = [v] ST` *(zero or more)* |
+| 4 | `OSC 1337 ; ShellIntegrationVersion= [V] ; shell= [S] ST` |
+
+No FinalTerm (OSC 133) sequences are emitted during initialization. The first `FTCS_PROMPT` (A) is emitted when the first prompt is displayed, which occurs after the shell finishes processing its startup files.
+
+### 8.2. Prompt-Command Cycle
+
+For each command entered at the prompt and executed, the following sequences are emitted:
+
+#### Step 1: Command Completion Reporting *(precmd)*
+
+| Sub-step | Sequence |
+|----------|----------|
+| 1a | `OSC 133 ; D ; [exit_status] ST` |
+| 1b | `OSC 1337 ; RemoteHost= [user] @ [host] ST` |
+| 1c | `OSC 1337 ; CurrentDir= [cwd] ST` |
+| 1d | `OSC 1337 ; SetUserVar= [k] = [v] ST` *(zero or more)* |
+
+#### Step 2: Prompt Display
+
+| Sub-step | Sequence |
+|----------|----------|
+| 2a | `OSC 133 ; A ST` |
+| 2b | *\ * |
+| 2c | `OSC 133 ; B ST` |
+
+#### Step 3: Command Entry
+
+*\ *
+
+#### Step 4: Command Execution *(preexec)*
+
+| Sub-step | Sequence |
+|----------|----------|
+| 4a | `OSC 133 ; C ; ST` |
+
+#### Step 5: Command Output
+
+*\ *
+
+The cycle then repeats from Step 1.
+
+**Implementation Note:** In the bash reference implementation, Steps 1a and 2a are combined into a PS1 prefix. The shell constructs PS1 as:
+
+```
+\[<D;$?><A>\]<original_PS1>\[<B>\]
+```
+
+Where `\[...\]` denotes bash's zero-width escape brackets. The D and A sequences are evaluated each time the prompt is rendered. This achieves the same logical ordering as described above but through PS1 evaluation rather than explicit function calls.
+
+### 8.3. Interrupted Command (Ctrl-C) Handling
+
+When the user presses Ctrl-C during command entry (after B but before C), the preexec hook does NOT fire. The shell proceeds directly to rendering a new prompt.
+
+All four reference implementations detect this case and synthesize the missing `FTCS_COMMAND_EXECUTED` (C) before proceeding with the normal precmd sequence. The synthesized C informs the terminal emulator that no command was executed, allowing it to discard the incomplete command region.
+
+The complete sequence for an interrupted command is:
+
+> *\[Previous cycle ends with B displayed, user is typing\]*
+> *\ *
+
+| Step | Source | Sequence |
+|------|--------|----------|
+| 1 | precmd *(synthesized)* | `OSC 133 ; C ; ST` |
+| 2 | precmd | `OSC 133 ; D ; [exit_status] ST` |
+| 3 | precmd | `OSC 1337 ; RemoteHost= [user] @ [host] ST` |
+| 4 | precmd | `OSC 1337 ; CurrentDir= [cwd] ST` |
+| 5 | precmd | `OSC 1337 ; SetUserVar= [k] = [v] ST` *(zero or more)* |
+| 6 | prompt | `OSC 133 ; A ST` |
+| 7 | prompt | *\ * |
+| 8 | prompt | `OSC 133 ; B ST` |
+
+The synthesized C in step 1 transitions the terminal emulator from `COMMAND_INPUT` to `COMMAND_OUTPUT` state, after which the D in step 2 properly closes the (empty) output region.
+
+As an alternative interpretation, if D is emitted directly after B (without an intervening C), the terminal emulator SHOULD treat this as an aborted command per [Section 6.4(b)](#64-ftcs_command_finished-d), discarding the prompt and command state. The reference implementations use the synthesized-C approach, but terminal emulators SHOULD handle both patterns gracefully.
+
+## 9. Implementation-Specific Behaviors
+
+### 9.1. Carriage Return in FTCS_COMMAND_EXECUTED
+
+All four reference implementations conditionally include a carriage return character (`0x0D`) within the `FTCS_COMMAND_EXECUTED` sequence when the `TERM_PROGRAM` environment variable equals `iTerm.app`:
+
+| Condition | Emitted Sequence |
+|-----------|-----------------|
+| `TERM_PROGRAM = "iTerm.app"` | `OSC 133 ; C ; CR ST` |
+| Otherwise | `OSC 133 ; C ; ST` |
+
+The carriage return is placed within the body of the OSC sequence, after the trailing semicolon and before the string terminator (`BEL` or `ESC \`).
+
+The purpose of this carriage return is specific to iTerm2's processing of the `FTCS_COMMAND_EXECUTED` sequence. When iTerm2 receives this sequence, it needs to ensure the cursor returns to the beginning of the current line before command output begins. The CR achieves this within iTerm2, which recognizes and consumes it as part of the OSC body.
+
+Other terminal emulators implementing this protocol SHOULD either:
+
+1. Ignore the CR within the OSC body, or
+2. Not require the CR (accept `133;C;` without it).
+
+Shell integrations targeting multiple terminal emulators SHOULD check `TERM_PROGRAM` and only include the CR for `iTerm.app`.
+
+### 9.2. Prompt Mark Suppression (ITERM2_SQUELCH_MARK)
+
+When the environment variable `ITERM2_SQUELCH_MARK` is set to a non-empty value, the shell integration script MUST NOT automatically prepend the `FTCS_PROMPT` (A) mark to the prompt string.
+
+This mechanism exists for users of prompt frameworks (e.g., Powerlevel9k/Powerlevel10k, Starship) that control PS1 directly and prevent the integration script from modifying it. In this configuration, the user is expected to manually embed the FTCS_PROMPT sequence at the desired location within their prompt.
+
+| Shell | `ITERM2_SQUELCH_MARK` Supported |
+|-------|-------------------------------|
+| bash | Yes |
+| zsh | Yes |
+| fish | N/A *(wraps prompt function; not needed)* |
+| tcsh | No |
+
+### 9.3. tmux/screen Exclusion
+
+All four reference implementations refuse to activate when running inside tmux or GNU screen, as detected by the `TERM` environment variable equaling `screen`, `screen-256color`, or `tmux-256color`.
+
+This exclusion can be overridden by setting the environment variable `ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX` to a non-empty value before sourcing the integration script. The reference implementations prepend this variable's value to `TERM` before performing the comparison, effectively defeating the match.
+
+Additionally, the integration scripts refuse to activate when `TERM` equals `linux` or `dumb`, as these indicate environments that do not support OSC sequences.
+
+Finally, the environment variable `ITERM_SHELL_INTEGRATION_INSTALLED` is checked and, if set, prevents duplicate installation.
+
+### 9.4. Hostname Caching
+
+The fully-qualified hostname is required by the RemoteHost sequence ([Section 7.1](#71-remotehost)). On some systems, `hostname -f` can be slow (e.g., due to DNS resolution).
+
+All four reference implementations apply the following caching strategy:
+
+1. If the variable `iterm2_hostname` is already set by the user (prior to sourcing the script), use that value unconditionally.
+
+2. Otherwise, **on macOS (Darwin):** do NOT cache the hostname. Evaluate `hostname -f` on each invocation. This allows the reported hostname to update when the user connects to or disconnects from a VPN.
+
+3. Otherwise, **on non-Darwin systems:** cache the result of `hostname -f` at script load time. If `hostname -f` fails (e.g., on OpenBSD/NetBSD which lack the `-f` option), fall back to bare `hostname`.
+
+## 10. Cross-Implementation Comparison
+
+### 10.1. Feature Parity Matrix
+
+| Feature | bash | zsh | fish | tcsh |
+|---------|:----:|:---:|:----:|:----:|
+| FTCS_PROMPT (A) | ✓ | ✓ | ✓ | ✓ |
+| FTCS_COMMAND_START (B) | ✓ | ✓ | ✓ | ✓ |
+| FTCS_COMMAND_EXECUTED (C) | ✓ | ✓ | ✓ | ✓ |
+| FTCS_COMMAND_FINISHED (D) | ✓ | ✓ | ✓ | ✓ |
+| RemoteHost | ✓ | ✓ | ✓ | ✓ |
+| CurrentDir | ✓ | ✓ | ✓ | ✓ |
+| SetUserVar | ✓ | ✓ | ✓ | ✓\* |
+| ShellIntegrationVersion | ✓ | ✓ | ✓ | ✓ |
+| Conditional CR in C | ✓ | ✓ | ✓ | ✓ |
+| SQUELCH_MARK support | ✓ | ✓ | — \*\* | ✗ |
+| Ctrl-C detection/synthesis | ✓ | ✓ | N/A | N/A |
+| User-overridable prompt mark | ✓ | ✓ | ✓ \*\*\* | ✗ |
+| Hostname caching (non-Darwin) | ✓ | ✓ | ✓ | ✓ |
+| Dynamic PS1 detection | ✓ | ✓ | N/A | ✗ |
+
+> **\*** tcsh provides a basic `iterm2_set_user_var` alias but the user-defined hook (`_iterm2_user_defined_vars`) requires awkward alias-based override syntax.
+>
+> **\*\*** fish wraps the prompt function rather than modifying a PS1 variable, making `SQUELCH_MARK` unnecessary. It does check whether the user's `fish_prompt` already contains `iterm2_prompt_mark` and avoids duplicate emission.
+>
+> **\*\*\*** fish checks whether the user's prompt function contains the string `iterm2_prompt_mark` and suppresses automatic mark emission if found.
+
+### 10.2. Version Numbers
+
+The `ShellIntegrationVersion` reported by each reference implementation as of the scripts analyzed:
+
+| Shell | Version |
+|-------|:-------:|
+| bash | 18 |
+| zsh | 14 |
+| fish | 19 |
+| tcsh | 7 |
+
+These version numbers are shell-specific and MUST NOT be compared across shells.
+
+### 10.3. Sequence Emission Ordering
+
+While all implementations emit the same logical set of sequences, the precise ordering of D relative to the metadata sequences varies:
+
+**bash:**
+
+D is emitted as part of the PS1 prefix (deferred via `$?`), logically positioned immediately before A. Metadata sequences (RemoteHost, CurrentDir, SetUserVar) are emitted by `__iterm2_prompt_command`, which runs in `PROMPT_COMMAND` before PS1 is rendered.
+
+```
+RemoteHost → CurrentDir → UserVars → D → A → prompt → B
+```
+
+**zsh:**
+
+D is emitted first in `iterm2_precmd` (with captured `$STATUS`), then `iterm2_print_state_data` emits metadata, then `iterm2_decorate_prompt` wraps PS1 with A and B.
+
+```
+D → RemoteHost → CurrentDir → UserVars → A → prompt → B
+```
+
+**fish:**
+
+D (via `iterm2_status`) and metadata are emitted in the common prompt function before the prompt text.
+
+```
+D → RemoteHost → CurrentDir → UserVars → A → prompt → B
+```
+
+**tcsh:**
+
+D is emitted by the `precmd` alias, followed by metadata. A and B are embedded in the prompt string.
+
+```
+D → RemoteHost → CurrentDir → UserVars → A → prompt → B
+```
+
+The zsh, fish, and tcsh implementations all emit in the same canonical order: `D, metadata, A, prompt, B`. The bash implementation deviates by emitting metadata before D, which is a consequence of its architecture (`PROMPT_COMMAND` runs before PS1 is evaluated, and D is embedded in PS1).
+
+Terminal emulators SHOULD NOT depend on the relative ordering of D and the metadata sequences. Both orderings are valid.
+
+### 10.4. Notable Divergences
+
+#### 10.4.1. bash: bash-preexec Dependency
+
+The bash implementation bundles a copy of [bash-preexec](https://github.com/rcaloras/bash-preexec) to simulate zsh-style preexec/precmd hooks. This introduces a non-trivial amount of machinery involving the DEBUG trap and `PROMPT_COMMAND` manipulation. Other shells have native hook mechanisms and do not require such scaffolding.
+
+The bash implementation is incompatible with the `extdebug` shell option and will refuse to install if extdebug is enabled.
+
+#### 10.4.2. bash: HISTCONTROL Override
+
+The bundled bash-preexec library originally modified the `HISTCONTROL` variable to remove `ignorespace` (needed for correct preexec behavior). The iTerm2 integration overrides this with a no-op function (`__bp_adjust_histcontrol`) to preserve the user's `HISTCONTROL` setting.
+
+#### 10.4.3. fish: Status Capture Limitation
+
+Fish does not expose the previous command's exit status during the `fish_preexec` event. The fish implementation captures `$status` at the beginning of the prompt function and defers `FTCS_COMMAND_FINISHED` emission to that point. The D sequence therefore appears at the start of the prompt function rather than in a separate post-command hook.
+
+#### 10.4.4. fish: fish_mode_prompt Handling
+
+The fish implementation detects whether `fish_mode_prompt` is defined and non-empty. If it is, the integration wraps `fish_mode_prompt` (placing the A mark and metadata there) and wraps `fish_prompt` (placing the B mark there). If `fish_mode_prompt` is empty, all marks are handled through `fish_prompt` alone. This accommodates frameworks like Starship that define an empty `fish_mode_prompt` as a workaround for their own issues.
+
+#### 10.4.5. tcsh: Prompt Trailing Space Requirement
+
+tcsh does not allow the prompt to end with an escape code. The tcsh implementation therefore appends a literal space character after the `FTCS_COMMAND_START` (B) mark at the end of the prompt. iTerm2 ignores spaces that follow the B sequence.
+
+The integration script also must strip any existing trailing space from the user's prompt before wrapping it, then re-add the space after the B mark, to avoid double-spacing.
+
+#### 10.4.6. tcsh: precmd/postcmd as Aliases
+
+tcsh uses the built-in `precmd` and `postcmd` aliases rather than hook function arrays. This means the iTerm2 integration unconditionally overwrites any existing `precmd` or `postcmd` alias. There is no mechanism for composing multiple precmd/postcmd handlers in tcsh, making this implementation inherently less compatible with other tools that use the same aliases.
+
+#### 10.4.7. tcsh: No Dynamic Status in D
+
+The tcsh implementation emits `FTCS_COMMAND_FINISHED` with `$?` directly in the precmd alias body:
+
+```tcsh
+alias precmd '_iterm2_last_status; _iterm2_update_current_state'
+# where:
+alias _iterm2_last_status 'printf "\033]133;D;$?\007"'
+```
+
+This relies on tcsh expanding `$?` in the alias context. Unlike bash's PS1-based deferred evaluation, this is a direct evaluation in the alias body.
+
+## 11. Security Considerations
+
+The escape sequences defined in this protocol are emitted from the user's shell to the terminal emulator. They carry no authentication or integrity protection.
+
+A malicious program running within the shell session could emit arbitrary escape sequences, potentially:
+
+- **Spoofing the hostname or username** (RemoteHost), causing the terminal to apply incorrect profiles or route scp operations to an attacker-controlled host.
+- **Injecting false exit statuses** (FTCS_COMMAND_FINISHED).
+- **Setting misleading user variables** (SetUserVar).
+
+Terminal emulators SHOULD NOT rely on shell integration sequences for security-critical decisions. The sequences should be treated as hints for UI enhancement only.
+
+The SetUserVar sequence transmits values in Base64 encoding, which provides no confidentiality. Sensitive data SHOULD NOT be placed in user variables.
+
+## 12. IANA Considerations
+
+This document has no IANA actions. The OSC command numbers 133 and 1337 are not registered with any standards body. OSC 133 was originally allocated by the FinalTerm project; OSC 1337 was allocated by the iTerm2 project. The OSC command number space is conventionally coordinated informally among terminal emulator implementors.
+
+## 13. References
+
+| Tag | Reference |
+|-----|-----------|
+| [ITERM2-ESCAPE] | Nachman, G., "Proprietary Escape Codes", iTerm2 Documentation. |
+| [ITERM2-SHELLINT] | Nachman, G., "Shell Integration", iTerm2 Documentation. |
+| [ITERM2-SOURCE] | Nachman, G., "iTerm2 Source Code", GitHub. |
+| [ITERM2-SCRIPTS] | Nachman, G., "iTerm2 Shell Integration Scripts", GitHub. |
+| [BASH-PREEXEC] | Caloras, R., "bash-preexec", GitHub. |
+| [ECMA-48] | Ecma International, "Control Functions for Coded Character Sets", ECMA-48, 5th edition, June 1991. |
+| [RFC2119] | Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, March 1997. |
+| [RFC4648] | Josefsson, S., "The Base16, Base32, and Base64 Data Encodings", RFC 4648, October 2006. |
+| [FINALTERM] | Mikkelsen, P.L., "FinalTerm", (defunct). |
+| [MS-TERMINAL-11000] | Microsoft, "Megathread: Scrollbar Marks", Windows Terminal Issue #11000. |
+| [XTERMJS-576] | "Implement Shell Integration", xterm.js Issue #576. |
+
+---
+
+## Appendix A. Formal Grammar
+
+The following ABNF grammar ([RFC 5234](https://www.rfc-editor.org/rfc/rfc5234)) defines the syntax of the protocol's escape sequences:
+
+```abnf
+; String Terminator
+ST           = BEL / (ESC "\")
+BEL          = %x07
+ESC          = %x1B
+
+; Operating System Command introducer
+OSC          = ESC "]"
+
+; FinalTerm sequences
+ftcs-prompt          = OSC "133;A" ST
+ftcs-command-start   = OSC "133;B" ST
+ftcs-command-exec    = OSC "133;C" [";" [CR]] ST
+ftcs-command-fin     = OSC "133;D" [";" exit-status] ST
+
+exit-status          = 1*3DIGIT   ; 0-255
+
+CR                   = %x0D
+
+; iTerm2 extension sequences
+remote-host          = OSC "1337;RemoteHost=" username "@"
+                       hostname ST
+current-dir          = OSC "1337;CurrentDir=" path ST
+set-user-var         = OSC "1337;SetUserVar=" key "="
+                       base64-value ST
+shell-int-version    = OSC "1337;ShellIntegrationVersion="
+                       version-num ";" "shell=" shell-name ST
+
+username             = 1*VCHAR
+hostname             = 1*VCHAR    ; FQDN recommended
+path                 = 1*VCHAR    ; absolute path
+key                  = 1*VCHAR
+base64-value         = *BASE64CHAR
+BASE64CHAR           = ALPHA / DIGIT / "+" / "/" / "="
+version-num          = 1*DIGIT
+shell-name           = 1*ALPHA
+```
+
+## Appendix B. Minimal Conformant Implementation (Pseudocode)
+
+The following pseudocode illustrates a minimal, shell-agnostic implementation of the protocol. A shell implementor would translate this into the appropriate hooks for their shell.
+
+```python
+# --- Initialization (run once at startup) ---
+emit(OSC + "1337;RemoteHost=" + USER + "@" + FQDN + ST)
+emit(OSC + "1337;CurrentDir=" + PWD + ST)
+emit(OSC + "1337;ShellIntegrationVersion=1;shell=myshell" + ST)
+
+# --- precmd: runs before each prompt ---
+def precmd(exit_status):
+    emit(OSC + "133;D;" + str(exit_status) + ST)
+    emit(OSC + "1337;RemoteHost=" + USER + "@" + FQDN + ST)
+    emit(OSC + "1337;CurrentDir=" + PWD + ST)
+    # Optional: emit SetUserVar sequences here
+
+# --- Prompt rendering ---
+# Before prompt text:
+emit(OSC + "133;A" + ST)
+# <render prompt>
+# After prompt text:
+emit(OSC + "133;B" + ST)
+
+# --- preexec: runs after user presses Return ---
+def preexec():
+    if TERM_PROGRAM == "iTerm.app":
+        emit(OSC + "133;C;" + CR + ST)
+    else:
+        emit(OSC + "133;C;" + ST)
+
+# --- Handle Ctrl-C (preexec not called) ---
+# In precmd, detect that preexec was not invoked since
+# the last precmd, and synthesize the C sequence:
+def precmd_with_interrupt_detection(exit_status):
+    if not preexec_ran_since_last_precmd:
+        preexec()  # synthesize C
+    preexec_ran_since_last_precmd = False
+    precmd(exit_status)
+```
+
+## Appendix C. Relationship to OSC 7
+
+The iTerm2 documentation notes that OSC 7 may serve as a synonym for the combination of RemoteHost and CurrentDir:
+
+```
+OSC 7 ; file:// [hostname] [path] ST
+```
+
+For example:
+
+```
+OSC 7 ; file://example.com/usr/local/bin ST
+```
+
+This is the same OSC 7 sequence used by other terminal emulators (notably Apple's Terminal.app) for current working directory reporting.
+
+None of the four reference shell integration scripts use OSC 7. They all emit RemoteHost and CurrentDir as separate OSC 1337 sequences. Implementors MAY use OSC 7 as an alternative, but SHOULD note that it does not carry the username component that RemoteHost provides.
+
+---
+
+## Acknowledgments
+
+The FinalTerm sequences were originally designed by Pontus Lurcock Mikkelsen for the FinalTerm terminal emulator. The iTerm2 extensions and reference implementations were created by George Nachman. The bash-preexec library was created by Ryan Caloras.
+
+This specification was produced through analysis of the reference implementations and iTerm2 documentation. No original protocol design is claimed.
+
+---
+
+ **Author's Address:** T. Peoples, Olympic Research Laboratories — Enterprise Architecture 
+
+[RFC2119]: https://www.rfc-editor.org/rfc/rfc2119
+[RFC4648]: https://www.rfc-editor.org/rfc/rfc4648

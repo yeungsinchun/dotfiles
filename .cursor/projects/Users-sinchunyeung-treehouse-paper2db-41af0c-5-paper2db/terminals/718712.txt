@@ -1,0 +1,280 @@
+---
+pid: 32311
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db"
+command: ".venv/bin/python3 scripts/crop_lq_from_pages.py"
+title: "Export pages and rebuild all LQ whole-page stacks"
+status: succeeded
+started_at: 2026-09-12T16:52:09.478Z
+running_for_ms: 297510   
+---
+=== 2012 ===
+  exporting pages from 2012p1b.pdf (cover_pages=1)
+  page export scale=8.34
+  saved 18 page PNGs -> /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2012/pages
+  2012 q1.png 4916x13952 (pages 0..1)
+  2012 q2.png 4916x6976 (pages 2..2)
+  2012 q3.png 4916x6976 (pages 3..3)
+  2012 q4.png 4916x13952 (pages 4..5)
+  2012 q5.png 4916x13952 (pages 6..7)
+  2012 q6.png 4916x6976 (pages 8..8)
+  2012 q7.png 4916x20928 (pages 9..11)
+  2012 q8.png 4916x13952 (pages 12..13)
+  2012 q9.png 4916x13952 (pages 14..15)
+  2012 q10.png 4916x6976 (pages 16..16)
+  2012 q11.png 4916x6976 (pages 17..17)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2012/combined.pdf (19 A4 pages from 2012p1b.pdf)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2012/questions.pdf (18 A4 pages, 11 questions)
+=== 2013 ===
+  exporting pages from 2013p1b.pdf (cover_pages=1)
+  page export scale=2.78
+  saved 18 page PNGs -> /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2013/pages
+  2013 q1.png 1653x4676 (pages 0..1)
+  2013 q2.png 1653x4676 (pages 2..3)
+  2013 q3.png 1653x4676 (pages 4..5)
+  2013 q4.png 1653x2338 (pages 6..6)
+  2013 q5.png 1653x2338 (pages 7..7)
+  2013 q6.png 1653x2338 (pages 8..8)
+  2013 q7.png 1653x7014 (pages 9..11)
+  2013 q8.png 1653x2338 (pages 12..12)
+  2013 q9.png 1653x2338 (pages 13..13)
+  2013 q10.png 1653x4676 (pages 14..15)
+  2013 q11.png 1653x4676 (pages 16..17)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2013/combined.pdf (19 A4 pages from 2013p1b.pdf)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2013/questions.pdf (18 A4 pages, 11 questions)
+=== 2014 ===
+  exporting pages from 2014p1b.pdf (cover_pages=1)
+  page export scale=4.17
+  saved 19 page PNGs -> /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2014/pages
+  2014 q1.png 2480x7016 (pages 0..1)
+  2014 q2.png 2480x7016 (pages 2..3)
+  2014 q3.png 2480x7016 (pages 4..5)
+  2014 q4.png 2480x7016 (pages 6..7)
+  2014 q5.png 2480x3508 (pages 8..8)
+  2014 q6.png 2480x3508 (pages 9..9)
+  2014 q7.png 2480x7016 (pages 10..11)
+  2014 q8.png 2480x7016 (pages 12..13)
+  2014 q9.png 2480x7016 (pages 14..15)
+  2014 q10.png 2480x10524 (pages 16..18)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2014/combined.pdf (20 A4 pages from 2014p1b.pdf)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2014/questions.pdf (19 A4 pages, 10 questions)
+=== 2015 ===
+  exporting pages from 2015p1b.pdf (cover_pages=1)
+  page export scale=5.56
+  saved 18 page PNGs -> /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2015/pages
+  2015 q1.png 3310x4680 (pages 0..0)
+  2015 q2.png 3310x4680 (pages 1..1)
+  2015 q3.png 3310x9360 (pages 2..3)
+  2015 q4.png 3310x9360 (pages 4..5)
+  2015 q5.png 3310x9360 (pages 6..7)
+  2015 q6.png 3310x9360 (pages 8..9)
+  2015 q7.png 3310x9360 (pages 10..11)
+  2015 q8.png 3310x9360 (pages 12..13)
+  2015 q9.png 3310x9360 (pages 14..15)
+  2015 q10.png 3310x9360 (pages 16..17)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2015/combined.pdf (10 A4 pages from 2015p1b.pdf)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2015/questions.pdf (10 A4 pages, 10 questions)
+=== 2016 ===
+  exporting pages from 2016p1b.pdf (cover_pages=1)
+  page export scale=4.17
+  saved 19 page PNGs -> /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2016/pages
+  2016 q1.png 2480x7014 (pages 0..1)
+  2016 q2.png 2480x7014 (pages 2..3)
+  2016 q3.png 2480x7014 (pages 4..5)
+  2016 q4.png 2480x7014 (pages 6..7)
+  2016 q5.png 2480x7014 (pages 8..9)
+  2016 q6.png 2480x7014 (pages 10..11)
+  2016 q7.png 2480x7014 (pages 12..13)
+  2016 q8.png 2480x7014 (pages 14..15)
+  2016 q9.png 2480x10521 (pages 16..18)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2016/combined.pdf (20 A4 pages from 2016p1b.pdf)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2016/questions.pdf (19 A4 pages, 9 questions)
+=== 2017 ===
+  exporting pages from 2017p1b.pdf (cover_pages=1)
+  page export scale=2.78
+  saved 19 page PNGs -> /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2017/pages
+  2017 q1.png 1654x4676 (pages 0..1)
+  2017 q2.png 1654x2338 (pages 2..2)
+  2017 q3.png 1654x2338 (pages 3..3)
+  2017 q4.png 1654x4676 (pages 4..5)
+  2017 q5.png 1654x4676 (pages 6..7)
+  2017 q6.png 1654x4676 (pages 8..9)
+  2017 q7.png 1654x4676 (pages 10..11)
+  2017 q8.png 1654x4676 (pages 12..13)
+  2017 q9.png 1654x4676 (pages 14..15)
+  2017 q10.png 1654x7014 (pages 16..18)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2017/combined.pdf (20 A4 pages from 2017p1b.pdf)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2017/questions.pdf (19 A4 pages, 10 questions)
+=== 2018 ===
+  exporting pages from 2018p1b.pdf (cover_pages=1)
+  page export scale=4.17
+  saved 18 page PNGs -> /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2018/pages
+  2018 q1.png 2450x3478 (pages 0..0)
+  2018 q2.png 2450x3478 (pages 1..1)
+  2018 q3.png 2450x6956 (pages 2..3)
+  2018 q4.png 2450x6956 (pages 4..5)
+  2018 q5.png 2450x6956 (pages 6..7)
+  2018 q6.png 2450x6956 (pages 8..9)
+  2018 q7.png 2450x6956 (pages 10..11)
+  2018 q8.png 2450x6956 (pages 12..13)
+  2018 q9.png 2450x6956 (pages 14..15)
+  2018 q10.png 2450x6956 (pages 16..17)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2018/combined.pdf (19 A4 pages from 2018p1b.pdf)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2018/questions.pdf (18 A4 pages, 10 questions)
+=== 2019 ===
+  exporting pages from 2019p1b.pdf (cover_pages=1)
+  page export scale=5.89
+  saved 19 page PNGs -> /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2019/pages
+  2019 q1.png 3508x9922 (pages 0..1)
+  2019 q2.png 3508x9922 (pages 2..3)
+  2019 q3.png 3508x9922 (pages 4..5)
+  2019 q4.png 3508x9922 (pages 6..7)
+  2019 q5.png 3508x4961 (pages 8..8)
+  2019 q6.png 3508x4961 (pages 9..9)
+  2019 q7.png 3508x9922 (pages 10..11)
+  2019 q8.png 3508x9922 (pages 12..13)
+  2019 q9.png 3508x9922 (pages 14..15)
+  2019 q10.png 3508x14883 (pages 16..18)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2019/combined.pdf (20 A4 pages from 2019p1b.pdf)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2019/questions.pdf (19 A4 pages, 10 questions)
+=== 2020 ===
+  exporting pages from 2020p1b.pdf (cover_pages=1)
+  page export scale=5.89
+  saved 19 page PNGs -> /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2020/pages
+  2020 q1.png 3508x9920 (pages 0..1)
+  2020 q2.png 3508x9920 (pages 2..3)
+  2020 q3.png 3508x9920 (pages 4..5)
+  2020 q4.png 3508x9920 (pages 6..7)
+  2020 q5.png 3508x4960 (pages 8..8)
+  2020 q6.png 3508x4960 (pages 9..9)
+  2020 q7.png 3508x9920 (pages 10..11)
+  2020 q8.png 3508x9920 (pages 12..13)
+  2020 q9.png 3508x9920 (pages 14..15)
+  2020 q10.png 3508x14880 (pages 16..18)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2020/combined.pdf (20 A4 pages from 2020p1b.pdf)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2020/questions.pdf (19 A4 pages, 10 questions)
+=== 2021 ===
+  exporting pages from 2021p1b.pdf (cover_pages=1)
+  page export scale=4.17
+  saved 19 page PNGs -> /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2021/pages
+  2021 q1.png 2527x7071 (pages 0..1)
+  2021 q2.png 2521x7066 (pages 2..3)
+  2021 q3.png 2514x7066 (pages 4..5)
+  2021 q4.png 2521x7066 (pages 6..7)
+  2021 q5.png 2521x10609 (pages 8..10)
+  2021 q6.png 2521x10614 (pages 11..13)
+  2021 q7.png 2527x7076 (pages 14..15)
+  2021 q8.png 2527x3543 (pages 16..16)
+  2021 q9.png 2527x7081 (pages 17..18)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2021/combined.pdf (20 A4 pages from 2021p1b.pdf)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2021/questions.pdf (19 A4 pages, 9 questions)
+=== 2022 ===
+  exporting pages from 2022p1b.pdf (cover_pages=1)
+  page export scale=4.17
+  saved 19 page PNGs -> /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2022/pages
+  2022 q1.png 2480x7014 (pages 0..1)
+  2022 q2.png 2480x7014 (pages 2..3)
+  2022 q3.png 2480x7014 (pages 4..5)
+  2022 q4.png 2480x7014 (pages 6..7)
+  2022 q5.png 2480x7014 (pages 8..9)
+  2022 q6.png 2480x7014 (pages 10..11)
+  2022 q7.png 2480x7014 (pages 12..13)
+  2022 q8.png 2480x7014 (pages 14..15)
+  2022 q9.png 2480x3507 (pages 16..16)
+  2022 q10.png 2481x7016 (pages 17..18)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2022/combined.pdf (20 A4 pages from 2022p1b.pdf)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2022/questions.pdf (19 A4 pages, 10 questions)
+=== 2023 ===
+  exporting pages from 2023p1b.pdf (cover_pages=1)
+  page export scale=5.89
+  saved 19 page PNGs -> /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2023/pages
+  2023 q1.png 3508x9922 (pages 0..1)
+  2023 q2.png 3508x9922 (pages 2..3)
+  2023 q3.png 3508x9922 (pages 4..5)
+  2023 q4.png 3508x9922 (pages 6..7)
+  2023 q5.png 3508x9922 (pages 8..9)
+  2023 q6.png 3508x9922 (pages 10..11)
+  2023 q7.png 3508x9922 (pages 12..13)
+  2023 q8.png 3508x9922 (pages 14..15)
+  2023 q9.png 3508x14883 (pages 16..18)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2023/combined.pdf (20 A4 pages from 2023p1b.pdf)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2023/questions.pdf (19 A4 pages, 9 questions)
+=== 2024 ===
+  exporting pages from 2024p1b.pdf (cover_pages=1)
+  page export scale=2.75
+  saved 18 page PNGs -> /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2024/pages
+  2024 q1.png 1654x2340 (pages 0..0)
+  2024 q2.png 1654x2340 (pages 1..1)
+  2024 q3.png 1654x2340 (pages 2..2)
+  2024 q4.png 1654x2340 (pages 3..3)
+  2024 q5.png 1654x2340 (pages 4..4)
+  2024 q6.png 1654x2340 (pages 5..5)
+  2024 q7.png 1654x4680 (pages 6..7)
+  2024 q8.png 1654x2340 (pages 8..8)
+  2024 q9.png 1654x2340 (pages 9..9)
+  2024 q10.png 1654x4680 (pages 10..11)
+  2024 q11.png 1654x4680 (pages 12..13)
+  2024 q12.png 1654x9360 (pages 14..17)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2024/combined.pdf (19 A4 pages from 2024p1b.pdf)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2024/questions.pdf (18 A4 pages, 12 questions)
+=== 2025 ===
+  exporting pages from 2025p1b.pdf (cover_pages=1)
+  page export scale=6.44
+  saved 19 page PNGs -> /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2025/pages
+  2025 q1.png 3941x5100 (pages 0..0)
+  2025 q2.png 3941x5100 (pages 1..1)
+  2025 q3.png 3941x10200 (pages 2..3)
+  2025 q4.png 3941x5100 (pages 4..4)
+  2025 q5.png 3941x5100 (pages 5..5)
+  2025 q6.png 3941x10200 (pages 6..7)
+  2025 q7.png 3941x10200 (pages 8..9)
+  2025 q8.png 3941x5100 (pages 10..10)
+  2025 q9.png 3941x5100 (pages 11..11)
+  2025 q10.png 3941x10200 (pages 12..13)
+  2025 q11.png 3941x10200 (pages 14..15)
+  2025 q12.png 3941x15300 (pages 16..18)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2025/combined.pdf (20 A4 pages from 2025p1b.pdf)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2025/questions.pdf (19 A4 pages, 12 questions)
+=== 2026 ===
+  exporting pages from 2026p1b.pdf (cover_pages=1)
+  page export scale=4.17
+  saved 19 page PNGs -> /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2026/pages
+  2026 q1.png 2480x3507 (pages 0..0)
+  2026 q2.png 2480x7014 (pages 0..1)
+  2026 q3.png 2480x7014 (pages 2..3)
+  2026 q4.png 2480x7014 (pages 4..5)
+  2026 q5.png 2480x3507 (pages 6..6)
+  2026 q6.png 2480x3507 (pages 7..7)
+  2026 q7.png 2480x3507 (pages 8..8)
+  2026 q8.png 2480x3507 (pages 9..9)
+  2026 q9.png 2480x7014 (pages 10..11)
+  2026 q10.png 2480x7014 (pages 12..13)
+  2026 q11.png 2480x7014 (pages 14..15)
+  2026 q12.png 2480x10521 (pages 16..18)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2026/combined.pdf (20 A4 pages from 2026p1b.pdf)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/2026/questions.pdf (20 A4 pages, 12 questions)
+=== pp ===
+  exporting pages from ppp1b.pdf (cover_pages=1)
+  page export scale=3.50
+  saved 19 page PNGs -> /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/pp/pages
+  pp q1.png 2083x2947 (pages 0..0)
+  pp q2.png 2083x2947 (pages 1..1)
+  pp q3.png 2083x2947 (pages 2..2)
+  pp q4.png 2083x2947 (pages 3..3)
+  pp q5.png 2083x2947 (pages 4..4)
+  pp q6.png 2083x2947 (pages 5..5)
+  pp q7.png 2082x2947 (pages 6..6)
+  pp q8.png 2083x5894 (pages 7..8)
+  pp q9.png 2083x5894 (pages 9..10)
+  pp q10.png 2083x2947 (pages 11..11)
+  pp q11.png 2083x5894 (pages 12..13)
+  pp q12.png 2083x14735 (pages 14..18)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/pp/combined.pdf (20 A4 pages from ppp1b.pdf)
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/output/lq/pp/questions.pdf (19 A4 pages, 12 questions)
+Wrote 167 whole-page LQ question PNGs
+Synced 179 classified LQ question PNGs
+
+---
+exit_code: 0
+elapsed_ms: 297510
+ended_at: 2026-09-12T16:57:06.988Z
+---

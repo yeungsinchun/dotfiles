@@ -1,0 +1,87 @@
+---
+pid: 53419
+cwd: "/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams"
+command: "no-mistakes axi respond --action fix --findings stale-status-gloss-png --instructions \"Regenerate web/usability/status-gloss-map-playback.png from the updated fixture so the After panel has no #statusGloss / status description, matching index.html and the HTML fixture.\""
+title: "Authorize pipeline fix for stale PNG"
+status: succeeded
+started_at: 2026-09-07T09:04:25.157Z
+running_for_ms: 1009266  
+---
+run: running
+  intent: completed
+  rebase: completed
+  review: fixing
+  review: completed
+  test: running
+  test: completed
+  document: running
+  document: completed
+  lint: running
+  lint: completed
+  push: running
+  push: completed
+  pr: running
+  pr: completed
+  ci: running
+run:
+  id: "01M1XHGWAC0RND64NKC8AVRDNV"
+  branch: fm/boundary-lr-fix
+  status: running
+  head: dd9409a7
+  pr: "https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/pull/16"
+  findings: none
+  steps[9]{step,status,findings,duration_ms}:
+    intent,completed,0,0
+    rebase,completed,0,76106
+    review,completed,0,481242
+    test,completed,0,258553
+    document,completed,0,114711
+    lint,completed,0,37
+    push,completed,0,5548
+    pr,completed,0,39551
+    ci,running,0,0
+  shared_work[1]{attributed_to,scope,duration_ms}:
+    document,document+lint housekeeping,114711
+  active_steps[1]{step,status,active_for,last_activity,agent_pid,round}:
+    ci,running,4m51s,"0s ago: log: all CI checks passed - still monitoring until merged or closed","",starting
+branch_sync:
+  state: behind
+  changed: false
+  local:
+    branch: fm/boundary-lr-fix
+    head: 65bc9828b00c7b9735e1cd2bbef9c91c2643b167
+    clean: true
+  pipeline:
+    run: "01M1XHGWAC0RND64NKC8AVRDNV"
+    status: running
+    phase: ""
+    submitted_head: 65bc9828b00c7b9735e1cd2bbef9c91c2643b167
+    current_head: dd9409a7669c7a1cbdb60e1427b471cc3cf83950
+    pushed_head: dd9409a7669c7a1cbdb60e1427b471cc3cf83950
+    pushed_at: 1788772543
+    push_generation: 1
+  target:
+    kind: upstream
+    remote: origin
+    url: "https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams.git"
+    ref: refs/heads/fm/boundary-lr-fix
+  remote:
+    observed_head: dd9409a7669c7a1cbdb60e1427b471cc3cf83950
+    freshness: pipeline_push
+    observed_at: 1788772543
+  relation: behind
+  safety: refresh_required
+  pr_state: open
+  next_action:
+    code: sync
+    command: no-mistakes axi sync
+outcome: checks-passed
+fixes[1]{step,summary}:
+  review,Regenerate status-gloss screenshot without After gloss
+help[6]: "CI checks passed - the PR is ready. Ask the user to review and merge it: https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/pull/16","Summarize this pipeline run for the user in a concise, easily readable format: what was validated and what was found.",The pipeline fixed findings the original change missed (see `fixes`) - acknowledge the misses and list each fix so the user can review them.,"Commit post-pipeline follow-up work on top of the existing branch so every pipeline fix commit remains present. Never abort-and-restart, reset, or replace the branch in a way that drops prior gate-fix commits.","Before a post-pipeline local commit or fresh run, follow the structured `branch_sync.next_action`. Run `no-mistakes axi sync` only when its code is `sync`; that guarded sync may be a strict fast-forward or a content-equivalent diverged advance that anchors the pre-sync head before moving the branch with reset semantics. Run `no-mistakes axi sync --recover` only when its code is `recover_custody` (a terminal run left unpublished pipeline commits preserved in the local gate). A `user_owned` state means cancellation released the branch before changing the submitted head: the exact branch and head are yours, immediately usable, and no sync action is needed. Process blocked or pipeline-owned states instead of improvising reset, stash, merge, rebase, force, or branch replacement.","If this PR later falls behind the default branch or hits a merge conflict, the CI monitor rebases onto the base, resolves it, revalidates from Review because rebasing cannot prove continuity with the reviewed head, and re-pushes it through Push automatically - run no command and never hand-rebase. Only when that monitor is no longer running (PR closed, run aborted, idle-timeout, or auto-fix exhausted) recover with `no-mistakes rerun`."
+
+---
+exit_code: 0
+elapsed_ms: 1009264
+ended_at: 2026-09-07T09:21:14.421Z
+---

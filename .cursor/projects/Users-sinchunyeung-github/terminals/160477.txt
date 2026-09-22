@@ -1,0 +1,82 @@
+---
+pid: 30219
+cwd: "/Users/sinchunyeung/github/simplification-of-trajectory-streams/web"
+command: ".venv/bin/python server.py"
+title: "Start Flask web server on port 5050"
+status: failed   
+started_at: 2026-09-02T09:57:05.764Z
+running_for_ms: 19612217 
+---
+Repo root: /Users/sinchunyeung/github/simplification-of-trajectory-streams
+Binary: /Users/sinchunyeung/github/simplification-of-trajectory-streams/build/simplify
+Starting Flask server on http://0.0.0.0:5050
+ * Serving Flask app 'server'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://10.89.127.64:5050
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [02/Sep/2026 17:57:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:04:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:04:19] "[36mGET /viewer.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Sep/2026 18:04:19] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:04:23] "GET /api/trace/1?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:04:33] "POST /api/frechet HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:11:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:11:03] "[36mGET /viewer.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Sep/2026 18:11:03] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:11:06] "GET /api/trace/1?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:11:20] "POST /api/frechet HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:11:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:29:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:29:31] "[36mGET /viewer.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Sep/2026 18:29:32] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:29:33] "GET /api/trace/51?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:29:40] "POST /api/frechet HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:33:00] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:33:00] "[36mGET /viewer.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Sep/2026 18:33:00] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:34:58] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:35:07] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:35:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:35:46] "GET /viewer.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:35:47] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:35:48] "GET /api/trace/51?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:35:53] "POST /api/frechet HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:36:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:36:26] "GET /viewer.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:36:26] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:36:27] "GET /api/trace/51?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:36:32] "POST /api/frechet HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:38:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:38:51] "[36mGET /viewer.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Sep/2026 18:38:51] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:38:53] "GET /api/trace/1?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:38:59] "POST /api/frechet HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:39:07] "GET /api/trace/2?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:39:15] "POST /api/frechet HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:50:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:50:48] "GET /viewer.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:50:48] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:50:48] "[33mGET /apple-touch-icon-precomposed.png HTTP/1.1[0m" 404 -
+127.0.0.1 - - [02/Sep/2026 18:50:48] "[33mGET /apple-touch-icon.png HTTP/1.1[0m" 404 -
+127.0.0.1 - - [02/Sep/2026 18:50:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [02/Sep/2026 18:50:50] "GET /api/trace/1?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:50:57] "POST /api/frechet HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:51:11] "GET /api/trace/2?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:51:20] "POST /api/frechet HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:51:25] "GET /api/trace/2?epsilon=299&delta=1 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:51:35] "POST /api/frechet HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:51:44] "GET /api/trace/3?epsilon=299&delta=1 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:51:48] "GET /api/trace/1?epsilon=299&delta=1 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:51:51] "POST /api/frechet HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:51:53] "POST /api/frechet HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:51:55] "GET /api/trace/10?epsilon=299&delta=1 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:52:09] "POST /api/frechet HTTP/1.1" 200 -
+
+---
+exit_code: unknown
+elapsed_ms: 19612217
+ended_at: 2026-09-02T15:23:57.981Z
+---

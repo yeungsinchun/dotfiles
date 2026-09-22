@@ -1,0 +1,18 @@
+---
+pid: 92330
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db"
+command: "echo \"working: browseable .lavish/lq-classified-review/index.html\" >> '/Users/sinchunyeung/github/firstmate/state/p2db-regenerate-all-lq-with-the-no-crop-scrip-34.status'\ngit add -u -- AGENTS.md pipeline scripts tests output/lq classified/lq .lavish/lq-classified-review\ngit status --short | grep -v '^M ' | grep -v '^M' | head -20\necho '--- staged count ---'\ngit diff --cached --name-only | wc -l\ngit diff --cached --name-only | grep -E 'ans\\.png$|pages/|\\.venv' || echo 'no ans/pages/venv staged'"
+title: "Stage regen files and confirm ans/pages excluded"
+status: succeeded
+started_at: 2026-09-12T17:01:00.888Z
+running_for_ms: 43397    
+---
+--- staged count ---
+     485
+no ans/pages/venv staged
+
+---
+exit_code: 0
+elapsed_ms: 43397
+ended_at: 2026-09-12T17:01:44.285Z
+---

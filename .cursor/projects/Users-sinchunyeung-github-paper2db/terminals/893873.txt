@@ -1,0 +1,87 @@
+---
+pid: 44756
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python - <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nimport pymupdf as fitz\nfrom preprocess_mc import merge_page_hits, collect_labels, enforce_label_order, MIN_QUESTION_GAP\n\nprint('MIN_QUESTION_GAP', MIN_QUESTION_GAP)\nfor year, pdfp, nq in [(2018,'paper/mc/2018p1a.pdf',33),(2026,'paper/mc/2026p1a.pdf',33)]:\n    doc=fitz.open(pdfp)\n    content=list(range(1,len(doc)))\n    page_hits=merge_page_hits(doc, content, nq)\n    labels=collect_labels(doc, content, 5.0, nq, page_hits=page_hits)\n    labels=enforce_label_order(labels, nq)\n    print(f'\\n==== {year} labels {len(labels)}/{nq} ====')\n    missing=sorted(set(range(1,nq+1))-labels.keys())\n    print('missing', missing)\n    prev=None\n    for n in sorted(labels):\n        p,x,y=labels[n]\n        gap=''\n        if prev and prev[0]==p:\n            g=y-prev[1]\n            gap=f' gap={g:.1f}' + (' SMALL!' if g<90 else '')\n        print(f'  Q{n}: page={p} y={y:.1f}{gap}')\n        prev=(p,y)\nPY\n"
+title: "Verify fixed label collection for 2018/2026"
+status: succeeded
+started_at: 2026-09-04T12:26:45.651Z
+running_for_ms: 196663   
+---
+MIN_QUESTION_GAP 90.0
+
+==== 2018 labels 32/33 ====
+missing [32]
+  Q1: page=1 y=123.8
+  Q2: page=1 y=380.1 gap=256.3
+  Q3: page=1 y=610.8 gap=230.7
+  Q4: page=2 y=63.6
+  Q5: page=2 y=357.8 gap=294.2
+  Q6: page=3 y=70.8
+  Q7: page=3 y=335.0 gap=264.2
+  Q8: page=3 y=555.4 gap=220.4
+  Q9: page=4 y=64.0
+  Q10: page=4 y=189.0 gap=125.0
+  Q11: page=4 y=316.6 gap=127.6
+  Q12: page=4 y=556.8 gap=240.2
+  Q13: page=5 y=68.0
+  Q14: page=5 y=225.4 gap=157.4
+  Q15: page=5 y=382.9 gap=157.5
+  Q16: page=6 y=61.6
+  Q17: page=6 y=294.8 gap=233.2
+  Q18: page=7 y=68.2
+  Q19: page=7 y=305.4 gap=237.2
+  Q20: page=8 y=65.0
+  Q21: page=8 y=551.6 gap=486.6
+  Q22: page=9 y=70.4
+  Q23: page=9 y=387.4 gap=317.0
+  Q24: page=10 y=64.6
+  Q25: page=10 y=256.4 gap=191.8
+  Q26: page=10 y=381.2 gap=124.8
+  Q27: page=11 y=62.1
+  Q28: page=11 y=336.0 gap=273.9
+  Q29: page=12 y=65.6
+  Q30: page=12 y=370.4 gap=304.8
+  Q31: page=13 y=67.4
+  Q33: page=13 y=365.6 gap=298.2
+
+==== 2026 labels 33/33 ====
+missing []
+  Q1: page=1 y=139.4
+  Q2: page=1 y=255.4 gap=116.0
+  Q3: page=1 y=359.8 gap=104.4
+  Q4: page=2 y=79.4
+  Q5: page=2 y=378.6 gap=299.2
+  Q6: page=3 y=84.0
+  Q7: page=3 y=345.4 gap=261.4
+  Q8: page=4 y=78.9
+  Q9: page=4 y=492.6 gap=413.8
+  Q10: page=5 y=76.5
+  Q11: page=5 y=287.6 gap=211.1
+  Q12: page=6 y=80.0
+  Q13: page=6 y=462.8 gap=382.8
+  Q14: page=7 y=72.4
+  Q15: page=7 y=222.0 gap=149.6
+  Q16: page=7 y=522.1 gap=300.1
+  Q17: page=8 y=74.9
+  Q18: page=8 y=307.6 gap=232.8
+  Q19: page=8 y=610.6 gap=303.0
+  Q20: page=9 y=77.0
+  Q21: page=9 y=297.4 gap=220.4
+  Q22: page=9 y=428.1 gap=130.8
+  Q23: page=10 y=73.8
+  Q24: page=10 y=361.0 gap=287.2
+  Q25: page=10 y=673.2 gap=312.2
+  Q26: page=11 y=76.0
+  Q27: page=11 y=351.0 gap=275.0
+  Q28: page=11 y=645.0 gap=294.0
+  Q29: page=12 y=77.5
+  Q30: page=12 y=484.0 gap=406.5
+  Q31: page=13 y=73.7
+  Q32: page=13 y=395.2 gap=321.4
+  Q33: page=13 y=500.4 gap=105.2
+
+---
+exit_code: 0
+elapsed_ms: 196656
+ended_at: 2026-09-04T12:30:02.307Z
+---

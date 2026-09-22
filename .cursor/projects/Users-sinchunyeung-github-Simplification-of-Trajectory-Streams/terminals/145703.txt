@@ -1,0 +1,14 @@
+---
+pid: 52423
+cwd: "/Users/sinchunyeung/github/simplification-of-trajectory-streams"
+command: "npx -y lavish-axi --help 2>&1 | head -80; echo '---'; npx -y lavish-axi design 2>&1 | head -120; echo '---'; npx -y lavish-axi playbook 2>&1 | head -40"
+status: failed   
+started_at: 2026-09-04T03:54:57.753Z
+running_for_ms: 103681   
+---
+
+---
+exit_code: unknown
+elapsed_ms: 103678
+ended_at: 2026-09-04T03:56:41.431Z
+---

@@ -1,0 +1,42 @@
+---
+pid: 42827
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python - <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nfrom preprocess_lq_answers import *\nimport pymupdf as fitz\n\ndoc=fitz.open('paper/ans/2020ans2.pdf')\nfor i in range(2,13):\n    page=doc[i]\n    im=normalize_answer_orientation(render_page(page, 2.0))\n    pdf=find_main_question_ys_pdf(page, max_questions=12, scale=2.0)\n    ocr=find_main_question_ys(im, 12)\n    print(f'p{i+1} A={is_section_a_keys(im)} B={looks_like_section_b(im)} front={is_front_matter(im)} pdf={pdf} ocr={ocr}')\n    print('  hdr', header_text(im)[:90].replace('\\n',' '))\ndoc.close()\n\nprint('\\n2018 page orientations:')\ndoc=fitz.open('paper/ans/2018ans.pdf')\nfor i in range(len(doc)):\n    raw=render_page(doc[i], 1.5)\n    scores=[]\n    for rot,img in [(0,raw),(270,raw.rotate(270,expand=True)),(90,raw.rotate(90,expand=True))]:\n        scores.append((rot, round(_ascii_alpha_score(header_text(img)),2), img.size))\n    print(f'p{i+1}', scores)\ndoc.close()\nPY\n"
+title: "Debug 2020ans2 and 2018 orientation scores"
+status: failed   
+started_at: 2026-09-05T04:09:05.747Z
+running_for_ms: 36012    
+---
+p3 A=False B=False front=False pdf=[(1, 166)] ocr=[]
+  hdr ARRAS ASH FOR MARKERS’ USE ONLY 1 may 2020 I. (a) 5x0.02 3300 x(T—4) = 0.60 4200 x(96 — 1)
+p4 A=False B=True front=False pdf=[(2, 187)] ocr=[(2, 0)]
+  hdr RARASaSeH FOR MARKERS’ USE ONLY 18 may 2020 2. (a) (i) pag, PISO 1A Fp correctly marked 
+p5 A=False B=True front=False pdf=[(3, 162)] ocr=[(3, 169)]
+  hdr RARRAGSSeH FOR MARKERS’ USE ONLY 18 may 2020 3. (a) With superconductor / extremely low or
+p6 A=False B=True front=False pdf=[(4, 185), (2, 430)] ocr=[(4, 0), (2, 437)]
+  hdr RRASSS FOR MARKERS’ USE ONLY 18 may 2020 4. (a) ve>ve>vp>Va 1A [MR: Accept: va < vp < ve <
+p7 A=False B=False front=False pdf=[(5, 142)] ocr=[]
+  hdr = a= — Be D D DQ: R i See OR MARKER ON S. (a) (i) Forces R(or N) and Wor Mg) normal correc
+p8 A=False B=True front=False pdf=[(6, 142)] ocr=[(6, 150)]
+  hdr ABest = BE 5 5 5 R i =e OR MARKERS’ ON 6. (a) [Rog }rsius 
+p9 A=False B=True front=False pdf=[(7, 145)] ocr=[(7, 153)]
+  hdr ABR bel Ss SS Be FOR MARKERS’ USE ONLY 7. (a) (i) Angle of incidence at A, la | ia = 90° 3
+p10 A=False B=True front=False pdf=[(8, 215)] ocr=[(8, 223)]
+  hdr RR BS SS Be FOR MARKERS’ USE ONLY 2 = (a) = Recanse J, and J» (connected in series) are sh
+p11 A=False B=True front=False pdf=[(9, 153)] ocr=[(9, 160)]
+  hdr ARRAS SSeh FOR MARKERS’ USE ONLY » @ Lag Accept: field lines are not on Top view oe Figure
+p12 A=False B=True front=False pdf=[(10, 174)] ocr=[(10, 0)]
+  hdr ALR bel SS S Be FOR MARKERS’ USE ONLY 10. (a) proton / {H / p/ hydrogen nucleus 1A Accept:
+p13 A=False B=False front=False pdf=[] ocr=[]
+  hdr ABR bel Ss SS baal FOR MARKERS’ USE ONLY Sees BER 
+
+2018 page orientations:
+Traceback (most recent call last):
+  File "<stdin>", line 22, in <module>
+NameError: name '_ascii_alpha_score' is not defined
+
+---
+exit_code: 1
+elapsed_ms: 36011
+ended_at: 2026-09-05T04:09:41.758Z
+---

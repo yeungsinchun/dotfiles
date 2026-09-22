@@ -1,0 +1,107 @@
+---
+pid: 75653
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db"
+command: "no-mistakes axi sync --check 2>&1; echo EXIT:$?; no-mistakes axi sync 2>&1; echo EXIT2:$?; git fetch origin fm/paper2db-pipeline 2>&1; git log -3 --oneline HEAD; git log -3 --oneline origin/fm/paper2db-pipeline 2>&1; no-mistakes axi status 2>&1 | head -50"
+title: "Retry sync and compare local vs remote"
+status: succeeded
+started_at: 2026-09-07T05:23:42.857Z
+running_for_ms: 143251   
+---
+branch_sync:
+  state: offline
+  changed: false
+  local:
+    branch: fm/paper2db-pipeline
+    head: 2989febf2190a3d010c6c5ffbcbee4cc704bec56
+    clean: true
+  pipeline:
+    run: "01M1X2G01WGYA0TVCH6VMSGZYD"
+    status: running
+    phase: ""
+    submitted_head: 2989febf2190a3d010c6c5ffbcbee4cc704bec56
+    current_head: 79de0c05680bd6fe8f72ed814d7e84ee07dc92df
+    pushed_head: 79de0c05680bd6fe8f72ed814d7e84ee07dc92df
+    pushed_at: 1788758461
+    push_generation: 1
+  target:
+    kind: upstream
+    remote: origin
+    url: "https://github.com/yeungsinchun/paper2db.git"
+    ref: refs/heads/fm/paper2db-pipeline
+  remote:
+    observed_head: 79de0c05680bd6fe8f72ed814d7e84ee07dc92df
+    freshness: live
+    observed_at: 1788758624
+  relation: behind
+  safety: blocked_offline
+  pr_state: open
+  note: could not fetch the configured push target; no files or worktree refs were changed
+  next_action:
+    code: sync
+    command: no-mistakes axi sync
+error: could not fetch the configured push target; no files or worktree refs were changed
+help[1]: Run `no-mistakes axi sync`
+EXIT:1
+branch_sync:
+  state: synchronized
+  changed: true
+  local:
+    branch: fm/paper2db-pipeline
+    head: 79de0c05680bd6fe8f72ed814d7e84ee07dc92df
+    clean: true
+  pipeline:
+    run: "01M1X2G01WGYA0TVCH6VMSGZYD"
+    status: running
+    phase: ""
+    submitted_head: 2989febf2190a3d010c6c5ffbcbee4cc704bec56
+    current_head: 79de0c05680bd6fe8f72ed814d7e84ee07dc92df
+    pushed_head: 79de0c05680bd6fe8f72ed814d7e84ee07dc92df
+    pushed_at: 1788758461
+    push_generation: 1
+  target:
+    kind: upstream
+    remote: origin
+    url: "https://github.com/yeungsinchun/paper2db.git"
+    ref: refs/heads/fm/paper2db-pipeline
+  remote:
+    observed_head: 79de0c05680bd6fe8f72ed814d7e84ee07dc92df
+    freshness: live
+    observed_at: 1788758686
+  relation: equal
+  safety: already_synchronized
+  pr_state: open
+EXIT2:0
+fatal: unable to access 'https://github.com/yeungsinchun/paper2db.git/': Failed to connect to github.com port 443 after 75004 ms: Couldn't connect to server
+79de0c0 no-mistakes(document): Align CLI help with paper/ans layout
+b1fc69b no-mistakes(test): Fix quality_audit relative --output crash
+143da0e no-mistakes(review): Fix brittle audit and keys default tests
+fatal: ambiguous argument 'origin/fm/paper2db-pipeline': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+run:
+  id: "01M1X2G01WGYA0TVCH6VMSGZYD"
+  branch: fm/paper2db-pipeline
+  status: running
+  head: 79de0c05
+  pr: "https://github.com/yeungsinchun/paper2db/pull/4"
+  findings: none
+  steps[9]{step,status,findings,duration_ms}:
+    intent,completed,0,0
+    rebase,completed,0,76808
+    review,completed,0,1165314
+    test,completed,0,577064
+    document,completed,0,115590
+    lint,completed,0,40
+    push,completed,0,5889
+    pr,completed,0,49796
+    ci,running,0,0
+  shared_work[1]{attributed_to,scope,duration_ms}:
+    document,document+lint housekeeping,115590
+  active_steps[1]{step,status,active_for,last_activity,agent_pid,round}:
+    ci,running,4m14s,"4m8s ago: log: repository declares no CI (no_ci: true) - treating as all checks passed - still monitoring until merged or closed","",starting
+
+---
+exit_code: 0
+elapsed_ms: 143251
+ended_at: 2026-09-07T05:26:06.108Z
+---

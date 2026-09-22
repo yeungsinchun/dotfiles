@@ -1,0 +1,2214 @@
+simplify.cpp:10:79: error: code should be clang-formatted [-Wclang-format-violations]
+// ===========================================================================
+                                                                              ^
+simplify.cpp:13:46: error: code should be clang-formatted [-Wclang-format-violations]
+int get_longest_stab(const std::vector<Point>& stream, int cur,
+                                             ^
+simplify.cpp:13:47: error: code should be clang-formatted [-Wclang-format-violations]
+int get_longest_stab(const std::vector<Point>& stream, int cur,
+                                              ^
+simplify.cpp:14:40: error: code should be clang-formatted [-Wclang-format-violations]
+                     std::vector<Point>& simplified,
+                                       ^
+simplify.cpp:14:41: error: code should be clang-formatted [-Wclang-format-violations]
+                     std::vector<Point>& simplified,
+                                        ^
+simplify.cpp:14:53: error: code should be clang-formatted [-Wclang-format-violations]
+                     std::vector<Point>& simplified,
+                                                    ^
+simplify.cpp:15:37: error: code should be clang-formatted [-Wclang-format-violations]
+                     double EPSILON, double DELTA) {
+                                    ^
+simplify.cpp:16:16: error: code should be clang-formatted [-Wclang-format-violations]
+    const Point& p0 = stream[cur];
+               ^
+simplify.cpp:16:17: error: code should be clang-formatted [-Wclang-format-violations]
+    const Point& p0 = stream[cur];
+                ^
+simplify.cpp:21:33: error: code should be clang-formatted [-Wclang-format-violations]
+    for (int i = 0; i < Pn; ++i) S[i] = {P[i]};
+                                ^
+simplify.cpp:32:25: error: code should be clang-formatted [-Wclang-format-violations]
+            if (dead[i]) continue;
+                        ^
+simplify.cpp:32:35: error: code should be clang-formatted [-Wclang-format-violations]
+            if (dead[i]) continue;
+                                  ^
+simplify.cpp:43:45: error: code should be clang-formatted [-Wclang-format-violations]
+            if (dead[i] || new_S[i].empty()) continue;
+                                            ^
+simplify.cpp:48:46: error: code should be clang-formatted [-Wclang-format-violations]
+        if (!has_candidate || dead_cnt == Pn) break;
+                                             ^
+simplify.cpp:50:26: error: code should be clang-formatted [-Wclang-format-violations]
+            if (!dead[i]) S[i].swap(new_S[i]);
+                         ^
+simplify.cpp:74:23: error: code should be clang-formatted [-Wclang-format-violations]
+    std::vector<Point> F;      // free-space wedge F(S_{i-1}[p0], pi) fed to intersect() this step
+                      ^
+simplify.cpp:74:26: error: code should be clang-formatted [-Wclang-format-violations]
+    std::vector<Point> F;      // free-space wedge F(S_{i-1}[p0], pi) fed to intersect() this step
+                         ^
+simplify.cpp:75:23: error: code should be clang-formatted [-Wclang-format-violations]
+    std::vector<Point> F_Si;   // free-space wedge F(S_i[p0], pi) computed after intersect()
+                      ^
+simplify.cpp:75:29: error: code should be clang-formatted [-Wclang-format-violations]
+    std::vector<Point> F_Si;   // free-space wedge F(S_i[p0], pi) computed after intersect()
+                            ^
+simplify.cpp:76:23: error: code should be clang-formatted [-Wclang-format-violations]
+    std::vector<Point> S;      // resulting stab region (new_S[i]) after this step, if alive
+                      ^
+simplify.cpp:76:26: error: code should be clang-formatted [-Wclang-format-violations]
+    std::vector<Point> S;      // resulting stab region (new_S[i]) after this step, if alive
+                         ^
+simplify.cpp:80:21: error: code should be clang-formatted [-Wclang-format-violations]
+    int stream_idx = 0;        // index into the full input stream of the point consumed this step
+                    ^
+simplify.cpp:80:24: error: code should be clang-formatted [-Wclang-format-violations]
+    int stream_idx = 0;        // index into the full input stream of the point consumed this step
+                       ^
+simplify.cpp:82:23: error: code should be clang-formatted [-Wclang-format-violations]
+    std::vector<Point> Gi;     // conv(G_i): convex hull of the delta-disk grid samples around pi
+                      ^
+simplify.cpp:82:27: error: code should be clang-formatted [-Wclang-format-violations]
+    std::vector<Point> Gi;     // conv(G_i): convex hull of the delta-disk grid samples around pi
+                          ^
+simplify.cpp:89:20: error: code should be clang-formatted [-Wclang-format-violations]
+    int p0_idx = 0;            // index of p0 in the full stream
+                   ^
+simplify.cpp:90:21: error: code should be clang-formatted [-Wclang-format-violations]
+    int end_idx = 0;           // stream index of the last point consumed (output[1] comes from here)
+                    ^
+simplify.cpp:90:91: error: code should be clang-formatted [-Wclang-format-violations]
+    int end_idx = 0;           // stream index of the last point consumed (output[1] comes from here)
+                                                                                          ^
+simplify.cpp:91:26: error: code should be clang-formatted [-Wclang-format-violations]
+    std::vector<Point> P;      // boundary (hull) anchors of the delta-disk grid samples for this prefix
+                         ^
+simplify.cpp:91:81: error: code should be clang-formatted [-Wclang-format-violations]
+    std::vector<Point> P;      // boundary (hull) anchors of the delta-disk grid samples for this prefix
+                                                                                ^
+simplify.cpp:100:35: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_num(std::ostream& os, double v) {
+                                  ^
+simplify.cpp:100:36: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_num(std::ostream& os, double v) {
+                                   ^
+simplify.cpp:101:29: error: code should be clang-formatted [-Wclang-format-violations]
+    if (!std::isfinite(v)) { os << "null"; return; }
+                            ^
+simplify.cpp:101:43: error: code should be clang-formatted [-Wclang-format-violations]
+    if (!std::isfinite(v)) { os << "null"; return; }
+                                          ^
+simplify.cpp:101:51: error: code should be clang-formatted [-Wclang-format-violations]
+    if (!std::isfinite(v)) { os << "null"; return; }
+                                                  ^
+simplify.cpp:105:37: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_point(std::ostream& os, const Point& p) {
+                                    ^
+simplify.cpp:105:38: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_point(std::ostream& os, const Point& p) {
+                                     ^
+simplify.cpp:105:54: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_point(std::ostream& os, const Point& p) {
+                                                     ^
+simplify.cpp:105:55: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_point(std::ostream& os, const Point& p) {
+                                                      ^
+simplify.cpp:113:38: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_points(std::ostream& os, const std::vector<Point>& pts) {
+                                     ^
+simplify.cpp:113:39: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_points(std::ostream& os, const std::vector<Point>& pts) {
+                                      ^
+simplify.cpp:113:68: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_points(std::ostream& os, const std::vector<Point>& pts) {
+                                                                   ^
+simplify.cpp:113:69: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_points(std::ostream& os, const std::vector<Point>& pts) {
+                                                                    ^
+simplify.cpp:116:15: error: code should be clang-formatted [-Wclang-format-violations]
+        if (i) os << ',';
+              ^
+simplify.cpp:122:38: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_prefix(std::ostream& os, const PrefixTrace& p) {
+                                     ^
+simplify.cpp:122:39: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_prefix(std::ostream& os, const PrefixTrace& p) {
+                                      ^
+simplify.cpp:122:61: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_prefix(std::ostream& os, const PrefixTrace& p) {
+                                                            ^
+simplify.cpp:122:62: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_prefix(std::ostream& os, const PrefixTrace& p) {
+                                                             ^
+simplify.cpp:123:22: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "{\"p0\":";       write_point(os, p.p0); os << ',';
+                     ^
+simplify.cpp:123:51: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "{\"p0\":";       write_point(os, p.p0); os << ',';
+                                                  ^
+simplify.cpp:124:24: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"p0_idx\":"  << p.p0_idx << ',';
+                       ^
+simplify.cpp:126:20: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"P\":";    write_points(os, p.P);   os << ',';
+                   ^
+simplify.cpp:126:46: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"P\":";    write_points(os, p.P);   os << ',';
+                                             ^
+simplify.cpp:127:26: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"output\":["; write_point(os, p.output[0]); os << ','; write_point(os, p.output[1]); os << "],";
+                         ^
+simplify.cpp:127:56: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"output\":["; write_point(os, p.output[0]); os << ','; write_point(os, p.output[1]); os << "],";
+                                                       ^
+simplify.cpp:127:67: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"output\":["; write_point(os, p.output[0]); os << ','; write_point(os, p.output[1]); os << "],";
+                                                                  ^
+simplify.cpp:127:97: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"output\":["; write_point(os, p.output[0]); os << ','; write_point(os, p.output[1]); os << "],";
+                                                                                                ^
+simplify.cpp:130:16: error: code should be clang-formatted [-Wclang-format-violations]
+        if (si) os << ',';
+               ^
+simplify.cpp:131:24: error: code should be clang-formatted [-Wclang-format-violations]
+        const StepTrace& s = p.steps[si];
+                       ^
+simplify.cpp:131:25: error: code should be clang-formatted [-Wclang-format-violations]
+        const StepTrace& s = p.steps[si];
+                        ^
+simplify.cpp:133:25: error: code should be clang-formatted [-Wclang-format-violations]
+        os << "\"pi\":"; write_point(os, s.pi); os << ',';
+                        ^
+simplify.cpp:133:48: error: code should be clang-formatted [-Wclang-format-violations]
+        os << "\"pi\":"; write_point(os, s.pi); os << ',';
+                                               ^
+simplify.cpp:134:25: error: code should be clang-formatted [-Wclang-format-violations]
+        os << "\"Gi\":"; write_points(os, s.Gi); os << ',';
+                        ^
+simplify.cpp:134:49: error: code should be clang-formatted [-Wclang-format-violations]
+        os << "\"Gi\":"; write_points(os, s.Gi); os << ',';
+                                                ^
+simplify.cpp:135:30: error: code should be clang-formatted [-Wclang-format-violations]
+        os << "\"buffer\":["; write_point(os, s.buffer[0]); os << ','; write_point(os, s.buffer[1]); os << "],";
+                             ^
+simplify.cpp:135:60: error: code should be clang-formatted [-Wclang-format-violations]
+        os << "\"buffer\":["; write_point(os, s.buffer[0]); os << ','; write_point(os, s.buffer[1]); os << "],";
+                                                           ^
+simplify.cpp:135:71: error: code should be clang-formatted [-Wclang-format-violations]
+        os << "\"buffer\":["; write_point(os, s.buffer[0]); os << ','; write_point(os, s.buffer[1]); os << "],";
+                                                                      ^
+simplify.cpp:135:101: error: code should be clang-formatted [-Wclang-format-violations]
+        os << "\"buffer\":["; write_point(os, s.buffer[0]); os << ','; write_point(os, s.buffer[1]); os << "],";
+                                                                                                    ^
+simplify.cpp:138:20: error: code should be clang-formatted [-Wclang-format-violations]
+            if (ci) os << ',';
+                   ^
+simplify.cpp:139:28: error: code should be clang-formatted [-Wclang-format-violations]
+            const Candidate& c = s.candidates[ci];
+                           ^
+simplify.cpp:139:29: error: code should be clang-formatted [-Wclang-format-violations]
+            const Candidate& c = s.candidates[ci];
+                            ^
+simplify.cpp:142:28: error: code should be clang-formatted [-Wclang-format-violations]
+            os << "\"F\":"; write_points(os, c.F); os << ',';
+                           ^
+simplify.cpp:142:51: error: code should be clang-formatted [-Wclang-format-violations]
+            os << "\"F\":"; write_points(os, c.F); os << ',';
+                                                  ^
+simplify.cpp:143:31: error: code should be clang-formatted [-Wclang-format-violations]
+            os << "\"F_Si\":"; write_points(os, c.F_Si); os << ',';
+                              ^
+simplify.cpp:143:57: error: code should be clang-formatted [-Wclang-format-violations]
+            os << "\"F_Si\":"; write_points(os, c.F_Si); os << ',';
+                                                        ^
+simplify.cpp:144:28: error: code should be clang-formatted [-Wclang-format-violations]
+            os << "\"S\":"; write_points(os, c.S);
+                           ^
+simplify.cpp:152:45: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_stream_header(std::ostream& os, double EPSILON, double DELTA,
+                                            ^
+simplify.cpp:152:46: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_stream_header(std::ostream& os, double EPSILON, double DELTA,
+                                             ^
+simplify.cpp:153:57: error: code should be clang-formatted [-Wclang-format-violations]
+                                const std::vector<Point>& stream) {
+                                                        ^
+simplify.cpp:153:58: error: code should be clang-formatted [-Wclang-format-violations]
+                                const std::vector<Point>& stream) {
+                                                         ^
+simplify.cpp:156:22: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"eps\":";       write_num(os, EPSILON);                       os << ',';
+                     ^
+simplify.cpp:156:52: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"eps\":";       write_num(os, EPSILON);                       os << ',';
+                                                   ^
+simplify.cpp:157:24: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"delta\":";     write_num(os, DELTA);                         os << ',';
+                       ^
+simplify.cpp:157:50: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"delta\":";     write_num(os, DELTA);                         os << ',';
+                                                 ^
+simplify.cpp:158:27: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"grid_val\":";  write_num(os, GRID_val(EPSILON, DELTA));      os << ',';
+                          ^
+simplify.cpp:158:69: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"grid_val\":";  write_num(os, GRID_val(EPSILON, DELTA));      os << ',';
+                                                                    ^
+simplify.cpp:159:24: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"r_val\":";     write_num(os, R_val(EPSILON, DELTA));         os << ',';
+                       ^
+simplify.cpp:159:66: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"r_val\":";     write_num(os, R_val(EPSILON, DELTA));         os << ',';
+                                                                 ^
+simplify.cpp:160:35: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"expected_frechet\":"; write_num(os, std::sqrt(expected_frechet_squared)); os << ',';
+                                  ^
+simplify.cpp:160:87: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"expected_frechet\":"; write_num(os, std::sqrt(expected_frechet_squared)); os << ',';
+                                                                                      ^
+simplify.cpp:162:25: error: code should be clang-formatted [-Wclang-format-violations]
+    write_num(os, BMIN); os << ','; write_num(os, BMIN); os << ',';
+                        ^
+simplify.cpp:162:36: error: code should be clang-formatted [-Wclang-format-violations]
+    write_num(os, BMIN); os << ','; write_num(os, BMIN); os << ',';
+                                   ^
+simplify.cpp:162:57: error: code should be clang-formatted [-Wclang-format-violations]
+    write_num(os, BMIN); os << ','; write_num(os, BMIN); os << ',';
+                                                        ^
+simplify.cpp:163:25: error: code should be clang-formatted [-Wclang-format-violations]
+    write_num(os, BMAX); os << ','; write_num(os, BMAX);
+                        ^
+simplify.cpp:163:36: error: code should be clang-formatted [-Wclang-format-violations]
+    write_num(os, BMAX); os << ','; write_num(os, BMAX);
+                                   ^
+simplify.cpp:165:25: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"stream\":"; write_points(os, stream);
+                        ^
+simplify.cpp:169:45: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_stream_prefix(std::ostream& os, const PrefixTrace& p) {
+                                            ^
+simplify.cpp:169:46: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_stream_prefix(std::ostream& os, const PrefixTrace& p) {
+                                             ^
+simplify.cpp:169:68: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_stream_prefix(std::ostream& os, const PrefixTrace& p) {
+                                                                   ^
+simplify.cpp:169:69: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_stream_prefix(std::ostream& os, const PrefixTrace& p) {
+                                                                    ^
+simplify.cpp:176:43: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_stream_done(std::ostream& os, double time_ms,
+                                          ^
+simplify.cpp:176:44: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_stream_done(std::ostream& os, double time_ms,
+                                           ^
+simplify.cpp:177:55: error: code should be clang-formatted [-Wclang-format-violations]
+                              const std::vector<Point>& simplified) {
+                                                      ^
+simplify.cpp:177:56: error: code should be clang-formatted [-Wclang-format-violations]
+                              const std::vector<Point>& simplified) {
+                                                       ^
+simplify.cpp:180:26: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"time_ms\":"; write_num(os, time_ms); os << ',';
+                         ^
+simplify.cpp:180:50: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"time_ms\":"; write_num(os, time_ms); os << ',';
+                                                 ^
+simplify.cpp:181:29: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"simplified\":"; write_points(os, simplified); os << ',';
+                            ^
+simplify.cpp:181:59: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"simplified\":"; write_points(os, simplified); os << ',';
+                                                          ^
+simplify.cpp:186:36: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_json(std::ostream& os, double EPSILON, double DELTA, double time_ms,
+                                   ^
+simplify.cpp:186:37: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_json(std::ostream& os, double EPSILON, double DELTA, double time_ms,
+                                    ^
+simplify.cpp:186:71: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_json(std::ostream& os, double EPSILON, double DELTA, double time_ms,
+                                                                      ^
+simplify.cpp:186:87: error: code should be clang-formatted [-Wclang-format-violations]
+inline void write_json(std::ostream& os, double EPSILON, double DELTA, double time_ms,
+                                                                                      ^
+simplify.cpp:187:48: error: code should be clang-formatted [-Wclang-format-violations]
+                       const std::vector<Point>& stream,
+                                               ^
+simplify.cpp:187:49: error: code should be clang-formatted [-Wclang-format-violations]
+                       const std::vector<Point>& stream,
+                                                ^
+simplify.cpp:188:48: error: code should be clang-formatted [-Wclang-format-violations]
+                       const std::vector<Point>& simplified,
+                                               ^
+simplify.cpp:188:49: error: code should be clang-formatted [-Wclang-format-violations]
+                       const std::vector<Point>& simplified,
+                                                ^
+simplify.cpp:189:54: error: code should be clang-formatted [-Wclang-format-violations]
+                       const std::vector<PrefixTrace>& prefixes) {
+                                                     ^
+simplify.cpp:189:55: error: code should be clang-formatted [-Wclang-format-violations]
+                       const std::vector<PrefixTrace>& prefixes) {
+                                                      ^
+simplify.cpp:192:22: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"eps\":";       write_num(os, EPSILON);                       os << ',';
+                     ^
+simplify.cpp:192:52: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"eps\":";       write_num(os, EPSILON);                       os << ',';
+                                                   ^
+simplify.cpp:193:24: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"delta\":";     write_num(os, DELTA);                         os << ',';
+                       ^
+simplify.cpp:193:50: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"delta\":";     write_num(os, DELTA);                         os << ',';
+                                                 ^
+simplify.cpp:194:26: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"time_ms\":";   write_num(os, time_ms);                       os << ',';
+                         ^
+simplify.cpp:194:52: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"time_ms\":";   write_num(os, time_ms);                       os << ',';
+                                                   ^
+simplify.cpp:195:27: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"grid_val\":";  write_num(os, GRID_val(EPSILON, DELTA));      os << ',';
+                          ^
+simplify.cpp:195:69: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"grid_val\":";  write_num(os, GRID_val(EPSILON, DELTA));      os << ',';
+                                                                    ^
+simplify.cpp:196:24: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"r_val\":";     write_num(os, R_val(EPSILON, DELTA));         os << ',';
+                       ^
+simplify.cpp:196:66: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"r_val\":";     write_num(os, R_val(EPSILON, DELTA));         os << ',';
+                                                                 ^
+simplify.cpp:197:35: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"expected_frechet\":"; write_num(os, std::sqrt(expected_frechet_squared)); os << ',';
+                                  ^
+simplify.cpp:197:87: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"expected_frechet\":"; write_num(os, std::sqrt(expected_frechet_squared)); os << ',';
+                                                                                      ^
+simplify.cpp:199:25: error: code should be clang-formatted [-Wclang-format-violations]
+    write_num(os, BMIN); os << ','; write_num(os, BMIN); os << ',';
+                        ^
+simplify.cpp:199:36: error: code should be clang-formatted [-Wclang-format-violations]
+    write_num(os, BMIN); os << ','; write_num(os, BMIN); os << ',';
+                                   ^
+simplify.cpp:199:57: error: code should be clang-formatted [-Wclang-format-violations]
+    write_num(os, BMIN); os << ','; write_num(os, BMIN); os << ',';
+                                                        ^
+simplify.cpp:200:25: error: code should be clang-formatted [-Wclang-format-violations]
+    write_num(os, BMAX); os << ','; write_num(os, BMAX);
+                        ^
+simplify.cpp:200:36: error: code should be clang-formatted [-Wclang-format-violations]
+    write_num(os, BMAX); os << ','; write_num(os, BMAX);
+                                   ^
+simplify.cpp:202:25: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"stream\":";      write_points(os, stream);      os << ',';
+                        ^
+simplify.cpp:202:56: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"stream\":";      write_points(os, stream);      os << ',';
+                                                       ^
+simplify.cpp:203:29: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"simplified\":"; write_points(os, simplified);   os << ',';
+                            ^
+simplify.cpp:203:59: error: code should be clang-formatted [-Wclang-format-violations]
+    os << "\"simplified\":"; write_points(os, simplified);   os << ',';
+                                                          ^
+simplify.cpp:206:16: error: code should be clang-formatted [-Wclang-format-violations]
+        if (pi) os << ',';
+               ^
+simplify.cpp:212:2: error: code should be clang-formatted [-Wclang-format-violations]
+}  // namespace webtrace
+ ^
+simplify.cpp:216:50: error: code should be clang-formatted [-Wclang-format-violations]
+int get_longest_stab_web(const std::vector<Point>& stream, int cur,
+                                                 ^
+simplify.cpp:216:51: error: code should be clang-formatted [-Wclang-format-violations]
+int get_longest_stab_web(const std::vector<Point>& stream, int cur,
+                                                  ^
+simplify.cpp:217:44: error: code should be clang-formatted [-Wclang-format-violations]
+                         std::vector<Point>& simplified,
+                                           ^
+simplify.cpp:217:45: error: code should be clang-formatted [-Wclang-format-violations]
+                         std::vector<Point>& simplified,
+                                            ^
+simplify.cpp:217:57: error: code should be clang-formatted [-Wclang-format-violations]
+                         std::vector<Point>& simplified,
+                                                        ^
+simplify.cpp:218:41: error: code should be clang-formatted [-Wclang-format-violations]
+                         double EPSILON, double DELTA,
+                                        ^
+simplify.cpp:219:60: error: code should be clang-formatted [-Wclang-format-violations]
+                         std::vector<webtrace::PrefixTrace>& prefixes) {
+                                                           ^
+simplify.cpp:219:61: error: code should be clang-formatted [-Wclang-format-violations]
+                         std::vector<webtrace::PrefixTrace>& prefixes) {
+                                                            ^
+simplify.cpp:220:16: error: code should be clang-formatted [-Wclang-format-violations]
+    const Point& p0 = stream[cur];
+               ^
+simplify.cpp:220:17: error: code should be clang-formatted [-Wclang-format-violations]
+    const Point& p0 = stream[cur];
+                ^
+simplify.cpp:225:33: error: code should be clang-formatted [-Wclang-format-violations]
+    for (int i = 0; i < Pn; ++i) S[i] = {P[i]};
+                                ^
+simplify.cpp:234:24: error: code should be clang-formatted [-Wclang-format-violations]
+    trace.p0_idx = cur;   // p0 = stream[cur] (cur not yet incremented)
+                       ^
+simplify.cpp:254:14: error: code should be clang-formatted [-Wclang-format-violations]
+            }
+             ^
+simplify.cpp:257:27: error: code should be clang-formatted [-Wclang-format-violations]
+            cand.F = F[i];
+                          ^
+simplify.cpp:275:45: error: code should be clang-formatted [-Wclang-format-violations]
+            if (dead[i] || new_S[i].empty()) continue;
+                                            ^
+simplify.cpp:283:46: error: code should be clang-formatted [-Wclang-format-violations]
+        if (!has_candidate || dead_cnt == Pn) break;
+                                             ^
+simplify.cpp:285:26: error: code should be clang-formatted [-Wclang-format-violations]
+            if (!dead[i]) S[i].swap(new_S[i]);
+                         ^
+simplify.cpp:296:57: error: code should be clang-formatted [-Wclang-format-violations]
+std::vector<Point> simplify_web(const std::vector<Point>& stream,
+                                                        ^
+simplify.cpp:296:58: error: code should be clang-formatted [-Wclang-format-violations]
+std::vector<Point> simplify_web(const std::vector<Point>& stream,
+                                                         ^
+simplify.cpp:302:17: error: code should be clang-formatted [-Wclang-format-violations]
+    std::ostream* stream_out = nullptr;
+                ^
+simplify.cpp:302:18: error: code should be clang-formatted [-Wclang-format-violations]
+    std::ostream* stream_out = nullptr;
+                 ^
+simplify.cpp:315:76: error: code should be clang-formatted [-Wclang-format-violations]
+        cur = get_longest_stab_web(stream, cur, simplified, EPSILON, DELTA, prefixes);
+                                                                           ^
+simplify.cpp:316:62: error: code should be clang-formatted [-Wclang-format-violations]
+        core_ms += std::chrono::duration<double, std::milli>(
+                                                             ^
+simplify.cpp:317:60: error: code should be clang-formatted [-Wclang-format-violations]
+            std::chrono::high_resolution_clock::now() - t0).count();
+                                                           ^
+simplify.cpp:322:6: error: code should be clang-formatted [-Wclang-format-violations]
+    }
+     ^
+simplify.cpp:324:76: error: code should be clang-formatted [-Wclang-format-violations]
+    std::cerr << "SIMPLIFY_CORE_MS: " << std::fixed << std::setprecision(4) << core_ms << '\n';
+                                                                           ^
+simplify.cpp:324:96: error: code should be clang-formatted [-Wclang-format-violations]
+    std::cerr << "SIMPLIFY_CORE_MS: " << std::fixed << std::setprecision(4) << core_ms << '\n';
+                                                                                               ^
+simplify.cpp:332:76: error: code should be clang-formatted [-Wclang-format-violations]
+            std::cerr << "Failed to open output file: " << json_output_path << '\n';
+                                                                           ^
+simplify.cpp:335:79: error: code should be clang-formatted [-Wclang-format-violations]
+        webtrace::write_json(ofs, EPSILON, DELTA, core_ms, stream, simplified, prefixes);
+                                                                              ^
+simplify.cpp:338:73: error: code should be clang-formatted [-Wclang-format-violations]
+        webtrace::write_json(std::cout, EPSILON, DELTA, core_ms, stream, simplified, prefixes);
+                                                                        ^
+simplify.cpp:343:53: error: code should be clang-formatted [-Wclang-format-violations]
+std::vector<Point> simplify(const std::vector<Point>& stream,
+                                                    ^
+simplify.cpp:343:54: error: code should be clang-formatted [-Wclang-format-violations]
+std::vector<Point> simplify(const std::vector<Point>& stream,
+                                                     ^
+simplify.cpp:343:62: error: code should be clang-formatted [-Wclang-format-violations]
+std::vector<Point> simplify(const std::vector<Point>& stream,
+                                                             ^
+simplify.cpp:344:44: error: code should be clang-formatted [-Wclang-format-violations]
+                            double EPSILON, double DELTA) {
+                                           ^
+simplify.cpp:351:59: error: code should be clang-formatted [-Wclang-format-violations]
+    double ms = std::chrono::duration<double, std::milli>(
+                                                          ^
+simplify.cpp:352:56: error: code should be clang-formatted [-Wclang-format-violations]
+        std::chrono::high_resolution_clock::now() - t0).count();
+                                                       ^
+simplify.cpp:352:65: error: code should be clang-formatted [-Wclang-format-violations]
+        std::chrono::high_resolution_clock::now() - t0).count();
+                                                                ^
+simplify.cpp:354:76: error: code should be clang-formatted [-Wclang-format-violations]
+    std::cerr << "SIMPLIFY_CORE_MS: " << std::fixed << std::setprecision(4) << ms << '\n';
+                                                                           ^
+simplify.cpp:354:91: error: code should be clang-formatted [-Wclang-format-violations]
+    std::cerr << "SIMPLIFY_CORE_MS: " << std::fixed << std::setprecision(4) << ms << '\n';
+                                                                                          ^
+simplify.cpp:363:24: error: code should be clang-formatted [-Wclang-format-violations]
+int main(int argc, char** argv) {
+                       ^
+simplify.cpp:363:26: error: code should be clang-formatted [-Wclang-format-violations]
+int main(int argc, char** argv) {
+                         ^
+simplify.cpp:364:38: error: code should be clang-formatted [-Wclang-format-violations]
+    std::ios::sync_with_stdio(false);
+                                     ^
+simplify.cpp:386:52: error: code should be clang-formatted [-Wclang-format-violations]
+    std::vector<Point> simplified = web_server_flag
+                                                   ^
+simplify.cpp:387:47: error: code should be clang-formatted [-Wclang-format-violations]
+        ? simplify_web(stream, EPSILON, DELTA)
+                                              ^
+simplify.cpp:395:26: error: code should be clang-formatted [-Wclang-format-violations]
+    if (!web_server_flag) maybe_run_frechet(test_case_no);
+                         ^
+simplify_geometry.h:19:12: error: code should be clang-formatted [-Wclang-format-violations]
+using Point  = Kernel::Point_2;
+           ^
+simplify_geometry.h:38:54: error: code should be clang-formatted [-Wclang-format-violations]
+inline void to_ccw(std::vector<std::array<double, 2>>& v) {
+                                                     ^
+simplify_geometry.h:38:55: error: code should be clang-formatted [-Wclang-format-violations]
+inline void to_ccw(std::vector<std::array<double, 2>>& v) {
+                                                      ^
+simplify_geometry.h:42:19: error: code should be clang-formatted [-Wclang-format-violations]
+        const auto& p = v[i];
+                  ^
+simplify_geometry.h:42:20: error: code should be clang-formatted [-Wclang-format-violations]
+        const auto& p = v[i];
+                   ^
+simplify_geometry.h:43:19: error: code should be clang-formatted [-Wclang-format-violations]
+        const auto& q = v[(i + 1) % n];
+                  ^
+simplify_geometry.h:43:20: error: code should be clang-formatted [-Wclang-format-violations]
+        const auto& q = v[(i + 1) % n];
+                   ^
+simplify_geometry.h:46:17: error: code should be clang-formatted [-Wclang-format-violations]
+    if (a < 0.0) std::reverse(v.begin(), v.end());
+                ^
+simplify_geometry.h:59:21: error: code should be clang-formatted [-Wclang-format-violations]
+inline ClipWorkspace& get_clip_workspace() {
+                    ^
+simplify_geometry.h:59:22: error: code should be clang-formatted [-Wclang-format-violations]
+inline ClipWorkspace& get_clip_workspace() {
+                     ^
+simplify_geometry.h:69:32: error: code should be clang-formatted [-Wclang-format-violations]
+inline const std::vector<Point>& clip(const std::vector<Point>& P_verts,
+                               ^
+simplify_geometry.h:69:33: error: code should be clang-formatted [-Wclang-format-violations]
+inline const std::vector<Point>& clip(const std::vector<Point>& P_verts,
+                                ^
+simplify_geometry.h:69:63: error: code should be clang-formatted [-Wclang-format-violations]
+inline const std::vector<Point>& clip(const std::vector<Point>& P_verts,
+                                                              ^
+simplify_geometry.h:69:64: error: code should be clang-formatted [-Wclang-format-violations]
+inline const std::vector<Point>& clip(const std::vector<Point>& P_verts,
+                                                               ^
+simplify_geometry.h:70:63: error: code should be clang-formatted [-Wclang-format-violations]
+                                      const std::vector<Point>& Q_verts) {
+                                                              ^
+simplify_geometry.h:70:64: error: code should be clang-formatted [-Wclang-format-violations]
+                                      const std::vector<Point>& Q_verts) {
+                                                               ^
+simplify_geometry.h:72:18: error: code should be clang-formatted [-Wclang-format-violations]
+    ClipWorkspace& ws = get_clip_workspace();
+                 ^
+simplify_geometry.h:72:19: error: code should be clang-formatted [-Wclang-format-violations]
+    ClipWorkspace& ws = get_clip_workspace();
+                  ^
+simplify_geometry.h:76:26: error: code should be clang-formatted [-Wclang-format-violations]
+    if (n < 3 || m < 3) { ws.result.clear(); return ws.result; }
+                         ^
+simplify_geometry.h:76:45: error: code should be clang-formatted [-Wclang-format-violations]
+    if (n < 3 || m < 3) { ws.result.clear(); return ws.result; }
+                                            ^
+simplify_geometry.h:76:63: error: code should be clang-formatted [-Wclang-format-violations]
+    if (n < 3 || m < 3) { ws.result.clear(); return ws.result; }
+                                                              ^
+simplify_geometry.h:82:20: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& p : P_verts)
+                   ^
+simplify_geometry.h:82:21: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& p : P_verts)
+                    ^
+simplify_geometry.h:84:20: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& q : Q_verts)
+                   ^
+simplify_geometry.h:84:21: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& q : Q_verts)
+                    ^
+simplify_geometry.h:93:49: error: code should be clang-formatted [-Wclang-format-violations]
+        const int e1 = (e + 1 == m) ? 0 : e + 1;   // avoid per-iteration modulo
+                                                ^
+simplify_geometry.h:94:42: error: code should be clang-formatted [-Wclang-format-violations]
+        const double ax = ws.clipv[e][0],  ay = ws.clipv[e][1];
+                                         ^
+simplify_geometry.h:97:77: error: code should be clang-formatted [-Wclang-format-violations]
+        // Signed area of triangle (a,b,pt); >=0 means pt is on/left of edge a->b
+                                                                            ^
+simplify_geometry.h:97:82: error: code should be clang-formatted [-Wclang-format-violations]
+        // Signed area of triangle (a,b,pt); >=0 means pt is on/left of edge a->b
+                                                                                 ^
+simplify_geometry.h:98:9: error: code should be clang-formatted [-Wclang-format-violations]
+        // (inside, since the clip is CCW).
+        ^
+simplify_geometry.h:99:52: error: code should be clang-formatted [-Wclang-format-violations]
+        auto side = [&](const std::array<double, 2>& pt) {
+                                                   ^
+simplify_geometry.h:99:53: error: code should be clang-formatted [-Wclang-format-violations]
+        auto side = [&](const std::array<double, 2>& pt) {
+                                                    ^
+simplify_geometry.h:105:27: error: code should be clang-formatted [-Wclang-format-violations]
+        int prev = sz - 1;                          // walk the previous index
+                          ^
+simplify_geometry.h:107:23: error: code should be clang-formatted [-Wclang-format-violations]
+            const auto& cur = ws.in[i];
+                      ^
+simplify_geometry.h:107:24: error: code should be clang-formatted [-Wclang-format-violations]
+            const auto& cur = ws.in[i];
+                       ^
+simplify_geometry.h:108:23: error: code should be clang-formatted [-Wclang-format-violations]
+            const auto& prv = ws.in[prev];
+                      ^
+simplify_geometry.h:108:24: error: code should be clang-formatted [-Wclang-format-violations]
+            const auto& prv = ws.in[prev];
+                       ^
+simplify_geometry.h:127:27: error: code should be clang-formatted [-Wclang-format-violations]
+    if (ws.out.size() < 3) return ws.result;
+                          ^
+simplify_geometry.h:130:20: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& p : ws.out) ws.result.emplace_back(p[0], p[1]);
+                   ^
+simplify_geometry.h:130:21: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& p : ws.out) ws.result.emplace_back(p[0], p[1]);
+                    ^
+simplify_geometry.h:130:33: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& p : ws.out) ws.result.emplace_back(p[0], p[1]);
+                                ^
+simplify_geometry.h:134:2: error: code should be clang-formatted [-Wclang-format-violations]
+}  // namespace sh_double
+ ^
+simplify_geometry.h:147:48: error: code should be clang-formatted [-Wclang-format-violations]
+inline void dedup_into(const std::vector<Point>& poly, std::vector<Point>& out) {
+                                               ^
+simplify_geometry.h:147:49: error: code should be clang-formatted [-Wclang-format-violations]
+inline void dedup_into(const std::vector<Point>& poly, std::vector<Point>& out) {
+                                                ^
+simplify_geometry.h:147:55: error: code should be clang-formatted [-Wclang-format-violations]
+inline void dedup_into(const std::vector<Point>& poly, std::vector<Point>& out) {
+                                                      ^
+simplify_geometry.h:147:74: error: code should be clang-formatted [-Wclang-format-violations]
+inline void dedup_into(const std::vector<Point>& poly, std::vector<Point>& out) {
+                                                                         ^
+simplify_geometry.h:147:75: error: code should be clang-formatted [-Wclang-format-violations]
+inline void dedup_into(const std::vector<Point>& poly, std::vector<Point>& out) {
+                                                                          ^
+simplify_geometry.h:150:17: error: code should be clang-formatted [-Wclang-format-violations]
+    if (n < 2) { out = poly; return; }
+                ^
+simplify_geometry.h:150:29: error: code should be clang-formatted [-Wclang-format-violations]
+    if (n < 2) { out = poly; return; }
+                            ^
+simplify_geometry.h:150:37: error: code should be clang-formatted [-Wclang-format-violations]
+    if (n < 2) { out = poly; return; }
+                                    ^
+simplify_geometry.h:152:32: error: code should be clang-formatted [-Wclang-format-violations]
+    auto close = [](const Point& a, const Point& b) {
+                               ^
+simplify_geometry.h:152:33: error: code should be clang-formatted [-Wclang-format-violations]
+    auto close = [](const Point& a, const Point& b) {
+                                ^
+simplify_geometry.h:152:48: error: code should be clang-formatted [-Wclang-format-violations]
+    auto close = [](const Point& a, const Point& b) {
+                                               ^
+simplify_geometry.h:152:49: error: code should be clang-formatted [-Wclang-format-violations]
+    auto close = [](const Point& a, const Point& b) {
+                                                ^
+simplify_geometry.h:159:56: error: code should be clang-formatted [-Wclang-format-violations]
+        if (!out.empty() && close(poly[i], out.back())) continue;
+                                                       ^
+simplify_geometry.h:162:62: error: code should be clang-formatted [-Wclang-format-violations]
+    while (out.size() >= 2 && close(out.front(), out.back())) out.pop_back();
+                                                             ^
+simplify_geometry.h:165:69: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> dedup_consecutive(const std::vector<Point>& poly) {
+                                                                    ^
+simplify_geometry.h:165:70: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> dedup_consecutive(const std::vector<Point>& poly) {
+                                                                     ^
+simplify_geometry.h:174:47: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool intersect(const std::vector<Point>& P_in,
+                                              ^
+simplify_geometry.h:174:48: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool intersect(const std::vector<Point>& P_in,
+                                               ^
+simplify_geometry.h:175:47: error: code should be clang-formatted [-Wclang-format-violations]
+                      const std::vector<Point>& Q_in,
+                                              ^
+simplify_geometry.h:175:48: error: code should be clang-formatted [-Wclang-format-violations]
+                      const std::vector<Point>& Q_in,
+                                               ^
+simplify_geometry.h:176:41: error: code should be clang-formatted [-Wclang-format-violations]
+                      std::vector<Point>& result) {
+                                        ^
+simplify_geometry.h:176:42: error: code should be clang-formatted [-Wclang-format-violations]
+                      std::vector<Point>& result) {
+                                         ^
+simplify_geometry.h:216:40: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_in_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                       ^
+simplify_geometry.h:216:41: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_in_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                        ^
+simplify_geometry.h:216:69: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_in_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                                                    ^
+simplify_geometry.h:216:70: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_in_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                                                     ^
+simplify_geometry.h:216:76: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_in_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                                                           ^
+simplify_geometry.h:219:15: error: code should be clang-formatted [-Wclang-format-violations]
+    if (n < 3) return false;
+              ^
+simplify_geometry.h:219:29: error: code should be clang-formatted [-Wclang-format-violations]
+    if (n < 3) return false;
+                            ^
+simplify_geometry.h:221:20: error: code should be clang-formatted [-Wclang-format-violations]
+    const int bad = ccw ? -1 : 1;   // sign that means "outside" (right for CCW, left for CW)
+                   ^
+simplify_geometry.h:221:34: error: code should be clang-formatted [-Wclang-format-violations]
+    const int bad = ccw ? -1 : 1;   // sign that means "outside" (right for CCW, left for CW)
+                                 ^
+simplify_geometry.h:224:56: error: code should be clang-formatted [-Wclang-format-violations]
+        const double ax = CGAL::to_double(poly[i].x()), ay = CGAL::to_double(poly[i].y());
+                                                       ^
+simplify_geometry.h:225:66: error: code should be clang-formatted [-Wclang-format-violations]
+        const double bx = CGAL::to_double(poly[(i + 1) % n].x()), by = CGAL::to_double(poly[(i + 1) % n].y());
+                                                                 ^
+simplify_geometry.h:232:18: error: code should be clang-formatted [-Wclang-format-violations]
+        if (det >  bound)      s =  1;
+                 ^
+simplify_geometry.h:232:26: error: code should be clang-formatted [-Wclang-format-violations]
+        if (det >  bound)      s =  1;
+                         ^
+simplify_geometry.h:232:35: error: code should be clang-formatted [-Wclang-format-violations]
+        if (det >  bound)      s =  1;
+                                  ^
+simplify_geometry.h:233:31: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (det < -bound) s = -1;
+                              ^
+simplify_geometry.h:235:72: error: code should be clang-formatted [-Wclang-format-violations]
+            switch (CGAL::orientation(poly[i], poly[(i + 1) % n], p)) {
+                                                                       ^
+simplify_geometry.h:236:38: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::LEFT_TURN:  s =  1; break;
+                                     ^
+simplify_geometry.h:236:43: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::LEFT_TURN:  s =  1; break;
+                                          ^
+simplify_geometry.h:236:47: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::LEFT_TURN:  s =  1; break;
+                                              ^
+simplify_geometry.h:236:54: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::LEFT_TURN:  s =  1; break;
+                                                     ^
+simplify_geometry.h:237:39: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::RIGHT_TURN: s = -1; break;
+                                      ^
+simplify_geometry.h:237:47: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::RIGHT_TURN: s = -1; break;
+                                              ^
+simplify_geometry.h:237:54: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::RIGHT_TURN: s = -1; break;
+                                                     ^
+simplify_geometry.h:238:25: error: code should be clang-formatted [-Wclang-format-violations]
+                default:               s =  0; break;
+                        ^
+simplify_geometry.h:238:43: error: code should be clang-formatted [-Wclang-format-violations]
+                default:               s =  0; break;
+                                          ^
+simplify_geometry.h:238:47: error: code should be clang-formatted [-Wclang-format-violations]
+                default:               s =  0; break;
+                                              ^
+simplify_geometry.h:241:22: error: code should be clang-formatted [-Wclang-format-violations]
+        if (s == bad) return false;
+                     ^
+simplify_geometry.h:247:41: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_on_segment(const Point& a, const Point& b, const Point& q) {
+                                        ^
+simplify_geometry.h:247:42: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_on_segment(const Point& a, const Point& b, const Point& q) {
+                                         ^
+simplify_geometry.h:247:57: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_on_segment(const Point& a, const Point& b, const Point& q) {
+                                                        ^
+simplify_geometry.h:247:58: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_on_segment(const Point& a, const Point& b, const Point& q) {
+                                                         ^
+simplify_geometry.h:247:73: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_on_segment(const Point& a, const Point& b, const Point& q) {
+                                                                        ^
+simplify_geometry.h:247:74: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool point_on_segment(const Point& a, const Point& b, const Point& q) {
+                                                                         ^
+simplify_geometry.h:256:31: error: code should be clang-formatted [-Wclang-format-violations]
+    if (std::abs(det) > bound) return false;
+                              ^
+simplify_geometry.h:257:55: error: code should be clang-formatted [-Wclang-format-violations]
+    if (CGAL::orientation(a, b, q) != CGAL::COLLINEAR) return false;
+                                                      ^
+simplify_geometry.h:258:48: error: code should be clang-formatted [-Wclang-format-violations]
+    return qx >= std::min(ax, bx) - GEOM_TOL && qx <= std::max(ax, bx) + GEOM_TOL &&
+                                               ^
+simplify_geometry.h:259:48: error: code should be clang-formatted [-Wclang-format-violations]
+           qy >= std::min(ay, by) - GEOM_TOL && qy <= std::max(ay, by) + GEOM_TOL;
+                                               ^
+simplify_geometry.h:263:47: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool strictly_inside_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                              ^
+simplify_geometry.h:263:48: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool strictly_inside_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                               ^
+simplify_geometry.h:263:51: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool strictly_inside_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                                  ^
+simplify_geometry.h:263:76: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool strictly_inside_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                                                           ^
+simplify_geometry.h:263:77: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool strictly_inside_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                                                            ^
+simplify_geometry.h:263:83: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool strictly_inside_convex(const Point& p, const std::vector<Point>& poly, bool ccw = true) {
+                                                                                  ^
+simplify_geometry.h:265:15: error: code should be clang-formatted [-Wclang-format-violations]
+    if (n < 3) return false;
+              ^
+simplify_geometry.h:270:56: error: code should be clang-formatted [-Wclang-format-violations]
+        const double ax = CGAL::to_double(poly[i].x()), ay = CGAL::to_double(poly[i].y());
+                                                       ^
+simplify_geometry.h:271:66: error: code should be clang-formatted [-Wclang-format-violations]
+        const double bx = CGAL::to_double(poly[(i + 1) % n].x()), by = CGAL::to_double(poly[(i + 1) % n].y());
+                                                                 ^
+simplify_geometry.h:278:18: error: code should be clang-formatted [-Wclang-format-violations]
+        if (det >  bound)      s =  1;
+                 ^
+simplify_geometry.h:278:26: error: code should be clang-formatted [-Wclang-format-violations]
+        if (det >  bound)      s =  1;
+                         ^
+simplify_geometry.h:278:35: error: code should be clang-formatted [-Wclang-format-violations]
+        if (det >  bound)      s =  1;
+                                  ^
+simplify_geometry.h:279:31: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (det < -bound) s = -1;
+                              ^
+simplify_geometry.h:281:65: error: code should be clang-formatted [-Wclang-format-violations]
+            if (point_on_segment(poly[i], poly[(i + 1) % n], p)) return false;
+                                                                ^
+simplify_geometry.h:282:72: error: code should be clang-formatted [-Wclang-format-violations]
+            switch (CGAL::orientation(poly[i], poly[(i + 1) % n], p)) {
+                                                                       ^
+simplify_geometry.h:283:38: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::LEFT_TURN:  s =  1; break;
+                                     ^
+simplify_geometry.h:283:43: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::LEFT_TURN:  s =  1; break;
+                                          ^
+simplify_geometry.h:283:47: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::LEFT_TURN:  s =  1; break;
+                                              ^
+simplify_geometry.h:283:54: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::LEFT_TURN:  s =  1; break;
+                                                     ^
+simplify_geometry.h:284:39: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::RIGHT_TURN: s = -1; break;
+                                      ^
+simplify_geometry.h:284:47: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::RIGHT_TURN: s = -1; break;
+                                              ^
+simplify_geometry.h:284:54: error: code should be clang-formatted [-Wclang-format-violations]
+                case CGAL::RIGHT_TURN: s = -1; break;
+                                                     ^
+simplify_geometry.h:285:25: error: code should be clang-formatted [-Wclang-format-violations]
+                default:               s =  0; break;
+                        ^
+simplify_geometry.h:285:43: error: code should be clang-formatted [-Wclang-format-violations]
+                default:               s =  0; break;
+                                          ^
+simplify_geometry.h:285:47: error: code should be clang-formatted [-Wclang-format-violations]
+                default:               s =  0; break;
+                                              ^
+simplify_geometry.h:288:20: error: code should be clang-formatted [-Wclang-format-violations]
+        if (s != 1) return false;
+                   ^
+simplify_geometry.h:294:53: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::optional<Point> ray_hit_bbox(const Point& p, const Point& dir) {
+                                                    ^
+simplify_geometry.h:294:54: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::optional<Point> ray_hit_bbox(const Point& p, const Point& dir) {
+                                                     ^
+simplify_geometry.h:294:69: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::optional<Point> ray_hit_bbox(const Point& p, const Point& dir) {
+                                                                    ^
+simplify_geometry.h:294:70: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::optional<Point> ray_hit_bbox(const Point& p, const Point& dir) {
+                                                                     ^
+simplify_geometry.h:300:20: error: code should be clang-formatted [-Wclang-format-violations]
+        if (t <= 0) return;
+                   ^
+simplify_geometry.h:302:50: error: code should be clang-formatted [-Wclang-format-violations]
+        if (x < BMIN - 1e-8 || x > BMAX + 1e-8 ||
+                                                 ^
+simplify_geometry.h:303:31: error: code should be clang-formatted [-Wclang-format-violations]
+            y < BMIN - 1e-8 || y > BMAX + 1e-8) return;
+                              ^
+simplify_geometry.h:303:48: error: code should be clang-formatted [-Wclang-format-violations]
+            y < BMIN - 1e-8 || y > BMAX + 1e-8) return;
+                                               ^
+simplify_geometry.h:304:24: error: code should be clang-formatted [-Wclang-format-violations]
+        if (t < best) { best = t; hx = x; hy = y; }
+                       ^
+simplify_geometry.h:304:34: error: code should be clang-formatted [-Wclang-format-violations]
+        if (t < best) { best = t; hx = x; hy = y; }
+                                 ^
+simplify_geometry.h:304:42: error: code should be clang-formatted [-Wclang-format-violations]
+        if (t < best) { best = t; hx = x; hy = y; }
+                                         ^
+simplify_geometry.h:304:50: error: code should be clang-formatted [-Wclang-format-violations]
+        if (t < best) { best = t; hx = x; hy = y; }
+                                                 ^
+simplify_geometry.h:314:30: error: code should be clang-formatted [-Wclang-format-violations]
+    if (!std::isfinite(best)) return std::nullopt;
+                             ^
+simplify_geometry.h:320:12: error: code should be clang-formatted [-Wclang-format-violations]
+    BL = 0, BOTTOM = 1, BR = 2, RIGHT = 3,
+           ^
+simplify_geometry.h:320:24: error: code should be clang-formatted [-Wclang-format-violations]
+    BL = 0, BOTTOM = 1, BR = 2, RIGHT = 3,
+                       ^
+simplify_geometry.h:320:32: error: code should be clang-formatted [-Wclang-format-violations]
+    BL = 0, BOTTOM = 1, BR = 2, RIGHT = 3,
+                               ^
+simplify_geometry.h:321:12: error: code should be clang-formatted [-Wclang-format-violations]
+    TR = 4, TOP = 5,    TL = 6, LEFT = 7
+           ^
+simplify_geometry.h:321:21: error: code should be clang-formatted [-Wclang-format-violations]
+    TR = 4, TOP = 5,    TL = 6, LEFT = 7
+                    ^
+simplify_geometry.h:321:32: error: code should be clang-formatted [-Wclang-format-violations]
+    TR = 4, TOP = 5,    TL = 6, LEFT = 7
+                               ^
+simplify_geometry.h:325:13: error: code should be clang-formatted [-Wclang-format-violations]
+    return {
+            ^
+simplify_geometry.h:326:65: error: code should be clang-formatted [-Wclang-format-violations]
+        Point(BMIN, BMIN), Point(BMAX, BMIN), Point(BMAX, BMAX), Point(BMIN, BMAX)
+                                                                ^
+simplify_geometry.h:326:83: error: code should be clang-formatted [-Wclang-format-violations]
+        Point(BMIN, BMIN), Point(BMAX, BMIN), Point(BMAX, BMAX), Point(BMIN, BMAX)
+                                                                                  ^
+simplify_geometry.h:336:55: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::optional<Bbox_edge> which_edge(const Point& s) {
+                                                      ^
+simplify_geometry.h:336:56: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::optional<Bbox_edge> which_edge(const Point& s) {
+                                                       ^
+simplify_geometry.h:338:17: error: code should be clang-formatted [-Wclang-format-violations]
+    bool on_left   = std::abs(x - BMIN) < GEOM_TOL;
+                ^
+simplify_geometry.h:339:18: error: code should be clang-formatted [-Wclang-format-violations]
+    bool on_right  = std::abs(x - BMAX) < GEOM_TOL;
+                 ^
+simplify_geometry.h:341:16: error: code should be clang-formatted [-Wclang-format-violations]
+    bool on_top    = std::abs(y - BMAX) < GEOM_TOL;
+               ^
+simplify_geometry.h:343:30: error: code should be clang-formatted [-Wclang-format-violations]
+    if (on_left && on_bottom) return Bbox_edge::BL;
+                             ^
+simplify_geometry.h:344:31: error: code should be clang-formatted [-Wclang-format-violations]
+    if (on_right && on_bottom) return Bbox_edge::BR;
+                              ^
+simplify_geometry.h:345:28: error: code should be clang-formatted [-Wclang-format-violations]
+    if (on_right && on_top) return Bbox_edge::TR;
+                           ^
+simplify_geometry.h:346:27: error: code should be clang-formatted [-Wclang-format-violations]
+    if (on_left && on_top) return Bbox_edge::TL;
+                          ^
+simplify_geometry.h:347:19: error: code should be clang-formatted [-Wclang-format-violations]
+    if (on_bottom) return Bbox_edge::BOTTOM;
+                  ^
+simplify_geometry.h:348:18: error: code should be clang-formatted [-Wclang-format-violations]
+    if (on_right)  return Bbox_edge::RIGHT;
+                 ^
+simplify_geometry.h:349:16: error: code should be clang-formatted [-Wclang-format-violations]
+    if (on_top)    return Bbox_edge::TOP;
+               ^
+simplify_geometry.h:350:17: error: code should be clang-formatted [-Wclang-format-violations]
+    if (on_left)   return Bbox_edge::LEFT;
+                ^
+simplify_geometry.h:356:47: error: code should be clang-formatted [-Wclang-format-violations]
+inline void append_rect_pts(std::vector<Point>& out, Bbox_edge from, Bbox_edge to, bool ccw) {
+                                              ^
+simplify_geometry.h:356:48: error: code should be clang-formatted [-Wclang-format-violations]
+inline void append_rect_pts(std::vector<Point>& out, Bbox_edge from, Bbox_edge to, bool ccw) {
+                                               ^
+simplify_geometry.h:356:69: error: code should be clang-formatted [-Wclang-format-violations]
+inline void append_rect_pts(std::vector<Point>& out, Bbox_edge from, Bbox_edge to, bool ccw) {
+                                                                    ^
+simplify_geometry.h:362:16: error: code should be clang-formatted [-Wclang-format-violations]
+    if (i == j) return;
+               ^
+simplify_geometry.h:382:52: error: code should be clang-formatted [-Wclang-format-violations]
+inline void configure_bbox(const std::vector<Point>& stream, double EPSILON, double DELTA) {
+                                                   ^
+simplify_geometry.h:382:53: error: code should be clang-formatted [-Wclang-format-violations]
+inline void configure_bbox(const std::vector<Point>& stream, double EPSILON, double DELTA) {
+                                                    ^
+simplify_geometry.h:382:77: error: code should be clang-formatted [-Wclang-format-violations]
+inline void configure_bbox(const std::vector<Point>& stream, double EPSILON, double DELTA) {
+                                                                            ^
+simplify_geometry.h:385:21: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const Point& point : stream) {
+                    ^
+simplify_geometry.h:385:22: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const Point& point : stream) {
+                     ^
+simplify_geometry.h:386:69: error: code should be clang-formatted [-Wclang-format-violations]
+        min_coord = std::min({min_coord, CGAL::to_double(point.x()), CGAL::to_double(point.y())});
+                                                                    ^
+simplify_geometry.h:387:69: error: code should be clang-formatted [-Wclang-format-violations]
+        max_coord = std::max({max_coord, CGAL::to_double(point.x()), CGAL::to_double(point.y())});
+                                                                    ^
+simplify_geometry.h:389:30: error: code should be clang-formatted [-Wclang-format-violations]
+    const double grid_reach = R_val(EPSILON, DELTA) + GRID_val(EPSILON, DELTA) * std::sqrt(2.0);
+                             ^
+simplify_geometry.h:397:59: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                          ^
+simplify_geometry.h:397:60: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                           ^
+simplify_geometry.h:397:79: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                                              ^
+simplify_geometry.h:397:93: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                                                            ^
+simplify_geometry.h:401:20: error: code should be clang-formatted [-Wclang-format-violations]
+    if (DELTA == 0) return std::vector<Point>{p};
+                   ^
+simplify_geometry.h:421:25: error: code should be clang-formatted [-Wclang-format-violations]
+        if (seen[index]) return;
+                        ^
+simplify_geometry.h:425:35: error: code should be clang-formatted [-Wclang-format-violations]
+        expected_frechet_squared = std::max(
+                                  ^
+simplify_geometry.h:425:45: error: code should be clang-formatted [-Wclang-format-violations]
+        expected_frechet_squared = std::max(
+                                            ^
+simplify_geometry.h:426:38: error: code should be clang-formatted [-Wclang-format-violations]
+            expected_frechet_squared, corner_x * corner_x + corner_y * corner_y);
+                                     ^
+simplify_geometry.h:437:68: error: code should be clang-formatted [-Wclang-format-violations]
+            if (nearest_x * nearest_x + nearest_y * nearest_y > r2) continue;
+                                                                   ^
+simplify_geometry.h:438:26: error: code should be clang-formatted [-Wclang-format-violations]
+            add_corner(j,     k);
+                         ^
+simplify_geometry.h:441:26: error: code should be clang-formatted [-Wclang-format-violations]
+            add_corner(j,     k + 1);
+                         ^
+simplify_geometry.h:445:75: error: code should be clang-formatted [-Wclang-format-violations]
+    // Sort corners in row-major order: top-to-bottom (descending y), then left-to-right (ascending x)
+                                                                          ^
+simplify_geometry.h:446:58: error: code should be clang-formatted [-Wclang-format-violations]
+    std::sort(corner_coords.begin(), corner_coords.end(), [](const auto& a, const auto& b) {
+                                                         ^
+simplify_geometry.h:446:72: error: code should be clang-formatted [-Wclang-format-violations]
+    std::sort(corner_coords.begin(), corner_coords.end(), [](const auto& a, const auto& b) {
+                                                                       ^
+simplify_geometry.h:446:73: error: code should be clang-formatted [-Wclang-format-violations]
+    std::sort(corner_coords.begin(), corner_coords.end(), [](const auto& a, const auto& b) {
+                                                                        ^
+simplify_geometry.h:446:87: error: code should be clang-formatted [-Wclang-format-violations]
+    std::sort(corner_coords.begin(), corner_coords.end(), [](const auto& a, const auto& b) {
+                                                                                      ^
+simplify_geometry.h:446:88: error: code should be clang-formatted [-Wclang-format-violations]
+    std::sort(corner_coords.begin(), corner_coords.end(), [](const auto& a, const auto& b) {
+                                                                                       ^
+simplify_geometry.h:446:93: error: code should be clang-formatted [-Wclang-format-violations]
+    std::sort(corner_coords.begin(), corner_coords.end(), [](const auto& a, const auto& b) {
+                                                                                            ^
+simplify_geometry.h:447:34: error: code should be clang-formatted [-Wclang-format-violations]
+        if (a.second != b.second) return a.second > b.second; // y descending (top first)
+                                 ^
+simplify_geometry.h:447:90: error: code should be clang-formatted [-Wclang-format-violations]
+        if (a.second != b.second) return a.second > b.second; // y descending (top first)
+                                                                                         ^
+simplify_geometry.h:448:34: error: code should be clang-formatted [-Wclang-format-violations]
+        return a.first < b.first; // x ascending (left to right)
+                                 ^
+simplify_geometry.h:448:65: error: code should be clang-formatted [-Wclang-format-violations]
+        return a.first < b.first; // x ascending (left to right)
+                                                                ^
+simplify_geometry.h:454:20: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& [ji, ki] : corner_coords) {
+                   ^
+simplify_geometry.h:454:21: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& [ji, ki] : corner_coords) {
+                    ^
+simplify_geometry.h:472:57: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_conv_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                        ^
+simplify_geometry.h:472:58: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_conv_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                         ^
+simplify_geometry.h:472:77: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_conv_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                                            ^
+simplify_geometry.h:473:35: error: code should be clang-formatted [-Wclang-format-violations]
+    thread_local double cached_eps   = std::numeric_limits<double>::quiet_NaN();
+                                  ^
+simplify_geometry.h:478:58: error: code should be clang-formatted [-Wclang-format-violations]
+    if (EPSILON != cached_eps || DELTA != cached_delta || multiplier != cached_mult) {
+                                                         ^
+simplify_geometry.h:479:36: error: code should be clang-formatted [-Wclang-format-violations]
+        std::vector<Point> points = get_points_from_grid(Point(0, 0), EPSILON, DELTA, multiplier);
+                                   ^
+simplify_geometry.h:481:58: error: code should be clang-formatted [-Wclang-format-violations]
+        CGAL::convex_hull_2(points.begin(), points.end(), std::back_inserter(conv));
+                                                         ^
+simplify_geometry.h:484:24: error: code should be clang-formatted [-Wclang-format-violations]
+        for (const auto& q : conv)
+                       ^
+simplify_geometry.h:484:25: error: code should be clang-formatted [-Wclang-format-violations]
+        for (const auto& q : conv)
+                        ^
+simplify_geometry.h:485:36: error: code should be clang-formatted [-Wclang-format-violations]
+            hull_offsets.push_back({CGAL::to_double(q.x()), CGAL::to_double(q.y())});
+                                   ^
+simplify_geometry.h:486:19: error: code should be clang-formatted [-Wclang-format-violations]
+        cached_eps   = EPSILON;
+                  ^
+simplify_geometry.h:488:20: error: code should be clang-formatted [-Wclang-format-violations]
+        cached_mult  = multiplier;
+                   ^
+simplify_geometry.h:495:20: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& off : hull_offsets)
+                   ^
+simplify_geometry.h:495:21: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& off : hull_offsets)
+                    ^
+simplify_geometry.h:503:68: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_boundary_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                                   ^
+simplify_geometry.h:503:69: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_boundary_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                                    ^
+simplify_geometry.h:503:72: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_boundary_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                                       ^
+simplify_geometry.h:503:88: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_boundary_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                                                       ^
+simplify_geometry.h:503:102: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<Point> get_boundary_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+                                                                                                     ^
+simplify_geometry.h:504:35: error: code should be clang-formatted [-Wclang-format-violations]
+    thread_local double cached_eps   = std::numeric_limits<double>::quiet_NaN();
+                                  ^
+simplify_geometry.h:509:58: error: code should be clang-formatted [-Wclang-format-violations]
+    if (EPSILON != cached_eps || DELTA != cached_delta || multiplier != cached_mult) {
+                                                         ^
+simplify_geometry.h:510:39: error: code should be clang-formatted [-Wclang-format-violations]
+        const std::vector<Point> all = get_points_from_grid(Point(0, 0), EPSILON, DELTA, multiplier);
+                                      ^
+simplify_geometry.h:515:56: error: code should be clang-formatted [-Wclang-format-violations]
+            CGAL::convex_hull_2(all.begin(), all.end(), std::back_inserter(hull));
+                                                       ^
+simplify_geometry.h:523:29: error: code should be clang-formatted [-Wclang-format-violations]
+            for (const Point& q : all) {
+                            ^
+simplify_geometry.h:523:30: error: code should be clang-formatted [-Wclang-format-violations]
+            for (const Point& q : all) {
+                             ^
+simplify_geometry.h:524:54: error: code should be clang-formatted [-Wclang-format-violations]
+                if (!strictly_inside_convex(q, hull)) boundary.push_back(q);
+                                                     ^
+simplify_geometry.h:528:52: error: code should be clang-formatted [-Wclang-format-violations]
+        std::sort(boundary.begin(), boundary.end(), [](const Point& a, const Point& b) {
+                                                   ^
+simplify_geometry.h:528:67: error: code should be clang-formatted [-Wclang-format-violations]
+        std::sort(boundary.begin(), boundary.end(), [](const Point& a, const Point& b) {
+                                                                  ^
+simplify_geometry.h:528:68: error: code should be clang-formatted [-Wclang-format-violations]
+        std::sort(boundary.begin(), boundary.end(), [](const Point& a, const Point& b) {
+                                                                   ^
+simplify_geometry.h:528:83: error: code should be clang-formatted [-Wclang-format-violations]
+        std::sort(boundary.begin(), boundary.end(), [](const Point& a, const Point& b) {
+                                                                                  ^
+simplify_geometry.h:528:84: error: code should be clang-formatted [-Wclang-format-violations]
+        std::sort(boundary.begin(), boundary.end(), [](const Point& a, const Point& b) {
+                                                                                   ^
+simplify_geometry.h:528:89: error: code should be clang-formatted [-Wclang-format-violations]
+        std::sort(boundary.begin(), boundary.end(), [](const Point& a, const Point& b) {
+                                                                                        ^
+simplify_geometry.h:529:54: error: code should be clang-formatted [-Wclang-format-violations]
+            const double ay = CGAL::to_double(a.y()), by = CGAL::to_double(b.y());
+                                                     ^
+simplify_geometry.h:529:83: error: code should be clang-formatted [-Wclang-format-violations]
+            const double ay = CGAL::to_double(a.y()), by = CGAL::to_double(b.y());
+                                                                                  ^
+simplify_geometry.h:530:26: error: code should be clang-formatted [-Wclang-format-violations]
+            if (ay != by) return ay > by;
+                         ^
+simplify_geometry.h:530:42: error: code should be clang-formatted [-Wclang-format-violations]
+            if (ay != by) return ay > by;
+                                         ^
+simplify_geometry.h:531:68: error: code should be clang-formatted [-Wclang-format-violations]
+            return CGAL::to_double(a.x()) < CGAL::to_double(b.x());
+                                                                   ^
+simplify_geometry.h:536:24: error: code should be clang-formatted [-Wclang-format-violations]
+        for (const auto& q : boundary)
+                       ^
+simplify_geometry.h:536:25: error: code should be clang-formatted [-Wclang-format-violations]
+        for (const auto& q : boundary)
+                        ^
+simplify_geometry.h:537:40: error: code should be clang-formatted [-Wclang-format-violations]
+            boundary_offsets.push_back({CGAL::to_double(q.x()), CGAL::to_double(q.y())});
+                                       ^
+simplify_geometry.h:538:19: error: code should be clang-formatted [-Wclang-format-violations]
+        cached_eps   = EPSILON;
+                  ^
+simplify_geometry.h:540:20: error: code should be clang-formatted [-Wclang-format-violations]
+        cached_mult  = multiplier;
+                   ^
+simplify_geometry.h:547:20: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& off : boundary_offsets)
+                   ^
+simplify_geometry.h:547:21: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& off : boundary_offsets)
+                    ^
+simplify_geometry.h:558:53: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<int> find_tangent_idx(const Point& p, const std::vector<Point>& S) {
+                                                    ^
+simplify_geometry.h:558:54: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<int> find_tangent_idx(const Point& p, const std::vector<Point>& S) {
+                                                     ^
+simplify_geometry.h:558:57: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<int> find_tangent_idx(const Point& p, const std::vector<Point>& S) {
+                                                        ^
+simplify_geometry.h:558:82: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<int> find_tangent_idx(const Point& p, const std::vector<Point>& S) {
+                                                                                 ^
+simplify_geometry.h:558:83: error: code should be clang-formatted [-Wclang-format-violations]
+inline std::vector<int> find_tangent_idx(const Point& p, const std::vector<Point>& S) {
+                                                                                  ^
+simplify_geometry.h:580:23: error: code should be clang-formatted [-Wclang-format-violations]
+        if (det > 0.0) return  1;
+                      ^
+simplify_geometry.h:580:30: error: code should be clang-formatted [-Wclang-format-violations]
+        if (det > 0.0) return  1;
+                             ^
+simplify_geometry.h:581:23: error: code should be clang-formatted [-Wclang-format-violations]
+        if (det < 0.0) return -1;
+                      ^
+simplify_geometry.h:585:24: error: code should be clang-formatted [-Wclang-format-violations]
+    int rt = 0, lt = 0;   // most-clockwise, most-counterclockwise
+                       ^
+simplify_geometry.h:587:31: error: code should be clang-formatted [-Wclang-format-violations]
+        if (orient(rt, j) < 0) rt = j;   // S[j] strictly right of p->S[rt]
+                              ^
+simplify_geometry.h:587:39: error: code should be clang-formatted [-Wclang-format-violations]
+        if (orient(rt, j) < 0) rt = j;   // S[j] strictly right of p->S[rt]
+                                      ^
+simplify_geometry.h:588:31: error: code should be clang-formatted [-Wclang-format-violations]
+        if (orient(lt, j) > 0) lt = j;   // S[j] strictly left  of p->S[lt]
+                              ^
+simplify_geometry.h:588:39: error: code should be clang-formatted [-Wclang-format-violations]
+        if (orient(lt, j) > 0) lt = j;   // S[j] strictly left  of p->S[lt]
+                                      ^
+simplify_geometry.h:615:42: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool wedge_gi_disjoint(const Point& p, const std::vector<Point>& S,
+                                         ^
+simplify_geometry.h:615:43: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool wedge_gi_disjoint(const Point& p, const std::vector<Point>& S,
+                                          ^
+simplify_geometry.h:615:71: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool wedge_gi_disjoint(const Point& p, const std::vector<Point>& S,
+                                                                      ^
+simplify_geometry.h:615:72: error: code should be clang-formatted [-Wclang-format-violations]
+inline bool wedge_gi_disjoint(const Point& p, const std::vector<Point>& S,
+                                                                       ^
+simplify_geometry.h:616:55: error: code should be clang-formatted [-Wclang-format-violations]
+                              const std::vector<Point>& Gi) {
+                                                      ^
+simplify_geometry.h:616:56: error: code should be clang-formatted [-Wclang-format-violations]
+                              const std::vector<Point>& Gi) {
+                                                       ^
+simplify_geometry.h:618:16: error: code should be clang-formatted [-Wclang-format-violations]
+    if (sn < 3) return false;                    // single point / degenerate: F = bbox
+               ^
+simplify_geometry.h:618:30: error: code should be clang-formatted [-Wclang-format-violations]
+    if (sn < 3) return false;                    // single point / degenerate: F = bbox
+                             ^
+simplify_geometry.h:619:31: error: code should be clang-formatted [-Wclang-format-violations]
+    if (point_in_convex(p, S)) return false;     // p inside S: F = whole bbox
+                              ^
+simplify_geometry.h:619:45: error: code should be clang-formatted [-Wclang-format-violations]
+    if (point_in_convex(p, S)) return false;     // p inside S: F = whole bbox
+                                            ^
+simplify_geometry.h:621:29: error: code should be clang-formatted [-Wclang-format-violations]
+    if (tangent.size() != 2) return false;       // find_F bails here anyway
+                            ^
+simplify_geometry.h:621:43: error: code should be clang-formatted [-Wclang-format-violations]
+    if (tangent.size() != 2) return false;       // find_F bails here anyway
+                                          ^
+simplify_geometry.h:632:23: error: code should be clang-formatted [-Wclang-format-violations]
+    if (orient == 0.0) return false;             // degenerate cone
+                      ^
+simplify_geometry.h:632:37: error: code should be clang-formatted [-Wclang-format-violations]
+    if (orient == 0.0) return false;             // degenerate cone
+                                    ^
+simplify_geometry.h:633:35: error: code should be clang-formatted [-Wclang-format-violations]
+    const bool ccw = orient > 0.0;               // t1 is CCW of t0
+                                  ^
+simplify_geometry.h:643:53: error: code should be clang-formatted [-Wclang-format-violations]
+            const double a = t0x * qy, b = t0y * qx;   // cross(t0, q) = a - b
+                                                    ^
+simplify_geometry.h:648:50: error: code should be clang-formatted [-Wclang-format-violations]
+            if (ccw ? (c0 >= -tol) : (c0 <= tol)) sep0 = false;
+                                                 ^
+simplify_geometry.h:651:53: error: code should be clang-formatted [-Wclang-format-violations]
+            const double a = t1x * qy, b = t1y * qx;   // cross(t1, q) = a - b
+                                                    ^
+simplify_geometry.h:655:50: error: code should be clang-formatted [-Wclang-format-violations]
+            if (ccw ? (c1 <= tol) : (c1 >= -tol)) sep1 = false;
+                                                 ^
+simplify_geometry.h:666:31: error: code should be clang-formatted [-Wclang-format-violations]
+inline void find_F(const Point& p, const std::vector<Point>& S,
+                              ^
+simplify_geometry.h:666:32: error: code should be clang-formatted [-Wclang-format-violations]
+inline void find_F(const Point& p, const std::vector<Point>& S,
+                               ^
+simplify_geometry.h:666:60: error: code should be clang-formatted [-Wclang-format-violations]
+inline void find_F(const Point& p, const std::vector<Point>& S,
+                                                           ^
+simplify_geometry.h:666:61: error: code should be clang-formatted [-Wclang-format-violations]
+inline void find_F(const Point& p, const std::vector<Point>& S,
+                                                            ^
+simplify_geometry.h:667:38: error: code should be clang-formatted [-Wclang-format-violations]
+                   std::vector<Point>& F) {
+                                     ^
+simplify_geometry.h:667:39: error: code should be clang-formatted [-Wclang-format-violations]
+                   std::vector<Point>& F) {
+                                      ^
+simplify_geometry.h:697:47: error: code should be clang-formatted [-Wclang-format-violations]
+    assert(tangent[1] - tangent[0] - 1 >= 1 || tangent[0] + n - tangent[1] - 1 >= 1);
+                                              ^
+simplify_geometry.h:701:66: error: code should be clang-formatted [-Wclang-format-violations]
+    const double ax = CGAL::to_double(S[tangent[0]].x() - p.x()),
+                                                                 ^
+simplify_geometry.h:703:66: error: code should be clang-formatted [-Wclang-format-violations]
+    const double bx = CGAL::to_double(S[tangent[1]].x() - p.x()),
+                                                                 ^
+simplify_geometry.h:707:70: error: code should be clang-formatted [-Wclang-format-violations]
+        std::copy(S.begin() + tangent[0], S.begin() + tangent[1] + 1, std::back_inserter(F));
+                                                                     ^
+simplify_io.h:36:34: error: code should be clang-formatted [-Wclang-format-violations]
+inline void print_help(const char* prog) {
+                                 ^
+simplify_io.h:36:35: error: code should be clang-formatted [-Wclang-format-violations]
+inline void print_help(const char* prog) {
+                                  ^
+simplify_io.h:37:14: error: code should be clang-formatted [-Wclang-format-violations]
+    std::cout << "Usage: " << prog << " [options]\n"
+             ^
+simplify_io.h:37:53: error: code should be clang-formatted [-Wclang-format-violations]
+    std::cout << "Usage: " << prog << " [options]\n"
+                                                    ^
+simplify_io.h:38:83: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --in <id>        Read input from data/taxi/<id>.txt (resolved absolutely)\n"
+                                                                                  ^
+simplify_io.h:38:97: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --in <id>        Read input from data/taxi/<id>.txt (resolved absolutely)\n"
+                                                                                                ^
+simplify_io.h:39:79: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --out            Write output to data/<id>/original.txt & simplify.txt (resolved absolutely; requires --in <id>)\n"
+                                                                              ^
+simplify_io.h:39:136: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --out            Write output to data/<id>/original.txt & simplify.txt (resolved absolutely; requires --in <id>)\n"
+                                                                                                                                       ^
+simplify_io.h:40:80: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --dist           After output, compute Frechet distance by invoking 'julia scripts/frechet.jl' with --in <id> --path <simplify.txt>" << '\n'
+                                                                               ^
+simplify_io.h:40:138: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --dist           After output, compute Frechet distance by invoking 'julia scripts/frechet.jl' with --in <id> --path <simplify.txt>" << '\n'
+                                                                                                                                         ^
+simplify_io.h:40:153: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --dist           After output, compute Frechet distance by invoking 'julia scripts/frechet.jl' with --in <id> --path <simplify.txt>" << '\n'
+                                                                                                                                                        ^
+simplify_io.h:40:161: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --dist           After output, compute Frechet distance by invoking 'julia scripts/frechet.jl' with --in <id> --path <simplify.txt>" << '\n'
+                                                                                                                                                                ^
+simplify_io.h:41:81: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  -d <delta>       Override DELTA (default " << DELTA << ")\n"
+                                                                                ^
+simplify_io.h:42:85: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  -e <epsilon>     Override EPSILON (default " << EPSILON << ")\n"
+                                                                                    ^
+simplify_io.h:43:80: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --dump-intersect Dump every (F_poly, Gi_poly) pair fed to "
+                                                                               ^
+simplify_io.h:44:66: error: code should be clang-formatted [-Wclang-format-violations]
+                 "intersect() to data/<id>/intersect_pairs.txt\n"
+                                                                 ^
+simplify_io.h:45:80: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --web-server     Emit a machine-readable JSON trace of the algorithm to "
+                                                                               ^
+simplify_io.h:45:94: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --web-server     Emit a machine-readable JSON trace of the algorithm to "
+                                                                                             ^
+simplify_io.h:46:86: error: code should be clang-formatted [-Wclang-format-violations]
+                 "stdout for the web visualizer (suppresses all other stdout text)\n"
+                                                                                     ^
+simplify_io.h:47:82: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --json-stream    With --web-server, emit NDJSON (header, one prefix per line, done)\n"
+                                                                                 ^
+simplify_io.h:47:107: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --json-stream    With --web-server, emit NDJSON (header, one prefix per line, done)\n"
+                                                                                                          ^
+simplify_io.h:48:86: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --json-output <path>  Write JSON trace to file instead of stdout (use with --web-server)\n"
+                                                                                     ^
+simplify_io.h:48:112: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --json-output <path>  Write JSON trace to file instead of stdout (use with --web-server)\n"
+                                                                                                               ^
+simplify_io.h:49:64: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  -h               Show this help and exit\n"
+                                                               ^
+simplify_io.h:50:22: error: code should be clang-formatted [-Wclang-format-violations]
+              << "\n"
+                     ^
+simplify_io.h:51:39: error: code should be clang-formatted [-Wclang-format-violations]
+              << "Shorthand: " << prog << " <id> [flags] is equivalent to '--in <id> --out [flags]'\n";
+                                      ^
+simplify_io.h:54:42: error: code should be clang-formatted [-Wclang-format-violations]
+inline int parse_arguments(int argc, char** argv, int& test_case_no) {
+                                         ^
+simplify_io.h:54:44: error: code should be clang-formatted [-Wclang-format-violations]
+inline int parse_arguments(int argc, char** argv, int& test_case_no) {
+                                           ^
+simplify_io.h:54:54: error: code should be clang-formatted [-Wclang-format-violations]
+inline int parse_arguments(int argc, char** argv, int& test_case_no) {
+                                                     ^
+simplify_io.h:54:55: error: code should be clang-formatted [-Wclang-format-violations]
+inline int parse_arguments(int argc, char** argv, int& test_case_no) {
+                                                      ^
+simplify_io.h:56:28: error: code should be clang-formatted [-Wclang-format-violations]
+        if (strcmp(argv[i],"--out") == 0) out_flag = true;
+                           ^
+simplify_io.h:56:42: error: code should be clang-formatted [-Wclang-format-violations]
+        if (strcmp(argv[i],"--out") == 0) out_flag = true;
+                                         ^
+simplify_io.h:57:33: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"--dist") == 0) dist_flag = true;
+                                ^
+simplify_io.h:57:48: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"--dist") == 0) dist_flag = true;
+                                               ^
+simplify_io.h:58:33: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"--web-server") == 0) web_server_flag = true;
+                                ^
+simplify_io.h:58:54: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"--web-server") == 0) web_server_flag = true;
+                                                     ^
+simplify_io.h:59:33: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"--json-stream") == 0) json_stream_flag = true;
+                                ^
+simplify_io.h:59:55: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"--json-stream") == 0) json_stream_flag = true;
+                                                      ^
+simplify_io.h:60:33: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"--json-output") == 0 && i+1 < argc) {
+                                ^
+simplify_io.h:60:59: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"--json-output") == 0 && i+1 < argc) {
+                                                          ^
+simplify_io.h:60:60: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"--json-output") == 0 && i+1 < argc) {
+                                                           ^
+simplify_io.h:62:10: error: code should be clang-formatted [-Wclang-format-violations]
+        }
+         ^
+simplify_io.h:63:33: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"--gui") == 0 || strcmp(argv[i],"-F") == 0 ||
+                                ^
+simplify_io.h:63:49: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"--gui") == 0 || strcmp(argv[i],"-F") == 0 ||
+                                                ^
+simplify_io.h:63:65: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"--gui") == 0 || strcmp(argv[i],"-F") == 0 ||
+                                                                ^
+simplify_io.h:63:78: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"--gui") == 0 || strcmp(argv[i],"-F") == 0 ||
+                                                                             ^
+simplify_io.h:64:33: error: code should be clang-formatted [-Wclang-format-violations]
+                 strcmp(argv[i],"-G") == 0 || strcmp(argv[i],"-S") == 0) {
+                                ^
+simplify_io.h:64:46: error: code should be clang-formatted [-Wclang-format-violations]
+                 strcmp(argv[i],"-G") == 0 || strcmp(argv[i],"-S") == 0) {
+                                             ^
+simplify_io.h:64:62: error: code should be clang-formatted [-Wclang-format-violations]
+                 strcmp(argv[i],"-G") == 0 || strcmp(argv[i],"-S") == 0) {
+                                                             ^
+simplify_io.h:67:10: error: code should be clang-formatted [-Wclang-format-violations]
+        }
+         ^
+simplify_io.h:68:33: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"-d") == 0 && i+1 < argc) {
+                                ^
+simplify_io.h:68:48: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"-d") == 0 && i+1 < argc) {
+                                               ^
+simplify_io.h:68:49: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"-d") == 0 && i+1 < argc) {
+                                                ^
+simplify_io.h:69:18: error: code should be clang-formatted [-Wclang-format-violations]
+            try { DELTA = std::stod(argv[++i]); } catch(...) { std::cerr << "Invalid -d value\n"; return 1; }
+                 ^
+simplify_io.h:69:48: error: code should be clang-formatted [-Wclang-format-violations]
+            try { DELTA = std::stod(argv[++i]); } catch(...) { std::cerr << "Invalid -d value\n"; return 1; }
+                                               ^
+simplify_io.h:69:56: error: code should be clang-formatted [-Wclang-format-violations]
+            try { DELTA = std::stod(argv[++i]); } catch(...) { std::cerr << "Invalid -d value\n"; return 1; }
+                                                       ^
+simplify_io.h:69:63: error: code should be clang-formatted [-Wclang-format-violations]
+            try { DELTA = std::stod(argv[++i]); } catch(...) { std::cerr << "Invalid -d value\n"; return 1; }
+                                                              ^
+simplify_io.h:69:98: error: code should be clang-formatted [-Wclang-format-violations]
+            try { DELTA = std::stod(argv[++i]); } catch(...) { std::cerr << "Invalid -d value\n"; return 1; }
+                                                                                                 ^
+simplify_io.h:69:108: error: code should be clang-formatted [-Wclang-format-violations]
+            try { DELTA = std::stod(argv[++i]); } catch(...) { std::cerr << "Invalid -d value\n"; return 1; }
+                                                                                                           ^
+simplify_io.h:70:10: error: code should be clang-formatted [-Wclang-format-violations]
+        }
+         ^
+simplify_io.h:71:33: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"-e") == 0 && i+1 < argc) {
+                                ^
+simplify_io.h:71:48: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"-e") == 0 && i+1 < argc) {
+                                               ^
+simplify_io.h:71:49: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"-e") == 0 && i+1 < argc) {
+                                                ^
+simplify_io.h:72:18: error: code should be clang-formatted [-Wclang-format-violations]
+            try { EPSILON = std::stod(argv[++i]); } catch(...) { std::cerr << "Invalid -e value\n"; return 1; }
+                 ^
+simplify_io.h:72:50: error: code should be clang-formatted [-Wclang-format-violations]
+            try { EPSILON = std::stod(argv[++i]); } catch(...) { std::cerr << "Invalid -e value\n"; return 1; }
+                                                 ^
+simplify_io.h:72:58: error: code should be clang-formatted [-Wclang-format-violations]
+            try { EPSILON = std::stod(argv[++i]); } catch(...) { std::cerr << "Invalid -e value\n"; return 1; }
+                                                         ^
+simplify_io.h:72:65: error: code should be clang-formatted [-Wclang-format-violations]
+            try { EPSILON = std::stod(argv[++i]); } catch(...) { std::cerr << "Invalid -e value\n"; return 1; }
+                                                                ^
+simplify_io.h:72:100: error: code should be clang-formatted [-Wclang-format-violations]
+            try { EPSILON = std::stod(argv[++i]); } catch(...) { std::cerr << "Invalid -e value\n"; return 1; }
+                                                                                                   ^
+simplify_io.h:72:110: error: code should be clang-formatted [-Wclang-format-violations]
+            try { EPSILON = std::stod(argv[++i]); } catch(...) { std::cerr << "Invalid -e value\n"; return 1; }
+                                                                                                             ^
+simplify_io.h:73:10: error: code should be clang-formatted [-Wclang-format-violations]
+        }
+         ^
+simplify_io.h:74:33: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"-h") == 0) { print_help(argv[0]); help_flag = true; return 0; }
+                                ^
+simplify_io.h:74:46: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"-h") == 0) { print_help(argv[0]); help_flag = true; return 0; }
+                                             ^
+simplify_io.h:74:67: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"-h") == 0) { print_help(argv[0]); help_flag = true; return 0; }
+                                                                  ^
+simplify_io.h:74:85: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"-h") == 0) { print_help(argv[0]); help_flag = true; return 0; }
+                                                                                    ^
+simplify_io.h:74:95: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"-h") == 0) { print_help(argv[0]); help_flag = true; return 0; }
+                                                                                              ^
+simplify_io.h:74:97: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"-h") == 0) { print_help(argv[0]); help_flag = true; return 0; }
+                                                                                                ^
+simplify_io.h:75:33: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"--in") == 0 && i+1 < argc) {
+                                ^
+simplify_io.h:75:50: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"--in") == 0 && i+1 < argc) {
+                                                 ^
+simplify_io.h:75:51: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (strcmp(argv[i],"--in") == 0 && i+1 < argc) {
+                                                  ^
+simplify_io.h:76:18: error: code should be clang-formatted [-Wclang-format-violations]
+            try { test_case_no = std::stoi(argv[++i]); }
+                 ^
+simplify_io.h:76:55: error: code should be clang-formatted [-Wclang-format-violations]
+            try { test_case_no = std::stoi(argv[++i]); }
+                                                      ^
+simplify_io.h:76:57: error: code should be clang-formatted [-Wclang-format-violations]
+            try { test_case_no = std::stoi(argv[++i]); }
+                                                        ^
+simplify_io.h:77:18: error: code should be clang-formatted [-Wclang-format-violations]
+            catch(...) { std::cerr << "Invalid --in argument\n"; return 1; }
+                 ^
+simplify_io.h:77:25: error: code should be clang-formatted [-Wclang-format-violations]
+            catch(...) { std::cerr << "Invalid --in argument\n"; return 1; }
+                        ^
+simplify_io.h:77:65: error: code should be clang-formatted [-Wclang-format-violations]
+            catch(...) { std::cerr << "Invalid --in argument\n"; return 1; }
+                                                                ^
+simplify_io.h:77:75: error: code should be clang-formatted [-Wclang-format-violations]
+            catch(...) { std::cerr << "Invalid --in argument\n"; return 1; }
+                                                                          ^
+simplify_io.h:81:19: error: code should be clang-formatted [-Wclang-format-violations]
+    if (dist_flag) out_flag = true;
+                  ^
+simplify_io.h:101:30: error: code should be clang-formatted [-Wclang-format-violations]
+inline int get_repo_root(char** argv, std::filesystem::path& repo_root) {
+                             ^
+simplify_io.h:101:32: error: code should be clang-formatted [-Wclang-format-violations]
+inline int get_repo_root(char** argv, std::filesystem::path& repo_root) {
+                               ^
+simplify_io.h:101:60: error: code should be clang-formatted [-Wclang-format-violations]
+inline int get_repo_root(char** argv, std::filesystem::path& repo_root) {
+                                                           ^
+simplify_io.h:101:61: error: code should be clang-formatted [-Wclang-format-violations]
+inline int get_repo_root(char** argv, std::filesystem::path& repo_root) {
+                                                            ^
+simplify_io.h:102:57: error: code should be clang-formatted [-Wclang-format-violations]
+    auto find_repo_root = [](const std::filesystem::path& start, int max_levels) -> std::filesystem::path {
+                                                        ^
+simplify_io.h:102:58: error: code should be clang-formatted [-Wclang-format-violations]
+    auto find_repo_root = [](const std::filesystem::path& start, int max_levels) -> std::filesystem::path {
+                                                         ^
+simplify_io.h:102:65: error: code should be clang-formatted [-Wclang-format-violations]
+    auto find_repo_root = [](const std::filesystem::path& start, int max_levels) -> std::filesystem::path {
+                                                                ^
+simplify_io.h:105:61: error: code should be clang-formatted [-Wclang-format-violations]
+            if (std::filesystem::is_directory(dir / "data")) return dir;
+                                                            ^
+simplify_io.h:107:31: error: code should be clang-formatted [-Wclang-format-violations]
+            if (parent == dir) break;
+                              ^
+simplify_io.h:115:53: error: code should be clang-formatted [-Wclang-format-violations]
+    } catch (const std::filesystem::filesystem_error& e) {
+                                                    ^
+simplify_io.h:115:54: error: code should be clang-formatted [-Wclang-format-violations]
+    } catch (const std::filesystem::filesystem_error& e) {
+                                                     ^
+simplify_io.h:119:57: error: code should be clang-formatted [-Wclang-format-violations]
+        } catch (const std::filesystem::filesystem_error& fallback_error) {
+                                                        ^
+simplify_io.h:119:58: error: code should be clang-formatted [-Wclang-format-violations]
+        } catch (const std::filesystem::filesystem_error& fallback_error) {
+                                                         ^
+simplify_io.h:120:73: error: code should be clang-formatted [-Wclang-format-violations]
+            std::cerr << "Error: could not resolve the data directory: " << fallback_error.what() << "\n";
+                                                                        ^
+simplify_io.h:127:46: error: code should be clang-formatted [-Wclang-format-violations]
+inline int read_stream(int test_case_no, char** argv, std::vector<Point>& stream) {
+                                             ^
+simplify_io.h:127:48: error: code should be clang-formatted [-Wclang-format-violations]
+inline int read_stream(int test_case_no, char** argv, std::vector<Point>& stream) {
+                                               ^
+simplify_io.h:127:54: error: code should be clang-formatted [-Wclang-format-violations]
+inline int read_stream(int test_case_no, char** argv, std::vector<Point>& stream) {
+                                                     ^
+simplify_io.h:127:73: error: code should be clang-formatted [-Wclang-format-violations]
+inline int read_stream(int test_case_no, char** argv, std::vector<Point>& stream) {
+                                                                        ^
+simplify_io.h:127:74: error: code should be clang-formatted [-Wclang-format-violations]
+inline int read_stream(int test_case_no, char** argv, std::vector<Point>& stream) {
+                                                                         ^
+simplify_io.h:129:25: error: code should be clang-formatted [-Wclang-format-violations]
+        auto simp_orig = repo_root / "data" / std::to_string(test_case_no) / "original.txt";
+                        ^
+simplify_io.h:130:27: error: code should be clang-formatted [-Wclang-format-violations]
+        auto simp_output = repo_root / "data" / std::to_string(test_case_no) / "simplify.txt";
+                          ^
+simplify_io.h:133:26: error: code should be clang-formatted [-Wclang-format-violations]
+            if (out_flag) std::cout << "Output file: " << simp_output.string() << '\n';
+                         ^
+simplify_io.h:136:20: error: code should be clang-formatted [-Wclang-format-violations]
+        if (!fin) { std::cerr << "Cannot open " << simp_orig.string() << "\n"; return 1; }
+                   ^
+simplify_io.h:136:79: error: code should be clang-formatted [-Wclang-format-violations]
+        if (!fin) { std::cerr << "Cannot open " << simp_orig.string() << "\n"; return 1; }
+                                                                              ^
+simplify_io.h:136:89: error: code should be clang-formatted [-Wclang-format-violations]
+        if (!fin) { std::cerr << "Cannot open " << simp_orig.string() << "\n"; return 1; }
+                                                                                        ^
+simplify_io.h:136:91: error: code should be clang-formatted [-Wclang-format-violations]
+        if (!fin) { std::cerr << "Cannot open " << simp_orig.string() << "\n"; return 1; }
+                                                                                          ^
+simplify_io.h:140:26: error: code should be clang-formatted [-Wclang-format-violations]
+        fin.tie(nullptr);
+                         ^
+simplify_io.h:143:27: error: code should be clang-formatted [-Wclang-format-violations]
+        if (!(fin >> N)) { std::cerr << "Empty or invalid input in " << simp_orig.string() << "\n"; return 1; }
+                          ^
+simplify_io.h:143:91: error: code should be clang-formatted [-Wclang-format-violations]
+        if (!(fin >> N)) { std::cerr << "Empty or invalid input in " << simp_orig.string() << "\n"; return 1; }
+                                                                                          ^
+simplify_io.h:143:100: error: code should be clang-formatted [-Wclang-format-violations]
+        if (!(fin >> N)) { std::cerr << "Empty or invalid input in " << simp_orig.string() << "\n"; return 1; }
+                                                                                                   ^
+simplify_io.h:143:110: error: code should be clang-formatted [-Wclang-format-violations]
+        if (!(fin >> N)) { std::cerr << "Empty or invalid input in " << simp_orig.string() << "\n"; return 1; }
+                                                                                                             ^
+simplify_io.h:144:24: error: code should be clang-formatted [-Wclang-format-violations]
+        stream.clear(); stream.reserve(N);
+                       ^
+simplify_io.h:144:43: error: code should be clang-formatted [-Wclang-format-violations]
+        stream.clear(); stream.reserve(N);
+                                          ^
+simplify_io.h:149:36: error: code should be clang-formatted [-Wclang-format-violations]
+            if (!(fin >> x >> y)) { std::cerr << "Malformed pair at index " << i << " in " << simp_orig.string() << "\n"; return 1; }
+                                   ^
+simplify_io.h:149:91: error: code should be clang-formatted [-Wclang-format-violations]
+            if (!(fin >> x >> y)) { std::cerr << "Malformed pair at index " << i << " in " << simp_orig.string() << "\n"; return 1; }
+                                                                                          ^
+simplify_io.h:149:122: error: code should be clang-formatted [-Wclang-format-violations]
+            if (!(fin >> x >> y)) { std::cerr << "Malformed pair at index " << i << " in " << simp_orig.string() << "\n"; return 1; }
+                                                                                                                         ^
+simplify_io.h:149:132: error: code should be clang-formatted [-Wclang-format-violations]
+            if (!(fin >> x >> y)) { std::cerr << "Malformed pair at index " << i << " in " << simp_orig.string() << "\n"; return 1; }
+                                                                                                                                   ^
+simplify_io.h:152:30: error: code should be clang-formatted [-Wclang-format-violations]
+        if (!web_server_flag) std::cout << "Loaded " << stream.size() << " points." << "\n";
+                             ^
+simplify_io.h:157:45: error: code should be clang-formatted [-Wclang-format-violations]
+inline int out_stream(int test_case_no, char** argv, const std::vector<Point>& stream) {
+                                            ^
+simplify_io.h:157:47: error: code should be clang-formatted [-Wclang-format-violations]
+inline int out_stream(int test_case_no, char** argv, const std::vector<Point>& stream) {
+                                              ^
+simplify_io.h:157:53: error: code should be clang-formatted [-Wclang-format-violations]
+inline int out_stream(int test_case_no, char** argv, const std::vector<Point>& stream) {
+                                                    ^
+simplify_io.h:157:78: error: code should be clang-formatted [-Wclang-format-violations]
+inline int out_stream(int test_case_no, char** argv, const std::vector<Point>& stream) {
+                                                                             ^
+simplify_io.h:157:79: error: code should be clang-formatted [-Wclang-format-violations]
+inline int out_stream(int test_case_no, char** argv, const std::vector<Point>& stream) {
+                                                                              ^
+simplify_io.h:158:32: error: code should be clang-formatted [-Wclang-format-violations]
+    std::filesystem::path dir = repo_root / "data" / std::to_string(test_case_no);
+                               ^
+simplify_io.h:160:46: error: code should be clang-formatted [-Wclang-format-violations]
+    std::ofstream simp(dir / "simplify.txt");
+                                             ^
+simplify_io.h:164:23: error: code should be clang-formatted [-Wclang-format-violations]
+    simp.tie(nullptr);
+                      ^
+simplify_io.h:169:20: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& p : stream) {
+                   ^
+simplify_io.h:169:21: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& p : stream) {
+                    ^
+simplify_io.h:179:30: error: code should be clang-formatted [-Wclang-format-violations]
+        if (!web_server_flag) std::cout << "Calculating Frechet distance...\n" << std::flush;
+                             ^
+simplify_io.h:180:45: error: code should be clang-formatted [-Wclang-format-violations]
+        std::filesystem::path frechet_path = repo_root / "scripts" / "frechet.jl";
+                                            ^
+simplify_io.h:181:27: error: code should be clang-formatted [-Wclang-format-violations]
+        std::string cmd1 = std::string("julia \"") + frechet_path.string() + "\" --in " + std::to_string(test_case_no) + " --path \"" + (repo_root / "data" / std::to_string(test_case_no) / "simplify.txt").string() + "\" --raw";
+                          ^
+simplify_io.h:181:90: error: code should be clang-formatted [-Wclang-format-violations]
+        std::string cmd1 = std::string("julia \"") + frechet_path.string() + "\" --in " + std::to_string(test_case_no) + " --path \"" + (repo_root / "data" / std::to_string(test_case_no) / "simplify.txt").string() + "\" --raw";
+                                                                                         ^
+simplify_io.h:181:136: error: code should be clang-formatted [-Wclang-format-violations]
+        std::string cmd1 = std::string("julia \"") + frechet_path.string() + "\" --in " + std::to_string(test_case_no) + " --path \"" + (repo_root / "data" / std::to_string(test_case_no) / "simplify.txt").string() + "\" --raw";
+                                                                                                                                       ^
+simplify_io.h:181:205: error: code should be clang-formatted [-Wclang-format-violations]
+        std::string cmd1 = std::string("julia \"") + frechet_path.string() + "\" --in " + std::to_string(test_case_no) + " --path \"" + (repo_root / "data" / std::to_string(test_case_no) / "simplify.txt").string() + "\" --raw";
+                                                                                                                                                                                                            ^
+simplify_io.h:181:216: error: code should be clang-formatted [-Wclang-format-violations]
+        std::string cmd1 = std::string("julia \"") + frechet_path.string() + "\" --in " + std::to_string(test_case_no) + " --path \"" + (repo_root / "data" / std::to_string(test_case_no) / "simplify.txt").string() + "\" --raw";
+                                                                                                                                                                                                                       ^
+simplify_with_gui.cpp:1:1: error: code should be clang-formatted [-Wclang-format-violations]
+#include <CGAL/Boolean_set_operations_2.h>
+^
+simplify_with_gui.cpp:40:14: error: code should be clang-formatted [-Wclang-format-violations]
+    std::cout << "Usage: simplify_with_gui [options]\n"
+             ^
+simplify_with_gui.cpp:40:56: error: code should be clang-formatted [-Wclang-format-violations]
+    std::cout << "Usage: simplify_with_gui [options]\n"
+                                                       ^
+simplify_with_gui.cpp:41:77: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --in <id>        Read input from data/<id>/original.txt (resolved absolutely)\n"
+                                                                            ^
+simplify_with_gui.cpp:41:101: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --in <id>        Read input from data/<id>/original.txt (resolved absolutely)\n"
+                                                                                                    ^
+simplify_with_gui.cpp:42:77: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --out            Write output to data/<id>/simplify.txt (requires --in <id>)\n"
+                                                                            ^
+simplify_with_gui.cpp:42:100: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --out            Write output to data/<id>/simplify.txt (requires --in <id>)\n"
+                                                                                                   ^
+simplify_with_gui.cpp:43:82: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --dist           After output, compute Frechet distance with --in <id>\n"
+                                                                                 ^
+simplify_with_gui.cpp:43:94: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --dist           After output, compute Frechet distance with --in <id>\n"
+                                                                                             ^
+simplify_with_gui.cpp:44:82: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --keep           Do not clear F/G/S polygons between steps\n"
+                                                                                 ^
+simplify_with_gui.cpp:45:80: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --no-simp        Do not show the simplified curve in GUI\n"
+                                                                               ^
+simplify_with_gui.cpp:46:76: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  --labels         Show vertex labels (indices) in GUI\n"
+                                                                           ^
+simplify_with_gui.cpp:47:78: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  -F/-G/-S         Show F, G, or S debug polygons in GUI\n"
+                                                                             ^
+simplify_with_gui.cpp:48:81: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  -d <delta>       Override DELTA (default " << DELTA << ")\n"
+                                                                                ^
+simplify_with_gui.cpp:49:85: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  -e <epsilon>     Override EPSILON (default " << EPSILON << ")\n"
+                                                                                    ^
+simplify_with_gui.cpp:50:64: error: code should be clang-formatted [-Wclang-format-violations]
+              << "  -h               Show this help and exit\n"
+                                                               ^
+simplify_with_gui.cpp:51:22: error: code should be clang-formatted [-Wclang-format-violations]
+              << "\n"
+                     ^
+simplify_with_gui.cpp:52:84: error: code should be clang-formatted [-Wclang-format-violations]
+              << "Shorthand: simplify_with_gui <id> [flags] is equivalent to '--in <id> --out [flags]'\n";
+                                                                                   ^
+simplify_with_gui.cpp:55:35: error: code should be clang-formatted [-Wclang-format-violations]
+int parse_arguments(int argc, char** argv, int& test_case_no) {
+                                  ^
+simplify_with_gui.cpp:55:37: error: code should be clang-formatted [-Wclang-format-violations]
+int parse_arguments(int argc, char** argv, int& test_case_no) {
+                                    ^
+simplify_with_gui.cpp:55:47: error: code should be clang-formatted [-Wclang-format-violations]
+int parse_arguments(int argc, char** argv, int& test_case_no) {
+                                              ^
+simplify_with_gui.cpp:55:48: error: code should be clang-formatted [-Wclang-format-violations]
+int parse_arguments(int argc, char** argv, int& test_case_no) {
+                                               ^
+simplify_with_gui.cpp:57:48: error: code should be clang-formatted [-Wclang-format-violations]
+        if (std::strcmp(argv[i], "--out") == 0) out_flag = true;
+                                               ^
+simplify_with_gui.cpp:58:54: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (std::strcmp(argv[i], "--dist") == 0) dist_flag = true;
+                                                     ^
+simplify_with_gui.cpp:59:54: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (std::strcmp(argv[i], "--keep") == 0) keep_polygons = true;
+                                                     ^
+simplify_with_gui.cpp:60:57: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (std::strcmp(argv[i], "--no-simp") == 0) show_simplified = false;
+                                                        ^
+simplify_with_gui.cpp:61:56: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (std::strcmp(argv[i], "--labels") == 0) show_labels = true;
+                                                       ^
+simplify_with_gui.cpp:62:50: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (std::strcmp(argv[i], "-F") == 0) showF = true;
+                                                 ^
+simplify_with_gui.cpp:63:50: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (std::strcmp(argv[i], "-G") == 0) showG = true;
+                                                 ^
+simplify_with_gui.cpp:64:50: error: code should be clang-formatted [-Wclang-format-violations]
+        else if (std::strcmp(argv[i], "-S") == 0) showS = true;
+                                                 ^
+simplify_with_gui.cpp:66:18: error: code should be clang-formatted [-Wclang-format-violations]
+            try { DELTA = std::stod(argv[++i]); }
+                 ^
+simplify_with_gui.cpp:66:48: error: code should be clang-formatted [-Wclang-format-violations]
+            try { DELTA = std::stod(argv[++i]); }
+                                               ^
+simplify_with_gui.cpp:66:50: error: code should be clang-formatted [-Wclang-format-violations]
+            try { DELTA = std::stod(argv[++i]); }
+                                                 ^
+simplify_with_gui.cpp:67:26: error: code should be clang-formatted [-Wclang-format-violations]
+            catch (...) { std::cerr << "Invalid -d value\n"; return 1; }
+                         ^
+simplify_with_gui.cpp:67:61: error: code should be clang-formatted [-Wclang-format-violations]
+            catch (...) { std::cerr << "Invalid -d value\n"; return 1; }
+                                                            ^
+simplify_with_gui.cpp:67:71: error: code should be clang-formatted [-Wclang-format-violations]
+            catch (...) { std::cerr << "Invalid -d value\n"; return 1; }
+                                                                      ^
+simplify_with_gui.cpp:68:10: error: code should be clang-formatted [-Wclang-format-violations]
+        }
+         ^
+simplify_with_gui.cpp:70:18: error: code should be clang-formatted [-Wclang-format-violations]
+            try { EPSILON = std::stod(argv[++i]); }
+                 ^
+simplify_with_gui.cpp:70:50: error: code should be clang-formatted [-Wclang-format-violations]
+            try { EPSILON = std::stod(argv[++i]); }
+                                                 ^
+simplify_with_gui.cpp:70:52: error: code should be clang-formatted [-Wclang-format-violations]
+            try { EPSILON = std::stod(argv[++i]); }
+                                                   ^
+simplify_with_gui.cpp:71:26: error: code should be clang-formatted [-Wclang-format-violations]
+            catch (...) { std::cerr << "Invalid -e value\n"; return 1; }
+                         ^
+simplify_with_gui.cpp:71:61: error: code should be clang-formatted [-Wclang-format-violations]
+            catch (...) { std::cerr << "Invalid -e value\n"; return 1; }
+                                                            ^
+simplify_with_gui.cpp:71:71: error: code should be clang-formatted [-Wclang-format-violations]
+            catch (...) { std::cerr << "Invalid -e value\n"; return 1; }
+                                                                      ^
+simplify_with_gui.cpp:72:10: error: code should be clang-formatted [-Wclang-format-violations]
+        }
+         ^
+simplify_with_gui.cpp:76:10: error: code should be clang-formatted [-Wclang-format-violations]
+        }
+         ^
+simplify_with_gui.cpp:78:18: error: code should be clang-formatted [-Wclang-format-violations]
+            try { test_case_no = std::stoi(argv[++i]); }
+                 ^
+simplify_with_gui.cpp:78:55: error: code should be clang-formatted [-Wclang-format-violations]
+            try { test_case_no = std::stoi(argv[++i]); }
+                                                      ^
+simplify_with_gui.cpp:78:57: error: code should be clang-formatted [-Wclang-format-violations]
+            try { test_case_no = std::stoi(argv[++i]); }
+                                                        ^
+simplify_with_gui.cpp:79:26: error: code should be clang-formatted [-Wclang-format-violations]
+            catch (...) { std::cerr << "Invalid --in argument\n"; return 1; }
+                         ^
+simplify_with_gui.cpp:79:66: error: code should be clang-formatted [-Wclang-format-violations]
+            catch (...) { std::cerr << "Invalid --in argument\n"; return 1; }
+                                                                 ^
+simplify_with_gui.cpp:79:76: error: code should be clang-formatted [-Wclang-format-violations]
+            catch (...) { std::cerr << "Invalid --in argument\n"; return 1; }
+                                                                           ^
+simplify_with_gui.cpp:83:19: error: code should be clang-formatted [-Wclang-format-violations]
+    if (dist_flag) out_flag = true;
+                  ^
+simplify_with_gui.cpp:102:23: error: code should be clang-formatted [-Wclang-format-violations]
+int get_repo_root(char** argv, std::filesystem::path& root) {
+                      ^
+simplify_with_gui.cpp:102:25: error: code should be clang-formatted [-Wclang-format-violations]
+int get_repo_root(char** argv, std::filesystem::path& root) {
+                        ^
+simplify_with_gui.cpp:102:53: error: code should be clang-formatted [-Wclang-format-violations]
+int get_repo_root(char** argv, std::filesystem::path& root) {
+                                                    ^
+simplify_with_gui.cpp:102:54: error: code should be clang-formatted [-Wclang-format-violations]
+int get_repo_root(char** argv, std::filesystem::path& root) {
+                                                     ^
+simplify_with_gui.cpp:103:57: error: code should be clang-formatted [-Wclang-format-violations]
+    auto find_repo_root = [](const std::filesystem::path& start, int max_levels) {
+                                                        ^
+simplify_with_gui.cpp:103:58: error: code should be clang-formatted [-Wclang-format-violations]
+    auto find_repo_root = [](const std::filesystem::path& start, int max_levels) {
+                                                         ^
+simplify_with_gui.cpp:103:65: error: code should be clang-formatted [-Wclang-format-violations]
+    auto find_repo_root = [](const std::filesystem::path& start, int max_levels) {
+                                                                ^
+simplify_with_gui.cpp:106:61: error: code should be clang-formatted [-Wclang-format-violations]
+            if (std::filesystem::is_directory(dir / "data")) return dir;
+                                                            ^
+simplify_with_gui.cpp:108:31: error: code should be clang-formatted [-Wclang-format-violations]
+            if (parent == dir) break;
+                              ^
+simplify_with_gui.cpp:116:53: error: code should be clang-formatted [-Wclang-format-violations]
+    } catch (const std::filesystem::filesystem_error&) {
+                                                    ^
+simplify_with_gui.cpp:119:57: error: code should be clang-formatted [-Wclang-format-violations]
+        } catch (const std::filesystem::filesystem_error& error) {
+                                                        ^
+simplify_with_gui.cpp:119:58: error: code should be clang-formatted [-Wclang-format-violations]
+        } catch (const std::filesystem::filesystem_error& error) {
+                                                         ^
+simplify_with_gui.cpp:120:73: error: code should be clang-formatted [-Wclang-format-violations]
+            std::cerr << "Error: could not resolve the data directory: " << error.what() << "\n";
+                                                                        ^
+simplify_with_gui.cpp:127:53: error: code should be clang-formatted [-Wclang-format-violations]
+int read_stream(int test_case_no, std::vector<Point>& stream) {
+                                                    ^
+simplify_with_gui.cpp:127:54: error: code should be clang-formatted [-Wclang-format-violations]
+int read_stream(int test_case_no, std::vector<Point>& stream) {
+                                                     ^
+simplify_with_gui.cpp:129:26: error: code should be clang-formatted [-Wclang-format-violations]
+        auto input_path = repo_root / "data" / std::to_string(test_case_no) / "original.txt";
+                         ^
+simplify_with_gui.cpp:138:77: error: code should be clang-formatted [-Wclang-format-violations]
+            std::cerr << "Empty or invalid input in " << input_path.string() << "\n";
+                                                                            ^
+simplify_with_gui.cpp:146:71: error: code should be clang-formatted [-Wclang-format-violations]
+                std::cerr << "Malformed pair at index " << i << " in " << input_path.string() << "\n";
+                                                                      ^
+simplify_with_gui.cpp:155:58: error: code should be clang-formatted [-Wclang-format-violations]
+int out_stream(int test_case_no, const std::vector<Point>& stream) {
+                                                         ^
+simplify_with_gui.cpp:155:59: error: code should be clang-formatted [-Wclang-format-violations]
+int out_stream(int test_case_no, const std::vector<Point>& stream) {
+                                                          ^
+simplify_with_gui.cpp:156:32: error: code should be clang-formatted [-Wclang-format-violations]
+    std::filesystem::path dir = repo_root / "data" / std::to_string(test_case_no);
+                               ^
+simplify_with_gui.cpp:162:20: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& point : stream) {
+                   ^
+simplify_with_gui.cpp:162:21: error: code should be clang-formatted [-Wclang-format-violations]
+    for (const auto& point : stream) {
+                    ^
+simplify_with_gui.cpp:163:52: error: code should be clang-formatted [-Wclang-format-violations]
+        output << CGAL::to_double(point.x()) << ' ' << CGAL::to_double(point.y()) << '\n';
+                                                   ^
+simplify_with_gui.cpp:173:46: error: code should be clang-formatted [-Wclang-format-violations]
+int get_longest_stab(const std::vector<Point>& stream, int cur,
+                                             ^
+simplify_with_gui.cpp:173:47: error: code should be clang-formatted [-Wclang-format-violations]
+int get_longest_stab(const std::vector<Point>& stream, int cur,
+                                              ^
+simplify_with_gui.cpp:174:40: error: code should be clang-formatted [-Wclang-format-violations]
+                     std::vector<Point>& simplified,
+                                       ^
+simplify_with_gui.cpp:174:41: error: code should be clang-formatted [-Wclang-format-violations]
+                     std::vector<Point>& simplified,
+                                        ^
+simplify_with_gui.cpp:174:53: error: code should be clang-formatted [-Wclang-format-violations]
+                     std::vector<Point>& simplified,
+                                                    ^
+simplify_with_gui.cpp:175:37: error: code should be clang-formatted [-Wclang-format-violations]
+                     double epsilon, double delta,
+                                    ^
+simplify_with_gui.cpp:175:51: error: code should be clang-formatted [-Wclang-format-violations]
+                     double epsilon, double delta,
+                                                  ^
+simplify_with_gui.cpp:176:33: error: code should be clang-formatted [-Wclang-format-violations]
+                     MultiViewer* viewer = nullptr) {
+                                ^
+simplify_with_gui.cpp:176:34: error: code should be clang-formatted [-Wclang-format-violations]
+                     MultiViewer* viewer = nullptr) {
+                                 ^
+simplify_with_gui.cpp:177:16: error: code should be clang-formatted [-Wclang-format-violations]
+    const Point& p0 = stream[cur];
+               ^
+simplify_with_gui.cpp:177:17: error: code should be clang-formatted [-Wclang-format-violations]
+    const Point& p0 = stream[cur];
+                ^
+simplify_with_gui.cpp:189:33: error: code should be clang-formatted [-Wclang-format-violations]
+    for (int i = 0; i < Pn; ++i) S[i] = {P[i]};
+                                ^
+simplify_with_gui.cpp:198:20: error: code should be clang-formatted [-Wclang-format-violations]
+        const Point& pi = stream[cur];
+                   ^
+simplify_with_gui.cpp:198:21: error: code should be clang-formatted [-Wclang-format-violations]
+        const Point& pi = stream[cur];
+                    ^
+simplify_with_gui.cpp:202:25: error: code should be clang-formatted [-Wclang-format-violations]
+            if (dead[i]) continue;
+                        ^
+simplify_with_gui.cpp:214:45: error: code should be clang-formatted [-Wclang-format-violations]
+            if (dead[i] || new_S[i].empty()) continue;
+                                            ^
+simplify_with_gui.cpp:219:46: error: code should be clang-formatted [-Wclang-format-violations]
+        if (!has_candidate || dead_cnt == Pn) break;
+                                             ^
+simplify_with_gui.cpp:222:72: error: code should be clang-formatted [-Wclang-format-violations]
+            const QColor step_colors[] = {Qt::red, Qt::blue, Qt::green, Qt::magenta, Qt::cyan};
+                                                                       ^
+simplify_with_gui.cpp:225:29: error: code should be clang-formatted [-Wclang-format-violations]
+                if (dead[i]) continue;
+                            ^
+simplify_with_gui.cpp:226:27: error: code should be clang-formatted [-Wclang-format-violations]
+                if (showF) viewer->addPolygon(Polygon(F[i].begin(), F[i].end()), color);
+                          ^
+simplify_with_gui.cpp:226:81: error: code should be clang-formatted [-Wclang-format-violations]
+                if (showF) viewer->addPolygon(Polygon(F[i].begin(), F[i].end()), color);
+                                                                                ^
+simplify_with_gui.cpp:227:27: error: code should be clang-formatted [-Wclang-format-violations]
+                if (showG) viewer->addPolygon(Polygon(Gi.begin(), Gi.end()), color);
+                          ^
+simplify_with_gui.cpp:228:27: error: code should be clang-formatted [-Wclang-format-violations]
+                if (showS) viewer->addPolygon(Polygon(S[i].begin(), S[i].end()), color);
+                          ^
+simplify_with_gui.cpp:228:81: error: code should be clang-formatted [-Wclang-format-violations]
+                if (showS) viewer->addPolygon(Polygon(S[i].begin(), S[i].end()), color);
+                                                                                ^
+simplify_with_gui.cpp:234:26: error: code should be clang-formatted [-Wclang-format-violations]
+            if (!dead[i]) S[i].swap(new_S[i]);
+                         ^
+simplify_with_gui.cpp:240:32: error: code should be clang-formatted [-Wclang-format-violations]
+            if (!keep_polygons) viewer->clearPolygons();
+                               ^
+simplify_with_gui.cpp:257:53: error: code should be clang-formatted [-Wclang-format-violations]
+std::vector<Point> simplify(const std::vector<Point>& stream,
+                                                    ^
+simplify_with_gui.cpp:257:54: error: code should be clang-formatted [-Wclang-format-violations]
+std::vector<Point> simplify(const std::vector<Point>& stream,
+                                                     ^
+simplify_with_gui.cpp:257:62: error: code should be clang-formatted [-Wclang-format-violations]
+std::vector<Point> simplify(const std::vector<Point>& stream,
+                                                             ^
+simplify_with_gui.cpp:258:44: error: code should be clang-formatted [-Wclang-format-violations]
+                            double epsilon, double delta,
+                                           ^
+simplify_with_gui.cpp:258:58: error: code should be clang-formatted [-Wclang-format-violations]
+                            double epsilon, double delta,
+                                                         ^
+simplify_with_gui.cpp:259:40: error: code should be clang-formatted [-Wclang-format-violations]
+                            MultiViewer* viewer = nullptr) {
+                                       ^
+simplify_with_gui.cpp:259:41: error: code should be clang-formatted [-Wclang-format-violations]
+                            MultiViewer* viewer = nullptr) {
+                                        ^
+simplify_with_gui.cpp:270:21: error: code should be clang-formatted [-Wclang-format-violations]
+    double core_ms = std::chrono::duration<double, std::milli>(core_end - core_start).count();
+                    ^
+simplify_with_gui.cpp:270:86: error: code should be clang-formatted [-Wclang-format-violations]
+    double core_ms = std::chrono::duration<double, std::milli>(core_end - core_start).count();
+                                                                                     ^
+simplify_with_gui.cpp:273:47: error: code should be clang-formatted [-Wclang-format-violations]
+    std::cout << "Expected Frechet distance: " << std::sqrt(expected_frechet_squared) << '\n';
+                                              ^
+simplify_with_gui.cpp:283:24: error: code should be clang-formatted [-Wclang-format-violations]
+int main(int argc, char** argv) {
+                       ^
+simplify_with_gui.cpp:283:26: error: code should be clang-formatted [-Wclang-format-violations]
+int main(int argc, char** argv) {
+                         ^
+simplify_with_gui.cpp:287:19: error: code should be clang-formatted [-Wclang-format-violations]
+    if (code != 0) return code;
+                  ^
+simplify_with_gui.cpp:290:19: error: code should be clang-formatted [-Wclang-format-violations]
+    if (code != 0) return code;
+                  ^
+simplify_with_gui.cpp:294:19: error: code should be clang-formatted [-Wclang-format-violations]
+    if (code != 0) return code;
+                  ^
+simplify_with_gui.cpp:315:23: error: code should be clang-formatted [-Wclang-format-violations]
+        if (code != 0) return code;
+                      ^
+simplify_with_gui.cpp:320:30: error: code should be clang-formatted [-Wclang-format-violations]
+        std::string command = std::string("\"") + frechet_path.string()
+                             ^
+simplify_with_gui.cpp:320:72: error: code should be clang-formatted [-Wclang-format-violations]
+        std::string command = std::string("\"") + frechet_path.string()
+                                                                       ^
+simplify_with_gui.cpp:321:27: error: code should be clang-formatted [-Wclang-format-violations]
+            + "\" --in " + std::to_string(test_case_no)
+                          ^
+simplify_with_gui.cpp:321:56: error: code should be clang-formatted [-Wclang-format-violations]
+            + "\" --in " + std::to_string(test_case_no)
+                                                       ^
+simplify_with_gui.cpp:322:29: error: code should be clang-formatted [-Wclang-format-violations]
+            + " --path \"" + (repo_root / "data" / std::to_string(test_case_no) / "simplify.txt").string() + "\"";
+                            ^
+simplify_with_gui.cpp:322:98: error: code should be clang-formatted [-Wclang-format-violations]
+            + " --path \"" + (repo_root / "data" / std::to_string(test_case_no) / "simplify.txt").string() + "\"";
+                                                                                                 ^
+simplify_with_gui.cpp:322:109: error: code should be clang-formatted [-Wclang-format-violations]
+            + " --path \"" + (repo_root / "data" / std::to_string(test_case_no) / "simplify.txt").string() + "\"";
+                                                                                                            ^

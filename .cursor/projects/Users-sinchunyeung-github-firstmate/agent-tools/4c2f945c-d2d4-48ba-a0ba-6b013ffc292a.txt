@@ -1,0 +1,371 @@
+# Desktop model catalog filtered since June 29, but web works (same account)
+
+shaotang_shi
+
+June 30, 2026, 2:43am
+
+### Where does the bug appear (feature/product)?
+
+Cursor IDE
+
+### Describe the Bug
+
+Since June 29, 2026, the desktop app only shows 5 models (Composer 2.5, Grok, Kimi, GLM). GPT and Claude models disappeared from the model picker.
+
+This is NOT a standard regional availability issue:
+
+WEB APP WORKS: On the Cursor web app (same account, same machine, same network), I can see and use the full model list: Opus 4.8, GPT-5.5, Sonnet 4.6, Codex 5.3.
+
+BILLING PROVES PRIOR DESKTOP ACCESS: My usage this billing cycle (Jun 2 - Jul 2) shows desktop was using Claude and GPT until Jun 28:
+
+SAME ACCOUNT, SAME MACHINE: The only difference is the client (web vs desktop). Account, network, and location are identical.
+
+1. - claude-opus-4-8-thinking-high: 13.48M tokens (60.7%)
+- gpt-5.4-mini: 237K tokens
+- Then on June 29, they vanished from the desktop model picker.
+
+Tried: sign out/in, rolled back to 3.9.8, cleared local cache, disabled HTTP/2. None restored the desktop catalog.
+
+The web vs desktop discrepancy suggests the desktop catalog endpoint may be applying a different filter than the web endpoint.
+
+Account: Pro, macOS
+
+### Steps to Reproduce
+
+1. Open Cursor desktop app (v3.9.16, macOS).
+2. Go to Settings > Models.
+3. Observe: only 5 models listed (Composer 2.5, Grok Build 0.1, Grok 4.3, Kimi K2.5, GLM 5.2). GPT and Claude models are missing.
+4. Open a browser on the same machine, go to cursor.com/agents, log in with the same account.
+5. Observe: full model list is available (Opus 4.8, GPT-5.5, Sonnet 4.6, Codex 5.3).
+6. Check billing page (cursor.com/settings): usage shows claude-opus-4-8 and gpt-5.4-mini were used on desktop before Jun 29.
+
+Issue persists across:
+
+- Desktop versions 3.9.8 and 3.9.16
+- After signing out/in
+- After clearing local cache
+
+### Expected Behavior
+
+Desktop app should show the same full model list as the web app (including GPT and Claude models), since both use the same account and network. Prior to June 29, the desktop app did show these models (confirmed by billing usage).
+
+### Operating System
+
+MacOS
+
+### Version Information
+
+Version: 3.9.16 VS Code Extension API: 1.105.1 Commit: 042b3c1a4c53f2c3808067f519fbfc67b72cad80 Date: 2026-06-27T06:41:01.941Z Layout: glass Build Type: Stable Release Track: Default Electron: 40.10.3 Chromium: 144.0.7559.236 Node.js: 24.15.0 V8: 14.4.258.32-electron.0 xterm.js: 6.1.0-beta.256 OS: Darwin arm64 25.5.0
+
+### Does this stop you from using Cursor
+
+Yes - Cursor is unusable
+
+Tom_Coustols
+
+June 30, 2026, 2:46am
+
+hey@shaotang_shi, it surely is an issue with your vpn solution, I’m in China too, and when problem like that occures, I need to check my vpn to update the configuration or change the profile
+
+soyking_k
+
+June 30, 2026, 2:55am
+
+Same issue. It seems that the Proxy settings in VSCode does not work for model list check. Someone said that tun mode proxy could fix it, so I guess it is a proxy setting problem.
+
+Someone in xiaohongshu report this problem(https://www.xiaohongshu.com/explore/6a4140d000000000220199bc?xsec_token=AB5yqQsFLNycQEK9359yLSHnOCDBIjU8rzk2vN5JRHpbc=&xsec_source=pc_search&source=web_explore_feed). Seems that it could be fixed by downgrading to 3.7.
+
+I think Cursor should clarify that if the team does want to forbid the proxy way, and if the new version forbids some models in purpose.
+
+Tom_Coustols
+
+June 30, 2026, 2:59am
+
+oh, thanks for the link, well, for me, since I arrivved in April, I only used it with Tun mode activated and had no issue at all since then, but thanks, I will check this! and report to see if there was any change made
+
+shaotang_shi
+
+June 30, 2026, 3:18am
+
+Update: Downgrading to Cursor 3.7.42 fixed it — full model list is back on desktop (Opus, GPT, Sonnet, Codex all visible and usable).
+
+Thanks@Tom_Coustols and@soyking_k for the help! Your suggestion to try an older version pointed me in the right direction.
+
+So the issue was introduced in 3.8 or 3.9 — the desktop catalog filtering logic changed somewhere between 3.7.42 and 3.9.16. On 3.7.42 the desktop shows the same full list as the web app, without needing TUN mode.
+
+Hope the Cursor team can look into what changed in 3.8+ that causes the desktop catalog to be filtered more aggressively than the web app. Thanks!
+
+deanrie
+
+June 30, 2026, 5:28am
+
+Hey, thanks for the detailed report. This isn’t a desktop catalog bug, it’s a regional restriction on models.
+
+Anthropic, OpenAI, and Google restrict access to their models in some regions at the provider level. Cursor filters those models out of the catalog in the desktop app based on the IP region the request comes from. That’s why only models without those restrictions stay available (Composer, Grok, Kimi, GLM).
+
+The web app and Cloud Agents run from Cursor servers, not your local IP, so they show the full list. That’s why you see a difference between desktop and web on the same account.
+
+Why downgrading to 3.7.42 “brought back” the models. It’s not the version itself, it’s which IP the catalog request goes through. When Cursor traffic, including the model list check, goes through your VPN with a non-CN exit IP, the filter doesn’t trigger and the full list shows up. Your billing matches this too, Claude and GPT were used while requests were coming from a non-CN address.
+
+What I recommend instead of staying on an old version. Enable TUN mode or a system-wide proxy in your VPN so all Cursor traffic, not just the AI requests, is routed through a non-CN exit IP. Then the model catalog request will also go through the VPN and the full list should return on the current version. I wouldn’t stay on 3.7.42 for long since you’ll miss updates and fixes.
+
+Let me know if TUN mode helped.
+
+xiaomaifmj
+
+June 30, 2026, 5:36am
+
+I tested it with TUN mode, and it does bring back the full model list. However, the connection becomes extremely slow, to the point where it’s not usable for development work.
+
+What’s confusing is that this issue only affects older paid accounts. If I use a newly created account on the same machine, network, and Cursor version, all models are displayed normally without requiring TUN mode.
+
+This makes it seem like the behavior is account-specific rather than purely IP- or region-based.
+
+Could you please investigate why older paid accounts are being treated differently? I’d really appreciate it if the team could look into this, since using TUN mode isn’t a practical long-term solution.
+
+soyking_k
+
+June 30, 2026, 5:37am
+
+Why downgrading to 3.7.42 “brought back” the models. It’s not the version itself, it’s which IP the catalog request goes through. When Cursor traffic, including the model list check, goes through your VPN with a non-CN exit IP, the filter doesn’t trigger and the full list shows up. Your billing matches this too, Claude and GPT were used while requests were coming from a non-CN address.
+
+But the old version Cursor could fetch more models. Does it means it was using local proxy to fetch models but now it is not?
+
+For me, tun mode would conflict with my company’s vpn actually. Maybe there are some solutions, but it is still weard since I don’t have to solve this problem before.
+
+shaotang_shi
+
+June 30, 2026, 6:41am
+
+Thanks everyone for the investigation.
+
+To summarize what we’ve found:
+
+On 3.7.42, the desktop catalog request respects the macOS system proxy (configured via Clash at 127.0.0.1:7897), so it goes through a non-CN IP and the full list appears — without any http.proxy setting in settings.json.
+
+On 3.8+, the catalog request seems to ignore the system proxy and connect directly, exposing the local CN IP, which triggers the regional filter. Even with http.proxy set, --proxy-server flag, and HTTP_PROXY env vars, the catalog still shows only 5 models.
+
+This matches the related bug: “always-local-singleton ignores http.proxy and server overrides cursor.general.disableHttp2”
+
+So the root cause appears to be a regression in 3.8+ where the catalog request no longer honors the system proxy, not a change in regional policy itself.
+
+TUN mode works as a workaround because it intercepts all traffic at the network layer, but it’s not viable for users with remote access or corporate VPN conflicts.
+
+Could the team restore system proxy support for the catalog request, like in 3.7.42?
+
+Tom_Coustols
+
+June 30, 2026, 6:56am
+
+indeed, it seems that it’s more tradeoff than regression, because the changes did brought :
+
+- Better agent/local performance via HTTP/2
+- Isolated singleton for local AI traffic (Glass / agent reliability)
+- Server-side HTTP/2 preference for streaming
+
+shaotang_shi
+
+June 30, 2026, 7:14am
+
+Thanks , that makes sense.
+
+Genuinely curious — is there a technical conflict between HTTP/2 and proxy support? I would have assumed HTTP/2 can work through a proxy, so I’m trying to understand why the new singleton has to bypass the system proxy to get the HTTP/2 benefits.
+
+If they’re not fundamentally incompatible, would it be possible to keep the performance improvements while still honoring the system proxy for the catalog request? That would help users who can’t use TUN mode (remote access, corporate VPN conflicts, etc.).
+
+deanrie
+
+June 30, 2026, 7:22am
+
+I’ll answer both questions in order.
+
+@soyking_k: It’s not that the old version could access more models. The model catalog is always filtered on the server based on the region of the IP that sends the request for the model list. When that request goes through a non-CN exit (for example, via a VPN that routes all Cursor traffic), the filter doesn’t apply and you get the full list. The difference you see between versions is about which traffic actually goes through your proxy or VPN, not about the app version itself. So there’s no point in sticking to 3.7.42. You’ll eventually miss updates, and the behavior will still depend on the request route.
+
+If TUN conflicts with your corporate VPN, honestly there’s no clean workaround we can provide. The restriction is on the model providers’ side (Anthropic, OpenAI, Google) for the region, and we just reflect it in the catalog based on the request IP. The only working option is to make sure the catalog request goes through a supported region. How to do that with a corporate VPN depends on that VPN’s setup.
+
+@xiaomaifmj: It makes sense that TUN slows down the connection, and as a long-term solution it’s not great. I noticed your point about the difference between the old and new account on the same machine, and I’ll pass it to the team that looks at region blocking behavior. That’s a useful signal. I won’t pretend I have a ready explanation for your specific case right now, and I also can’t give an ETA for changes. If you can, please clarify: are both accounts Pro? And on which one does the full list appear or not appear without TUN? That’ll help with investigation.
+
+soyking_k
+
+June 30, 2026, 7:28am
+
+The restriction is on the model providers’ side (Anthropic, OpenAI, Google) for the region
+
+I don’t understand. If
+
+traffic actually goes through your proxy or VPN, not about the app version itself.
+
+then why the old version could go through proxy/vpn, and the new version could not? There must be some changes in Cursor new verison right?
+
+deanrie
+
+June 30, 2026, 7:44am
+
+I’ll answer a common question that came up a few times here: why the proxy or VPN worked on the old version, but not on the new one, even without TUN.
+
+It’s not really about the version. It’s about which protocol the model catalog request uses. Starting from 3,9,x, AI traffic (including the model list request) is handled by a separate local process, and for HTTP/2 it can’t use a proxy agent (this is a limitation of Node`http2.connect()`). Those requests go direct, expose your IP, and the catalog gets filtered by region. On 3,7,42 the request used HTTP/1,1, which goes through the system proxy (your Clash), so it exited from a non-CN IP and the list was complete.
+
+Good news: the HTTP/1,1 path can still go through a proxy on the current version. So you can try to get the full catalog back without TUN and without rolling back to 3,7,42. Add all four lines to`settings.json` at the same time:
+
+```
+{
+  "cursor.general.disableHttp2": true,
+  "http.proxy": "http://127.0.0.1:7897",
+  "http.proxySupport": "override",
+  "http.proxyStrictSSL": false
+}
+
+```
+
+Set port`7897` to your own, the one Clash is listening on. The key point is using all four lines together.`http.proxy` alone won’t help if HTTP/2 is enabled, because the HTTP/2 request will still bypass the proxy. That’s why earlier attempts with only`http.proxy`,`--proxy-server`, or`HTTP_PROXY` didn’t work. After editing, restart Cursor.
+
+The idea is to force HTTP/1,1. Then the catalog request goes through your proxy with a non-CN exit, and the full list (Opus, GPT, Sonnet, Codex) should come back. If TUN conflicts with a corporate VPN, this can be a good alternative. Use a system or local proxy over HTTP/1,1.
+
+HTTP/2 traffic not respecting proxy settings yet is a known limitation, and I’ve passed it to the team. I can’t share an ETA.
+
+xiaomaifmj
+
+June 30, 2026, 7:51am
+
+Here are my observations:
+
+- After updating Cursor, my account could only see 5 models.
+- However, one of my colleagues, who also has a Pro account and is using the latest version of Cursor, can see the full model list.
+- We then tested by signing into my account on his computer, and it still only showed 5 models. This suggests the issue follows my account rather than the device.
+- After that, I created a brand-new Cursor account (not a Pro account), and surprisingly it could see the full model list on the same machine and network.
+- My account is an older paid account on the legacy 500-request plan, so I suspect the issue may be related to the account type or legacy subscription rather than only the IP region.
+- Finally, after enabling TUN mode in my VPN, my original account was also able to see the full model list again.
+
+Based on these tests, it seems that both the account and the IP/region may be involved. The fact that a new account works normally under the same environment, while my older paid account does not, makes me think there may be an account-specific factor worth investigating.
+
+shaotang_shi
+
+June 30, 2026, 8:12am
+
+Update: After extensive testing, the official HTTP/1.1 workaround (disableHttp2 + http.proxy + proxySupport:override + proxyStrictSSL:false) did NOT reliably fix the issue.
+
+Here’s what I found:
+
+WHAT WORKS:
+
+- Downgrading to 3.7.42 restores the full model list reliably. No extra configuration needed — it just works with the system proxy.
+
+WHAT DOESN’T WORK (on 3.9.16):
+
+The 4-line settings.json workaround:
+
+Adding --proxy-server flag:
+
+Setting HTTP_PROXY / HTTPS_PROXY / ALL_PROXY env vars:
+
+1. - First launch: model list came back (seemed fixed)
+- After restart: back to 5 models only
+- Inconsistent behavior
+2. - Cursor’s Chromium processes go through proxy (verified)
+- But always-local-singleton still connects directly
+3. - singleton still bypasses them
+
+ROOT CAUSE (confirmed via process-level network inspection): Using lsof to inspect Cursor’s processes on 3.9.16:
+
+- Cursor main process: connections via 127.0.0.1:7897 (proxy) ✓
+- always-local-singleton: connections via real local IP (DIRECT) ✗
+
+The singleton connects to Cursor backend IPs (Cloudflare / AWS) using the real local IP, bypassing both the system proxy and http.proxy setting. This exposes the CN IP, triggering regional filtering on the model catalog.
+
+The disableHttp2 setting does NOT affect the singleton’s network stack — it continues to use its own HTTP/2 connection that ignores all proxy config.
+
+WHY TUN IS NOT VIABLE: TUN mode conflicts with Tailscale (which I use for remote access to my dev machine). Both create virtual network interfaces that compete for the default route, causing network instability.
+
+This is a common setup for users who need:
+
+- Remote access to their dev machine
+- Corporate VPN compatibility
+- Screen sharing
+
+CONCLUSION: The always-local-singleton in 3.8+ uses an isolated network stack that ignores ALL application-layer proxy settings (http.proxy, system proxy, env vars). Only TUN (network-layer) can intercept it, but TUN is not viable for users with Tailscale/VPN conflicts.
+
+3.7.42 works because its singleton uses HTTP/1.1 and respects the system proxy. This is not a version preference — it’s the only version where the catalog request actually goes through the proxy.
+
+Could the team make always-local-singleton respect http.proxy / system proxy again, like in 3.7.42? This would fix the issue without requiring TUN mode.
+
+Currently stuck on 3.7.42, missing all updates since 3.8.
+
+deanrie
+
+June 30, 2026, 9:02am
+
+@shaotang_shi, thanks for the detailed`lsof` investigation, it really helps.
+
+What you’re seeing matches what I’m seeing. In current versions, AI traffic, including the model catalog request, is handled by a separate local process. Its HTTP/2 connections don’t currently go through`http.proxy`, the system proxy, or env vars. That’s a limitation of how Node handles proxies for`http2.connect()`, only the HTTP/1.1 path gets patched.`disableHttp2` doesn’t fully cover this process’s network stack, so the 4-line workaround ends up behaving inconsistently for you. So it’s not that the regional policy changed, it’s that the request path changed between 3.7.42 and 3.8+.
+
+To be honest, I don’t have a clean application-layer workaround that works reliably on the current version right now. At the network level, only a TUN-style approach catches it, but it conflicts with Tailscale, and I can see that from your description too. I’ve shared this behavior with the team, the singleton ignoring`http.proxy` and`disableHttp2` for HTTP/2.
+
+@xiaomaifmj: about the difference between an old and a new account on the same machine, that’s a useful observation and it’s already been passed to the team looking into region blocking. Region state can be tracked at the account level, so a newly created account may behave differently on the same IP. I can’t give a solid explanation for your specific case yet, and I don’t have an ETA. If anything becomes clearer, I’ll reply in the thread.
+
+I get that staying on 3.7.42 isn’t a good long-term option. As soon as I have an update on the proxy behavior, I’ll post it here.
+
+shaotang_shi
+
+June 30, 2026, 9:08am
+
+Thanks Dean Rie for the detailed explanation and for confirming the root cause.
+
+I’ll stay on 3.7.42 for now and wait for the http2.connect() proxy support fix. Looking forward to seeing this resolved so we can upgrade and use the latest features again.
+
+Thanks to everyone who helped investigate in this thread!
+
+soyking_k
+
+June 30, 2026, 9:28am
+
+Thanks for details. Actually I setup`disableHttp2` at first day and keep it all the time, so I am sure it is not the solution too. Waiting for new solution in new version.
+
+wl_Li
+
+July 2, 2026, 10:12am
+
+Where does the bug appear (feature/product)?
+
+Cursor IDE
+
+Describe the Bug
+
+I have an active Pro subscription, but Settings → Models only shows about 7 models (e.g. default, composer-2.5, grok-*, kimi-*, glm-*) instead of the full catalog (Claude, GPT, Gemini, etc.).
+
+The same account and access token return 153 models when calling AvailableModels via JSON API with Authorization header. Cursor 3.9’s in-app refreshDefaultModels() (gRPC-web via aiClient) appears to overwrite the local cache with this reduced list after login / Reload Window / periodic refresh.
+
+Likely root cause: a startup race where refreshDefaultModels() runs before AlwaysLocalSingleton auth is ready, so the gRPC request goes out without Bearer token. The server returns HTTP 200 with an anonymous ~7-model list instead of 401, and Cursor persists it to state.vscdb (availableDefaultModels2).
+
+Steps to Reproduce
+
+1. Log in with Pro account on Windows with HTTP proxy enabled (127.0.0.1:7890)
+2. Open Settings → Models
+3. Observe only ~7 models listed (no Claude/GPT/Gemini)
+4. Developer: Reload Window → still ~7 models
+5. Call AvailableModels API (application/json + Authorization: Bearer from state.vscdb) → returns 153 models
+
+Expected Behavior
+
+Settings → Models should list all models available to my Pro account. refreshDefaultModels() should wait for authenticated transport or refuse to overwrite cache with a drastically smaller list.
+
+Operating System
+
+Windows 10/11
+
+Version Information
+
+Cursor Version: 3.9.16 VS Code Version: 1.105.1 Commit: 042b3c1a4c53f2c3808067f519fbfc67b72cad80 OS: Windows 10 (build 19045) Proxy: 127.0.0.1:7890 (Clash Verge), http.proxySupport: override cursor.general.disableHttp2: true (also tried false — same issue)
+
+Additional Information
+
+Account: Pro/active. API with auth returns 153 models including Claude/GPT/Gemini. Without auth, JSON API returns 401; gRPC-web may return 200 + anonymous list.
+
+Reduced list example: default, composer-2.5, grok-build-0.1, grok-4.3, kimi-k2.7-code, kimi-k2.5, glm-5.2
+
+Related forum topic (same day): always-local-singleton ignores http.proxy and server overrides cursor.general.disableHttp2
+
+Manual DB repair into availableDefaultModels2 works briefly but Cursor overwrites on reload/login.
+
+Does this stop you from using Cursor
+
+No - Cursor works, but with this issue

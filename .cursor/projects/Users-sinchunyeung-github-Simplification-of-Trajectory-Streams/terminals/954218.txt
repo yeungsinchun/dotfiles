@@ -1,0 +1,48 @@
+---
+pid: 26609
+cwd: "/Users/sinchunyeung/github/simplification-of-trajectory-streams"
+command: "# Verify live index.html Match/Grid labels at 1280 and 900; Load same-row at 900/820\nexport PLAYWRIGHT_BROWSERS_PATH=\"${PLAYWRIGHT_BROWSERS_PATH:-$HOME/Library/Caches/ms-playwright}\"\nnpx --yes playwright@1.49.0 install chromium 2>&1 | tail -8\n\nnode <<'NODE'\nconst { chromium } = require('playwright');\nconst path = require('path');\nconst idx = 'file://' + path.resolve('web/index.html');\n\n(async () => {\n  const browser = await chromium.launch();\n  async function check(w) {\n    const page = await browser.newPage({ viewport: { width: w, height: 800 } });\n    await page.goto(idx);\n    // dismiss tour if open\n    const skip = page.locator('#uiTourSkip, .ui-tour-card button:has-text(\"Skip\")');\n    if (await skip.count()) {\n      try { await skip.first().click({ timeout: 500 }); } catch {}\n    }\n    const result = await page.evaluate(() => {\n      const epsLabel = document.querySelector('#epsilonInput')?.closest('label');\n      const delLabel = document.querySelector('#deltaInput')?.closest('label');\n      const load = document.querySelector('#loadBtn');\n      const sym = document.querySelector('.upload-form .param-symbol');\n      const gloss = document.querySelector('.upload-form .param-gloss');\n      const epsText = (epsLabel?.innerText || '').replace(/\\s+/g, ' ').trim();\n      const delText = (delLabel?.innerText || '').replace(/\\s+/g, ' ').trim();\n      const symHidden = !sym || getComputedStyle(sym).display === 'none' || sym.getBoundingClientRect().width < 1;\n      const glossVis = !!gloss && getComputedStyle(gloss).display !== 'none' && gloss.getBoundingClientRect().width > 1;\n      let sameRow = false;\n      if (epsLabel && load) {\n        sameRow = Math.abs(epsLabel.getBoundingClientRect().top - load.getBoundingClientRect().top) < 14;\n      }\n      return {\n        width: window.innerWidth,\n        scrollWidth: document.documentElement.scrollWidth,\n        epsText, delText, symHidden, glossVis, sameRow,\n        hasGreek: /[εϵδ]/.test(epsText + delText),\n      };\n    });\n    await page.close();\n    return result;\n  }\n  for (const w of [1280, 900, 820]) {\n    const r = await check(w);\n    console.log(JSON.stringify(r));\n  }\n  await browser.close();\n})().catch((e) => { console.error(e); process.exit(1); });\nNODE\n"
+title: "Verify live index Match/Grid at 1280/900/820"
+status: failed   
+started_at: 2026-09-05T19:46:56.491Z
+running_for_ms: 61447    
+---
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 77.5 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 77.5 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 77.5 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 77.5 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 77.5 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 77.5 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 77.5 MiB
+Chromium Headless Shell 131.0.6778.33 (playwright build v1148) downloaded to /Users/sinchunyeung/Library/Caches/ms-playwright/chromium_headless_shell-1148
+compdef:153: _comps: assignment to invalid subscript range
+node:internal/modules/cjs/loader:1568
+  throw err;
+  ^
+
+Error: Cannot find module 'playwright'
+Require stack:
+- /Users/sinchunyeung/github/simplification-of-trajectory-streams/[stdin]
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)
+    at Module._load (node:internal/modules/cjs/loader:1341:5)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.require (node:internal/modules/cjs/loader:1674:12)
+    at require (node:internal/modules/helpers:157:16)
+    at [stdin]:1:22
+    at runScriptInThisContext (node:internal/vm:219:10) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/sinchunyeung/github/simplification-of-trajectory-streams/[stdin]'
+  ]
+}
+
+Node.js v24.20.0
+
+---
+exit_code: 1
+elapsed_ms: 61447
+ended_at: 2026-09-05T19:47:57.938Z
+---

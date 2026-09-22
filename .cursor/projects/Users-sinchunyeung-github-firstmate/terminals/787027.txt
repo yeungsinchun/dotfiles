@@ -1,0 +1,17 @@
+---
+pid: 72198
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "kill 27607 2>/dev/null; sleep 1; lsof -iTCP:5051 -sTCP:LISTEN -P 2>/dev/null || echo \"5051 free\"; WT=/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams; \"$WT/web/.venv/bin/python\" \"$WT/web/server.py\""
+title: "Restart viewer from tour-copy worktree"
+status: failed   
+started_at: 2026-09-07T04:29:06.274Z
+running_for_ms: 1233     
+---
+5051 free
+(eval):1: no such file or directory: /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams/web/.venv/bin/python
+
+---
+exit_code: 127
+elapsed_ms: 1233
+ended_at: 2026-09-07T04:29:07.507Z
+---

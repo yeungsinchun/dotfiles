@@ -1,0 +1,94 @@
+---
+pid: 39861
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && for year in 2013 2014 2015 2016 2017 2020 2021 2022; do\n  pdf=$(ls paper/lq/${year}*.pdf 2>/dev/null | head -1)\n  echo \"=== $pdf -> output/lq/$year ===\"\n  ./segment \"$pdf\" \"output/lq/$year\" --type lq --questions 12 --max-scale 5.0 || echo FAIL $year\ndone 2>&1\n"
+title: "Re-segment years that had poor detection"
+status: succeeded
+started_at: 2026-09-04T17:27:03.441Z
+running_for_ms: 512223   
+---
+=== paper/lq/2013p1b.pdf -> output/lq/2013 ===
+Paper type: LQ (2013p1b.pdf)
+=== LQ: detect and crop questions ===
+  render scale=2.78 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  detected Q1-Q11 (11 questions)
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2013/combined.pdf (11 pages)
+Keeping existing /Users/sinchunyeung/github/paper2db/output/lq/2013/combined.pdf (not duplicating)
+Wrote 11 questions -> /Users/sinchunyeung/github/paper2db/output/lq/2013
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2013/combined.pdf
+=== paper/lq/2014p1b.pdf -> output/lq/2014 ===
+Paper type: LQ (2014p1b.pdf)
+=== LQ: detect and crop questions ===
+  render scale=4.17 (detect 2.50)
+  detected Q1-Q10 (10 questions)
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2014/combined.pdf (10 pages)
+Keeping existing /Users/sinchunyeung/github/paper2db/output/lq/2014/combined.pdf (not duplicating)
+Wrote 10 questions -> /Users/sinchunyeung/github/paper2db/output/lq/2014
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2014/combined.pdf
+=== paper/lq/2015p1b.pdf -> output/lq/2015 ===
+Paper type: LQ (2015p1b.pdf)
+=== LQ: detect and crop questions ===
+  render scale=5.00 (detect 2.75)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  detected Q1-Q10 (10 questions)
+Keeping existing /Users/sinchunyeung/github/paper2db/output/lq/2015/combined.pdf (not duplicating)
+Keeping existing /Users/sinchunyeung/github/paper2db/output/lq/2015/combined.pdf (not duplicating)
+Wrote 10 questions -> /Users/sinchunyeung/github/paper2db/output/lq/2015
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2015/combined.pdf
+=== paper/lq/2016p1b.pdf -> output/lq/2016 ===
+Paper type: LQ (2016p1b.pdf)
+=== LQ: detect and crop questions ===
+  render scale=4.17 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  detected Q1-Q9 (9 questions)
+Keeping existing /Users/sinchunyeung/github/paper2db/output/lq/2016/combined.pdf (not duplicating)
+Keeping existing /Users/sinchunyeung/github/paper2db/output/lq/2016/combined.pdf (not duplicating)
+Wrote 9 questions -> /Users/sinchunyeung/github/paper2db/output/lq/2016
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2016/combined.pdf
+=== paper/lq/2017p1b.pdf -> output/lq/2017 ===
+Paper type: LQ (2017p1b.pdf)
+=== LQ: detect and crop questions ===
+  render scale=2.78 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  detected Q1-Q10 (10 questions)
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2017/combined.pdf (10 pages)
+Keeping existing /Users/sinchunyeung/github/paper2db/output/lq/2017/combined.pdf (not duplicating)
+Wrote 10 questions -> /Users/sinchunyeung/github/paper2db/output/lq/2017
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2017/combined.pdf
+=== paper/lq/2020p1b.pdf -> output/lq/2020 ===
+Paper type: LQ (2020p1b.pdf)
+=== LQ: detect and crop questions ===
+  render scale=5.00 (detect 2.75)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  detected Q1-Q10 (10 questions)
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2020/combined.pdf (10 pages)
+Keeping existing /Users/sinchunyeung/github/paper2db/output/lq/2020/combined.pdf (not duplicating)
+Wrote 10 questions -> /Users/sinchunyeung/github/paper2db/output/lq/2020
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2020/combined.pdf
+=== paper/lq/2021p1b.pdf -> output/lq/2021 ===
+Paper type: LQ (2021p1b.pdf)
+=== LQ: detect and crop questions ===
+  render scale=4.17 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  detected Q1-Q9 (9 questions)
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2021/combined.pdf (9 pages)
+Keeping existing /Users/sinchunyeung/github/paper2db/output/lq/2021/combined.pdf (not duplicating)
+Wrote 9 questions -> /Users/sinchunyeung/github/paper2db/output/lq/2021
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2021/combined.pdf
+=== paper/lq/2022p1b.pdf -> output/lq/2022 ===
+Paper type: LQ (2022p1b.pdf)
+=== LQ: detect and crop questions ===
+  render scale=4.17 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  detected Q1-Q10 (10 questions)
+Keeping existing /Users/sinchunyeung/github/paper2db/output/lq/2022/combined.pdf (not duplicating)
+Keeping existing /Users/sinchunyeung/github/paper2db/output/lq/2022/combined.pdf (not duplicating)
+Wrote 10 questions -> /Users/sinchunyeung/github/paper2db/output/lq/2022
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2022/combined.pdf
+
+---
+exit_code: 0
+elapsed_ms: 512223
+ended_at: 2026-09-04T17:35:35.664Z
+---

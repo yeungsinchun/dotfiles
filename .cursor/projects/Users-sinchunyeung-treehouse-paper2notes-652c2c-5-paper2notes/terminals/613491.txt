@@ -1,0 +1,12 @@
+---
+pid: 84834
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes"
+command: "npx -y lavish-axi poll .lavish/book5-overhaul-review.html"
+title: "Wait for Lavish review feedback"
+status: running  
+started_at: 2026-09-15T05:09:41.215Z
+running_for_ms: 31548892 
+---
+[lavish-axi] Long-polling for user feedback on /Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes/.lavish/book5-overhaul-review.html. This stays silent until the user sends feedback or ends the session - leave it running. Detected layout issues do NOT return this poll: they wait in the user's Layout issues inbox until the user queues them as ordinary feedback. If it gets killed or times out before feedback arrives, re-run `lavish-axi poll /Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes/.lavish/book5-overhaul-review.html` - feedback remains queued until delivery. Poll delivery consumes the response, so read it completely.
+
+[lavish-axi] Poll interrupted before user feedback arrived. The user may still be reviewing - re-run `lavish-axi poll /Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes/.lavish/book5-overhaul-review.html` to keep waiting; feedback remains queued until delivery. Poll delivery consumes the response, so read it completely.

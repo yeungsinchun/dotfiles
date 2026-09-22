@@ -1,0 +1,2844 @@
+<code=PHY14021101>
+<lvl=dif><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+««
+
+B3
+
+B1
+
+B2
+
+The figure shows a circuit with three light bulbs B1, B2 and B3 and a battery of negligible
+internal resistance. In 1 s, B1, B2, B3 dissipate energy of 4 J, 8 J and 4 J respectively. Which of
+the following relationships are correct?
+(1) Current through B3 : current through B2 = 1 : 2
+(2) Voltage across B1 : voltage across B2 = 1 : 2
+(3) Energy supplied by the battery : energy dissipated by B2 = 2 : 1
+A (1) and (2) only
+B (1) and (3) only
+C (2) and (3) only
+D (1), (2) and (3)
+-- ans –
+
+B
+The energy dissipated in each second is equal to the power.
+Since B3 and B2 are connected in parallel, the voltages across the two bulbs are equal.
+P = VI µ I
+Current through B3 : current through B2
+= power dissipated by B3 : power dissipated by B2
+=4:8
+=1:2
+∴ (1) is correct.
+Considering B₂ and B₃ combined as a single resistor which is connected in series to B₁.
+The currents through this resistor and B₁ are equal.
+P = VI µ V
+Total power dissipated by B₂ and B₃ = 8 + 4 = 12 W
+Voltage across B1 : voltage across B2
+= voltage across B1 : voltage across the resistor
+= power dissipated by B1 : total power dissipated by B₂ and B₃
+= 4 : 12
+= 1 : 23
+∴ (2) is incorrect.
+Energy supplied the battery : energy dissipated by B2
+= (4 + 8 + 4) : 8
+=2:1
+∴ (3) is correct.
+-- ans end --
+
+<end>
+
+<code=PHY14021102>
+<lvl=dif><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+««
+A
+
+4W
+
+A
+
+R2
+2W
+
+R1
+
+R3
+
+8W
+16 W
+
+The figure shows a circuit to be completed by connecting resistors at R1, R2 and R3, one for
+each place. Three resistors of resistance 2 W, 8 W and 16 W are provided. Which of the
+following arrangements of resistors will make the readings of the two ammeters the same?
+R1
+R2
+R3
+(1)
+2W
+16 W
+8W
+(2)
+8W
+2W
+16 W
+(3)
+16 W
+2W
+8W
+A (1) only
+B (2) only
+C (1) and (3) only
+D (1), (2) and (3)
+-- ans –
+
+C
+Let I0, I1, I2 and I3 be the current through the 4-W resistor, R1, R2 and R3 respectively.
+!!
+"
+!
+#
+= # and !# = ##
+!
+"
+
+"
+
+$
+
+$
+
+For the readings of the two ammeters the same, I0 = I2. Since I0 + I1 = I2 + I3, it can be
+deduced that I1 = I3. Therefore,
+!!
+!
+= !#
+!
+"
+
+"
+
+#"
+
+$
+
+=
+
+##
+#$
+
+For (1),
+"
+"
+=$=2
+#
+"
+
+##
+#$
+
+%&
+
+= ' =2
+
+∴ (1) is correct.
+For (2),
+"
+"
+%
+='=$
+#
+"
+
+##
+#$
+
+$
+
+%
+
+= %& = '
+
+∴ (2) is incorrect.
+For (3),
+"
+"
+%
+= %& = "
+#
+"
+
+##
+#$
+
+$
+
+%
+
+'
+
+"
+
+= =
+
+∴ (3) is correct.
+-- ans end --
+
+<end>
+<code=PHY14021103>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+N
+
+O
+
+M
+
+P
+
+Four identical resistors and a battery are connected as shown. An electron has the greatest
+energy change when it moves from
+A point P to O.
+B point O to N.
+C point N to M.
+D point M to P.
+-- ans –
+
+D
+The voltage across MP (the energy source) is the highest. Therefore, an electron moves
+from point M to P has the greatest energy change (gain).
+If you have taken ‘energy change’ as ‘energy loss’ only and thought that the energy loss
+in the battery is zero, you may think options other than D are correct. In fact, ‘energy
+change’ includes ‘energy gain’.
+Note that the voltages across PO and NM are the same and therefore the energy change
+(loss) of an electron is the same when moving from point P to O and from point N to M.
+Besides, the voltage across ON is the lowest among the four regions and therefore the
+energy change of an electron is the least when moving from point O to N.
+-- ans end --
+
+<end>
+<code=PHY14021104>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+Y
+
+V
+X
+
+Z
+
+In the above circuit, all light bulbs are identical. A voltmeter connected to points X and Y gives
+a reading of 2 V. After its terminal at point Y is moved to point Z, the reading of the voltmeter
+becomes
+A 6 V.
+B 2 V.
+C –2V.
+D –6 V.
+-- ans –
+
+C
+When the voltmeter is connected across XY, it measures the voltage across the left light
+bulb in the circuit branch with two light bulbs. When the voltmeter is connected across
+XZ, it measures the voltage across the right light bulb in the same branch. Hence, the
+voltage is also 2 V.
+However, since the positive terminal of the voltmeter originally connected to point Y (in
+contact with + terminal of the battery) is moved to point Z (in contact with – terminal of the
+battery), the reading becomes –2 V.
+If you think option A is correct, you may have made two mistakes:
+(i) taking the sum of voltage across the two light bulbs in different branches as the
+voltage across XZ.
+(ii) not considering the change in sign due to the new connection.
+If you think option B is correct, you may have made mistake (ii).
+If you think option D is correct, you may have made mistake (i).
+-- ans end --
+
+<end>
+<code=PHY14021105>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+A
+
+In the above circuit, all resistors are identical. The ammeter reads 1.0 A. Find the current
+through battery.
+A 2.0 A
+B 2.5 A
+C 3.0 A
+D 4.0 A
+-- ans –
+
+A
+Let r be the resistance of each resistor.
+The ammeter measures the total current through the bottom two branches in the circuit.
+Let R be the equivalent resistance of the two branches.
+%
+%
+%
+=
++
+#
+()(
+()(
+R=r
+In other words, the two branches are equivalent to the branch with a single resistor of
+resistance r.
+Current through the battery = 1.0 + 1.0 = 2.0 A
+-- ans end --
+
+<end>
+<code=PHY14021106>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+X
+
+Y
+
+In the above circuit, all resistors are identical. The voltage across points X and Y is 1 V and the
+current through them is 1 A. What is the e.m.f. of the battery?
+A 2V
+B 3V
+
+C
+D
+
+4V
+5V
+
+-- ans –
+
+D
+*
+%
+Resistance of the resistor between X and Y = ! = % = 1 W
+Voltage across each parallel branch = IR = 1 ´ (1 + 1) = 2 V
+*
+$
+Current in the branch with only one resistor = # = % = 2 A
+Current through the battery = 1 + 2 = 3 A
+Voltage across the resistor in series to the battery = IR = 3 ´ 1 = 3 V
+E.m.f. of the battery = 3 + 2 = 5 V
+If you think option A is correct, you may miss the voltage across the resistor connected in
+series with the battery.
+-- ans end --
+
+<end>
+<code=PHY14021107>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+2l
+l
+2d
+
+d
+
+resistance r
+
+Two uniform cylindrical rods, one in grey and one in white, of the same material are joined
+end-by-end to form a component as shown. The grey rod has diameter 2d and length 2l while
+the white one has diameter d and length l. The resistance of the grey rod across its ends is r.
+What is the resistance of the whole component across its ends?
+!
+
+A
+
+"
+
+B
+C
+D
+
+𝑟
+
+2r
+3r
+4r
+
+-- ans –
+
+C
+Let r1 be the resistance of the white rod.
+$+
++
+r = 𝜌 ,($.)# = 𝜌 $,.#
++
+
+r1 = 𝜌 # = 2r
+,.
+Resistance of the whole component = r + 2r = 3r
+-- ans end --
+
+<end>
+<code=PHY14021108>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+R1
+R2
+
+All resistors in the above circuit are identical. The power dissipated by R1 is 36 W. What is the
+power dissipated by R2?
+A 4W
+B 12 W
+C 16 W
+D 36 W
+-- ans –
+
+A
+Let r be the resistance of each resistor,
+V be the voltage across the parallel branches.
+*
+Current I in the upper branch =
+*
+
+$(
+
+Current in the lower branch = ( = 2I
+Current I1 through R1 = I + 2I = 3I
+Apply P = I2R.
+For R1,
+36 = (3I)2r
+I2r = 4
+For R2,
+power dissipated = I2r = 4 W
+-- ans end --
+
+<end>
+<code=PHY14021109>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+A circuit is connected as shown.
+V
+
+A
+
+How will the readings of the ammeter and the voltmeter change if the resistance of the variable
+resistor is increased?
+Ammeter reading
+Voltmeter reading
+A
+Increases
+Decreases
+B
+Increases
+Remains unchanged
+C
+Decreases
+Decreases
+D
+Decreases
+Remains unchanged
+-- ans –
+
+C
+Consider the whole circuit. By V = IR, as the total resistance in the circuit increases, the
+ammeter reading decreases.
+Consider the fixed resistor. By V = IR, as the current through the fixed resistor decreases,
+the voltmeter reading decreases.
+-- ans end --
+
+<end>
+<code=PHY14021110>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+Three resistors are connected to a 5-V battery as shown.
+
+I1
+
+1W
+
+I2
+
+2W
+
+I3
+
+3W
+
+5V
+
+I1, I2 and I3 are the currents passing through each of these three resistors. Which of the
+following equations relating these values are correct?
+(1) 2I2 = 3I3
+(2) I1 = I2 + I3
+(3) I1 + 2I2 = 5 A
+A (1) and (2) only
+B (1) and (3) only
+C (2) and (3) only
+D (1), (2) and (3)
+-- ans –
+
+D
+The current flowing into a junction is equal to the total currents flowing out from the same
+junction.
+∴ (2) is correct.
+Apply V = IR.
+Voltage across 2-W resistor = voltage across 3-W resistor
+
+I2 ´ 2 = I3 ´ 3
+2I2 = 3I3
+∴ (1) is correct.
+Apply V = IR.
+Voltage across 1-W resistor + voltage across 2-W resistor = e.m.f. of the battery
+I1 ´ 1 + I2 ´ 2 = 5
+I1 + 2I2 = 5 A
+∴ (3) is correct.
+-- ans end --
+
+<end>
+<code=PHY14021111>
+<lvl=dif><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«« Networks P and Q are formed by identical resistors R1 to R6.
+network P
+R1
+R3
+R2
+
+network Q
+R5
+
+R4
+
+R6
+
+If both networks are connected to a power source with the same e.m.f., which of the following
+statements are correct?
+(1) Network P has a higher equivalent resistance than network Q.
+(2) The current through R1 is larger than that through R4.
+(3) The p.d. across R3 is greater than that across R5.
+A (1) and (2) only
+B (1) and (3) only
+C (2) and (3) only
+D (1), (2) and (3)
+-- ans –
+
+B
+Let r be the resistance of each resistor.
+Equivalent resistance R12 of R1 and R2:
+%
+%
+%
+%
+%
+=# +# =(+(
+#
+"#
+
+"
+
+#
+
+R12 = 0.5r
+Equivalent resistance of network P
+= 0.5r + r = 1.5r
+Equivalent resistance R45 of R4 and R5
+= r + r = 2r
+Equivalent resistance RQ of network Q:
+%
+%
+%
+%
+%
+= # + # = $( + (
+#
+%
+
+&'
+
+(
+
+RQ = 0.667r
+∴ (1) is correct.
+Let V0 be the e.m.f. of the power source.
+*
+Apply I = #.
+*
+
+!
+Total current in network P = %.1(
+
+%
+
+*!
+
+$
+*!
+
+%.1(
+
+Current through R1 = ×
+
+*
+
+= !
+
+2(
+
+Current through R4 = $(
+∴ (2) is incorrect.
+*
+In network Q, as the resistances of R4 and R5 are equal, the p.d. across R5 is equal to ! .
+$
+In network P, as the resistance of R3 is higher than the equivalent resistance of R1 and
+*
+R2, the p.d. across R3 greater than $! .
+∴ (3) is correct.
+-- ans end --
+
+<end>
+<code=PHY14021112>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+When a battery of e.m.f. V is connected to a resistor of resistance 3R, the power dissipated by
+the resistor is P. What is the power dissipated by a resistor of resistance R connected to a
+battery of e.m.f. 2V?
+"
+A
+!
+!
+B 2P
+C 6P
+D 12P
+
+-- ans –
+
+D
+When a battery of e.m.f. V is connected to a resistor of resistance 3R,
+*#
+
+P = 2#
+When a battery of e.m.f. 2V is connected to a resistor of resistance R,
+power dissipated =
+-- ans end --
+
+($*)#
+#
+
+=
+
+"* #
+#
+
+= 12 ×
+
+*#
+
+2#
+
+= 12P
+
+<end>
+<code=PHY14021113>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+Which of the following statements about Ohm’s law is/are correct?
+(1) All conductors obey Ohm’s law.
+
+(2) Ohmic devices refer to the devices that obey Ohm’s law.
+(3) If two ohmic devices are connected in parallel, the resulting combination is also ohmic.
+A (1) only
+B (2) only
+C (1) and (2) only
+D (2) and (3) only
+-- ans –
+
+D
+Some conductors do not obey Ohm’s law.
+∴ (1) is incorrect.
+(2) is the definition of ohmic devices.
+∴ (2) is correct.
+When two ohmic devices with resistance R1 and R2 are connected in parallel, the
+%
+
+% 3%
+
+"
+
+#
+
+resulting combination has an equivalent resistance equal to )# + # + . This equivalent
+resistance remains the same when different p.d. is applied across it.
+∴ (3) is correct.
+-- ans end --
+
+<end>
+<code=PHY14021114>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+In the circuit below, the readings of ammeters A1, A2 and A3 are I1, I2 and I3 respectively.
+
+A3
+A1
+A2
+
+Which of the following is correct?
+A I1 = I2 = I3
+B I1 = I2 > I3
+C I1 + I2 = I3
+D I1 + I2 > I3
+-- ans –
+
+C
+The current flowing into a junction is equal to the total currents flowing out from the same
+junction.
+-- ans end --
+
+<end>
+<code=PHY14021115>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+In the circuit below, the readings of ammeters A1, A2 and A3 are I1, I2 and I3 respectively.
+
+A1
+
+A3
+A2
+
+Which of the following is correct?
+A I1 = I 2 = I 3
+B I1 < I 2 < I 3
+C I1 > I 2 > I 3
+D Cannot be determined
+-- ans –
+
+A
+The current is the same at all points in a series connection.
+-- ans end --
+
+<end>
+<code=PHY1402116>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+Which of the following statements correctly describes an ohmic device?
+A It emits light when a voltage is applied.
+B Its temperature increases when a voltage is applied.
+C Its resistance changes when its temperature increases.
+D The current passing through it is proportional to the voltage across it.
+-- ans –
+
+D
+By Ohm’s law, V µ I, which is equivalent to I µ V.
+-- ans end --
+
+<end>
+<code=PHY14021117>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+The following shows a ‘hill diagram’ of part of a circuit.
+
+What does the height of the diagram represent?
+A Potential energy of electrons
+B Kinetic energy of electrons
+C Potential energy of positive charges
+D Kinetic energy of positive charges
+
+-- ans –
+
+A
+The positive terminal of the battery has a higher electric potential than the negative
+terminal. When electrons, which carry negative charges, move from the positive terminal
+of the battery to the negative terminal via the battery, their potential energy increases.
+-- ans end --
+
+<end>
+<code=PHY14021118>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+A voltage of 1.5 V is applied across a light bulb of resistance 2 W. What is the current flowing
+through the light bulb?
+A 0.333 A
+B 0.75 A
+C 1.33 A
+D 3A
+
+-- ans –
+
+B
+Current =
+
+! !!"
+=
+= #!A"%&
+"
+'
+
+-- ans end --
+
+<end>
+<code=PHY14021119>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+Consider the following circuit.
+6V
+
+1W
+
+3W
+
+Find the current through the 3-W resistor.
+A 1.5 A
+B 2A
+C 3A
+D 4.5 A
+-- ans –
+
+B
+Current =
+-- ans end --
+
+<end>
+
+! !
+= = "#A
+" %
+
+<code=PHY14021120>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+Consider the following circuit.
+6V
+
+1W
+
+3W
+
+Find the current through the 3-W resistor.
+A 1.5 A
+B 2A
+C 3A
+D 4.5 A
+-- ans –
+
+A
+Req = 1 + 3 = 4 W
+Current =
+
+!
+!
+= = "##A%
+"!" &
+
+-- ans end --
+
+<end>
+<code=PHY14021121>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+Consider the following circuit.
+6V
+
+1W
+
+Find the voltage across the 3-W resistor.
+A 1.5 V
+B 2V
+C 3V
+D 4.5 V
+-- ans –
+
+D
+Req = 1 + 3 = 4 W
+Current through the resistors =
+
+!
+!
+= = "##A%
+"!" &
+
+Voltage across 3-W resistor = IR = 1.5 ´ 3 = 4.5 V
+-- ans end --
+
+<end>
+<code=PHY14021122>
+
+3W
+
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+A light bulb is connected to a battery as shown.
+
+In which of the following cases would the light bulb be the dimmest?
+A Connect a resistor with low resistance in series to the light bulb.
+B Connect a resistor with high resistance in series to the light bulb.
+C Connect a resistor with low resistance in parallel to the light bulb.
+D Connect a resistor with high resistance in parallel to the light bulb.
+-- ans –
+
+B
+
+*#
+
+By P = , the smaller the p.d. across the light bulb, the dimmer the light bulb is.
+#
+Connecting a resistor in parallel to the bulb does not affect the p.d. across the bulb.
+Connecting a resistor in series to the bulb makes the p.d. across the bulb become
+smaller. The higher the resistance of the resistor, the larger the p.d. across the resistor
+and hence the smaller the p.d. across the light bulb.
+-- ans end --
+
+<end>
+<code=PHY14021123>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+Which of the following statements is incorrect?
+A A current is a flow of electric charges.
+B Current can be measured in amperes.
+C In metals, the direction of current is opposite to the direction of flow of electrons.
+D Metals become negatively charged when carrying a current.
+-- ans –
+
+D
+Current is a flow of charges already present in a circuit. If a conductor is neutral, it will not
+gain net charge when a current flows through it.
+-- ans end --
+
+<end>
+<code=PHY14021124>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+Which of the following statements are correct?
+(1) Wires in circuits are conductors.
+(2) Conductors contain movable charges.
+(3) Conductors have zero resistance.
+A (1) and (2) only
+
+B
+C
+D
+
+(1) and (3) only
+(2) and (3) only
+(1), (2) and (3)
+
+-- ans –
+
+A
+Most conductors have non-zero resistance under normal conditions.
+∴ (3) is incorrect.
+-- ans end --
+
+<end>
+<code=PHY14021125>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+A lamp is switched on and it draws a current of I amperes for t minutes. How much charge has
+passed through the lamp?
+A It C
+B 60It C
+"
+C
+C
+!"!
+!" "
+D
+C
+!
+-- ans –
+
+B
+
+!
+!"#
+! = !" "# #$
+"=
+
+-- ans end --
+
+<end>
+<code=PHY14021126>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+If 1.88 ´ 1018 electrons flow through a resistor each second, what is the current passing through
+the resistor? (Given: charge of an electron = -1.6 ´ 10-19 C)
+A 0.301 A
+B 3.32 A
+C 1.88 ´ 1018 A
+D 1.18 ´ 1037 A
+
+-- ans –
+
+A
+Current
+
+!
+"
+!!A " !%!!" " !!## " !%!#
+=
+!
+= %!&%!'(
+=
+
+-- ans end --
+
+<end>
+<code=PHY14021127>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+The following figure shows a simple circuit.
+V
+
+bulb B
+bulb A
+A
+
+Which of the following statements is/are correct?
+(1) Electrons flow in the clockwise direction in the circuit.
+(2) The light bulbs absorb some charges to glow.
+(3) Charge flows slower in bulb B than in bulb A.
+A (1) only
+B (3) only
+C (1) and (2) only
+D (2) and (3) only
+-- ans –
+
+A
+The current flows from the positive terminal to the negative terminal of the battery via the
+circuit. Negatively charged electrons flow in the opposite direction.
+∴ (1) is correct.
+The charges flow through the light bulbs but are not absorbed by them.
+∴ (2) is incorrect.
+As the two light bulbs are connected in series, charge flows at the same rate in both
+bulbs.
+∴ (3) is incorrect.
+-- ans end --
+
+<end>
+<code=PHY14021128>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+A student wants to measure the current flowing through a resistor connected to a battery. How
+should the ammeter be connected?
+
+A
+
+B
+-
+
+A
+
+C
+
++
+
++
+
+A
+
+-
+
+D
+
++
+
+A
+
+-
+
+-
+
+A
+
++
+
+-- ans –
+
+B
+An ammeter should be connected in series with the component to be measured. The
+current should enter an ammeter via the positive terminal and exit via the negative one.
+-- ans end --
+
+<end>
+<code=PHY14021129>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+When 6 C of charge passes through a cell, 12 J of energy is supplied to the charge. What is the
+voltage across the cell?
+A 0.5 V
+B 2V
+C 6V
+D 12 V
+-- ans –
+
+B
+Voltage =
+
+! !"
+=
+= "#$
+" %
+
+-- ans end --
+
+<end>
+<code=PHY14021130>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+A 1-V battery is connected to a resistor. Which of the following statements is correct?
+A When 0.5 C of charge passes through the battery, 0.5 J of the electric potential energy is
+converted to other forms of energy.
+B When 0.5 C of charge passes through the battery, 2 J of the electric potential energy is
+converted to other forms of energy.
+C When 0.5 C of charge passes through the resistor, 0.5 J of the electric potential energy is
+converted to other forms of energy.
+D When 0.5 C of charge passes through the resistor, 2 J of the electric potential energy is
+converted to other forms of energy.
+
+-- ans –
+
+C
+Charges gain electric potential energy from the battery when passing through it.
+∴ A and B are incorrect.
+When 0.5 C of charge passes through the resistor,
+electric PE converted = VQ = 1 ´ 0.5 = 0.5 J
+-- ans end --
+
+<end>
+<code=PHY14021131>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+When 3 ´ 1019 electrons pass through a battery, 18 J of energy is supplied to the them. What is
+the voltage across the battery?
+(Given: charge of an electron = -1.6 ´ 10-19 C)
+A 3.75 V
+B 4.8 V
+C 7.5 V
+D 18 V
+
+-- ans –
+
+A
+Voltage =
+
+!
+!#
+=
+= $!%&'(
+!!"
+" !!) " !* " $ " !*!"
+
+-- ans end --
+
+<end>
+<code=PHY14021132>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+A student wants to measure the voltage across a resistor connected to a battery. How should the
+voltmeter be connected?
+A
+B
+-
+
+V
+
+C
+
++
+
++
+
+V
+
+-
+
+D
+
++
+
+V
+
+-
+
+-
+
+V
+
++
+
+-- ans –
+
+C
+A voltmeter should be connected in parallel with the component to be measured. Its
+positive terminal should be connected to the positive terminal of the battery.
+-- ans end --
+
+<end>
+
+<code=PHY14021133>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+All of the following cells are identical. Which of the following combinations of cells gives an
+e.m.f. different from the other three?
+A
+B
+C
+
+D
+
+-- ans –
+
+A
+Let e be the e.m.f. of each cell.
+A: E.m.f. = e + e + e = 3e
+B: E.m.f. = e + e + (-e) = e
+C: E.m.f. = e
+D: E.m.f. = e
+-- ans end --
+
+<end>
+<code=PHY14021134>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+The radius and length of a wire are respectively R and L. Four other wires are made of the same
+material but have different radii and lengths as shown below. Which of the four wires have the
+lowest resistance?
+Radius of wire
+Length of wire
+A
+!
+!
+!
+!
+B
+2L
+!
+!
+C
+2R
+!
+!
+D
+2R
+2L
+-- ans –
+
+C
+Let r be the resistivity of the material used to make the wires.
+
+!
+"
+!! !
+!
+Resistance of wire in A = ! = !
+=
+!
+#
+! A!
+"A#
+!$ %
+&!'
+
+!
+!"
+"! "
+=!
+=
+!
+#
+! A!
+"A#
+!$ %
+&!'
+!
+"
+! !
+!
+Resistance of wire in C = ! = !
+=
+!
+#
+"! A !
+! ( "A )
+!
+!"
+! "
+Resistance of wire in D = ! = !
+=
+!
+#
+!! A !
+! ( "A )
+Resistance of wire in B = !
+
+The resistance of wire in C is the lowest.
+-- ans end --
+
+<end>
+<code=PHY14021135>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+A metal wire of length l and diameter d has a resistance of 10 Ω. If another wire made of the
+same metal is 2l in length and 0.5d in diameter, what is its resistance?
+A 5W
+B 10 W
+C 40 W
+D 80 W
+-- ans –
+
+D
+Let r be the resistivity of the metal.
+For the first metal wire,
++
++
++
+resistance = 𝜌 4 = 𝜌 ) # = 4𝜌 ,.#
+,5 6
+#
+
++
+
+∴ 4𝜌 ,.# = 10
+For the second metal wire,
++
+$+
++
+resistance = 𝜌 4 = 𝜌 !.') # = 8 × 4𝜌 ,.# = 8 ´ 10 = 80 W
+,5
+
+-- ans end --
+
+#
+
+6
+
+<end>
+<code=PHY14021136>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+In the following circuit, what is the reading of the voltmeter when both switches S1 and S2 are
+closed?
+
+6V
+
+R1
+
+S1
+
+R2
+
+S2
+
+V
+
+A
+B
+C
+D
+
+0
+3V
+6V
+Cannot be determined
+
+-- ans –
+
+C
+The voltmeter is connected in parallel with the 6-V battery, so its reading is 6 V.
+-- ans end --
+
+<end>
+<code=PHY14021137>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+In the following circuit, what is the reading of the voltmeter when both switches S1 and S2 are
+open?
+6V
+
+R1
+
+S1
+
+R2
+
+S2
+
+V
+
+A
+B
+C
+D
+
+0
+3V
+6V
+Cannot be determined
+
+-- ans –
+
+C
+The voltmeter is connected in parallel with the 6-V battery, so its reading is 6 V.
+-- ans end --
+
+<end>
+<code=PHY14021138>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+Consider the following circuit.
+3V
+1Ω
+4Ω
+2Ω
+
+What is the current flowing through the 1-W resistor?
+A 0.21 A
+B 0.43 A
+C 0.64 A
+D 0.86 A
+-- ans –
+
+B
+Equivalent resistance of 1-W and 2-W resistors:
+%
+%
+%
+= +
+#"#
+
+%
+
+$
+
+R12 = 0.667 W
+Total resistance in the circuit = 4 + 0.667 = 4.667 W
+*
+2
+Current drawn from the battery = =
+= 0.643 A
+#
+".&&7
+P.d. across 4-W resistor = IR = 0.643 ´ 4 = 2.57 V
+P.d. across 1-W resistor = 3 - 2.57 = 0.43 V
+*
+8."2
+Current through 1-W resistor = =
+= 0.43 A
+-- ans end --
+
+#
+
+%
+
+<end>
+<code=PHY14021139>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+Four identical lamps are connected as shown.
+L1
+•
+•
+
+L2
+•
+L3
+
+•
+
+L4
+
+If the filament in L3 is burnt, which of the following will happen?
+(1) L1 becomes dimmer.
+(2) L2 becomes dimmer.
+(3) L4 becomes brighter.
+A (1) only
+B (2) only
+C (1) and (3) only
+
+D
+
+(2) and (3) only
+
+-- ans –
+
+C
+When the filament in L3 is burnt, the equivalent resistance Req of the parallel branches
+increases.
+Recall that:
+p.d. across L1 : p.d. across parallel branches = resistance of L1 : Req
+With the sum of the p.d. across L1 and that across parallel branches unchanged, the p.d.
+across L1 decreases while the p.d. across parallel branches increases.
+*#
+
+By P = # , L1 becomes dimmer while L2 and L4 become brighter.
+
+-- ans end --
+
+<end>
+<code=PHY14021140>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+The figure below shows the battery of a notebook computer.
+
+(Courtesy of n3rraD)
+It works at 11.1 V and its capacity is 4800 mA h (i.e. 4.8 A h). A capacity of 1 A h is equal to
+the charge transferred by a steady current of 1 A flowing for one hour. Estimate the energy that
+the battery can provide after it is completely charged up.
+A 53 J
+B 3 kJ
+C 53 kJ
+D 192 kJ
+-- ans –
+
+D
+Energy = VQ = V(It) = 11.1 ´ 4.8 ´ (1 ´ 60 ´ 60) = 1.92 ´ 105 J = 192 kJ
+-- ans end --
+
+<end>
+<code=PHY14021141>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+In the following circuit, the voltages across bulbs A and B are 3 V and 2 V respectively.
+
+V
+
+bulb A
+
+bulb B
+
+Which of the following statements must be correct?
+(1) More charge pass through bulb A than bulb B in each second.
+(2) For each coulomb of charge, bulb A consumes 1 J of energy more than bulb B.
+(3) The current in the circuit is 5 A.
+A (2) only
+B (1) and (2) only
+C (1) and (3) only
+D (2) and (3) only
+-- ans –
+
+A
+The current is the same at all points in a series connection.
+∴ (1) is incorrect.
+Apply E = VQ.
+For each coulomb of charge,
+energy consumed by bulb A = 3 ´ 1 = 3 J
+energy consumed by bulb B = 2 ´ 1 = 2 J
+∴ (2) is correct.
+The resistances of the two bulbs are not given, so we cannot determine the current in the
+circuit.
+∴ (3) is incorrect.
+-- ans end --
+
+<end>
+<code=PHY14021142>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+The radii of two copper rods X and Y are the same. The length of X is twice that of Y. What is
+the ratio of the resistance of X to that of Y?
+A 1:4
+B 1:2
+C 2:1
+D 4:1
+-- ans –
+
+C
+When the cross-sectional areas of two copper rods are the same, the ratio of their
+resistances is equal to the ratio of their lengths.
+RX : RY = lX : lY = 2 : 1
+-- ans end --
+
+<end>
+
+<code=PHY14021143>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+A large constant voltage is applied across a tungsten wire. Which of the following statements is
+incorrect?
+A The temperature of the wire will gradually increase.
+B The current through the wire will gradually decrease.
+C If the voltage is plotted against the current through the wire as time progresses, a straight
+line will be obtained.
+D The resistance of the wire can reach an extremely low value.
+
+-- ans –
+
+D
+When a large constant voltage is applied across a tungsten wire, a large current flows
+through the wire and heats up the wire.
+∴ A is correct.
+The resistance R of the wire increases with the temperature of the wire. By " =
+
+!
+, the
+#
+
+current through the wire gradually decreases as R increases.
+∴ B is correct. D is incorrect.
+A horizontal straight line will be obtained as the value of I decreases when V is kept
+constant.
+∴ C is correct.
+-- ans end --
+
+<end>
+<code=PHY14021144>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+Mary performs an experiment to find out how the voltage V across a resistance wire varies with
+the current I through the wire. She obtains the following graph from the experimental result.
+V
+
+I
+
+How will the graph change (indicated with a dotted line) if the experiment is repeated with a
+shorter wire of the same material and of equal radius?
+A
+B
+V
+V
+
+I
+
+I
+
+C
+
+D
+
+V
+
+V
+
+I
+
+I
+
+-- ans –
+
+B
+A shorter wire has a smaller resistance. As the slope of the V-I graph is the resistance of
+the wire, the slope of the graph for a shorter wire should be smaller.
+By V = IR, the V-I graph always passes through the origin.
+-- ans end --
+
+<end>
+<code=PHY14021145>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+The following graph shows how the current through a resistance wire changes with the voltage
+across it.
+I
+
+V
+
+Which of the following statements is/are correct?
+(1) The resistance wire does not obey Ohm’s law.
+(2) The resistance of the wire increases with the voltage across it.
+(3) The resistance of the wire approaches zero when the current approaches zero.
+A (1) only
+B (1) and (2) only
+C (1) and (3) only
+D (2) and (3) only
+-- ans –
+
+B
+Since V is not directly proportional to I, the resistance wire does not obey Ohm’s law.
+∴ (1) is correct.
+By " =
+
+!
+, the resistance of the wire increases with the voltage across it.
+#
+
+∴ (2) is correct.
+When the current approaches zero, the I-V graph is not vertical and hence the resistance
+of the wire does not approach zero.
+∴ (3) is incorrect.
+-- ans end --
+
+<end>
+
+<code=PHY14021146>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+Terry connects the circuit below and finds that the resistance of the metal wire changes with
+temperature as shown in the graph as follows.
+resistance / Ω
+
+V
+
+10
+A
+
+metal wire
+
+5
+V
+
+0
+
+50
+
+100
+
+150
+
+200
+
+temperature / °C
+
+The ammeter reading is 1 A when the temperature of the wire is 25 °C. What is the reading of
+the ammeter when the temperature of the wire increases to 200 °C?
+A 0.417 A
+B 0.6 A
+C 0.833 A
+D 1.2 A
+-- ans –
+
+A
+From the graph, the resistance of the metal wire is 5 W at 25 °C and 12 W at 200 °C.
+When the temperature is 25 °C,
+V = IR = 1 ´ 5 = 5 V
+When the temperature is 200 °C,
+*
+1
+I = # = %$ = 0.417 A
+
+-- ans end --
+
+<end>
+<code=PHY14021147>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+The resistors in the following circuit are all identical.
+V
+A1
+
+A6
+A2
+A5
+A3
+A4
+
+Which of the following statements is incorrect?
+A The reading of A1 is equal to that of A6.
+
+B
+C
+D
+
+The reading of A2 is equal to that of A3.
+The reading of A5 is smaller than that of A2.
+The reading of A3 is smaller than that of A4.
+
+-- ans –
+
+C
+Let I1, I2, I3, I4, I5 and I6 be the currents through ammeters A1, A2, A3, A4, A5 and A6
+respectively.
+Both I1 and I6 are equal to the current passing through the battery.
+∴ A is correct.
+The total resistance of the branch with ammeter A2 is equal to that with ammeter A3, and
+the p.d. across these two branches are equal. By V = IR, I2 and I3 are equal.
+∴ B is correct.
+I5 is equal to the sum of I3 and I4, and therefore is larger than I2.
+∴ C is incorrect.
+The total resistance of the branch with ammeter A3 is higher than that with ammeter A4,
+and the p.d. across these two branches are equal. By V = IR, I3 is smaller than I4.
+∴ D is correct.
+-- ans end --
+
+<end>
+<code=PHY14021148>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+In the following circuit, all resistors are identical.
+A1
+
+A2
+S
+
+When the switch S is closed, how will the readings of ammeters A1 and A2 change?
+Reading of A1
+Reading of A2
+A
+Increases
+Decreases
+B
+Decreases
+Increases
+C
+Increases
+Increases
+D
+Decreases
+Decreases
+-- ans –
+
+A
+Let V1 be the p.d. across the parallel branches with A1,
+V2 be the p.d. across the parallel branches with A2,
+R1 be the equivalent resistance of the parallel branches with A1,
+R2 be the equivalent resistance of the parallel branches with A2.
+When the switch S is closed, R2 decreases.
+Recall that:
+V1 : V2 = R1 : R2
+
+With the sum of V1 and V2 unchanged, V1 increases while V2 decreases.
+By V = IR, the reading of A1 increases while the reading of A2 decreases.
+-- ans end --
+
+<end>
+<code=PHY14021149>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+The light bulbs in the following circuit are identical.
+V
+
+Y
+
+W
+
+Z
+
+X
+
+Which of the following statements are correct?
+(1) Bulbs W and X have the same brightness.
+(2) Bulbs Y and Z have the same brightness.
+(3) Bulb Y is brighter than bulb W.
+A (1) and (2) only
+B (1) and (3) only
+C (2) and (3) only
+D (1), (2) and (3)
+-- ans –
+
+D
+By P = I2R, as all the light bulbs have the same resistance, the one with larger current
+passing through it is brighter.
+Bulbs Y and Z are connected in series, so currents through both bulbs are the same.
+∴ (2) is correct.
+Currents through bulbs W and X are exactly half the current through bulb Y.
+∴ (1) and (3) are correct.
+-- ans end --
+
+<end>
+<code=PHY14021150>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+In the following circuit, the resistance of R2 is half that of R1. When S1 is closed and S2 is open,
+the ammeter reads 1.6 A.
+
+3V
+
+A
+
+5W
+
+R1
+
+S1
+
+R2
+
+S2
+
+What is the reading of the ammeter when both S1 and S2 are closed?
+A 0.6 A
+B 2.8 A
+C 3.6 A
+D 4.2 A
+-- ans –
+
+C
+When S1 is closed and S2 is open,
+*
+2
+equivalent resistance of the circuit = ! = %.& = 1.875 W
+%
+
+%.'71
+
+%
+
+%
+
+=1+#
+
+"
+
+R1 = 3 W
+R2 = 0.5 ´ 3 = 1.5 W
+When both S1 and S2 are closed,
+%
+%
+%
+%
+= 1 + 2 + %.1
+#
+eq
+
+Req = 0.833 W
+*
+2
+Reading of the ammeter = # = 8.'22 = 3.60 A
+eq
+
+-- ans end --
+
+<end>
+<code=PHY14021151>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+In the following circuit, the voltage of the cell is 1 V. The three resistors are identical and each
+has a resistance of 1 Ω.
+
+A
+
+What is the reading of the ammeter in the circuit?
+
+A
+B
+C
+D
+
+0.5 A
+1A
+2A
+3A
+
+-- ans –
+
+C
+Equivalent resistance of the two branches at the bottom:
+%
+%
+%
+=%+%
+#
+eq
+
+Req = 0.5 W
+*
+%
+Reading of the ammeter = # = 8.1 = 2 A
+eq
+
+-- ans end --
+
+<end>
+<code=PHY14021152>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+A 6-V battery and a 12-V battery are connected in series with two resistors of 2 Ω and 4 Ω as
+shown in the following figure.
+2Ω
+
+6V
+
+4Ω
+
+12 V
+
+P
+
+Q
+
+What is the voltage across PQ?
+A 0V
+B 6V
+C 12 V
+D 18 V
+-- ans –
+
+A
+*
+&)%$
+Current in the circuit = # = $)" = 3 A
+eq
+
+Voltage across 2-W resistor = IR = 3 ´ 2 = 6 V
+Voltage across 2-W resistor and 6-V battery = 6 - 6 = 0 V
+-- ans end --
+
+<end>
+<code=PHY14021153>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+All resistors in the following circuit are identical and the resistance of each of them is R.
+P
+
+Q
+
+What is the equivalent resistance across PQ?
+"
+A
+!
+!
+B 2R
+"
+C
+R
+!
+D 6R
+-- ans –
+
+A
+P
+
+Q
+
+The two combinations above have the same equivalent resistance Req.
+%
+%
+%
+= # + #)#
+#
+eq
+
+$
+
+Req = 2 𝑅
+
+$
+
+$
+
+"
+
+2
+
+2
+
+2
+
+Equivalent resistance across PQ = 𝑅 + 𝑅 = 𝑅
+-- ans end --
+
+<end>
+<code=PHY14021154>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+In the following circuit, the voltage across the battery is V. If the ratio of the resistances of R1,
+R2, R3 and R4 is 1 : 2 : 3 : 4, what is the voltage across R3?
+V
+
+R4
+
+R1
+R2
+R3
+
+A
+B
+C
+D
+
+!!
+!"
+#!
+!"
+!
+!
+#!
+!"
+
+-- ans –
+
+D
+Equivalent resistance Req of R2 and R3:
+%
+%
+%
+%
+%
+= + =
++
+#eq
+
+##
+
+#$
+
+$#"
+
+2#"
+
+Req = 1.2R1
+*
+*
+*
+Current drawn from the battery = # = # )%.$# )"# = &.$#
+"
+
+"
+
+"
+
+"
+
+*
+
+&*
+
+Voltage across R3 = voltage across R2 and R3 = IR = &.$# ´ 1.2R1 = 2%
+"
+
+-- ans end --
+
+<end>
+<code=PHY14021155>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+In the following circuit, the voltage across the battery is V and the resistance of each resistor is
+R.
+V
+
+A
+V
+
+What is the reading of the ammeter?
+A 0
+"
+B
+!
+"
+C
+!!
+!"
+D
+!
+-- ans –
+
+C
+Equivalent resistance of the circuit = R + R = 2R
+*
+Reading of the ammeter = $#
+
+-- ans end --
+
+<end>
+<code=PHY14021156>
+<lvl=dif><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«« Consider the following circuit.
+
+LDR is a device whose resistance varies with
+the brightness of light falling on it:
+R
+A
+LDR
+
+V
+
+brightness B
+
+Which of the following graphs shows the variation of ammeter reading I with the brightness B
+of the incident light?
+I
+I
+A
+B
+
+B
+
+C
+
+B
+
+D
+
+I
+
+I
+
+B
+
+B
+
+-- ans –
+
+B
+As the brightness of the incident light increases, the equivalent resistance of the resistor
+and LDR decreases. By " =
+-- ans end --
+
+!
+, the ammeter reading increases.
+#
+
+<end>
+<code=PHY14021157>
+<lvl=dif><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«« Consider the following circuit.
+
+LDR is a device whose resistance varies with
+the brightness of light falling on it:
+R
+A
+LDR
+
+V
+
+brightness B
+
+Which of the following graphs shows the variation of voltmeter reading V with brightness B of
+the incident light?
+V
+V
+A
+B
+
+B
+
+C
+
+B
+
+D
+
+V
+
+V
+
+B
+
+B
+
+-- ans –
+
+A
+The voltmeter is connected in parallel with the battery, so the voltmeter reading is a
+constant.
+-- ans end --
+
+<end>
+<code=PHY14021158>
+<lvl=easy><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+Which of the following can be used as a unit of power?
+A VA
+B VC
+C VW
+D AW
+-- ans –
+
+A
+The unit V A is from V ´ I.
+The unit V C is from V ´ Q.
+
+The unit V W is from V ´ R.
+The unit A W is from I ´ R.
+Only V ´ I gives power.
+-- ans end --
+
+<end>
+<code=PHY14021159>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+A fixed resistor X and a variable resistor Y are connected to a battery as shown.
+
+At the beginning, the resistance of Y is set equal to that of X and the power of Y is P. Find the
+power of Y when its resistance is halved.
+"
+A
+!
+!
+"
+B
+!
+!
+"
+C
+!
+!
+D 2P
+-- ans –
+
+C
+Let r be the resistance of X,
+e be the e.m.f. of the battery.
+At the beginning,
+%
+p.d. across Y = $ 𝜀
+*#
+
+By P = # ,
+"
+#
+
+#
+
+5 96
+
+9#
+
+P = ( = "(
+After the resistance of Y is halved,
+p.d. across X : p.d. across Y = resistance of X : resistance of Y = 2 : 1
+%
+P.d. across Y = 2 𝜀
+Power of Y =
+-- ans end --
+
+" #
+$
+"
+(
+#
+
+5 96
+
+$9 #
+
+'
+
+9#
+
+'
+
+= :( = : × "( = : 𝑃
+
+<end>
+<code=PHY14021160>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+A light bulb and a variable resistor are connected in series to a battery as shown. If the
+resistance of the variable resistor increases, how do the power of the light bulb and the power
+dissipated by the whole circuit change?
+
+A
+B
+C
+D
+
+Power of the light bulb
+decrease
+decrease
+unchanged
+unchanged
+
+Power dissipated by the circuit
+decrease
+increase
+decrease
+increase
+
+-- ans –
+
+A
+When the resistance of the variable resistor increases, the equivalent resistance of the
+circuit increases. By V = IR, the current in the circuit decreases.
+By P = I2R, the power of the light bulb decreases.
+By P = VI, the power dissipated by the circuit decreases.
+-- ans end --
+
+<end>
+<code=PHY14021161>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+Three resistors P, Q and R are connected in series to a battery. Their resistances are 10 W, 20 W
+and 30 W respectively. What is the ratio of the power dissipated by P, Q and R?
+A 1:2:3
+B 1:4:9
+C 3:2:1
+D 9:4:1
+
+-- ans –
+
+A
+As the resistors are connected in series, the currents through them are the same.
+PP : PQ : PR = I2RP : I2RQ : I2RR = RP : RQ : RR = 10 : 20 : 30 = 1 : 2 : 3
+-- ans end --
+
+<end>
+<code=PHY14021162>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+In the circuit below, the resistance of each lamp is 5 W. The resistance of the resistor is 10 W.
+
+12 V
+
+10 W
+
+5W
+
+•
+
+•
+5W
+
+What is the total power dissipated by the lamps and the resistor?
+A 11.5 W
+B 12.5 W
+C 15 W
+D 18 W
+-- ans –
+
+A
+Equivalent resistance Req of the two lamps:
+%
+%
+%
+=1+1
+#
+eq
+
+Req = 2.5 W
+Equivalent resistance of the circuit = 10 + 2.5 = 12.5 W
+Total power dissipated =
+-- ans end --
+
+*#
+#
+
+=
+
+%$#
+
+%$.1
+
+= 11.5 W
+
+<end>
+<code=PHY14021163>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+A variable resistor and two light bulbs X and Y are connected to a battery as shown.
+
+X
+
+Y
+
+When the resistance of the variable resistor increases, which of the following would happen?
+(1) Light bulb X becomes dimmer.
+(2) Light bulb Y becomes brighter.
+(3) The total power dissipated in the circuit increases.
+A (1) only
+B (2) only
+
+C
+D
+
+(1) and (2) only
+(1) and (3) only
+
+-- ans –
+
+A
+
+*#
+
+The p.d. across Y is equal to the e.m.f. of the battery. By P = # , its power does not
+change.
+∴ (2) is incorrect.
+*#
+
+The equivalent resistance of the variable resistor and X increases. By P = # , their total
+power decreases. Therefore, the total power dissipated in the circuit decreases.
+∴ (3) is incorrect.
+By V = IR, the current through the branch with X decreases. By P = I2R, the power of X
+decreases.
+∴ (1) is correct.
+-- ans end --
+
+<end>
+<code=PHY14021164>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+When light bulb L is connected to a battery, its power is P. If n light bulbs identical to L are
+connected in series to the same battery, what is the total power of the light bulbs?
+
+A
+B
+C
+D
+
+"
+!!
+"
+!
+P
+nP
+
+-- ans –
+
+B
+Let r be the resistance of each light bulb.
+9#
+
+P=
+(
+Equivalent resistance of n light bulbs connected in series = nr
+9#
+
+<
+
+Total power of n light bulbs = ;( = ;
+
+-- ans end --
+
+<end>
+
+<code=PHY14021165>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+Five identical lamps are connected as shown.
+X
+
+Y
+
+What is the ratio of the power of X to that of Y?
+A 1:1
+B 3:1
+C 1:7
+D 9:1
+-- ans –
+
+D
+The three parallel branches have the same resistance. Therefore, the currents through
+%
+these branches are equal, and is equal to of the current through X.
+2
+
+2
+
+2
+
+2
+
+2
+
+% $
+
+%
+
+PX : PY = IX R : IY R = IX : IY = 1 : ) + = 1 : = 9 : 1
+-- ans end --
+
+2
+
+:
+
+<end>
+<code=PHY14021166>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+Lamps X and Y are connected in parallel.
+X
+
+•
+
+Y
+
+•
+
+If the resistance of X is twice that of Y, which of the following statements are correct?
+(1) The current passing through Y is twice that passing through X.
+(2) The potential difference across X is the same as that across Y.
+(3) The power dissipated by X is half of that dissipated by Y.
+A (1) and (2) only
+B (2) and (3) only
+C (1) and (3) only
+D (1), (2) and (3)
+
+-- ans –
+
+D
+Lamps X and Y are connected in parallel, so the potential difference across X is the same
+as that across Y.
+∴ (2) is correct.
+Let r be the resistance of Y.
+Resistance of X = 2r
+*
+*
+Current through X = # = $(
+*
+
+*
+
+*
+
+Current through Y = # = ( = 2 ´ $(
+∴ (1) is correct.
+*
+
+*#
+
+*
+
+*#
+
+Power dissipated by X = VI = V ´ $( = $(
+
+*#
+
+Power dissipated by Y = VI = V ´ ( = ( = 2 ´ $(
+∴ (3) is correct.
+-- ans end --
+
+<end>
+<code=PHY14021167>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+A student wants to construct a circuit with two 1.5-V cells and three identical lamps. In which
+of the following set-ups do the lamps light up for the longest time?
+A
+B
+
+C
+
+D
+
+-- ans –
+
+B
+All four set-ups contain 2 cells, so the total energy that can be supplied are the same.
+The smaller the power dissipated by the lamps, the longer time the lamps light up.
+Let r be the resistance of each lamp.
+For set-up in A,
+equivalent resistance = r + r + r = 3r
+*#
+
+2#
+
+*#
+
+%.1#
+
+2
+
+power dissipated = # = 2( = (
+For set-up in B,
+
+2
+
+power dissipated = # = 2( = "(
+
+For set-up in C,
+equivalent resistance:
+%
+%
+%
+%
+=(+(+(
+#
+eq
+
+(
+
+Req = 2
+
+*#
+
+%.1#
+
+*#
+
+2#
+
+power dissipated = # =
+For set-up in D,
+
+$
+
+$7
+
+= "(
+$7
+
+power dissipated = # = - = (
+$
+
+∴ The lamps in B lights up for the longest time.
+-- ans end --
+
+<end>
+<code=PHY14021168>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+In the following circuit, the ratio of the resistance of R1, R2 and R3 is 1 : 2 : 3.
+
+R1
+•
+
+•
+R3
+R2
+
+What is the ratio of the power dissipated by R1, R2 and R3?
+A 1:2:3
+B 3:2:1
+C 5:2:3
+D 25 : 2 : 3
+-- ans –
+
+D
+Let r be the resistance of R1.
+Resistance of R2 = 2r
+Resistance of R3 = 3r
+The same current i passes through R2 and R3.
+The p.d. across R1 is equal to the p.d. across R2 and R3. Apply V = IR.
+I1 ´ r = i ´ (2r + 3r)
+I1 = 5i
+P1 : P2 : P3
+= I12R1 : I22R2 : I32R3
+= (5i)2 ´ r : i2 ´ 2r : i2 ´ 3r
+= 25i2r : 2i2r : 3i2r
+= 25 : 2 : 3
+-- ans end --
+
+<end>
+<code=PHY14021169>
+
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+Three identical resistors are connected to a 6-V battery. Suppose that the total power dissipated
+in the resistor network is equal to x if they are connected in series, and is equal to y if they are
+connected in parallel. Find x : y.
+A 1:9
+B 1:3
+C 3:1
+D 9:1
+
+-- ans –
+
+A
+Let r be the resistance of each resistor.
+When the resistors are connected in series,
+equivalent resistance = r + r + r = 3r
+*#
+
+&#
+
+%$
+
+total power dissipated = # = 2( = (
+When the resistors are connected in parallel,
+power dissipated by each resistor =
+2&
+
+total power dissipated = 3 ´ ( =
+x:y=
+
+%$
+(
+
+:
+
+-- ans end --
+
+%8'
+(
+
+%8'
+
+*#
+#
+
+=
+
+&#
+(
+
+=
+
+2&
+(
+
+(
+
+=1:9
+
+<end>
+<code=PHY14021170>
+<lvl=avg><part=core><type=mc><mark=2><bk=4><ch=02><content>
+
+«
+
+In the following figure, the ratio of the resistances of R1, R2 and R3 is 1 : 2 : 3.
+
+R1
+•
+
+•
+R3
+R2
+
+What is the ratio of the current passing through R1, R2 and R3?
+A 1:2:3
+B 3:2:1
+C 5:1:1
+D 1:5:5
+-- ans –
+
+C
+R2 and R3 are connected in series, so the currents through R2 and R3 are the same.
+The branch with R2 and R3 is connected in parallel to R1.
+Current through R1 : current through R2 and R3 = R2 + R3 : R1 = 5 : 1
+Current through R1 : current through R2 : current through R3 = 5 : 1 : 1
+
+-- ans end --
+
+<end>
+
+

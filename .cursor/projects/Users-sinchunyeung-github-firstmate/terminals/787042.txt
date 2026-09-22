@@ -1,0 +1,37 @@
+---
+pid: 25058
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "/usr/bin/env -i PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/usr/local/bin:/Users/sinchunyeung/.local/bin:/Users/sinchunyeung/.nvm/versions/node/v24.20.0/bin\" HOME=\"/Users/sinchunyeung\" FM_HOME=\"/Users/sinchunyeung/github/firstmate\" /bin/bash <<'SCRIPT'\nset -euo pipefail\nls -la /Users/sinchunyeung/github/firstmate/state/perf-pr-keep* 2>&1 || true\ntmux list-windows -t firstmate -F '#{window_index}:#{window_name}' 2>&1\n# Kill husk from failed spawn if present\ntmux kill-window -t firstmate:fm-perf-pr-keep 2>&1 || true\n# If partial meta exists without worktree, clean carefully\nif [ -f /Users/sinchunyeung/github/firstmate/state/perf-pr-keep.meta ]; then\n  echo 'meta present:'\n  cat /Users/sinchunyeung/github/firstmate/state/perf-pr-keep.meta\nfi\n# Ensure tasks in flight expectation\ntasks-axi show perf-pr-keep 2>&1 | head -20\n\nPROJ=/Users/sinchunyeung/github/firstmate/projects/simplification-of-trajectory-streams\n/Users/sinchunyeung/github/firstmate/bin/fm-spawn.sh perf-pr-keep \"$PROJ\" --scout --harness cursor --effort xhigh 2>&1\nSCRIPT\n"
+status: failed   
+started_at: 2026-09-07T15:19:08.953Z
+running_for_ms: 80677    
+---
+ls: /Users/sinchunyeung/github/firstmate/state/perf-pr-keep*: No such file or directory
+0:zsh
+1:fm-perf-pr-keep
+task:
+  id: perf-pr-keep
+  title: "Scout: keep PR #6+#8 stack or #10 for SOTS perf"
+  state: queued
+  blocked: no
+  blocked_by: none
+  held: no
+  hold_reason: "-"
+  hold_kind: "-"
+  hold_until: "-"
+  kind: scout
+  repo: simplification-of-trajectory-streams
+  priority: "-"
+  created: 2026-09-07
+  closed: "-"
+  deps: none
+  links: none
+  body: "Scout: recommend keep #6+#8 stack vs #10 for SOTS perf. Close losers after captain decision. Mode scout."
+fatal: unable to access 'https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams.git/': Failed to connect to github.com port 443 after 75003 ms: Couldn't connect to server
+error: could not fetch 'origin/main' for pooled worktree '/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams'; refusing to launch from a potentially stale base
+
+---
+exit_code: 1
+elapsed_ms: 80677
+ended_at: 2026-09-07T15:20:29.630Z
+---

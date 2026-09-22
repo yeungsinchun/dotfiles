@@ -1,0 +1,41 @@
+---
+pid: 56123
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && for y in 2014 2020 2022 2024 2025 2026; do\n  ./segment paper/mc/${y}p1a.pdf output/$y --type mc --step split --intermediate output/${y}-intermediate 2>&1 | tail -3\ndone\n.venv/bin/python <<'PY'\nfrom PIL import Image\nimport json, time, shutil\nfrom pathlib import Path\nfor rel in ['2014/q1.png','2014/q8.png','2014/q28.png','2026/q13.png','2022/q30.png','2025/q18.png','2024/q15.png']:\n    print(rel, Image.open(f'output/{rel}').size)\nImage.open('output/2014/q1.png').save('/tmp/2014_q1d.png')\n# sync\nyears=['2014','2020','2022','2024','2025','2026','2017']\nbase=Path('.lavish/classified-review')\ndata=json.loads((base/'data.json').read_text())\nv=str(int(time.time()))\nfor year in years:\n  d=Path(f'output/{year}')\n  if not d.exists(): continue\n  for src in d.glob('q*.png'):\n    shutil.copy2(src, base/'img'/f'{year}_{src.name}')\n  for sec in data['sections']:\n    for it in sec['items']:\n      if str(it.get('year'))==year:\n        rel=it['img'].split('?')[0]\n        it['img']=f'{rel}?v={v}'\n(base/'data.json').write_text(json.dumps(data, ensure_ascii=False, indent=2)+'\\n')\nhtml=(base/'index.html').read_text()\npayload=json.dumps(data, ensure_ascii=False).replace('<','\\\\u003c').replace('>','\\\\u003e')\nstart=html.find('id=\"payload\"'); gt=html.find('>', start)+1; end=html.find('</script>', gt)\n(base/'index.html').write_text(html[:gt]+payload+html[end:])\nprint('v', v)\nPY\n"
+title: "Resplit years and sync Lavish images"
+status: succeeded
+started_at: 2026-09-04T15:57:07.395Z
+running_for_ms: 91323    
+---
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2014
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2014/combined.pdf
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2020
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2020/combined.pdf
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2022
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2022/combined.pdf
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2024
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2024/combined.pdf
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2025
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2025/combined.pdf
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2026
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2026/combined.pdf
+2014/q1.png (1105, 420)
+2014/q8.png (1107, 501)
+2014/q28.png (1117, 842)
+2026/q13.png (1023, 664)
+2022/q30.png (1024, 284)
+2025/q18.png (1023, 310)
+2024/q15.png (1001, 1431)
+v 1788537518
+
+---
+exit_code: 0
+elapsed_ms: 91319
+ended_at: 2026-09-04T15:58:38.714Z
+---

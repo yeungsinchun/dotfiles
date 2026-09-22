@@ -1,0 +1,18 @@
+---
+pid: 81166
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ"
+command: "# Check if Qt6 Core available locally for headless dots build\nbrew list qt 2>/dev/null | head -3; ls /opt/homebrew/opt/qt*/lib/cmake/Qt6 2>/dev/null | head -5; ls /opt/homebrew/lib/cmake/Qt6 2>/dev/null | head -5; pkg-config --modversion Qt6Core 2>/dev/null; echo done"
+title: "Check local Qt6 availability for cmake"
+status: failed   
+started_at: 2026-09-05T14:49:30.444Z
+running_for_ms: 45551    
+---
+/opt/homebrew/Cellar/qt/6.9.2/INSTALL_RECEIPT.json
+/opt/homebrew/Cellar/qt/6.9.2/bin/qt-configure-module
+/opt/homebrew/Cellar/qt/6.9.2/bin/Assistant
+
+---
+exit_code: unknown
+elapsed_ms: 45551
+ended_at: 2026-09-05T14:50:15.995Z
+---

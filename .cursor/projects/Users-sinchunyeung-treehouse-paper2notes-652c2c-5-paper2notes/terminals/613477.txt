@@ -1,0 +1,26 @@
+---
+pid: 7122
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes"
+command: "node --test --test-name-pattern='25.2 decay labels sit on the parent and outgoing particle' notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs"
+title: "Run focused Ch1 decay-label test"
+status: succeeded
+started_at: 2026-09-15T04:47:11.018Z
+running_for_ms: 15220    
+---
+▶ Book 5 Ch.1 notes interactives
+  ✔ 25.2 decay labels sit on the parent and outgoing particle (13540.54025ms)
+✔ Book 5 Ch.1 notes interactives (14455.370291ms)
+ℹ tests 1
+ℹ suites 1
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14774.299
+
+---
+exit_code: 0
+elapsed_ms: 15214
+ended_at: 2026-09-15T04:47:26.232Z
+---

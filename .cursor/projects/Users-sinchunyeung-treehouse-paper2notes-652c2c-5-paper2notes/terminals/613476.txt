@@ -1,0 +1,96 @@
+---
+pid: 43529
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes"
+command: "node --test notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs && node --test notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.interactives.test.mjs"
+title: "Run Book 5 browser tests serially"
+status: failed   
+started_at: 2026-09-15T04:21:29.731Z
+running_for_ms: 1488200  
+---
+▶ Book 5 Ch.1 notes interactives
+  ✔ 25.1 spectrum is static with the ionizing barrier in UV (13217.334167ms)
+  ✔ 25.1 imaging is X-rays down through a hand onto film that starts white (9386.540416ms)
+  ✔ 25.2 pie wedge is 20% and Pu-239 bookkeeping is static n_α=8 (12945.4375ms)
+  ✖ 25.2 decay labels sit on the parent and outgoing particle (54479.785625ms)
+  ✖ 25.3 absorber presets follow paper/Al/Pb contribution rules (28113.069667ms)
+  ✖ 25.3 GM extra recomputes when the plastic grid toggles (20001.459375ms)
+  ✖ 25.3 identification graph keeps taken yes/no edges (20013.258791ms)
+  ✖ 25.1 knockout ejects the bound electron already on the atom (20005.836459ms)
+  ✔ 25.3 ion-pair capture, Flip B marks, and β/γ check (36174.278042ms)
+  ✔ chapter map, summary, and concept-check scoring are the public notes surface (127669.192833ms)
+  ✖ 3d scenes magnify, label the tube, keep β drift, and pulse radially (119071.001208ms)
+  ✖ every Ch.1 page shows syllabus LOs and the summary embeds DSE papers (995296.047083ms)
+  ✔ each Ch.1 subsection groups links to its own DSE practice (27576.918291ms)
+✖ Book 5 Ch.1 notes interactives (1485827.274625ms)
+ℹ tests 13
+ℹ suites 1
+ℹ pass 6
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1487593.30125
+
+✖ failing tests:
+
+test at notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:242:3
+✖ 25.2 decay labels sit on the parent and outgoing particle (54479.785625ms)
+  Error: Runtime.evaluate timed out after 20000ms
+      at Timeout._onTimeout (file:///Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes/notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:74:16)
+      at listOnTimeout (node:internal/timers:685:17)
+      at process.processTimers (node:internal/timers:618:7)
+
+test at notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:242:3
+✖ 25.3 absorber presets follow paper/Al/Pb contribution rules (28113.069667ms)
+  Error: Runtime.evaluate timed out after 20000ms
+      at Timeout._onTimeout (file:///Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes/notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:74:16)
+      at listOnTimeout (node:internal/timers:685:17)
+      at process.processTimers (node:internal/timers:618:7)
+
+test at notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:242:3
+✖ 25.3 GM extra recomputes when the plastic grid toggles (20001.459375ms)
+  Error: Page.navigate timed out after 20000ms
+      at Timeout._onTimeout (file:///Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes/notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:74:16)
+      at listOnTimeout (node:internal/timers:685:17)
+      at process.processTimers (node:internal/timers:618:7)
+
+test at notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:242:3
+✖ 25.3 identification graph keeps taken yes/no edges (20013.258791ms)
+  Error: Page.navigate timed out after 20000ms
+      at Timeout._onTimeout (file:///Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes/notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:74:16)
+      at listOnTimeout (node:internal/timers:685:17)
+      at process.processTimers (node:internal/timers:618:7)
+
+test at notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:242:3
+✖ 25.1 knockout ejects the bound electron already on the atom (20005.836459ms)
+  Error: Page.navigate timed out after 20000ms
+      at Timeout._onTimeout (file:///Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes/notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:74:16)
+      at listOnTimeout (node:internal/timers:685:17)
+      at process.processTimers (node:internal/timers:618:7)
+
+test at notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:242:3
+✖ 3d scenes magnify, label the tube, keep β drift, and pulse radially (119071.001208ms)
+  AssertionError [ERR_ASSERTION]: electron should start away from the anode wire, y=0.22505159108678485
+      at TestContext.<anonymous> (file:///Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes/notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:1154:10)
+      at async Test.run (node:internal/test_runner/test:1404:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:242:3
+✖ every Ch.1 page shows syllabus LOs and the summary embeds DSE papers (995296.047083ms)
+  Error: Runtime.evaluate timed out after 20000ms
+      at Timeout._onTimeout (file:///Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes/notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:74:16)
+      at listOnTimeout (node:internal/timers:685:17)
+      at process.processTimers (node:internal/timers:618:7)
+
+---
+exit_code: 1
+elapsed_ms: 1488200
+ended_at: 2026-09-15T04:46:17.931Z
+---

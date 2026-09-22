@@ -1,0 +1,21 @@
+---
+pid: 84653
+cwd: "/Users/sinchunyeung/github/personal-page"
+command: "cd /Users/sinchunyeung/github/personal-page && python3 -m http.server 8765"
+title: "Start personal page local server"
+status: running  
+started_at: 2026-08-30T15:07:58.622Z
+running_for_ms: 228264745
+---
+::ffff:127.0.0.1 - - [30/Aug/2026 23:08:00] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [31/Aug/2026 08:14:54] "GET / HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [31/Aug/2026 08:14:54] "GET /styles.css HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [31/Aug/2026 08:14:54] "GET /main.js HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [31/Aug/2026 08:14:54] "GET /projects/sots.json HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [31/Aug/2026 08:14:56] "GET /assets/projects/sots-preview.svg HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [31/Aug/2026 09:43:34] code 404, message File not found
+::ffff:127.0.0.1 - - [31/Aug/2026 09:43:34] code 404, message File not found
+::ffff:127.0.0.1 - - [31/Aug/2026 09:43:34] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [31/Aug/2026 09:43:34] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [31/Aug/2026 09:43:34] code 404, message File not found
+::ffff:127.0.0.1 - - [31/Aug/2026 09:43:34] "GET /favicon.ico HTTP/1.1" 404 -

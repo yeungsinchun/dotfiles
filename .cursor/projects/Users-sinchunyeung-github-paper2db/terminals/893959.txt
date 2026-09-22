@@ -1,0 +1,24 @@
+---
+pid: 30716
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python scripts/classify_lq_keywords.py 2>&1 | rg 'S0[578]|S16|Wrote' && grep '2013,5,\\|2014,3,\\|2018,3,' classified/lq/classification.csv\n.venv/bin/python scripts/build_lq_lavish_review.py\n"
+title: "Reclassify, verify keys, rebuild Lavish"
+status: succeeded
+started_at: 2026-09-05T03:34:09.154Z
+running_for_ms: 45418    
+---
+Wrote /Users/sinchunyeung/github/paper2db/classified/lq/classification.csv (131 LQ)
+  S05 Motion: 7
+  S07 More about Forces: 2
+  S08 Work, Energy and Power: 4
+  S16 Light and Sound: 4
+2013,5,8,8,"keywords: stopping distance, height of release",output/lq/2013/q5.png,output/lq/2013/ans/q5.png
+2014,3,5,5,keywords: score-based,output/lq/2014/q3.png,output/lq/2014/ans/q3.png
+2018,3,8,8,"keywords: kinetic energy; primary=max(S6,S8)",output/lq/2018/q3.png,output/lq/2018/ans/q3.png
+Wrote /Users/sinchunyeung/github/paper2db/.lavish/lq-classified-review/index.html (141 placements)
+
+---
+exit_code: 0
+elapsed_ms: 45410
+ended_at: 2026-09-05T03:34:54.564Z
+---

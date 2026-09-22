@@ -1,0 +1,29 @@
+---
+pid: 6224
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python <<'PY'\nfrom pathlib import Path\nfor year_dir in sorted(Path('output/lq').iterdir()):\n    if not year_dir.is_dir(): continue\n    qs=sorted(year_dir.glob('q*.png'), key=lambda p:int(p.stem[1:]))\n    ans_dir=year_dir/'ans'\n    ans=sorted(ans_dir.glob('q*.png'), key=lambda p:int(p.stem[1:])) if ans_dir.is_dir() else []\n    qn={int(p.stem[1:]) for p in qs}\n    an={int(p.stem[1:]) for p in ans}\n    print(f'{year_dir.name}: Qs={len(qn)} ans={len(an)} missing_ans={sorted(qn-an)}')\nprint('total Q', sum(len(list(p.glob('q*.png'))) for p in Path('output/lq').iterdir() if p.is_dir()))\nPY\n# Ensure classify can import\ncd /Users/sinchunyeung/github/paper2db && PYTHONPATH=scripts .venv/bin/python scripts/classify_lq_llm.py 2>&1\n"
+title: "Coverage summary then classify all LQ via LLM"
+status: failed   
+started_at: 2026-09-04T17:53:56.918Z
+running_for_ms: 663913   
+---
+2012: Qs=11 ans=10 missing_ans=[3]
+2013: Qs=11 ans=10 missing_ans=[11]
+2014: Qs=10 ans=7 missing_ans=[1, 4, 9]
+2015: Qs=10 ans=10 missing_ans=[]
+2016: Qs=9 ans=8 missing_ans=[5]
+2017: Qs=10 ans=3 missing_ans=[3, 4, 6, 7, 8, 9, 10]
+2018: Qs=8 ans=3 missing_ans=[1, 2, 6, 7, 8]
+2019: Qs=10 ans=2 missing_ans=[3, 4, 5, 6, 7, 8, 9, 10]
+2020: Qs=10 ans=8 missing_ans=[3, 6]
+2021: Qs=9 ans=7 missing_ans=[2, 4, 9]
+2022: Qs=10 ans=9 missing_ans=[5]
+2023: Qs=9 ans=5 missing_ans=[1, 7, 8, 9]
+total Q 117
+OCR 117 LQ questions...
+
+---
+exit_code: unknown
+elapsed_ms: 663913
+ended_at: 2026-09-04T18:05:00.831Z
+---

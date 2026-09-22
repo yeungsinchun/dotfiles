@@ -1,0 +1,50 @@
+---
+pid: 32431
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db"
+command: "no-mistakes axi sync --recover"
+title: "Attempt guarded custody recovery after abort"
+status: succeeded
+started_at: 2026-09-10T16:36:23.300Z
+running_for_ms: 71693    
+---
+[33mA new version of no-mistakes is available: v1.64.0 -> v1.72.0
+Run "no-mistakes update" to update[0m
+branch_sync:
+  state: custody_returned
+  changed: true
+  recovered: true
+  local:
+    branch: fm/p2db-make-combined-pdf-review-pdfs-a4-31
+    head: 7a4df5babee08b03969629974df9d28be53b44f1
+    clean: true
+  pipeline:
+    run: "01M25Z6N9NRRBWCZ82Y1TG7D28"
+    status: cancelled
+    phase: ""
+    submitted_head: 2c78e151d9696491c6981b650f52994a9fd9cf34
+    current_head: 7a4df5babee08b03969629974df9d28be53b44f1
+    pushed_head: ""
+    pushed_at: 0
+    push_generation: 0
+  target:
+    kind: ""
+    remote: origin
+    url: "https://github.com/yeungsinchun/paper2db.git"
+    ref: ""
+  remote:
+    observed_head: ""
+    freshness: pipeline_push
+    observed_at: 0
+  relation: equal
+  safety: custody_returned
+  pr_state: none
+  next_action:
+    code: run_pipeline
+    command: "no-mistakes axi run --intent \"<what the user set out to accomplish>\""
+help[1]: "Run `no-mistakes axi run --intent \"<what the user set out to accomplish>\"`"
+
+---
+exit_code: 0
+elapsed_ms: 71689
+ended_at: 2026-09-10T16:37:34.989Z
+---

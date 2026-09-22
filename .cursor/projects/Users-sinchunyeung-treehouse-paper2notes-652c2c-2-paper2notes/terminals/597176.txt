@@ -1,0 +1,71 @@
+---
+pid: 84922
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/2/paper2notes"
+command: "printf '\\nworking: restarting no-mistakes after replay-button cleanup; draft https://github.com/yeungsinchun/paper2notes/pull/1\\n' >> '/Users/sinchunyeung/github/firstmate/state/p2n-b5ch1-notes-book-5-ch1-first-draft-visual-html-notes-87.status'\nno-mistakes axi run --intent \"$(cat /tmp/p2n-nm-intent.txt)\""
+title: "Start no-mistakes with captain intent including 047"
+status: failed   
+started_at: 2026-09-10T10:04:13.726Z
+running_for_ms: 126372   
+---
+[33mA new version of no-mistakes is available: v1.64.0 -> v1.72.0
+Run "no-mistakes update" to update[0m
+run: running
+  intent: completed
+  rebase: running
+  rebase: completed
+  review: running
+  review: failed
+run: cancelled
+run:
+  id: "01M25CCVDQ86JR8YSQT1E33Y12"
+  branch: fm/p2n-b5ch1-notes-book-5-ch1-first-draft-visual-html-notes-87
+  status: cancelled
+  head: 3a6cb519
+  findings: none
+  steps[9]{step,status,findings,duration_ms}:
+    intent,completed,0,4
+    rebase,completed,0,2661
+    review,failed,0,119927
+    test,pending,0,0
+    document,pending,0,0
+    lint,pending,0,0
+    push,pending,0,0
+    pr,pending,0,0
+    ci,pending,0,0
+branch_sync:
+  state: user_owned
+  changed: false
+  local:
+    branch: fm/p2n-b5ch1-notes-book-5-ch1-first-draft-visual-html-notes-87
+    head: 3a6cb519b98e9631a73d5131348023bdddc0904e
+    clean: true
+  pipeline:
+    run: "01M25CCVDQ86JR8YSQT1E33Y12"
+    status: cancelled
+    phase: ""
+    submitted_head: 3a6cb519b98e9631a73d5131348023bdddc0904e
+    current_head: 3a6cb519b98e9631a73d5131348023bdddc0904e
+    pushed_head: ""
+    pushed_at: 0
+    push_generation: 0
+  target:
+    kind: ""
+    remote: origin
+    url: "https://github.com/yeungsinchun/paper2notes.git"
+    ref: ""
+  remote:
+    observed_head: ""
+    freshness: pipeline_push
+    observed_at: 0
+  relation: equal
+  safety: user_owned
+  pr_state: none
+outcome: cancelled
+error: "cancelled: aborted by user"
+help[2]: "Commit post-pipeline follow-up work on top of the existing branch so every pipeline fix commit remains present. Never abort-and-restart, reset, or replace the branch in a way that drops prior gate-fix commits.","Before a post-pipeline local commit or fresh run, follow the structured `branch_sync.next_action`. Run `no-mistakes axi sync` only when its code is `sync`; that guarded sync may be a strict fast-forward or a content-equivalent diverged advance that anchors the pre-sync head before moving the branch with reset semantics. Run `no-mistakes axi sync --recover` only when its code is `recover_custody` (a terminal run left unpublished pipeline commits preserved in the local gate). A `user_owned` state means cancellation released the branch before changing the submitted head: the exact branch and head are yours, immediately usable, and no sync action is needed. Process blocked or pipeline-owned states instead of improvising reset, stash, merge, rebase, force, or branch replacement."
+
+---
+exit_code: 1
+elapsed_ms: 126372
+ended_at: 2026-09-10T10:06:20.098Z
+---

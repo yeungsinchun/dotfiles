@@ -1,0 +1,99 @@
+---
+pid: 30408
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/dse"
+command: "cd \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse\" && python3 scripts/ocr_mc_questions.py\n"
+started_at: 2026-08-22T02:14:52.595Z
+running_for_ms: 250078   
+---
+OCR 2012: 36 questions
+  2012 q1 ok
+  2012 q10 ok
+  2012 q20 ok
+  2012 q30 ok
+OCR 2013: 36 questions
+  2013 q1 ok
+  2013 q10 ok
+  2013 q20 ok
+  2013 q30 ok
+OCR 2014: 33 questions
+  2014 q1 ok
+  2014 q10 ok
+  2014 q20 ok
+  2014 q30 ok
+OCR 2015: 33 questions
+  2015 q1 ok
+  2015 q10 ok
+  2015 q20 ok
+  2015 q30 ok
+OCR 2016: 33 questions
+  2016 q1 ok
+  2016 q10 ok
+  2016 q20 ok
+  2016 q30 ok
+OCR 2017: 33 questions
+  2017 q1 ok
+  2017 q10 ok
+  2017 q20 ok
+  2017 q30 ok
+OCR 2018: 33 questions
+  2018 q1 ok
+  2018 q10 ok
+  2018 q20 ok
+  2018 q30 ok
+OCR 2019: 33 questions
+  2019 q1 ok
+  2019 q10 ok
+  2019 q20 ok
+  2019 q30 ok
+OCR 2020: 33 questions
+  2020 q1 ok
+  2020 q10 ok
+  2020 q20 ok
+  2020 q30 ok
+OCR 2021: 33 questions
+  2021 q1 ok
+  2021 q10 ok
+  2021 q20 ok
+  2021 q30 ok
+OCR 2022: 33 questions
+  2022 q1 ok
+  2022 q10 ok
+  2022 q20 ok
+  2022 q30 ok
+OCR 2023: 33 questions
+  2023 q1 ok
+  2023 q10 ok
+  2023 q20 ok
+  2023 q30 ok
+OCR 2024: 33 questions
+  2024 q1 ok
+  2024 q10 ok
+  2024 q20 ok
+  2024 q30 ok
+OCR 2025: 33 questions
+  2025 q1 ok
+  2025 q10 ok
+  2025 q20 ok
+  2025 q30 ok
+OCR 2026: 33 questions
+  2026 q1 ok
+  2026 q10 ok
+  2026 q20 ok
+  2026 q30 ok
+OCR ppp: 36 questions
+  ppp q1 ok
+  ppp q10 ok
+  ppp q20 ok
+  ppp q30 ok
+OCR sapp: 36 questions
+  sapp q1 ok
+  sapp q10 ok
+  sapp q20 ok
+  sapp q30 ok
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/mc_questions.json (573 records)
+
+---
+exit_code: 0
+elapsed_ms: 252517
+ended_at: 2026-08-22T02:19:05.112Z
+---

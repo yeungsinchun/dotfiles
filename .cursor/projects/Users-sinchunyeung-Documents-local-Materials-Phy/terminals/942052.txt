@@ -1,0 +1,28 @@
+---
+pid: 37473
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/DSE"
+command: "cd \"/Users/sinchunyeung/Documents-local/Materials/Phy/DSE\" && for y in 2012 2013 2014 2017 2022; do\n  pdf=$(ls Year/LQ/${y}*.pdf 2>/dev/null | head -1)\n  echo \"=== $pdf ===\"\n  python3 scripts/preprocess_lq.py \"$pdf\" \"processed/LQ/$y\" 2>&1 | tail -3\ndone\n"
+started_at: 2026-08-22T02:45:57.551Z
+running_for_ms: 90046    
+---
+=== Year/LQ/2012p1b.pdf ===
+  WARNING: no questions detected in 2012p1b.pdf
+Wrote 0 questions -> processed/LQ/2012
+=== Year/LQ/2013p1b.pdf ===
+  WARNING: no questions detected in 2013p1b.pdf
+Wrote 0 questions -> processed/LQ/2013
+=== Year/LQ/2014p1b.pdf ===
+  WARNING: no questions detected in 2014p1b.pdf
+Wrote 0 questions -> processed/LQ/2014
+=== Year/LQ/2017p1b.pdf ===
+  WARNING: no questions detected in 2017p1b.pdf
+Wrote 0 questions -> processed/LQ/2017
+=== Year/LQ/2022p1b.pdf ===
+  detected Q1-Q3 (3 questions)
+Wrote 3 questions -> processed/LQ/2022
+
+---
+exit_code: 0
+elapsed_ms: 93525
+ended_at: 2026-08-22T02:47:31.076Z
+---

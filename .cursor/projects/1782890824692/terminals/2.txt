@@ -1,0 +1,5 @@
+---
+pid: 23869
+cwd: /Users/sinchunyeung
+---
+(base) sinchunyeung@SinMacBookPro ~ % 

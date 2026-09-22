@@ -1,0 +1,3971 @@
+Contents
+
+# Contents
+
+```
+SECOND DRAFT
+Contents
+Preamble
+Chapter 1
+Introduction
+Rationale
+Curriculum Aims
+Chapter 2
+Chapter 3
+1
+2
+Curriculum Framework
+Curriculum Structure
+Learning Targets
+Compulsory Part
+Elective Part
+3
+6
+8
+43
+Investigative Study
+79
+Curriculum Planning
+Interfacing Junior Secondary Science Curriculum
+Progression of Studies
+Suggested Learning and Teaching Sequences
+Chapter 4
+Learning and Teaching
+Designing Learning Activities
+Teaching with a Contextual Approach
+Using Information Technology (IT) for Interactive
+Learning
+Providing Life-wide Learning Opportunities
+Chapter 5
+83
+85
+88
+92
+95
+95
+95
+Assessment
+Aims of Assessment
+Internal Assessment
+Public Assessment
+96
+96
+96
+Chapter 6
+Effective Use of Learning and Teaching Resources
+100
+Chapter 7
+Supporting Measures
+101
+References
+102
+i
+SECOND DRAFT
+ii
+SECOND DRAFT
+Preamble
+The Curriculum Development Council (CDC)-Hong Kong Examinations and
+Assessment Authority (HKEAA) Committees (Senior Secondary) of various subjects have
+been set up jointly by the CDC and the HKEAA Council to develop the Curriculum and
+Assessment Guides (C&A Guides) for the new 3-year senior secondary academic structure in
+Hong Kong. During the first stage of consultation on the new academic structure between
+October 2004 and January 2005, the document Reforming the Academic Structure for
+Senior Secondary Education and Higher Education - Actions for Investing in the Future
+(Education and Manpower Bureau, 2004) was published to seek stakeholders’ views on the
+design blueprint of the structure, the timetable for implementation and financial arrangements.
+An accompanying document, Proposed Core and Elective Subject Frameworks for the New
+Senior Secondary Curriculum, was also produced to solicit views and feedback from
+schools on the initial curriculum and assessment design of individual subjects to inform the
+development of the C&A Guides.
+The report New Academic Structure for Senior Secondary Education and Higher
+Education – Action Plan for Investing in the Future of Hong Kong (Education and
+Manpower Bureau, 2005), an outcome of the first stage of consultation, has just been
+published to chart the way forward for implementing the new academic structure and to set
+further directions for the second stage of consultation on curriculum and assessment as part of
+the interactive and multiple-stage process of developing the C&A Guides. In addition,
+taking into consideration the feedback collected through various means including the returned
+questionnaires from key learning area coordinators/panel heads during the first stage of
+consultation, the curriculum and assessment frameworks of subjects have been revised and
+elaborated. We would like to solicit further views on the frameworks from stakeholders, in
+particular the school sector.
+To understand the position of each subject in the new academic structure, readers
+are encouraged to refer to the report. Comments and suggestions on the Proposed New
+Senior Secondary Physics Curriculum and Assessment Framework are welcome and could
+be sent to:
+Chief Curriculum Development Officer (Science Education)
+401, 4/F., Tin Kwong Road, Kowloon
+Fax: 2194 0670
+E-mail: [email protected]
+iii
+SECOND DRAFT
+iv
+SECOND DRAFT
+Chapter 1
+Introduction
+1.1
+Physics is one of the elective subjects in the Key Learning Area (KLA) of Science
+Education 1 . The Physics Curriculum serves as a continuation of the Science (S1-3)
+Curriculum and builds on the strength of the current Physics Curricula. It will provide a
+range of balanced learning experiences through which students can develop the necessary
+scientific knowledge and understanding, skills and processes, and values and attitudes
+embedded in the strand “Energy and Change” of science education and in other related
+strands for personal development, and for contributing towards a scientific and technological
+world. The curriculum will prepare students for entering tertiary courses, vocation-related
+courses or joining the workforce in various fields of physical science.
+Rationale
+1.2
+The emergence of a highly competitive and integrated economy, rapid scientific
+and technological innovations, and a growing knowledge base will continue to have a
+profound impact on our lives. In order to meet the challenges posed by these changes,
+Physics, like other science electives, will provide a platform for developing scientific literacy
+and for building up essential scientific knowledge and skills for life-long learning in science
+and technology.
+1.3
+Physics is one of the most fundamental natural sciences. It involves the study of
+universal laws, and the behaviours and relationships among a wide range of physical
+phenomena. Through the learning of physics, students will acquire conceptual and
+procedural knowledge relevant to their daily lives. In addition to the relevance and intrinsic
+beauty of physics, the study of physics also helps students to develop an understanding of the
+practical applications of physics to a wide variety of other fields. With a solid foundation in
+physics, students should be able to appreciate the intrinsic beauty and quantitative nature of
+physical phenomena, and the role of physics in many important developments in engineering,
+medicine, economics and other fields of science and technology. Furthermore, learning
+about the contribution, issues and problems related to innovations in physics will help
+1
+There will be four elective subjects offered in the Key Learning Area of Science Education, namely Biology,
+Chemistry, Physics and Science. The design of the subject Science will include two modes – integrated and
+combined. This curriculum will contribute towards the Physics part of the combined mode – Science
+(Biology, Physics) and Science (Physics, Chemistry).
+1
+SECOND DRAFT
+students to develop a holistic view of the relation of science, technology, society and the
+environment.
+1.4
+The curriculum attempts to make the study of physics exciting and relevant. It is
+suggested to introduce the learning of physics in real life contexts. The adoption of diverse
+learning contexts, learning and teaching strategies, and assessment practices is intended to
+appeal to students of all abilities and aspirations, and to stimulate interest and motivation for
+learning among them. Together with other learning experiences, students are expected to be
+able to apply the knowledge of physics they gain, to appreciate the relationship between
+physics and other disciplines, to be aware of the science-technology-society-environment
+(STSE) connections of contemporary issues, and to become responsible citizens.
+Curriculum Aims
+1.5
+The overarching aim of the Physics Curriculum is to provide physics-related
+learning experiences for students to develop scientific literacy, so that they can participate
+actively in our rapidly changing knowledge-based society, prepare for further studies or
+careers in fields related to physics, and become life-long learners in science and technology.
+The broad aims of the curriculum are to enable students to:
+develop interest and maintain a sense of wonder and curiosity about the physical
+world;
+construct and apply knowledge of physics, and appreciate the relationship between
+physical science and other disciplines;
+appreciate and understand the nature of science in physics-related contexts;
+develop skills for making scientific inquiries;
+develop the ability to think scientifically, critically and creatively, and to solve
+problems individually or collaboratively in physics-related contexts;
+understand the language of science and communicate ideas and views on
+physics-related issues;
+make informed decisions and judgments on physics-related issues; and
+be aware of the social, ethical, economic, environmental and technological
+implications of physics, and develop an attitude of responsible citizenship.
+2
+SECOND DRAFT
+Chapter 2
+Curriculum Framework
+Curriculum Structure
+2.1
+The curriculum will consist of compulsory and elective parts. The compulsory
+part will cover a range of content that enables students to develop understanding of
+fundamental principles and concepts in physics, and the scientific process skills. It is
+suggested to include the following topics: “Heat Transfer and Gases”, “Force and Motion”,
+“Wave Motion”, “Electricity and Magnetism” and “Radioactivity and Nuclear Energy”.
+2.2
+To cater for the diverse interests, abilities and needs of students, an elective part
+will be included in the curriculum. The elective part aims to provide an in-depth treatment
+of some of the topics in the compulsory part, an extension of certain areas of study, or a
+synthesis of knowledge, understanding and skills in a particular context. Topics suggested
+in the elective part are: “Astronomy and Space Science”, “Atomic World”, “Energy and Use
+of Energy” and “Medical Physics”.
+2.3
+To facilitate the integration of knowledge and skills acquired, students are required
+to conduct an investigative study relevant to the curriculum. A proportion of lesson time
+will be allocated for this study.
+2.4
+The suggested content and time allocation for the compulsory and elective parts are
+listed in the following tables.
+Suggested lesson
+time (hrs)
+Compulsory part (Total 200 hours)
+*
+I.
+Heat Transfer and
+Gases
+II.
+Force and Motion
+a.
+b.
+c.
+d.
+a.
+b.
+c.
+d.
+e.
+f.
+Temperature, heat and internal energy*
+Transfer processes*
+Change of state*
+Gases
+Position and movement*
+Force and motion*
+Motion in two dimensions*
+Work, energy and power*
+Momentum*
+Gravitation
+25
+55
+Parts of these topics are proposed to be included in the physics part of Science (Biology, Physics) and that of
+Science (Chemistry, Physics) respectively.
+3
+SECOND DRAFT
+Compulsory part (Total 200 hours)
+III.
+Wave Motion
+IV.
+Electricity and
+Magnetism
+V.
+Radioactivity and
+Nuclear Energy
+a.
+b.
+c.
+a.
+b.
+c.
+a.
+b.
+c.
+Suggested lesson
+time (hrs)
+Nature and properties of waves*
+Light*
+Sound*
+Electrostatics*
+Circuits and domestic electricity*
+Electromagnetism*
+Radiation and radioactivity
+Atomic model
+Nuclear energy
+Subtotal:
+Astronomy and
+Space Science
+VII. Atomic World
+VIII. Energy and Use of
+Energy
+IX.
+Medical Physics
+Study in Physics
+*
+200
+The universe as seen in different scales
+Astronomy through history
+Newton’s law of gravitation
+Stars and the universe
+Rutherford’s atomic model
+Photoelectric effect
+Bohr’s atomic model of hydrogen
+Particles or waves
+Probing into nano scale
+Electricity at home
+Energy performance in building and
+transportation
+c. Renewable sources of energy
+27
+a. Making sense of the eye and the ear
+b. Sound and optical imaging
+c. Medical imaging
+27
+27
+27
+54
+Suggested lesson
+time (hrs)
+Investigative Study (16 hours)
+Investigative
+16
+a.
+b.
+c.
+d.
+a.
+b.
+c.
+d.
+e.
+a.
+b.
+Subtotal:
+X.
+56
+Suggested lesson
+time (hrs)
+Elective part (Total 54 hours, any 2 out of 4)
+VI.
+48
+Students should conduct an investigation
+with a view to solving an authentic problem
+16
+Total lesson time:
+270
+Parts of these topics are proposed to be included in the physics part of Science (Biology, Physics) and that of
+Science (Chemistry, Physics) respectively.
+4
+SECOND DRAFT
+2.5
+The content of the curriculum is organised into 9 topics and an investigative study.
+However, the concepts and principles of physics are inter-related, which cannot be confined
+by any artificial boundaries of topics. The order of presentation of the topics in this chapter
+should not be regarded as the recommended teaching sequence. Teachers should adopt
+sequences that best suit their chosen teaching approaches as well as the benefit of students’
+learning. For instance, some parts of a certain topic may be covered in advance if they fit in
+naturally with a chosen context.
+2.6
+There are five major parts in each of the following nine topics: Overview, Learning
+Outcomes, Suggested Learning and Teaching Activities, Values and Attitudes, and Science,
+Technology, Society and Environment (STSE) connections.
+Overview – outlines the main theme of the topic. The major concepts and important
+physics principles to be acquired will be highlighted. The foci of each topic will be
+briefly described. The interconnections between subtopics will also be outlined.
+Learning Outcomes – lists out the learning outcomes acquired by students in the
+knowledge content domain of the curriculum. It provides a broad framework upon
+which learning and teaching activities can be developed.
+Suggested Learning and Teaching Activities – gives suggestions to some of the
+different skills that are expected to be acquired in the topic. Some important processes
+associated with the topic are also briefly described. Since most of the generic skills can
+be acquired through any of the topics, there is no attempt to give directive
+recommendation on the activities that should be performed. Students need to acquire a
+much broader variety of skills than what are mentioned in the topics. Teachers should
+exercise their professional judgement to arrange practical and learning activities to
+develop the skills of students as listed in the Skills and Process of the Curriculum
+Framework. It should be done through appropriate integrations with the knowledge
+content, taking into consideration of students’ abilities and interests as well as school
+contexts.
+Values and Attitudes – suggests some desirable values and attitudes related to the study
+in the topic. Students are expected to develop such intrinsically worthwhile values and
+positive attitudes in the course of study in physics. Through discussions and debates,
+for example, students are encouraged to form their value judgement and develop good
+habits for the benefit of themselves and the society.
+5
+SECOND DRAFT
+STSE connections – suggests some issue-based learning activities or contexts related to
+the topic. Students should be encouraged to develop an appreciation and apprehension
+of issues which reflect the interconnections of science, technology, society and the
+environment. Through discussion, debate, information search and project work,
+students can develop their skills of communication, information handling, critical
+thinking and making informed judgement. Teachers are free to select other current,
+relevant topics and issues of high profile in the public agenda as themes of meaningful
+learning activities.
+Learning Targets
+2.7
+The learning targets of this curriculum are categorised into three domains:
+knowledge and understanding, skills and processes, and values and attitudes. Through the
+learning embodied in the Physics Curriculum, students will reach the relevant learning targets
+in various physics-related contexts.
+Knowledge and Understanding
+Students are expected to:
+understand phenomena, facts and patterns, principles, concepts, laws, theories and
+models in physics;
+learn vocabulary, terminology and conventions in physics;
+acquire knowledge of techniques and skills specific to the study of physics;
+group and organise knowledge and understanding in physics, and apply them to
+familiar and unfamiliar situations; and
+develop an understanding of technological applications of physics and of their
+social implications.
+Skills and Processes
+Students are expected to:
+develop scientific thinking and problem-solving skills;
+develop an analytical mind to critically evaluate physics-related issues;
+communicate scientific ideas and values in meaningful and creative ways with
+appropriate use of diagrams, symbols, formulae, equations and conventions, as
+6
+SECOND DRAFT
+well as verbal means;
+acquire practical skills such as how to manipulate apparatus and equipment, carry
+out given procedures, analyse and present data, draw conclusions and evaluate
+experimental procedures;
+make careful observations, ask relevant questions, identify problems and
+formulate hypotheses for investigation;
+plan and conduct scientific investigations individually or collaboratively with
+appropriate instruments and methods, collect quantitative and qualitative data with
+accuracy, analyse and present data, draw conclusions, and evaluate evidence and
+procedures; and
+develop study skills to improve the effectiveness and efficiency of learning; and
+develop abilities and habits that are essential to life-long learning.
+Values and Attitudes
+Students are expected to:
+develop positive values and attitudes such as curiosity, honesty, respect for
+evidence, perseverance and tolerance of uncertainty through the study of physics;
+develop a habit of self-reflection and the ability to think critically;
+be willing to communicate and comment on issues related to physics, and
+demonstrate open-mindedness towards the views of others;
+be aware of the importance of safety for themselves and others, and be committed
+to safe practices in their daily life;
+appreciate the achievements made in physics and recognise their limitations;
+be aware of the social, economic, environmental and technological implications of
+achievements in physics; and
+recognise the importance of life-long learning in our rapidly changing
+knowledge-based society.
+7
+SECOND DRAFT
+Compulsory Part (200 hours)
+Topic I
+Heat Transfer and Gases (25 hours)
+Overview
+This topic examines the concept of thermal energy and transfer processes which are crucial
+for the maintenance and quality of our lives. Particular attention is placed on the distinction
+and relationship among temperature, internal energy and energy transfer. Students are also
+encouraged to adopt microscopic interpretations of various important concepts on the topic of
+thermal physics.
+Calculations involving specific heat capacity will serve to complement the theoretical aspects
+of heat and energy transfer. The practical importance of the high specific heat capacity of
+water can be illustrated with examples close to the experiences of students. A study of
+conduction, convection and radiation provides a basis for analysing the containment of
+internal energy and transfer of energy related to heat. The physics involving the change of
+states is examined and numerical problems involving the specific latent heat are used to
+consolidate the theoretical aspects of energy conversion.
+The ideal gas law relating the pressure, temperature and volume of an ideal gas was originally
+derived from the experimentally measured Charles' law and Boyle's law. Many common
+gases exhibit behaviour very close to that of an ideal gas at ambient temperature and pressure.
+The ideal gas law is a good approximation to study the properties of gases because it does not
+deviate much from the ways that real gases behave. The kinetic theory of gases is intended
+to correlate temperature to the kinetic energy of gas molecules and interpret pressure in terms
+of the motion of gas molecules.
+8
+SECOND DRAFT
+Learning Outcomes
+Students should learn:
+a.
+Students should be able to:
+Temperature, heat
+and internal energy
+temperature and
+thermometers
+realise temperature as the degree of hotness of an object
+interpret temperature as a quantity associated with the
+average kinetic energy due to the random motion of
+molecules in a system
+account for the use of temperature-dependent properties
+to measure temperature
+use degree Celsius as a unit of temperature
+reproduce fixed points on the Celsius scale
+b.
+heat and
+internal energy
+realise heat as the energy transferred resulting from the
+temperature difference between two objects
+realise internal energy as the energy stored in a system
+interpret internal energy as the sum of the kinetic energy
+of random motion and the potential energy of molecules
+in a system
+heat capacity and
+specific heat capacity
+define heat capacity and specific heat capacity
+apply formula Q = mc(T2-T1) to solve problems
+consider the practical importance of the high specific heat
+capacity of water
+Transfer processes
+conduction, convection
+and radiation
+classify means of energy transfer in terms of conduction,
+convection and radiation
+interpret energy transfer by conduction and convection in
+terms of molecular motion
+identify emission of infra-red radiation by hot objects
+determine factors affecting the emission and absorption
+of radiation
+9
+SECOND DRAFT
+Students should learn:
+c.
+Students should be able to:
+Change of state
+melting and freezing,
+boiling and condensing
+determine melting point and boiling point
+latent heat
+realise latent heat as the energy transferred during the
+change of state at constant temperature
+interpret latent heat in terms of the change of potential
+energy of the molecules during change of state
+define specific latent heat of fusion and specific latent
+heat of vaporization
+apply formula Q = ml to solve problems
+evaporation
+d.
+examine the occurrence of evaporation below boiling point
+account for the cooling effect of evaporation
+determine the factors affecting rate of evaporation
+interpret evaporation in terms of molecular motion
+Gases
+ideal gases
+define pressure p = F/A
+determine pressure-temperature and volume-temperature
+relationships of a gas
+determine absolute zero by the extrapolation of p-T or
+V-T relationship
+verify Boyle’s law by an experimental investigation
+combine the three relationships of a gas to obtain the
+general gas law pV = nRT
+10
+SECOND DRAFT
+Students should learn:
+kinetic theory of gases
+Students should be able to:
+define an ideal gas
+state the assumptions for the kinetic model of gases
+derive pV = Nmc 2 / 3
+interpret
+keaverage
+temperature
+3RT
+=
+2N A
+for
+an
+ideal
+gas
+using
+Suggested Learning and Teaching Activities
+Students should develop experimental skills in measuring temperature, volume, pressure and
+energy. The precautions essential for accurate measurements in heat experiments should be
+understood in terms of the concepts learnt in this topic. Students should also be encouraged
+to suggest their own methods for improving the accuracy of these experiments, and
+arrangement for performing these investigations should be made if they are feasible. In
+some of the experiments, a prior knowledge of electrical energy may be required to facilitate
+a solid understanding of the energy transfer processes involved.
+There is much emphasis in the importance of graphical representations of physical
+phenomena in this topic. Students should learn how to plot graphs with suitable choices of
+scales, display experimental results graphically and interpret, analyse and draw conclusions
+from graphical information. In particular, they should learn to extrapolate the trends of the
+graphs to determine the absolute zero of the temperature. Students should be able to plan
+and interpret information from different types of data sources. Most experiments and
+investigations will produce a set of results which may readily be compared with those data in
+textbooks and handbooks.
+The possible learning contexts that students may experience are suggested below for
+reference:
+Studying the random motion of molecules inside a smoke cell using microscope and
+video camera
+Performing an experiment to show how to measure temperature using a device with
+temperature-dependent property
+11
+SECOND DRAFT
+Calibrating a thermometer
+Reproducing fixed points on the Celsius scale
+Performing experiments to determine specific heat capacity and latent heat
+Measuring the specific latent heat of fusion of water (e.g. using a domestic electric boiler,
+heating an ice-water mixture in a composite container, or using ice calorimeter)
+Performing experiments to study the cooling curve of a substance and determine its
+melting point
+Performing experiments to study the relationship among volume, pressure and
+temperature of a gas
+Determining factors affecting the rate of evaporation
+Asking students to feel their sensation of coldness by touching few substances in the
+kitchen and clarifying some misconceptions that may arise from their daily experiences
+Fostering students’ knowledge of conduction, convection, radiation, greenhouse effect
+and heat capacity by designing and constructing a solar cooker
+Challenging students’ preconceived ideas on heat transfer by posing appropriate
+competitions (e.g. attaining a temperature closest to 4oC by mixing soft drink with ice)
+Facilitating students to use dimension analysis to check results of mathematical solutions
+Investigating properties of a gas using simulations or modelling
+Reading articles on heat stroke and discussing heat stroke precautions and care
+Values and Attitudes
+Students should develop intrinsically worthwhile values and attitudes in studying this topic.
+Some particular examples are:
+to be aware of the proper use of heat-related domestic appliances as it helps to reduce the
+cost of electricity and contributes to the worthwhile cause of saving energy
+to be aware of the large amount of energy associated with heat transfer and to develop
+good habits in using air-conditioning in summer and heating in winter
+to develop an interest in using alternative environmental friendly energy resources such as
+solar and geothermal energy
+to be aware of the importance of home safety in relation to the use of radiation heater and
+to be committed to safe practices in their daily life
+12
+SECOND DRAFT
+STSE connections
+Students are encouraged to develop an awareness of and comprehend issues associated with
+the interconnections of science, technology, society and the environment. Examples of
+issues and contexts related to this are:
+the importance of greenhouses in agriculture and the environmental issues of
+‘Greenhouse Effect’
+debates on the gradual rise in global temperature due to human activities, the associated
+potential global hazards due to the melting of the polar ice caps and the effects on the
+world’s agricultural production
+projects, such as the ‘Design of Solar Cooker’, can be used to develop the investigation
+skills as well as to foster the concept of using alternative environmental friendly energy
+resources
+13
+SECOND DRAFT
+Topic II
+Force and Motion (55 hours)
+Overview
+Motion is common to our daily experiences. It is an important feature in physics to describe
+how objects move and investigate why objects move in the way they do. In this topic, the
+fundamentals of mechanics in kinematics and dynamics are introduced, and the foundation
+for describing motion with physics terminology is laid. Various types of graphical
+representations of motion are studied. Students learn how to analyse different forms of
+motion and solve simple problems relating to uniformly accelerated motion. They also learn
+about motion in one or two dimensions and rules governing the motion of objects on Earth.
+The concept of inertia and its relation to Newton’s First Law of motion are covered. Simple
+addition and resolution of forces are used to illustrate the vector properties of forces.
+Free-body diagrams are used to work out the net force acting on a body. Newton’s Second
+Law of motion, which relates the acceleration of an object to the net force, is examined.
+The concepts of mass, weight and gravitational force are introduced. Newton’s Third Law
+of motion is related to the nature of forces. The study of motion is extended to 2 dimensions,
+including projectile motion and circular motion which lead to an investigation of gravitation.
+Work is a process of energy transfer. The concepts of mechanical work done and energy
+transfer are examined and used in the derivation of kinetic energy and gravitational potential
+energy. Conservation of energy in a closed system is a fundamental concept in physics.
+The treatment of energy conversion is used to illustrate the law of conservation of energy, and
+the concept of power is also introduced. Students learn how to compute quantities such as
+momentum and energy in examples involving collisions. The relationship among the
+change in momentum of a body, impact time and impact force is emphasized.
+Learning Outcomes
+Students should learn:
+a.
+Students should be able to:
+Position and movement
+position, distance and
+displacement
+describe the change of position of objects in terms of
+distance and displacement
+14
+SECOND DRAFT
+Students should learn:
+Students should be able to:
+present information graphically of displacement-time
+graphs for moving objects
+scalars and vectors
+distinguish between scalar and vector quantities
+use scalars and vectors in different contexts
+speed and velocity
+define average speed and average velocity
+distinguish between instantaneous and average
+speed/velocity
+describe motion of objects in terms of speed and velocity
+present information on velocity-time graphs for moving
+objects
+linear uniform motion
+interpret uniform motion of objects using algebraic and
+graphical methods
+use displacement-time and velocity-time graphs to
+determine the displacement and velocity of objects
+solve problems involving displacement, time and average
+velocity
+acceleration
+define acceleration as the rate of change of velocity
+use velocity-time graphs to determine the acceleration of
+objects in uniformly accelerated motion
+present information on acceleration-time graphs for
+moving objects
+equations of uniformly
+accelerated motion
+derive equations of uniformly accelerated motion
+v = u + at
+s = 12 (u + v)t
+s = ut + 12 at 2
+v 2 = u 2 + 2as
+solve problems for objects in uniformly accelerated
+motion
+15
+SECOND DRAFT
+Students should learn:
+vertical motion under
+gravity
+b.
+Students should be able to:
+analyse and describe the motion of free-falling objects
+present graphically information of vertical motions under
+gravity
+solve problems for objects in vertical motion using the
+equations of uniformly accelerated motion
+describe the effects of air resistance on the motion of
+objects falling under gravity
+Force and motion
+Newton’s First Law
+of motion
+describe the meaning of inertia and mass
+realise Newton’s First Law of motion and apply it to
+explain situations in which objects are at rest or in
+uniform motion
+realise friction as a force opposing motion
+addition of forces
+find the vector sum of coplanar forces graphically and
+algebraically
+resolution of forces
+resolve a force graphically and algebraically into
+components along two mutually perpendicular directions
+Newton’s Second Law
+of motion
+realise the effect of a net force on the speed and/or
+direction of motion of an object
+understand Newton’s Second Law of motion and the
+formula F = ma
+use newton as a unit of force
+use free-body diagrams to show the forces acting on
+objects
+identify the net force in a system consisting of one or two
+objects
+solve problems involving rectilinear motion
+Newton’s Third Law
+of motion
+realise forces acting in pairs
+understand Newton’s Third Law of motion and apply it to
+16
+SECOND DRAFT
+Students should learn:
+Students should be able to:
+identify action and reaction pair of forces
+c.
+d.
+mass and weight
+distinguish between mass and weight
+realise the relationship between mass and weight
+moment of a force
+define moment of a force as the product of the force and
+its perpendicular distance from the pivot
+recognise the use of torques and couples
+state the conditions for equilibrium of forces acting on a
+point mass and a rigid body
+determine the centre of gravity experimentally
+Motion in two
+dimensions
+projectile motion
+describe the shape of the path taken by a projectile
+launched at an angle of projection
+realise the independence of vertical and horizontal
+motions
+resolve a projectile’s velocity into horizontal and vertical
+components
+solve problems involving projectile motion
+circular motion
+understand angular velocity and realise its relationship
+between it and linear velocity
+derive centripetal acceleration a = v2/r
+solve problems involving circular motion
+Work, energy and
+power
+mechanical work
+realise mechanical work done as a measure of energy
+transfer
+define mechanical work done W = Fs cos?
+solve problems involving mechanical work
+17
+SECOND DRAFT
+Students should learn:
+Students should be able to:
+gravitational potential
+energy (P.E.)
+realise gravitational potential energy of an object due to
+its position under the action of gravity
+derive the formula EP = mgh
+solve problems involving gravitational potential energy
+kinetic energy (K.E.)
+realise kinetic energy of an object due to its motion
+derive the formula E K = ½ mv 2
+solve problems involving kinetic energy
+e.
+law of conservation of
+energy in a closed
+system
+interpret the law of conservation of energy
+realise inter-conversion of P.E. and K.E. and take into
+account of the energy loss
+apply the law of conservation of energy to solve problems
+power
+define power in terms of the rate of energy transfer
+use watt as a unit of power
+W
+apply the formula P =
+to solve problems
+t
+Momentum
+linear momentum
+define momentum as a quantity of motion of an object
+change in momentum
+and net force
+realise the change in momentum resulted when a net force
+acts on an object for a period of time
+interpret force as the rate of change of momentum
+(Newton’s Second Law of motion)
+law of conservation of
+momentum
+interpret the law of conservation of momentum
+elastic and inelastic
+collisions
+distinguish between elastic and inelastic collisions
+apply the law of conservation of momentum to solve
+problems involving collisions in one dimension
+18
+SECOND DRAFT
+Students should learn:
+Students should be able to:
+describe energy changes in collisions
+f.
+Gravitation
+Gravitational force
+between masses
+state Newton’s law of universal gravitation
+Field strength g
+define gravitational field strength as force per unit mass
+derive g = G M / r 2
+solve problems involving gravitation
+Suggested Learning and Teaching Activities
+Students should develop experimental skills in measuring time and in the recording of
+positions, velocities and accelerations of objects using various types of measuring
+instruments such as stop watches, data-logging sensors etc. Skills in measuring masses,
+weights and forces are also required. Data-handling skills such as converting displacement
+and time data into information on velocity or acceleration are important. Students may be
+encouraged to carry out project-type investigations in the motion of vehicles. There is much
+emphasis in the importance of graphical representations of physical phenomena in this topic.
+Students should learn how to plot graphs with suitable choices of scales, display experimental
+results in graphical forms and interpret, analyse and draw conclusions from graphical
+information. In particular, they should learn to interpret the physical significances of slopes,
+intercepts and areas in certain graphs. Students should be able to plan and interpret
+information from different types of data sources. Most experiments and investigations will
+produce a set of results which may readily be compared with those data in textbooks and
+handbooks.
+The possible learning contexts that students may experience are suggested below for
+reference:
+Performing experiments on motion and forces (e.g. using ticker-tape timers, multi-flash
+photography, video motion analysis, data-loggers) and a graphical analysis of the results
+Using light gates or motion sensors to measure speed and acceleration of a moving
+object
+19
+SECOND DRAFT
+Inferring the relationships among acceleration, velocity, displacement and time
+from a graphical analysis of empirical data for uniformly accelerated motion
+Using light gates or motion sensors to measure the acceleration due to gravity g
+Using light gates or motion sensors to determine the factors affecting acceleration
+Using force and motion sensors to determine the relationship among force, mass
+and acceleration
+Using multi-flash photography or video camera to analyse projectile motion or
+circular motion
+Using force sensor to determine the relationship among radius, angular speed and
+the centripetal force on an object moving in a circle
+Performing experiments on energy and momentum (e.g. colliding dynamic carts, gliders
+on air tracks, pucks on air tables, rolling a ball-bearing down an inclined plane, dropping
+a mass attached to a spring)
+Using light gates or motion sensors to measure the change of momentum during a
+collision
+Using light gates or motion sensors and air track to investigate the principle of
+conservation of linear momentum
+Using force sensors to measure the impulse during collision
+Performing experiments to show the independence of horizontal and vertical motions
+under the influence of gravity
+Performing experiments to investigate the relationships among mechanical energy, work
+and power
+Determining the output of an electric motor by measuring the rate of energy transfer
+Estimating work required for various tasks, such as lifting a book, stretching a spring
+and climbing Lantau Peak
+Estimating KE of various moving objects such as a speeding car, a sprinter and an air
+molecule
+Investigating the application of conservation principles in designing energy transfer
+devices
+Evaluating the design of energy transfer devices, such as household appliances, lifts,
+escalators and bicycles
+Using free-body diagrams in organising and presenting the solutions of dynamic
+problems
+Exposing students to problems that, even if a mathematical treatment is involved, have a
+direct relevance to their experiences (sport, transport, skating etc) in everyday life and
+solutions of problems related to these experiences
+Facilitating students to use dimension analysis to check the results of mathematical
+solutions
+20
+SECOND DRAFT
+Challenging students’ preconceived ideas on motion and force by posing appropriate
+thought-provoking questions (e.g. “zero” acceleration at the maximum height, “zero”
+gravitational force in space shuttle, etc.)
+Reinforcing students’ awareness of the power and elegance of the conservation laws by
+contrasting such solutions with those involving the application of Newton’s second law.
+Investigating motion in a plane using simulations or modelling (http://phoenix.sce.fct.
+unl.pt/modellus)
+Using the Hong Kong Ocean Park as a large laboratory to investigate laws of motion
+and developing numerous concepts in mechanics from a variety of experiences at the
+park (http://www.hk-phy.org/oceanpark/index.html)
+Values and Attitudes
+Students should develop intrinsically worthwhile values and attitudes in studying this topic.
+Some particular examples are:
+to be aware of the importance of car safety and to be committed to safe practices in their
+daily life
+to be aware of the potential danger of falling objects from high-rises and to adopt a
+cautious attitude in matters concerning public safety
+to be aware of the environmental implications of different modes of transport and to make
+an effort in reducing energy consumption in daily life
+to accept uncertainty in the description and explanation of motions in the physical world
+to be open-minded in evaluating potential applications of principles in mechanics to new
+technology
+to appreciate the efforts made by scientists to find more alternative environmental
+friendly energy resources
+to appreciate that the advancement of important scientific theories (such as Newton’s laws
+of motion) can ultimately make huge impact on technology and society
+to appreciate the contributions of Galileo and Newton that revolutionised the scientific
+thinking of their time
+to appreciate the roles of science and technology in the exploration of outer-space and the
+efforts of mankind in the quest for the understanding of nature
+21
+SECOND DRAFT
+STSE connections
+Students are encouraged to develop an awareness of and comprehend issues associated with
+the interconnections of science, technology, society and the environment. Examples of
+issues and contexts related to this are:
+the issue of the effects of energy use on the environment
+the reduction of pollutants and energy consumption by restricting the use of private cars
+in order to protect the environment
+penalizing drivers and passengers who do not wear seatbelts and raising public awareness
+of car safety with scientific rationales
+how the danger of speeding and its relation to the chances of serious injury or death in car
+accidents can be related to the concepts of momentum and energy
+the use of principles in mechanics in traffic accident investigations
+modern transportation: the dilemma in choosing between speed and safety; the dilemma
+in choosing between convenience and environmental protection
+evaluating the technological design of modern transport (e.g. airbags in cars, tread
+patterns on car tires, hybrid vehicles, magnetically levitated trains)
+the use of technological devices including terrestrial and space vehicles (e.g. Shenzhou-5
+Spacecraft)
+enhancement of recreational activities and sports equipment
+the ethical issue of dropping objects from high-rises and its potential danger as the
+principles of physics suggest
+careers that require an understanding and application of kinematics and dynamics
+22
+SECOND DRAFT
+Topic III
+Wave Motion (48 hours)
+Overview
+This topic examines the basic nature and properties of waves. Light and sound, in particular,
+are also studied in detail. Students have been familiar with examples of energy being
+transmitted from one place to another, together with the transfer of matter. In this topic, the
+concept of waves being a means of transmitting energy without transferring matter is
+emphasized. The foundation for describing wave motion with physics terminology is laid.
+Students learn the graphical representations of travelling waves. The basic properties and
+characteristics displayed by waves are examined; reflection, refraction, diffraction and
+interference are studied using simple wavefront diagrams.
+Students acquire specific knowledge on light in two important aspects. The characteristics
+of light as a part of the electromagnetic spectrum are studied. Besides that, the linear
+propagation of light in the absence of significant diffraction and interference effects is used to
+explain image formation in the domain of geometrical optics. The formation of real and
+virtual images using mirrors and lenses is studied with construction rules for light rays.
+Sound as an example of longitudinal waves is examined. Its general properties are
+compared with those of light waves. Students also learn about ultrasound. The general
+descriptions of musical notes are related to the terminology of waves. The effects of noise
+pollution and the importance of acoustic protection are also studied.
+Learning Outcomes
+Students should learn:
+a.
+Students should be able to:
+Nature and properties
+of waves
+nature of waves
+understand oscillations in wave motion
+realise waves transmitting energy without transferring
+matter
+23
+SECOND DRAFT
+Students should learn:
+Students should be able to:
+wave motion and
+propagation
+distinguish between transverse and longitudinal waves
+describe wave motion in terms of: waveform, crest,
+trough, compression, rarefaction, wavefront, phase,
+displacement, amplitude, period (T), frequency (f),
+wavelength (?) and wave speed (v)
+present information on displacement-time and
+displacement-distance graphs for travelling waves
+determine factors affecting the speed of propagation of
+waves along stretched strings or springs
+apply f = 1/T and v = f? to solve problems
+reflection and refraction
+account for the reflection of waves at a plane
+barrier/reflector/surface through Huygens’ principle
+determine the condition for a phase change on reflection
+account for the refraction of waves across a plane
+boundary
+realise refraction as a result of change in wave speeds
+and define refractive index in terms of speeds
+illustrate reflection and refraction using wavefront
+diagrams
+diffraction and
+interference
+describe the superposition of two waves qualitatively
+describe diffraction of waves through a narrow gap and
+around a corner
+examine relationship between the degree of diffraction
+and the size of the gap compared to the wavelength
+realise interference of waves as a property of waves
+identify occurrences of constructive and destructive
+interferences
+examine interference of waves from two coherent
+sources
+determine conditions for constructive and destructive
+interference in terms of path difference
+illustrate diffraction and interference of waves using
+wavefront diagrams
+24
+SECOND DRAFT
+Students should learn:
+Students should be able to:
+realise the characteristics of stationary waves (transverse
+waves only)
+b.
+Light
+wave nature of light
+use light as an example of transverse waves
+realise light as a part of the electromagnetic spectrum
+identify the range of wavelength for visible light
+determine the relative positions of visible light and other
+parts of the electromagnetic spectrum
+state the speed of light and electromagnetic waves in
+vacuum
+reflection of light
+state the law of reflection
+construct image formed by plane mirror graphically
+refraction of light
+state the law of refraction
+project path of a ray being refracted at a boundary
+define refractive index of a medium as n = sin i / sin r
+apply Snell’s law to solve problems involving refraction
+at a boundary between vacuum(or air) and another
+medium
+total internal reflection
+determine conditions for total internal reflection
+solve problems involving total internal reflection at a
+boundary between vacuum (or air) and another medium
+formation of images by
+lenses
+construct image formed by converging and diverging
+lenses graphically
+distinguish between real and virtual images
+use the equation (1/u) + (1/v) = (1/f) to solve problems
+for a single thin lens
+25
+SECOND DRAFT
+Students should learn:
+evidence for the wave
+nature of light
+Students should be able to:
+realise diffraction and interference as evidences for the
+wave nature of light
+formulate the interference effects for normal incidence in
+parallel-side and wedge-shape thin films
+use plane transmission grating as an interference system
+and apply formula d sin ? = n ? to solve problems
+c. Sound
+wave nature of sound
+realise sound as longitudinal waves
+realise requirement of a medium for the transmission of
+sound waves
+compare the general properties of sound waves and those
+of light waves
+audible frequency range
+determine the audible frequency range
+ultrasound
+state frequencies of ultrasound
+musical notes
+compare musical notes using pitch, loudness and quality
+relate frequency and amplitude with the pitch and
+loudness of a note respectively
+noise
+represent sound intensity level using the unit decibel
+identify effects of noise pollution and the importance of
+acoustic protection
+Suggested Learning and Teaching Activities
+Students should develop experimental skills in the study of vibration and waves through
+various physical models. They need to develop the skills for interpreting indirect
+measurements and demonstrations of wave motion through the displays on the CRO or the
+computer. They should appreciate that many scientific evidences are obtained through
+indirect measurement coupled with logical deduction. They should also be aware that
+various theoretical models are used in the study of physics; for example, the ray model is
+26
+SECOND DRAFT
+used in geometrical optics for image formation and the wave model of light is used to explain
+phenomena like diffraction and interference. Through the study of the physics of musical
+notes, students should develop the understanding that most everyday experiences are
+explicable by scientific concepts.
+The possible learning contexts that students may experience are suggested below for
+reference:
+Investigating properties of waves generated in springs and ripple tanks
+Investigating factors affecting the speed of transverse progressive waves along a slinky
+spring
+Determining the speed of a water wave in a ripple tank or a wave pulse travelling along a
+stretched spring or string
+Illustrating phase change on reflection using a slinky spring
+Demonstrating the superposition of transverse waves on a slinky spring
+Using CRO waveform demonstrations to show the superposition of waves
+Drawing the resultant wave when two waves interfere by using the principle of
+superposition
+Estimating the wavelength of light by using double slit or plane diffraction grating
+Estimating the wavelength of microwave by using double slit
+Demonstrating interference patterns in soap film
+Determining the effects of wavelength, slit separation or screen distance on an
+interference pattern in an experiment by using double slit
+Measuring the focal lengths of lenses
+Locating real and virtual images in lenses by using ray boxes and ray tracing
+Using ray diagrams to predict the nature and position of an image in an optical device
+Searching information on the development of physics of light
+Discussing some everyday uses and effects of electromagnetic radiation
+Using computer simulations to observe and investigate the properties of waves
+Investigating the relationship between the frequency and wavelength of a sound wave
+Carrying out an experiment to verify Snell’s law
+Determining the refractive index of glass or Perspex
+Determining the conditions for total internal reflection to occur
+Constructing, testing and refining a prototype of an optical instrument
+Identifying the differences between sounds in terms of loudness, pitch and quality
+Facilitating students to use dimension analysis to check results of mathematical solutions
+27
+SECOND DRAFT
+Values and Attitudes
+Students should develop intrinsically worthwhile values and attitudes in studying this topic.
+Some particular examples are:
+to appreciate the need to make more use of some environmental friendly energy resources
+such as solar and tidal-wave energy
+to be aware that science has its limitations and cannot always provide clear-cut solutions;
+the advancement of science also requires perseverance, openness and scepticism, as
+demonstrated in the different interpretations on the nature of light in the history of physics
+over the past centuries
+to appreciate that the advancement of important scientific theories (such as those related
+to the study of light) is the fruits of the hard work of generations of scientists who
+devoted themselves to scientific investigations by applying their intelligence, knowledge
+and skills
+to be aware of the potential health hazards of a prolonged exposure to extremely noisy
+environment and to make an effort to reduce noise-related disturbances to neighbours
+to be aware of the importance of the proper use of microwave ovens and to be committed
+to safe practices in their daily life
+STSE connections
+Students are encouraged to develop an awareness of and comprehend issues associated with
+the interconnections of science, technology, society and the environment. Examples of
+issues and contexts related to this are:
+controversial issues about the effects of microwave radiation on the health of the general
+public through the use of mobile phones
+the biological effects of increased ultra-violet radiation from the sun on the human body
+as a result of the depletion of the atmospheric ozone layer by artificial pollutants
+the problem of noise pollution in the local context
+the impact on the society as a result of the scientific discovery of electromagnetic waves
+and the technological advancements in the area of telecommunication
+how major breakthroughs in scientific and technological development that eventually
+affect society are associated with new understanding of fundamental physics as traced out
+by the study of light in the history of science
+how technological advancements can provide impetus for scientific investigations as
+28
+SECOND DRAFT
+demonstrated in the invention and development of the microscope, telescope and X-ray
+diffraction etc., with these scientific investigations in turn shedding light on our own
+origin and the position of mankind in the universe
+29
+SECOND DRAFT
+Topic IV
+Electricity and Magnetism (56 hours)
+Overview
+This topic examines the basic principles of electricity and magnetism. The abstract concept
+of an electric field is introduced through its relationship with the electrostatic force. The
+inter-relationships among voltage, current, resistance, charge, energy and power are examined
+and the foundation for basic circuitry is laid. Electricity is the main energy source in homes
+and electrical appliances have become an integral part of daily life. The practical use of
+electricity in households is studied. Particular attention is paid to the safety aspects of
+domestic electricity.
+The concept of magnetic field is applied to the study of electromagnetism. The magnetic
+effects of electric current and some simple magnetic field patterns are studied. Students also
+learn the factors that affect the strength of an electromagnet. The magnetic force is
+produced when a current-carrying conductor is placed in a magnetic field. An electric
+motor requires the supply of electric current to the coil in a magnetic field to produce a
+turning force causing it to rotate.
+The general principles of electromagnetic induction are introduced. Electrical energy can be
+generated when there is relative motion between a conductor and a magnetic field.
+Generators reverse the process in motors to convert mechanical energy into electrical energy.
+The operation of simple d.c. and a.c. generators are studied. Students learn how a.c.
+voltages can be stepped up or down with transformers. The system by which electrical
+energy is transmitted over great distances to our home is studied.
+Learning Outcomes
+Students should learn:
+a.
+Students should be able to:
+Electrostatics
+electric charges
+examine experimental evidences for two kinds of
+charges in nature
+realise the attraction and repulsion between charges
+define Coulomb’s law
+30
+SECOND DRAFT
+Students should learn:
+Students should be able to:
+use coulomb as a unit of charge
+interpret charging in terms of electron transfer
+b.
+electric field
+realise the existence of an electric field around a point
+charge
+represent electric field using lines of force
+describe the electric field around a point charge and
+between parallel charged plates
+explain how charges interact using electric field
+consider electric field strength as force per unit charge
+solve problems involving electric field strength around a
+point charge and between parallel charged plates
+draw analogy between electric field and gravitational
+field
+electric potential
+define potential difference between two points
+solve problems involving potentials in the fields of a
+point charge and parallel plates
+recognise electric field strength as the negative gradient
+of potential
+use volt as a unit of electric potential
+Circuits and domestic
+electricity
+electric current
+realise an electric current as a flow of electric charges
+realise the convention for the direction of electric current
+use ampere as a unit of current
+estimate electron drift velocity in a metal using the
+general flow equation I = nAvQ
+electrical energy and
+electromotive force
+describe the energy transformations in electric circuits
+define electromotive force (e.m.f.) of a source
+recognise potential difference (p.d.) between two points
+as the energy being converted from electrical potential
+31
+SECOND DRAFT
+Students should learn:
+Students should be able to:
+energy to other forms per unit charge passing between
+the points outside the source
+distinguish between e.m.f. of a source and terminal
+voltage across the source
+resistance
+recognise the variation of current with applied p.d. in
+various conductors and circuit elements (metals,
+electrolytes, thermistors and diodes)
+define resistance R = V/I
+recognise Ohm’s law as a special case of resistance
+behaviour
+use ohm as a unit of resistance
+determine the factors affecting the resistance of a wire
+and define its resistivity
+realise the effects of temperature on resistance of metals
+and semiconductors
+apply formula V = IR and Kirchhoff’s first law to solve
+problems
+series and parallel
+circuits
+compare series and parallel circuits in terms of voltage
+across the components of each circuit and the current
+through them
+recognise the resistance combinations in series and
+parallel circuits
+R = R1 + R2 + …..
+for resistors connected in series
+1 1
+1
+=
++
++ ..... for resistors connected in parallel
+R R1 R2
+simple circuits
+determine I, V and R in simple circuits
+examine the effects of resistance of ammeters,
+voltmeters and internal resistance of cells in simple
+circuits
+32
+SECOND DRAFT
+Students should learn:
+c.
+Students should be able to:
+electrical power
+determine the heating effect when a current passes
+through a conductor
+apply formula P = VI to solve problems
+domestic electricity
+determine power rating of electrical appliances
+use kilowatt-hour (kWh) as a unit of electrical energy
+calculate the costs of running various electrical
+appliances
+recognise household wiring and the safety aspects of
+domestic electricity
+determine the operating current for electrical appliances
+and the choice of power cable and fuse
+Electromagnetism
+magnetic force and
+magnetic field
+realise the attraction and repulsion between magnetic
+poles
+examine the existence of magnetic field in the region
+around a magnet
+represent magnetic field using field lines
+describe the behaviour of a compass in a magnetic field
+magnetic effect of
+electric current
+realise the existence of magnetic field due to moving
+charges and electric currents
+describe the magnetic field patterns associated with
+currents through a long straight wire, a circular coil and
+a long solenoid
+use the formulae B = µ0I/2?r and B = µ0NI/l to represent
+the magnetic fields around a long straight wire, and
+inside a long solenoid, carrying current
+determine the factors affecting the strength of an
+electromagnet
+33
+SECOND DRAFT
+Students should learn:
+Students should be able to:
+current-carrying
+conductor in magnetic
+field
+realise the existence of a force on a current-carrying
+conductor in a magnetic field and determine relative
+directions of force, field and current
+determine the factors affecting the force on a
+current-carrying conductor in a magnetic field and
+represent the force on it by the formula F = BIl sin?
+define ampere by measuring the force between currents
+in long straight parallel conductors
+recognise the turning effect on a current-carrying coil in
+a magnetic field
+describe the operating principles of a simple d.c. or a.c.
+motor
+Hall effect
+define the force on a moving charge in a magnetic field
+as F = BQv sin?
+derive Hall voltage VH = BI/nQt
+measure magnetic fields using Hall probe and search coil
+electromagnetic
+induction
+recognise induced e.m.f resulting from a moving
+conductor in a steady magnetic field and a stationary
+conductor in a changing field
+define magnetic flux
+interpret magnetic field B as magnetic flux density
+apply Lenz’s law to identify the direction of induced
+current in a closed circuit
+apply Faraday’s Law to calculate the average induced
+e.m.f.
+understand the operating principles of simple d.c. and
+a.c. generators
+recognise the occurrence and practical uses of eddy
+currents
+alternating currents
+(a.c.)
+examine the mean heating effect in a pure resistance
+when a sinusoidal alternating current is passing through
+it
+34
+SECOND DRAFT
+Students should learn:
+Students should be able to:
+recognise the r.m.s. and peak values of a sinusoidal a.c.
+transformer
+describe the operating principle of a simple transformer
+relate the voltage ratio to turns ratio by by the formula
+VP N P
+and apply the relationship to solve problems
+=
+VS N S
+determine the efficiency of a transformer
+examine methods for improving the efficiency of a
+transformer
+high voltage
+transmission of
+electrical energy
+describe the advantage of transmission of electrical
+energy with a.c. at high voltages
+recognise various stages of stepping up and down of the
+voltage in a grid system for power transmission
+Suggested Learning and Teaching Activities
+Students should develop experimental skills in connecting up circuits. They are required to
+perform electrical measurements using various types of equipments, such as ammeters,
+voltmeters, multi-meters, joulemeter, CRO and data-logging probes. Students should acquire
+the skills in performing experiments to study, demonstrate and explore concepts of physics,
+such as electric fields, magnetic fields and electromagnetic induction. Students can gain
+practical experiences related to design and engineering in building physical models, such as
+electric motors and generators. It should, however, be noted that all experiments involving
+the mains power supply and EHT supply must be carefully planned to avoid the possibility of
+an electric shock. Handling apparatus properly and safely is a very basic practical skill of
+great importance.
+The possible learning contexts that students may experience are suggested below for
+reference:
+Showing the nature of attraction and repulsion using simple electrostatic generation and
+testing equipment
+Investigating the nature of electric field surrounding charges and between parallel plates
+35
+SECOND DRAFT
+Plotting electric field lines by using simple measurement of equipotentials in the field
+Measuring current, e.m.f., and potential difference around the circuit by using appropriate
+meters and calculating the resistance of any unknown resistors
+Verifying Ohm’s law by finding the relationship between p.d. across a resistor and current
+passing through it
+Determining factors affecting the resistance of a resistor
+Comparing the changing resistance of ohmic devices, non-ohmic devices and
+semiconductors
+Designing and constructing an electric circuit to perform a simple function
+Analysing real or simulated circuits to identify faults and suggesting appropriate changes
+Comparing the efficiency of various electrical devices and suggesting ways of improving
+efficiency
+Measuring magnetic field strength by using simple current balance, search coil and Hall
+probe
+Performing demonstrations to show the relative directions of motion, force and field in
+electromagnetic devices
+Disassembling loudspeakers to determine the functions of individual components
+Investigating the magnetic fields around electric currents (e.g. around a long straight wire,
+at the centre of a coil, inside and around a slinky solenoid and inside a solenoid)
+Constructing electric motor kits and generator kits
+Measuring the transformation of voltages under step-up or step-down transformers
+Estimating the e/m ratio by measuring the radius of curvature in a magnetic field of
+known strength
+Planning and selecting appropriate equipment or resources to demonstrate the generation
+of an alternating current
+Using computer simulations to observe and investigate the electric field and magnetic
+field
+Facilitating students to use dimension analysis to check results of mathematical solutions
+Identifying hazardous situations and safety precautions in everyday uses of electrical
+appliances
+Investigating the need for and the functioning of circuit breakers in household circuits
+Reading articles on possible hazardous effects on residents living near high voltage
+transmission cables
+Searching information on the uses of resistors in common appliances (e.g. volume control,
+light dimmer switch)
+36
+SECOND DRAFT
+Values and Attitudes
+Students should develop intrinsically worthwhile values and attitudes in studying this topic.
+Some particular examples are:
+to appreciate that the application of scientific knowledge can produce useful practical
+products and transform the daily life of human beings as demonstrated in the numerous
+inventions related to electricity
+to be aware of the importance of technological utilities such as electricity, to the modern
+society and the effects on modern life if these utilities are not available for whatever
+reason
+to be aware of the need to save electrical energy for reasons of economy as well as
+environmental protection
+to be committed to the wise use of natural resources and to develop a sense of shared
+responsibility for a sustainable development of mankind
+to be aware of the danger of electric shocks and the fire risk associated with improper use
+of electricity, and develop good habits in using domestic electricity
+STSE connections
+Students are encouraged to develop an awareness of and comprehend issues associated with
+the interconnections of science, technology, society and the environment. Examples of
+issues and contexts related to this are:
+the effects on health as a result of living near high power transmission cables
+the potential hazards of the mains supply versus the conveniences of ‘plug-in’ energy and
+automation it offers to society
+the environmental implications and recent developments of the electric car as an
+alternative to the traditional fossil-fuel car; the role of the government on such issues
+the views of some environmentalists on the necessity to return to a more primitive or
+natural life-style with minimum reliance on technology
+37
+SECOND DRAFT
+Topic V
+Radioactivity and Nuclear Energy (16 hours)
+Overview
+In this topic, nuclear processes are examined. Ionising radiation is very useful in industrial
+and medical fields but at the same time it is hazardous to us. Nuclear radiation comes from
+natural and artificial sources. It is essential for students to understand the origin of
+radioactivity, the nature and the properties of radiation. Students should also learn simple
+methods to detect radiation and identify major sources of background radiation in our natural
+environment. Simple numerical problems involving half-lives are performed in order to
+understand the long-term effects of some radioactive sources. The potential hazards of
+ionizing radiation are studied scientifically and in a balanced way by bringing in the concept
+of dosage.
+In the atomic model, the basic structure of a nuclide is represented by a symbolic notation.
+Students learn the concepts of isotopes. They are also introduced to fission and fusion,
+nature’s most powerful energy sources.
+Learning Outcomes
+Students should learn:
+a.
+Students should be able to:
+Radiation and
+Radioactivity
+X-rays
+realise X-rays as ionizing electromagnetic radiations of
+short wavelengths with high penetrating power
+realise the emission of X-rays when fast electrons hit a
+heavy metal target
+?, ? and ? radiation
+describe the origin and nature of ?, ? and ? radiation
+compare ?, ? and ? radiation in terms of their
+penetrating power, ranges, ionizing power, behaviour in
+electric field and magnetic field, and cloud chamber
+tracks
+38
+SECOND DRAFT
+Students should learn:
+b.
+Students should be able to:
+radioactive decay
+realise the occurrence of radioactive decay in unstable
+nuclides
+demonstrate the random nature of radioactive decay
+determine the proportional relationship between the
+activity of a sample and the number of undecayed nuclei
+define half-life
+realise the relationship between decay constant in the
+exponential law of decay N = Noe-kt and the half-life
+determine the half-life of a radioisotope from its decay
+graph or from numerical data
+solve problems involving half-life
+detection of radiation
+detect radiation with photographic film and GM counter
+measure radiation in terms of count rate using a GM
+counter
+radiation safety
+identify major sources of background radiation
+use the unit sievert to represent radiation dose
+describe potential hazards of ionizing radiation and the
+ways to minimize the radiation dose absorbed
+suggest safety precautions in handling radioactive
+sources
+Atomic model
+atomic structure
+realise the structure of a typical atom
+define atomic number and mass number
+use symbolic notations to represent nuclides
+isotopes and radioactive
+transmutation
+define isotope
+recognise the existence of radioactive isotopes in some
+elements
+represent radioactive transmutations in ?, ? and ? decays
+using equations
+39
+SECOND DRAFT
+Students should learn:
+c.
+Students should be able to:
+Nuclear energy
+nuclear fission
+recognise the release of energy in nuclear fission
+describe the principle of the fission reactor and nuclear
+chain reaction
+state the roles of fuel, moderator, coolant and control
+rods
+nuclear fusion
+realise release of energy in nuclear fusion
+realise nuclear fusion as the source of solar energy
+Suggested Learning and Teaching Activities
+Students must be properly warned about the potential danger of radioactive sources. The
+regulations regarding the use of radioactivity for school experiments must be strictly
+observed. Although students are not allowed to handle sealed sources, they can acquire
+experimental skills by participating in the use of the Geiger-Muller counter in an
+investigation of the background radiation. Fire alarms making use of weak sources may
+also be used in student experiments under teachers’ supervision. However, proper
+procedures should be adopted and precautions should be taken to avoid accidental
+detachment of the source from the device. Analytic skills are often required to draw
+meaningful conclusions from the results of radioactive experiments that inevitably involve
+background radiation.
+The possible learning contexts that students may experience are suggested below for
+reference:
+Measuring background radiation by using a GM counter
+Showing the activity of a sample to be proportional to the remaining number of unstable
+nuclides by using simulation or decay analogy with dice
+Demonstrating the random variation of count rate by using a GM counter and a source
+Identifying sources of natural radiations and investigating why exposure to natural
+radiation is increased for airline crews and passengers
+Determining the factors leading to an increase in the concentration of radon in high-rises
+40
+SECOND DRAFT
+Reading the specification for commercial products containing radiation such as smoke
+detectors
+Determining risks and assessing benefits of using nuclear radiations in medical diagnosis
+Suggesting ways of disposing radioactive wastes
+Estimating the half-life from a graph of activity plotted against time
+Searching information on the use of radioactive dating, radioactive tracers, food
+irradiation and product sterilisation
+Searching information on the ethics of using nuclear weapons
+Comparing the relative costs and benefits from the use of nuclear reactors with other
+methods of producing electrical power
+Searching information on nuclear accidents and reporting a case study on nuclear
+accidents
+Values and Attitudes
+Students should develop intrinsically worthwhile values and attitudes in studying this topic.
+Some particular examples are:
+to be aware of the usefulness of models and theories in physics as shown in the atomic
+model and appreciate the wonders of nature
+to be aware of the need to use natural resources judiciously to ensure the quality of life
+for future generations
+to be aware of the benefits and disadvantages of nuclear energy resources when compared
+to fossil fuels
+to be aware of the views of society on the use of radiation: the useful applications of
+radiation in research, medicine, agriculture and industry are set against its potential
+hazards
+to be aware of different points of view in society on controversial issues and appreciate
+the need to respect others’ points of view even in disagreement; and to adopt a scientific
+attitude when facing controversial issues, such as debates on the use of nuclear energy
+STSE connections
+Students are encouraged to develop an awareness of and comprehend issues associated with
+the interconnections of science, technology, society and the environment. Examples of
+issues and contexts related to this are:
+41
+SECOND DRAFT
+the use of nuclear power; the complex nature of the effects caused by developments in
+science and technology in our society
+the moral issue of using various mass destruction weapons in wars
+the political issue of nuclear deterrents
+the roles and responsibilities of scientists and the related ethics in releasing the power of
+nature as demonstrated in the developments of nuclear power
+stocking and testing of nuclear weapons
+the use of fission reactors and the related problems such as disposal of radioactive wastes
+and leakage of radiation
+42
+SECOND DRAFT
+Elective part (Total 54 hours, any 2 out of 4)
+Topic VI
+Astronomy and Space Science (27 hours)
+Overview
+Astronomy is the earliest science emerged in history. The methods of measurement and the
+ways of thinking developed by early astronomers laid the foundation of scientific methods
+which influenced the development of science for centuries. The quest for a perfect model of
+the universe in the Renaissance eventually led to the discovery of Newton's law of universal
+gravitation and the laws of motion. This had profound influence on the subsequent rapid
+development in physics. Using physical laws in mathematical form to predict natural
+phenomena, and verifying these predictions with careful observation and experimentation,
+like what Newton and other scientists did some 300 years ago, has become the paradigm of
+modern physics research. Physics has become the cornerstone of modern astronomy, it has
+revolutionised our concepts of the universe and the existence of mankind. Modern
+development of space science, such as the launch of spacecraft and artificial satellites, still
+relies on Newtonian physics. In this topic, students have the chance to learn principles and
+scientific methods underpinning physics, as well as to appreciate the interplay between
+physics and astronomy in history, through studying various phenomena in astronomy and
+space science.
+Students are first given a brief introduction on the phenomena of the universe as seen in
+different scales of space. Students are also encouraged to perform simple astronomical
+observation and measurement similar to those achieved by famous astronomers in history.
+Through these processes, they can acquire experimental skills, and be more familiar with the
+concept of tolerance in measurement. A brief historic review on Ptolemy’s geocentric
+model and Copernicus’ heliocentric model of the universe serves to stimulate students to
+think critically on how scientific hypotheses were built on the basis of observation.
+Concepts of uniform circular motion, including centripetal acceleration and its relation with
+simple harmonic motion, are introduced. Kepler’s third law and Newton's law of gravitation
+are introduced with examples of astronomy. Kepler’s third law for circular orbits is derived
+from the law of gravitation. Besides the motion of planets, moons and satellites, latest
+astronomical discoveries such as binary stars, extrasolar planets and supermassive black holes
+can also serve as examples to illustrate the applications of these laws.
+43
+SECOND DRAFT
+The concepts of mass and weight are introduced. Feeling weightlessness in a spacecraft
+orbiting the earth is explained in terms of the fact that acceleration under gravity is
+independent of mass.
+The expression for gravitational potential energy is derived from the law of gravitation and
+work-energy theorem. Motions of artificial satellites are explained by the conservation of
+mechanical energy in their orbits. The meaning of the escape velocity, together with its
+implication on the launching of a rocket, is introduced.
+In the last part of this topic, students are exposed to modern astronomical discoveries,
+including the basic properties and classification of stars, stellar evolution, exotic stars like
+white dwarf, neutron star and black hole, and expansion of the universe. As only a simple,
+heuristic and qualitative understanding of these topics is expected, students are encouraged to
+learn actively by reading popular science articles and astronomical news. This serves to
+enhance students' self-learning attitude. Oral or written presentation of what they have
+learnt may serve to improve their communication skills.
+Learning Outcomes
+Students should learn:
+a.
+Students should be able to:
+The universe as seen in
+different scales
+structure of the universe
+use the “Powers of Ten” approach to describe the
+essential features of the universe as seen in different
+space scales
+describe the universe using basic terminology in
+astronomy, such as planet, star, cluster, nebula, galaxy
+and cluster of galaxy
+the sky as seen from the
+earth
+use the celestial sphere as a model to describe the
+apparent motions of celestial bodies
+describe the sky as seen from different latitudes on earth
+describe the daily motion of the celestial sphere, the
+yearly motion of the sun, and seasonal changes
+44
+SECOND DRAFT
+Students should learn:
+b.
+Astronomy through
+history
+historical development
+of the models of the
+universe
+c.
+Students should be able to:
+describe some contributions of the ancient Greeks on
+astronomy, including
+i) the measurement of the radius of earth and the
+distance of the moon
+ii) creating a geocentric model of the universe, and the
+use of epicycle and deferent to explain the retrograde
+motion of planets
+describe why Copernicus’ heliocentric model is better
+than Ptolemy’s geocentric model in explaining the motion
+of planets
+describe Galileo’s astronomical discoveries and their
+implications
+describe planetary motion through applying Kepler’s laws
+Newton’s law of
+gravitation
+Newton’s law of
+gravitation and orbital
+motions
+state Newton’s law of gravitation F =
+GMm
+r2
+apply Newton’s law of gravitation to celestial objects in
+circular orbits.
+analyze the motions of celestial objects by using Kepler’s
+4?r 3
+third law T 2 =
+GM
+state Kepler’s third law for elliptical orbits T 2 =
+4?a 3
+,
+GM
+and apply the law to comets and spacecraft travelling to
+outer planets.
+weight and
+weightlessness
+understand weightlessness in a spacecraft as a result of
+acceleration under gravity being independent of mass
+45
+SECOND DRAFT
+Students should learn:
+conservation of energy
+and the motions of
+celestial objects
+d.
+Students should be able to:
+understand the meaning of the expression U = ?
+GMm
+r
+for gravitational potential energy
+use conservation of mechanical energy to describe the
+orbital motions of celestial objects and orbiting
+spacecraft.
+use the concept of escape velocity to determine whether
+an object can leave a planet permanently
+Stars and the universe
+stellar luminosity and
+classification
+understand the meaning of stellar magnitude and
+distinguish between apparent magnitude m and absolute
+magnitude M
+describe the shape of blackbody radiation curves, and the
+relation of colour to the surface temperature of stars
+describe the relation of luminosity to the surface
+temperature and radius of a star
+describe briefly the spectral classes: O B A F G K M and
+their relation to surface temperature of a star
+describe the basic properties of different kinds of stars in
+the Hertzsprung-Russell diagram
+stellar evolution
+describe briefly the evolution of high-mass stars and low
+-mass stars.
+describe briefly the properties of nebulae, white dwarfs,
+supernovae, neutron stars and black holes
+Doppler effect
+understand Doppler effect and use the formula
+?f v r
+?
+f
+c
+to determine the radial velocity of a celestial object
+use radial velocity curve to determine the orbital radius,
+speed, and period of a celestial object in circular orbital
+motion
+46
+SECOND DRAFT
+Students should learn:
+expansion of the
+universe
+Students should be able to:
+describe the receding of distant galaxies using Hubble’s
+law ( v = Hd )
+understand Hubble’s law as the result of expansion of the
+universe
+describe briefly Big Bang as the beginning of the
+universe
+understand cosmic background radiation as an evidence
+of the Big Bang
+Suggested Learning and Teaching Activities
+Students should develop basic skills in astronomical observation. Observation can capture
+students’ imagination and enhance their interest in understanding the mystery of the universe.
+It also serves to train their practical and scientific investigation skills. Students may use
+naked eye to observe the apparent motion of celestial objects in the sky, and use
+telescopes/binoculars to study the surface features of the moon, planets and deep sky objects.
+Simple application of imaging devices such as digital camera or CCD is useful.
+Project-based investigation may also enhance students’ involvement and interest. Space
+museum, universities, and many local organisations have equipment and expertise on amateur
+astronomical observation. They would welcome school visits and provide training for
+enthusiastic teachers.
+Data handling skills such as converting radial velocity data into information of orbital motion
+is important. Due to the limitation on equipment, time, weather condition, and light
+pollution, however, it is quite difficult for students to obtain useful observation data for
+analysis. While real observation provides a vivid learning experience for students and
+should be retained for a complete topic in astronomy, animation may be used as a
+complement to strengthen their understanding of the analytical contents, and train their data
+acquisition and handling skills. Standard animation tools, a huge source of photos and
+videos are available in the NASA website. Software such as Motion Video Analysis may
+help students use these resources to perform useful analysis. Connection of the analysis
+results with curriculum contents and modern astronomical discoveries should be emphasized.
+This would help students appreciate the importance of the physics principles they learnt, and
+realise physics is an ever growing subject that modern discoveries often emerge from the
+47
+SECOND DRAFT
+solid foundation laid previously.
+Apart from the acquisition of practical and analytical skills, students may take learning
+advanced topics (such as evolution of stars and cosmology) and new astronomical discoveries
+as a valuable opportunity to broaden their perspectives in modern science. Students should
+not aim at a comprehensive understanding of these topics, but rather, they should try to gain a
+simple, heuristic and qualitative glimpse of the wonders of the universe, as well as to
+appreciate the effort that scientists have made leading to these important discoveries. A
+huge source of astronomy education resources/articles is available on the web. Students
+may develop self-learning attitude through studying these materials, and polish their
+communication skills in sharing what they have learnt with their classmates.
+The possible learning contexts that students may experience are suggested below for
+reference:
+Observation of astronomical phenomena
+Naked eye observation of stars, recognizing the constellations, and the apparent
+motion of celestial objects in the sky
+Naked eye observation of meteor showers
+Observing the surface of the moon with a small telescope
+Observing a lunar eclipse and/or solar eclipse with a small telescope.
+Observing the features of major planets with a small telescope, like the belts and
+satellites of Jupiter, the phases of Venus, the polar caps of Mars, the ring of Saturn,
+etc.
+Observing special astronomical events such as opposition of Mars, transit of Venus
+over the sun with a small telescope
+Observing bright comets with a small telescope
+Observing binary stars and variable stars with a small telescope
+Observing deep sky objects with a small telescope
+Observing features of the sun (sunspots, granules, etc.) with a small telescope
+Recording the position and/or features of the above objects with a digital camera or
+an astronomical CCD
+Possible learning activities
+Use a transparent plastic bowl to trace the path of daily motion of the sun on the
+celestial sphere. Students can examine the paths in different seasons to understand
+how the altitudes of the sun and the duration of sunshine vary throughout the year.
+(Reference: http://www.ied.edu.hk/apfslt/issue_2/si/article4/a4_1.htm)
+Measuring the radius of the earth and the distance of the moon from the earth using
+48
+SECOND DRAFT
+the methods developed by ancient Greek scholars: Students may use a digital
+camera to obtain photos of the full moon and moon during eclipse. They can
+estimate from the photos the size of the earth shadow relative to that of the moon
+and hence calculate the distance to the moon. The activity let students appreciate
+the intelligence of ancient people in using simple methods to obtain important
+results, and be more familiar with the concept of tolerance in scientific
+measurement. (Reference: http://www.hk-phy.org/astro/tcs.zip)
+Recording the position of Galilean satellites of Jupiter: Students may use the size of
+Jupiter as the reference length to estimate the period and orbital radius of the
+satellites. To avoid technical difficulties in observation, students may use the
+Solar System Stimulator provided by NASA (http://space.jpl.nasa.gov/) and Motion
+Video Analysis Software (http://www.hk-phy.org/mvas) to perform a virtual
+analysis of the satellites’ motion on a computer. They can also verify Kepler’s
+third law in this case. (Reference: http://www.hk-phy.org/astro/tcs.zip)
+Recording the position of planets/asteroids in the sky by using a digital camera over
+a few months: Students may use a star map to estimate the coordinates of the
+planets/ asteroids and use standard astronomical software to analyze the orbit of the
+planet.
+Mapping of sunspots: Students may use a small telescope (with appropriate solar
+filter) to observe the sun and map the sunspots in a period of time. From this they
+can realise the rotation of the sun and evolution of sunspots. Recording the
+relative sunspot number over a period of time may also reveal the change in solar
+activity.
+Studying the physics of Shenzhou V manned spacecraft: The historic journey of
+Shenzhou V have many interesting physics phenomena that are understandable by
+secondary school students, for example, the thrust and acceleration of the rocket
+during its launch, the orbital motion around the earth, the weightless condition in
+the spacecraft, the deceleration and return of the returning capsule, the effect of air
+resistance on the return capsule, communication problem when returning to the
+atmosphere, etc. Analysis of spacecraft data provides lively illustration of physics
+principles. Motion video analysis may also be useful in studying the launching
+motion.
+Studying orbital data of artificial satellites also provides interesting illustration of
+Newtonian mechanics: Students may also check the satellite pass over time to
+actually observe the satellite in the evening sky.
+Using a spectrograph and suitable filter to observe the spectrum of the sun: Some
+prominent spectral absorption lines can be observed without much difficulty.
+Studying radial velocity curves in celestial systems like stars with extrasolar planets,
+49
+SECOND DRAFT
+black holes in binaries, may serve expose students to the latest advances in
+astronomy. Based on the information extracted from the curves, students can use
+Kepler's third law to deduce the mass and orbital radius of the unknown companion
+in binary systems, and recognise the important implications of these discoveries on
+the existence on exotic celestial objects and extraterrestrial life.
+Studying articles about the latest astronomy discoveries can promote students’
+interest in modern science and strengthen their self-learning ability. Oral or
+written presentation in class is encouraged.
+Visiting Hong Kong Space Museum: Students may be divided into groups, each
+group is responsible for gathering information for a particular astronomy topic in
+the exhibition hall of the museum. Each group can give a short presentation in
+class.
+Local organisations, observatories and museums
+Hong Kong Space Museum
+(http://www.lcsd.gov.hk/CE/Museum/Space/e_index.htm)
+Ho Koon NEAC (http://www.hokoon.edu.hk/)
+TNL Centre, The Chinese University of Hong Kong
+(http://www.cuhk.edu.hk/ccc/tnlcenter/)
+Sky Observers’ Association (Hong Kong) (http://www.skyobserver.org/)
+Hong Kong Astronomical Society (http://www.hkas.org.hk/links/index.php)
+Space Observers Hong Kong (http://www.sohk.org.hk/)
+Taipei Astronomical Museum (http://www.tam.gov.tw/)
+Educational websites that provide useful resources for activities
+Astronomy picture of the day (http://antwrp.gsfc.nasa.gov/apod/astropix.html)
+NASA homepage (http://www.nasa.gov/home/index.html?skipIntro=1)
+The Hubble Space News Center (http://hubblesite.org/newscenter/)
+Chandra X-ray Observatories News (http://chandra.nasa.gov/)
+Jet Propulsion Laboratory (http://www.jpl.nasa.gov/index.cfm)
+NASA Earth Observatory (http://earthobservatory.nasa.gov/)
+Values and Attitudes
+Students should develop intrinsically worthwhile values and attitudes in studying this topic.
+Some particular examples are:
+to appreciate the wonders of deep space and understand the position of human beings in
+the universe
+50
+SECOND DRAFT
+to appreciate astronomy as a science which is concerned with vast space and time, and
+the ultimate quest for the beginning of the universe and life
+to appreciate how careful observation, experimentation and analysis often lead to major
+discoveries in science that revolutionise our concepts of nature
+to appreciate physics as an ever growing subject in which new discoveries are often
+made on the solid foundation that was laid previously
+to appreciate the intelligence of famous scientists in history and their profound
+contribution towards our understanding of the universe and the existence of mankind
+to accept uncertainty in the description and explanation of physical phenomena
+to accept the uncertainty in measurement and observation but still be able to draw
+meaningful conclusions from available data and information
+to be able to get a simple and heuristic glimpse of modern advancements in science even
+though a comprehensive understanding of these advanced topics is beyond the ability of
+ordinary people
+to recognise the importance of life-long learning in our rapidly changing
+knowledge-based society and be committed to self-learning
+to appreciate the roles of science and technology in the exploration of space and to
+appreciate the efforts of mankind in the quest for understanding nature
+to become aware of daily phenomena and their scientific explanations
+STSE connections
+Students are encouraged to develop an awareness of and comprehend issues associated with
+the interconnections of science, technology, society and the environment. Examples of
+issues and contexts related to this are:
+the studies of astronomy have stimulated the development of modern science which has
+eventually changed our ways of thinking and living
+the interplay between technological development, the advance of modern science and
+our lives
+the effects of astronomical phenomena on our lives (e.g. solar activity maximum affects
+communication and power supply on earth)
+disasters that may come from outer space and our reactions to them (e.g. a big meteor
+impact may cause massive extinction of lives on earth)
+the applications of modern technologies in space science, including artificial satellites
+and spacecraft
+the exploration of planets in the solar system has led us to rethink some environmental
+51
+SECOND DRAFT
+problems on earth (e.g. the runaway greenhouse effect of Venus may be compared with
+the global warming on earth)
+the implications of the advancement of space technology and its impact on the society
+(e.g. Shenzhou V manned spacecraft)
+52
+SECOND DRAFT
+Topic VII
+Atomic World (27 hours)
+Overview
+The nature of the smallest particles making up of all matter has been a topic of vigorous
+debates among scientists, starting from ancient time through the exciting years in the first few
+decades of the 20th century to the present. Classical physics deals mainly with particles and
+waves, as two distinct entities. Substances are made of very tiny particles. Waves, such as
+those encountered in visible light, sound and heat radiations, behave very differently from
+particles. At the end of the 19th century, particles and waves were thought to be very different
+and could not be associated with each other.
+When scientists looked closer and closer to the nature of substances, contradictory
+phenomena that confused scientists appeared. Classical concepts in Mechanics and
+Electromagnetism cannot successfully explain the phenomena observed in atoms, not to
+mention their failure in explaining the very existence of atoms. Following historical
+developments, we study the structure of an atom and the nature of light and electrons.
+Discoveries and experiments revealed that both light, the wave nature of which is well known,
+also shows particle properties, and electrons, the particle nature of which is well known, also
+show wave properties.
+In this elective topic, students shall learn about the development of the atomic model, the
+Bohr’s atomic model of hydrogen, energy levels of atom, the characteristics of line spectra,
+photo-electric effect, the particle behaviour of light and the wave nature of electrons, i.e., the
+wave-particle duality. Through the learning of these physical concepts and phenomena,
+students will be introduced the quantum view of our microscopic world and be aware of the
+difference between classical and modern views of our physical world. Students are also
+expected to appreciate the evidence-based, developmental and falsifiable nature of science.
+Advancements in modern physics have led to many applications and the rapid development
+in material science in recent years. This elective includes a brief introduction to
+nanotechnology, with a discussion on the advantage and use of transmission electron
+microscopes (TEM), scanning tunnelling microscopes (STM), atomic force microscopes
+(AFM), and some potential applications of nano-structures.
+Nanotechnologies have been around for hundreds of years, although the underlying physics
+was not known until the 20th century. For example, nano-sized particles of gold and silver
+have been used as coloured pigments in stained glass since the 10th century. With better
+53
+SECOND DRAFT
+understanding of the basic principles, more applications have been found in recent years.
+These applications include the potential use of nano-wires and nano-tubes as building
+materials and as key components in electronics and display. Nano-particles are used in
+suntan lotions and cosmetics, to absorb and reflect ultra-violet rays. Tiny particles of
+titanium dioxide, for example, can be layered onto glass to make self-cleaning windows
+As in any newly developed area, very little is known, for example, about the potential effects
+of free nano-particles and nano-tubes on the environment. They could possibly cause
+hazards to our health and might lead to health concerns. Students are, therefore, expected to
+be aware of the potential hazards, and issues of risks and safety concerns to our life and
+society in using nanotechnologies.
+In studying this elective topic, students are expected to have the basic knowledge of force and
+motion, and waves. Knowledge of electromagnetic forces, electromagnetic induction and
+electromagnetic spectrum are also required.
+Learning Outcomes
+Students should learn:
+a.
+Rutherford’s atomic
+model
+the structure of atom
+b.
+Students should be able to:
+describe Rutherford’s construction of an atomic model
+consisting of a nucleus and electrons
+distinguish between atomic mass number and atomic
+number
+understand the limitations of Rutherford’s atomic model
+in accounting for the motion of electrons around the
+nucleus by the view of classical mechanics
+recognise the importance of scattering experiments used
+in the discovery of the structure of atom and its impacts
+on the searching of new particles
+Photoelectric effect
+evidence for light quanta
+describe photoelectric experiment and the results
+explain to what extent the results can be accounted for
+54
+SECOND DRAFT
+Students should learn:
+Students should be able to:
+by the wave model and by the photon model of light
+describe how the intensity is related to the number of
+photons
+Einstein’s Interpretation
+of photoelectric effect
+and photoelectric
+equation
+state the photon energy E = hf
+understand Einstein’s photoelectric equation
+1
+2
+hf ? ? = me v max
+2
+carry out calculations using the above relationships
+c.
+Bohr’s atomic model of
+hydrogen
+line spectra
+recognise the special features of the line spectra of
+hydrogen atom and other monatomic gases
+explain spectral lines in terms of difference in energies
+recognise that the energy of a hydrogen atom can only
+take on certain values
+recognise line spectra as evidence of energy levels of
+atom
+Bohr’s model of the
+hydrogen atom
+state the postulates that define Bohr’s model of
+hydrogen atom
+recognise the ‘quantum’ and ‘classical’ aspects in the
+postulates of Bohr’s atomic model of hydrogen
+state the quantization of angular momentum of an
+nh
+electron around the nucleus as me vr =
+, where
+2?
+n=1,2,3… is the quantum number labelling the nth
+Bohr orbit of the electron
+realise the equation for the energy level of electron in a
+4
+?
+hydrogen atom as Etot = ? 12 ? me2e 2 ?? , [where Etot is the
+n ? 8h ? o ?
+electron’s total energy, n = 1,2,3… is the quantum
+number labelling the nth Bohr orbit of the electron, me
+55
+SECOND DRAFT
+Students should learn:
+Students should be able to:
+is the mass of an electron, e is the charge of an electron,
+h is the Planck’s constant and ?o is the permittivity of
+vacuum] (derivation is not required)
+realise the use of electron-volt (eV) as a unit of energy
+understand ionization and excitation energies of an
+electron in an atom
+carry out calculations using the above relationship
+The interpretation of line
+spectra
+derive, by using Bohr’s equation of electron energy and
+3 2
+? 2 2 ?
+E=hf, the expression ?a?b = 8h ?o4c ? a2 b 2 ? for the
+mee ?a ? b ?
+wavelength of photon emitted or absorbed when an
+electron makes a transition from one energy level to
+another [where a and b label the two energy levels
+involved in the transition]
+interpret line spectra by the use of Bohr’s equation of
+electron energy
+carry out calculations using the above relationship
+d.
+Particles or Waves
+recognise the wave-particle duality of electrons and
+light
+describe evidences of electrons and light exhibiting both
+wave and particle properties
+relate the wave and particle properties of electrons
+using qualitative treatment of de Broglie formula,
+h
+?=
+p
+realise wave-particle duality is a common phenomenon
+in the microscopic world
+carry out calculations using the above relationship
+56
+SECOND DRAFT
+Students should learn:
+e.
+Students should be able to:
+Probing into nano scale
+physical properties of
+materials in nano size
+recognise nano is a unit of length which means 10-9
+recognise materials often exhibits different physical
+properties when it is in bulk form and in nano size
+recognise nano materials can be in various forms, such
+as nano wires, nano tubes and nano particles, and the
+special properties commonly found in nano materials
+the seeing and
+manipulating at nano
+scale
+recognise the limit of optical microscope and the use of
+electron microscope in seeing substances in nano scale
+understand briefly the principle of operation of the
+transmission electron microscope (TEM)
+understand the advantage of electron microscopes (e.g.
+transmission electron microscope), in terms of high
+resolution as indicated by the wavelength ? of electrons
+estimate the anode voltage of an electron microscope
+needed to produce wavelengths of the order of the size
+of an atom
+discuss briefly on the analogy of using electric and
+magnetic fields in electron microscopes as that of lenses
+in optical microscopes
+understand briefly the principles of operation of
+scanning tunnelling microscope (STM) and atomic
+force microscope (AFM) in seeing and manipulating
+particles in nano scale (details of the tunnelling effect
+not required)
+recognise the nanoscience phenomena in Nature such as
+the Lotus Effect and its use in commercial products
+recognise the recent development and applications of
+nanotechnology in various areas related to our daily life
+be aware of the potential hazards, and issues of risks
+and safety concerns to our life and society in using
+nanotechnologies
+57
+SECOND DRAFT
+Suggested Learning and Teaching Activities
+Students may follow the history of the discovery of atom, i.e. a historical approach, in
+learning the elective topic. Students should develop knowledge of the structure of atom,
+energy level of electron and quantized energy of light. The work of various physicists such
+as Rutherford, Bohr, and Einstein, on the search of the nature of atoms and light should also
+be recognised. Students should aware of the importance of co-operation among scientists on
+investigations and discovery of the nature. They should understand the limitations of
+Rutherford’s atomic model in accounting for the motion of electrons around the nucleus by
+the view of classical mechanics. With the discovery of photoelectric effect and Einstein’s
+explanation, the particle nature of light is evidenced. Students should understand the details
+of photoelectric effect and electron diffraction by experiments or computing animations.
+Bohr’s postulates on discrete energy level of an electron in an atom should be treated as a
+first step to reveal the quantum nature of matter. The line spectra observed from the
+monatomic gases are used as evidence for energy levels of electrons. They should also
+recognise how the concept of wave-particle duality of electrons and light can successfully
+explain the phenomena observed.
+After studying this topic, students should also develop understanding on the development of
+nanotechnology and its contribution to our daily life. They would appreciate and briefly
+understand the use of advanced tools, such as electron microscope and scanning tunnelling
+microscope to see and manipulate substances at nano-scale. Students are encouraged to
+carry out project-type investigations in nanotechnology. Through exploration on social
+issues, students would be aware of the ethical and potential concerns (e.g. health) on the use
+of nanotechnology. Students would also learn the working principle of nanotechnology, and
+appreciate the contributions of the advancement of technology, the influence on our daily life
+and its limitations.
+The possible learning contexts that students may experience are suggested below for
+reference:
+Performing experiments on Rutherford’s atomic model:
+Using ? scattering analogue apparatus to studying Rutherford scattering by means
+of a gravitational analogue of inverse square law
+Performing experiments on photoelectric effect:
+Using photocell (magnesium ribbon) to find out the threshold frequency
+Using photocell to measure the stopping voltage of monochromatic light
+Using photocell to measure the energy of photoelectrons induced by different
+58
+SECOND DRAFT
+colour of light
+Investigating the relationships among light intensity and the energy of
+photoelectrons
+Inferring the relationships among threshold frequency, stopping voltage and the
+kinetic energy of electron
+Performing experiments on the observations of absorption and emission spectra
+Performing experiments to demonstrate different physical properties of nano materials
+Using computing animations to enhance the understanding of students in:
+Rutherford’s atomic model
+Bohr’s model
+emission spectrum http://einstein.byu.edu/~masong/HTMstuff/bohrEX.html
+absorption spectrum
+photoelectric effect
+X-rays diffraction
+Investigating the principles of nanoscience in commercial products by the use of various
+properties of nano materials, e.g. impermeability to gas, water-repellence and
+transparency
+Challenging students’ preconceived ideas on atomic model, the nature of electrons and
+light
+Enriching students’ knowledge with the episodes of scientists e.g. Phillipp Lenard, Max
+Planck, Albert Einstein, Ernest Rutherford, Niels Bohr and de Broglie, in particular their
+contribution to the development of atomic physics
+Reinforcing students’ awareness of the importance of co-operation among scientists in
+investigation and discovery of the nature.
+Values and Attitudes
+Students should develop intrinsically worthwhile values and attitudes in studying this topic.
+Some particular examples are:
+to be aware of the usefulness of models and theories in physics as shown in the atomic
+model and appreciate the wonders of nature
+to appreciate that the advancement of important scientific theories, such as Rutherford’s
+atomic model and photoelectric effect, can ultimately make huge impact on technology
+and society
+to appreciate the contributions of Rutherford, Bohr, Planck and Einstein that
+revolutionised the scientific thinking of their time
+59
+SECOND DRAFT
+to be open-minded in evaluating potential applications of theory of fundamental
+particles and nanotechnology
+to appreciate the efforts made by scientists to discover the nature of light and the
+structure of an atom
+to recognise the falsifiable nature of science theory and the importance of evidence in
+supporting scientific findings
+to recognise the importance of life-long learning in our future rapidly changing
+knowledge-based society and commit to self-learning
+STSE connections
+Students are encouraged to develop an awareness of and comprehend issues associated with
+the interconnections of science, technology, society and the environment. Examples of
+issues and contexts related to this are:
+the applications of nano-sized wires and tubes in other disciplines, e.g. Electronics,
+Optics, Medicine, Computing and Building Engineering
+the influence of nanotechnology on our health and lives
+the concerns on potential risks in using nanotechnology on the environment
+the roles of nanotechnology on economic growth in the world
+the ethical and social implications caused by the use of nanotechnology in areas such as
+military, medicine, and personal security and safety
+60
+SECOND DRAFT
+Topic VIII
+Energy and Use of Energy (27 hours)
+Overview
+The ability of human beings to use various forms of energy is the greatest development in
+human history. Electrical energy turns cities on and modern transportation powered by
+energy also links peoples together. Modern society is geared to using electricity as one of
+the energy sources. There are many reasons why electricity is the most common energy
+source used at home and in office. This elective begins by reviewing domestic appliances
+for lighting, cooking and air conditioning. These appliances show how physics principles
+are used to make our home a better and comfort place to live in. Students investigate the
+relative amounts of energy transferred when these appliances are in operation. They also
+learn how to calculate the cost from power rating of the appliance. The idea of energy
+changes being associated with energy transfer is raised, and students identify the energy
+changes associated with a range of appliances. This leads into the introduction of the
+Energy Efficiency Labelling Scheme informing the public to choose energy efficient
+household appliances for energy saving. The considerations of building and transportation
+then provide situations for students to study the factors affecting the energy performance in
+real context. The building materials provide the starting point for the discussion of the
+thermal properties of different materials to transfer energy. This leads into consideration
+into a building design to minimise the energy use to provide an appropriate internal
+environment without sacrificing the quality of that environment. Through the use of electric
+motors as energy converters in vehicles, students study the efficiency of motor compared to
+the combustion engine, with an attempt to reduce air pollution.
+There are many energy sources used as fuel that can be converted into electricity. The
+current fuel mix for generating electricity in Hong Kong includes coal, oil, natural gas,
+nuclear and pump storage. Students compare the efficiencies of different fuels and different
+ways of using the same fuel. Through a consideration of the design features of a solar panel,
+students investigate the aspect of conduction, convection and radiation as means of
+transferring energy from the nature.
+Different sources of energies cause various
+environmental impacts on society. When fossil fuels burn, a large amount of pollutants are
+discharged into the air. The pollutants cause atmospheric pollution, deteriorate the air
+quality and contribute to the greenhouse effects which may warm and damage the earth.
+Whereas nuclear power is very efficient but the disposal of dangerous radioactive waste
+materials continues to be problem. The growing concern about environmental impacts of
+energies polluting the environment has made environmentally friendly and alternative
+61
+SECOND DRAFT
+energies worth considering. In this connection, the emphasis is on the energy conservation
+principle and applies such concept to encourage efficient energy usage. In this connection,
+effective and efficient use of energy in a way that maintains and improves the environmental
+quality is also introduced. Efficiency can be described simply using input-output model.
+For example, a solar cell can be understood generally as a device that has the solar radiation
+as input and some useful form of energy as output. Despite the fact that Hong Kong has no
+indigenous energy resource, solar cells and wind power are introduced as local contextual
+examples to illustrate the concept of renewable energy sources. This elective increases
+students’ understanding of the applications of physics, uses of different energy sources and
+the implication of energy efficiency for environmental impacts.
+Learning Outcomes
+Students should learn:
+a.
+Students should be able to:
+Electricity at home
+energy consuming
+appliances in the home
+recognise the main source for domestic energy
+consuming appliances is electricity
+identify the main electric appliances used at home and
+describe briefly the energy changes involved
+lighting
+identify different types of lighting used at home
+describe briefly how filament light bulbs, gas discharge
+lamps (e.g. white fluorescent lamp, induction lamp) and
+Light emitting diodes (LED) produce visible light when
+an electric current passes through them
+recognise energy is absorbed to excite electrons from
+lower energy state to higher energy states while photons
+are emitted when excited electrons return to lower
+energy state
+recognise the relationship between radiated power of a
+bulb’s filament with its absolute temperature
+by P = e?T 4 A
+explain briefly why gas discharge lamps and light
+emitting diodes are more cost-effective lighting options
+than filament light bulbs
+62
+SECOND DRAFT
+Students should learn:
+Students should be able to:
+cooking without fire
+realise "cooking" is the application of heat to food
+explain briefly the working principles of electric
+hotplates, induction cookers and microwave ovens to
+generate heat for cooking and contrast with the working
+principle of thermal cookers
+identify the power rating of a cooker from the cooker’s
+instruction book and calculate the cost of running the
+cooker
+interpret the meaning of energy-efficiency values quoted
+by various manufacturers
+discuss factors affecting the energy-efficiency values and
+account for their differences
+solve problems involving energy-efficiency values
+moving heat around
+recognise an air-conditioner as a type of heat pump
+which transfers heat against its natural direction of flow
+apply the First Law of Thermodynamics to solve
+problems
+explain why heaters are usually placed near the floor
+while air-conditioners are always near the ceiling
+Energy Labelling
+Scheme
+realise the purposes of Hong Kong Energy Efficiency
+Labelling Scheme (EELS) for energy saving by
+informing the public to choose energy efficient products
+able to interpret typical energy labels for household
+appliances and apply related data (e.g. annual energy
+consumption in kW h/yr) in the label to solve problems
+identify examples of energy saving devices (through
+automatic control in street lights, air-conditioners,
+refrigerators, water heaters and escalators)
+63
+SECOND DRAFT
+Students should learn:
+b.
+c.
+Students should be able to:
+Energy performance
+in building and
+transportation
+materials used to
+improve energy
+performance of
+buildings
+state the key factors (e.g. climate, site locations, building
+envelops and building systems) to improve energy
+performance of buildings
+recognise building envelops (e.g. walls, roofs, windows,
+and skylights) are the important factors affecting energy
+performance in building
+define U value of a surface (rate of energy transfer per
+unit surface area), and apply these values to solve
+problems
+describe the main features of solar film installed on
+window and explain its function
+electric motor car
+describe main components of electric vehicles and
+describe briefly each of its functions
+describe how hybrid vehicles can improve the
+performance of electric vehicles
+compare and contrast the efficiency of a typical electric
+vehicle and a typical petrol vehicle
+explain why it is more efficient to use public transport
+(e.g. KCR and MTR) than using private cars
+Renewable sources of
+energy
+use of energy in Hong
+Kong
+recognise that the sun is a primary source of energy
+distinguish the different forms of non-renewable and
+renewable energies and state some examples of alternate
+energy resources
+state the use of energy in Hong Kong
+analyse the consumption data of different energy fuel
+types and the specific purposes for which these fuels are
+64
+SECOND DRAFT
+Students should learn:
+Students should be able to:
+consumed to provide a better understanding of energy
+consumption patterns and usage in Hong Kong
+renewable energy
+sources
+describe briefly the characteristics of renewable and
+non-renewable energy sources, for example, solar, tidal,
+water, wind, fossil fuel, and nuclear energy
+describe the structure of a solar cell in terms of p-type
+and n-type semiconductors, and explain how solar cells
+generate electricity
+define solar constant and solve related problems
+solve problems and analyse information about wind
+1
+power using p = ?Av 3
+2
+describe the energy conversion in a hydroelectric power
+station and solve problems using E = mgh
+non-renewable energy
+sources
+identify major characteristics of renewable energies
+describe energy conversions in a non-renewable energy
+power station (e.g. coal-fired plant, nuclear reactor, etc)
+and explain the importance of maximising the efficiency
+of energy conversions
+identify the pollution problems arising from the use of
+non-renewable energy sources
+environmental impact
+of energy consumption
+state the environmental impact of extraction, conversion,
+distribution and use of energy on the environment and
+society
+identify the different kinds of energy sources available to
+society and assess their suitability for particular
+situations
+state the interaction of energy with greenhouse gases:
+energy absorption and re-emission by greenhouse gases
+in relation to global warming
+65
+SECOND DRAFT
+Suggested Learning and Teaching Activities
+This topic should provide learning experiences for students to understand the production,
+conversion, transmission and utilisation of energy. The learning experience design should
+integrate the content domain, skills and process domain, values and attitudes domain of the
+physics curriculum in a meaningful pedagogy. These experiences should enrich teachers’
+knowledge and stimulate their insight in using a contextual approach to empower students’
+capability to acquire and construct these key concepts through context-based teaching.
+Students all have experience in their daily lives from which they construct knowledge. Thus
+daily life contexts and technological issue are presented to students. For examples, the
+Building Integrated Photovoltaic Design for Hong Kong, the Wind Turbine Project in Lamma
+Island, and the Ducted Wind Turbine Project can be used to arouse environmental and
+sustainable awareness of renewable energy sources amongst students. Discussion questions
+and learning activities relating to different available energy efficient technologies are used to
+motivate students to explore these contexts, hence discover and learn by themselves the
+underlying energy efficiency principles. Those knowledge, values and attitudes of being a
+smart energy consumer should also be infused in this topic. Generic skills used for
+communication, critical thinking, creativity and problem solving should be embedded in
+discussion leading to issues related to energy utilisation and conservation. Information, real
+data, themes, events and issues in Hong Kong that are illustrative to those key concepts
+should be provided to facilitate the learning and teaching. Students are firstly engaged by an
+event or a question related to the concept. Then the students participate in one or more
+activities to explore the concept. This exploration provides students with a common set of
+experiences from which they can initiate the development of their understanding. On need
+basis, the teacher clarifies the concept and defines relevant vocabulary. Then the students
+elaborate and build on their understanding of the concept by applying it to new situations.
+Finally, the students complete activities that will help them and the teacher evaluates their
+understanding of the concept.
+The possible learning contexts that students may experience are suggested below for
+reference:
+Performing an investigation to model the generation of an electric current by moving a
+magnet in a coil or a coil near a magnet
+Using the motor-generator kit to show students how electricity can be generated using
+mechanical energy
+Asking students to identify and analyse different energy sources, discuss the advantages
+66
+SECOND DRAFT
+and disadvantages of each energy source, and come to group agreement
+Analysing secondary information about the greenhouse gases effect on global warming
+Gathering and analysing information to identify how transmission lines are insulated
+from supporting structure, protected from lightning strikes and cleaned from dirt
+Performing an investigation to model the structure of a transformer to demonstrate how
+secondary voltage is produced and investigate the transformer action
+Gathering, processing and analysing information to identify some of the energy transfers
+and transformations involving the conversion of electrical energy into more useful forms
+in the home and industry
+Organising a class competition on solar cooking, wind power generator, or solar car race
+Investigating variables in the use of the sun for water heating, for cooking and for
+generating electricity
+Building a circuit to generate electricity from the sun
+Designing an investigation to determine whether heat or light generates electricity in a
+solar cell
+Visiting local power plants and the nuclear power plant in Daya Bay
+Inviting speakers from Electrical and Mechanical Services Department, Green Power,
+electric companies, Towngas, MTR, KCR or Environmental Protection Department to
+introduce up-to-date information on energy generation, transmission and consumption in
+society and alternative energy sources
+Gathering and analysing secondary information on different forms of non-renewable and
+renewable energies and state some examples of different energy resources. For
+example, solar, tidal, water, wind, fossil, and nuclear energy
+Studying environmental impact of extraction, conversion, distribution and use of energy
+on the environment and society, and the suitability for particular situations
+Being aware of a fossil fuel energy resource and a non-fossil energy resource with
+regard to accessibility, energy conversions required and efficiency of energy conversions
+Gathering and analysing secondary information on the interaction of energy with
+greenhouse gases: energy absorption, re-emission, radiation and dissipation by
+greenhouse gases
+Asking students what can be done to make the generation and use of electricity in Hong
+Kong more sustainable
+Asking students to measure the heat produced by a flashlight bulb and calculate the
+efficiency of the bulb
+Suggesting ways to control the transfer of solar energy into buildings
+Planning investigations to compare solar energy transfer through two different kinds of
+plastic film on windows
+Demonstrating an understanding of the applications of energy and its transfer and
+67
+SECOND DRAFT
+transformation
+Discussing energy usage at home and in office to infuse students more conscious of
+energy economy
+Asking students do an energy audit on his/her own home or school – for example,
+measure the amount of electrical energy used in a home in a month by reading the
+electric bill and estimate what proportion of this energy is used for lighting, for
+air-conditioning (or space heating), for heating water, for washing and cleaning, and
+finally for cooking
+Studying the Energy Efficiency Labelling Scheme in Hong Kong and information
+contained in Energy Labels
+Encouraging students to write about the proper use of domestic electrical appliances to
+reduce the cost of electricity and contribute to the worthwhile cause of saving energy
+Encouraging students to write about home safety in relation to the use of electrical
+appliances
+Discussing “ Life without electricity for a day”
+Discussing how the availability of electrical appliances has changed the life in Hong
+Kong over years
+Discussing family preparedness for periods of electrical outages
+Discussing the irreversibility of everything tends to become less organised and less
+orderly over time. Thus, in all energy transfers, the overall effect is that the energy is
+spread out uniformly. Examples are the transfer of energy from hotter to cooler objects
+by conduction, radiation, or convection and the warming of our surroundings when we
+burn fuels.
+Values and Attitudes
+Students should develop intrinsically worthwhile values and attitudes in studying this topic.
+Some particular examples are:
+to be aware of the finite energy resources available to human and the need to save
+electrical energy for the reason of sustainable economy and environmental protection
+to be aware of the environmental implications on the use of different energy resources
+and to share the responsibility for a sustainable development of Hong Kong society
+to appreciate the efforts made by scientists to find more alternative environmental
+friendly energy resources
+to appreciate the efforts of mankind in the quest for the protection of the environment
+to be open-minded in evaluating potential applications of new technologies for improving
+68
+SECOND DRAFT
+energy efficiency
+to appreciate energy saving behaviour in daily life and to be committed to the good
+practices for energy consumption in daily life
+to be aware of the impacts of electricity on Hong Kong over years
+to be aware of the consumers’ responsibility to know the energy efficiency of home
+appliances via the energy efficiency labelling scheme
+to be aware of the importance of safety issues of electrical appliances and committed to
+safe usage
+to appreciate that the advancement of important scientific theories (such as
+semi-conductor theory and mass-energy conversion theory) can ultimately make huge
+impact on technology and society
+to be aware of the importance of life-long learning in our rapidly changing
+knowledge-based society and committed to self-learning
+STSE connections
+Students are encouraged to develop an awareness of and comprehend issues associated with
+the interconnections of science, technology, society and the environment. Examples of
+issues and contexts related to this are:
+the trade-off between the applications of different energy resources and the
+environmental impacts
+the safety problems associated with the storage and transportation of fuels
+pollutants and energy consumption by motor vehicles by restricting the use of private
+motor cars in order to reduce air pollutants
+the issue of detrimental effects of electromagnetic field emitted by high tension cable and
+power pylon
+the environmental implications and recent developments of the electric car as an
+alternative to the traditional fuel car and the role of the government on such issues
+the environmental impacts of the wind turbine on the scenic natural surroundings
+selection of sites for power plants is a matter for debate because such sites may alter
+coastal habitats
+69
+SECOND DRAFT
+Topic IX
+Medical Physics (27 hours)
+Overview
+This elective is concerned with the basic physics principles underlying vision and hearing of
+human to make sense of environment. It begins by considering the structures of eye and its
+optical system to adjust for different object distance. The concepts of defects of vision and
+the study of their corrections are introduced. The resolution is introduced to explain the
+fineness of detail discernible by the eye. The question of how colour vision is generated
+leads to the study of the rods and cones in the retina. Rods are responsible for the vision in
+dim light while cones are responsible for the more acute vision experienced in ordinary
+daylight conditions. A brief look at the structure of the ear serves to introduce students to
+concepts of transferring energy using a transducer and how different frequencies of sound
+waves are discriminated in the inner ear.
+Attention then turns to the applications of sound waves and visible light for seeing inside the
+body. A brief look at the working principles of ultrasound scanners and endoscopes serves
+to introduce students to pulse-echo, Doppler effect, and total internal reflection of waves.
+Ionising radiation, such as X-rays and gamma radiation, are introduced to students as an
+alternative means to give anatomical structures and functions of a body for medial diagnosis.
+In hospitals and clinics around the world literally hundreds of thousands of patients daily
+receive medical imaging tests in which X-rays, radionuclides, ultrasound beams and
+computed tomographic (CT) scanners are used. In virtually all of these devices physics has
+developed from our understanding of the electromagnetic spectrum, radioactivity of specific
+nuclides and wave properties of ultrasound beam. Such devices have enabled radiologists to
+see through the body without surgery. The medical uses of radioactive substances are
+introduced to students and the ways in which gamma radiation can be detected by gamma
+cameras to produce image for medical diagnosis are being considered. It should be
+emphasized that the development of new imaging modality is an evolutionary process. It
+may start with the discovery of a new physical phenomenon or a variation of the existing one.
+At all stages expertise in physics is essential. There is lots of interest in medical physics in
+the field of radiation oncology, nuclear medicine and radiology, and there are always students
+who want to know more.
+70
+SECOND DRAFT
+Learning Outcomes
+Students should learn:
+a.
+Students should be able to:
+Making sense of the
+eye and the ear
+the physics of vision
+recognise the basic structures of the eye and outline their
+respective functions
+realise that retina contains rods and three types of cones
+and appreciate the role of the cones in photo-detection,
+sensitivity and spectral response
+define resolving power and solve problems
+explain how the eye forms a focus image of an object and
+how the eye adjust for different object distances
+defects of vision and
+their correction
+understand the terms near point, far point, depth of field
+and accommodation
+distinguish between short sight (myopia), long sight
+(hypermetropia), presbyopia and astigmatism and
+describe how these defects can be corrected with suitable
+spectacle lenses
+recognise a simple structure of ear and describe
+qualitatively how the ear acts as a transducer in response
+to incoming sound waves
+realise human perception of relative intensity levels and
+the need for a logarithmic scale to reflect this
+define intensity level in decibel (dB) in terms of intensity
+I and threshold intensity Io, and use the decibel scale to
+solve problems
+sketch and interpret graphical representations of the
+variation of intensity levels (and curves of equal
+loudness) with frequency in logarithmic scale
+state the effects of excessive noises on hearing
+the physics of hearing
+71
+SECOND DRAFT
+Students should learn:
+b.
+Students should be able to:
+Sound and optical
+imaging
+physics of ultrasound
+identify the differences between ultrasound and sound in
+normal hearing range, and describe the wave properties of
+ultrasound at tissue boundaries
+recognise piezoelectric effect related to the generation and
+detection of ultrasound pulse
+define acoustic impedance Z = ?c and identify acoustic
+impedance of a variety of materials
+define the ratio of reflected to incident intensity as
+I r [Z 2 ? Z1 ]2
+=
+I o [Z 2 + Z1 ]2
+recognise that the greater the difference in acoustic
+impedance between two materials, the greater is the
+reflected proportion of the intensity pulse
+using ultrasound to
+detect structures inside
+the body
+describe the principle of pulse-echo reflection of
+ultrasound
+describe how acoustic impedance, reflection, refraction
+and attenuation are applied to ultrasound
+describe factors affecting the quality of ultrasound image
+describe briefly about A-scans and 2 dimensional
+B-scans, and compare their differences
+describe the situations when different types of ultrasound
+scans would be used
+applications of
+ultrasound scans
+describe briefly the applications of ultrasound in
+obstetrics
+describe Doppler effect of a sound wave and explain
+briefly the use of Doppler ultrasonic to measure blood
+flow in blood vessels
+2 fv
+define Doppler shift ?f =
+and solve problems
+c
+72
+SECOND DRAFT
+Students should learn:
+fibre-optic endoscopes
+in medical diagnosis
+c.
+Students should be able to:
+recognise properties of optical fibres
+describe the physical principles of the optical system of
+an endoscope in relation to the total internal reflection,
+and the use of coherent and non-coherent fibre bundles
+explain qualitatively how an endoscope is used for
+internal imaging and the related advantages
+Medical imaging
+X-rays and
+radiographic imaging
+describe in simple terms the nature of X-rays
+explain briefly the physical principles of the production of
+X-rays using rotating-anode X-ray tube and methods of
+controlling the beam intensity and the photon energy
+explain in simple terms how the intensity I of a collimated
+X-ray beam varies with thickness x of a medium using the
+expression I = I o e ? µx
+use of X-ray opaque material as illustrated by the barium
+meal technique for radiographic image detection
+describe in simple terms the limitation of the radiographic
+imaging
+CAT scans in medical
+diagnosis
+describe in simple terms the use of a rotating beam in the
+X-ray computed tomography (CT) scanner
+describe in simple term the CT scanner and understand
+quantitatively the principle of computerised axial
+tomography (CAT)
+recognise CAT showing X-rays attenuation through a
+cross-section of the body
+compare CAT scans as a diagnostic tool with
+conventional X-rays and ultrasound
+radioactivity and the
+use of radioisotopes in
+medical diagnosis
+understand the nature of radioactivity and give a simple
+description of decay curves
+describe the principles of the use of radioisotopes to study
+73
+SECOND DRAFT
+Students should learn:
+Students should be able to:
+the functional information about parts of the body or
+particular organs
+identify the characteristics of radioisotopes using to study
+the body’s function for medical uses
+describe the use of a Gamma camera to obtain diagnostic
+information from radioisotopes
+state radioactive isotopes used in Single Photon Emission
+Tomography (SPET)
+compare radionuclide image of a bone scan with a
+conventional X-ray film image
+understand qualitatively the principle of SPET
+understand the structure of film badges and its function
+for personnel monitoring of ionising radiation
+recognise the health risk and safety precautions for
+ionisation radiation
+Suggested Learning and Teaching Activities
+The main focus in this topic is on the physics and its applications in medicine using
+non-ionizing radiation as well as ionization radiation for medical diagnosis. The eye is used
+to model an optical device while the ear as a mechanical transducer that enables human to
+react to change in the environment through the nervous reactions. Historical perspectives of
+the discoveries of X-rays and radioactivity can be introduced. For example, perhaps the
+earliest medical imaging experiment was the imaging by Rontgen of his wife’s hand within
+weeks after he discovered X-rays. Ultrasound as medical imaging modality is really an
+application of Sound Navigation and Ranging developed during the Second World War.
+Ultrasound scanners were used to enable the foetus to be viewed during pregnancy.
+The
+use of ionization radiation in medicine may be said to stem from two discoveries at the end of
+the 19th century. In 1895 Roentgen discovered X-rays and in 1896 Becquerel discovered
+radioactivity. Subsequently, both of these discoveries resulted major impact in how
+medicine is practiced. X-rays have since been used to produce images of the inside body and
+in the treatment of cancer, with radionuclides also being used for both purposes. The use of
+X-rays to investigate the body results in the development of the field of diagnostic radiology.
+The use of X-rays along with the treatment with the radiation emitted by radioactive decay
+74
+SECOND DRAFT
+for the treatment of malignant tumours resulted in the development of the field of radiation
+oncology or radiotherapy. After the Second World War numerous artificially produced
+radionulides became available. As well as being used for the treatment of cancer,
+radionuclides were used to localise specific organs and diseases in the body. This resulted
+in the development of the field of nuclear medicine. With the results of the development of
+digital computers it was subsequently possible to reconstruct cross-sectional images of the
+body, resulted in the 1970s in computerized tomography. Such technological advancement
+helps students to appreciate the importance of physics, mathematics, engineering, and
+computer science in the design of imaging devices.
+Students should develop skills in searching information from World Wide Web. Lots of
+up-to-date information and image data for educational purposes are available on the Web.
+For example, one way to start with would be to ask the class to explore the difference of
+image obtained from various scans, such as ultrasound, SPET and CAT, in relation to the
+information content from the images. Furthermore, the concepts of representing image in
+number can be introduced, and so manipulating those numbers which can modify the image.
+The combination of visualisation and numerical process produce enormous impact for
+extracting and representing image data. Resolution is a fundamental characteristic of all
+measuring systems. The resolution of any instrument is the smallest difference which is
+detectable. In this connection, students are encouraged to carry out comparison to
+differentiate the appearance of specific images and examine the smallest size of things which
+can be distinguished so as to introduce the concepts relating to image resolution. It is also
+interesting to note that the idea of resolution also applies to the grey levels in the digital
+images. A simplified version of back projection algorithm can be used to simulate image
+reconstruction from projection data. To arouse the interest of students, class may be asked
+to discuss open questions. For examples: Is ultrasound scan safe in pregnancy? How do you
+detect cancer? Are computers making doctors less important?
+Students are also encouraged to extend their reading from textbooks to articles, popular
+science magazines and the Web. In particular, there is relevant collection of articles in the
+e-museum at Nobel Foundation for students’ browsing. If students follow their own reading
+interests, chances are good that they will find many pages there that convey the joy these
+Laureates of Nobel Prize have in their work and the excitement of their ideas.
+The possible learning contexts that students may experience are suggested below for
+reference:
+Observing images produced by ultrasound scans, endoscopes, X-ray film, CAT scans
+75
+SECOND DRAFT
+and SPET
+Demonstrating the principles of pulse-echo using ultrasound transmitters and receivers
+Solving problems and analyse information to calculate the acoustic impedance of a
+range materials, including bone, muscle, soft tissue, fat, blood and air and explaining the
+types of tissues that ultrasound can be examined
+Using a pair of ultrasound transmitter and receiver to investigate the amplitude of echo
+from reflectors of different materials
+Observing an ultrasound image of body organs and gather information
+Estimating the resolution of an ultrasound image of a baby if the image size is about 250
+mm across and high by a square array of 256×256
+Observing the flow of blood through the heart from a Doppler ultrasound video image
+Identifying data sources and gathering information to describe how ultrasound is used to
+measure bone density
+Solving problem and analysing information using acoustic impedance and intensity ratio
+of reflected and incident signals
+Discussing and observing two X-ray images with and without showing fracture of bone
+Discussing – “As late as in the 1950s X-rays were used to ensure well fitting shoes. Why
+is it no longer used today?”
+Gathering information about deaths due to tuberculosis in 1940s and suggesting a
+method to diagnose the disease so as to reduce its risk
+Using a dental film and a gamma source to demonstrate film exposure of X-rays and
+absorption of X-rays
+Observing a CAT scan image and comparing the information provided by CAT scans to
+that provided by an conventional X-ray image for the same body part
+Performing a first-hand investigation to demonstrate the transfer of light by optical
+fibres
+Gathering secondary information to observe internal organs from images produced by an
+endoscope
+Using dice to simulate radioactive decay and study the random nature of decay in
+radioactive nuclides
+Comparing an image of bone scan with an X-ray image
+Comparing a scanned image of one healthy body part or organ with a scanned image of
+its diseased counterpart
+Comparing the advantages and disadvantages of traditional X-ray images, CAT scans
+and SPET scans
+Gathering, analysing information and using available evidence to assess the impact of
+medical applications of physics on society
+Discussing the issues related to radiation safety using non-ionization radiation and
+76
+SECOND DRAFT
+ionization radiation for imaging
+Reading articles from e-museum (http://nobelprize.org/physics/) to trace historic
+development of CT, explore what physicists do and their impact of scientific thought on
+the society
+Values and Attitudes
+Students should develop intrinsically worthwhile values and attitudes in studying this topic.
+Some particular examples are:
+to be aware of the importance of safety measures in relation to ionisation and
+non-ionisation radiation
+to be aware of the potential danger from X-rays and radiation from radioactive sources to
+pregnant woman
+to adopt a cautious attitude in matters concerning public safety
+to be aware of the implications on the use of different modes of imaging technology and
+to make an effort in reducing radiation exposure in daily life
+to appreciate some of the factors which contribute to good health, and the importance of
+personal responsibility in maintaining it
+to appreciate the role of the medical and associated services provided in Hong Kong and
+the role of various people within them
+to appreciate the relative importance of preventative and curative services
+to be open-minded in evaluating potential applications of principles in physics to new
+medical technology
+to appreciate the efforts made by scientists to find more alternative methods of medical
+diagnosis
+to appreciate that the advancement of important scientific discoveries (such as
+radioactivity and X-rays) can ultimately make huge impact on society
+to appreciate the contributions of physics, mathematics, engineering and computer
+science that revolutionised the technology advancement in medical imaging
+to recognise the roles of science and technology in the exploration of medical science and
+to appreciate the efforts of mankind in the quest for the understanding of human body
+to recognise the importance of life-long learning and self-learning in knowledge-based
+society
+77
+SECOND DRAFT
+STSE connections
+Students are encouraged to develop an awareness of and comprehend issues associated with
+the interconnections of science, technology, society and the environment. Examples of
+issues and contexts related to this are:
+the issue of the effects of radioactive waste from medical applications on the environment
+the issue of who decides how much money is spent on medical research
+How often should be screened via X-rays against possible case of tuberculosis (TB)?
+How dangerous or risky is when patients are imaging using conventional X-rays, CAT,
+ultrasound and SPET
+How can abnormality in the foetus be detected?
+the issue of using CT scanners in archaeology investigations
+medical diagnosis: the dilemma in choosing between various devices for optimum
+medical diagnosis
+to accept uncertainty in the descriptions and explanations by medical diagnosis, and the
+issue of false positive and false negative
+the ethical issue of a doctor to decide whether or not to turn off a life-supporting machine
+78
+SECOND DRAFT
+Investigative Study (16 hours)
+Topic X
+Investigative Study in Physics (16 hours)
+Overview
+This study aims to provide opportunity for students to design and conduct an investigation
+with a view to solving an authentic problem. Investigative studies are inquiry-oriented
+activities to provide students with direct exposure to experiences that reinforce the inquiry
+nature of science. In the task, students have to analyse a problem, plan and conduct
+investigation, gather data, organise their results, and communicate their findings. In this
+connection, students are involved actively in their learning, formulate questions, investigate
+widely and then build new meanings and knowledge.
+A portion of the curriculum time is set aside for this purpose. Students are expected to make
+use of their knowledge and understanding of physics, together with generic skills (including
+but not limited to creativity, critical thinking, communication and problem-solving) to engage
+in group-based investigative study. Through the learning process in this study, students can
+enhance their skills both with practical and non-practical nature, and develop awareness of
+working safely of investigation.
+Learning outcomes
+The following outcomes are expected:
+Students should be able to
+justify the appropriateness of an investigation plan
+put forward suggestions on ways to improve validity and reliability of a scientific
+investigation
+use accurate terminology and appropriate reporting styles to communicate findings and
+conclusions of a scientific investigation
+evaluate the validity of conclusions with reference to the process of investigation and the
+gathered data and information
+demonstrate mastery in manipulative skills, skills in observation and also good attitudes
+in general
+show appropriate awareness of importance of working safely in laboratory elsewhere
+79
+SECOND DRAFT
+Implementation
+Prerequisite - Students should have some experiences with and provided with guidelines on
+the following aspects before conducting an investigative study:
+Selecting an appropriate question for the task
+Searching for relevant information from various sources
+Writing an investigation plan
+Writing up a laboratory report or making a poster for presentation
+Grouping - The investigation can be conducted in groups of 4 or 5 students.
+Timing - The investigation can be undertaken on completion of a task requiring students to
+plan an experiment for an investigative study, indicating the variables to be measured, the
+measurement they will make, and how they will record and present the data collected. For
+instance, an investigative study on the topic “projectile motion” can be carried out towards
+the end of the senior secondary two (SS2) and completed at the start of the senior secondary 3
+(SS3). In other words, students can develop their investigation plan from March to May of
+SS2, the investigation can be conducted at the end of SS2, and the presentation to be done at
+the start of SS3. Alternatively, it is also possible to conduct an investigation in conjunction
+with the learning of the topic. With reference to the above example, it is possible to conduct
+investigation in SS2 and complete in SS3.
+Time is allocated for the following activities:
+Searching and defining questions for investigations
+Developing an investigation plan
+Conducting the investigation
+Organizing, documentation and analysing data for a justified conclusion
+Presentation of findings and written reports / making posters
+Suggestions - The topics selected should lend itself to practical work. The study should
+focus on authentic problems, events or issues which involve key elements like “finding out”
+and “gathering first-hand information”. In addition, to maximise the benefit of learning
+from the investigation within the time allocated, teachers and students should work together
+closely to discuss and decide on an appropriate and feasible topic.
+80
+SECOND DRAFT
+Some possible topics for investigative study are suggested below:
+Build a box which has the best effect of keeping the temperature of an object or has the
+best cooling effect
+Measure the distance between two very far away points, e.g. the distance between the
+earth and the moon
+Measure the height and the size of a building
+Principle and applications of a solar cell
+Construction and testing of a home-made wind turbine
+Measure the speed of a water rocket
+Studying articles about the latest astronomy discoveries can promote students’ interest in
+modern science and strengthen their self-learning ability. Oral or written presentation in
+class is encouraged
+Investigating the principles of nanoscience in commercial products by the use of various
+properties of nano materials, e.g. impermeability to gas, water-repellence and
+transparency
+Reading articles from e-museum (http://nobelprize.org/physics/) to trace historic
+development of CT, particularly memorable description of what physicist do and their
+impact of scientific thought on the society
+Assessment
+To facilitate learning, teachers and students can discuss and agree on the following
+assessment criteria with due consideration of factors that may facilitate or hinder the
+implementation of the study in a particular school environment.
+Feasibility of the investigation plan (the study is a researchable one)
+Understanding of relevant physics concepts, concerns on safety
+Manipulative skills and general attitudes
+Proper data collection procedure and ways to handle possible sources of error
+Ability to analyse and interpret data obtained from first-hand investigation
+Ability to evaluate validity and reliability of the investigation process and the findings
+Ability to communicate and defend the findings to the teacher and peers
+Appropriateness in using references to back up the methods and findings
+Attitudes towards the investigation
+81
+SECOND DRAFT
+A number of assessment methods like observation, questioning, oral presentation, poster
+presentation session and scrutiny of written products (investigation plan, reports, posters, etc.)
+can be used where appropriate.
+82
+SECOND DRAFT
+Chapter 3
+Curriculum Planning
+3.1
+As a senior secondary science subject in the Key Learning Area of Science
+Education, physics builds on the junior secondary science curriculum. Students’ science
+learning experiences in junior secondary science lay the foundation for learning senior
+secondary physics. In this connection, this chapter describes the linkages of knowledge,
+concepts, process skills and generic skills between the two levels of study. Teachers may
+consider the information described in this chapter as a reference for planning their
+school-based senior secondary physics curriculum for their students.
+3.2
+It is a well known fact that students have individual differences in interests,
+strength and aspirations. Students have different learning styles – visual, auditory, and
+kinesthetic & tactile, as well as different alternative science concepts. It is desirable to
+organise this curriculum in a way that addresses the individual needs of students. Some
+teachers may prefer certain learning and teaching approaches over the others, and they
+believe these approaches help elevate the effectiveness, efficiency and quality of students’
+learning. Thus, teachers are encouraged to organise the curriculum in meaningful and
+appropriate ways to ensure “fit for the purpose”. This chapter attempts to describe some
+ideas for teachers to deliberate on when they need to design their own school-based
+curriculum for senior secondary physics.
+Interfacing Junior Secondary Science Curriculum
+3.3
+This curriculum builds on the CDC Syllabus for the Secondary Science (S1-3)
+published in 1998. The Junior Science Curriculum starts with the topic “Energy” which
+helps students appreciate energy as one of the fundamentals of physics, learn some basic
+knowledge of physics, acquire some basic practical skills and develop positive attitudes
+towards physics. Furthermore, through the study of this curriculum, students can
+consolidate their knowledge and understanding in physics as well as the scientific skills
+acquired in their junior science course.
+3.4
+Students should have developed some basic foundation and understanding in
+physics through their three-year junior secondary science course. The learning experiences
+acquired provide a concrete foundation and serve as a ‘stepping stone” for senior secondary
+physics. The following table shows how respective physics topics in the CDC Syllabus for
+Science (S1-3) are related to different topics in this curriculum.
+83
+SECOND DRAFT
+Science (S1-3)
+Unit
+Title
+1.4
+Conducting a simple scientific
+investigation
+4.1
+Forms of energy
+4.2
+Energy changes
+4.4
+Generating electricity
+4.5
+Energy sources and we
+6.1
+States of matter
+6.2
+Illustrations for the support of the
+claims of the particle theory
+6.3
+Particle model for the three states
+of matter
+6.4
+Gas pressure
+8
+Physics (Senior Secondary)
+Topic
+X
+VIII
+Title
+Investigative Study
+Energy and Use of Energy
+and other parts in the curriculum
+I
+Heat Transfer and Gases
+Making Use of Electricity
+IV
+Electricity and Magnetism
+9.1
+Forces
+II
+Force and Motion
+9.2
+Friction
+9.3
+Force of gravity
+9.4
+A space journey
+I
+Heat Transfer and Gases
+9.5
+Life of an astronaut in space
+II
+Force and Motion
+9.6
+Space exploration
+VI
+Astronomy and Space Science
+11.2
+How we see
+III
+Wave Motion
+11.3
+Limitations of our eyes
+IX
+Medical Physics
+11.4
+Defects of the eye
+11.5
+How we hear
+11.6
+Limitations of our ears
+11.7
+Effects of noise pollution
+15
+Light, Colour and Beyond
+III
+Wave Motion
+84
+SECOND DRAFT
+Progression of Studies
+3.5
+To help students with different aptitudes and abilities explore their interests in
+different senior secondary subjects, the report New Academic Structure for Senior Secondary
+Education and Higher Education – Action Plan for Investing in the Future of Hong Kong
+(Education and Manpower Bureau, 2005) recommends the idea “progression of studies”.
+Chinese Language,
+SS3
+English Language,
+Mathematics,
+X1
+X2
+(X3)
+X1
+X2
+(X3)
+Liberal Studies
+Chinese Language,
+SS2
+English Language,
+Mathematics,
+Liberal Studies
+Chinese Language,
+SS1
+English Language,
+Mathematics,
+X1
+X2
+(X3) (X4)
+Liberal Studies
+Core Subjects
+Elective Subjects
+Other Learning
+Experiences
+( ) optional
+In short, schools may choose to offer a total of 4 elective subjects at SS1 level, 3 at SS2 level
+and 3 at SS3 level respectively for their students.
+3.6
+With the suggestion mentioned above, a number of topics have been identified from
+this curriculum for students intended to explore their interests in science subjects. The
+topics identified should help to lay the foundation for learning physics and facilitates students
+to become life-long learners in science and technology. Possible arrangement of the topics
+suggested is described in the scheme below. Schools can deliberate on this scheme whether
+it can facilitate the progression of study in senior secondary physics.
+85
+SECOND DRAFT
+Topic
+I
+Remarks
+Heat Transfer and Gases
+a. Temperature, heat and internal energy
+b. Transfer process
+c. Change of state
+Include
+all
+the
+subtopics
+except
+subtopic (d) which can
+be studied in a later
+stage
+d. Gases
+II
+Force and Motion
+Include subtopic (a),
+(b) and (d) only
+a. Position and movement
+b. Force and motion
+c. Motion in two dimensions
+d. Work, energy and power
+e. Momentum
+f. Gravitation
+3.7
+III
+Wave Motion
+a. Nature and properties of waves
+b. Light
+c. Sound
+X
+Investigative Study in Physics
+include
+only
+subtopic
+(b)
+It can be studied
+together with basic
+scientific skills and
+practical skills but not
+for assessment.
+Considering the rapid advancement in the world of science and technology, many
+contemporary issues and scientific problems have to be tackled by applying science concepts
+and skills acquired in wider contexts. Thereby, it is more beneficial for students to gain a
+broad learning experience in the three disciplines. To cater for students who are more
+interested in learning science and those intended taking two science subjects in science
+education, schools are suggested to offer a broad and balanced science curriculum for
+students in SS1, including all the three selected parts from biology, chemistry and physics.
+86
+SECOND DRAFT
+3.8
+During SS1, students may explore their interests in science through studying the
+three parts and have more understanding of the different nature and requirements of the
+respective disciplines. They will be more able to identify their interests and strengths for
+choosing their specialized study in higher forms. Moreover, the broad and balanced
+foundation laid in the first year of study will benefit them from associating the related
+concepts and skills acquired in various disciplines of science for their specialised study and
+keeping abreast of their interests of science in wider contexts. The diagram below is an
+example on how schools can organise a progression of study for students who wish to have
+more science learning.
+SS3
+SS2
+SS1
+Physics
+Science(Bio, Chem)
+or
+Biology
+or
+Chemistry
+(Other Subject)
+Physics
+Science(Bio, Chem)
+or
+Biology
+or
+Chemistry
+(Other Subject)
+Physics
+Biology
+Chemistry
+(Other Subject)
+( ) optional
+3.9
+Under the New Senior Secondary Academic Structure, there will be flexibility to
+allow students to take up the study of Physics at SS2. For these students, similar sequence
+of learning still applies. Schools may consider allocating more learning time and providing
+other supporting measures (e.g. bridging programmes) to these students so that they can catch
+up the foundation knowledge and skills as soon as possible.
+87
+SECOND DRAFT
+Suggested Learning and Teaching Sequences
+3.10
+This chapter illustrates how teachers may approach the design of teaching and
+learning activities, the development of curriculum planning which reflect the ethos of the
+teachers and the kinds of learning outcomes, and the development of personnel and resources.
+The essence of physics lies in the creation of concepts, models and theories which must be
+matched with experience and have internal consistence. It is worthwhile to note that concepts
+or principles are a special form of knowledge in enhancing students’ understanding of physics.
+Teachers need to understand students’ learning difficulties and misconceptions and adopting
+constructivist approaches to teaching physics. Making use of contextual examples and their
+relation with key concepts enables a meaningful learning in students. Students hold a number
+of intuitive ideas about the physical world based on their everyday experience. Developing
+concepts within a context that is familiar to students provides an opportunity for students to
+become more aware of their intuitive ideas. Alternatively, by connecting key concepts with
+the historic process through which physics was developed, teachers are in a better position to
+anticipate and understand students’ intuitive ideas, which often align with historical
+controversies. Some of the suggested topics should permeate the whole curriculum so that
+students come to appreciate inter-connections between different topics. The sequence is
+organised in a way that learning starts with some topics using more concrete content and less
+difficult concepts, and then progress onto some topics that are more abstract and subtle. As an
+example, students need to understand the concepts of momentum before they can appreciate
+the kinetic model of gases.
+3.11
+Topics like “Temperature, heat and internal energy”, “Transfer processes”,
+“Change of state”, “Position and movement”, “Force and motion”, “Work, energy and
+power”, “Nature and properties of waves” and “Light” provide a vast amount of concrete
+relevant contextual examples, which facilitate students in constructing concepts at SS1 level.
+These examples provide opportunities to connect concepts and theories discussed in the
+classroom and in textbooks with observations of phenomena. Teachers may engage students
+with conceptual organisers such as concepts map to foster the learning of physics. Students
+often find Newton’s laws of motion counter-intuitive, and studying 2-dimensional projectile
+motion adds further complication. To ensure meaningful learning, teachers need to check the
+essential prerequisite knowledge and structured the problem in small manageable steps which
+take the form of a simple sequencing task: a set of words and phrases (displacement; velocity;
+acceleration; change in direction; change in velocity; curved path; unbalanced force) to
+connect by drawing arrows to build up a chain of logical connections. Students can review
+their previous learning and prior knowledge at different stage of learning. For example,
+teachers introduce preliminary basic concepts of force and motion in SS1, and refine these
+88
+SECOND DRAFT
+concepts in SS2. The physics curriculum provides flexible framework within which schools
+will design learning sequences suited to the needs of their students, and other factors
+appropriate to the teachers. Teachers can deliberate on whether or not to adopt the sequence
+as suggested. Furthermore, teachers are reminded that they could exercise their professional
+judgments to design the most appropriate teaching and learning sequence to be used. It is
+likely that different sequences help be adopted in different schools to benefit different ability
+groups of students. Through the study of the various topics in the compulsory and elective
+parts, students should develop progressing sophisticated concepts in physics. The following
+teaching sequences are therefore given as suggestions only.
+Topics
+Level
+I
+Heat transfer and gases (except gases)
+II
+Force and motion (except 2D motion, momentum and
+gravity)
+III
+Wave motion (light only)
+X
+Investigative study in Physics
+II
+Force and motion (2D motion, momentum and
+gravity)
+I
+Heat transfer and gases (gases)
+III
+Wave motion (except light)
+IV
+Electricity and magnetism
+X
+Investigative study in Physics
+V
+Radioactivity and nuclear energy
+VI
+Astronomy and space science*
+VII Atomic World*
+Medical physics*
+X
+Investigative study in Physics
+SS2
+SS3
+VIII Energy and use of energy*
+IX
+SS1
+* denotes a topic in the elective part (2 out of 4)
+Curriculum organisation
+One aspect in teaching topics, especially at SS1 level, is finding the most appropriate
+level of simplification of the subject matter. For example, when students are studying
+the concept of “heat” in physics, some key ideas are essential and should be introduced
+at SS1 level while some complicated topics should be deferred until later. It should
+89
+SECOND DRAFT
+have a balance between the breadth and the depth of the curriculum so that students can
+follow.
+From this perspective, teachers should judge the appropriate level of
+simplification, the order in which to present ideas, and the pace at which to deliver the
+key ideas in order to help students construct as scientifically valid a model of a topic as
+possible. Figure below shows one possible simplification to relate heat, temperature
+and internal energy. In this case, heat flows due to a temperature difference and this
+can lead to a change in temperature, or a change of state. This is explained in terms of
+a molecular model, where the heat flow increases the internal energy of the particles.
+The internal energy of the particles can be kinetic and potential, and the temperature is a
+measure of the average kinetic energy of the particles. The scheme may be considered
+as a concept map, with each arrow representing a relationship between the concepts in
+the boxes connected. It is worth to note that students may need prior knowledge, such
+as of kinetic energy and potential energy, in the topic “Force and motion” to understand
+the concepts of internal energy of the particles. Thus this part of thermal physics may
+run concurrently with “Force and motion”.
+temperature
+difference
+heat
+state
+temperature
+internal
+energy
+latent
+heat
+kinetic
+energy
+potential
+energy
+Integration of major topics
+The curriculum puts forward the ideas of compulsory and elective parts.
+The
+compulsory part provides fundamental concepts of physics in SS1 and SS2, followed by
+a range of topics in the elective part from which students must choose any two. The
+topics in the elective part can be used as vehicles for teaching the special interests of
+students.
+This provides excellent opportunities to introduce and follow up the
+extension of the key concepts. For instance, knowledge and concepts, such as nature
+and properties of waves, light and sound in “Wave Motion” are further reinforced in
+90
+SECOND DRAFT
+“Medical Physics”, where sound and optical imaging, and medical imaging are used as
+extension tasks. The extension task is demanding and capable of stretching the abilities
+of the students. The purpose of this arrangement is to avoid loading students with a
+bunch of abstract concepts in a short period of time, in particular, at the early stage of
+senior secondary study. Furthermore, it also aims to provide opportunity for students
+to revisit their learning in previous year of study at SS2. Some teachers may prefer to
+introduce the concepts related to wave motion in one go. Other teachers may organise
+their own curriculum in a way that the topics “Wave Motion” and “Medical Physics” are
+run concurrently. Similar integration can be extended to topics like “Electricity and
+Magnetism” and “Energy and Use of Energy”, as well as “Force and Motion” and
+“Astronomy and Space Science”.
+Integration of the Investigative Study with major topics
+It has been recognised that inquiry activities have a central and distinctive role in
+physics education.
+The interaction among theories, experiments and practical
+applications is fundamental to the progress of physics.
+Teachers can encourage
+students to reconstruct their knowledge using inquiry activities within a community of
+learners in their classroom and on the basis of personal experiences.
+Meaningful
+learning can occur if students are given sufficient time and opportunities for interaction
+and reflection, the generic skills are further enhanced and extended.
+Investigative
+Study in Physics is a learning opportunity for student to apply their physics knowledge
+in scientific investigation to solve an authentic problem.
+The learning in different parts
+of the curriculum together with the experience in the Investigative Study should pave the
+way for students to become self-regulated and competent life-long learners. Teachers
+may encounter students, who are mathematical inclined, intend to carry simulations on
+data modelling. To cater the need of these students, teachers can organise the learning
+of the topics in the elective part (e.g. Astronomy and Space Science) in parallel with the
+Investigative Study. In simulation runs, the students explore the relationship between
+assumptions and predictions about the phenomenon. This helps students apply physics
+concepts to analyse and solve problems, and at the same time develops various scientific
+skills and processes. Teachers can also adopt an alternative learning and teaching
+strategy. For example, by solving the problems through gathering information, reading
+critically, learning new knowledge on their own, discussion, investigation etc, and
+students can master knowledge and understanding required in the Investigative Study for
+the topic “Energy and Use of Energy”. Similar integration can also be extended to
+other topics in the compulsory part and the elective part including “Atomic World” and
+“Medical Physics”.
+91
+SECOND DRAFT
+Chapter 4
+Learning and Teaching
+4.1
+The curriculum has an in-built flexibility to cater for the interests, abilities and
+needs of students. This flexibility also provides a means to bring about a balance between
+the quality and quantity of learning. Teachers should provide ample opportunities for
+students to engage in a variety of learning experiences, such as investigations, discussions,
+demonstrations, practical work, field studies, model-making, case-studies, questioning, oral
+reports, assignments, debates, information search and role-play. Teachers should give
+consideration to the range of experiences that would be most appropriate to their students.
+The context for learning should be made relevant to daily life, so that students will experience
+physics as interesting and important to them.
+4.2
+Practical work and investigations are essential components of the curriculum.
+They enable students to gain personal experience of science through hands-on activities, and
+to develop the skills and thinking processes associated with the practice of science.
+Participation in these activities encourages students to bring scientific thinking to the
+processes of problem-solving, decision-making and evaluation of evidence. Engaging in
+scientific investigation enables students to gain an understanding of the nature of science and
+the limitations of scientific inquiry.
+Designing Learning Activities
+4.3
+Teachers should motivate students through a variety of ways such as letting them
+know the goals and expectations of learning, building on their successful experiences,
+meeting their interest and considering their emotional reactions. Learning activities should
+be designed according to these considerations. Some examples of these activities are given
+below.
+Article reading
+Students should be given opportunities to read independently science articles of
+appropriate breadth and depth.
+The abilities to read, interpret, analyse and
+communicate new scientific concepts and ideas can then be developed. Meaningful
+discussions on good science articles among students and with teachers may also be used
+to strengthen general communication skills. The abilities of self-learning developed
+this way will be invaluable in preparing students to become active life-long learners.
+92
+SECOND DRAFT
+A variety of articles, which may be used to emphasise the interconnections between
+science, technology and society, will serve the purposes of broadening and enriching the
+curriculum, bringing into which current developments and relevant issues. Teachers
+may select suitable articles for their own students according to their interest and abilities,
+and students are encouraged to search for such articles from newspapers, science
+magazines and the Internet. The main purpose of this part of the curriculum is to
+encourage reading. The factual knowledge acquired is of relatively minor importance;
+whereas rote memorization of the contents is undesirable and should be discouraged.
+Discussions and debates
+Discussions and debates in the classroom promote students' understanding, and help
+them develop higher order thinking skills as well as an active learning attitude. One of
+the most effective ways to motivate students is to make discussions or debates relevant
+to their everyday life. Presenting arguments allows students to extract useful information
+from a variety of sources, to organise and present ideas in a clear and logical form, and
+to make valid judgements based on scientific evidence.
+Teachers can start a
+discussion with issues related to science, technology and society, and invite students to
+freely express their opinions in the discussion, at the end of which students can present
+their ideas to the whole class and receive comments from their teacher and classmates.
+Teachers must avoid discouraging discussions in the classroom by insisting too much
+and too soon on an impersonal and formal scientific language. It is vital to accept
+relevant discussions in students’ own language during the early stages of concept
+learning, and to move towards precision and accuracy of scientific usage in a
+progressive manner.
+Practical work
+Physics is a practical subject and thus practical work is essential for students to gain a
+personal experience of science through doing and finding out. In the curriculum,
+designing and performing experiments are given due emphases.
+Teachers should avoid giving manuals or worksheets for experiments with ready-made
+data tables and detailed procedures, for this kind of instructional materials provide fewer
+opportunities for students to learn and appreciate the process of science. With an
+inquiry-based approach, students are required to design all or part of the experimental
+procedures, and to decide what data to record and how to analyse and interpret the data.
+Students will show more curiosity and sense of responsibility for their own experiments
+leading to significant gains in their basic scientific skills.
+93
+SECOND DRAFT
+Moreover, experiments are better designed to “find out” rather than to “verify”. Teachers
+should avoid giving away the answers before the practical work, and students should try
+to draw their own conclusions from the experimental results. The learning of scientific
+principles will then be consolidated.
+Experiments
+Include
+designing and
+planning
+prediction of
+results
+manipulation
+of apparatus
+collection of
+data
+consideration
+of safety
+Conclusions and
+interpretations
+Include
+analysis of
+experimental
+results
+evaluation of
+predictions
+explanation for
+deviations from
+predictions
+Scientific
+Principles
+Include
+generalisation
+of patterns and
+rules from
+conclusions
+and
+interpretations
+Project Learning
+Learning through project work, a powerful strategy to promote self-directed,
+self-regulated and self-reflecting learning, enables students to connect knowledge, skills,
+and values and attitudes, and to accumulate knowledge through a variety of learning
+experiences. It also serves to develop a variety of skills such as scientific problemsolving, critical thinking and communication. Project work can be carried out
+individually or in small groups, and students will plan, read and make decisions over a
+period of time. Project work carried out in small groups can enhance the development of
+collaboration skills, while that involving experimental investigations can help develop
+practical skills as well.
+Searching and presenting information
+Searching for information is an important skill to be developed in the information era.
+Students can gather information from various sources such as books, magazines,
+scientific publications, newspapers, CD-ROMs and the Internet. Searching for
+information can cater for knowledge acquisition and informed judgements by students,
+but the activity should not just be limited to the collecting of information. Its selecting
+and categorizing and the presentation of findings should also be included.
+94
+SECOND DRAFT
+Teaching with a Contextual Approach
+4.4
+Learning is most effective if it is built upon the existing background knowledge of
+students. Learning through a real-life context accessible to students will increase their
+interest and enhance the learning of physics. The context-based learning highlights the
+relevance of physics to students’ daily life and can be employed to enhance their awareness of
+the inter-relationships between science, technology and society. When the original concepts
+have been learned with effectiveness, confidence and interest, the transfer of concepts,
+knowledge and skills to other contexts can then be made. Teachers are strongly encouraged
+to adopt a contextual approach in an implementation of the curriculum.
+Using Information Technology (IT) for Interactive Learning
+4.5
+IT is a valuable tool for interactive learning, which complements the strategies of
+learning and teaching inside and outside the classroom. Teachers should select and use
+IT-based resources as appropriate to facilitate students’ learning. However, an improper use
+of IT might distract student attention, have little or no educational value and may sometimes
+cause annoyance.
+4.6
+There are numerous and growing opportunities to use IT in a science education.
+IT can help search, store, retrieve and present scientific information.
+Interactive
+computer-aided learning programmes can enhance the active participation of students in a
+learning process. A computer-based laboratory interface allows students to collect and
+analyse data, vary parameters, and find out mathematical relationships between variables.
+Simulation and modelling tools can be employed to effect exploratory and interactive
+learning processes.
+Providing Life-wide Learning Opportunities
+4.7
+A diversity of learning and teaching resources should be used appropriately to
+enhance the effectiveness of learning. Life-wide learning opportunities should be provided
+to widen the exposure of students to the scientific world. Examples of learning programmes
+serving this purpose include popular science lectures, debates and forums, field studies,
+museum visits, invention activities, science competitions, science projects and science
+exhibitions. Students with good abilities or a strong interest in science may need more
+challenging learning opportunities. These programmes can stretch students’ science
+capabilities and allow them to develop their full potential.
+95
+SECOND DRAFT
+Chapter 5
+Assessment
+Aims of assessment
+5.1
+Assessment is an integral part of the learning and teaching cycle. It is the practice
+of collecting evidence of student learning. The aims of assessment are to improve learning
+and teaching as well as to recognise the achievement of students. Therefore, the design of
+assessment should be aligned with the learning targets, the curriculum design and the learning
+progression. At the same time, a diversity of assessment modes should be adopted to attain
+the goal of assessment for learning.
+Internal Assessment
+5.2
+Internal assessment refers to the assessment practices that schools will employ as
+part of the learning and teaching strategies during the three years of study in physics. These
+practices should be aligned with curriculum planning, teaching progression, student abilities
+and the local school contexts. Internal assessment includes both formative and summative
+assessment practices. The information collected will help to motivate and promote student
+learning. The information will also help teachers to find ways of promoting more effective
+learning and teaching. A range of assessment practices, such as written tests, oral
+questioning, observation, investigative studies, practical work and assignments, should be
+used to promote the attainment of various learning outcomes. Moreover, values and
+attitudes can be assessed in school and be reflected in the student report card of the “Student
+Learning Profile”.
+Public Assessment
+5.3
+Public assessment of the subject Physics refers to the assessment measures that lead
+to a qualification in the subject to be offered by the Hong Kong Examinations and
+Assessment Authority (HKEAA). It provides information about the standards and
+achievement of students based on the learning outcomes listed in this Curriculum and
+Assessment Guide. Public assessment of Physics will comprise two components: a Written
+Examination and School-based Assessment (SBA). The assessment tasks used in the public
+examination and the SBA will address the learning targets laid down in this curriculum, and
+be aligned with the curriculum emphases, such that the potential of assessment can be
+96
+SECOND DRAFT
+harnessed to encourage teaching and learning in the directions intended in this curriculum
+framework.
+Public Examination
+5.4
+The public examination will consist of two papers; one focuses on the Compulsory
+Part of the Curriculum and the other mainly on the Elective Part. Different types of items
+will be used to assess students’ performance in a broad range of skills and abilities. The
+types of items will include multiple choice questions, short questions and structured questions.
+These types of items are currently adopted in the HKCE and HKAL examinations. When
+the curriculum content and the learning outcomes are finalised, sample papers will be
+provided to schools to illustrate the format of the examination and the standards at which the
+questions are pitched.
+School-based assessment
+5.5
+SBA refers to the assessment administered in schools in which a student’s
+performance is assessed by the student’s own teacher. The merits of adopting SBA are as
+follows:
+(i)
+SBA helps improve the validity of public assessment, since it can cover a more
+extensive range of learning outcomes, through employing a wider range of
+assessment practices that cannot be implemented in public examinations.
+(ii)
+SBA allows for continuous assessment of the work of students. It provides a more
+comprehensive picture of student performance throughout the period of study rather
+than their performance in a one-off examination. Since assessments are typically
+based on multiple observations of student’s performance, SBA can improve the
+reliability of the overall assessment.
+5.6
+are:
+(i)
+Embodying the two merits above, the rationales of implementing SBA in Physics
+To assess students’ skills in the performance of practical work and their abilities in
+carrying out scientific investigations.
+97
+SECOND DRAFT
+(ii)
+To assess students’ generic skills (such as creativity, critical-thinking skills,
+communication skills, problem-solving skills and collaboration skills) through the
+use of a wide variety of tasks adopted in the learning process.
+5.7
+The SBA will contribute 20% of the total weighting of the public assessment of
+Senior Secondary Physics.
+5.8
+The SBA of Physics will be divided into two main components: practical related
+tasks and non-practical related tasks. The former refers to the practical work characteristic
+of physics, while the latter refers to non-practical related assignments and examinations
+which students are asked to carry out for the learning of the subject.
+5.9
+The aim of including non-practical related tasks is to broaden the scope of
+assessment in the SBA, and hence in the public assessment. The abilities of students in
+many different aspects can be duly recognised by awarding their achievements in a wide
+variety of tasks adopted in the learning process. The integration of curriculum, teaching and
+assessment will also be much enhanced. To this end, the assignments to be included in the
+SBA aim to cover one or more of the curriculum content areas and one or more of the
+aforementioned generic skills, which are embodied in the learning targets set out in the
+curriculum.
+Examples of assignments that can be used for assessment are:
+Critically read, analyse and report the works of some physicists in their contribution
+toward the understanding of the universe.
+Design a poster / pamphlet / web page advising on ways in which people can use
+energy more efficiently.
+Report scientific knowledge and concepts acquired after a visit to a power station or
+the Hong Kong Science Museum.
+Construct animation to illustrate the process of fission/fusion.
+5.10
+It should be noted that SBA is not an “add-on” element in the curriculum. The
+modes of SBA thus selected above are normal in-class and out-of-class activities suggested in
+the curriculum. The requirement and implementation of the SBA will take into
+consideration the wide range of abilities of students and will avoid unduly increasing the
+workload of both teachers and students. Detailed information on the requirements and
+implementation of the SBA and samples of assessment tasks will be provided to teachers in
+due course.
+98
+SECOND DRAFT
+Standards-referenced Approach
+5.11
+In the public assessment, a standards-referenced approach will be adopted for
+grading and reporting student performance. The purpose of this approach is to recognise the
+learning outcomes that the students have attained in the subject at the end of the 3-year senior
+secondary education. Each student’s performance will be matched against a set of
+performance standards, rather than compared to the performance of other students.
+Standards-referenced Approach makes the implicit standards explicit by providing specific
+indication of individual student’s performance. Descriptors will be provided for the set of
+standards at a later stage.
+99
+SECOND DRAFT
+Chapter 6
+Effective Use of Learning and Teaching
+Resources
+6.1
+A subject curriculum and assessment guide will be published to support learning
+and teaching. The Guide will provide stakeholders with information on the rationale,
+curriculum aims, curriculum framework, learning and teaching strategies and assessment.
+In addition, it is anticipated that quality textbooks and related learning and teaching materials,
+aligned with the rationale and the recommendations of the curriculum, will be available on
+the market.
+6.2
+Resource materials that facilitate learning will be developed by Education and
+Manpower Bureau (EMB) to support the implementation of this curriculum. Tertiary
+institutions and professional organisations will be invited to contribute to the development of
+resource materials. Existing resource materials, such as “Physics World”, “Contextual
+Physics”, “Contextual Physics in Ocean Park”, “Using Datalogger in the Teaching of
+Physics” and “Enhancing Science Learning through Electronic Library”, published by EMB
+and various working partners will be updated to meet with the latest curriculum development.
+Furthermore, schools are encouraged to develop their own learning and teaching materials to
+meet the needs of their students, as necessary. Schools are also advised to adopt a wide
+variety of suitable learning resources, such as school-based curriculum projects, useful
+information from the Internet, the media, relevant learning packages and educational software
+packages. Last but not the least, experiences from various collaborative research and
+development projects, such as “Informed Decisions in Science Education”, “Assessment for
+Learning in Science”, “Infusing Process and Thinking Skills into Science lessons” and
+“Collaborative Development of Assessment Tasks and Assessment Criteria to Enhance
+Learning and Teaching in Science Curricula” are good sources of information for teachers.
+100
+SECOND DRAFT
+Chapter 7
+Supporting Measures
+7.1
+To facilitate the implementation of the curriculum, professional development
+programmes will be organised for physics teachers. Listed below are the major domains of
+the professional development programmes to be provided.
+Understanding the rationale and the implementation of the Physics Curriculum;
+Sharing of learning and teaching strategies and good practices;
+Latest development in the field of physics (science update programmes);
+Curriculum management and leadership (curriculum leadership courses); and
+Internal assessment, School-based Assessment and Standards-referenced Assessment.
+7.2
+Besides, teacher networks and learning communities will be formed to facilitate
+reflection and discussion on various aspects related to the curriculum. Detailed information
+on support materials can be obtained from the CDI homepage (http://www.emb.gov.hk/cd) or
+the webpage for physics teachers (http://www.hk-phy.org).
+101
+SECOND DRAFT
+References
+1.
+Alberta Learning. (1998). Physics 20-30 (Senior High). Alberta: Alberta Learning.
+Retrieved 13 May 2005, from http://www.learning.gov.ab.ca/k_12/curriculum/bySubject
+/science/phy2030.pdf
+2.
+Angelo, T. A. and K. P. Cross (1993). Class Assessment Techniques - a Handbook for
+College Teachers. San Francisco, Jossey-Bass Publishers.
+3.
+Assessment and Qualifications Alliance. (2003). GCE Physics 2005 Specification A.
+Devon: Polestar Wheatons. Retrieved 13 May 2005, from http://www.aqa.org.uk
+/qual/pdf/AQA -5451-6451-W-SP-05.pdf
+4.
+Assessment and Qualifications Alliance. (2003). GCSE Physics Specification A
+(Modular) 2005. Walsall: AQA. Retrieved 13 May 2005, from http://www.aqa.org.uk
+/qual/pdf/AQA -3453-W-SP-05.pdf
+5.
+Assessment and Qualifications Alliance. (2003). GCSE Physics Specification B 2005.
+Norfolk: AQA. Retrieved 13 May 2005, from http://www.aqa.org.uk/qual/pdf/AQA
+-3451-W-SP-05.pdf
+6.
+Avison, J. H. (1994). A Review of the New GCE A-Level Physics Syllabuses for the
+1996 Examination in England and Wales. Phys. Educ. 29: 333-346.
+7.
+Bagge, S. and A.-M. Pendrill (2002). Classical Physics Experiments in the Amusement
+Park. Phys. Educ. 37(6): 507-511.
+8.
+Board of Studies New South Wales. (2002). Physics Stage 6 Syllabus. Sydney: Board of
+Studies NSW. Retrieved 13 May 2005, from http://www.boardofstudies.nsw.edu.au
+/syllabus_hsc/pdf_doc/physics_stg6_syl_03.doc
+9.
+Board of Studies. (1999). Physics Study Design. Carlton: Board of Studies. Retrieved 13
+May 2005, from http://www.vcaa.vic.edu.au/vce/studies/physics/physicsd.pdf
+10. Bodzin, A. M. and W. M. Cates (2002). Inquiry Dot Com. The Science Teacher
+(December): 48-52.
+11. Chiappetta, E. L. (1997). Inquiry-based Science - Strategies and Techniques for
+Encouraging Inquiry in the Classroom. The Science Teacher (October): 22-26.
+12. Costa A.L. (2001). The Vision, In A.L Costa (Ed), Developing Minds: A Resource Book
+for Teaching Thinking (3rd Ed). Alexandria, VA: Association for Supervision and
+Curriculum Development.
+102
+SECOND DRAFT
+13. Council for the Curriculum Examinations and Assessment. (2001). Physics GCSE
+Specification. Belfast: Northern Ireland Council for CEEA. Retrieved 13 May 2005,
+from http://www.ccea.org.uk
+14. Council for the Curriculum Examinations and Assessment. (2002). GCE in Physics
+Specification. Belfast: Northern Ireland Council for CEEA. Retrieved 13 May 2005,
+from http://www.ccea.org.uk
+15. Curriculum Council. (2003). Syllabus Manual Year 11 & 12 Subjects 2004-2005 Vol. VII:
+Science. Osborne Park: Curriculum Council. Retrieved 13 May 2005, from http://www.
+curriculum.wa.edu.au/pages/syllabus_manuals/volumes/VII_science/syllabus_manuals/p
+df/113880.pdf
+16. Curriculum Development Council. (2002). Physics Curriculum Guide (Secondary 4-5).
+Hong Kong: Printing Department.
+17. Curriculum Development Council. (2004). Draft ASL & AL Physics Curricula.
+18. Demers, C. (2000). Beyond Paper & Pencil Assessment. Science and Children (October):
+24-29.
+19. Dick, G. (2001). Physics 11. Toronto: McGraw-Hill.
+20. Dick, G. (2001). Physics 12. Toronto: McGraw-Hill.
+21. Edexcel. (2000). Edexcel GCSE in Physics A Specification. Notts: Edexcel Foundation.
+Retrieved 13 May 2005, from http://www.edexcel.org.uk/VirtualContent/18084.pdf
+22. Edexcel. (2000). Edexcel GCSE in Physics B Specification. Notts: Edexcel Foundation.
+Retrieved 13 May 2005, from http://www.edexcel.org.uk/VirtualContent/18049.pdf
+23. Edexcel. (2003). Edexcel Advanced Subsidiary GCE and Advanced GCE in Physics
+Specifications. London: London Qualifications Limited. Retrieved 13 May 2005, from
+http://www.edexcel.org.uk/VirtualContent/67509.pdf
+24. Edexcel. (2003). Edexcel Advanced Subsidiary GCE and Advanced GCE in Physics
+(Salters Horners) Specifications. London: London Qualifications Limited. Retrieved 13
+May 2005, from http://www.edexcel.org.uk/VirtualContent/67449.pdf
+25. Fitzgerald, M. A. (2002). A rubric for Selecting Inquiry-based Activities. Science Scope
+(September): 22-25.
+26. Hafner, J. C. and P. M. Hafner (2003). Quantitative Analysis of the Rubric as an
+Assessment Tool: an Empirical Study of Student Peer-group Rating. Int. J. Sci. Educ.
+25(12): 1509-1528.
+103
+SECOND DRAFT
+27. Institute of Physics. (2001). Advancing Physics A2. Bristol: IOP.
+28. Institute of Physics. (2001). Advancing Physics AS. Bristol: IOP.
+29. International Baccalaureate Organization. (2001). IB Diploma Programme Guide:
+Physics. Geneva: IBO.
+30. Johnstone, A. H., A. Watt, et al. (1998). "The students' attitude and cognition change to a
+change to a physics laboratory." Phys. Educ. 33(1): 22-29.
+31. Kendall, J.S., & Marzano, R.J. (2000). Content Knowledge: A Compendium of Standards
+and Benchmarks for K-12 Education (3rd Ed). Alexandria, VA: Association for
+Supervision and Curriculum Development, Aurora, CO: Mid-Continent Research for
+Education and Learning.
+32. Li, L.Q. (2000). Education for 1.3 Billion. Beijing, China: Foreign Language Teaching
+and Research Press; Hong Kong SAR, China: Pearson Education Asia Ltd.
+33. Martin-Hansen, L. (2002). Defining Inquiry. The Science Teacher (February): 34-37.
+34. Marzano, R.J., and Pollock, J.C. (2001). Standard-based Thinking and Reasoning Skills.
+In A.L Costa (Ed), Developing Minds: A Resource Book for Teaching Thinking (3rd Ed).
+Alexandria, VA: Association for Supervision and Curriculum Development.
+35. Ministry of Education. (1993). Science in the New Zealand Curriculum. Wellington:
+Learning Media.
+36. Ministry of Education. (2000). The Ontario Curriculum Grades 11 and 12: Science 2000.
+Ontario: MOE. Retrieved 13 May 2005, from http://www.edu.gov.on.ca/eng/document
+/curricul/secondary/grade1112/science/science.pdf
+37. Oxford Cambridge and RSA Examinations. (2001). GCSE in Physics Specification.
+Cambridge: OCR.
+38. Oxford Cambridge and RSA Examinations. (2002). Advanced Subsidiary GCE and
+Advanced GCE Physics B (Advancing Physics) Specifications (2nd Ed.). Cambridge:
+OCR.
+39. Oxford Cambridge and RSA Examinations. (2002). Advanced Subsidiary GCE and
+Advanced GCE Physics A Specifications (2nd Ed.). Cambridge: OCR.
+40. Parry, M. (1998). Introducing Practical Work Post-16. Phys. Educ. 33(6): 346-355.
+104
+SECOND DRAFT
+41. Queensland Studies Authority. (2001). Physics Trial-Pilot Senior Syllabus. Brisbane:
+QSA. Retrieved 13 May 2005, from http://www.qsa.qld.edu.au/yrs11_12/subjects
+/physics /t-pilot.pdf
+42. Reinburg, C., J. A. Cocke, et al. (2003). Everyday Assessment in the Science Classroom,
+NSTA.
+43. Scottish Qualifications Authority. (2002). Physics Advanced Higher (5th Ed.). Glasgow:
+SQA. Retrieved 13 May 2005, from http://www.sqa.org.uk/files/nq/PhysicsAH.pdf
+44. Scottish Qualifications Authority. (2002). Physics Higher (3rd Ed.). Glasgow: SQA.
+Retrieved 13 May 2005, from http://www.sqa.org.uk/files/nq/PhysicsH5th.pdf
+45. Serri, P. (1999). Practical Assessment. The Science Teacher (February): 34-37.
+46. Silva, A. A. (1994). Overcome Inertia: go to an Amusement Park! Phys. Educ. 29:
+295-300.
+47. The College Entrance Examination Board. (2003). 2004, 2005 Course Description for
+AP Physics, Physics B and Physics C. New York: CEEB. Retrieved 13 May 2005, from
+http://apcentral.collegeboard.com/repository/ap03_cd_physics04_05__4325.pdf
+48. Treagust, D. F., R. Jacobowitz, et al. (2001). Using Assessment as a Guide in Teaching
+for Understanding: A Case Study of a Middle School Science Learning about Sound. Sci.
+Ed. 85: 137-157.
+49. Welsh Joint Education. (2003). WJEC Advanced Subsidiary GCE and Advanced GCE
+Physics Specifications 2005-6. Retrieved 13 May 2005, from http://www.wjec.co.uk/
+alphysics05.pdf
+50. ?????????? (2001)???????????????(???)?????
+??????????
+????????????????(???)?
+??
+51. ?????????? (2002)?
+??????????
+??????????????(??)?
+?????
+52. ?????????? (2003)?
+???????
+53. ??? (2001)??????????????????????????
+54. ??????? (2001)???????????????????????
+55. ??? (1998)?????????????????????????????
+56. ??? (1996)????????????????
+105
+
+```
+
+# Physics Curriculum and Assessment Guide (Secondary 4 - 6)
+
+# M PREVENT EYE DAMAGE Protect Yourself from UV Radiation
+
+# DOISY COLLEGE OF HEALTH SCIENCES RADIATION THERAPY
+
+# CANCER RESOURCE P New Breast Cancer Radiation
+
+# Re-Radiation and Casodex in Locally Advanced, Radiation Recurrent, Locally Progressing Prostate Cancer Abstract
+
+# Document 6849
+
+# 5. Research Center for Radiation Protection
+
+# Radiation Safety Training (Nuclear Radiation) Presented by: Human Resources
+
+# SS RE P IN
+
+# JSP 392 Radiation Safety Handbook Ministry of Defence January 2008
+
+# Document 1744

@@ -1,0 +1,33 @@
+---
+pid: 33050
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/01b0017cd60e/01M28JZW8CM1QX7PBNETAP2GPQ/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides"
+command: "node --test js/notes.interactives.test.mjs"
+title: "Run Ch.2 interactives browser tests"
+status: succeeded
+started_at: 2026-09-12T02:55:10.429Z
+running_for_ms: 32537    
+---
+compdef:153: _comps: assignment to invalid subscript range
+▶ Book 5 menu and Ch.2 notes
+  ✔ Book 5 picker lists both textbook chapter titles (963.817833ms)
+  ✔ Ch.1 and Ch.2 top bars link back to the Book 5 menu (12102.451084ms)
+  ✔ 26.1 dice remaining falls and N+decayed stays 40 billion (3374.751875ms)
+  ✔ student pages hide intake chrome and keep per-box scale (6964.0985ms)
+  ✔ 26.1 concept check marks the random-decay answer (2473.201417ms)
+  ✔ 26.2 leak, smoke, and C-14 alive equals just-dead (3243.859667ms)
+  ✔ 26.3 sievert check and activity vs dose labels (436.832292ms)
+✔ Book 5 menu and Ch.2 notes (31371.942833ms)
+ℹ tests 7
+ℹ suites 1
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31697.2105
+
+---
+exit_code: 0
+elapsed_ms: 32537
+ended_at: 2026-09-12T02:55:42.966Z
+---

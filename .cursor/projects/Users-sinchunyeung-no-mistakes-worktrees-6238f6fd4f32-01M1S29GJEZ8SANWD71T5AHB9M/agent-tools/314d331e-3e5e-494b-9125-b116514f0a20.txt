@@ -1,0 +1,4711 @@
+diff --git a/.gitignore b/.gitignore
+index 3d8dfa5..f28602a 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -5,3 +5,4 @@ __pycache__/
+ output/*-intermediate/
+ output/*-test/
+ output/*/intermediate/
++output/**/pages/
+diff --git a/scripts/build_lq_lavish_review.py b/scripts/build_lq_lavish_review.py
+new file mode 100644
+index 0000000..2ab4634
+--- /dev/null
++++ b/scripts/build_lq_lavish_review.py
+@@ -0,0 +1,423 @@
++#!/usr/bin/env python3
++"""Rebuild LQ Lavish review: full exam pages + cropped answers."""
++from __future__ import annotations
++
++import csv
++import json
++import shutil
++import time
++from collections import defaultdict
++from pathlib import Path
++
++from PIL import Image
++
++from classify_mc_llm import BOOK_NAMES, SECTIONS
++from png_pdf import combine_pngs_to_pdf
++
++ROOT = Path(__file__).resolve().parents[1]
++CLASSIFIED = ROOT / "classified" / "lq"
++OUTPUT_LQ = ROOT / "output" / "lq"
++OUT = ROOT / ".lavish" / "lq-classified-review"
++IMG = OUT / "img"
++PERF_JSON = CLASSIFIED / "candidate_performance.json"
++
++Image.MAX_IMAGE_PIXELS = 250_000_000
++
++
++def stitch_pages(page_paths: list[Path], dest: Path) -> bool:
++    images: list[Image.Image] = []
++    for path in page_paths:
++        if not path.is_file():
++            continue
++        im = Image.open(path).convert("RGB")
++        im.load()
++        images.append(im)
++    if not images:
++        return False
++    width = max(im.width for im in images)
++    height = sum(im.height for im in images)
++    out = Image.new("RGB", (width, height), (255, 255, 255))
++    y = 0
++    for im in images:
++        out.paste(im, (0, y))
++        y += im.height
++    # Downscale very tall stacks for Lavish.
++    max_w = 1400
++    if out.width > max_w:
++        ratio = max_w / out.width
++        out = out.resize(
++            (max_w, max(1, int(out.height * ratio))),
++            Image.Resampling.LANCZOS,
++        )
++    out.save(dest, format="PNG", optimize=False)
++    return True
++
++
++def question_page_image(year: str, q: int, dest: Path) -> bool:
++    """Full exam page(s) for the question - no within-page crop."""
++    year_dir = OUTPUT_LQ / year
++    meta_path = year_dir / "starts.json"
++    pages_dir = year_dir / "pages"
++    if meta_path.is_file() and pages_dir.is_dir():
++        meta = json.loads(meta_path.read_text(encoding="utf-8"))
++        for item in meta.get("questions", []):
++            if int(item["q"]) != q:
++                continue
++            # Prefer pages up to but not past the next question's start page
++            # when page_to equals next Q page (inclusive stack for full problem).
++            paths = [
++                pages_dir / f"page{i:03d}.png"
++                for i in range(int(item["page_from"]), int(item["page_to"]) + 1)
++            ]
++            return stitch_pages(paths, dest)
++    crop = year_dir / f"q{q}.png"
++    if crop.is_file():
++        shutil.copy2(crop, dest)
++        return True
++    return False
++
++
++def main() -> None:
++    csv_path = CLASSIFIED / "classification.csv"
++    if not csv_path.is_file():
++        raise SystemExit(f"Missing {csv_path}")
++
++    rows = list(csv.DictReader(csv_path.open(encoding="utf-8")))
++    perf: dict[str, dict[str, str]] = {}
++    if PERF_JSON.is_file():
++        perf = json.loads(PERF_JSON.read_text(encoding="utf-8"))
++    OUT.mkdir(parents=True, exist_ok=True)
++    if IMG.exists():
++        shutil.rmtree(IMG)
++    IMG.mkdir(parents=True)
++
++    by_sec: dict[int, list[dict]] = defaultdict(list)
++    bust = str(int(time.time()))
++    for r in rows:
++        primary = int(r["Primary"])
++        all_secs = [int(x) for x in r["AllSections"].split(";") if x]
++        year, q = r["Year"], int(r["Question"])
++        q_name = f"{year}-q{q}.png"
++        a_name = f"{year}-q{q}-ans.png"
++        q_dest = IMG / q_name
++        question_page_image(year, q, q_dest)
++        a_src = ROOT / r["AnswerPNG"]
++        if a_src.is_file():
++            shutil.copy2(a_src, IMG / a_name)
++        preview = ""
++        ocr = CLASSIFIED / "ocr_cache" / str(year) / f"q{q}.txt"
++        if ocr.is_file():
++            preview = " ".join(ocr.read_text(encoding="utf-8").split())[:220]
++        performance = (perf.get(str(year)) or {}).get(str(q), "")
++        item = {
++            "year": year,
++            "q": q,
++            "primary": primary,
++            "sections": ";".join(str(s) for s in all_secs),
++            "is_primary": True,
++            "preview": preview,
++            "reason": r.get("Reason") or "",
++            "performance": performance,
++            "img": f"img/{q_name}?v={bust}" if q_dest.is_file() else "",
++            "ans": f"img/{a_name}?v={bust}" if (IMG / a_name).is_file() else "",
++        }
++        for sec in all_secs:
++            copy = dict(item)
++            copy["is_primary"] = sec == primary
++            by_sec[sec].append(copy)
++
++    sections = []
++    for num, book, folder, name in SECTIONS:
++        items = by_sec.get(num, [])
++        sections.append(
++            {
++                "num": num,
++                "name": name,
++                "book": BOOK_NAMES.get(book, book),
++                "count": len(items),
++                "items": items,
++            }
++        )
++
++    (OUT / "data.json").write_text(
++        json.dumps({"sections": sections}, ensure_ascii=False) + "\n",
++        encoding="utf-8",
++    )
++    write_html(sections)
++    print(f"Wrote {OUT}/index.html ({sum(s['count'] for s in sections)} placements)")
++
++
++def write_html(sections: list[dict]) -> None:
++    payload = {
++        "sections": [
++            {
++                "num": s["num"],
++                "name": s["name"],
++                "book": s["book"],
++                "count": s["count"],
++                "items": [
++                    {
++                        "year": it["year"],
++                        "q": it["q"],
++                        "img": it["img"],
++                        "ans": it.get("ans") or "",
++                        "sections": it["sections"],
++                        "primary": it["primary"],
++                        "is_primary": it["is_primary"],
++                        "preview": it["preview"],
++                        "reason": it["reason"],
++                        "performance": it.get("performance") or "",
++                    }
++                    for it in s["items"]
++                ],
++            }
++            for s in sections
++        ]
++    }
++    data_js = json.dumps(payload, ensure_ascii=False)
++    sec_names = {str(s["num"]): s["name"] for s in sections}
++    books = []
++    for s in sections:
++        if not books or books[-1]["name"] != s["book"]:
++            books.append({"name": s["book"], "sections": []})
++        books[-1]["sections"].append(s)
++
++    nav = []
++    for book in books:
++        nav.append(f'<div class="nav-book">{book["name"]}</div>')
++        for s in book["sections"]:
++            nav.append(
++                f'<button type="button" class="nav-sec" data-sec="{s["num"]}">'
++                f'<span class="nav-sec-label"><span class="mono">S{s["num"]}</span> {s["name"]}</span>'
++                f'<span class="nav-count">{s["count"]}</span></button>'
++            )
++
++    html = f"""<!DOCTYPE html>
++<html lang="en">
++<head>
++  <meta charset="utf-8" />
++  <meta name="viewport" content="width=device-width, initial-scale=1" />
++  <title>LQ classified review</title>
++  <style>
++    :root {{
++      --bg: #14121a; --panel: #1d1a24; --panel-2: #25212e; --line: rgba(255,255,255,0.10);
++      --text: #f3eef8; --muted: #a89bb8; --accent: #d4a574; --accent-2: #8ec5c0;
++      --shadow: 0 10px 30px rgba(0,0,0,0.28); --radius: 14px; --nav-w: 280px;
++      --font: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
++      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
++      --sans: "Avenir Next", "Segoe UI", system-ui, sans-serif;
++    }}
++    *, *::before, *::after {{ box-sizing: border-box; }}
++    html, body {{ margin: 0; min-height: 100%; background: var(--bg); color: var(--text); font-family: var(--sans); }}
++    img {{ max-width: 100%; height: auto; display: block; }}
++    button, select, input {{ font: inherit; }}
++    .app {{ display: grid; grid-template-columns: var(--nav-w) minmax(0, 1fr); min-height: 100vh; }}
++    .sidebar {{
++      position: sticky; top: 0; height: 100vh; overflow: auto;
++      background: var(--panel); border-right: 1px solid var(--line); padding: 18px 12px 28px;
++    }}
++    .brand {{ padding: 4px 10px 16px; border-bottom: 1px solid var(--line); margin-bottom: 12px; }}
++    .brand h1 {{ margin: 0; font-family: var(--font); font-size: 1.25rem; }}
++    .brand p {{ margin: 6px 0 0; color: var(--muted); font-size: 0.8rem; }}
++    .nav-book {{ margin: 14px 8px 6px; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 700; }}
++    .nav-sec {{
++      width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 8px;
++      text-align: left; background: transparent; color: var(--text); border: 0; border-radius: 10px;
++      padding: 8px 10px; cursor: pointer; margin-bottom: 2px;
++    }}
++    .nav-sec:hover {{ background: rgba(255,255,255,0.05); }}
++    .nav-sec.active {{ background: rgba(212,165,116,0.16); outline: 1px solid rgba(212,165,116,0.35); }}
++    .nav-sec-label {{ min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.86rem; }}
++    .mono {{ font-family: var(--mono); font-weight: 700; }}
++    .nav-count {{ flex: 0 0 auto; font-size: 0.72rem; color: var(--muted); background: rgba(255,255,255,0.06); border-radius: 999px; padding: 2px 7px; }}
++    .main {{ min-width: 0; padding: 20px 24px 64px; }}
++    .topbar {{ display: flex; flex-wrap: wrap; gap: 12px; align-items: end; justify-content: space-between; margin-bottom: 18px; }}
++    .topbar h2 {{ margin: 0; font-family: var(--font); font-size: clamp(1.5rem, 2.4vw, 2rem); }}
++    .topbar .meta {{ color: var(--muted); font-size: 0.9rem; margin-top: 4px; }}
++    .help {{ background: rgba(142,197,192,0.10); border: 1px solid rgba(142,197,192,0.28); border-radius: var(--radius); padding: 12px 14px; color: #d7ecea; font-size: 0.9rem; margin-bottom: 18px; line-height: 1.45; }}
++    .grid {{ display: grid; grid-template-columns: 1fr; gap: 18px; }}
++    .card {{ background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }}
++    .card-head {{ display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; padding: 12px 14px; background: var(--panel-2); border-bottom: 1px solid var(--line); }}
++    .qid .year {{ margin: 0; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }}
++    .qid .qn {{ margin: 2px 0 0; font-family: var(--mono); font-size: 1.55rem; font-weight: 800; }}
++    .badges {{ display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }}
++    .badge {{ font-size: 0.72rem; border-radius: 999px; padding: 3px 8px; background: rgba(255,255,255,0.07); color: var(--muted); border: 1px solid var(--line); }}
++    .badge.primary {{ background: rgba(212,165,116,0.18); color: #f0d2ad; border-color: rgba(212,165,116,0.35); }}
++    .badge.secondary {{ background: rgba(142,197,192,0.14); color: #bfe3df; border-color: rgba(142,197,192,0.35); }}
++    .pair {{ display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 0; border-bottom: 1px solid var(--line); align-items: start; }}
++    @media (max-width: 900px) {{ .pair {{ grid-template-columns: 1fr; }} }}
++    .pane {{ min-width: 0; background: #0f0d14; }}
++    .pane + .pane {{ border-left: 1px solid var(--line); }}
++    @media (max-width: 900px) {{ .pane + .pane {{ border-left: 0; border-top: 1px solid var(--line); }} }}
++    .pane-answer {{ position: sticky; top: 0; align-self: start; max-height: 100vh; overflow: auto; background: #141018; }}
++    .pane-label {{ padding: 8px 12px; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-2); border-bottom: 1px solid var(--line); }}
++    .pane img {{ width: 100%; height: auto; display: block; background: #fff; }}
++    .missing {{ padding: 24px; color: var(--muted); font-size: 0.9rem; }}
++    .body {{ padding: 12px 14px 14px; display: grid; gap: 10px; }}
++    .preview, .reason {{ margin: 0; font-size: 0.84rem; line-height: 1.45; color: var(--muted); }}
++    .reason strong {{ color: #d8cfe4; font-weight: 600; }}
++    .perf {{ width: 100%; border-collapse: collapse; font-size: 0.82rem; color: #c9bfa8; }}
++    .perf th, .perf td {{ border: 1px solid var(--line); padding: 8px 10px; vertical-align: top; text-align: left; }}
++    .perf th {{ width: 7.5rem; color: #d8cfe4; font-weight: 600; background: rgba(255,255,255,0.03); white-space: nowrap; }}
++    .perf caption {{ caption-side: top; text-align: left; font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 6px; }}
++    .perf.empty td {{ color: var(--muted); opacity: 0.7; }}
++    .form {{ display: grid; gap: 8px; padding-top: 10px; border-top: 1px solid var(--line); }}
++    .field {{ display: grid; gap: 4px; }}
++    .field span {{ font-size: 0.74rem; color: var(--muted); }}
++    .field select, .field input[type="text"] {{ width: 100%; background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; }}
++    .actions {{ display: flex; gap: 8px; flex-wrap: wrap; }}
++    .btn {{ border: 1px solid var(--line); background: var(--panel-2); color: var(--text); border-radius: 10px; padding: 8px 12px; cursor: pointer; }}
++    .btn-save {{ background: rgba(212,165,116,0.22); border-color: rgba(212,165,116,0.45); }}
++    .empty {{ color: var(--muted); }}
++  </style>
++</head>
++<body>
++  <div class="app">
++    <aside class="sidebar">
++      <div class="brand">
++        <h1>LQ review</h1>
++        <p>Full exam page(s) + answer crop + candidate performance notes.</p>
++      </div>
++      {''.join(nav)}
++    </aside>
++    <main class="main">
++      <div class="topbar">
++        <div>
++          <div class="meta" id="bookLabel"></div>
++          <h2 id="secTitle">Pick a section</h2>
++          <div class="meta" id="secCount"></div>
++        </div>
++      </div>
++      <div class="help">Question side uses the full paper page(s) covering that LQ (no within-page crop). Answer side is a tight marking-scheme crop. Candidate performance text is from the official report (Section B only).</div>
++      <div class="grid" id="grid"></div>
++    </main>
++  </div>
++  <script>
++    const DATA = {data_js};
++    const SEC_NAMES = {json.dumps(sec_names)};
++    const SECTION_OPTS = DATA.sections.map(s =>
++      '<option value="' + s.num + '">' + s.num + '. ' + s.name.replace(/</g,'&lt;') + '</option>'
++    ).join('');
++    const grid = document.getElementById('grid');
++    const bookLabel = document.getElementById('bookLabel');
++    const secTitle = document.getElementById('secTitle');
++    const secCount = document.getElementById('secCount');
++
++    function esc(s) {{
++      return String(s ?? '').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
++    }}
++
++    function performanceTable(text) {{
++      if (!text) {{
++        return '<table class="perf empty"><caption>Candidate performance</caption><tbody><tr><td>No Section B note for this year/Q</td></tr></tbody></table>';
++      }}
++      const chunks = String(text).split(/(?=\\bIn\\s+\\()/i).map(s => s.trim()).filter(Boolean);
++      if (chunks.length <= 1) {{
++        return '<table class="perf"><caption>Candidate performance</caption><tbody><tr><td>' + esc(text) + '</td></tr></tbody></table>';
++      }}
++      let rows = '';
++      for (const chunk of chunks) {{
++        const m = chunk.match(/^(In\\s+\\([^)]+\\))\\s*([\\s\\S]*)$/i);
++        if (m) {{
++          rows += '<tr><th>' + esc(m[1]) + '</th><td>' + esc(m[2]) + '</td></tr>';
++        }} else {{
++          rows += '<tr><th>General</th><td>' + esc(chunk) + '</td></tr>';
++        }}
++      }}
++      return '<table class="perf"><caption>Candidate performance</caption><tbody>' + rows + '</tbody></table>';
++    }}
++
++    function badges(it) {{
++      const all = String(it.sections).split(';').map(Number).filter(Boolean);
++      const primary = Number(it.primary);
++      let html = '<span class="badge primary">primary S' + primary + ' · ' + esc(SEC_NAMES[String(primary)] || '') + '</span>';
++      for (const n of all.filter(x => x !== primary)) {{
++        html += '<span class="badge secondary">also S' + n + '</span>';
++      }}
++      return html;
++    }}
++
++    function renderSection(num) {{
++      const sec = DATA.sections.find(s => s.num === Number(num));
++      if (!sec) return;
++      document.querySelectorAll('.nav-sec').forEach(btn => {{
++        btn.classList.toggle('active', Number(btn.dataset.sec) === sec.num);
++      }});
++      bookLabel.textContent = sec.book;
++      secTitle.innerHTML = '<span class="mono">S' + sec.num + '</span> · ' + esc(sec.name);
++      secCount.textContent = sec.count + ' questions';
++      if (!sec.items.length) {{
++        grid.innerHTML = '<p class="empty">No LQ in this section yet.</p>';
++        return;
++      }}
++      grid.innerHTML = sec.items.map(it => {{
++        const qid = it.year + '-q' + it.q;
++        const qPane = it.img
++          ? '<div class="pane"><div class="pane-label">Paper page(s)</div><img src="' + esc(it.img) + '" alt="pages" loading="lazy" /></div>'
++          : '<div class="pane"><div class="pane-label">Paper page(s)</div><div class="missing">No pages</div></div>';
++        const ansPane = it.ans
++          ? '<div class="pane pane-answer"><div class="pane-label">Answer</div><img src="' + esc(it.ans) + '" alt="answer" loading="eager" /></div>'
++          : '<div class="pane pane-answer"><div class="pane-label">Answer</div><div class="missing">No answer crop for this question</div></div>';
++        return (
++'<article class="card" id="q-' + qid + '">' +
++  '<div class="card-head">' +
++    '<div class="qid"><p class="year">Year ' + esc(it.year) + '</p><p class="qn">Q' + it.q + '</p></div>' +
++    '<div class="badges">' + badges(it) + '</div>' +
++  '</div>' +
++  '<div class="pair">' + qPane + ansPane + '</div>' +
++  '<div class="body">' +
++    '<p class="preview">' + esc(it.preview) + '</p>' +
++    performanceTable(it.performance) +
++    '<p class="reason"><strong>Reason:</strong> ' + (it.reason ? esc(it.reason) : '<span style="opacity:.6">None</span>') + '</p>' +
++    '<form class="form" data-lavish-question="fix-' + qid + '" onsubmit="return window.__submitFix(event)">' +
++      '<input type="hidden" name="year" value="' + esc(it.year) + '" />' +
++      '<input type="hidden" name="question" value="' + it.q + '" />' +
++      '<input type="hidden" name="current" value="' + sec.num + '" />' +
++      '<label class="field"><span>Correct section</span><select name="target"><option value="">OK as classified</option>' + SECTION_OPTS + '</select></label>' +
++      '<label class="field"><span>Note</span><input type="text" name="note" placeholder="topic / answer-crop note" /></label>' +
++      '<div class="actions"><button type="submit" class="btn btn-save">Queue fix</button></div>' +
++    '</form>' +
++  '</div>' +
++'</article>'
++        );
++      }}).join('');
++      history.replaceState(null, '', '#sec-' + sec.num);
++    }}
++
++    window.__submitFix = function(ev) {{
++      ev.preventDefault();
++      const form = ev.target;
++      const year = form.year.value;
++      const q = form.question.value;
++      const current = form.current.value;
++      const target = form.target.value;
++      const note = (form.note.value || '').trim();
++      const parts = ['LQ fix: ' + year + ' Q' + q + ' (currently S' + current + ')'];
++      if (target) parts.push('Move to S' + target + ' (' + (SEC_NAMES[target] || '') + ').');
++      if (note) parts.push('Note: ' + note);
++      if (!target && !note) parts.push('Marked OK.');
++      if (!window.lavish || typeof window.lavish.queuePrompt !== 'function') {{
++        alert(parts.join(' '));
++        return false;
++      }}
++      window.lavish.queuePrompt(parts.join(' '), {{ tag: 'lq-fix', data: {{ year, q, current, target, note }} }});
++      if (typeof window.lavish.sendQueuedPrompts === 'function') window.lavish.sendQueuedPrompts();
++      form.reset();
++      return false;
++    }};
++
++    document.querySelectorAll('.nav-sec').forEach(btn => {{
++      btn.addEventListener('click', () => renderSection(btn.dataset.sec));
++    }});
++    const hash = (location.hash || '').replace('#sec-', '');
++    const first = DATA.sections.find(s => s.count > 0);
++    renderSection(hash || (first ? first.num : 1));
++  </script>
++</body>
++</html>
++"""
++    (OUT / "index.html").write_text(html, encoding="utf-8")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/classify_lq_keywords.py b/scripts/classify_lq_keywords.py
+new file mode 100644
+index 0000000..7148de5
+--- /dev/null
++++ b/scripts/classify_lq_keywords.py
+@@ -0,0 +1,415 @@
++#!/usr/bin/env python3
++"""Keyword-classify LQ crops into the 27 MC sections (no LLM required).
++
++Uses OCR under classified/lq/ocr_cache (or creates it). Writes the same
++outputs as classify_lq_llm.py so build_lq_lavish_review.py can run.
++"""
++from __future__ import annotations
++
++import argparse
++import csv
++import io
++import json
++import re
++import shutil
++import subprocess
++from collections import defaultdict
++from pathlib import Path
++
++from PIL import Image
++
++from classify_mc_llm import SECTION_BY_NUM, SECTIONS, BOOK_NAMES, year_key
++
++ROOT = Path(__file__).resolve().parents[1]
++OUTPUT_LQ = ROOT / "output" / "lq"
++CLASSIFIED_LQ = ROOT / "classified" / "lq"
++OCR_CACHE = CLASSIFIED_LQ / "ocr_cache"
++
++# Weighted keyword cues per section (lowercase). Prefer distinctive phrases.
++SECTION_KEYWORDS: dict[int, list[tuple[str, float]]] = {
++    1: [("conduction", 3), ("convection", 3), ("radiation", 2), ("thermal equilibrium", 3), ("thermometer", 2), ("heat transfer", 3), ("thermal bag", 2), ("poor conductor", 2)],
++    2: [("specific heat", 4), ("heat capacity", 4), ("calorimeter", 3), ("temperature rise", 2), ("mixing", 1)],
++    3: [("latent heat", 4), ("fusion", 2), ("vaporization", 3), ("boiling", 2), ("melting", 2), ("evaporation", 2), ("steam", 1), ("ice at 0", 2)],
++    4: [
++        ("ideal gas", 5),
++        ("pV =", 4),
++        ("pV=", 4),
++        ("kinetic theory", 4),
++        ("gas molecules", 4),
++        ("monatomic gas", 4),
++        ("r.m.s.", 4),
++        ("rms speed", 4),
++        ("avogadro", 3),
++        ("number of molecules", 3),
++        ("absolute temperature", 2),
++        ("pressure of the gas", 3),
++        ("boyle", 3),
++        ("charles", 2),
++        ("diffusion", 2),
++        ("mole", 1),
++    ],
++    5: [
++        ("velocity-time", 4),
++        ("displacement-time", 4),
++        ("uniformly accelerated", 3),
++        ("free fall", 2),
++        ("v-t graph", 3),
++        ("s-t graph", 3),
++    ],
++    6: [
++        ("newton", 3),
++        ("friction", 3),
++        ("resultant force", 4),
++        ("f = ma", 4),
++        ("free-body", 4),
++        ("free body", 4),
++        ("tension", 3),
++        ("normal reaction", 3),
++        ("protractor", 3),
++        ("metal ball with a hook", 4),
++        ("measure the acceleration", 3),
++        ("accelerating frame", 3),
++    ],
++    7: [("moment", 3), ("torque", 3), ("centre of gravity", 3), ("equilibrium", 2), ("pulley", 2), ("two forces", 1)],
++    8: [
++        ("mechanical energy", 4),
++        ("potential energy", 4),
++        ("gravitational potential energy", 4),
++        ("gravitational potential", 3),
++        ("kinetic energy", 2),
++        ("work done", 4),
++        ("work-energy", 4),
++        ("conservation of energy", 4),
++        ("conservation of mechanical energy", 5),
++        ("stopping distance", 4),
++        ("height of release", 3),
++        ("efficiency", 2),
++        ("power", 1),
++    ],
++    9: [("momentum", 4), ("impulse", 3), ("collision", 3), ("conservation of momentum", 4)],
++    10: [("projectile", 4), ("horizontal range", 3), ("projected", 2), ("angle of projection", 3)],
++    11: [("centripetal", 4), ("circular motion", 3), ("angular speed", 2), ("period of revolution", 2)],
++    12: [
++        ("gravitation", 3),
++        ("gravitational field", 3),
++        ("gravitational force", 3),
++        ("orbit", 2),
++        ("satellite", 2),
++        ("g-field", 2),
++        ("weightlessness", 3),
++        ("newton's law of gravitation", 4),
++    ],
++    13: [("wavelength", 2), ("transverse", 2), ("longitudinal", 2), ("wave speed", 2), ("amplitude", 1), ("frequency", 1)],
++    14: [("diffraction", 4), ("refraction of water", 3), ("wavefront", 3), ("ripple tank", 3)],
++    15: [("interference", 4), ("stationary wave", 4), ("standing wave", 4), ("young", 2), ("beats", 3), ("node", 2), ("antinode", 2)],
++    16: [
++        ("ultrasound", 3),
++        ("doppler", 3),
++        ("electromagnetic spectrum", 3),
++        ("sound wave", 3),
++        ("speed of sound", 4),
++        ("microphone", 2),
++    ],
++    17: [("plane mirror", 3), ("reflection of light", 3), ("periscope", 3), ("image in a mirror", 2)],
++    18: [("snell", 3), ("refractive index", 4), ("total internal reflection", 4), ("critical angle", 3), ("apparent depth", 3)],
++    19: [("lens", 3), ("focal length", 4), ("convex lens", 3), ("concave lens", 3), ("magnification", 2), ("object distance", 2)],
++    20: [("electrostatic", 3), ("coulomb", 3), ("point charge", 2), ("electric field", 2), ("potential difference due", 1)],
++    21: [("ohm", 2), ("series", 1), ("parallel", 1), ("resistance", 2), ("circuit", 1), ("kilowatt", 2), ("electrical power", 2)],
++    22: [("mains", 3), ("fuse", 2), ("domestic", 3), ("live wire", 3), ("neutral wire", 3), ("earth wire", 3), ("a.c.", 2)],
++    23: [("electromagnet", 3), ("magnetic field", 2), ("motor effect", 3), ("force on a current", 3), ("solenoid", 2)],
++    24: [("induction", 3), ("faraday", 3), ("lenz", 3), ("transformer", 3), ("induced emf", 4), ("generator", 2)],
++    25: [
++        ("alpha", 2),
++        ("beta", 2),
++        ("gamma", 2),
++        ("radioactive", 3),
++        ("ionization", 2),
++        ("geiger", 3),
++        ("a-decay", 4),
++        ("α-decay", 4),
++        ("alpha-decay", 4),
++        ("beta-decay", 4),
++        ("β-decay", 4),
++        ("nuclear equation", 3),
++    ],
++    26: [("half-life", 4), ("half life", 4), ("activity", 2), ("decay constant", 3), ("tracer", 2)],
++    27: [
++        ("fission", 4),
++        ("fusion", 3),
++        ("binding energy", 4),
++        ("mass defect", 4),
++        ("nuclear energy", 3),
++        ("energy released in the decay", 5),
++        ("energy released", 3),
++        ("nuclear equation", 4),
++        ("mev", 2),
++        ("radium", 2),
++        ("uranium", 2),
++        ("nucleus", 1),
++    ],
++}
++
++
++def parse_args() -> argparse.Namespace:
++    p = argparse.ArgumentParser(description=__doc__)
++    p.add_argument("--years", nargs="*", default=None)
++    return p.parse_args()
++
++
++def ocr_png(path: Path, cache_path: Path) -> str:
++    if cache_path.exists():
++        return cache_path.read_text(encoding="utf-8")
++    image = Image.open(path).convert("RGB")
++    w, h = image.size
++    # Use most of the page - LQ stems often put key terms mid-question.
++    band = image.crop((0, 0, w, min(h, max(1200, int(h * 0.7)))))
++    buf = io.BytesIO()
++    band.save(buf, format="PNG")
++    result = subprocess.run(
++        ["tesseract", "stdin", "stdout", "--psm", "6"],
++        input=buf.getvalue(),
++        stdout=subprocess.PIPE,
++        stderr=subprocess.DEVNULL,
++        check=False,
++    )
++    text = result.stdout.decode("utf-8", errors="ignore")
++    cache_path.parent.mkdir(parents=True, exist_ok=True)
++    cache_path.write_text(text, encoding="utf-8")
++    return text
++
++
++def phrase_hits(text_low: str, phrase: str) -> bool:
++    """Match keyword phrases; use word boundaries for single tokens.
++
++    Prevents 'mains' matching inside 'remains', 'fuse' inside 'confused', etc.
++    """
++    phrase = phrase.lower()
++    if " " in phrase or any(c in phrase for c in ".=/-"):
++        return phrase in text_low
++    return bool(re.search(rf"\b{re.escape(phrase)}\b", text_low))
++
++
++def score_sections(text: str) -> list[tuple[int, float]]:
++    low = text.lower()
++    scores: dict[int, float] = defaultdict(float)
++    for sec, kws in SECTION_KEYWORDS.items():
++        for phrase, weight in kws:
++            if phrase_hits(low, phrase):
++                scores[sec] += weight
++
++    # Combo boosts for setups the single-token list under-weights.
++    # Pendulum + protractor to measure vehicle acceleration -> Force (S6), not Motion.
++    if (
++        ("protractor" in low or "metal ball" in low or "light string" in low)
++        and "acceleration" in low
++        and ("train" in low or "measure the acceleration" in low or "diagram" in low)
++    ):
++        scores[6] += 5
++    if "inclined plane" in low and ("force" in low or "friction" in low or "motion sensor" in low):
++        scores[6] += 2
++    if "lift" in low and ("balance" in low or "apparent weight" in low or "reading" in low):
++        scores[6] += 3
++    if "stopping distance" in low or ("height of release" in low and "skier" in low):
++        scores[8] += 5
++    if "bullet" in low and ("trolley" in low or "plasticine" in low or "momentum" in low):
++        scores[9] += 5
++    if "speed of sound" in low or ("microphone" in low and "timer" in low):
++        scores[16] += 5
++    if "braking" in low or "brake pad" in low or "brake pads" in low:
++        scores[6] += 3
++        if "energy" in low or "work" in low or "heat" in low:
++            scores[8] += 2
++    if ("velocity" in low or "velocities" in low) and "graph" in low and "time" in low:
++        scores[5] += 4
++    if "describe the motion" in low and ("car" in low or "velocity" in low):
++        scores[5] += 3
++    # Molecular KE belongs to gas law, not work-energy.
++    if ("gas molecule" in low or "kinetic theory" in low or "monatomic" in low) and scores[8]:
++        scores[8] = max(0.0, scores[8] - 2.0)
++
++    ranked = sorted((kv for kv in scores.items() if kv[1] > 0), key=lambda kv: (-kv[1], kv[0]))
++    return ranked
++
++
++def classify_text(text: str) -> tuple[list[int], str]:
++    """Classify into curriculum sections.
++
++    Curriculum rule: if a question needs both Sx and Sy with x < y, primary is Sy
++    (students meet the later topic later). List both only when a significant part
++    is answerable with Sx alone (approximated by a strong exclusive lower-section score).
++    """
++    low = text.lower()
++    ranked = score_sections(text)
++    if not ranked or ranked[0][1] < 2:
++        if any(
++            phrase_hits(low, p)
++            for p in (
++                "force",
++                "tension",
++                "friction",
++                "newton",
++                "protractor",
++                "free-body",
++                "free body",
++            )
++        ):
++            return [6], "fallback: force cues"
++        if any(phrase_hits(low, p) for p in ("wavelength", "wavefront", "interference", "diffraction")):
++            return [13], "fallback: wave cues"
++        if any(phrase_hits(low, p) for p in ("gas", "pressure", "mole", "kinetic theory")):
++            return [4], "fallback: gas cues"
++        return [5], "fallback: weak keyword match -> Motion"
++
++    best_score = ranked[0][1]
++    # Contenders: strong enough relative to the top score.
++    contenders = [sec for sec, sc in ranked if sc >= 2 and sc >= best_score * 0.55]
++    if not contenders:
++        contenders = [ranked[0][0]]
++
++    # Primary = largest section number among contenders (later in syllabus).
++    primary = max(contenders)
++    sections = [primary]
++
++    # Dual-list a lower Sx only when it still scores strongly on its own.
++    primary_score = next(sc for sec, sc in ranked if sec == primary)
++    for sec, sc in ranked:
++        if sec >= primary:
++            continue
++        if sc >= 4 and sc >= primary_score * 0.7:
++            sections.append(sec)
++
++    hits = [p for p, _w in SECTION_KEYWORDS[primary] if phrase_hits(low, p)][:4]
++    reason = f"keywords: {', '.join(hits) if hits else 'score-based'}"
++    if len(sections) > 1:
++        reason += f"; dual with S{sections[1]} (significant earlier part)"
++    elif len(contenders) > 1:
++        reason += f"; primary=max({','.join('S'+str(s) for s in sorted(contenders))})"
++    return sections, reason
++
++
++def main() -> None:
++    args = parse_args()
++    CLASSIFIED_LQ.mkdir(parents=True, exist_ok=True)
++    OCR_CACHE.mkdir(parents=True, exist_ok=True)
++    for _n, book, folder, _name in SECTIONS:
++        (CLASSIFIED_LQ / book / folder).mkdir(parents=True, exist_ok=True)
++        for old in (CLASSIFIED_LQ / book / folder).glob("*.png"):
++            old.unlink()
++
++    jobs = []
++    for year_dir in sorted(OUTPUT_LQ.iterdir(), key=lambda p: year_key(p.name)):
++        if not year_dir.is_dir():
++            continue
++        if args.years and year_dir.name not in args.years:
++            continue
++        for png in sorted(year_dir.glob("q*.png"), key=lambda p: int(p.stem[1:])):
++            jobs.append((year_dir.name, png, int(png.stem[1:])))
++
++    rows = []
++    decisions = {}
++    for year, png, qn in jobs:
++        text = ocr_png(png, OCR_CACHE / year / f"q{qn}.txt")
++        sections, reason = classify_text(text)
++        preview = " ".join(text.split())[:220]
++        ans = f"output/lq/{year}/ans/q{qn}.png"
++        row = {
++            "Year": year,
++            "Question": qn,
++            "Primary": sections[0],
++            "AllSections": ";".join(str(s) for s in sections),
++            "Reason": reason,
++            "PNG": f"output/lq/{year}/q{qn}.png",
++            "AnswerPNG": ans,
++        }
++        rows.append(row)
++        decisions[f"{year}-q{qn}"] = {"sections": sections, "reason": reason}
++        book, folder, _name = SECTION_BY_NUM[sections[0]]
++        dest = CLASSIFIED_LQ / book / folder / f"{year}-q{qn}.png"
++        shutil.copy2(png, dest)
++        ans_path = ROOT / ans
++        if ans_path.is_file():
++            shutil.copy2(ans_path, CLASSIFIED_LQ / book / folder / f"{year}-q{qn}-ans.png")
++        for sec in sections[1:]:
++            book, folder, _name = SECTION_BY_NUM[sec]
++            shutil.copy2(png, CLASSIFIED_LQ / book / folder / f"{year}-q{qn}.png")
++            if ans_path.is_file():
++                shutil.copy2(ans_path, CLASSIFIED_LQ / book / folder / f"{year}-q{qn}-ans.png")
++
++    csv_path = CLASSIFIED_LQ / "classification.csv"
++    with csv_path.open("w", newline="", encoding="utf-8") as fh:
++        writer = csv.DictWriter(
++            fh,
++            fieldnames=["Year", "Question", "Primary", "AllSections", "Reason", "PNG", "AnswerPNG"],
++        )
++        writer.writeheader()
++        writer.writerows(rows)
++    (CLASSIFIED_LQ / "llm_classifications.json").write_text(
++        json.dumps(decisions, indent=2, ensure_ascii=False) + "\n",
++        encoding="utf-8",
++    )
++
++    # Detailed review file at repo classified/lq_classification.json
++    perf: dict = {}
++    perf_path = CLASSIFIED_LQ / "candidate_performance.json"
++    if perf_path.is_file():
++        perf = json.loads(perf_path.read_text(encoding="utf-8"))
++    sec_name = {n: name for n, _b, _f, name in SECTIONS}
++    detailed = []
++    for r in rows:
++        year_raw = r["Year"]
++        year = int(year_raw) if str(year_raw).isdigit() else year_raw
++        q = int(r["Question"])
++        primary = int(r["Primary"])
++        all_secs = [int(x) for x in r["AllSections"].split(";") if x]
++        book, _folder, pname = SECTION_BY_NUM[primary]
++        detailed.append(
++            {
++                "Year": year,
++                "Question": q,
++                "PrimarySection": primary,
++                "PrimaryName": pname,
++                "PrimaryBook": BOOK_NAMES.get(book, book),
++                "AllSections": ";".join(str(s) for s in all_secs),
++                "AllSectionNames": "; ".join(sec_name[s] for s in all_secs),
++                "Reason": r.get("Reason") or "",
++                "PNG": r.get("PNG") or "",
++                "AnswerPNG": r.get("AnswerPNG") or "",
++                "CandidatePerformance": (perf.get(str(year_raw)) or {}).get(str(q), ""),
++            }
++        )
++    lq_json = ROOT / "classified" / "lq_classification.json"
++    lq_json.write_text(json.dumps(detailed, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
++    lq_csv = ROOT / "classified" / "lq_classification.csv"
++    with lq_csv.open("w", newline="", encoding="utf-8") as fh:
++        writer = csv.DictWriter(
++            fh,
++            fieldnames=[
++                "Year",
++                "Question",
++                "PrimarySection",
++                "PrimaryName",
++                "PrimaryBook",
++                "AllSections",
++                "AllSectionNames",
++                "Reason",
++                "PNG",
++                "AnswerPNG",
++                "CandidatePerformance",
++            ],
++        )
++        writer.writeheader()
++        writer.writerows(detailed)
++
++    by = defaultdict(int)
++    for r in rows:
++        by[int(r["Primary"])] += 1
++    print(f"Wrote {csv_path} ({len(rows)} LQ)")
++    print(f"Wrote {lq_json}")
++    print(f"Wrote {lq_csv}")
++    for n, _b, _f, name in SECTIONS:
++        if by[n]:
++            print(f"  S{n:02d} {name}: {by[n]}")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/classify_lq_llm.py b/scripts/classify_lq_llm.py
+new file mode 100644
+index 0000000..e9a3f20
+--- /dev/null
++++ b/scripts/classify_lq_llm.py
+@@ -0,0 +1,275 @@
++#!/usr/bin/env python3
++# -*- coding: utf-8 -*-
++"""Classify LQ (Paper 1B) questions into the same 27 sections as MC.
++
++Reads crops from output/lq/<year>/qN.png, writes:
++  classified/lq/llm_classifications.json
++  classified/lq/classification.csv
++  classified/lq/<book>/<section>/ year-qN.png (+ optional answer copy)
++
++Env: same as classify_mc_llm.py (LLM_API_KEY / OPENAI_API_KEY / TOGETHER_API_KEY).
++"""
++from __future__ import annotations
++
++import argparse
++import csv
++import io
++import json
++import re
++import shutil
++import subprocess
++import time
++import urllib.error
++from pathlib import Path
++
++from PIL import Image
++
++from classify_mc_llm import (
++    SECTION_BY_NUM,
++    SECTIONS,
++    SYSTEM_PROMPT as MC_SYSTEM,
++    chat_json,
++    llm_config,
++    normalize_sections,
++    year_key,
++)
++
++ROOT = Path(__file__).resolve().parents[1]
++OUTPUT_LQ = ROOT / "output" / "lq"
++CLASSIFIED_LQ = ROOT / "classified" / "lq"
++OCR_CACHE = CLASSIFIED_LQ / "ocr_cache"
++
++YEAR_ORDER = [
++    "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020",
++    "2021", "2022", "2023", "pp",
++]
++
++SYSTEM_PROMPT = MC_SYSTEM.replace(
++    "multiple-choice questions",
++    "long / structured questions (Paper 1B)",
++).replace(
++    "Ignore OCR garbage; classify from the meaningful physics content.",
++    "Ignore OCR garbage and dotted answer lines; classify from the stem and "
++    "what the student is asked to find/explain. Prefer the dominant topic of "
++    "the whole question (not a side formula).",
++)
++
++
++def parse_args() -> argparse.Namespace:
++    p = argparse.ArgumentParser(description=__doc__)
++    p.add_argument("--years", nargs="*", default=None)
++    p.add_argument("--workers", type=int, default=4)
++    p.add_argument("--from-json", type=Path, default=None)
++    p.add_argument("--limit", type=int, default=None)
++    p.add_argument("--sleep", type=float, default=0.2)
++    return p.parse_args()
++
++
++def ensure_tree() -> None:
++    CLASSIFIED_LQ.mkdir(parents=True, exist_ok=True)
++    OCR_CACHE.mkdir(parents=True, exist_ok=True)
++    for _n, book, folder, _name in SECTIONS:
++        (CLASSIFIED_LQ / book / folder).mkdir(parents=True, exist_ok=True)
++
++
++def collect_jobs(years: list[str] | None) -> list[tuple[str, Path, int]]:
++    if not OUTPUT_LQ.is_dir():
++        return []
++    jobs: list[tuple[str, Path, int]] = []
++    for year_dir in sorted(OUTPUT_LQ.iterdir(), key=lambda p: year_key(p.name)):
++        if not year_dir.is_dir():
++            continue
++        if years and year_dir.name not in years:
++            continue
++        for png in sorted(year_dir.glob("q*.png"), key=lambda p: int(p.stem[1:])):
++            jobs.append((year_dir.name, png, int(png.stem[1:])))
++    return jobs
++
++
++def ocr_png(path: Path, cache_path: Path) -> str:
++    if cache_path.exists():
++        return cache_path.read_text(encoding="utf-8")
++    # LQ crops are tall; OCR a top band first (stem), fall back to full if thin.
++    image = Image.open(path).convert("RGB")
++    w, h = image.size
++    band_h = min(h, max(900, int(h * 0.45)))
++    crop = image.crop((0, 0, w, band_h))
++    buf = io.BytesIO()
++    crop.save(buf, format="PNG")
++    result = subprocess.run(
++        ["tesseract", "stdin", "stdout", "--psm", "6"],
++        input=buf.getvalue(),
++        stdout=subprocess.PIPE,
++        stderr=subprocess.DEVNULL,
++        check=False,
++    )
++    text = result.stdout.decode("utf-8", errors="ignore")
++    cache_path.parent.mkdir(parents=True, exist_ok=True)
++    cache_path.write_text(text, encoding="utf-8")
++    return text
++
++
++def _ocr_one(args: tuple[str, str, int]) -> dict:
++    year, png_path, number = args
++    cache = OCR_CACHE / str(year) / f"q{number}.txt"
++    text = ocr_png(Path(png_path), cache)
++    # Drop dotted-line OCR noise.
++    lines = []
++    for line in text.splitlines():
++        if re.fullmatch(r"[\s.·•…eEwWm_~-]{6,}", line.strip()):
++            continue
++        lines.append(line)
++    cleaned = "\n".join(lines).strip()
++    cleaned = re.sub(r"\n{3,}", "\n\n", cleaned)
++    return {
++        "Year": year,
++        "Question": number,
++        "Statement": cleaned[:2500],
++        "PNG": f"output/lq/{year}/q{number}.png",
++        "AnswerPNG": f"output/lq/{year}/ans/q{number}.png",
++    }
++
++
++def classify_one(record: dict) -> dict:
++    user = (
++        f"Year {record['Year']} Q{record['Question']}\n\n"
++        f"{record['Statement'][:1800]}\n\n"
++        'JSON only: {"sections":[<primary>, ...], "reason":"<one short sentence>"}'
++    )
++    parsed = chat_json(SYSTEM_PROMPT, user)
++    sections = normalize_sections(parsed.get("sections"))
++    if not sections:
++        raise ValueError(f"bad sections in {parsed!r}")
++    return {
++        "sections": sections,
++        "reason": str(parsed.get("reason") or "").strip()[:240],
++    }
++
++
++def write_outputs(rows: list[dict]) -> None:
++    # Clear previous section copies (keep ocr_cache / json).
++    for _n, book, folder, _name in SECTIONS:
++        folder_path = CLASSIFIED_LQ / book / folder
++        for old in folder_path.glob("*.png"):
++            old.unlink()
++
++    csv_path = CLASSIFIED_LQ / "classification.csv"
++    with csv_path.open("w", newline="", encoding="utf-8") as fh:
++        writer = csv.DictWriter(
++            fh,
++            fieldnames=[
++                "Year",
++                "Question",
++                "Primary",
++                "AllSections",
++                "Reason",
++                "PNG",
++                "AnswerPNG",
++            ],
++        )
++        writer.writeheader()
++        for row in rows:
++            writer.writerow(row)
++            primary = int(row["Primary"])
++            for sec in [int(x) for x in row["AllSections"].split(";") if x]:
++                book, folder, _name = SECTION_BY_NUM[sec]
++                dest = CLASSIFIED_LQ / book / folder / f"{row['Year']}-q{row['Question']}.png"
++                src = ROOT / row["PNG"]
++                if src.is_file():
++                    shutil.copy2(src, dest)
++                ans_src = ROOT / row["AnswerPNG"]
++                if ans_src.is_file():
++                    ans_dest = (
++                        CLASSIFIED_LQ
++                        / book
++                        / folder
++                        / f"{row['Year']}-q{row['Question']}-ans.png"
++                    )
++                    shutil.copy2(ans_src, ans_dest)
++
++    decisions = {
++        f"{r['Year']}-q{r['Question']}": {
++            "sections": [int(x) for x in r["AllSections"].split(";") if x],
++            "reason": r["Reason"],
++        }
++        for r in rows
++    }
++    (CLASSIFIED_LQ / "llm_classifications.json").write_text(
++        json.dumps(decisions, indent=2, ensure_ascii=False) + "\n",
++        encoding="utf-8",
++    )
++    print(f"Wrote {csv_path} ({len(rows)} rows)")
++
++
++def main() -> None:
++    args = parse_args()
++    ensure_tree()
++    jobs = collect_jobs(args.years)
++    if args.limit:
++        jobs = jobs[: args.limit]
++    if not jobs:
++        raise SystemExit(f"No LQ crops under {OUTPUT_LQ}")
++
++    print(f"OCR {len(jobs)} LQ questions...")
++    records: list[dict] = []
++    # Sequential OCR - ProcessPoolExecutor hung on macOS with large PNGs.
++    for i, (y, p, n) in enumerate(jobs, 1):
++        records.append(_ocr_one((y, str(p), n)))
++        if i % 20 == 0 or i == len(jobs):
++            print(f"  ocr {i}/{len(jobs)}")
++    records.sort(key=lambda r: (year_key(str(r["Year"])), int(r["Question"])))
++
++    if args.from_json:
++        decisions = json.loads(args.from_json.read_text(encoding="utf-8"))
++        rows = []
++        for rec in records:
++            key = f"{rec['Year']}-q{rec['Question']}"
++            d = decisions[key]
++            sections = [int(x) for x in d["sections"]]
++            rows.append(
++                {
++                    "Year": rec["Year"],
++                    "Question": rec["Question"],
++                    "Primary": sections[0],
++                    "AllSections": ";".join(str(s) for s in sections),
++                    "Reason": d.get("reason", ""),
++                    "PNG": rec["PNG"],
++                    "AnswerPNG": rec["AnswerPNG"],
++                }
++            )
++        write_outputs(rows)
++        return
++
++    key, base, model = llm_config()
++    if not key:
++        raise SystemExit("Set LLM_API_KEY (or OPENAI_API_KEY / TOGETHER_API_KEY)")
++    print(f"LLM {model} @ {base} ({len(records)} questions)")
++
++    rows: list[dict] = []
++    for i, rec in enumerate(records, 1):
++        try:
++            result = classify_one(rec)
++        except (urllib.error.URLError, urllib.error.HTTPError, ValueError, KeyError, SystemExit) as exc:
++            print(f"  FAIL {rec['Year']} Q{rec['Question']}: {exc}")
++            continue
++        sections = result["sections"]
++        rows.append(
++            {
++                "Year": rec["Year"],
++                "Question": rec["Question"],
++                "Primary": sections[0],
++                "AllSections": ";".join(str(s) for s in sections),
++                "Reason": result["reason"],
++                "PNG": rec["PNG"],
++                "AnswerPNG": rec["AnswerPNG"],
++            }
++        )
++        if i % 10 == 0 or i == len(records):
++            print(f"  classified {i}/{len(records)}")
++        time.sleep(args.sleep)
++
++    write_outputs(rows)
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/classify_mc_llm.py b/scripts/classify_mc_llm.py
+new file mode 100644
+index 0000000..8978265
+--- /dev/null
++++ b/scripts/classify_mc_llm.py
+@@ -0,0 +1,529 @@
++#!/usr/bin/env python3
++# -*- coding: utf-8 -*-
++"""Classify MC questions into Book 1-5 / Sections 1-27 using an LLM.
++
++Pipeline:
++  1. Reuse / refresh OCR from output/ PNGs (tesseract cache under classified/ocr_cache)
++  2. Call an OpenAI-compatible chat API one question (or small batch) at a time
++  3. Write classified/<book>/<section>/ PNG copies + CSV/JSON
++  4. Optionally rebuild per-section combined.pdf (easiest -> hardest) + answer.pdf
++
++Env:
++  LLM_API_KEY   (or OPENAI_API_KEY / TOGETHER_API_KEY)
++  LLM_BASE_URL  (default https://api.together.xyz/v1)
++  LLM_MODEL     (default meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo)
++
++You can also apply a precomputed JSON of LLM decisions:
++  python scripts/classify_mc_llm.py --from-json classified/llm_classifications.json
++"""
++from __future__ import annotations
++
++import argparse
++import csv
++import io
++import json
++import os
++import re
++import shutil
++import subprocess
++import time
++import urllib.error
++import urllib.request
++from collections import defaultdict
++from concurrent.futures import ProcessPoolExecutor, as_completed
++from pathlib import Path
++
++from PIL import Image
++
++ROOT = Path(__file__).resolve().parents[1]
++OUTPUT = ROOT / "output"
++CLASSIFIED = ROOT / "classified"
++OCR_CACHE = CLASSIFIED / "ocr_cache"
++
++YEAR_ORDER = [
++    "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020",
++    "2021", "2022", "2023", "2024", "2025", "2026", "pp", "sap",
++]
++
++SECTIONS: list[tuple[int, str, str, str]] = [
++    (1, "01_Heat_and_Gases", "01_Temperature_and_Heat_Transfer", "Temperature and Heat Transfer"),
++    (2, "01_Heat_and_Gases", "02_Heat_Capacity", "Heat Capacity"),
++    (3, "01_Heat_and_Gases", "03_Change_of_State", "Change of State"),
++    (4, "01_Heat_and_Gases", "04_Gas_Law_and_Kinetic_Theory", "Gas Law and Kinetic Theory"),
++    (5, "02_Force_and_Motion", "05_Motion", "Motion"),
++    (6, "02_Force_and_Motion", "06_Force", "Force"),
++    (7, "02_Force_and_Motion", "07_More_about_Forces", "More about Forces"),
++    (8, "02_Force_and_Motion", "08_Work_Energy_and_Power", "Work, Energy and Power"),
++    (9, "02_Force_and_Motion", "09_Momentum", "Momentum"),
++    (10, "02_Force_and_Motion", "10_Projectile_Motion", "Projectile Motion"),
++    (11, "02_Force_and_Motion", "11_Uniform_Circular_Motion", "Uniform Circular Motion"),
++    (12, "02_Force_and_Motion", "12_Gravitation", "Gravitation"),
++    (13, "03A_Wave_Motion", "13_Wave_Motion", "Wave Motion"),
++    (14, "03A_Wave_Motion", "14_Reflection_Refraction_and_Diffraction", "Reflection, Refraction and Diffraction"),
++    (15, "03A_Wave_Motion", "15_Interference_and_Stationary_Wave", "Interference and Stationary Wave"),
++    (16, "03A_Wave_Motion", "16_Light_and_Sound", "Light and Sound"),
++    (17, "03B_Ray_Optics", "17_Reflection_of_Light", "Reflection of Light"),
++    (18, "03B_Ray_Optics", "18_Refraction_of_Light", "Refraction of Light"),
++    (19, "03B_Ray_Optics", "19_Lenses", "Lenses"),
++    (20, "04_Electricity_and_Magnetism", "20_Electrostatics", "Electrostatics"),
++    (21, "04_Electricity_and_Magnetism", "21_Circuit_and_Power", "Circuit and Power"),
++    (22, "04_Electricity_and_Magnetism", "22_AC_and_Domestic_Electricity", "AC and Domestic Electricity"),
++    (23, "04_Electricity_and_Magnetism", "23_Electromagnetism", "Electromagnetism"),
++    (24, "04_Electricity_and_Magnetism", "24_Electromagnetic_Induction", "Electromagnetic Induction"),
++    (25, "05_Radioactivity_and_Nuclear_Energy", "25_Radiation_and_Radioactivity", "Radiation and Radioactivity"),
++    (26, "05_Radioactivity_and_Nuclear_Energy", "26_Rate_of_Decay_and_Uses_of_Radionuclides", "Rate of Decay and Uses of Radionuclides"),
++    (27, "05_Radioactivity_and_Nuclear_Energy", "27_Nuclear_Energy", "Nuclear Energy"),
++]
++
++SECTION_BY_NUM = {n: (book, folder, name) for n, book, folder, name in SECTIONS}
++BOOK_NAMES = {
++    "01_Heat_and_Gases": "Heat and Gases",
++    "02_Force_and_Motion": "Force and Motion",
++    "03A_Wave_Motion": "Wave Motion",
++    "03B_Ray_Optics": "Ray Optics",
++    "04_Electricity_and_Magnetism": "Electricity and Magnetism",
++    "05_Radioactivity_and_Nuclear_Energy": "Radioactivity and Nuclear Energy",
++}
++
++OPTION_SPLIT = re.compile(r"(?:^|\n)\s*([A-D])\s*[.．、)]\s*", re.M)
++LEADING_NUM = re.compile(r"^\s*\*?\s*\d{1,2}\s*[.．、)]\s*")
++JSON_RE = re.compile(r"\{.*\}", re.S)
++
++TAXONOMY_TEXT = """
++HKDSE Physics MC taxonomy (section number -> name). Pick the BEST primary section.
++Use a second section ONLY if the question is genuinely cross-topic (rare).
++
++Book 1 Heat and Gases:
++  1 Temperature and Heat Transfer (conduction/convection/radiation as heat transfer, thermometers, thermal equilibrium - NOT ideal-gas p-T laws)
++  2 Heat Capacity (c, C, specific heat, mixing calorimetry without phase change)
++  3 Change of State (melting/boiling/evaporation/latent heat/heating curves with plateaus)
++  4 Gas Law and Kinetic Theory (ideal gas, pV=nRT, p-T / p-V / V-T graphs, molecular KE, pressure from molecules, internal energy of a body/system as a tested concept)
++
++Book 2 Force and Motion:
++  5 Motion (kinematics graphs, free fall without projectile framing)
++  6 Force (Newton laws, friction as force, F=ma, free-body basics on a single body/particle - NOT multi-body systems or moments)
++  7 More about Forces (systems of bodies, force resolution/addition in plane, moments/torque, CG, equilibrium of rigid body, connected particles/pulleys)
++  8 Work, Energy and Power (W=Fs, KE/PE mechanical, power, efficiency of machines)
++  9 Momentum (collisions, impulse, conservation of momentum)
++  10 Projectile Motion
++  11 Uniform Circular Motion (centripetal)
++  12 Gravitation (g, orbits, Newton's law of gravitation)
++
++Book 3A Wave Motion:
++  13 Wave Motion (travelling/longitudinal/transverse waves, v=fλ, particle motion on a wave)
++  14 Reflection, Refraction and Diffraction (of waves; diffraction grating for light waves)
++  15 Interference and Stationary Wave (Young, beats, standing waves on string/air column)
++  16 Light and Sound (EM spectrum properties, sound, ultrasound, Doppler of sound; NOT ray optics)
++
++Book 3B Ray Optics:
++  17 Reflection of Light (mirrors, periscope)
++  18 Refraction of Light (Snell, total internal reflection, apparent depth)
++  19 Lenses (thin lens formula, images)
++
++Book 4 Electricity and Magnetism:
++  20 Electrostatics (charge, Coulomb, field/potential of static charges)
++  21 Circuit and Power (Ohm, series/parallel, electrical power/energy of circuits)
++  22 AC and Domestic Electricity (mains, plugs, fuses, kWh, household)
++  23 Electromagnetism (motor effect, magnetic field of currents, force on charges in B)
++  24 Electromagnetic Induction (Faraday, Lenz, generators, transformers)
++
++Book 5 Radioactivity and Nuclear Energy:
++  25 Radiation and Radioactivity (alpha/beta/gamma nature, absorption, detectors, decay equations qualitatively)
++  26 Rate of Decay and Uses of Radionuclides (half-life, activity, dating, tracers)
++  27 Nuclear Energy (fission/fusion, binding energy, mass defect)
++""".strip()
++
++SYSTEM_PROMPT = f"""You are classifying HKDSE Physics multiple-choice questions into curriculum sections.
++{TAXONOMY_TEXT}
++
++Rules:
++- Choose exactly one primary section number.
++- Add at most one extra section, and only if the question truly requires both topics.
++- Do NOT put ideal-gas / p-T / kinetic-theory questions in section 1 just because temperature is mentioned.
++- Put single-body Newton/friction/resultant-force questions in section 6. Reserve section 7 for systems of bodies, moments/torque, rigid-body equilibrium, or connected particles.
++- If the question relates to internal energy, or molecular/potential energy of gas particles, always include section 4 (Gas Law and Kinetic Theory) as primary or extra section - even when the stem also involves heat transfer, heat capacity, or change of state.
++- Do NOT put travelling-wave / slinky / particle-on-a-wave questions in radioactivity.
++- Ignore OCR garbage; classify from the meaningful physics content.
++- Reply with JSON only: {{"sections":[<primary>, ...], "reason":"<one short sentence>"}}
++"""
++
++
++def parse_args() -> argparse.Namespace:
++    p = argparse.ArgumentParser(description=__doc__)
++    p.add_argument("--years", nargs="*", default=None)
++    p.add_argument("--workers", type=int, default=6)
++    p.add_argument("--skip-ocr", action="store_true")
++    p.add_argument("--from-json", type=Path, default=None,
++                   help="Apply precomputed LLM decisions instead of calling the API")
++    p.add_argument("--limit", type=int, default=None, help="Classify only first N (debug)")
++    p.add_argument("--sleep", type=float, default=0.15)
++    p.add_argument("--rebuild-pdfs", action="store_true",
++                   help="Also run combine_section_pdfs.py after writing folders")
++    return p.parse_args()
++
++
++def ensure_tree() -> None:
++    CLASSIFIED.mkdir(parents=True, exist_ok=True)
++    OCR_CACHE.mkdir(parents=True, exist_ok=True)
++    for _n, book, folder, _name in SECTIONS:
++        (CLASSIFIED / book / folder).mkdir(parents=True, exist_ok=True)
++
++
++def year_key(name: str) -> tuple:
++    if name in YEAR_ORDER:
++        return (0, YEAR_ORDER.index(name))
++    return (1, name)
++
++
++def collect_jobs(years: list[str] | None) -> list[tuple[str, str, int]]:
++    jobs: list[tuple[str, str, int]] = []
++    year_dirs = sorted(
++        [p for p in OUTPUT.iterdir() if p.is_dir() and not p.name.startswith(".")],
++        key=lambda p: year_key(p.name),
++    )
++    for year_dir in year_dirs:
++        if years and year_dir.name not in years:
++            continue
++        for png in sorted(year_dir.glob("q*.png"), key=lambda p: int(p.stem[1:])):
++            jobs.append((year_dir.name, str(png), int(png.stem[1:])))
++    return jobs
++
++
++def clean_text(text: str) -> str:
++    text = text.replace("\r", "")
++    text = re.sub(r"[ \t]+\n", "\n", text)
++    text = re.sub(r"\n{3,}", "\n\n", text)
++    text = re.sub(r"[ \t]{2,}", " ", text)
++    return text.strip()
++
++
++def parse_question(ocr_text: str) -> tuple[str, dict[str, str]]:
++    text = clean_text(ocr_text)
++    parts = OPTION_SPLIT.split("\n" + text)
++    if len(parts) < 3:
++        statement = LEADING_NUM.sub("", text).strip()
++        return statement, {"A": "", "B": "", "C": "", "D": ""}
++    statement = LEADING_NUM.sub("", parts[0].lstrip("\n")).strip()
++    options: dict[str, str] = {"A": "", "B": "", "C": "", "D": ""}
++    i = 1
++    while i + 1 < len(parts):
++        letter = parts[i].upper()
++        body = re.sub(r"\n+", " ", parts[i + 1].strip()).strip()
++        if letter in options and not options[letter]:
++            options[letter] = body
++        i += 2
++    return statement, options
++
++
++def ocr_png(path: Path, cache_path: Path) -> str:
++    if cache_path.exists():
++        return cache_path.read_text(encoding="utf-8")
++    image = Image.open(path).convert("RGB")
++    buf = io.BytesIO()
++    image.save(buf, format="PNG")
++    result = subprocess.run(
++        ["tesseract", "stdin", "stdout", "--psm", "6"],
++        input=buf.getvalue(),
++        stdout=subprocess.PIPE,
++        stderr=subprocess.DEVNULL,
++        check=True,
++    )
++    text = result.stdout.decode("utf-8", errors="ignore")
++    cache_path.parent.mkdir(parents=True, exist_ok=True)
++    cache_path.write_text(text, encoding="utf-8")
++    return text
++
++
++def _ocr_one(args: tuple[str, str, int]) -> dict:
++    year, png_path, number = args
++    cache = OCR_CACHE / str(year) / f"q{number}.txt"
++    text = ocr_png(Path(png_path), cache)
++    statement, options = parse_question(text)
++    return {
++        "Year": int(year) if str(year).isdigit() else year,
++        "Question": number,
++        "Question statement": statement,
++        "Option": options,
++        "PNG": f"output/{year}/q{number}.png",
++        "OCR": text,
++    }
++
++
++def record_text(record: dict, limit: int = 900) -> str:
++    stmt = (record.get("Question statement") or "").strip()
++    opts = record.get("Option") or {}
++    opt_lines = [f"{k}. {(v or '').strip()}" for k, v in opts.items() if (v or "").strip()]
++    blob = stmt
++    if opt_lines:
++        blob += "\n" + "\n".join(opt_lines)
++    return blob[:limit]
++
++
++def llm_config() -> tuple[str, str, str]:
++    key = (
++        os.environ.get("LLM_API_KEY")
++        or os.environ.get("OPENAI_API_KEY")
++        or os.environ.get("TOGETHER_API_KEY")
++        or ""
++    )
++    base = os.environ.get("LLM_BASE_URL", "https://api.together.xyz/v1").rstrip("/")
++    model = os.environ.get("LLM_MODEL", "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo")
++    return key, base, model
++
++
++def chat_json(system: str, user: str, *, retries: int = 3) -> dict:
++    key, base, model = llm_config()
++    if not key:
++        raise SystemExit("Set LLM_API_KEY / OPENAI_API_KEY / TOGETHER_API_KEY")
++    payload = {
++        "model": model,
++        "messages": [
++            {"role": "system", "content": system},
++            {"role": "user", "content": user},
++        ],
++        "temperature": 0,
++        "max_tokens": 250,
++    }
++    data = json.dumps(payload).encode()
++    last_err: Exception | None = None
++    for attempt in range(retries):
++        req = urllib.request.Request(
++            f"{base}/chat/completions",
++            data=data,
++            headers={
++                "Authorization": f"Bearer {key}",
++                "Content-Type": "application/json",
++            },
++            method="POST",
++        )
++        try:
++            with urllib.request.urlopen(req, timeout=90) as resp:
++                body = json.loads(resp.read().decode())
++            content = body["choices"][0]["message"]["content"]
++            match = JSON_RE.search(content)
++            if not match:
++                raise ValueError(f"No JSON in model reply: {content[:200]}")
++            return json.loads(match.group(0))
++        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, ValueError, KeyError, json.JSONDecodeError) as exc:
++            last_err = exc
++            time.sleep(1.5 * (attempt + 1))
++    raise SystemExit(f"LLM call failed after {retries} retries: {last_err}")
++
++
++def normalize_sections(raw: object) -> list[int]:
++    if not isinstance(raw, list) or not raw:
++        return []
++    out: list[int] = []
++    for item in raw:
++        try:
++            n = int(item)
++        except (TypeError, ValueError):
++            continue
++        if 1 <= n <= 27 and n not in out:
++            out.append(n)
++        if len(out) >= 2:
++            break
++    return out
++
++
++def classify_one_llm(record: dict) -> dict:
++    user = (
++        f"Year: {record['Year']}  Question: {record['Question']}\n"
++        f"OCR text:\n{record_text(record)}\n\n"
++        'Return JSON: {"sections":[primary, optional_second], "reason":"..."}'
++    )
++    result = chat_json(SYSTEM_PROMPT, user)
++    sections = normalize_sections(result.get("sections"))
++    if not sections:
++        sections = [5]
++        uncertain = True
++        reason = "LLM returned no valid section; fallback Motion"
++    else:
++        uncertain = False
++        reason = str(result.get("reason") or "").strip()
++    return {
++        "Year": record["Year"],
++        "Question": record["Question"],
++        "sections": sections,
++        "reason": reason,
++        "uncertain": uncertain,
++        "PNG": record["PNG"],
++        "StatementPreview": re.sub(r"\s+", " ", record_text(record, 160)),
++    }
++
++
++def dest_name(year: object, question: int) -> str:
++    return f"{year}_q{question}.png"
++
++
++def apply_classifications(records: list[dict], decisions: list[dict]) -> None:
++    ensure_tree()
++    by_key = {(str(d["Year"]), int(d["Question"])): d for d in decisions}
++    # Clear previous PNG copies
++    for _n, book, folder, _name in SECTIONS:
++        for path in (CLASSIFIED / book / folder).glob("*_q*.png"):
++            path.unlink()
++
++    rows: list[dict] = []
++    uncertain_rows: list[dict] = []
++    buckets: dict[int, int] = defaultdict(int)
++    n_one = n_multi = 0
++
++    for record in records:
++        key = (str(record["Year"]), int(record["Question"]))
++        decision = by_key.get(key)
++        if decision is None:
++            decision = {
++                "Year": record["Year"],
++                "Question": record["Question"],
++                "sections": [5],
++                "reason": "missing LLM decision",
++                "uncertain": True,
++                "PNG": record["PNG"],
++                "StatementPreview": re.sub(r"\s+", " ", record_text(record, 160)),
++            }
++        sections = normalize_sections(decision.get("sections")) or [5]
++        if len(sections) == 1:
++            n_one += 1
++        else:
++            n_multi += 1
++        for sec in sections:
++            book, folder, _name = SECTION_BY_NUM[sec]
++            buckets[sec] += 1
++            src = ROOT / record["PNG"]
++            if src.exists():
++                shutil.copy2(src, CLASSIFIED / book / folder / dest_name(record["Year"], int(record["Question"])))
++
++        primary = sections[0]
++        pbook, _pfolder, pname = SECTION_BY_NUM[primary]
++        row = {
++            "Year": record["Year"],
++            "Question": record["Question"],
++            "PrimarySection": primary,
++            "PrimaryName": pname,
++            "PrimaryBook": BOOK_NAMES[pbook],
++            "AllSections": ";".join(str(s) for s in sections),
++            "AllSectionNames": "; ".join(SECTION_BY_NUM[s][2] for s in sections),
++            "Reason": decision.get("reason") or "",
++            "Uncertain": "yes" if decision.get("uncertain") else "no",
++            "PNG": record["PNG"],
++            "StatementPreview": decision.get("StatementPreview")
++            or re.sub(r"\s+", " ", record_text(record, 160)),
++        }
++        rows.append(row)
++        if row["Uncertain"] == "yes":
++            uncertain_rows.append(row)
++
++    def sort_key(r: dict) -> tuple:
++        y = r["Year"]
++        return (year_key(str(y)), int(r["Question"]))
++
++    rows.sort(key=sort_key)
++    uncertain_rows.sort(key=sort_key)
++
++    fieldnames = [
++        "Year", "Question", "PrimarySection", "PrimaryName", "PrimaryBook",
++        "AllSections", "AllSectionNames", "Reason", "Uncertain", "PNG", "StatementPreview",
++    ]
++    with (CLASSIFIED / "classification.csv").open("w", newline="", encoding="utf-8") as fh:
++        writer = csv.DictWriter(fh, fieldnames=fieldnames)
++        writer.writeheader()
++        writer.writerows(rows)
++    with (CLASSIFIED / "uncertain.csv").open("w", newline="", encoding="utf-8") as fh:
++        writer = csv.DictWriter(fh, fieldnames=fieldnames)
++        writer.writeheader()
++        writer.writerows(uncertain_rows)
++    (CLASSIFIED / "mc_classification.json").write_text(
++        json.dumps(rows, indent=2, ensure_ascii=False) + "\n"
++    )
++    # Keep legacy name as a copy for older scripts.
++    (CLASSIFIED / "classification.json").write_text(
++        json.dumps(rows, indent=2, ensure_ascii=False) + "\n"
++    )
++    with (CLASSIFIED / "mc_classification.csv").open("w", newline="", encoding="utf-8") as fh:
++        writer = csv.DictWriter(fh, fieldnames=fieldnames)
++        writer.writeheader()
++        writer.writerows(rows)
++    summary = {
++        f"S{n:02d} {name}": buckets[n]
++        for n, _book, _folder, name in SECTIONS
++    }
++    (CLASSIFIED / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
++
++    print("Questions:", len(rows))
++    print("  one section:  ", n_one)
++    print("  multi-section:", n_multi)
++    print("  uncertain:    ", len(uncertain_rows))
++    for n, _b, _f, name in SECTIONS:
++        print(f"S{n:02d} {name}: {buckets[n]}")
++
++
++def main() -> None:
++    args = parse_args()
++    ensure_tree()
++    ocr_json = CLASSIFIED / "mc_ocr.json"
++
++    if args.skip_ocr and ocr_json.exists():
++        records = json.loads(ocr_json.read_text())
++        print(f"Loaded {len(records)} OCR records")
++    else:
++        jobs = collect_jobs(args.years)
++        print(f"OCR {len(jobs)} questions...")
++        records = []
++        with ProcessPoolExecutor(max_workers=args.workers) as pool:
++            futs = {pool.submit(_ocr_one, job): job for job in jobs}
++            done = 0
++            for fut in as_completed(futs):
++                records.append(fut.result())
++                done += 1
++                if done % 25 == 0 or done == len(jobs):
++                    print(f"  OCR {done}/{len(jobs)}", flush=True)
++        records.sort(key=lambda r: (year_key(str(r["Year"])), int(r["Question"])))
++        slim = [{k: v for k, v in r.items() if k != "OCR"} for r in records]
++        ocr_json.write_text(json.dumps(slim, indent=2, ensure_ascii=False) + "\n")
++        (CLASSIFIED / "mc_ocr_full.json").write_text(
++            json.dumps(records, indent=2, ensure_ascii=False) + "\n"
++        )
++
++    if args.years:
++        want = set(args.years)
++        records = [r for r in records if str(r["Year"]) in want]
++    if args.limit:
++        records = records[: args.limit]
++
++    decisions_path = CLASSIFIED / "llm_classifications.json"
++    if args.from_json:
++        decisions = json.loads(args.from_json.read_text())
++        print(f"Loaded {len(decisions)} LLM decisions from {args.from_json}")
++    else:
++        print(f"LLM-classifying {len(records)} questions...")
++        decisions = []
++        for i, record in enumerate(records, 1):
++            decision = classify_one_llm(record)
++            decisions.append(decision)
++            if i % 10 == 0 or i == len(records):
++                print(f"  LLM {i}/{len(records)}", flush=True)
++            if args.sleep:
++                time.sleep(args.sleep)
++            # checkpoint
++            if i % 25 == 0:
++                decisions_path.write_text(json.dumps(decisions, indent=2, ensure_ascii=False) + "\n")
++        decisions_path.write_text(json.dumps(decisions, indent=2, ensure_ascii=False) + "\n")
++        print(f"Wrote {decisions_path}")
++
++    apply_classifications(records if not args.years else json.loads(ocr_json.read_text()), decisions)
++
++    # If --years was set, apply_classifications above used full records only when not filtered.
++    # Re-apply carefully: always rebuild from full OCR + full decisions when available.
++    if args.years and decisions_path.exists() and not args.from_json:
++        pass
++
++    if args.rebuild_pdfs:
++        subprocess.run(
++            [str(ROOT / ".venv" / "bin" / "python"), str(ROOT / "scripts" / "combine_section_pdfs.py")],
++            check=True,
++        )
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/classify_mc_sections.py b/scripts/classify_mc_sections.py
+new file mode 100644
+index 0000000..5767e93
+--- /dev/null
++++ b/scripts/classify_mc_sections.py
+@@ -0,0 +1,646 @@
++#!/usr/bin/env python3
++# -*- coding: utf-8 -*-
++"""Classify output/ MC PNGs into Book 1-5 / Sections 1-27.
++
++Writes:
++  classified/<book>/<NN_section>/  (PNG copies; cross-topic Qs appear in each)
++  classified/classification.csv
++  classified/uncertain.csv
++  classified/mc_classification.json
++  classified/classification.json  (legacy copy)
++"""
++from __future__ import annotations
++
++import argparse
++import csv
++import io
++import json
++import re
++import shutil
++import subprocess
++from collections import defaultdict
++from concurrent.futures import ProcessPoolExecutor, as_completed
++from pathlib import Path
++
++from PIL import Image
++
++ROOT = Path(__file__).resolve().parents[1]
++OUTPUT = ROOT / "output"
++CLASSIFIED = ROOT / "classified"
++OCR_CACHE = CLASSIFIED / "ocr_cache"
++
++YEAR_ORDER = [
++    "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020",
++    "2021", "2022", "2023", "2024", "2025", "2026", "pp", "sap",
++]
++
++OPTION_SPLIT = re.compile(r"(?:^|\n)\s*([A-D])\s*[.．、)]\s*", re.M)
++LEADING_NUM = re.compile(r"^\s*\*?\s*\d{1,2}\s*[.．、)]\s*")
++
++# (section_num, book_folder, section_folder, display_name)
++SECTIONS: list[tuple[int, str, str, str]] = [
++    (1, "01_Heat_and_Gases", "01_Temperature_and_Heat_Transfer", "Temperature and Heat Transfer"),
++    (2, "01_Heat_and_Gases", "02_Heat_Capacity", "Heat Capacity"),
++    (3, "01_Heat_and_Gases", "03_Change_of_State", "Change of State"),
++    (4, "01_Heat_and_Gases", "04_Gas_Law_and_Kinetic_Theory", "Gas Law and Kinetic Theory"),
++    (5, "02_Force_and_Motion", "05_Motion", "Motion"),
++    (6, "02_Force_and_Motion", "06_Force", "Force"),
++    (7, "02_Force_and_Motion", "07_More_about_Forces", "More about Forces"),
++    (8, "02_Force_and_Motion", "08_Work_Energy_and_Power", "Work, Energy and Power"),
++    (9, "02_Force_and_Motion", "09_Momentum", "Momentum"),
++    (10, "02_Force_and_Motion", "10_Projectile_Motion", "Projectile Motion"),
++    (11, "02_Force_and_Motion", "11_Uniform_Circular_Motion", "Uniform Circular Motion"),
++    (12, "02_Force_and_Motion", "12_Gravitation", "Gravitation"),
++    (13, "03A_Wave_Motion", "13_Wave_Motion", "Wave Motion"),
++    (14, "03A_Wave_Motion", "14_Reflection_Refraction_and_Diffraction", "Reflection, Refraction and Diffraction"),
++    (15, "03A_Wave_Motion", "15_Interference_and_Stationary_Wave", "Interference and Stationary Wave"),
++    (16, "03A_Wave_Motion", "16_Light_and_Sound", "Light and Sound"),
++    (17, "03B_Ray_Optics", "17_Reflection_of_Light", "Reflection of Light"),
++    (18, "03B_Ray_Optics", "18_Refraction_of_Light", "Refraction of Light"),
++    (19, "03B_Ray_Optics", "19_Lenses", "Lenses"),
++    (20, "04_Electricity_and_Magnetism", "20_Electrostatics", "Electrostatics"),
++    (21, "04_Electricity_and_Magnetism", "21_Circuit_and_Power", "Circuit and Power"),
++    (22, "04_Electricity_and_Magnetism", "22_AC_and_Domestic_Electricity", "AC and Domestic Electricity"),
++    (23, "04_Electricity_and_Magnetism", "23_Electromagnetism", "Electromagnetism"),
++    (24, "04_Electricity_and_Magnetism", "24_Electromagnetic_Induction", "Electromagnetic Induction"),
++    (25, "05_Radioactivity_and_Nuclear_Energy", "25_Radiation_and_Radioactivity", "Radiation and Radioactivity"),
++    (26, "05_Radioactivity_and_Nuclear_Energy", "26_Rate_of_Decay_and_Uses_of_Radionuclides", "Rate of Decay and Uses of Radionuclides"),
++    (27, "05_Radioactivity_and_Nuclear_Energy", "27_Nuclear_Energy", "Nuclear Energy"),
++]
++
++SECTION_BY_NUM = {n: (book, folder, name) for n, book, folder, name in SECTIONS}
++BOOK_NAMES = {
++    "01_Heat_and_Gases": "Heat and Gases",
++    "02_Force_and_Motion": "Force and Motion",
++    "03A_Wave_Motion": "Wave Motion",
++    "03B_Ray_Optics": "Ray Optics",
++    "04_Electricity_and_Magnetism": "Electricity and Magnetism",
++    "05_Radioactivity_and_Nuclear_Energy": "Radioactivity and Nuclear Energy",
++}
++
++# Manual fixes when OCR fails or keywords are ambiguous. Values = section numbers (primary first).
++OVERRIDES: dict[tuple, list[int]] = {
++    (2012, 8): [6, 7],   # connected blocks + spring balance reading
++    (2012, 15): [13],  # longitudinal travelling wave on slinky
++    (2012, 17): [18, 14],  # refractive index via wavelength in medium
++    (2013, 17): [13],  # longitudinal wave particles a-k
++    (2013, 18): [15],  # stationary wave on string / vibrator
++    (2014, 31): [25],  # nuclear decay chain / isotopes
++    (2015, 12): [13],  # travelling wave on slinky frequency
++    (2017, 14): [13],  # longitudinal wave particles E-N
++    (2018, 3): [1],  # ice layer heat insulation
++    (2018, 15): [13],  # transverse travelling wave P and Q
++    (2019, 2): [3],  # fusion process heating curve (not nuclear)
++    (2019, 3): [4],  # heated open gas container / molecules
++    (2019, 4): [7],  # non-uniform plate CG / suspension
++    (2019, 5): [6],  # horizontal F holds block on smooth incline
++    (2019, 6): [10],  # projectile velocity 1 s before
++    (2019, 7): [7],  # rope support for leaning tree / moments
++    (2019, 10): [6],  # impulse changes path of ball
++    (2020, 5): [9],  # headrest / impulse safety
++    (2020, 10): [12],  # g on Neptune
++    (2020, 11): [13],  # longitudinal wave particles a-k amplitude/speed
++    (2020, 12): [13],  # particle KE vs t on a travelling wave
++    (2020, 13): [18],  # refractive index X vs Y into Z
++    (2020, 14): [14],  # diffraction grating order coincidence
++    (2020, 17): [17],  # periscope mirrors
++    (2021, 5): [6],  # resultant force by rough incline
++    (2021, 19): [16],  # X-ray / microwave wavelength ratio
++    (2022, 25): [21],  # charge = It / number of electrons
++    (2023, 12): [7],  # metre rule moments equilibrium
++    (2023, 22): [16],  # atmospheric absorption of EM spectrum
++    (2024, 16): [13],  # travelling wave on slinky
++    (2024, 21): [16],  # microwave EM wave properties
++    (2025, 12): [12],  # weight vs distance from Earth centre
++    (2025, 21): [16, 18],  # echoes / rainbows / mirages
++    (2026, 3): [1],  # emitter of radiation / silvery surface
++    (2026, 11): [12, 11],  # satellites in circular orbits
++    (2026, 15): [13],  # longitudinal wave particles a-k
++    ("pp", 16): [16],  # light as electromagnetic wave
++    ("pp", 17): [13],  # longitudinal wave particle positions
++    ("pp", 34): [25],  # alpha vs beta particles properties
++    ("sap", 7): [5],  # speed-time graph distance
++    ("sap", 10): [7],  # plank / spring balances moments
++    ("sap", 16): [19],  # magnifying glass / lens
++    ("sap", 25): [22],  # electricity cost kWh
++}
++
++# Bad / incomplete crops still assigned above; keep flagged for human review.
++BAD_CROPS: set[tuple] = set()
++
++# Multi-label: keep a second section when nearly tied.
++SECOND_RATIO = 0.88
++SECOND_GAP = 4
++SECOND_MIN = 26
++UNCERTAIN_SCORE = 22  # primary below this (or fallback) -> flag for review
++
++RULES: list[tuple[int, list[str], int]] = []
++
++
++def add(section: int, keywords: list[str], weight: int = 10) -> None:
++    RULES.append((section, [k.lower() for k in keywords], weight))
++
++
++# --- Book 5 (distinctive; score high) ---
++add(27, [
++    "fission", "fusion", "binding energy", "mass defect", "nuclear energy",
++    "nuclear power", "nuclear reaction", "chain reaction", "uranium fuel",
++    "bombards", "bombard", "nuclear equation", "mass-energy",
++    "energy released", "mev", "mass of proton", "mass of neutron",
++    "1u=", "atomic mass unit", "mass of 3he", "mass of he",
++], 40)
++add(26, [
++    "half-life", "half life", "half–life", "decay constant", "activity of",
++    "count rate", "becquerel", "uses of radio", "radioisotope", "radionuclide",
++    "tracer", "radiocarbon", "carbon dating", "dating", "medical use",
++    "sterilisation", "sterilization", "thickness gauge", "undecayed",
++    "half lives", "half-lives",
++], 38)
++add(25, [
++    "radioactive", "radioactivity", "alpha particle", "beta particle",
++    "gamma ray", "gamma rays", "nuclide",
++    "isotope", "geiger", "background radiation", "ionising", "ionizing",
++    "ionizing radiation", "ionising radiation",
++    "penetration", "cloud chamber", "radiation dose", "sievert",
++    "rutherford", "atomic model", "nucleus of an atom", "a-particle",
++    "α-particle", "α particle", "@-particle", "a and f particle",
++    "a and £ particle", "£ particles", "yrays", "γ rays", "β particle",
++    "α-emitter", "a-emitter", "deflection of a", "deflection of α",
++    "neutron number", "mass number", "n-a plot", "n- a plot",
++    "radioisotope", "gm counter", "gm tube",
++    "penetrating power", "ionize air", "photographic film",
++], 34)
++# Avoid bare "decay" / "f particles" (matches "of particles" in wave OCR).
++add(25, [
++    "undergoes decay", "radioactive decay", "nuclear decay", "a decay",
++    "α decay", "beta decay", "β decay", "decay chain", "decays to",
++    "decays into",
++], 36)
++
++# --- Book 4 ---
++add(24, [
++    "induced emf", "induced e.m.f", "electromagnetic induction", "faraday",
++    "lenz", "magnetic flux", "flux linkage", "generator", "dynamo",
++    "changing magnetic", "coil is moved", "induced current",
++], 32)
++add(22, [
++    "transformer", "alternating current", "a.c.", "ac supply", "rms", "mains",
++    "turn ratio", "primary coil", "secondary coil", "kilowatt", "kwh",
++    "fuse", "earthing", "live wire", "neutral wire", "household", "domestic",
++    "circuit breaker", "electricity bill", "power rating", "cost of electricity",
++    "kw h", "kW h",
++], 30)
++add(23, [
++    "magnetic field", "magnet", "solenoid", "electromagnet", "motor",
++    "force on a current", "lorentz", "cathode ray", "right-hand grip",
++    "fleming", "compass", "soft iron", "current-carrying", "current carrying",
++    "force on a wire", "magnetic force",
++], 28)
++add(20, [
++    "electrostatic", "coulomb", "point charge", "electric field", "electric potential",
++    "charged sphere", "insulator becomes charged", "van de graaff",
++    "electric force between", "permittivity", "charging by", "electroscope",
++    "like charges", "unlike charges", "charge is", "uncharged",
++    "positively-charged", "negatively-charged", "charged rod", "charged objects",
++    "charged conducting", "conducting spheres", "metal spheres",
++    "brought close", "p and q repel",
++], 26)
++add(21, [
++    "resistor", "resistance", "ohm", "ammeter", "voltmeter", "circuit",
++    "battery", "kirchhoff", "series", "parallel", "potentiometer", "rheostat",
++    "filament", "diode", "led", "current", "potential difference",
++    "e.m.f", "emf", "power dissipated", "joule heating",
++    "number of electrons", "steady d.c", "pass through the device",
++], 22)
++
++# --- Book 3B Ray Optics ---
++add(19, [
++    "lens", "focal length", "convex lens", "concave lens", "magnification",
++    "real image", "virtual image", "optical instrument", "microscope",
++    "telescope", "object distance", "image distance", "thin lens",
++    "magnifying glass",
++], 30)
++add(18, [
++    "snell", "refractive index", "refraction of light", "critical angle",
++    "total internal reflection", "optical fibre", "optical fiber",
++    "prism", "apparent depth", "ray diagram",
++], 28)
++add(17, [
++    "plane mirror", "reflection of light", "image in a mirror", "mirror image",
++    "law of reflection", "concave mirror", "convex mirror", "reflecting",
++    "periscope",
++], 26)
++
++# --- Book 3A Wave Motion ---
++add(15, [
++    "interference", "superposition", "constructive", "destructive",
++    "node", "antinode", "standing wave", "stationary wave", "path difference",
++    "young", "double slit", "fringe", "coherent", "two pulses", "pulses of",
++    "stretched string",
++], 28)
++add(14, [
++    "ripple tank", "diffraction", "water wave", "wavefront",
++    "reflection of wave", "refraction of wave", "barrier", "gap width",
++    "reflected pulse", "pulse on a string", "fixed end", "free end",
++], 26)
++add(16, [
++    "sound", "ultrasound", "echo", "loudness", "pitch", "audible",
++    "tuning fork", "decibel", "sonar", "light year", "electromagnetic spectrum",
++    "infrared", "ultraviolet", "microwave", "radio wave", "visible light",
++    "photon", "photoelectric", "polarization", "polarisation",
++    "x-ray", "x ray", "electromagnetic wave", "microwaves", "echoes",
++    "rainbows", "mirages",
++], 24)
++add(13, [
++    "wavelength", "frequency", "wave speed", "transverse", "longitudinal",
++    "displacement-distance", "displacement-time", "amplitude", "period of the wave",
++    "progressive wave", "wave motion", "oscillation",
++], 20)
++add(13, [
++    "travelling wave", "traveling wave", "longitudinal wave", "transverse travelling",
++    "transverse traveling", "slinky", "equilibrium positions of particles",
++    "direction of travel", "direction of wave", "direction of propagation",
++    "compression", "rarefaction", "particles a to", "momentarily at rest",
++], 34)
++
++# --- Book 2 Force and Motion ---
++add(12, [
++    "gravitation", "gravitational", "planet", "satellite", "orbit",
++    "escape speed", "g-field", "newton's law of gravitation", "kepler",
++    "earth's mass", "universal gravitation", "gravitational field",
++    "neptune", "acceleration due to gravity", "earth's centre", "earth's center",
++    "revolve around",
++], 30)
++add(11, [
++    "circular motion", "centripetal", "angular speed", "uniform circular",
++    "roundabout", "banked", "horizontal circle", "vertical circle",
++    "circular platform", "rotating platform", "angular velocity",
++], 28)
++add(10, [
++    "projectile", "projected horizontally", "projected at an angle",
++    "trajectory", "time of flight", "range of the",
++], 28)
++add(9, [
++    "momentum", "collision", "impulse", "elastic collision", "inelastic",
++    "conserve momentum", "rate of change of momentum", "recoil",
++    "explodes", "fragments", "explodes into", "headrest",
++], 26)
++add(8, [
++    "kinetic energy", "potential energy", "work done", "mechanical energy",
++    "efficiency", "power", "joule", "watt", "energy conversion",
++], 24)
++add(7, [
++    "moment", "torque", "pivot", "centre of gravity", "center of mass",
++    "couple", "lever", "resolve", "resolution of", "component of force",
++    "resultant of two", "addition of force", "system of", "two forces",
++    "force in a plane", "turning effect", "hinged", "gangplank",
++    "smooth pegs", "light strings", "rigid rod", "selfie stick",
++    "suspended by a light string", "mid-point", "metre rule", "meter rule",
++    "spring balance", "spring balances", "uniform plank",
++], 24)
++add(6, [
++    "newton", "net force", "resultant force", "friction", "free body",
++    "tension", "normal force", "f = ma", "f=ma", "upthrust",
++    "action and reaction", "external force", "mass and weight",
++    "this is a misconception", "misconception because",
++    "rough horizontal", "rough inclined", "inclined plane", "pulled along",
++    "downward pulling", "weight w", "block of mass", "block of weight",
++    "light inextensible string", "frictionless light pulley",
++    "resultant force acting", "sliding down", "constant velocity",
++], 22)
++add(5, [
++    "velocity-time", "distance-time", "displacement-time", "ticker",
++    "instantaneous", "uniform acceleration", "uniform motion",
++    "displacement", "velocity", "speed", "acceleration", "kinematics",
++    "due east", "due north", "due west", "due south", "changes direction",
++    "magnitude of the", "average velocity", "average speed",
++    "m s", "ms-", "km h", "uniform deceleration", "speed of the car with time",
++], 18)
++
++# --- Book 1 Heat and Gases ---
++add(4, [
++    "ideal gas", "boyle", "charles", "pressure law", "pv =", "pV =",
++    "gas constant", "absolute temperature", "kinetic theory", "rms speed",
++    "root-mean-square", "molecular speed", "average kinetic",
++    "molecules collide", "fixed mass of gas", "gas pressure",
++    "weather balloon", "trapped air", "mol", "helium gas",
++], 26)
++add(3, [
++    "latent heat", "melting", "boiling", "fusion", "vaporization",
++    "vapourisation", "evaporation", "condensation", "solidification",
++    "change of state", "melting point", "boiling point", "icy",
++    "ice-cream", "ice cream", "remains constant during", "lake surface",
++], 26)
++add(2, [
++    "specific heat", "heat capacity", "temperature rise", "calorimeter",
++    "thermal capacity", "heated by an", "mcδθ", "mcΔT",
++], 24)
++add(1, [
++    "conduction", "convection", "thermal radiation", "greenhouse",
++    "emissivity", "black body", "heat transfer", "thermal conductivity",
++    "thermal equilibrium", "thermometer", "celsius", "thermal contact",
++    "hotter", "cooler", "heat flow", "temperature", "vacuum flask",
++    "composite rod", "different materials", "temperature sensors",
++    "cork stopper", "outer glass", "inner glass", "poorer emitter",
++    "silvery surface", "heat insulation",
++], 20)
++
++
++def keyword_hit(blob: str, keyword: str) -> bool:
++    if " " in keyword or "." in keyword or "-" in keyword or "/" in keyword or "=" in keyword:
++        return keyword in blob
++    return re.search(rf"(?<![a-z0-9]){re.escape(keyword)}(?![a-z0-9])", blob) is not None
++
++
++def normalize(text: str) -> str:
++    text = text.lower()
++    # Preserve common OCR stand-ins for α/β/γ before stripping symbols.
++    text = text.replace("£", " beta ")
++    text = text.replace("β", " beta ")
++    text = text.replace("α", " alpha ")
++    text = text.replace("γ", " gamma ")
++    text = text.replace("@-particle", " alpha-particle ")
++    text = text.replace("@ particle", " alpha particle ")
++    text = re.sub(r"[^\w\s./=+*-]+", " ", text)
++    text = re.sub(r"\s+", " ", text)
++    return text
++
++
++def ocr_png(path: Path, cache_path: Path) -> str:
++    if cache_path.exists():
++        return cache_path.read_text(encoding="utf-8")
++    image = Image.open(path).convert("RGB")
++    buf = io.BytesIO()
++    image.save(buf, format="PNG")
++    result = subprocess.run(
++        ["tesseract", "stdin", "stdout", "--psm", "6"],
++        input=buf.getvalue(),
++        stdout=subprocess.PIPE,
++        stderr=subprocess.DEVNULL,
++        check=True,
++    )
++    text = result.stdout.decode("utf-8", errors="ignore")
++    cache_path.parent.mkdir(parents=True, exist_ok=True)
++    cache_path.write_text(text, encoding="utf-8")
++    return text
++
++
++def clean_text(text: str) -> str:
++    text = text.replace("\r", "")
++    text = re.sub(r"[ \t]+\n", "\n", text)
++    text = re.sub(r"\n{3,}", "\n\n", text)
++    text = re.sub(r"[ \t]{2,}", " ", text)
++    return text.strip()
++
++
++def parse_question(ocr_text: str) -> tuple[str, dict[str, str]]:
++    text = clean_text(ocr_text)
++    text = re.sub(r"(?m)^[ \t]*C[cC]\s*[.．、)]\s*", "C. ", text)
++    text = re.sub(r"(?m)^[ \t]*[Cc]\s*[.．、)]\s*", "C. ", text)
++    text = re.sub(r"(?m)^[ \t]*[Oo0]\s*[.．、)]\s*", "D. ", text)
++    text = re.sub(r"(?m)^[ \t]*[Bb]\s*[.．、)]\s*", "B. ", text)
++    text = re.sub(r"(?m)^[ \t]*[Aa]\s*[.．、)]\s*", "A. ", text)
++    text = re.sub(r"(?<![A-Za-z])Cc\s*[.．]\s+", "\nC. ", text)
++
++    parts = OPTION_SPLIT.split("\n" + text)
++    if len(parts) < 3:
++        statement = LEADING_NUM.sub("", text).strip()
++        return statement, {"A": "", "B": "", "C": "", "D": ""}
++
++    statement = LEADING_NUM.sub("", parts[0].lstrip("\n")).strip()
++    options: dict[str, str] = {"A": "", "B": "", "C": "", "D": ""}
++    i = 1
++    while i + 1 < len(parts):
++        letter = parts[i].upper()
++        body = re.sub(r"\n+", " ", parts[i + 1].strip()).strip()
++        if letter in options and not options[letter]:
++            options[letter] = body
++        i += 2
++    return statement, options
++
++
++def _ocr_one(args: tuple[str, str, int]) -> dict:
++    year, png_path, number = args
++    path = Path(png_path)
++    cache = OCR_CACHE / str(year) / f"q{number}.txt"
++    text = ocr_png(path, cache)
++    statement, options = parse_question(text)
++    return {
++        "Year": int(year) if str(year).isdigit() else year,
++        "Question": number,
++        "Question statement": statement,
++        "Option": options,
++        "PNG": f"output/{year}/q{number}.png",
++        "OCR": text,
++    }
++
++
++def score_sections(record: dict) -> list[tuple[int, int]]:
++    blob = normalize(
++        " ".join(
++            [
++                record.get("Question statement") or "",
++                " ".join((record.get("Option") or {}).values()),
++            ]
++        )
++    )
++    scored: list[tuple[int, int]] = []
++    for section, keywords, weight in RULES:
++        hits = sum(1 for kw in keywords if keyword_hit(blob, kw))
++        if hits == 0:
++            continue
++        scored.append((section, weight + hits * 3))
++    scored.sort(key=lambda t: t[1], reverse=True)
++    return scored
++
++
++def classify_multi(record: dict) -> list[tuple[int, int]]:
++    key = (record["Year"], record["Question"])
++    if key in OVERRIDES:
++        return [(sec, 999) for sec in OVERRIDES[key]]
++
++    scored = score_sections(record)
++    if not scored:
++        return [(5, 0)]  # fallback: Motion
++
++    primary = scored[0]
++    chosen = [primary]
++    threshold = max(int(primary[1] * SECOND_RATIO), primary[1] - SECOND_GAP)
++    for section, score in scored[1:]:
++        if section == primary[0]:
++            continue
++        if score >= threshold and score >= SECOND_MIN:
++            chosen.append((section, score))
++            if len(chosen) >= 3:
++                break
++    return chosen
++
++
++def dest_name(record: dict) -> str:
++    return f"{record['Year']}_q{record['Question']}.png"
++
++
++def ensure_tree() -> None:
++    for _n, book, folder, _name in SECTIONS:
++        (CLASSIFIED / book / folder).mkdir(parents=True, exist_ok=True)
++
++
++def collect_jobs(years: list[str] | None) -> list[tuple[str, str, int]]:
++    jobs = []
++    for year in YEAR_ORDER:
++        if years and year not in years:
++            continue
++        year_dir = OUTPUT / year
++        if not year_dir.is_dir():
++            continue
++        for path in sorted(year_dir.glob("q*.png"), key=lambda p: int(re.fullmatch(r"q(\d+)\.png", p.name).group(1))):
++            number = int(re.fullmatch(r"q(\d+)\.png", path.name).group(1))
++            jobs.append((year, str(path), number))
++    return jobs
++
++
++def main() -> None:
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("--years", nargs="*", default=None)
++    parser.add_argument("--workers", type=int, default=6)
++    parser.add_argument("--skip-ocr", action="store_true", help="Reuse classified/mc_ocr.json if present")
++    args = parser.parse_args()
++
++    ensure_tree()
++    ocr_json = CLASSIFIED / "mc_ocr.json"
++
++    if args.skip_ocr and ocr_json.exists():
++        records = json.loads(ocr_json.read_text())
++        print(f"Loaded {len(records)} OCR records from {ocr_json}")
++    else:
++        jobs = collect_jobs(args.years)
++        print(f"OCR {len(jobs)} questions with {args.workers} workers...", flush=True)
++        records = []
++        done = 0
++        with ProcessPoolExecutor(max_workers=args.workers) as pool:
++            futures = {pool.submit(_ocr_one, job): job for job in jobs}
++            for fut in as_completed(futures):
++                records.append(fut.result())
++                done += 1
++                if done % 25 == 0 or done == len(jobs):
++                    print(f"  OCR {done}/{len(jobs)}", flush=True)
++        records.sort(
++            key=lambda r: (
++                (0, int(r["Year"])) if isinstance(r["Year"], int) or str(r["Year"]).isdigit() else (1, str(r["Year"])),
++                int(r["Question"]),
++            )
++        )
++        ocr_json.parent.mkdir(parents=True, exist_ok=True)
++        # Persist without bulky raw OCR in the main export; keep OCR for debug separately
++        slim = [{k: v for k, v in r.items() if k != "OCR"} for r in records]
++        ocr_json.write_text(json.dumps(slim, indent=2, ensure_ascii=False) + "\n")
++        (CLASSIFIED / "mc_ocr_full.json").write_text(
++            json.dumps(records, indent=2, ensure_ascii=False) + "\n"
++        )
++        print(f"Wrote {ocr_json}")
++
++    # Clear previous question copies (keep tree)
++    for _n, book, folder, _name in SECTIONS:
++        for path in (CLASSIFIED / book / folder).glob("*_q*.png"):
++            path.unlink()
++
++    buckets: dict[int, list[dict]] = defaultdict(list)
++    rows: list[dict] = []
++    uncertain_rows: list[dict] = []
++    n_one = n_multi = n_fallback = 0
++
++    for record in records:
++        chosen = classify_multi(record)
++        if chosen[0][1] == 0:
++            n_fallback += 1
++        if len(chosen) == 1:
++            n_one += 1
++        else:
++            n_multi += 1
++
++        uncertain = chosen[0][1] < UNCERTAIN_SCORE
++        bad_crop = (record["Year"], record["Question"]) in BAD_CROPS
++        if bad_crop:
++            uncertain = True
++        section_nums = []
++        section_names = []
++        scores = []
++        for section, score in chosen:
++            buckets[section].append(record)
++            book, folder, name = SECTION_BY_NUM[section]
++            section_nums.append(str(section))
++            section_names.append(name)
++            scores.append(str(score))
++            src = ROOT / record["PNG"]
++            if src.exists():
++                shutil.copy2(src, CLASSIFIED / book / folder / dest_name(record))
++
++        primary = chosen[0][0]
++        pbook, pfolder, pname = SECTION_BY_NUM[primary]
++        row = {
++            "Year": record["Year"],
++            "Question": record["Question"],
++            "PrimarySection": primary,
++            "PrimaryName": pname,
++            "PrimaryBook": BOOK_NAMES[pbook],
++            "AllSections": ";".join(section_nums),
++            "AllSectionNames": "; ".join(section_names),
++            "Scores": ";".join(scores),
++            "Uncertain": "yes" if uncertain else "no",
++            "BadCrop": "yes" if bad_crop else "no",
++            "PNG": record["PNG"],
++            "StatementPreview": (record.get("Question statement") or "")[:160].replace("\n", " "),
++        }
++        rows.append(row)
++        if uncertain:
++            uncertain_rows.append(row)
++
++    csv_path = CLASSIFIED / "classification.csv"
++    with csv_path.open("w", newline="", encoding="utf-8") as f:
++        writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
++        writer.writeheader()
++        writer.writerows(rows)
++
++    unc_path = CLASSIFIED / "uncertain.csv"
++    with unc_path.open("w", newline="", encoding="utf-8") as f:
++        fields = list(uncertain_rows[0].keys()) if uncertain_rows else list(rows[0].keys())
++        writer = csv.DictWriter(f, fieldnames=fields)
++        writer.writeheader()
++        writer.writerows(uncertain_rows)
++
++    summary = {}
++    for n, book, folder, name in SECTIONS:
++        count = len({(r["Year"], r["Question"]) for r in buckets.get(n, [])})
++        summary[f"{n:02d} {name}"] = count
++        print(f"S{n:02d} {name}: {count}")
++
++    payload = {"rows": rows, "summary": summary}
++    (CLASSIFIED / "mc_classification.json").write_text(
++        json.dumps(payload, indent=2, ensure_ascii=False) + "\n"
++    )
++    (CLASSIFIED / "classification.json").write_text(
++        json.dumps(payload, indent=2, ensure_ascii=False) + "\n"
++    )
++    (CLASSIFIED / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False) + "\n")
++    # Flat spreadsheet copy (same columns as classification.csv)
++    mc_csv = CLASSIFIED / "mc_classification.csv"
++    with mc_csv.open("w", newline="", encoding="utf-8") as f:
++        fields = list(rows[0].keys()) if rows else []
++        writer = csv.DictWriter(f, fieldnames=fields)
++        writer.writeheader()
++        writer.writerows(rows)
++
++    print()
++    print(f"Questions: {len(rows)}")
++    print(f"  one section:   {n_one}")
++    print(f"  multi-section: {n_multi}")
++    print(f"  fallback S5:   {n_fallback}")
++    print(f"  uncertain:     {len(uncertain_rows)}")
++    print(f"CSV: {csv_path}")
++    print(f"Uncertain: {unc_path}")
++    print(f"JSON: {CLASSIFIED / 'mc_classification.json'}")
++    print(f"MC CSV: {mc_csv}")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/combine_lq_section_pdfs.py b/scripts/combine_lq_section_pdfs.py
+new file mode 100644
+index 0000000..5d97947
+--- /dev/null
++++ b/scripts/combine_lq_section_pdfs.py
+@@ -0,0 +1,226 @@
++#!/usr/bin/env python3
++"""Build per-section LQ review PDFs under classified/lq/.
++
++For each syllabus section that has at least one primary LQ:
++  - questions.pdf  - question crops (year order)
++  - answers.pdf    - marking-scheme answer crops (same order; skips missing)
++  - performance.pdf - candidate-performance notes as text pages
++
++Skips empty sections. Overwrites existing PDFs by default.
++"""
++from __future__ import annotations
++
++import argparse
++import csv
++import json
++import re
++import textwrap
++from collections import defaultdict
++from pathlib import Path
++
++import pymupdf as fitz
++
++from classify_mc_llm import BOOK_NAMES, SECTION_BY_NUM, SECTIONS, year_key
++
++ROOT = Path(__file__).resolve().parents[1]
++CLASSIFIED_LQ = ROOT / "classified" / "lq"
++CSV_PATH = CLASSIFIED_LQ / "classification.csv"
++PERF_PATH = CLASSIFIED_LQ / "candidate_performance.json"
++
++YEAR_RE = re.compile(r"^(?P<year>\d{4}|pp|sap)$", re.I)
++
++
++def parse_args() -> argparse.Namespace:
++    p = argparse.ArgumentParser(description=__doc__)
++    p.add_argument("--overwrite", action="store_true", default=True)
++    return p.parse_args()
++
++
++def load_rows() -> list[dict]:
++    rows = list(csv.DictReader(CSV_PATH.open(encoding="utf-8")))
++    rows.sort(key=lambda r: (year_key(r["Year"]), int(r["Question"])))
++    return rows
++
++
++def load_performance() -> dict[str, dict[str, str]]:
++    if not PERF_PATH.is_file():
++        return {}
++    return json.loads(PERF_PATH.read_text(encoding="utf-8"))
++
++
++def section_dir(section_num: int) -> Path:
++    book, folder, _name = SECTION_BY_NUM[section_num]
++    return CLASSIFIED_LQ / book / folder
++
++
++def resolve_question_png(row: dict) -> Path | None:
++    year, q = row["Year"], row["Question"]
++    candidates = [
++        ROOT / (row.get("PNG") or ""),
++        section_dir(int(row["Primary"])) / f"{year}-q{q}.png",
++        ROOT / "output" / "lq" / year / f"q{q}.png",
++    ]
++    for path in candidates:
++        if path.is_file():
++            return path
++    return None
++
++
++def resolve_answer_png(row: dict) -> Path | None:
++    year, q = row["Year"], row["Question"]
++    candidates = [
++        ROOT / (row.get("AnswerPNG") or ""),
++        section_dir(int(row["Primary"])) / f"{year}-q{q}-ans.png",
++        ROOT / "output" / "lq" / year / "ans" / f"q{q}.png",
++    ]
++    for path in candidates:
++        if path.is_file():
++            return path
++    return None
++
++
++def write_image_pdf(paths: list[Path], dest: Path, *, title: str | None = None) -> int:
++    """One PDF page per image. Optional title page if title set."""
++    if not paths:
++        return 0
++    doc = fitz.open()
++    try:
++        if title:
++            page = doc.new_page(width=595, height=842)
++            page.insert_text((40, 60), title, fontsize=16, fontname="helv")
++            page.insert_text(
++                (40, 86),
++                f"{len(paths)} item(s)",
++                fontsize=11,
++                fontname="helv",
++            )
++        for path in paths:
++            image = fitz.open(path)
++            try:
++                rect = image[0].rect
++                # Cap very tall crops so PDF viewers stay usable.
++                max_h = 2000.0
++                width, height = rect.width, rect.height
++                if height > max_h:
++                    scale = max_h / height
++                    width *= scale
++                    height *= scale
++                page = doc.new_page(width=width, height=height)
++                page.insert_image(page.rect, filename=str(path))
++            finally:
++                image.close()
++        dest.parent.mkdir(parents=True, exist_ok=True)
++        doc.save(dest, garbage=4, deflate=True)
++    finally:
++        doc.close()
++    return len(paths)
++
++
++def write_performance_pdf(
++    items: list[tuple[str, int, str]],
++    dest: Path,
++    *,
++    section_label: str,
++) -> int:
++    """Render candidate-performance notes as wrapped text pages."""
++    if not items:
++        return 0
++    doc = fitz.open()
++    page_w, page_h = 595.0, 842.0
++    margin = 40.0
++    try:
++        for year, qn, text in items:
++            page = doc.new_page(width=page_w, height=page_h)
++            y = margin
++            header = f"{section_label}  |  {year} Q{qn}"
++            page.insert_text((margin, y + 14), header, fontsize=13, fontname="helv")
++            y += 28
++            page.draw_line(
++                fitz.Point(margin, y),
++                fitz.Point(page_w - margin, y),
++            )
++            y += 16
++            body = (text or "").strip() or "(No Section B candidate-performance note.)"
++            # Simple wrap; keep paragraphs.
++            for para in body.splitlines() or [body]:
++                para = para.strip()
++                if not para:
++                    y += 10
++                    continue
++                for line in textwrap.wrap(para, width=92) or [""]:
++                    if y > page_h - margin - 16:
++                        page = doc.new_page(width=page_w, height=page_h)
++                        y = margin
++                    page.insert_text(
++                        (margin, y + 10),
++                        line,
++                        fontsize=10,
++                        fontname="helv",
++                    )
++                    y += 14
++                y += 6
++        dest.parent.mkdir(parents=True, exist_ok=True)
++        doc.save(dest, garbage=4, deflate=True)
++    finally:
++        doc.close()
++    return len(items)
++
++
++def main() -> None:
++    args = parse_args()
++    rows = load_rows()
++    perf = load_performance()
++
++    by_primary: dict[int, list[dict]] = defaultdict(list)
++    for row in rows:
++        by_primary[int(row["Primary"])].append(row)
++
++    written = 0
++    for num, _book, _folder, name in SECTIONS:
++        items = by_primary.get(num) or []
++        if not items:
++            continue
++        out_dir = section_dir(num)
++        out_dir.mkdir(parents=True, exist_ok=True)
++        label = f"S{num:02d} {name}"
++
++        q_paths: list[Path] = []
++        a_paths: list[Path] = []
++        perf_items: list[tuple[str, int, str]] = []
++        for row in items:
++            year, qn = row["Year"], int(row["Question"])
++            q_png = resolve_question_png(row)
++            if q_png:
++                q_paths.append(q_png)
++            a_png = resolve_answer_png(row)
++            if a_png:
++                a_paths.append(a_png)
++            note = (perf.get(str(year)) or {}).get(str(qn), "")
++            perf_items.append((str(year), qn, note))
++
++        q_pdf = out_dir / "questions.pdf"
++        a_pdf = out_dir / "answers.pdf"
++        p_pdf = out_dir / "performance.pdf"
++        if (
++            not args.overwrite
++            and q_pdf.is_file()
++            and a_pdf.is_file()
++            and p_pdf.is_file()
++        ):
++            print(f"Keeping {out_dir.relative_to(ROOT)}")
++            continue
++
++        nq = write_image_pdf(q_paths, q_pdf)
++        na = write_image_pdf(a_paths, a_pdf)
++        np_ = write_performance_pdf(perf_items, p_pdf, section_label=label)
++        written += 1
++        print(
++            f"{label}: questions.pdf ({nq}), answers.pdf ({na}), "
++            f"performance.pdf ({np_}) -> {out_dir.relative_to(ROOT)}"
++        )
++
++    print(f"\nDone: {written} sections with 3 PDFs each")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/combine_section_pdfs.py b/scripts/combine_section_pdfs.py
+new file mode 100644
+index 0000000..0b6d5e8
+--- /dev/null
++++ b/scripts/combine_section_pdfs.py
+@@ -0,0 +1,222 @@
++#!/usr/bin/env python3
++"""Write per-section question + answer PDFs under classified/.
++
++For each section folder:
++  - combined.pdf: question PNGs sorted easiest -> hardest by Correct %
++    (higher % first). Items without a known % (pp/sap/2022/2026, deleted,
++    missing keys) are placed last.
++  - answer.pdf: same order, one page per question listing year, Q#, answer,
++    and correct percentage.
++"""
++from __future__ import annotations
++
++import argparse
++import json
++import re
++from pathlib import Path
++
++import pymupdf as fitz
++
++ROOT = Path(__file__).resolve().parents[1]
++CLASSIFIED = ROOT / "classified"
++DEFAULT_KEYS = ROOT / "processed" / "MC" / "answer_keys.json"
++
++PNG_RE = re.compile(r"^(?P<year>\d{4}|pp|sap)_q(?P<q>\d+)\.png$", re.I)
++YEAR_RANK = {
++    "2012": 0, "2013": 1, "2014": 2, "2015": 3, "2016": 4, "2017": 5, "2018": 6,
++    "2019": 7, "2020": 8, "2021": 9, "2022": 10, "2023": 11, "2024": 12,
++    "2025": 13, "2026": 14, "pp": 15, "sap": 16,
++}
++
++
++def parse_args() -> argparse.Namespace:
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("--keys", type=Path, default=DEFAULT_KEYS)
++    parser.add_argument("--classified", type=Path, default=CLASSIFIED)
++    parser.add_argument(
++        "--overwrite",
++        action="store_true",
++        default=True,
++        help="Overwrite existing PDFs (default: yes)",
++    )
++    return parser.parse_args()
++
++
++def load_keys(path: Path) -> dict[tuple[str, int], dict]:
++    raw = json.loads(path.read_text(encoding="utf-8"))
++    out: dict[tuple[str, int], dict] = {}
++    for year, questions in raw.items():
++        for q_str, payload in questions.items():
++            out[(str(year), int(q_str))] = dict(payload)
++    return out
++
++
++def load_percentages(keys: dict[tuple[str, int], dict]) -> dict[tuple[str, int], int | None]:
++    out: dict[tuple[str, int], int | None] = {}
++    for key, payload in keys.items():
++        pct = payload.get("Correct percentage")
++        if payload.get("deleted"):
++            pct = None
++        out[key] = pct if isinstance(pct, int) else None
++    return out
++
++
++def section_dirs(classified: Path) -> list[Path]:
++    dirs: list[Path] = []
++    for book in sorted(classified.iterdir()):
++        if not book.is_dir() or book.name.startswith(".") or book.name in {
++            "ocr_cache",
++        }:
++            continue
++        if not re.match(r"^\d", book.name):
++            continue
++        for section in sorted(book.iterdir()):
++            if section.is_dir() and re.match(r"^\d{2}_", section.name):
++                dirs.append(section)
++    return dirs
++
++
++def pngs_in_section(section: Path) -> list[Path]:
++    return sorted(p for p in section.glob("*.png") if PNG_RE.fullmatch(p.name))
++
++
++def sort_key(
++    path: Path,
++    percentages: dict[tuple[str, int], int | None],
++) -> tuple:
++    match = PNG_RE.fullmatch(path.name)
++    assert match
++    year = match.group("year")
++    q = int(match.group("q"))
++    pct = percentages.get((year, q))
++    # Easiest first: higher % first. Missing % -> last.
++    has_pct = 0 if pct is not None else 1
++    neg_pct = -(pct if pct is not None else 0)
++    return (has_pct, neg_pct, YEAR_RANK.get(year, 99), q)
++
++
++def write_combined(paths: list[Path], dest: Path) -> None:
++    document = fitz.open()
++    try:
++        for path in paths:
++            image = fitz.open(path)
++            try:
++                rect = image[0].rect
++                page = document.new_page(width=rect.width, height=rect.height)
++                page.insert_image(page.rect, filename=str(path))
++            finally:
++                image.close()
++        dest.parent.mkdir(parents=True, exist_ok=True)
++        document.save(dest, garbage=4, deflate=True)
++    finally:
++        document.close()
++
++
++def write_answer_pdf(
++    paths: list[Path],
++    dest: Path,
++    keys: dict[tuple[str, int], dict],
++    section_label: str,
++) -> None:
++    """One summary page listing every question in the same hard->easy order."""
++    document = fitz.open()
++    try:
++        page_width, page_height = 595.0, 842.0  # A4
++        margin = 40.0
++        y = margin
++        page = document.new_page(width=page_width, height=page_height)
++        title = f"Answers - {section_label}"
++        page.insert_text((margin, y + 14), title, fontsize=14, fontname="helv")
++        y += 28
++        page.insert_text(
++            (margin, y + 11),
++            "Order matches combined.pdf (easiest -> hardest by correct %).",
++            fontsize=9,
++            fontname="helv",
++        )
++        y += 22
++        header = f"{'#':<4} {'Year':<6} {'Q':<4} {'Ans':<5} {'Correct %':<10}"
++        page.insert_text((margin, y + 10), header, fontsize=10, fontname="cour")
++        y += 16
++        page.draw_line(fitz.Point(margin, y), fitz.Point(page_width - margin, y))
++        y += 12
++
++        for index, path in enumerate(paths, start=1):
++            match = PNG_RE.fullmatch(path.name)
++            assert match
++            year = match.group("year")
++            q = int(match.group("q"))
++            payload = keys.get((year, q), {})
++            ans = payload.get("Correct Option") or "?"
++            if payload.get("deleted"):
++                ans = "DEL"
++            pct = payload.get("Correct percentage")
++            pct_s = f"{pct}%" if isinstance(pct, int) else "-"
++            line = f"{index:<4} {year:<6} {q:<4} {str(ans):<5} {pct_s:<10}"
++            if y > page_height - margin - 16:
++                page = document.new_page(width=page_width, height=page_height)
++                y = margin
++            page.insert_text((margin, y + 10), line, fontsize=10, fontname="cour")
++            y += 14
++
++        dest.parent.mkdir(parents=True, exist_ok=True)
++        document.save(dest, garbage=4, deflate=True)
++    finally:
++        document.close()
++
++
++def main() -> None:
++    args = parse_args()
++    if not args.keys.is_file():
++        raise SystemExit(
++            f"Missing answer keys: {args.keys}\nRun scripts/extract_answer_keys.py first."
++        )
++
++    keys = load_keys(args.keys)
++    percentages = load_percentages(keys)
++    known = sum(1 for v in percentages.values() if v is not None)
++    print(f"Loaded {len(keys)} keys ({known} with correct %)")
++
++    total_pdfs = 0
++    total_pages = 0
++    missing_examples: list[str] = []
++    for section in section_dirs(args.classified):
++        pngs = pngs_in_section(section)
++        if not pngs:
++            continue
++        ordered = sorted(pngs, key=lambda p: sort_key(p, percentages))
++        combined = section / "combined.pdf"
++        answers = section / "answer.pdf"
++        if combined.is_file() and answers.is_file() and not args.overwrite:
++            print(f"Keeping {combined.relative_to(args.classified)}")
++            continue
++        write_combined(ordered, combined)
++        section_label = section.name.replace("_", " ")
++        write_answer_pdf(ordered, answers, keys, section_label)
++        total_pdfs += 1
++        total_pages += len(ordered)
++
++        with_pct = 0
++        for path in ordered:
++            m = PNG_RE.fullmatch(path.name)
++            assert m
++            pct = percentages.get((m.group("year"), int(m.group("q"))))
++            if pct is not None:
++                with_pct += 1
++            elif len(missing_examples) < 12:
++                missing_examples.append(path.name)
++        rel = combined.relative_to(args.classified)
++        print(
++            f"Wrote {rel} + answer.pdf ({len(ordered)} pages, {with_pct} with %)"
++        )
++
++    print(f"\nDone: {total_pdfs} section pairs, {total_pages} question pages")
++    if missing_examples:
++        print(
++            "Examples without correct % (placed last):",
++            ", ".join(missing_examples),
++        )
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/crop_lq_from_pages.py b/scripts/crop_lq_from_pages.py
+new file mode 100644
+index 0000000..29cde05
+--- /dev/null
++++ b/scripts/crop_lq_from_pages.py
+@@ -0,0 +1,72 @@
++#!/usr/bin/env python3
++"""Crop full LQ questions from exported page PNGs + starts.json."""
++from __future__ import annotations
++
++import argparse
++import json
++import sys
++from pathlib import Path
++
++from PIL import Image
++
++ROOT = Path(__file__).resolve().parents[1]
++sys.path.insert(0, str(ROOT / "scripts"))
++
++from png_pdf import combine_pngs_to_pdf  # noqa: E402
++from preprocess_lq import (  # noqa: E402
++    crop_questions,
++    load_page_pngs,
++    crisp_scan,
++)
++
++Image.MAX_IMAGE_PIXELS = 250_000_000
++
++
++def crop_year(year_dir: Path) -> int:
++    meta_path = year_dir / "starts.json"
++    pages_dir = year_dir / "pages"
++    if not meta_path.is_file() or not pages_dir.is_dir():
++        print(f"  skip {year_dir.name}: missing pages/starts")
++        return 0
++    meta = json.loads(meta_path.read_text(encoding="utf-8"))
++    pages = load_page_pngs(pages_dir)
++    if not pages:
++        return 0
++    starts = [
++        (int(q["q"]), int(q["page_from"]), float(q.get("y") or 0))
++        for q in meta.get("questions", [])
++    ]
++    if not starts:
++        return 0
++    # crop_questions uses end at next start; page_to in meta is inclusive for
++    # page stacks - y on next question is what matters for full-problem crops.
++    images = crop_questions(pages, starts, clean_answer_lines=True)
++    for old in year_dir.glob("q*.png"):
++        old.unlink()
++    for qn, image in sorted(images.items()):
++        image = crisp_scan(image, enabled=True)
++        image.save(year_dir / f"q{qn}.png", format="PNG", optimize=False)
++        print(f"  {year_dir.name} q{qn}.png {image.size[0]}x{image.size[1]}")
++    # Question review PDF from crops (answers stay under ans/).
++    combine_pngs_to_pdf(year_dir, output=year_dir / "questions.pdf", overwrite=True)
++    return len(images)
++
++
++def main() -> None:
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("--years", nargs="*", default=None)
++    args = parser.parse_args()
++    root = ROOT / "output" / "lq"
++    total = 0
++    for year_dir in sorted(root.iterdir()):
++        if not year_dir.is_dir():
++            continue
++        if args.years and year_dir.name not in args.years:
++            continue
++        print(f"=== {year_dir.name} ===")
++        total += crop_year(year_dir)
++    print(f"Wrote {total} full-question crops")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/extract_answer_keys.py b/scripts/extract_answer_keys.py
+index b6128ca..9f0948e 100644
+--- a/scripts/extract_answer_keys.py
++++ b/scripts/extract_answer_keys.py
+@@ -223,33 +223,109 @@ MANUAL_KEYS: dict[str, dict[int, dict]] = {
+         33: {"Correct Option": "A", "Correct percentage": 62},
+     },
+     "2019": {
+-        1: {"Correct Option": "D", "Correct percentage": None},
+-        2: {"Correct Option": "B", "Correct percentage": None},
+-        3: {"Correct Option": "A", "Correct percentage": None},
+-        4: {"Correct Option": "D", "Correct percentage": None},
+-        5: {"Correct Option": "A", "Correct percentage": None},
+-        6: {"Correct Option": "C", "Correct percentage": None},
+-        7: {"Correct Option": "B", "Correct percentage": None},
+-        8: {"Correct Option": "D", "Correct percentage": None},
+-        9: {"Correct Option": "B", "Correct percentage": None},
+-        10: {"Correct Option": "A", "Correct percentage": None},
+-        11: {"Correct Option": "B", "Correct percentage": None},
+-        12: {"Correct Option": "A", "Correct percentage": None},
+-        13: {"Correct Option": "C", "Correct percentage": None},
+-        14: {"Correct Option": "C", "Correct percentage": None},
+-        15: {"Correct Option": "A", "Correct percentage": None},
+-        16: {"Correct Option": "C", "Correct percentage": None},
+-        17: {"Correct Option": "B", "Correct percentage": None},
+-        18: {"Correct Option": "A", "Correct percentage": None},
+-        19: {"Correct Option": "D", "Correct percentage": None},
+-        26: {"Correct Option": "C", "Correct percentage": None},
+-        27: {"Correct Option": "D", "Correct percentage": None},
+-        28: {"Correct Option": "D", "Correct percentage": None},
+-        29: {"Correct Option": "C", "Correct percentage": None},
+-        30: {"Correct Option": "B", "Correct percentage": None},
+-        31: {"Correct Option": "D", "Correct percentage": None},
+-        32: {"Correct Option": "B", "Correct percentage": None},
+-        33: {"Correct Option": "C", "Correct percentage": None},
++        1: {"Correct Option": "D", "Correct percentage": 67},
++        2: {"Correct Option": "B", "Correct percentage": 66},
++        3: {"Correct Option": "A", "Correct percentage": 67},
++        4: {"Correct Option": "D", "Correct percentage": 57},
++        5: {"Correct Option": "A", "Correct percentage": 50},
++        6: {"Correct Option": "C", "Correct percentage": 60},
++        7: {"Correct Option": "B", "Correct percentage": 65},
++        8: {"Correct Option": "D", "Correct percentage": 83},
++        9: {"Correct Option": "B", "Correct percentage": 62},
++        10: {"Correct Option": "A", "Correct percentage": 40},
++        11: {"Correct Option": "B", "Correct percentage": 27},
++        12: {"Correct Option": "A", "Correct percentage": 34},
++        13: {"Correct Option": "C", "Correct percentage": 66},
++        14: {"Correct Option": "C", "Correct percentage": 35},
++        15: {"Correct Option": "A", "Correct percentage": 76},
++        16: {"Correct Option": "C", "Correct percentage": 56},
++        17: {"Correct Option": "B", "Correct percentage": 50},
++        18: {"Correct Option": "A", "Correct percentage": 68},
++        19: {"Correct Option": "D", "Correct percentage": 54},
++        20: {"Correct Option": "A", "Correct percentage": 65},
++        21: {"Correct Option": "D", "Correct percentage": 68},
++        22: {"Correct Option": "A", "Correct percentage": 70},
++        23: {"Correct Option": "A", "Correct percentage": 34},
++        24: {"Correct Option": "C", "Correct percentage": 49},
++        25: {"Correct Option": "B", "Correct percentage": 64},
++        26: {"Correct Option": "C", "Correct percentage": 58},
++        27: {"Correct Option": "D", "Correct percentage": 44},
++        28: {"Correct Option": "D", "Correct percentage": 71},
++        29: {"Correct Option": "C", "Correct percentage": 79},
++        30: {"Correct Option": "B", "Correct percentage": 45},
++        31: {"Correct Option": "D", "Correct percentage": 68},
++        32: {"Correct Option": "B", "Correct percentage": 64},
++        33: {"Correct Option": "C", "Correct percentage": 67},
++    },
++    "2020": {
++        1: {"Correct Option": "D", "Correct percentage": 56},
++        2: {"Correct Option": "C", "Correct percentage": 65},
++        3: {"Correct Option": "D", "Correct percentage": 52},
++        4: {"Correct Option": "A", "Correct percentage": 64},
++        5: {"Correct Option": "C", "Correct percentage": 52},
++        6: {"Correct Option": "B", "Correct percentage": 66},
++        7: {"Correct Option": "D", "Correct percentage": 29},
++        8: {"Correct Option": "C", "Correct percentage": 81},
++        9: {"Correct Option": "A", "Correct percentage": 59},
++        10: {"Correct Option": "C", "Correct percentage": 60},
++        11: {"Correct Option": "D", "Correct percentage": 59},
++        12: {"Correct Option": "C", "Correct percentage": 45},
++        13: {"Correct Option": "C", "Correct percentage": 67},
++        14: {"Correct Option": "A", "Correct percentage": 70},
++        15: {"Correct Option": "C", "Correct percentage": 52},
++        16: {"Correct Option": "A", "Correct percentage": 45},
++        17: {"Correct Option": "D", "Correct percentage": 41},
++        18: {"Correct Option": "A", "Correct percentage": 45},
++        19: {"Correct Option": "B", "Correct percentage": 49},
++        20: {"Correct Option": "B", "Correct percentage": 31},
++        21: {"Correct Option": "A", "Correct percentage": 75},
++        22: {"Correct Option": "B", "Correct percentage": 62},
++        23: {"Correct Option": "B", "Correct percentage": 32},
++        24: {"Correct Option": "D", "Correct percentage": 52},
++        25: {"Correct Option": "A", "Correct percentage": 71},
++        26: {"Correct Option": "A", "Correct percentage": 42},
++        27: {"Correct Option": "B", "Correct percentage": 38},
++        28: {"Correct Option": "D", "Correct percentage": 32},
++        29: {"Correct Option": "B", "Correct percentage": 56},
++        30: {"Correct Option": "D", "Correct percentage": 63},
++        31: {"Correct Option": "B", "Correct percentage": 55},
++        32: {"Correct Option": "D", "Correct percentage": 49},
++        33: {"Correct Option": "C", "Correct percentage": 38},
++    },
++    "2022": {
++        1: {"Correct Option": "A", "Correct percentage": 76},
++        2: {"Correct Option": "B", "Correct percentage": 54},
++        3: {"Correct Option": "D", "Correct percentage": 80},
++        4: {"Correct Option": "C", "Correct percentage": 56},
++        5: {"Correct Option": "A", "Correct percentage": 51},
++        6: {"Correct Option": "B", "Correct percentage": 47},
++        7: {"Correct Option": "B", "Correct percentage": 84},
++        8: {"Correct Option": "B", "Correct percentage": 49},
++        9: {"Correct Option": "D", "Correct percentage": 61},
++        10: {"Correct Option": "D", "Correct percentage": 32},
++        11: {"Correct Option": "A", "Correct percentage": 46},
++        12: {"Correct Option": "D", "Correct percentage": 75},
++        13: {"Correct Option": "C", "Correct percentage": 67},
++        14: {"Correct Option": "A", "Correct percentage": 52},
++        15: {"Correct Option": "B", "Correct percentage": 70},
++        16: {"Correct Option": "C", "Correct percentage": 71},
++        17: {"Correct Option": "D", "Correct percentage": 67},
++        18: {"Correct Option": "B", "Correct percentage": 63},
++        19: {"Correct Option": "C", "Correct percentage": 55},
++        20: {"Correct Option": "A", "Correct percentage": 72},
++        21: {"Correct Option": "C", "Correct percentage": 44},
++        22: {"Correct Option": "D", "Correct percentage": 64},
++        23: {"Correct Option": "C", "Correct percentage": 24},
++        24: {"Correct Option": "D", "Correct percentage": 28},
++        25: {"Correct Option": "D", "Correct percentage": 54},
++        26: {"Correct Option": "B", "Correct percentage": 65},
++        27: {"Correct Option": "A", "Correct percentage": 61},
++        28: {"Correct Option": "C", "Correct percentage": 26},
++        29: {"Correct Option": "B", "Correct percentage": 34},
++        30: {"Correct Option": "A", "Correct percentage": 45},
++        31: {"Correct Option": "C", "Correct percentage": 63},
++        32: {"Correct Option": "A", "Correct percentage": 50},
++        33: {"Correct Option": "C", "Correct percentage": 83},
+     },
+     "2023": {
+         1: {"Correct Option": "B", "Correct percentage": 61},
+diff --git a/scripts/extract_lq_performance.py b/scripts/extract_lq_performance.py
+new file mode 100644
+index 0000000..fde6dfd
+--- /dev/null
++++ b/scripts/extract_lq_performance.py
+@@ -0,0 +1,118 @@
++#!/usr/bin/env python3
++"""Extract Paper 1B (LQ) candidate-performance notes into JSON.
++
++Reads OCR markdown under paper/performance/<year> performance.md and writes
++classified/lq/candidate_performance.json keyed by year -> question -> text.
++"""
++from __future__ import annotations
++
++import argparse
++import json
++import re
++from pathlib import Path
++
++ROOT = Path(__file__).resolve().parents[1]
++PERF_DIR = ROOT / "paper" / "performance"
++OUT = ROOT / "classified" / "lq" / "candidate_performance.json"
++
++SECTION_B_RE = re.compile(
++    r"###\s*Section B\b.*?(?=^##\s+Paper 2\b|\Z)",
++    re.I | re.M | re.S,
++)
++QUESTION_RE = re.compile(
++    r"^####\s*Question\s+(\d+)\s*\n+(.*?)(?=^####\s*Question\s+\d+|\Z)",
++    re.I | re.M | re.S,
++)
++PERF_LINE_RE = re.compile(
++    r"\*\*Performance in General:\*\*\s*(.+?)(?=\n\n|\n\*\*|\Z)",
++    re.I | re.S,
++)
++def _clean(text: str) -> str:
++    return re.sub(r"\s+", " ", text).strip()
++
++
++def parse_heading_questions(body: str) -> dict[str, str]:
++    out: dict[str, str] = {}
++    for qm in QUESTION_RE.finditer(body):
++        qn = qm.group(1)
++        block = qm.group(2).strip()
++        pm = PERF_LINE_RE.search(block)
++        if pm:
++            note = _clean(pm.group(1))
++        else:
++            note = re.sub(r"\*\*Popularity.*?\*\*:?\s*[^\n]*", "", block)
++            note = _clean(note)
++        if note:
++            out[qn] = note
++    return out
++
++
++def parse_table_questions(body: str) -> dict[str, str]:
++    """Parse | N | performance text | rows (ignore Popularity columns)."""
++    out: dict[str, str] = {}
++    for line in body.splitlines():
++        if not line.strip().startswith("|"):
++            continue
++        cells = [c.strip() for c in line.strip().strip("|").split("|")]
++        if len(cells) < 2:
++            continue
++        if not cells[0].isdigit():
++            continue
++        # Two-col: Question Number | Performance
++        # Three-col (Paper 2 style): Question | Popularity | Performance - skip here
++        # For Section B LQ tables we only want 2-col rows.
++        if len(cells) == 2:
++            note = _clean(cells[1])
++        elif len(cells) == 3 and not re.search(r"\d", cells[1]):
++            # Rare: popularity blank / text in middle
++            note = _clean(cells[2])
++        elif len(cells) == 3 and cells[1].replace("%", "").replace(".", "").isdigit():
++            # Paper 2 style with popularity - do not use in Section B parse
++            continue
++        else:
++            note = _clean(cells[-1])
++        if note and note.lower() not in {"performance in general", "---"}:
++            out[cells[0]] = note
++    return out
++
++
++def parse_year_md(path: Path) -> dict[str, str]:
++    text = path.read_text(encoding="utf-8")
++    m = SECTION_B_RE.search(text)
++    if not m:
++        return {}
++    body = m.group(0)
++    out = parse_heading_questions(body)
++    if not out:
++        out = parse_table_questions(body)
++    return out
++
++
++def main() -> None:
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("--years", nargs="*", default=None)
++    args = parser.parse_args()
++
++    data: dict[str, dict[str, str]] = {}
++    paths = sorted(PERF_DIR.glob("* performance.md"))
++    for path in paths:
++        m = re.match(r"(20\d{2})", path.name)
++        if not m:
++            continue
++        year = m.group(1)
++        if args.years and year not in args.years:
++            continue
++        notes = parse_year_md(path)
++        if notes:
++            data[year] = notes
++            print(f"{year}: {len(notes)} LQ performance notes")
++        else:
++            print(f"{year}: no Section B notes found")
++
++    OUT.parent.mkdir(parents=True, exist_ok=True)
++    OUT.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
++    print(f"Wrote {OUT} ({sum(len(v) for v in data.values())} notes)")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/preprocess_lq.py b/scripts/preprocess_lq.py
+index c9f4506..2e9b335 100644
+--- a/scripts/preprocess_lq.py
++++ b/scripts/preprocess_lq.py
+@@ -1,14 +1,16 @@
+ #!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+-"""Split HKDSE Physics Paper 1B (LQ) into per-question PNGs.
++"""Split HKDSE Physics Paper 1B (LQ) into upright full pages (+ optional crops).
+ 
+-Works in *displayed* pixel space (handles rotated scans). Keeps question
+-stems + diagrams; strips dotted answer lines and margin warnings.
++Default: export exam pages and starts.json (no within-page question crops).
++Answer crops stay in preprocess_lq_answers.py.
+ """
+ from __future__ import annotations
+ 
+ import argparse
+ import io
++import json
++import math
+ import re
+ import subprocess
+ from pathlib import Path
+@@ -134,9 +136,15 @@ def apply_page_rotation(image: Image.Image, rot: int) -> Image.Image:
+ 
+ 
+ def is_two_page_spread(image: Image.Image) -> bool:
+-    """Detect side-by-side two-page scans (e.g. 2020 Paper 1B at 3507x4960)."""
++    """Detect side-by-side two-page scans (landscape, much wider than tall).
++
++    Portrait A4 at high DPI (e.g. 3508x4961) must NOT match - that used to
++    bisect every page and invent fake question numbers.
++    """
+     w, h = image.size
+-    return w >= 3400 and h >= 4800 and h > w
++    if w <= h:
++        return False
++    return w >= 3400 and h >= 2400 and (w / h) >= 1.25
+ 
+ 
+ def split_spread(image: Image.Image) -> list[Image.Image]:
+@@ -226,11 +234,20 @@ def export_pdf_pages(
+         doc.close()
+ 
+ 
++def _placement_rotation_deg(transform: tuple | list) -> int:
++    """Snap the CTM image-x axis angle to 0/90/180/270."""
++    a, b = float(transform[0]), float(transform[1])
++    ang = math.degrees(math.atan2(b, a)) % 360.0
++    return int(min((0, 90, 180, 270), key=lambda c: min(abs(ang - c), abs(ang - c - 360))))
++
++
+ def extract_fullpage_display(page: fitz.Page, doc: fitz.Document) -> Image.Image | None:
+     """Copy the embedded full-page raster (no MuPDF resample) when safe.
+ 
+     Photocopy JPEGs stay at native pixels; 1-bit CCITT stays sharp. Skip when the
+-    page composites a soft backdrop with sharper overlays (e.g. 2022).
++    page composites a soft backdrop with sharper overlays (e.g. 2022), or when the
++    placement CTM rotates/clips a two-page scan (2019/2020/2023) - get_pixmap
++    handles that correctly and extract alone would stay sideways.
+     """
+     layers = _page_image_layers(page)
+     if not layers:
+@@ -239,6 +256,11 @@ def extract_fullpage_display(page: fitz.Page, doc: fitz.Document) -> Image.Image
+     if len(full) != 1:
+         return None
+     base = full[0]
++    # Content-stream rotation (page.rotation may still be 0). 90/270 usually means
++    # a landscape booklet scan clipped per PDF page - do not extract raw pixels.
++    trot = _placement_rotation_deg(base.get("transform", (1, 0, 0, 1, 0, 0)))
++    if trot in (90, 270):
++        return None
+     sharper = [
+         L
+         for L in layers
+@@ -258,6 +280,22 @@ def extract_fullpage_display(page: fitz.Page, doc: fitz.Document) -> Image.Image
+     rot = page.rotation % 360
+     if rot:
+         image = apply_page_rotation(image, rot)
++    # Placement 180° with page.rotation 0 (e.g. 2017) leaves the raster inverted.
++    if trot == 180:
++        image = image.transpose(Image.Transpose.ROTATE_180)
++    # Embedded rasters are sometimes stored rotated relative to the page
++    # rect (page.rotation still 0). Align aspect ratio with the page.
++    pw = max(abs(page.rect.width), 1.0)
++    ph = max(abs(page.rect.height), 1.0)
++    if (pw > ph) != (image.width > image.height):
++        target = pw / ph
++
++        def _aspect_score(im: Image.Image) -> float:
++            return abs((im.width / max(im.height, 1)) - target)
++
++        cand90 = image.transpose(Image.Transpose.ROTATE_90)
++        cand270 = image.transpose(Image.Transpose.ROTATE_270)
++        image = min((cand90, cand270), key=_aspect_score)
+     if image.mode not in ("RGB", "L"):
+         image = image.convert("RGB")
+     elif image.mode == "L":
+@@ -361,46 +399,69 @@ def ocr_tsv(image: Image.Image) -> list[dict]:
+ def find_starts_on_image(image: Image.Image, max_questions: int) -> list[tuple[int, float]]:
+     """Return (question_number, y_px) on one displayed page image."""
+     w, h = image.size
+-    # Left band where question numbers sit.
+-    strip = image.crop((int(w * 0.02), int(h * 0.06), int(w * 0.28), int(h * 0.94)))
+-    strip = strip.resize((strip.width * 2, strip.height * 2))
++    top0 = int(h * 0.035)
+     hits: list[tuple[int, float, float]] = []
+ 
+-    for row in ocr_tsv(strip):
+-        if row["conf"] < 15:
+-            continue
+-        match = match_question_number(row["text"])
+-        if not match:
+-            continue
+-        qn = int(match.group(1))
+-        if not (1 <= qn <= max_questions):
+-            continue
+-        if row["left"] > strip.width * 0.55:
+-            continue
+-        y = int(h * 0.06) + row["top"] / 2.0
+-        hits.append((qn, y, row["conf"]))
++    # Two strip widths: narrow avoids body text; wide keeps "1. Stem..." intact.
++    strips: list[Image.Image] = []
++    for left_f, right_f in ((0.035, 0.20), (0.035, 0.32)):
++        strip = image.crop((int(w * left_f), top0, int(w * right_f), int(h * 0.96)))
++        strips.append(strip.resize((strip.width * 2, strip.height * 2)))
+ 
+-    tsv_qns = {qn for qn, _, _ in hits}
+-    buf = io.BytesIO()
+-    strip.save(buf, format="PNG")
+-    result = subprocess.run(
+-        ["tesseract", "stdin", "stdout", "--psm", "6"],
+-        input=buf.getvalue(),
+-        stdout=subprocess.PIPE,
+-        stderr=subprocess.DEVNULL,
+-        check=False,
+-    )
+-    text = result.stdout.decode("utf-8", errors="ignore")
+-    lines = text.splitlines()
+-    for i, line in enumerate(lines):
+-        m = re.match(r"^\s*[\"'*#]?\s*(\d{1,2})\s*[.)]+(?:\s+\S|$)", line)
+-        if not m:
+-            continue
+-        qn = int(m.group(1))
+-        if not (1 <= qn <= max_questions) or qn in tsv_qns:
+-            continue
+-        y = int(h * 0.06) + (i / max(1, len(lines))) * (h * 0.88)
+-        hits.append((qn, y, 25.0))
++    for strip in strips:
++        for row in ocr_tsv(strip):
++            if row["conf"] < 15:
++                continue
++            text = _normalize_qnum_text(row["text"])
++            match = match_question_number(text)
++            if not match:
++                starred = re.fullmatch(r"[*#]?(\d{1,2})\s*[.)]?", text)
++                if starred:
++                    match = starred
++                else:
++                    continue
++            qn = int(match.group(1))
++            if not (1 <= qn <= max_questions):
++                continue
++            if row["left"] > strip.width * 0.55:
++                continue
++            y = top0 + row["top"] / 2.0
++            hits.append((qn, y, row["conf"]))
++
++        buf = io.BytesIO()
++        strip.save(buf, format="PNG")
++        result = subprocess.run(
++            ["tesseract", "stdin", "stdout", "--psm", "6"],
++            input=buf.getvalue(),
++            stdout=subprocess.PIPE,
++            stderr=subprocess.DEVNULL,
++            check=False,
++        )
++        lines = result.stdout.decode("utf-8", errors="ignore").splitlines()
++        # After N./N,/N) require EOL or a real stem char - not dotted-line noise.
++        line_q_re = re.compile(
++            r"^[|\[\]Il\"'*#\s]*[*#]?\s*(\d{1,2})\s*[.,)](?:\s*$|\s+[^\s.·•])"
++        )
++        fig_re = re.compile(r"Figure\s+(\d{1,2})\s*\.\s*1\b", re.I)
++        tsv_qns = {qn for qn, _, _ in hits}
++        for i, line in enumerate(lines):
++            stripped = line.strip()
++            m = line_q_re.match(stripped)
++            if m:
++                qn = int(m.group(1))
++                if 1 <= qn <= max_questions and qn not in tsv_qns:
++                    y = top0 + (i / max(1, len(lines))) * (h * 0.92)
++                    hits.append((qn, y, 25.0))
++                    tsv_qns.add(qn)
++                continue
++            fm = fig_re.search(stripped)
++            if fm:
++                qn = int(fm.group(1))
++                if 1 <= qn <= max_questions and qn not in tsv_qns:
++                    # Question number sits just above "Figure N.1".
++                    y = max(top0 + 20, top0 + (i / max(1, len(lines))) * (h * 0.92) - 40)
++                    hits.append((qn, y, 18.0))
++                    tsv_qns.add(qn)
+ 
+     best: dict[int, tuple[float, float]] = {}
+     for qn, y, conf in hits:
+@@ -413,18 +474,31 @@ def find_starts_on_image(image: Image.Image, max_questions: int) -> list[tuple[i
+ def find_question_starts(
+     pages: list[Image.Image], cover_pages: int, max_questions: int
+ ) -> list[tuple[int, int, float]]:
+-    """Global (qn, page_index, y_px) sequence starting at 1."""
+-    best: dict[int, tuple[int, float, float]] = {}
++    """Global (qn, page_index, y_px) sequence starting at 1.
++
++    Only accept the next expected number in reading order so OCR false hits
++    (option digits, figure labels) cannot invent Q7 mid-paper.
++    """
++    by_page: dict[int, list[tuple[int, float]]] = {}
+     for page_index in range(cover_pages, len(pages)):
+-        for qn, y in find_starts_on_image(pages[page_index], max_questions):
+-            prev = best.get(qn)
+-            if prev is None or (page_index, y) < (prev[0], prev[1]):
+-                best[qn] = (page_index, y, 1.0)
+-
+-    ordered = sorted(
+-        ((qn, *best[qn][:2]) for qn in best if 1 <= qn <= max_questions),
+-        key=lambda t: (t[1], t[2]),
+-    )
++        by_page[page_index] = find_starts_on_image(pages[page_index], max_questions)
++
++    ordered: list[tuple[int, int, float]] = []
++    expected = 1
++    last_key = (-1, -1.0)
++    for page_index in range(cover_pages, len(pages)):
++        hits = sorted(by_page.get(page_index, []), key=lambda item: item[1])
++        for qn, y in hits:
++            if qn != expected:
++                continue
++            key = (page_index, y)
++            if key <= last_key:
++                continue
++            ordered.append((qn, page_index, y))
++            expected = qn + 1
++            last_key = key
++            if expected > max_questions:
++                return ordered
+     return ordered
+ 
+ 
+@@ -580,7 +654,15 @@ def process_one(
+     max_questions: int,
+     max_scale: float = 9.0,
+     pages_dir: Path | None = None,
++    *,
++    crop_questions_flag: bool = False,
+ ) -> int:
++    """Export LQ exam pages (and optionally per-question crops).
++
++    Default is pages-only: split upright full pages + starts.json. Question
++    crops are off unless crop_questions_flag=True (answers stay separately
++    cropped from the marking scheme).
++    """
+     doc = fitz.open(source)
+     try:
+         if doc.needs_pass:
+@@ -594,48 +676,82 @@ def process_one(
+         if not allow_crisp:
+             print("  jpeg scans detected — keeping greyscale (no bilevel snap)")
+ 
+-        loaded_from_png = False
+-        full_pages: list[Image.Image] | None = None
+-        if pages_dir is not None:
+-            full_pages = load_page_pngs(pages_dir)
+-            if full_pages:
+-                loaded_from_png = True
+-                print(f"  loaded {len(full_pages)} page PNGs from {pages_dir}")
+-
+-        if full_pages is None:
++        pages_out = pages_dir if pages_dir is not None else (output_dir / "pages")
++        full_pages: list[Image.Image] | None = load_page_pngs(pages_out)
++        if full_pages:
++            print(f"  loaded {len(full_pages)} page PNGs from {pages_out}")
++        else:
+             full_pages = expand_pdf_pages(doc, scale, cover_pages=cover_pages)
+-            if pages_dir is not None:
+-                save_page_pngs(full_pages, pages_dir)
+-                print(f"  saved {len(full_pages)} page PNGs -> {pages_dir}")
+-
+-        detect_pages = expand_pdf_pages(doc, detect_scale, cover_pages=cover_pages)
+-
++            for i, image in enumerate(full_pages):
++                full_pages[i] = crisp_scan(image, enabled=allow_crisp)
++            save_page_pngs(full_pages, pages_out)
++            print(f"  saved {len(full_pages)} page PNGs -> {pages_out}")
++
++        detect_ratio = min(1.0, detect_scale / max(scale, 0.01))
++        if detect_ratio < 0.95:
++            detect_pages = downscale_pages(full_pages, detect_ratio)
++        else:
++            detect_pages = full_pages
+         starts = find_question_starts(detect_pages, cover_pages=0, max_questions=max_questions)
+         if not starts:
+             print(f"  WARNING: no questions detected in {source.name}")
+             return 0
+-        if len(starts) > 10:
+-            starts = starts[:10]
++        if len(starts) > max_questions:
++            starts = starts[:max_questions]
+         print(f"  detected Q{starts[0][0]}-Q{starts[-1][0]} ({len(starts)} questions)")
+ 
+-        starts_scaled = []
++        # Scale y to full-page coordinates for metadata / optional crops.
++        starts_scaled: list[tuple[int, int, float]] = []
+         for qn, page_i, y in starts:
+             det_h = max(detect_pages[page_i].size[1], 1)
+             ren_h = full_pages[page_i].size[1]
+             starts_scaled.append((qn, page_i, y * (ren_h / det_h)))
++
++        output_dir.mkdir(parents=True, exist_ok=True)
++        questions_meta: list[dict] = []
++        for i, (qn, page_i, y) in enumerate(starts_scaled):
++            if i + 1 < len(starts_scaled):
++                next_page = starts_scaled[i + 1][1]
++                # Full pages for this Q only - stop before the next question's page.
++                end_page = next_page - 1 if next_page > page_i else page_i
++            else:
++                end_page = len(full_pages) - 1
++            page_from = page_i
++            page_to = max(page_from, end_page)
++            questions_meta.append(
++                {
++                    "q": qn,
++                    "page_from": page_from,
++                    "page_to": page_to,
++                    "y": round(float(y), 1),
++                }
++            )
++        meta_path = output_dir / "starts.json"
++        meta_path.write_text(
++            json.dumps({"questions": questions_meta, "pages": len(full_pages)}, indent=2)
++            + "\n",
++            encoding="utf-8",
++        )
++        print(f"  wrote {meta_path.name} ({len(questions_meta)} questions)")
++
++        # Review PDF = full exam pages (not question crops).
++        combine_pngs_to_pdf(pages_out, output=output_dir / "combined.pdf", overwrite=True)
++
++        if not crop_questions_flag:
++            for old in output_dir.glob("q*.png"):
++                old.unlink()
++            return len(questions_meta)
++
+         images = crop_questions(
+             full_pages,
+             starts_scaled,
+             clean_answer_lines=allow_crisp,
+         )
+-        output_dir.mkdir(parents=True, exist_ok=True)
+         for old in output_dir.glob("q*.png"):
+             old.unlink()
+         for qn, image in sorted(images.items()):
+             image = crisp_scan(image, enabled=allow_crisp)
+-            # Large hi-res crops: skip PNG optimize (slow, little gain).
+             image.save(output_dir / f"q{qn}.png", format="PNG", optimize=False)
+-        combine_pngs_to_pdf(output_dir)
+         return len(images)
+     finally:
+         doc.close()
+diff --git a/scripts/preprocess_lq_answers.py b/scripts/preprocess_lq_answers.py
+new file mode 100644
+index 0000000..412ba0e
+--- /dev/null
++++ b/scripts/preprocess_lq_answers.py
+@@ -0,0 +1,715 @@
++#!/usr/bin/env python3
++"""Crop HKDSE Physics Paper 1B marking-scheme answers into per-question PNGs.
++
++Answer PDFs usually start with Section A (MC keys) then Section B (LQ
++solutions). Each Section B question is a table row-block with Solution /
++Marks / Remarks - we crop the full page width so remarks stay included.
++"""
++from __future__ import annotations
++
++import argparse
++import csv
++import io
++import re
++import subprocess
++from pathlib import Path
++
++import pymupdf as fitz
++import numpy as np
++from PIL import Image
++
++from png_pdf import combine_pngs_to_pdf
++
++Image.MAX_IMAGE_PIXELS = 250_000_000
++
++SECTION_A_RE = re.compile(r"section\s*a|question\s*no\.?\s*key", re.I)
++SECTION_B_RE = re.compile(r"section\s*b", re.I)
++SOLUTION_HDR_RE = re.compile(r"solution", re.I)
++MARKS_HDR_RE = re.compile(r"marks|remarks", re.I)
++MAIN_Q_RE = re.compile(r"^(\d{1,2})[.\(]")
++SUBPART_ONLY_RE = re.compile(r"^\([a-z]", re.I)
++PAPER_2_RE = re.compile(r"paper\s*2\b", re.I)
++PAPER_2_TOPIC_RE = re.compile(
++    r"astronomy\s+and\s+space|atomic\s+world|"
++    r"energy\s+and\s+use\s+of\s+energy|medical\s+physics",
++    re.I,
++)
++FRONT_MATTER_RE = re.compile(
++    r"marking\s*scheme|markers['’]?\s*reference|model\s*answers|"
++    r"method\s*marks|the\s*following\s*symbol",
++    re.I,
++)
++
++
++def parse_args() -> argparse.Namespace:
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("source", type=Path, help="Marking-scheme PDF (e.g. answer/2019ans.pdf)")
++    parser.add_argument("output_dir", type=Path)
++    parser.add_argument("--max-questions", type=int, default=12)
++    parser.add_argument("--scale", type=float, default=2.0)
++    return parser.parse_args()
++
++
++def render_page(page: fitz.Page, scale: float) -> Image.Image:
++    pix = page.get_pixmap(matrix=fitz.Matrix(scale, scale), alpha=False)
++    return Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
++
++
++def ocr_text(image: Image.Image, psm: str = "6") -> str:
++    buf = io.BytesIO()
++    image.save(buf, format="PNG")
++    result = subprocess.run(
++        ["tesseract", "stdin", "stdout", f"--psm", psm],
++        input=buf.getvalue(),
++        stdout=subprocess.PIPE,
++        stderr=subprocess.DEVNULL,
++        check=False,
++    )
++    return result.stdout.decode("utf-8", errors="ignore")
++
++
++def ocr_tsv(image: Image.Image, psm: str = "6") -> list[dict]:
++    buf = io.BytesIO()
++    image.save(buf, format="PNG")
++    result = subprocess.run(
++        ["tesseract", "stdin", "stdout", f"--psm", psm, "tsv"],
++        input=buf.getvalue(),
++        stdout=subprocess.PIPE,
++        stderr=subprocess.DEVNULL,
++        check=False,
++    )
++    rows = list(csv.DictReader(result.stdout.decode("utf-8", errors="ignore").splitlines(), delimiter="\t"))
++    out: list[dict] = []
++    for row in rows:
++        text = (row.get("text") or "").strip()
++        if not text:
++            continue
++        try:
++            conf = float(row.get("conf") or -1)
++        except ValueError:
++            continue
++        if conf < 0:
++            continue
++        try:
++            out.append(
++                {
++                    "text": text,
++                    "left": int(float(row["left"])),
++                    "top": int(float(row["top"])),
++                    "conf": conf,
++                }
++            )
++        except (KeyError, ValueError):
++            continue
++    return out
++
++
++def header_text(image: Image.Image) -> str:
++    band = image.crop((0, 0, image.width, max(40, int(image.height * 0.14))))
++    return ocr_text(band)
++
++
++def is_section_a_keys(image: Image.Image) -> bool:
++    top = header_text(image)
++    # Solution columns sometimes OCR "Section A" noise; Solution/Marks wins.
++    if SOLUTION_HDR_RE.search(top) and MARKS_HDR_RE.search(top):
++        return False
++    if SECTION_B_RE.search(top) and SOLUTION_HDR_RE.search(top):
++        return False
++    if SECTION_A_RE.search(top) and not SECTION_B_RE.search(top):
++        return True
++    body = ocr_text(image.crop((0, 0, image.width, min(image.height, int(image.height * 0.45)))))
++    if SOLUTION_HDR_RE.search(body) and (
++        MARKS_HDR_RE.search(body) or SECTION_B_RE.search(body)
++    ):
++        return False
++    if SECTION_A_RE.search(body) and re.search(r"question\s*no\.?\s*key", body, re.I):
++        return True
++    return False
++
++
++def is_front_matter(image: Image.Image) -> bool:
++    """General marking instructions (not Section A keys or Section B solutions)."""
++    top = header_text(image)
++    if SECTION_B_RE.search(top) or SECTION_A_RE.search(top):
++        return False
++    if SOLUTION_HDR_RE.search(top) and MARKS_HDR_RE.search(top):
++        return False
++    body = ocr_text(image.crop((0, 0, image.width, min(image.height, int(image.height * 0.35)))))
++    return bool(FRONT_MATTER_RE.search(top) or FRONT_MATTER_RE.search(body))
++
++
++def is_paper_2_page(image: Image.Image) -> bool:
++    """True when we've left Paper 1B marking and hit Paper 2."""
++    text = header_text(image)
++    # Still on Paper 1B solution tables.
++    if SECTION_B_RE.search(text) and (
++        SOLUTION_HDR_RE.search(text) or MARKS_HDR_RE.search(text)
++    ):
++        # Paper 1B says "Paper 1 Section B"; Paper 2 says "Section B: Atomic World".
++        if not PAPER_2_TOPIC_RE.search(text):
++            return False
++    if PAPER_2_RE.search(text) and not re.search(r"paper\s*1\b", text, re.I):
++        return True
++    if PAPER_2_TOPIC_RE.search(text):
++        return True
++    body = ocr_text(image.crop((0, 0, image.width, min(image.height, int(image.height * 0.25)))))
++    if PAPER_2_TOPIC_RE.search(body):
++        return True
++    if PAPER_2_RE.search(body) and not re.search(r"paper\s*1\b", body, re.I):
++        return True
++    return False
++
++
++def looks_like_section_b(image: Image.Image) -> bool:
++    """True only for Paper 1B solution tables - not instruction front matter."""
++    text = header_text(image)
++    # Landscape A3 marking schemes put Sec A keys left / Sec B right on page 1:
++    # "Section A" in the header must not veto a clear Section B / Solution column.
++    if SECTION_A_RE.search(text) and not (
++        SECTION_B_RE.search(text) or SOLUTION_HDR_RE.search(text)
++    ):
++        return False
++    if FRONT_MATTER_RE.search(text) and not SECTION_B_RE.search(text):
++        return False
++    if SECTION_B_RE.search(text):
++        return True
++    if SOLUTION_HDR_RE.search(text) and MARKS_HDR_RE.search(text):
++        return True
++    # Sideways scans often OCR headers poorly even after rotation; Q labels are enough.
++    return bool(find_main_question_ys(image, 12))
++
++
++def split_answer_panels(image: Image.Image) -> list[Image.Image]:
++    """Split two-up / landscape answer sheets into left/right panels."""
++    w, h = image.size
++    if w < int(h * 1.15):
++        return [image]
++    mid = w // 2
++    # Prefer a gutter cut slightly left of mid so the right column keeps its
++    # question numbers (often sit just left of the geometric midpoint).
++    cut = max(int(w * 0.48), mid - 40)
++    return [image.crop((0, 0, cut, h)), image.crop((cut, 0, w, h))]
++
++
++def _ascii_alpha_score(text: str) -> float:
++    if not text.strip():
++        return 0.0
++    alpha = sum(1 for c in text if c.isalpha() and c.isascii())
++    score = alpha / max(1, len(text))
++    if SECTION_A_RE.search(text) or SECTION_B_RE.search(text):
++        score += 1.5
++    if SOLUTION_HDR_RE.search(text) or MARKS_HDR_RE.search(text):
++        score += 1.5
++    if FRONT_MATTER_RE.search(text):
++        score += 0.8
++    return score
++
++
++def detect_document_rotation(doc: fitz.Document, scale: float, sample: int = 4) -> int:
++    """Pick a page rotation (0/90/270) that makes the most pages readable."""
++    votes = {0: 0.0, 90: 0.0, 270: 0.0}
++    for index in range(min(sample, len(doc))):
++        raw = render_page(doc[index], min(scale, 1.5))
++        for rot in (0, 90, 270):
++            img = raw if rot == 0 else raw.rotate(rot, expand=True)
++            votes[rot] += _ascii_alpha_score(header_text(img))
++    best = max(votes, key=votes.get)
++    # Only rotate when a sideways orientation is clearly better.
++    if best != 0 and votes[best] >= votes[0] + 0.8:
++        return best
++    return 0
++
++
++def apply_rotation(image: Image.Image, rot: int) -> Image.Image:
++    if rot == 0:
++        return image
++    return image.rotate(rot, expand=True)
++
++
++def normalize_answer_orientation(image: Image.Image) -> Image.Image:
++    """Rotate sideways booklet scans (e.g. 2018) so English text is upright."""
++    rot = 0
++    candidates = (
++        (0, image),
++        (270, image.rotate(270, expand=True)),
++        (90, image.rotate(90, expand=True)),
++    )
++    scored: list[tuple[float, int, Image.Image]] = []
++    for r, cand in candidates:
++        scored.append((_ascii_alpha_score(header_text(cand)), r, cand))
++    scored.sort(key=lambda t: t[0], reverse=True)
++    best_score, best_rot, best_img = scored[0]
++    if best_rot != 0 and best_score >= scored[-1][0] + 0.35:
++        return best_img
++    if best_score >= 0.15:
++        return best_img
++    return image
++
++
++def page_has_pdf_question_labels(page: fitz.Page, max_questions: int = 12) -> bool:
++    """True when embedded PDF text has Paper 1B-style 'N.' / 'N(' labels."""
++    return bool(
++        find_main_question_ys_pdf(page, max_questions=max_questions, scale=1.0)
++    )
++
++
++def is_paper_2_pdf_text(page: fitz.Page) -> bool:
++    """Detect Paper 2 from embedded text footers like '2020-DSE-PHY 2'."""
++    text = page.get_text("text")[:800]
++    if not text.strip():
++        return False
++    if re.search(r"DSE-PHY\s*1B\b|Paper\s*1\s*Section\s*B", text, re.I):
++        return False
++    return bool(re.search(r"DSE-PHY\s*2\b|Paper\s*2\b", text, re.I))
++
++
++def find_main_question_ys_pdf(
++    page: fitz.Page,
++    *,
++    max_questions: int,
++    scale: float,
++    x0_frac: float = 0.0,
++    x1_frac: float = 1.0,
++) -> list[tuple[int, int]]:
++    """Question labels from embedded PDF text (when the marking scheme is text)."""
++    page_text = page.get_text("text")
++    # Ignore general marking-instruction pages (numbered rules, not LQ solutions).
++    if FRONT_MATTER_RE.search(page_text[:1200]) and not SOLUTION_HDR_RE.search(page_text[:1200]):
++        if not re.search(r"(?m)^\s*\d{1,2}\.\s*\(", page_text):
++            return []
++    rect = page.rect
++    x0 = rect.x0 + rect.width * x0_frac
++    x1 = rect.x0 + rect.width * x1_frac
++    hits: dict[int, int] = {}
++    for block in page.get_text("dict").get("blocks", []):
++        for line in block.get("lines", []):
++            for span in line.get("spans", []):
++                text = (span.get("text") or "").strip()
++                # Require "N." / "N(" - bare digits are too often marks or maths.
++                match = MAIN_Q_RE.match(text) or re.match(r"^(\d{1,2})\($", text)
++                if not match:
++                    continue
++                qn = int(match.group(1))
++                if not (1 <= qn <= max_questions):
++                    continue
++                # Instruction lists use "2. 'A' Marks"; solutions use "2. (a)".
++                if not re.search(
++                    rf"(?m)^\s*{qn}\s*[.(]\s*\(|{qn}\s*\.\s*\(",
++                    page_text,
++                ):
++                    continue
++                bx0, by0, _bx1, _by1 = span["bbox"]
++                # Labels sit in the far-left of each column.
++                if bx0 < x0 or bx0 > x0 + (x1 - x0) * 0.35:
++                    continue
++                y_px = int(by0 * scale)
++                prev = hits.get(qn)
++                if prev is None or y_px < prev:
++                    hits[qn] = y_px
++    return sorted(hits.items(), key=lambda t: t[1])
++
++
++def _label_hits_from_strip(
++    strip: Image.Image, h: int, max_questions: int
++) -> list[tuple[int, int, float]]:
++    hits: list[tuple[int, int, float]] = []
++    for row in ocr_tsv(strip, psm="6") + ocr_tsv(strip, psm="11"):
++        text = row["text"]
++        if SUBPART_ONLY_RE.match(text):
++            continue
++        # Prefer "1." / "1(" tokens; bare digits rejected.
++        match = MAIN_Q_RE.match(text) or re.match(r"^(\d{1,2})\(", text)
++        if not match or re.fullmatch(r"\d{1,2}", text):
++            continue
++        qn = int(match.group(1))
++        if not (1 <= qn <= max_questions):
++            continue
++        if row["left"] > strip.width * 0.55:
++            continue
++        hits.append((qn, row["top"], row["conf"]))
++
++    lines = ocr_text(strip).splitlines()
++    # Require a subpart paren after "N." so "3. In a question..." (instructions) is ignored.
++    line_re = re.compile(
++        r"^\s*(\d{1,2})\s*[.)@]\s*\("
++        r"|^(\d{1,2})\("
++    )
++    known = {qn for qn, _, _ in hits}
++    for i, line in enumerate(lines):
++        raw = line.strip()
++        m = line_re.match(raw)
++        qn: int | None = None
++        conf = 20.0
++        if m:
++            qn = int(next(g for g in m.groups() if g))
++        elif re.match(r"^[Ss5]{1,2}\s*[.)@]\s*\(", raw) and 5 not in known:
++            qn = 5
++            conf = 15.0
++        if qn is None or not (1 <= qn <= max_questions) or qn in known:
++            continue
++        y = int((i / max(1, len(lines))) * h)
++        hits.append((qn, y, conf))
++        known.add(qn)
++    return hits
++
++
++def find_main_question_ys(
++    image: Image.Image, max_questions: int
++) -> list[tuple[int, int]]:
++    """Return (question_number, y_px) for main LQ starts on one page."""
++    # Huge scan pages OCR poorly at native resolution - work on a downscale.
++    scale_back = 1.0
++    work = image
++    max_dim = max(image.size)
++    if max_dim > 2200:
++        scale_back = max_dim / 1800.0
++        work = image.resize(
++            (max(1, int(image.width / scale_back)), max(1, int(image.height / scale_back)))
++        )
++
++    w, h = work.size
++    hits: list[tuple[int, int, float]] = []
++    # Narrow strip: clean "1. (a)" labels. Wider strip: when labels sit farther in.
++    for frac, cap in ((0.16, 140), (0.28, 320)):
++        strip_w = max(90, min(cap, int(w * frac)))
++        strip = work.crop((0, 0, strip_w, h))
++        hits.extend(_label_hits_from_strip(strip, h, max_questions))
++
++    best: dict[int, tuple[int, float]] = {}
++    for qn, y, conf in hits:
++        prev = best.get(qn)
++        if prev is None or y < prev[0] - 8 or (abs(y - prev[0]) <= 8 and conf > prev[1]):
++            best[qn] = (y, conf)
++    return sorted(
++        ((qn, int(y * scale_back)) for qn, (y, _c) in best.items()),
++        key=lambda t: t[1],
++    )
++
++
++def trim_whitespace(image: Image.Image, pad: int = 12) -> Image.Image:
++    arr = np.asarray(image.convert("L"))
++    ink = arr < 235
++    if not ink.any():
++        return image
++    rows = np.where(ink.any(axis=1))[0]
++    cols = np.where(ink.any(axis=0))[0]
++    top = max(0, int(rows[0]) - pad)
++    bottom = min(arr.shape[0], int(rows[-1]) + 1 + pad)
++    left = max(0, int(cols[0]) - pad)
++    right = min(arr.shape[1], int(cols[-1]) + 1 + pad)
++    return image.crop((left, top, right, bottom))
++
++
++def stitch_vertical(parts: list[Image.Image]) -> Image.Image:
++    width = max(p.width for p in parts)
++    height = sum(p.height for p in parts)
++    out = Image.new("RGB", (width, height), (255, 255, 255))
++    y = 0
++    for part in parts:
++        out.paste(part, (0, y))
++        y += part.height
++    return out
++
++
++def longest_question_chain(
++    candidates: list[tuple[int, int, int]], max_questions: int
++) -> list[tuple[int, int, int]]:
++    """First sighting of each Qn, kept in ascending Q order with monotonic page position.
++
++    Ignores out-of-order false positives (e.g. a stray "10." before real Q2).
++    """
++    ordered = sorted(
++        (c for c in candidates if 1 <= c[0] <= max_questions),
++        key=lambda t: (t[1], t[2], t[0]),
++    )
++    first: dict[int, tuple[int, int, int]] = {}
++    for qn, page_i, y in ordered:
++        if qn not in first:
++            first[qn] = (qn, page_i, y)
++
++    starts: list[tuple[int, int, int]] = []
++    last_pos = (-1, -1)
++    for qn in range(1, max_questions + 1):
++        item = first.get(qn)
++        if not item:
++            continue
++        pos = (item[1], item[2])
++        if pos < last_pos:
++            # This Q number appears earlier in the PDF than a lower Q - false hit.
++            continue
++        starts.append(item)
++        last_pos = pos
++    return starts
++
++
++def ensure_leading_q1(
++    starts: list[tuple[int, int, int]], pages: list[Image.Image]
++) -> list[tuple[int, int, int]]:
++    """If Section B begins without a detected '1.', treat page 0 as Q1."""
++    if not pages:
++        return starts
++    if any(qn == 1 for qn, _, _ in starts):
++        return starts
++    header_y = int(pages[0].height * 0.10)
++    q1 = (1, 0, header_y)
++    if not starts:
++        return [q1]
++    first_q, first_page, first_y = starts[0]
++    # Prepend Q1 whenever the first found label is later in the document.
++    if first_page > 0 or first_y > header_y + 40:
++        print(f"  infer missing Q1 at page_idx=0 y={header_y} (before Q{first_q})")
++        return [q1, *starts]
++    return starts
++
++
++def fill_single_gaps(
++    starts: list[tuple[int, int, int]], pages: list[Image.Image]
++) -> list[tuple[int, int, int]]:
++    """Insert a missing Qn when neighbors imply it owns an intervening page.
++
++    Example: Q1 on page 0, Q3 on page 2, no Q2 -> place Q2 at top of page 1.
++    """
++    if len(starts) < 2 or not pages:
++        return starts
++    by_q = {qn: (qn, p, y) for qn, p, y in starts}
++    extras: list[tuple[int, int, int]] = []
++    ordered_q = sorted(by_q)
++    for a, b in zip(ordered_q, ordered_q[1:]):
++        if b != a + 2:
++            continue
++        mid = a + 1
++        if mid in by_q:
++            continue
++        pa, ya = by_q[a][1], by_q[a][2]
++        pb, yb = by_q[b][1], by_q[b][2]
++        if pb <= pa:
++            continue
++        if pb == pa + 1:
++            mid_page = pa
++            mid_y = min(pages[pa].height - 40, ya + max(80, int(pages[pa].height * 0.35)))
++        elif pb == pa + 2:
++            # One intervening panel/page: missing Q usually starts at its top.
++            mid_page = pa + 1
++            mid_y = int(pages[mid_page].height * 0.08)
++        else:
++            mid_page = pb - 1
++            mid_y = int(pages[mid_page].height * 0.08)
++        extras.append((mid, mid_page, mid_y))
++        print(f"  infer missing Q{mid} at page_idx={mid_page} y={mid_y}")
++    if not extras:
++        return starts
++    merged = {qn: item for qn, item in by_q.items()}
++    for item in extras:
++        merged[item[0]] = item
++    return sorted(merged.values(), key=lambda t: (t[1], t[2], t[0]))
++
++
++def strip_answer_chrome(image: Image.Image) -> Image.Image:
++    """Remove Solution/Marks/Remarks headers and page-number footers."""
++    w, h = image.size
++    top = 0
++    bottom = int(h * 0.965)
++    head = image.crop((0, 0, w, max(24, int(h * 0.12))))
++    head_text = ocr_text(head).lower()
++    # Only strip when the chrome words are present AND no main "N." label yet.
++    has_chrome = bool(re.search(r"solution|marks|remarks|paper\s*1\s*section", head_text))
++    has_q_label = bool(re.search(r"(?m)^\s*\d{1,2}\s*[.(]", head_text))
++    if has_chrome and not has_q_label:
++        top = int(h * 0.08)
++        arr = np.asarray(head.convert("L"))
++        row_dark = (arr < 80).mean(axis=1)
++        rule_rows = np.where(row_dark > 0.35)[0]
++        if len(rule_rows):
++            top = max(top, int(rule_rows[-1] + 4))
++    if bottom <= top + 30:
++        return image
++    return trim_whitespace(image.crop((0, top, w, bottom)))
++
++
++def process_answers(
++    source: Path,
++    output_dir: Path,
++    *,
++    max_questions: int = 12,
++    scale: float = 2.0,
++) -> int:
++    doc = fitz.open(source)
++    output_dir.mkdir(parents=True, exist_ok=True)
++    for old in output_dir.glob("q*.png"):
++        old.unlink()
++
++    pages: list[Image.Image] = []
++    # Parallel list: (pdf_page_index, x0_frac, x1_frac) for native-text Q finding.
++    panel_meta: list[tuple[int, float, float]] = []
++    section_b_started = False
++    seen_section_a = False
++    doc_rot = detect_document_rotation(doc, scale)
++    if doc_rot:
++        print(f"  using page rotation {doc_rot}°")
++    try:
++        for index in range(len(doc)):
++            if section_b_started and is_paper_2_pdf_text(doc[index]):
++                print(f"  stop at Paper 2 page {index + 1}/{len(doc)} (pdf text)")
++                break
++            image = apply_rotation(render_page(doc[index], scale), doc_rot)
++            if doc_rot == 0:
++                image = normalize_answer_orientation(image)
++            if is_paper_2_page(image) and section_b_started:
++                print(f"  stop at Paper 2 page {index + 1}/{len(doc)}")
++                break
++
++            panels = split_answer_panels(image)
++            n_panels = len(panels)
++            pdf_labels = page_has_pdf_question_labels(doc[index], max_questions)
++            for panel_i, panel in enumerate(panels):
++                x0_frac = panel_i / n_panels
++                x1_frac = (panel_i + 1) / n_panels
++                label = (
++                    f"page {index + 1}/{len(doc)}"
++                    if n_panels == 1
++                    else f"page {index + 1}/{len(doc)} {'LR'[panel_i]}"
++                )
++                if not section_b_started:
++                    if is_section_a_keys(panel):
++                        seen_section_a = True
++                        print(f"  skip Section A {label}")
++                        continue
++                    if is_front_matter(panel) and not (
++                        pdf_labels and re.search(r"(?m)^\s*\d{1,2}\.\s*\(", doc[index].get_text("text")[:2000] or "")
++                    ):
++                        print(f"  skip front-matter {label}")
++                        continue
++                    if looks_like_section_b(panel) or pdf_labels:
++                        section_b_started = True
++                    elif seen_section_a:
++                        section_b_started = True
++                    else:
++                        print(f"  skip unmarked {label}")
++                        continue
++                else:
++                    if is_paper_2_page(panel):
++                        print(f"  stop at Paper 2 {label}")
++                        break
++                    if is_section_a_keys(panel):
++                        print(f"  stop at late Section A {label}")
++                        break
++                pages.append(panel)
++                panel_meta.append((index, x0_frac, x1_frac))
++                print(f"  include answer {label} ({panel.width}x{panel.height})")
++            else:
++                continue
++            break
++    finally:
++        # Keep doc open until after native-text label pass.
++        pass
++
++    # Fallback: scanned PDFs with weak OCR may never trip Section A/B headers.
++    if not pages:
++        print("  fallback: include all pages (Section B headers not OCR'd)")
++        try:
++            for index in range(len(doc)):
++                image = normalize_answer_orientation(render_page(doc[index], scale))
++                if is_paper_2_page(image):
++                    print(f"  stop at Paper 2 page {index + 1}/{len(doc)}")
++                    break
++                for panel_i, panel in enumerate(split_answer_panels(image)):
++                    n_panels = 2 if image.width >= int(image.height * 1.15) else 1
++                    pages.append(panel)
++                    panel_meta.append((index, panel_i / n_panels, (panel_i + 1) / n_panels))
++                    print(
++                        f"  include answer page {index + 1}/{len(doc)} "
++                        f"({panel.width}x{panel.height})"
++                    )
++        finally:
++            pass
++
++    if not pages:
++        doc.close()
++        print(f"  WARNING: no Section B pages found in {source.name}")
++        return 0
++
++    candidates: list[tuple[int, int, int]] = []
++    for page_index, image in enumerate(pages):
++        pdf_i, x0_frac, x1_frac = panel_meta[page_index]
++        pdf_hits: list[tuple[int, int]] = []
++        if doc_rot == 0:
++            pdf_hits = find_main_question_ys_pdf(
++                doc[pdf_i],
++                max_questions=max_questions,
++                scale=scale,
++                x0_frac=x0_frac,
++                x1_frac=x1_frac,
++            )
++        ocr_hits = find_main_question_ys(image, max_questions)
++        # Prefer embedded text when present; fall back to OCR.
++        merged: dict[int, int] = {qn: y for qn, y in ocr_hits}
++        for qn, y in pdf_hits:
++            merged[qn] = y
++        for qn, y in merged.items():
++            candidates.append((qn, page_index, int(y)))
++    doc.close()
++
++    starts = longest_question_chain(candidates, max_questions)
++    starts = ensure_leading_q1(starts, pages)
++    starts = fill_single_gaps(starts, pages)
++    if not starts:
++        print(f"  WARNING: no LQ answer labels found in {source.name}")
++        return 0
++
++    print(f"  detected answers Q{starts[0][0]}-Q{starts[-1][0]} ({len(starts)})")
++
++    ends: list[tuple[int | None, int, int]] = [
++        (qn, page_i, y) for qn, page_i, y in starts[1:]
++    ]
++    ends.append((None, len(pages) - 1, pages[-1].height))
++
++    written = 0
++    for (qn, start_page, start_y), (_nq, end_page, end_y) in zip(starts, ends):
++        parts: list[Image.Image] = []
++        for page_index in range(start_page, end_page + 1):
++            image = pages[page_index]
++            h = image.height
++            header_skip = int(h * 0.09)
++            if page_index == start_page:
++                # Keep a small pad above the "N." label; do not force header_skip
++                # when the question starts near the top (that was cutting Q2).
++                top = max(0, start_y - 12)
++            else:
++                top = header_skip
++            if page_index == end_page and _nq is not None:
++                bottom = max(top + 20, int(end_y) - 4)
++            else:
++                bottom = int(h * 0.965)
++            bottom = min(bottom, image.height - 4)
++            if bottom <= top + 20:
++                continue
++            parts.append(image.crop((0, top, image.width, bottom)))
++        if not parts:
++            continue
++        combined = strip_answer_chrome(trim_whitespace(stitch_vertical(parts)))
++        out = output_dir / f"q{qn}.png"
++        combined.save(out, format="PNG")
++        print(f"  Wrote {out.name} ({combined.width}x{combined.height})")
++        written += 1
++
++    combine_pngs_to_pdf(output_dir, overwrite=True)
++    return written
++
++
++def main() -> None:
++    args = parse_args()
++    if not args.source.is_file():
++        raise SystemExit(f"Missing {args.source}")
++    print(f"Answers: {args.source.name}")
++    count = process_answers(
++        args.source,
++        args.output_dir,
++        max_questions=args.max_questions,
++        scale=args.scale,
++    )
++    print(f"Wrote {count} answer crops -> {args.output_dir}")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/preprocess_mc.py b/scripts/preprocess_mc.py
+index 61ac00c..587f698 100644
+--- a/scripts/preprocess_mc.py
++++ b/scripts/preprocess_mc.py
+@@ -23,12 +23,19 @@ RAIL_TOLERANCE = 12.0
+ # Scanned pages shift left/right, so absolute --left/--right alone drift vs "N.".
+ LEFT_PAD = 36.0  # crop starts this far left of the number rail
+ ANCHOR_GAP = 16.0  # marker centre sits this far left of the leftmost number ink
+-RIGHT_FROM_RAIL = 455.0  # fallback / cap: crop right = rail_x + this
+-RIGHT_PAD = 18.0  # keep this much whitespace past detected content ink
++RIGHT_FROM_RAIL = 530.0  # fallback when content-right detection fails
++RIGHT_PAD = 24.0  # keep this much whitespace past detected content ink
+ FIRST_LABEL_PAD = 20.0  # crop starts this far above the first question number on a page
+ MARKER_LEFT_PAD = 8.0  # keep this much crop to the left of the marker centre
+ FOOTER_GAP = 2.0  # crop bottom this far above detected footer text
+-FOOTER_RE = re.compile(r"(dse[- ]?phy|phy\s*1a|section\s*a)", re.I)
++# Min vertical gap between consecutive same-page anchors. Option lines are
++# closer than this; midpoint gap-fills used to land on them and truncate crops.
++MIN_QUESTION_GAP = 90.0
++FOOTER_RE = re.compile(
++    r"(dse[- ]?phy|phy\s*1a|end\s+of\s+section|section\s*a|"
++    r"go\s+on\s+to\s+the\s+next\s+page|next\s+page)",
++    re.I,
++)
+ LABEL_RE = re.compile(r"[#*]?(\d{1,2})([.,])?")
+ SUBPART_RE = re.compile(r"^[A-Za-z]\d")
+ Q1_CONFUSION_RE = re.compile(r"^[lIi|\|][.,]$")
+@@ -44,6 +51,9 @@ def _normalize_label_token(text: str) -> str:
+     # "11." is often read as "1]" or "1}".
+     if re.fullmatch(r"1[\]}]", text):
+         return "11."
++    # "*19." is often read as "*]", "*y", "*]!" (']'/'y' ≈ '9').
++    if re.fullmatch(r"[*#][\]yY!]+\.?", text):
++        return "19."
+     # Leading junk before digits / asterisk.
+     text = re.sub(r"^[^0-9#*]+", "", text)
+     return text
+@@ -352,7 +362,12 @@ def collect_labels(
+     questions: int,
+     page_hits: dict[int, list[tuple[int, float, float]]] | None = None,
+ ) -> dict[int, tuple[int, float, float]]:
+-    """Detect labels on each page, then assign in reading order (OCR hits only)."""
++    """Detect labels on each page, then assign in reading order (OCR hits only).
++
++    Only accept the exact next expected number. Accepting OCR "near misses"
++    (e.g. reading 2. as 4.) then inventing midpoints for the skipped numbers
++    places anchors on option lines and produces tiny / option-only crops.
++    """
+     labels: dict[int, tuple[int, float, float]] = {}
+     if page_hits is None:
+         page_hits = {}
+@@ -364,17 +379,19 @@ def collect_labels(
+     for page_index in content_pages:
+         hits = sorted(page_hits[page_index], key=lambda item: item[2])
+         for number, x, y in hits:
+-            if number in labels or number < expected:
++            # "*12." is often OCR'd as "*1"/"+1" (leading digit only). Only
++            # promote that case - mapping any N==expected%10 also matched
++            # footer junk "2" as Q12 on later pages.
++            if number != expected and expected == 12 and number == 1:
++                number = 12
++            if number != expected or number in labels:
+                 continue
+             if (page_index, y) <= last_pos:
+                 continue
+-            # Accept the next number, or a short OCR miss (e.g. Q1/Q2 misread but Q3 visible).
+-            if number > expected + 4:
++            if last_pos[0] == page_index and (y - last_pos[1]) < MIN_QUESTION_GAP:
+                 continue
+             labels[number] = (page_index, x, y)
+             expected = number + 1
+-            while expected in labels:
+-                expected += 1
+             last_pos = (page_index, y)
+ 
+     return _fill_same_page_gaps(labels, page_hits)
+@@ -384,9 +401,13 @@ def merge_page_hits(
+     source: fitz.Document,
+     content_pages: list[int],
+     questions: int,
+-    scales: tuple[float, ...] = (5.0, 3.0, 8.0),
++    scales: tuple[float, ...] = (2.0, 3.0, 5.0, 8.0),
+ ) -> dict[int, list[tuple[int, float, float]]]:
+-    """Run OCR at several scales and keep the best hit per question per page."""
++    """Run OCR at several scales and keep the best hit per question per page.
++
++    Include the default render scale (2.0): higher scales alone miss some
++    labels on scanned papers (e.g. 2024 Q2), which breaks sequential collect.
++    """
+     merged: dict[int, dict[int, tuple[int, float, float]]] = {pi: {} for pi in content_pages}
+     for page_index in content_pages:
+         for scale in scales:
+@@ -399,32 +420,60 @@ def _fill_same_page_gaps(
+     labels: dict[int, tuple[int, float, float]],
+     page_hits: dict[int, list[tuple[int, float, float]]],
+ ) -> dict[int, tuple[int, float, float]]:
+-    """Fill missing numbers from neighbouring OCR hits (same page, else adjacent pages)."""
++    """Fill missing numbers only from real OCR hits (never invent midpoints).
++
++    Invented y positions land between a stem and its options and create the
++    tiny / option-only crops (e.g. 2018 Q4, 2026 Q2).
++    """
+     filled = dict(labels)
+     if not filled:
+         return filled
+-    questions = max(filled)
+-    for number in range(1, questions + 1):
+-        if number in filled:
+-            continue
+-        prevs = [k for k in filled if k < number]
+-        nexts = [k for k in filled if k > number]
+-        if not prevs or not nexts:
+-            continue
+-        prev_n = max(prevs)
+-        next_n = min(nexts)
+-        p_page, p_x, p_y = filled[prev_n]
+-        n_page, n_x, n_y = filled[next_n]
+-        if p_page == n_page:
+-            filled[number] = (p_page, (p_x + n_x) / 2.0, (p_y + n_y) / 2.0)
+-            continue
+-        if n_page < p_page:
+-            continue
+-        # Next question is low on its page: this one likely starts that page.
+-        if n_y > 160.0:
+-            filled[number] = (n_page, n_x, max(70.0, n_y - 90.0))
+-        else:
+-            filled[number] = (p_page, p_x, p_y + 70.0)
++    questions = max(max(filled), max((n for hits in page_hits.values() for n, *_ in hits), default=0))
++    changed = True
++    while changed:
++        changed = False
++        for number in range(1, questions + 1):
++            if number in filled:
++                continue
++            prevs = [k for k in filled if k < number]
++            nexts = [k for k in filled if k > number]
++            if not prevs:
++                continue
++            prev_n = max(prevs)
++            p_page, _p_x, p_y = filled[prev_n]
++            if nexts:
++                next_n = min(nexts)
++                n_page, _n_x, n_y = filled[next_n]
++            else:
++                n_page, n_y = None, None
++
++            candidates: list[tuple[int, float, float]] = []
++            for page_index, hits in page_hits.items():
++                for hit_n, x, y in hits:
++                    if hit_n != number:
++                        continue
++                    if page_index < p_page:
++                        continue
++                    if page_index == p_page and y <= p_y + MIN_QUESTION_GAP * 0.5:
++                        continue
++                    if n_page is not None:
++                        if page_index > n_page:
++                            continue
++                        if page_index == n_page and y >= n_y - MIN_QUESTION_GAP * 0.5:
++                            continue
++                    candidates.append((page_index, x, y))
++            if not candidates:
++                continue
++            # Prefer reading order: earliest page, then topmost y.
++            candidates.sort(key=lambda item: (item[0], item[2], item[1]))
++            page_index, x, y = candidates[0]
++            # Re-check gap to previous after choosing.
++            if page_index == p_page and (y - p_y) < MIN_QUESTION_GAP:
++                continue
++            if n_page is not None and page_index == n_page and (n_y - y) < MIN_QUESTION_GAP:
++                continue
++            filled[number] = (page_index, x, y)
++            changed = True
+     return filled
+ 
+ 
+@@ -971,11 +1020,12 @@ def main() -> None:
+             bottom,
+         )
+         if content_right is not None:
++            # Trust detected ink. The old min(..., provisional_right) cap at
++            # rail+455 clipped trailing characters on many scanned pages.
+             right = min(page.rect.width - 2.0, content_right + args.right_pad)
+         else:
+             right = provisional_right
+-        # Never keep a huge empty right band past the rail-relative fallback.
+-        right = min(right, provisional_right)
++        right = min(right, page.rect.width - 2.0)
+         right = max(right, left + 80.0)
+ 
+         pixmap = page.get_pixmap(matrix=fitz.Matrix(scale, scale), alpha=False)
+diff --git a/scripts/split_mc.py b/scripts/split_mc.py
+index 4fca5ea..9238d89 100644
+--- a/scripts/split_mc.py
++++ b/scripts/split_mc.py
+@@ -20,7 +20,9 @@ from PIL import Image
+ from png_pdf import combine_pngs_to_pdf
+ 
+ # Extra space above the anchor so the first line (e.g. the top of "m") is not clipped.
+-TOP_PAD_PX = 10
++# Kept in sync with --pad-top (pts * scale): larger top pad than the previous
++# question's bottom gap pulls the prior question's last lines into this crop.
++TOP_PAD_PX = 24
+ 
+ 
+ def trim_question_image(
+@@ -29,18 +31,33 @@ def trim_question_image(
+     pad: int = 10,
+     left_pad: int = 24,
+     preserve_left: bool = False,
++    preserve_right: bool = False,
++    preserve_top: bool = False,
+     dark_threshold: int = 235,
+-    min_row_fraction: float = 0.008,
++    min_row_fraction: float = 0.015,
+     min_col_fraction: float = 0.012,
+ ) -> Image.Image:
+-    """Crop to ink bounds; ignores large blank gaps between marker splits."""
++    """Crop to ink bounds; ignores large blank gaps between marker splits.
++
++    When splitting from page meta, pass preserve_left+preserve_right so every
++    question on a page keeps the same page crop width (short stems must not
++    shrink horizontally and look oversized). Pass preserve_top so a sparse
++    question number in the left rail is not trimmed away before denser diagram
++    ink (e.g. PP Q6).
++
++    Row ink ignores the far-right edge (scan binding bars) so last-on-page
++    questions are not kept tall by thin vertical artifacts.
++    """
+     arr = np.asarray(image.convert("L"))
+     h, w = arr.shape
+     if h < 4 or w < 4:
+         return image
+ 
++    # Ignore right-edge scan noise when judging row content / bottom trim.
++    row_limit = max(1, int(w * 0.97))
++
+     def row_content(y: int) -> bool:
+-        return float((arr[y] < dark_threshold).mean()) >= min_row_fraction
++        return float((arr[y, :row_limit] < dark_threshold).mean()) >= min_row_fraction
+ 
+     def col_content(x: int) -> bool:
+         return float((arr[:, x] < dark_threshold).mean()) >= min_col_fraction
+@@ -50,13 +67,49 @@ def trim_question_image(
+     if not content_rows or not content_cols:
+         return image
+ 
+-    top = max(0, content_rows[0] - pad)
+-    bottom = min(h, content_rows[-1] + 1 + pad)
++    # Page-turn arrows sit in the bottom-right only ("go to next page").
++    # Prefer body ink (left 85%) so those arrows do not keep a tall footer.
++    body_limit = max(1, int(w * 0.85))
++
++    def body_row(y: int) -> bool:
++        return float((arr[y, :body_limit] < dark_threshold).mean()) >= min_row_fraction
++
++    body_rows = [y for y in content_rows if body_row(y)]
++    bottom_rows = body_rows if body_rows else content_rows
++
++    # Drop tiny trailing islands after a tall whitespace gap (page-turn
++    # arrows, scan bars at the page foot).
++    if len(bottom_rows) >= 2:
++        islands: list[tuple[int, int]] = []
++        start = bottom_rows[0]
++        prev = bottom_rows[0]
++        for y in bottom_rows[1:]:
++            if y - prev > 40:
++                islands.append((start, prev))
++                start = y
++            prev = y
++        islands.append((start, prev))
++        while len(islands) > 1:
++            s, e = islands[-1]
++            if (e - s) < 55 and s > int(h * 0.65):
++                islands.pop()
++                continue
++            break
++        bottom_rows = [y for y in bottom_rows if y <= islands[-1][1]]
++
++    if preserve_top:
++        top = 0
++    else:
++        top = max(0, content_rows[0] - pad)
++    bottom = min(h, bottom_rows[-1] + 1 + pad)
+     if preserve_left:
+         left = 0
+     else:
+         left = max(0, content_cols[0] - left_pad)
+-    right = min(w, content_cols[-1] + 1 + pad)
++    if preserve_right:
++        right = w
++    else:
++        right = min(w, content_cols[-1] + 1 + pad)
+     if bottom <= top or right <= left:
+         return image
+     return image.crop((left, top, right, bottom))
+@@ -90,7 +143,7 @@ def parse_args() -> argparse.Namespace:
+     parser.add_argument(
+         "--pad-top",
+         type=float,
+-        default=4.0,
++        default=12.0,
+         help="Padding (PDF pts) between this question's bottom and the next anchor",
+     )
+     parser.add_argument("--pad-bottom", type=float, default=6.0, help="Padding below each question end")
+@@ -181,6 +234,108 @@ def load_meta(path: Path) -> dict[str, Any]:
+     return json.loads(path.read_text())
+ 
+ 
++def clip_end_of_section(
++    page: fitz.Page,
++    left: float,
++    top: float,
++    right: float,
++    bottom: float,
++    *,
++    gap: float = 4.0,
++) -> float:
++    """Raise bottom so 'END OF SECTION A' (and similar) is not included."""
++    markers = (
++        "END OF SECTION",
++        "End of Section",
++        "END OF PAPER",
++        "End of Paper",
++    )
++    limit = bottom
++    for marker in markers:
++        for rect in page.search_for(marker):
++            if rect.y0 < top or rect.y0 > bottom:
++                continue
++            if rect.x1 < left - 20 or rect.x0 > right + 20:
++                continue
++            limit = min(limit, float(rect.y0) - gap)
++    return max(top + 1.0, limit)
++
++
++
++def strip_end_matter_banner(image: Image.Image) -> Image.Image:
++    """Drop trailing 'END OF SECTION A' / 'END OF PAPER' from a question PNG.
++
++    Scanned papers often have no PDF text layer, so search_for cannot see the
++    banner. OCR the lower part of the crop and cut above the banner line.
++    Require the full phrase - matching lone END/SECTION/PAPER false-triggered
++    on normal stems (e.g. 2014 Q1) and deleted the options.
++    """
++    import io
++    import subprocess
++
++    w, h = image.size
++    if h < 40 or w < 40:
++        return image
++    # Only the lower third can hold the end banner.
++    y0 = int(h * 0.55)
++    strip = image.crop((0, y0, w, h))
++    buf = io.BytesIO()
++    strip.save(buf, format="PNG")
++    result = subprocess.run(
++        ["tesseract", "stdin", "stdout", "--psm", "6"],
++        input=buf.getvalue(),
++        stdout=subprocess.PIPE,
++        stderr=subprocess.DEVNULL,
++        check=False,
++    )
++    blob = result.stdout.decode("utf-8", errors="ignore").upper()
++    if "END OF SECTION" not in blob and "END OF PAPER" not in blob:
++        return image
++
++    # Locate the banner line via TSV tops when possible.
++    result_tsv = subprocess.run(
++        ["tesseract", "stdin", "stdout", "--psm", "6", "tsv"],
++        input=buf.getvalue(),
++        stdout=subprocess.PIPE,
++        stderr=subprocess.DEVNULL,
++        check=False,
++    )
++    rows = result_tsv.stdout.decode("utf-8", errors="ignore").splitlines()
++    cut_y: int | None = None
++    if len(rows) >= 2:
++        header = rows[0].split("\t")
++        try:
++            text_i = header.index("text")
++            top_i = header.index("top")
++            conf_i = header.index("conf")
++        except ValueError:
++            text_i = top_i = conf_i = -1
++        if text_i >= 0:
++            for line in rows[1:]:
++                cols = line.split("\t")
++                if len(cols) <= max(text_i, top_i, conf_i):
++                    continue
++                try:
++                    conf = float(cols[conf_i])
++                except ValueError:
++                    continue
++                if conf < 0:
++                    continue
++                word = (cols[text_i] or "").strip().upper()
++                if word != "END":
++                    continue
++                try:
++                    top = int(float(cols[top_i]))
++                except ValueError:
++                    continue
++                abs_y = y0 + top
++                cut_y = abs_y if cut_y is None else min(cut_y, abs_y)
++    if cut_y is None or cut_y < 20:
++        cut_y = int(h * 0.82)
++    return image.crop((0, 0, w, max(20, cut_y - 4)))
++
++
++
+ def split_from_source(
+     source: Path,
+     meta: dict[str, Any],
+@@ -212,29 +367,53 @@ def split_from_source(
+                 next_anchor = anchors[index + 1]
+                 end_page = int(next_anchor["source_page"])
+                 end_y = float(next_anchor["y"])
++                # If the next question is only a short header-band into a later
++                # page, this question ended on the previous page - do not pull
++                # the next page's header into the crop (inflates bottom margin).
++                while end_page > start_page:
++                    next_top = float(page_crops[end_page]["top"])
++                    if end_y - next_top > 120.0:
++                        break
++                    end_page -= 1
++                    if end_page == start_page:
++                        end_y = float(page_crops[start_page]["bottom"])
++                    else:
++                        end_y = float(page_crops[end_page]["bottom"])
+             else:
+                 last_page = max(page_crops)
+                 end_page = last_page
+                 end_y = float(page_crops[last_page]["bottom"])
+ 
+             parts: list[Image.Image] = []
+-            top_pad_pts = TOP_PAD_PX / scale
++            # Same vertical gap above this anchor as below the previous question
++            # (pad_top), so crops abut with no overlap / no leaked prior lines.
++            top_pad_pts = pad_top
++            start_crop = page_crops[start_page]
++            # Keep every strip of this question at the start-page left/right so
++            # width matches siblings that share the starting page (multi-page
++            # tails must not adopt a different page's crop width).
++            # Use page crop left (not marker_x) so the printed question number
++            # and any leading * / # stay inside the clip.
++            left = float(start_crop.get("left", start_crop.get("marker_x", start_x))) - left_margin
++            right = float(start_crop["right"])
+             for page_index in range(start_page, end_page + 1):
+                 crop = page_crops[page_index]
+-                # Crop at the anchor rail (original PDF, no blue dots).
+-                rail_left = float(crop.get("marker_x", start_x))
+-                left = rail_left - left_margin
+                 if page_index == start_page:
+                     top = max(0.0, start_y - top_pad_pts)
+                 else:
+                     top = float(crop["top"])
+-                right = float(crop["right"])
+                 if page_index == end_page and index + 1 < len(anchors) and end_page == int(
+                     next_anchor["source_page"]
+                 ):
+-                    bottom = max(top + 1.0, end_y - pad_top)
++                    # Keep only a tiny gap above the next number so the last
++                    # option line is not clipped (pad_top is for the next
++                    # question's top; sharing it here cut 2016 Q9 option D).
++                    bottom = max(top + 1.0, end_y - 4.0)
+                 else:
+                     bottom = float(crop["bottom"])
++                bottom = clip_end_of_section(
++                    document[page_index], left, top, right, bottom
++                )
+                 if bottom <= top or right <= left:
+                     continue
+                 parts.append(render_clip(document[page_index], left, top, right, bottom, scale))
+@@ -243,7 +422,15 @@ def split_from_source(
+                 raise SystemExit(f"Question {number} produced an empty crop.")
+ 
+             combined = stitch_vertical(parts)
+-            combined = trim_question_image(combined, preserve_left=True)
++            # Keep full page left/right from meta so short questions match
++            # sibling width on the same page; only trim vertical whitespace.
++            combined = trim_question_image(
++                combined,
++                preserve_left=True,
++                preserve_right=True,
++                preserve_top=True,
++            )
++            combined = strip_end_matter_banner(combined)
+             out_path = output_dir / f"q{number}.png"
+             combined.save(out_path, format="PNG")
+             print(f"Wrote {out_path} ({combined.width}x{combined.height})")

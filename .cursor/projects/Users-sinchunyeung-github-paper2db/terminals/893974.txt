@@ -1,0 +1,18 @@
+---
+pid: 49995
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "npx -y lavish-axi poll /Users/sinchunyeung/github/paper2db/.lavish/lq-classified-review/index.html --agent-reply \"$(cat <<'EOF'\nPer-section PDFs are ready under classified/lq/<book>/<section>/:\n\n- questions.pdf - all primary LQs in that section (year order)\n- answers.pdf - answer crops (same order; missing ans years omitted)\n- performance.pdf - candidate-performance notes\n\n24 sections with questions got all 3 PDFs (empty sections skipped, e.g. S12 Gravitation). Regenerate with: .venv/bin/python scripts/combine_lq_section_pdfs.py\nEOF\n)\"\n"
+title: "Poll Lavish confirming section PDFs"
+status: running  
+started_at: 2026-09-05T04:17:31.328Z
+running_for_ms: 37487003 
+---
+[lavish-axi] Long-polling for user feedback on /Users/sinchunyeung/github/paper2db/.lavish/lq-classified-review/index.html. This stays silent until the user sends feedback or ends the session - leave it running. Detected layout issues do NOT return this poll: they wait in the user's Layout issues inbox until the user queues them as ordinary feedback. If it gets killed or times out before feedback arrives, re-run `lavish-axi poll /Users/sinchunyeung/github/paper2db/.lavish/lq-classified-review/index.html` - feedback remains queued until delivery. Poll delivery consumes the response, so read it completely.
+
+[lavish-axi] Poll interrupted before user feedback arrived. The user may still be reviewing - re-run `lavish-axi poll /Users/sinchunyeung/github/paper2db/.lavish/lq-classified-review/index.html` to keep waiting; feedback remains queued until delivery. Poll delivery consumes the response, so read it completely.
+
+---
+exit_code: unknown
+elapsed_ms: 37487675
+ended_at: 2026-09-05T14:42:19.003Z
+---

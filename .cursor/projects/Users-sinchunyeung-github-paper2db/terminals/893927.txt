@@ -1,0 +1,56 @@
+---
+pid: 38016
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && for year in 2020 2018 2017 2021 2023; do\n  echo \"=== $year ===\"\n  .venv/bin/python scripts/preprocess_lq_answers.py \"answer/${year}ans.pdf\" \"output/lq/$year/ans\" --max-questions 12 --scale 2.0 2>&1 | rg \"detected|Wrote [0-9]+ answer|WARNING\"\ndone\nPYTHONPATH=scripts PYTHONUNBUFFERED=1 .venv/bin/python -u scripts/classify_lq_keywords.py 2>&1\n"
+title: "Fix remaining answer crops; keyword-classify LQ"
+status: succeeded
+started_at: 2026-09-04T18:09:56.311Z
+running_for_ms: 193939   
+---
+=== 2020 ===
+  detected answers Q1-Q10 (11)
+Wrote 11 answer crops -> output/lq/2020/ans
+=== 2018 ===
+  detected answers Q3-Q5 (4)
+Wrote 4 answer crops -> output/lq/2018/ans
+=== 2017 ===
+  detected answers Q1-Q3 (8)
+Wrote 8 answer crops -> output/lq/2017/ans
+=== 2021 ===
+  detected answers Q1-Q2 (11)
+Wrote 11 answer crops -> output/lq/2021/ans
+=== 2023 ===
+  detected answers Q2-Q10 (9)
+Wrote 9 answer crops -> output/lq/2023/ans
+Wrote /Users/sinchunyeung/github/paper2db/classified/lq/classification.csv (117 LQ)
+  S01 Temperature and Heat Transfer: 4
+  S02 Heat Capacity: 8
+  S03 Change of State: 2
+  S04 Gas Law and Kinetic Theory: 7
+  S05 Motion: 14
+  S06 Force: 4
+  S07 More about Forces: 3
+  S08 Work, Energy and Power: 5
+  S09 Momentum: 2
+  S10 Projectile Motion: 3
+  S11 Uniform Circular Motion: 3
+  S12 Gravitation: 1
+  S13 Wave Motion: 2
+  S14 Reflection, Refraction and Diffraction: 2
+  S15 Interference and Stationary Wave: 2
+  S16 Light and Sound: 1
+  S18 Refraction of Light: 6
+  S19 Lenses: 7
+  S20 Electrostatics: 3
+  S21 Circuit and Power: 12
+  S22 AC and Domestic Electricity: 9
+  S23 Electromagnetism: 7
+  S24 Electromagnetic Induction: 2
+  S26 Rate of Decay and Uses of Radionuclides: 7
+  S27 Nuclear Energy: 1
+
+---
+exit_code: 0
+elapsed_ms: 193931
+ended_at: 2026-09-04T18:13:10.242Z
+---

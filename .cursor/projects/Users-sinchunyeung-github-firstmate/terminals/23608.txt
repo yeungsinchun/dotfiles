@@ -1,0 +1,23 @@
+---
+pid: 40434
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "export PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:$PATH\"\nexport FM_HOME=/Users/sinchunyeung/github/firstmate\n/Users/sinchunyeung/github/firstmate/bin/fm-wake-drain.sh\n"
+title: "Drain durable wake queue first"
+status: succeeded
+started_at: 2026-09-13T07:57:31.570Z
+running_for_ms: 76849    
+---
+1789286239	311	stale	0:fm-p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e	stale: 0:fm-p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e (unread firstmate instruction: /Users/sinchunyeung/github/firstmate/state/p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e.inbox/015.msg is unhandled and the worker's agent has exited or its endpoint is missing, so the doorbell was not typed; recover the worker)
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 311 --recovery-generation 39506.1789286239.V7MyzZ
+OPEN DECISIONS (still open, folded from the durable status logs - not just the latest line):
+p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e blocked: https://github.com/yeungsinchun/paper2notes/pull/3 is open and validated through PR, but GitHub has 0 Actions workflows and 0 checks so the CI mo [truncated]
+p2n-b5ch1-notes-book-5-ch1-first-draft-visual-html-notes-87 [key=nm-01M25ZJP3ESET41GSCJQ2MFVGJ-ci] needs-decision: GitHub has no checks on https://github.com/yeungsinchun/paper2notes/pull/1; run 01M25ZJP3ESE [truncated]
+p2n-b5ch2-book-5-ch2-first-draft-visual-html-notes-27 [key=nm-01M28JZW8CM1QX7PBNETAP2GPQ-ci] needs-decision: PR https://github.com/yeungsinchun/paper2notes/pull/2 has no GitHub checks; review/test/lint/push/ [truncated]
+OPEN DECISIONS: close one by answering it: bin/fm-send.sh <task> --resolve-key <key> '<answer>'
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+
+---
+exit_code: 0
+elapsed_ms: 76845
+ended_at: 2026-09-13T07:58:48.415Z
+---

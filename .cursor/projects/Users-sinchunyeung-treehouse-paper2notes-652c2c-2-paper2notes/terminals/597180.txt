@@ -1,0 +1,89 @@
+---
+pid: 77196
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/2/paper2notes"
+command: "no-mistakes axi run --intent \"$(cat /tmp/p2n-nm-intent.txt)\""
+title: "Start no-mistakes with full captain intent"
+status: failed   
+started_at: 2026-09-10T10:57:35.975Z
+running_for_ms: 2133246  
+---
+[33mA new version of no-mistakes is available: v1.64.0 -> v1.72.0
+Run "no-mistakes update" to update[0m
+run: running
+  intent: completed
+  rebase: running
+  rebase: completed
+  review: running
+  review: completed
+  test: running
+  test: completed
+  document: running
+  document: completed
+  lint: running
+  lint: completed
+  push: running
+  push: completed
+  pr: running
+  pr: completed
+  ci: running
+  ci: failed
+run: cancelled
+run:
+  id: "01M25FEJHW9M2VKCKK71TP807B"
+  branch: fm/p2n-b5ch1-notes-book-5-ch1-first-draft-visual-html-notes-87
+  status: cancelled
+  head: cd968bc0
+  pr: "https://github.com/yeungsinchun/paper2notes/pull/1"
+  findings: none
+  steps[9]{step,status,findings,duration_ms}:
+    intent,completed,0,19
+    rebase,completed,0,2630
+    review,completed,0,386181
+    test,completed,0,350860
+    document,completed,0,164549
+    lint,completed,0,80
+    push,completed,0,4674
+    pr,completed,0,89980
+    ci,failed,0,1130467
+  shared_work[1]{attributed_to,scope,duration_ms}:
+    document,document+lint housekeeping,164549
+branch_sync:
+  state: behind
+  changed: false
+  local:
+    branch: fm/p2n-b5ch1-notes-book-5-ch1-first-draft-visual-html-notes-87
+    head: "02cc1c17e21b44cd88626c478849523f1633a81f"
+    clean: true
+  pipeline:
+    run: "01M25FEJHW9M2VKCKK71TP807B"
+    status: cancelled
+    phase: ""
+    submitted_head: "02cc1c17e21b44cd88626c478849523f1633a81f"
+    current_head: cd968bc0c908a546c9aa332a521a777996f2ff4e
+    pushed_head: cd968bc0c908a546c9aa332a521a777996f2ff4e
+    pushed_at: 1789038767
+    push_generation: 1
+  target:
+    kind: upstream
+    remote: origin
+    url: "https://github.com/yeungsinchun/paper2notes.git"
+    ref: refs/heads/fm/p2n-b5ch1-notes-book-5-ch1-first-draft-visual-html-notes-87
+  remote:
+    observed_head: cd968bc0c908a546c9aa332a521a777996f2ff4e
+    freshness: pipeline_push
+    observed_at: 1789038767
+  relation: behind
+  safety: refresh_required
+  pr_state: open
+  next_action:
+    code: sync
+    command: no-mistakes axi sync
+outcome: cancelled
+error: "cancelled: aborted by user"
+help[3]: "Open the PR: https://github.com/yeungsinchun/paper2notes/pull/1","Commit post-pipeline follow-up work on top of the existing branch so every pipeline fix commit remains present. Never abort-and-restart, reset, or replace the branch in a way that drops prior gate-fix commits.","Before a post-pipeline local commit or fresh run, follow the structured `branch_sync.next_action`. Run `no-mistakes axi sync` only when its code is `sync`; that guarded sync may be a strict fast-forward or a content-equivalent diverged advance that anchors the pre-sync head before moving the branch with reset semantics. Run `no-mistakes axi sync --recover` only when its code is `recover_custody` (a terminal run left unpublished pipeline commits preserved in the local gate). A `user_owned` state means cancellation released the branch before changing the submitted head: the exact branch and head are yours, immediately usable, and no sync action is needed. Process blocked or pipeline-owned states instead of improvising reset, stash, merge, rebase, force, or branch replacement."
+
+---
+exit_code: 1
+elapsed_ms: 2133246
+ended_at: 2026-09-10T11:33:09.221Z
+---

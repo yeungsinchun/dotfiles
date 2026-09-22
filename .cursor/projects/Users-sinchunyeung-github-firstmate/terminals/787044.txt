@@ -1,0 +1,30 @@
+---
+pid: 70986
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "/usr/bin/env -i PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/usr/local/bin:/Users/sinchunyeung/.local/bin:/Users/sinchunyeung/.nvm/versions/node/v24.20.0/bin\" HOME=\"/Users/sinchunyeung\" FM_HOME=\"/Users/sinchunyeung/github/firstmate\" /bin/bash <<'SCRIPT'\n# Brief wait for scout progress\nfor i in 1 2 3 4 5 6; do\n  sleep 15\n  state=$(/Users/sinchunyeung/github/firstmate/bin/fm-crew-state.sh perf-pr-keep 2>&1 | head -1)\n  echo \"$(date +%H:%M:%S) $state\"\n  tail -3 /Users/sinchunyeung/github/firstmate/state/perf-pr-keep.status 2>/dev/null\n  if [ -f /Users/sinchunyeung/github/firstmate/data/perf-pr-keep/report.md ]; then\n    echo 'REPORT READY'\n    break\n  fi\n  echo \"$state\" | rg -q 'done|failed|blocked|needs-decision' && break\ndone\nls -la /Users/sinchunyeung/github/firstmate/data/perf-pr-keep/ 2>&1\nSCRIPT\n"
+status: succeeded
+started_at: 2026-09-07T15:26:20.593Z
+running_for_ms: 91296    
+---
+23:26:35 state: working · source: pane · harness busy (cursor-transcript)
+working: comparing PR #6/#8 vs #10 keep paths
+23:26:51 state: working · source: pane · harness busy (cursor-transcript)
+working: comparing PR #6/#8 vs #10 keep paths
+23:27:06 state: working · source: pane · harness busy (cursor-transcript)
+working: comparing PR #6/#8 vs #10 keep paths
+23:27:21 state: working · source: pane · harness busy (cursor-transcript)
+working: comparing PR #6/#8 vs #10 keep paths
+23:27:36 state: working · source: pane · harness busy (cursor-transcript)
+working: comparing PR #6/#8 vs #10 keep paths
+23:27:51 state: working · source: pane · harness busy (cursor-transcript)
+working: comparing PR #6/#8 vs #10 keep paths
+total 16
+drwxr-xr-x@  3 sinchunyeung  staff    96 Sep  7 23:17 .
+drwxr-xr-x@ 11 sinchunyeung  staff   352 Sep  7 23:22 ..
+-rw-r--r--@  1 sinchunyeung  staff  6238 Sep  7 23:17 brief.md
+
+---
+exit_code: 0
+elapsed_ms: 91294
+ended_at: 2026-09-07T15:27:51.887Z
+---

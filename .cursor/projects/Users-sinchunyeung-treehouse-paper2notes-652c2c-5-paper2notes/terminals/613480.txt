@@ -1,0 +1,35 @@
+---
+pid: 35857
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes"
+command: "mkdir -p .lavish/evidence && EVIDENCE_DIR=.lavish/evidence node --test --test-name-pattern='each Ch.1 subsection groups links to its own DSE practice' notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs"
+title: "Capture Ch1 DSE practice evidence"
+status: failed   
+started_at: 2026-09-15T04:50:15.841Z
+running_for_ms: 74058    
+---
+▶ Book 5 Ch.1 notes interactives
+  ✖ each Ch.1 subsection groups links to its own DSE practice (65743.32875ms)
+✖ Book 5 Ch.1 notes interactives (66579.783708ms)
+ℹ tests 1
+ℹ suites 1
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 68032.746792
+
+✖ failing tests:
+
+test at notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:242:3
+✖ each Ch.1 subsection groups links to its own DSE practice (65743.32875ms)
+  Error: Runtime.evaluate timed out after 20000ms
+      at Timeout._onTimeout (file:///Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes/notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:74:16)
+      at listOnTimeout (node:internal/timers:685:17)
+      at process.processTimers (node:internal/timers:618:7)
+
+---
+exit_code: 1
+elapsed_ms: 74044
+ended_at: 2026-09-15T04:51:29.885Z
+---

@@ -1,0 +1,28 @@
+---
+pid: 52694
+cwd: "/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams"
+command: "kill 16868 2>/dev/null || true; sleep 1; lsof -iTCP:5051 -sTCP:LISTEN 2>/dev/null || echo \"5051 free\"; test -x /tmp/simp-viewer-venv/bin/python && PY=/tmp/simp-viewer-venv/bin/python || PY=python3; cd /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/web && HOST=127.0.0.1 PORT=5051 \"$PY\" server.py"
+title: "Restart Flask viewer on 5051"
+status: aborted  
+started_at: 2026-09-07T11:37:29.535Z
+running_for_ms: 6642790  
+---
+5051 free
+Repo root: /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams
+Binary: /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/build/simplify
+Baselines: dots=True dp=True squish=True
+Starting Flask server on http://127.0.0.1:5051
+ * Serving Flask app 'server'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5051
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [07/Sep/2026 19:37:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 19:37:37] "GET /viewer.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 20:14:40] "GET / HTTP/1.1" 200 -
+
+---
+exit_code: unknown
+elapsed_ms: 6642790
+ended_at: 2026-09-07T13:28:12.325Z
+---

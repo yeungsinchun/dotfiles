@@ -1,0 +1,15 @@
+---
+pid: 75455
+cwd: "/Users/sinchunyeung/github/simplification-of-trajectory-streams"
+command: "PLAYWRIGHT_PATH=$(npm root -g 2>/dev/null); ls \"$(dirname $(which npx))/../lib/node_modules/playwright\" 2>/dev/null | head -3; find /Users/sinchunyeung -path '*node_modules/playwright/package.json' 2>/dev/null | head -5; ls /tmp/playwright* 2>/dev/null; mkdir -p /tmp/pw-check && cd /tmp/pw-check && npm init -y >/dev/null 2>&1 && npm install playwright@1.63.0 --no-save --no-fund --no-audit 2>&1 | tail -5"
+title: "Install playwright temporarily for checks"
+status: failed   
+started_at: 2026-09-05T20:17:55.580Z
+running_for_ms: 106779   
+---
+
+---
+exit_code: unknown
+elapsed_ms: 106779
+ended_at: 2026-09-05T20:19:42.359Z
+---

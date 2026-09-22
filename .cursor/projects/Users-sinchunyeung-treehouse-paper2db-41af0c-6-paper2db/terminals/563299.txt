@@ -1,0 +1,15 @@
+---
+pid: 23924
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/6/paper2db"
+command: ".venv/bin/python scripts/combine_lq_section_pdfs.py && .venv/bin/python scripts/build_lq_lavish_review.py"
+title: "Rebuild LQ section PDFs and lavish review board"
+status: failed   
+started_at: 2026-09-12T17:38:12.667Z
+running_for_ms: 330458   
+---
+
+---
+exit_code: unknown
+elapsed_ms: 330458
+ended_at: 2026-09-12T17:43:43.125Z
+---

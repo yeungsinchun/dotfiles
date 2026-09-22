@@ -1,0 +1,1107 @@
+I Reverse-Engineered Cursor's AI Agent - Here's Everything It Does Behind the Scenes - DEV Community
+
+You type a message. The AI responds. Maybe it edits a file, runs a command, fixes a bug.
+
+But what actually happens between your keystroke and that response?
+
+I spent a week poking around Cursor's local files, SQLite databases, and runtime behavior to figure out exactly how the AI agent works under the hood. No documentation, no source code — just`sqlite3`,`find`, and curiosity.
+
+Here's everything I found.
+
+---
+
+## The Conversation Loop
+
+Every interaction follows this cycle:
+
+```
+You type a message
+       ↓
+Cursor silently injects context (open files, git status, rules, etc.)
+       ↓
+AI model receives: [system prompt] + [injected context] + [your message]
+       ↓
+AI responds (may call tools: Shell, Read, Write, etc.)
+       ↓
+Tool results come back → AI continues reasoning
+       ↓
+Response shown to you
+       ↓
+Repeat
+
+```
+
+The key insight: you never see the full prompt the AI receives. Cursor silently attaches a ton of context before your message hits the model. The AI knows things about your project that you didn't explicitly tell it.
+
+---
+
+## The Context Window — The AI's "Whiteboard"
+
+The AI has a fixed-size working memory called a context window (measured in tokens). Think of it as a whiteboard. Everything has to fit:
+
+- System instructions (thousands of tokens of rules, tool definitions, skill summaries)
+- Your messages
+- AI's responses
+- Tool calls and their outputs
+- Injected context (open files, git status, terminals, linter errors)
+
+### What happens when the whiteboard fills up?
+
+Cursor automatically summarizes older messages and replaces them with a compressed version. You don't see this happen — it's transparent.
+
+```
+Before summarization:
+[Msg 1] [Msg 2] [Msg 3] ... [Msg 50] [Msg 51]
+                                         ↑ whiteboard full
+
+After summarization:
+[Summary of Msgs 1-40] [Msg 41] ... [Msg 50] [Msg 51]
+                                                ↑ space freed
+
+```
+
+What you lose: Exact tool outputs, raw JSON, intermediate reasoning, long code blocks. What you keep: Key decisions, file paths, errors, action items — in summarized form.
+
+More on who does the summarization and how it works later in the post.
+
+---
+
+## What Gets Silently Injected Into Every Message
+
+Each time you press Enter, Cursor attaches all of this to your message before sending it to the AI:
+
+| Context | What it contains | Example |
+| --- | --- | --- |
+| Open files | Files currently visible in your editor tabs | `src/api/auth.ts (line 42, 180 lines)` |
+| Recently viewed | Last ~10 files you opened | List of file paths with line counts |
+| Git status | Branch, staged/unstaged changes, ahead/behind | `## main...origin/main [ahead 2]` |
+| OS info | OS version, shell, workspace paths | `darwin 24.1.0, zsh` |
+| Rules | Workspace and user-level rules (see next section) | Coding standards, naming conventions |
+| Skills | One-line description of each available skill | `"Debug production issues using CloudWatch..."` |
+| Terminal state | Running terminals, recent commands, exit codes | `cwd: /project, last: npm test, exit: 0` |
+| Linter errors | Current IDE diagnostics on open files | TypeScript errors, ESLint warnings |
+
+The AI uses all of this to stay aware of what you're working on without you having to explain it every time.
+
+This is why the AI "magically" knows your project structure, your current branch, and your recent errors. It's not magic — it's injected context.
+
+---
+
+## Rules — Persistent Instructions the AI Always Follows
+
+Rules are instructions that Cursor injects into every message automatically. They live in`.cursor/rules/` in your workspace.
+
+```
+.cursor/rules/
+├── coding-standards.mdc     ← always applied
+├── naming-conventions.mdc   ← always applied
+├── api-guidelines.mdc       ← agent reads on-demand
+└── ...
+
+```
+
+There are three types:
+
+| Type | When applied | Example |
+| --- | --- | --- |
+| Always applied | Every single message, no exceptions | "Use snake_case for Python, camelCase for JS" |
+| Agent requestable | AI reads them on-demand when relevant | "API versioning guidelines" |
+| User rules | Global rules from Cursor settings | "Always ask before deleting files" |
+
+Rules are`.mdc` files (Markdown with metadata). They're small (under 50 lines typically) and focused on one concern.
+
+Why this matters: If you want consistent AI behavior, put it in a rule. A one-off message gets lost after summarization. A rule is injected every single time.
+
+---
+
+## Skills — Reusable Playbooks
+
+Skills are like recipes the AI can follow for specific tasks. They live in`.cursor/skills/` and contain step-by-step instructions.
+
+```
+.cursor/skills/
+├── deploy-checklist/
+│   └── SKILL.md              ← "How to deploy to production"
+├── database-migration/
+│   ├── SKILL.md              ← "How to run migrations safely"
+│   └── scripts/
+│       └── migrate.sh        ← Supporting script
+├── capacity-planning/
+│   └── SKILL.md              ← "How to calculate instance counts"
+└── ...
+
+```
+
+How they work:
+
+1. Each skill has a`SKILL.md` with a description and trigger phrases
+2. Cursor injects one-line summaries of all skills into the system prompt
+3. When your message matches a trigger, the AI reads the full`SKILL.md` and follows it
+4. Skills can include scripts, templates, and reference data
+
+Cursor also ships 5 built-in skills in`~/.cursor/skills-cursor/`:
+
+| Skill | Purpose |
+| --- | --- |
+| `create-rule` | Guides creating new`.mdc` rules |
+| `create-skill` | Guides creating new`SKILL.md` files |
+| `create-subagent` | Guides creating custom sub-agent types |
+| `migrate-to-skills` | Migrates old workflows to the skill format |
+| `update-cursor-settings` | Modifies Cursor/VSCode settings |
+
+### Rules vs Skills — When to Use Which
+
+| | Rules | Skills |
+| --- | --- | --- |
+| Injected | Automatically, every message | On-demand, when relevant |
+| Purpose | "Always follow this" | "Here's how to do X" |
+| Size | Short (< 50 lines) | Can be long (up to 500 lines) |
+| Example | "Use TypeScript strict mode" | "Step-by-step deploy process" |
+
+---
+
+## Tools — What the AI Can Actually Do
+
+The AI isn't just a chatbot — it can take real actions through tools:
+
+| Tool | What it does |
+| --- | --- |
+| Shell | Run any terminal command (git, npm, docker, ssh, etc.) |
+| Read | Read any file on your filesystem |
+| Write | Create or overwrite files |
+| StrReplace | Edit specific parts of a file (find and replace) |
+| Delete | Delete a file |
+| Grep | Search file contents using regex (built on ripgrep) |
+| Glob | Find files by name pattern |
+| SemanticSearch | Find code by meaning, not exact text |
+| Browser | Navigate pages, click, type, take screenshots |
+| Task | Spawn sub-agents that work in parallel |
+| WebSearch | Search the internet |
+| WebFetch | Fetch and parse a URL's content |
+| MCP tools | Call external integrations (Sentry, Amplitude, Figma, etc.) |
+
+### Sandboxing
+
+By default, Shell commands run in a sandbox:
+
+- Write access limited to the workspace directory only
+- Network access limited to known package managers (npm, pip, etc.)
+- Some syscalls restricted (no USB, no privileged operations)
+
+The AI can request elevated permissions —`full_network` for internet access or`all` to disable the sandbox entirely — but you'll be prompted to approve.
+
+### MCP — External Integrations
+
+MCP (Model Context Protocol) servers extend the AI's capabilities. The config lives at`~/.cursor/mcp.json`:
+
+```
+{
+  "mcpServers": {
+    "figma": {
+      "url": "https://mcp.figma.com/mcp"
+    },
+    "sentry": {
+      "url": "https://mcp.sentry.dev/mcp"
+    },
+    "analytics": {
+      "url": "https://mcp.example.com/mcp",
+      "transport": "streamable-http"
+    },
+    "issue-tracker": {
+      "command": "npx",
+      "args": ["-y", "@tracker/mcp@latest"],
+      "env": { "API_TOKEN": "..." }
+    }
+  }
+}
+
+```
+
+Each MCP server's tools are cached locally as JSON schemas:
+
+```
+~/.cursor/projects/<workspace>/mcps/<server-name>/
+├── INSTRUCTIONS.md          # Server-specific instructions injected into AI context
+├── SERVER_METADATA.json     # Server identity
+└── tools/                   # One JSON file per tool
+    ├── create_issue.json
+    ├── search_errors.json
+    └── ...
+
+```
+
+Each tool file defines the schema the AI uses to call it:
+
+```
+{
+  "name": "search_errors",
+  "description": "Search for error events in the last 24 hours",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": "string",
+        "description": "Search query for error messages"
+      },
+      "limit": {
+        "type": "number",
+        "description": "Max results to return. Defaults to 10."
+      }
+    },
+    "required": ["query"]
+  }
+}
+
+```
+
+---
+
+## Modes — Four Ways to Work
+
+| Mode | Can edit files? | Best for |
+| --- | --- | --- |
+| Agent | Yes | Implementing features, running commands, making changes |
+| Plan | No (read-only) | Designing approaches, discussing trade-offs before coding |
+| Ask | No (read-only) | Exploring code, answering questions, learning the codebase |
+| Debug | Yes | Investigating bugs with runtime evidence |
+
+The AI can suggest switching modes when appropriate. For example, if you ask it to "add authentication" it might suggest switching to Plan mode first to discuss JWT vs sessions before jumping into code.
+
+---
+
+## Sub-Agents — Parallel Workers
+
+The AI can spawn sub-agents — independent child tasks that run in parallel:
+
+```
+Main Agent (your conversation)
+├── Sub-agent 1: "Search for auth middleware"     → runs in parallel
+├── Sub-agent 2: "Check test coverage"            → runs in parallel
+└── Sub-agent 3: "Read all config files"          → runs in parallel
+        ↓                ↓                 ↓
+    Results flow back to the Main Agent
+
+```
+
+Each sub-agent gets its own context window and tool access. Results come back to the main agent for synthesis. This is how the AI explores large codebases fast — it can search multiple directories simultaneously.
+
+Sub-agent types include:
+
+- explore — Fast codebase search and exploration
+- generalPurpose — Complex multi-step research
+- shell — Command execution specialist
+- browser-use — Web automation and testing
+
+Sub-agent transcripts are stored as`.jsonl` files inside subdirectories of the parent conversation's transcript folder.
+
+---
+
+## Terminal Monitoring
+
+Cursor tracks your terminal sessions as text files:
+
+```
+~/.cursor/projects/<workspace>/terminals/
+├── 142712.txt
+├── 88708.txt
+└── ...
+
+```
+
+Each file captures the full terminal state:
+
+```
+---
+pid: 42561
+cwd: "/Users/alex/projects/my-app"
+command: "npm test -- --coverage"
+started_at: 2026-02-15T14:21:59.886Z
+running_for_seconds: 12
+---
+
+---
+exit_code: 0
+elapsed_ms: 12450
+ended_at: 2026-02-15T14:22:12.336Z
+---
+
+(full terminal output follows)
+
+```
+
+The AI reads these files to understand what you've been running — exit codes, outputs, errors — without you having to copy-paste terminal output into the chat.
+
+---
+
+## The 4-Layer Local Storage Architecture
+
+This is where it gets deep. Everything Cursor stores is local to your machine. There are four distinct storage layers:
+
+```
+┌────────────────────────────────────────────────────────────────────┐
+│                    CURSOR LOCAL STORAGE                             │
+│                                                                    │
+│  1. GLOBAL STATE DB (source of truth for all conversations)        │
+│     ~/Library/Application Support/Cursor/User/globalStorage/       │
+│     └── state.vscdb                            (~1-2 GB, SQLite)   │
+│                                                                    │
+│  2. WORKSPACE STATE DB (per-workspace index)                       │
+│     ~/Library/Application Support/Cursor/User/workspaceStorage/    │
+│     └── <hash>/state.vscdb                     (~64-264 KB each)   │
+│                                                                    │
+│  3. PROJECT FILES (transcripts, terminals, MCP configs)            │
+│     ~/.cursor/projects/<workspace-name>/                           │
+│     ├── agent-transcripts/                     (plain text logs)   │
+│     ├── agent-tools/                           (cached outputs)    │
+│     ├── terminals/                             (terminal state)    │
+│     └── mcps/                                  (MCP configs)       │
+│                                                                    │
+│  4. AI TRACKING DB (code attribution & commit scoring)             │
+│     ~/.cursor/ai-tracking/                                         │
+│     └── ai-code-tracking.db                    (~4-8 MB, SQLite)   │
+│                                                                    │
+└────────────────────────────────────────────────────────────────────┘
+
+```
+
+Let's break each one down.
+
+---
+
+### Layer 1: Global State DB — The Source of Truth
+
+```
+Path: ~/Library/Application Support/Cursor/User/globalStorage/state.vscdb
+Type: SQLite database
+Size: ~1-2 GB (grows over time)
+
+```
+
+This single file holds every conversation you've ever had in Cursor. It has two tables:
+
+| Table | Purpose |
+| --- | --- |
+| `ItemTable` | Cursor/VS Code settings, UI state, AI tracking daily stats |
+| `cursorDiskKV` | All conversation messages, checkpoints, and diffs |
+
+Both tables have the same simple schema:
+
+```
+CREATE TABLE cursorDiskKV (
+    key TEXT UNIQUE ON CONFLICT REPLACE,
+    value BLOB    -- JSON stored as blob
+);
+
+```
+
+#### Key Patterns in cursorDiskKV
+
+Every conversation produces several types of keys:
+
+1.`composerData: `— Conversation metadata
+
+One row per conversation. Contains the ordered list of all messages ("bubbles"):
+
+```
+{
+  "_v": 13,
+  "composerId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "richText": "{...}",
+  "hasLoaded": true,
+  "fullConversationHeadersOnly": [
+    {"bubbleId": "11111111-...", "type": 1},
+    {"bubbleId": "22222222-...", "type": 2},
+    {"bubbleId": "33333333-...", "type": 2}
+  ]
+}
+
+```
+
+Type 1 = user message. Type 2 = assistant message.
+
+2.`bubbleId:: `— Individual messages
+
+Each message contains a massive JSON blob with ~40+ fields:
+
+```
+{
+  "_v": 3,
+  "type": 2,
+  "bubbleId": "22222222-...",
+  "isAgentic": true,
+  "toolResults": [...],
+  "suggestedCodeBlocks": [...],
+  "assistantSuggestedDiffs": [...],
+  "attachedCodeChunks": [...],
+  "codebaseContextChunks": [...],
+  "images": [...],
+  "relevantFiles": [...],
+  "cursorRules": [...],
+  "allThinkingBlocks": [...],
+  "recentlyViewedFiles": [...],
+  "approximateLintErrors": [...],
+  "lints": [...],
+  "commits": [...],
+  "pullRequests": [...],
+  "gitDiffs": [...],
+  "webReferences": [...],
+  "aiWebSearchResults": [...],
+  "summarizedComposers": [...],
+  "contextPieces": [...],
+  "editTrailContexts": [...],
+  "fileDiffTrajectories": [...]
+}
+
+```
+
+Size per message: 1-2 KB (short user messages) up to 500+ KB (large AI responses with tool outputs and code diffs).
+
+3.`checkpointId:: `— File restore points
+
+Every time the AI edits a file, Cursor saves a checkpoint so you can undo:
+
+```
+checkpointId:a1b2c3d4-...:aaaa1111-...  →  68 KB  (file state before edit)
+checkpointId:a1b2c3d4-...:bbbb2222-...  →  68 KB
+checkpointId:a1b2c3d4-...:cccc3333-...  →  817 B
+
+```
+
+This is what powers the "Restore" button you see after AI edits.
+
+4.`codeBlockDiff:: `— Diff acceptance state
+
+Tracks whether you accepted or rejected each code suggestion.
+
+5.`agentKv:blob: `— Agent key-value storage
+
+Internal storage for agentic context — these hashed blobs make up a large portion of the rows.
+
+#### Real Numbers (from my machine)
+
+| Pattern | Count |
+| --- | --- |
+| Total rows in`cursorDiskKV` | ~158,000 |
+| Conversations (`composerData:`) | ~2,600 |
+| Messages (`bubbleId:`) | ~73,000 |
+| Checkpoints (`checkpointId:`) | ~15,000 |
+| Code block diffs (`codeBlock*`) | ~8,300 |
+| Agent KV blobs (`agentKv:`) | ~58,000 |
+
+---
+
+### Layer 2: Workspace State DB — The Sidebar Index
+
+```
+Path: ~/Library/Application Support/Cursor/User/workspaceStorage/<hash>/state.vscdb
+Type: SQLite database
+Size: ~64 KB - 264 KB per workspace
+
+```
+
+Each workspace gets its own small DB. The hash is mapped to the workspace folder via`workspace.json`:
+
+```
+{
+  "folder": "file:///Users/alex/projects/my-app"
+}
+
+```
+
+This DB stores the sidebar conversation list — just metadata, not full messages:
+
+```
+{
+  "allComposers": [
+    {
+      "type": "head",
+      "composerId": "a1b2c3d4-...",
+      "name": "Fix auth middleware bug",
+      "lastUpdatedAt": 1770550518986,
+      "createdAt": 1770543361811,
+      "unifiedMode": "agent",
+      "contextUsagePercent": 54.67,
+      "totalLinesAdded": 1174,
+      "totalLinesRemoved": 13,
+      "filesChangedCount": 9,
+      "subtitle": "Edited auth.ts and middleware.ts",
+      "isArchived": false,
+      "isDraft": false
+    }
+  ]
+}
+
+```
+
+Think of it as the index — the global state DB is the full database.
+
+---
+
+### Layer 3: Project Files — Transcripts, Tools, Terminals
+
+```
+Path: ~/.cursor/projects/<workspace-name>/
+
+```
+
+The workspace name is your folder path with slashes replaced by dashes:
+
+```
+Folder:    /Users/alex/projects/my-app
+Maps to:   Users-alex-projects-my-app
+
+Workspace file: my-app.code-workspace
+Maps to:        Users-alex-projects-my-app-my-app-code-workspace
+
+```
+
+#### agent-transcripts/
+
+Plain text transcript of each conversation, written live as the chat progresses:
+
+```
+user:
+<user_query>why is the auth middleware failing?</user_query>
+
+A:
+[Tool call] Shell
+  command: grep -r "authMiddleware" src/
+  description: Search for auth middleware usage
+[Tool result] Shell
+
+A:
+I found the issue. The middleware is checking for...
+
+```
+
+Important: This is a write-only export. Editing this file does NOT change the chat. The chat UI reads from the global`state.vscdb`.
+
+Sub-agent conversations are stored as`.jsonl` files in subdirectories:
+
+```
+agent-transcripts/
+├── a1b2c3d4-....txt                    ← main conversation
+├── a1b2c3d4-.../
+│   └── subagents/
+│       ├── e5f6a7b8-....jsonl          ← sub-agent 1 transcript
+│       └── c9d0e1f2-....jsonl          ← sub-agent 2 transcript
+└── ...
+
+```
+
+#### agent-tools/
+
+Caches large tool call outputs separately so they don't bloat transcripts. Each file is one tool call result.
+
+Sizes range from a few KB to 50+ MB for massive outputs (like full database query results or large log dumps).
+
+#### terminals/
+
+Live terminal state — covered in the Terminal Monitoring section above.
+
+#### mcps/
+
+MCP tool definitions — covered in the MCP section above.
+
+---
+
+### Layer 4: AI Tracking DB — Code Attribution
+
+```
+Path: ~/.cursor/ai-tracking/ai-code-tracking.db
+Type: SQLite database
+Size: ~4-8 MB
+
+```
+
+This is where Cursor tracks how much of your code is AI-generated. It has 6 tables:
+
+`ai_code_hashes`— Every piece of AI-generated code
+
+```
+CREATE TABLE ai_code_hashes (
+    hash TEXT PRIMARY KEY,
+    source TEXT NOT NULL,           -- "composer", "autocomplete", etc.
+    fileExtension TEXT,             -- ".py", ".ts", ".go", etc.
+    fileName TEXT,
+    requestId TEXT,
+    conversationId TEXT,
+    timestamp INTEGER,
+    createdAt INTEGER NOT NULL,
+    model TEXT                      -- "claude-4.5-sonnet", "gpt-4o", etc.
+);
+
+```
+
+`scored_commits`— AI contribution scoring per commit
+
+```
+CREATE TABLE scored_commits (
+    commitHash TEXT NOT NULL,
+    branchName TEXT NOT NULL,
+    scoredAt INTEGER NOT NULL,
+    linesAdded INTEGER,
+    linesDeleted INTEGER,
+    tabLinesAdded INTEGER,          -- lines added via Tab completion
+    tabLinesDeleted INTEGER,
+    composerLinesAdded INTEGER,     -- lines added via Composer/Agent
+    composerLinesDeleted INTEGER,
+    humanLinesAdded INTEGER,        -- lines you typed manually
+    humanLinesDeleted INTEGER,
+    blankLinesAdded INTEGER,
+    blankLinesDeleted INTEGER,
+    commitMessage TEXT,
+    commitDate TEXT,
+    v1AiPercentage TEXT,            -- AI contribution % (v1 algorithm)
+    v2AiPercentage TEXT,            -- AI contribution % (v2 algorithm)
+    PRIMARY KEY (commitHash, branchName)
+);
+
+```
+
+This is how Cursor calculates its "AI-generated code %" metric. It literally hashes every AI output, then for each commit, compares the diff against those hashes to compute what percentage was written by AI vs human.
+
+`tracked_file_content`— Tracks file content for AI attribution
+
+```
+CREATE TABLE tracked_file_content (
+    gitPath TEXT PRIMARY KEY,
+    content TEXT NOT NULL,
+    conversationId TEXT,
+    model TEXT,
+    fileExtension TEXT,
+    createdAt INTEGER NOT NULL
+);
+
+```
+
+`ai_deleted_files`— Tracks files deleted by AI
+
+```
+CREATE TABLE ai_deleted_files (
+    gitPath TEXT NOT NULL,
+    composerId TEXT,
+    conversationId TEXT,
+    model TEXT,
+    deletedAt INTEGER NOT NULL,
+    PRIMARY KEY (gitPath, deletedAt)
+);
+
+```
+
+`tracking_state`— When tracking started
+
+```
+-- Usually just one row:
+-- key: trackingStartTime
+-- value: {"timestamp": 1766390231190}
+
+```
+
+`conversation_summaries`— Exists but empty (likely reserved for future use)
+
+---
+
+### Full Storage Map
+
+```
+~/Library/Application Support/Cursor/User/
+├── globalStorage/
+│   └── state.vscdb                          ← ~1-2 GB, ALL messages
+│       ├── cursorDiskKV                     ← ~158K rows
+│       │   ├── composerData:<convId>        ← conversation metadata
+│       │   ├── bubbleId:<convId>:<id>       ← individual messages
+│       │   ├── checkpointId:<convId>:<id>   ← file restore points
+│       │   ├── codeBlockDiff:<convId>:<id>  ← diff accept/reject
+│       │   └── agentKv:blob:<hash>          ← agent KV storage
+│       └── ItemTable                        ← settings + AI daily stats
+│
+└── workspaceStorage/
+    └── <hash>/
+        ├── workspace.json                   ← maps hash → folder path
+        └── state.vscdb                      ← sidebar conversation list
+
+~/.cursor/
+├── ai-tracking/
+│   └── ai-code-tracking.db                 ← ~4-8 MB, code attribution
+│       ├── ai_code_hashes                   ← every AI code snippet
+│       ├── scored_commits                   ← AI % per commit
+│       ├── tracked_file_content             ← file content tracking
+│       ├── ai_deleted_files                 ← AI-deleted file log
+│       ├── conversation_summaries           ← (empty / future use)
+│       └── tracking_state                   ← tracking start time
+│
+├── projects/
+│   └── <workspace-name>/
+│       ├── agent-transcripts/*.txt          ← conversation logs
+│       ├── agent-tools/*.txt                ← cached tool outputs
+│       ├── terminals/*.txt                  ← terminal state
+│       └── mcps/<server>/                   ← MCP tool definitions
+│
+├── skills/                                  ← user-installed skills
+├── skills-cursor/                           ← 5 built-in skills
+├── plans/                                   ← plan mode outputs
+├── extensions/                              ← VS Code extensions
+├── mcp.json                                 ← MCP server config
+├── cli-config.json                          ← CLI config + permissions
+├── ide_state.json                           ← recently viewed files
+└── .gitignore                               ← allowlists specific dirs
+
+```
+
+---
+
+## What Actually Gets Sent to the AI Model
+
+Every time you hit Enter, Cursor constructs a single API call with the full conversation. The AI is stateless — nothing is cached between your messages.
+
+Here's a simplified version of the payload:
+
+```
+{
+  "model": "claude-4-sonnet",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an AI coding assistant in Cursor IDE...\n\n[workspace rules]\n[user rules]\n[skill summaries]\n[tool definitions]\n[MCP tool schemas]\n..."
+    },
+    {
+      "role": "user",
+      "content": "[Previous conversation summary]: User was debugging auth...\n\n<user_info>OS: darwin, Shell: zsh</user_info>\n<git_status>## main [ahead 2]</git_status>\n<open_files>auth.ts (line 42)</open_files>\n<linter_errors>TS2345: Argument of type...</linter_errors>\n\n<user_query>fix the type error in auth.ts</user_query>"
+    },
+    {
+      "role": "assistant",
+      "content": "I see the type error. Let me fix it.",
+      "tool_calls": [{"name": "Read", "arguments": {"path": "src/auth.ts"}}]
+    },
+    {
+      "role": "tool",
+      "content": "1|import { Request } from 'express';\n2|..."
+    },
+    {
+      "role": "assistant",
+      "content": "Found the issue — the middleware expects...",
+      "tool_calls": [{"name": "StrReplace", "arguments": {"path": "src/auth.ts", "old_string": "...", "new_string": "..."}}]
+    },
+    {
+      "role": "tool",
+      "content": "File edited successfully."
+    },
+    {
+      "role": "assistant",
+      "content": "Fixed. The type error was caused by..."
+    },
+    {
+      "role": "user",
+      "content": "<open_files>auth.ts</open_files>\n\n<user_query>your new message here</user_query>"
+    }
+  ]
+}
+
+```
+
+Key observations:
+
+1. The system message contains ALL rules, skill summaries, tool definitions, and MCP schemas — sent with every single request (thousands of tokens)
+2. Context is re-injected fresh into every user message (open files, git status, linter errors)
+3. The`[Previous conversation summary]` appears inside the first user message when older messages have been summarized away
+4. Tool calls and results are individual messages in the array
+5. This entire array is sent on every call. Message 51 means the full system prompt + all 51 messages get sent
+
+Cost implication: Long conversations get expensive fast. Summarization exists to keep the payload under the context window limit.
+
+---
+
+## How Summarization Actually Works
+
+### Who does it?
+
+Cursor's infrastructure layer — NOT the AI agent you're chatting with. The agent has zero control over when or how summarization happens.
+
+### The process:
+
+```
+Step 1: Cursor detects context window is ~80-90% full
+
+Step 2: Takes older messages (say messages 1-40)
+
+Step 3: Sends them to a SEPARATE AI call (likely a faster/cheaper model)
+        "Summarize this conversation preserving:
+         - All user requests and decisions
+         - File paths, commands, and code snippets
+         - Errors and their resolutions
+         - Current task state and pending items"
+
+Step 4: Summary replaces messages 1-40 in the conversation array
+
+Step 5: Next message sees: [Summary] + [Messages 41-51] + [New message]
+
+```
+
+The main agent doesn't know when this happens. It just suddenly finds itself with a summary instead of raw messages.
+
+### What's preserved vs lost:
+
+| Preserved | Lost |
+| --- | --- |
+| All user messages (often verbatim) | Exact tool outputs (full logs → "CPU was 8%") |
+| Key decisions and outcomes | Intermediate reasoning and exploration steps |
+| File paths and code snippets referenced | Raw JSON responses |
+| Errors encountered and fixes applied | Long code blocks (→ file path references) |
+| Current task state | Nuance and tone of earlier discussion |
+
+### But the raw data is never deleted
+
+Think of it like this:
+
+```
+state.vscdb        = full video recording (never deleted)
+agent-transcripts  = written meeting notes (always appended)
+AI context window  = what's on the whiteboard right now (summarized when full)
+
+```
+
+Summarization only affects what the AI model sees in its context window — not what's stored on disk. Every bubble remains in the global`state.vscdb` forever.
+
+---
+
+## Other Files in ~/.cursor/
+
+A few more interesting files I found:
+
+`cli-config.json`— Tool permissions and editor config:
+
+```
+{
+  "version": 1,
+  "editor": { "vimMode": false },
+  "permissions": {
+    "allow": ["Shell(ls)"],
+    "deny": []
+  }
+}
+
+```
+
+`ide_state.json`— Tracks recently viewed files across workspaces:
+
+```
+{
+  "recentlyViewedFiles": [
+    {
+      "relativePath": "src/auth.ts",
+      "absolutePath": "/Users/alex/projects/my-app/src/auth.ts"
+    }
+  ]
+}
+
+```
+
+`plans/`— Plan mode outputs stored as markdown with YAML frontmatter:
+
+```
+---
+name: Refactor auth module
+overview: Break down the monolithic auth.ts into separate concerns
+todos:
+  - id: extract-jwt
+    content: Extract JWT logic into jwt-service.ts
+    status: completed
+  - id: extract-session
+    content: Extract session logic into session-service.ts
+    status: pending
+---
+
+# Refactor Auth Module
+
+## Plan
+...
+
+```
+
+`.gitignore`— Cursor carefully allowlists only specific directories for its own internal git tracking:
+
+- `projects/*/agent-transcripts/`
+- `projects/*/agent-tools/`
+- `projects/*/terminals/`
+- `projects/*/mcps/`
+- `skills/`,`skills-cursor/`,`plans/`
+
+Everything else is ignored.
+
+---
+
+## Verify It Yourself
+
+Here are the exact commands you can run on your own machine to explore Cursor's internals. All read-only — nothing gets modified.
+
+### Check your Global State DB
+
+```
+# Does it exist?
+ls -lh ~/Library/Application\ Support/Cursor/User/globalStorage/state.vscdb
+
+# What tables does it have?
+sqlite3 ~/Library/Application\ Support/Cursor/User/globalStorage/state.vscdb \
+  "SELECT name FROM sqlite_master WHERE type='table';"
+
+# How many total rows?
+sqlite3 ~/Library/Application\ Support/Cursor/User/globalStorage/state.vscdb \
+  "SELECT COUNT(*) FROM cursorDiskKV;"
+
+# How many conversations do you have?
+sqlite3 ~/Library/Application\ Support/Cursor/User/globalStorage/state.vscdb \
+  "SELECT COUNT(*) FROM cursorDiskKV WHERE key LIKE 'composerData:%';"
+
+# How many individual messages (bubbles)?
+sqlite3 ~/Library/Application\ Support/Cursor/User/globalStorage/state.vscdb \
+  "SELECT COUNT(*) FROM cursorDiskKV WHERE key LIKE 'bubbleId:%';"
+
+# How many file checkpoints (restore points)?
+sqlite3 ~/Library/Application\ Support/Cursor/User/globalStorage/state.vscdb \
+  "SELECT COUNT(*) FROM cursorDiskKV WHERE key LIKE 'checkpointId:%';"
+
+# Peek at a random key to see the structure
+sqlite3 ~/Library/Application\ Support/Cursor/User/globalStorage/state.vscdb \
+  "SELECT key FROM cursorDiskKV WHERE key != '' ORDER BY RANDOM() LIMIT 5;"
+
+```
+
+### Check your AI Tracking DB
+
+```
+# Does it exist? How big?
+ls -lh ~/.cursor/ai-tracking/ai-code-tracking.db
+
+# What tables does it have?
+sqlite3 ~/.cursor/ai-tracking/ai-code-tracking.db \
+  "SELECT name FROM sqlite_master WHERE type='table';"
+
+# How many AI code snippets have been tracked?
+sqlite3 ~/.cursor/ai-tracking/ai-code-tracking.db \
+  "SELECT COUNT(*) FROM ai_code_hashes;"
+
+# What models generated your code?
+sqlite3 ~/.cursor/ai-tracking/ai-code-tracking.db \
+  "SELECT model, COUNT(*) as count FROM ai_code_hashes GROUP BY model ORDER BY count DESC;"
+
+# What sources generated code? (composer, autocomplete, etc.)
+sqlite3 ~/.cursor/ai-tracking/ai-code-tracking.db \
+  "SELECT source, COUNT(*) as count FROM ai_code_hashes GROUP BY source ORDER BY count DESC;"
+
+# How many commits have been scored for AI contribution?
+sqlite3 ~/.cursor/ai-tracking/ai-code-tracking.db \
+  "SELECT COUNT(*) FROM scored_commits;"
+
+# See AI percentage for your recent scored commits
+sqlite3 ~/.cursor/ai-tracking/ai-code-tracking.db \
+  "SELECT commitHash, branchName, v2AiPercentage, composerLinesAdded, humanLinesAdded FROM scored_commits ORDER BY scoredAt DESC LIMIT 5;"
+
+```
+
+### Check your Workspace Storage
+
+```
+# List all workspace mappings
+for f in ~/Library/Application\ Support/Cursor/User/workspaceStorage/*/workspace.json; do
+  echo "--- $f ---"
+  cat "$f"
+  echo
+done
+
+# Count workspace DBs
+ls ~/Library/Application\ Support/Cursor/User/workspaceStorage/ | wc -l
+
+```
+
+### Check your Project Files
+
+```
+# List all tracked projects
+ls ~/.cursor/projects/
+
+# Check a specific project's structure
+ls -la ~/.cursor/projects/Users-$(whoami)-*/
+
+# Count your agent transcripts across all projects
+find ~/.cursor/projects -name "*.txt" -path "*/agent-transcripts/*" | wc -l
+
+# Check total size of cached tool outputs
+du -sh ~/.cursor/projects/*/agent-tools/ 2>/dev/null
+
+```
+
+### Check Other Config Files
+
+```
+# MCP server config
+cat ~/.cursor/mcp.json 2>/dev/null
+
+# CLI config and permissions
+cat ~/.cursor/cli-config.json 2>/dev/null
+
+# IDE state (recently viewed files)
+cat ~/.cursor/ide_state.json 2>/dev/null
+
+# Built-in skills
+ls ~/.cursor/skills-cursor/
+
+# Plan files
+ls ~/.cursor/plans/ | head -10
+
+```
+
+Note for Linux users: Replace`~/Library/Application Support/Cursor/` with`~/.config/Cursor/`. The internal structure is the same.
+
+Note for Windows users: Replace`~/Library/Application Support/Cursor/` with`%APPDATA%\Cursor\`. Use PowerShell or WSL for the sqlite3 commands.
+
+---
+
+## Tips for Power Users
+
+Long chats lose detail. After summarization, early context gets compressed. For important decisions, log them to a file — don't rely on the AI remembering perfectly after 50+ messages.
+
+Rules beat one-off instructions. If you want the AI to always follow a convention, put it in`.cursor/rules/`. A message gets summarized away. A rule is injected every single time.
+
+Skills save you from repeating yourself. If you explain a workflow more than twice, turn it into a skill in`.cursor/skills/`.
+
+The AI sees your open files. Keep relevant files open in your editor tabs — the AI gets their paths and line positions as context.
+
+Start long tasks in Plan mode. For complex features, let the AI design the approach first (read-only Plan mode) before switching to Agent mode for implementation.
+
+Sub-agents speed up exploration. If the AI seems slow searching a large codebase, it's probably spawning parallel sub-agents. Let it work.
+
+Your data stays local. All conversation history, checkpoints, and tracking data live on your machine in SQLite databases and text files. Nothing is stored server-side between requests.
+
+---
+
+## Wrapping Up
+
+Cursor is more than a chatbot bolted onto VS Code. Under the hood, it's a sophisticated orchestration system:
+
+- A context injection layer that silently feeds the AI everything it needs to know about your project
+- A tool execution framework with sandboxing, parallel sub-agents, and MCP integrations
+- A 4-layer local storage architecture that preserves every conversation, checkpoint, and code attribution score
+- A summarization pipeline that compresses history when context fills up, while keeping the raw data intact on disk
+
+The AI itself is stateless — it has no memory between calls. Everything it "knows" comes from what Cursor constructs and sends in each request. Understanding this architecture helps you work with it more effectively: keep relevant files open, write rules for consistent behavior, build skills for repeated workflows, and log important decisions to files.
+
+Now go run those`sqlite3` commands and see what's been happening behind the scenes on your own machine.
+
+---
+
+Found this useful? Follow me for more deep dives into developer tools and AI systems. Questions or corrections? Drop them in the comments.
+
+*This blog is complied via cursor
+
+Are you sure you want to hide this comment? It will become hidden in your post, but will still be visible via the comment's permalink.
+
+Hide child comments as well
+
+Confirm
+
+For further actions, you may consider blocking this person and/or reporting abuse
+
+We're a place where coders share, stay up-to-date and grow their careers.
+
+Log in Create account

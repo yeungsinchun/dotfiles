@@ -1,0 +1,316 @@
+Eliminating Long-Lived Credentials in GCP with Workload Identity Federation - InfoQ
+
+## InfoQ Software Architects' Newsletter
+
+A monthly overview of things you need to know as an architect or aspiring architect.
+
+Close
+
+InfoQ Homepage Articles Eliminating Long-Lived Credentials in GCP with Workload Identity Federation
+
+Beyond the PR: The New Control Plane for Agentic Software Delivery (Webinar Sept 17th)
+
+# Eliminating Long-Lived Credentials in GCP with Workload Identity Federation
+
+#### Follow us on
+
+Listen to this article - 0:00
+
+0:00
+
+0:00
+
+Normal1.25x1.5x
+
+Like
+
+### Key Takeaways
+
+- Workload Identity Federation (WIF) is not just a security improvement, it changes how you think about machine identity: Keys are secrets you manage, while federated identities are trust relationships you configure.
+- WIF allows external workloads to authenticate to Google Cloud Platform (GCP) without long-lived service account keys, reducing credential exposure and operational overhead.
+- WIF follows the same three-part model across all implementations: a pool, a provider/connector, and a service account binding.
+- Attribute conditions are the critical security gate. Without them, any identity from a trusted provider can authenticate, which is too broad for production.
+- Mandating WIF at project creation rather than retrofitting existing keys scaled cleanly, with legacy no-expiry keys treated as a fixed, shrinking problem rather than something requiring a risky migration.
+
+## The Problem I Kept Running Into
+
+Every time I onboarded a new continuous integration and continuous deployment (CI/CD) tool or gave a third party access to a GCP project, I ended up doing the same thing: navigating to Identify and Access Management (IAM), creating a service account, downloading a JSON key, and pasting it somewhere as a secret. It worked. But it always felt wrong.
+
+You can configure service account keys with an expiry date; for better security you should. But that creates its own problem. Every time a key expires, you have to generate a new one for the same service account, then track down every system and team using the old key and share the new one with them. In practice, that operational overhead is significant enough that many teams skip expiry entirely and leave keys open-ended, which is a much worse solution. Regardless of expiry, the keys sit in secret stores, environment variables, and sometimes, if someone makes a mistake, in version control. Auditing which key was used when is possible, but it depends on audit logging being enabled in advance. If a key leaks, you often don't know its blast radius until you've dug through those logs.
+
+When I first came across Workload Identity Federation (WIF), my reaction was skepticism. Another IAM abstraction layer? But after implementing it across several production workloads and connecting Harness pipelines, GitHub Actions workflows, and Amazon Web Services (AWS) Lambda functions to GCP, I am convinced it is the right model for machine-to-machine authentication.
+
+This article is not another "what is WIF" overview. Instead, it covers what mandating this approach at scale actually looked like, including how my organization went from zero to 120 projects or more on WIF in six months, a scoping mistake worth watching for in multi-org Harness setups, why we chose impersonation over the direct access that Google recommends as the default, and what actually happens when AWS Security Token Service (STS) proves an identity to GCP under the hood.
+
+## What Workload Identity Federation Actually Is
+
+My initial skepticism came from the shape of WIF. Three separate objects must exist before anything works. None does anything useful alone. Compared to downloading a JSON key, that design felt like a lot of ceremony for the same outcome.
+
+What changed my view was realizing that the ceremony is the point. A service account key is a secret you now own and must protect forever. WIF replaces that design with a trust relationship you declare once and never handle again.
+
+The mechanism is straightforward. Instead of handing a credential to an external system, you tell GCP in advance which external identity providers you trust and under what conditions. When an external workload needs access, it presents its own native token to GCP's Security Token Service. GCP validates that token against your configuration and, if it passes, issues a short-lived GCP access token. The job runs, the token expires, nothing is stored and nothing needs to be rotated. The setup has three components.
+
+### The Workload Identity Pool
+
+This is a named container in your GCP project that groups external identity configurations. Think of it as a folder that holds your trust configurations. On its own, it does nothing.
+
+### The Provider
+
+This connector lives inside the pool and defines the actual trust. You configure one provider per external identity system. The provider tells GCP where tokens come from, how to validate them, how to map their claims to GCP-understandable attributes, and which specific identities are allowed through.
+
+### The Service Account Binding
+
+This is the final piece. Once an external identity passes validation, it needs actual GCP permissions. You bind specific pool identities to a service account, and the workload temporarily inherits that service account's IAM permissions.
+
+Workload Identity Federation is not a GCP-only concept. For example, Microsoft Entra Workload ID implements the same idea for Azure, using OpenID Connect (OIDC)-based federated credentials to eliminate stored secrets for external workloads. The underlying trust-relationship model, with the external token in and the short-lived platform token out, carries over. The mechanics in this article, the pool, the provider, the attribute conditions and their Common Expression Language (CEL) syntax, are specific to GCP's implementation.
+
+You can use Workload Identity Federation with workloads that authenticate using X.509 client certificates, that run on AWS or Azure, on-premises Active Directory, deployment services, such as GitHub and GitLab, and with any identity provider (IdP) that supports OpenID Connect or Security Assertion Markup Language (SAML) V2.0.
+
+### How We Adopted WIF
+
+We did not migrate. That is worth being direct about, because "we retired every key in the estate" is a different and much harder article than this one.
+
+Our environment had hundreds of service account keys with no expiry set, some of which were years old. Retrofitting those keys required coordinating across every team and system holding a copy, with an outage risk at each step and no clean way to prove a given key was actually dead rather than merely unused that week.
+
+So we drew a line at the point of creation instead. As part of a broader cloud modernization initiative, WIF became mandatory for every new GCP project. No new project received a service account key. Deployments ran through Harness pipelines using federated identity, This requirement was enforced at project provisioning rather than left to each team to opt into. Within six months, more than 120 projects were authenticating this way.
+
+The legacy keys did not disappear, but they stopped multiplying. That reframed the problem from an ever-growing surface into a fixed and shrinking one, which made it tractable.
+
+Mandating this change early also had a benefit I did not anticipate. Because every project inherited the same pattern, the scoping conventions were settled once, at the start, rather than diverging across teams. After the first few providers, each new integration was a copy of a configuration we already trusted rather than a fresh design decision.
+
+## The OIDC Connector: Teaching GCP to Read External Tokens
+
+Most modern CI/CD platforms support OIDC. When a workflow or pipeline runs, the platform automatically generates a short-lived JSON Web Token (JWT) for that run. This token is cryptographically signed by the platform's own OIDC issuer; it contains claims describing the identity, for example, which repository, which organization, or which pipeline account originated the run.
+
+The OIDC connector is how you teach GCP to understand these tokens. When you configure a provider of type OIDC inside your pool, you define three things.
+
+### The Issuer URL
+
+This is the OIDC endpoint of the external platform. GCP fetches the platform's public keys from this URL and uses them to verify that incoming tokens are genuine and unmodified.
+
+### Attribute Mappings
+
+This is a translation layer. GCP does not natively understand Harness claim names or GitHub claim names. The mappings tell GCP: "when you see`assertion.account_id` in the token, call it`attribute.account_id"`. The reserved mapping`google.subject = assertion.sub` is always required and becomes the principal identity.
+
+### Attribute Conditions
+
+This is the security gate, a CEL expression that filters which identities are actually allowed through. Without this expression, any valid token from the issuer passes. With it, you can restrict to a specific organization, account, repository, or any claim the token contains.
+
+To make this concrete, in a Harness implementation I worked on recently, the attribute condition was:
+
+```
+attribute.account_id == "abcdrfghijklmnop" &&
+attribute.organization_id == "my_org_platform"
+```
+
+This configuration dictates that even if someone had a valid Harness JWT from a different Harness account, GCP would reject it at this step. The condition is your last line of defense at the identity layer.
+
+Google's documentation on configuring Workload Identity Federation with other identity providers covers the full range of supported attribute mappings and conditions.
+
+## GitHub Actions to GCP
+
+GitHub Actions is one of the most common WIF use cases. Every GitHub Actions job automatically receives an OIDC token containing the repository, branch, workflow name, and environment. No configuration is needed on the GitHub side; it is built in.
+
+The first step is to create the pool and OIDC connector on the GCP side.
+
+```
+gcloud iam workload-identity-pools create github-pool \
+  --location="global" \
+  --project=YOUR_PROJECT
+
+ 
+gcloud iam workload-identity-pools providers create-oidc github-connector \
+  --location="global" \
+  --workload-identity-pool=github-pool \
+  --issuer-uri="https://token.actions.githubusercontent.com" \
+  --attribute-mapping="google.subject=assertion.sub,attribute.repository=assertion.repository" \
+  --attribute-condition="assertion.repository=='your-org/your-repo'" \
+  --project=YOUR_PROJECT
+```
+
+Next, bind the pool to a service account.
+
+```
+gcloud iam service-accounts add-iam-policy-binding deploy-sa@YOUR_PROJECT.iam.gserviceaccount.com \
+  --member="principalSet://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/github-pool/attribute.repository/your-org/your-repo" \
+  --role="roles/iam.workloadIdentityUser"
+```
+
+Finally, in the GitHub Actions workflow, add the OIDC token permission and use the google-github-actions/auth action.
+
+```
+permissions:
+  id-token: write
+  contents: read 
+- uses: google-github-actions/auth@v2
+  with:
+    workload_identity_provider: projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/github-pool/providers/github-connector
+    service_account: deploy-sa@YOUR_PROJECT.iam.gserviceaccount.com
+```
+
+That is the entire setup. No secret is stored in GitHub. The token lasts for the duration of the workflow run and expires automatically.
+
+For the full walkthrough, including Terraform examples and other CI/CD platforms beyond GitHub, see Google's guide to Workload Identity Federation with deployment pipelines.
+
+## Harness Pipelines to GCP
+
+Harness also supports OIDC natively. When a Harness pipeline runs, it generates a JWT containing claims for the account ID, organization ID, project ID, and pipeline identifier. The setup follows the same three-part WIF model, with Harness-specific claim names.
+
+The issuer URL for Harness is tied to your account:
+
+```
+https://app.harness.io/ng/api/oidc/account/YOUR_HARNESS_ACCOUNT_ID
+```
+
+The attribute mappings extract Harness-specific fields from the JWT:
+
+```
+google.subject=assertion.sub
+attribute.account_id=assertion.account_id
+attribute.organization_id=assertion.organization_id
+attribute.project_id=assertion.project_id
+```
+
+The attribute condition then locks it to your specific Harness account and org. A common mistake I see is omitting the`organization_id` check and only filtering on account_id. This is acceptable if your Harness account has a single org, but in multi-org accounts it is too permissive.
+
+When binding the pool to a service account, a`principalSet` with`attribute.account_id` rather than a specific subject allows any pipeline within that account to impersonate the service account. If you want tighter control, for example, only a specific pipeline, then use the subject attribute instead, which will be scoped to that exact pipeline run identity.
+
+## AWS Workloads to GCP
+
+The AWS implementation is the one that surprises people most. AWS does not use OIDC for its workload tokens, it uses its own format based on AWS STS`AssumeRole`. WIF handles this format with a dedicated provider type rather than OIDC.
+
+The trust anchor here is an AWS account ID rather than an issuer URL. You tell GCP to trust tokens from this specific AWS account. GCP then validates that incoming tokens are genuine AWS tokens from that account using AWS's own verification mechanism.
+
+### How AWS Tokens Work
+
+When code runs on an AWS workload, an EC2 instance, a Lambda function, or an ECS task, AWS automatically gives it temporary credentials tied to an IAM role. These credentials consist of three things:
+
+```
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+AWS_SESSION_TOKEN
+```
+
+When that workload wants to prove its identity to an outside system, it uses these credentials to call AWS STS GetCallerIdentity. This is an AWS API call that returns a signed response saying: "this request genuinely came from IAM role X in AWS account 123456789".
+
+The key thing is the signature on that response can only be produced by AWS itself. Nobody outside AWS can fake it.
+
+### What GCP Actually Does to Validate
+
+When the AWS workload sends its token to GCP's STS, GCP doesn't just take the AWS account ID at face value. Here is what happens under the hood:
+
+#### Step 1: GCP Receives the AWS Credential Package
+
+The workload sends its AWS access key, secret key, and session token to GCP, not as raw credentials, but packaged as a signed request to AWS STS GetCallerIdentity.
+
+#### Step 2: GCP Calls AWS STS on Your Behalf
+
+GCP actually makes the GetCallerIdentity API call to AWS itself, using the signed request the workload provided. GCP is essentially asking AWS: "Is this token real?"
+
+#### Step 3: AWS Responds with the Identity
+
+AWS validates the signature internally and responds with the IAM role ARN and the AWS account ID the token belongs to.
+
+#### Step 4: GCP Checks the Response Against Your Configuration
+
+GCP looks at the AWS account ID returned and checks. If it matches the account ID you configured in the AWS provider, then the token is genuine. Otherwise, it is rejected.
+
+#### Implementation
+
+```
+gcloud iam workload-identity-pools create aws-pool \
+  --location="global" \
+  --project=YOUR_GCP_PROJECT
+
+ 
+gcloud iam workload-identity-pools providers create-aws aws-connector \
+  --location="global" \
+  --workload-identity-pool=aws-pool \
+  --account-id="AWS_ACCOUNT_ID" \
+  --project=YOUR_GCP_PROJECT
+```
+
+The service account binding for AWS scopes down to a specific IAM role, not just the account:
+
+```
+gcloud iam service-accounts add-iam-policy-binding \
+  aws-accessor@YOUR_GCP_PROJECT.iam.gserviceaccount.com \
+  --member="principalSet://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/aws-pool/attribute.aws_role/arn:aws:sts::AWS_ACCOUNT_ID:assumed-role/ROLE_NAME" \
+  --role="roles/iam.workloadIdentityUser"
+```
+
+The AWS workload uses the GCP credential configuration file that is generated via`gcloud iam workload-identity-pools create-cred-config` and sets it as the`GOOGLE_APPLICATION_CREDENTIALS` environment variable. GCP client libraries detect this file format automatically and handle the AWS STS token exchange transparently. The workload does not need to know anything about WIF internally.
+
+Google's documentation on Workload Identity Federation with AWS or Azure VMs covers this setup in more depth.
+
+## Security Considerations
+
+WIF solves the key leakage problem but introduces its own attack surface if not configured carefully.
+
+### Attribute Conditions Are Not Optional in Production
+
+The default behavior (or condition) allows any authenticated identity from the provider to exchange tokens. For GitHub, that allows any public repository on the platform to potentially authenticate to your pool if the issuer URL matches. Always define a condition.
+
+### Use principalSet Scoping Carefully
+
+The difference between`principal://`(a single specific subject) and`principalSet://`(all identities matching an attribute) has significant blast radius implications. Start narrow, a specific repository or pipeline, and widen only if operationally necessary.
+
+### Short-Lived Does Not Equal Zero Risk
+
+WIF tokens typically last one hour. If a token is intercepted within that window, it can be used. Mitigate this by scoping service accounts to the minimum permissions needed and enabling Virtual Private Cloud (VPC) Service Controls where applicable.
+
+### Audit Token Exchanges
+
+The WIF pool detail page in the GCP console shows a usage graph of successful token exchanges. Enable Cloud Audit Logs on the IAM API to capture token exchange events with full metadata: which subject, which provider, which service account was impersonated. This is the equivalent of your door access logs.
+
+### Pool and Provider Deletion Is Not Immediate
+
+Deleting a pool puts it into a thirty-day soft-delete state, restorable with undelete, but token exchanges fail immediately regardless. After thirty days, deletion is permanent. Treat pool management with the same care as deleting a service account.
+
+## Comparing the Three Implementations
+
+| Aspect | GitHub Actions | Harness | AWS |
+| --- | --- | --- | --- |
+| Provider type | OIDC | OIDC | AWS (native) |
+| Trust anchor | Issuer URL | Issuer URL (per account) | AWS account ID |
+| Token issued by | GitHub automatically | Harness automatically | AWS STS AssumeRole |
+| Key security filter | repository claim | account_id + org_id | IAM role ARN |
+| Workload config | github-actions/auth | Harness OIDC setting | cred-config JSON file |
+
+## Direct Access vs. Impersonation Is a Real Choice, Not a Style Preference
+
+Instead of routing through a service account, WIF also lets you grant IAM roles straight to the federated principal on the resource, called direct resource access. Google recommends this as the default: It removes the service account from the flow and keeps each external identity's access visible on exactly the resources it was granted.
+
+This article instead uses impersonation throughout for two concrete reasons. First, an external identity federates once, but often ends up needing access across many projects and pipelines over time. Google's own best practices warn that mapping one identity to multiple IAM principals, which is what happens when the same identity picks up a separate direct-access binding per project, makes it harder to see what it can actually reach. It also creates real risk on offboarding. If a binding is missed during revocation, then access silently persists. Routing everything through service accounts required revoking access was one action instead of an audit across every project the identity had touched.
+
+Second, direct access clears the per-API limitations table for every service a pipeline calls, rather than once at setup. It is also more brittle across VPC Service Controls perimeters. Both are cases where Google points to impersonation as the better fit.
+
+There is one operation where direct access does not just have a limitation, but cannot work at all: Cloud Storage signed URLs. A signed URL is not an authenticated API call; it is a URL you hand to someone with no GCP identity. What makes it trustworthy is a cryptographic signature tied to a specific service account. Producing that signature needs either the service account's private key or the iam.serviceAccounts.signBlob permission, neither of which exists for a bare federated principal. Under impersonation, signing works because your federated token calls signBlob on the service account you are impersonating. Google signs the payload with a key it holds in escrow. This is a narrow case in practice. Most of what these pipelines do is unaffected by it, but it is a hard constraint rather than a preference where it applies.
+
+## When WIF Does Not Apply
+
+WIF is the right solution for workload-to-GCP authentication, but it does not cover every scenario. Human users authenticating to GCP should use Cloud Identity or Workforce Identity Federation, a related but separate feature designed for people rather than machines. WIF is specifically for non-human callers: pipelines, services, and automated systems.
+
+Some GCP services and client libraries have limitations with federated credentials. Check the supported services list in the GCP documentation before assuming WIF will work end-to-end. Access Context Manager is one example. Its v1alpha APIs are not yet available to federated identities, even though the rest of the product works normally.
+
+The identity federation products and limitations page lists every product's current level of support. It is worth checking before building against something less common than GitHub Actions or Google Kubernetes Engine (GKE).
+
+If you are running workloads inside GCP, on Compute Engine, GKE, or Cloud Run, you do not need WIF. Those workloads already have a first-class GCP identity via the metadata server. WIF is specifically for workloads that live outside GCP.
+
+## Conclusion
+
+The shift from service account keys to WIF is not just a security improvement. It changes how you think about machine identity. Keys are secrets you manage. Federated identities are trust relationships you configure. One requires operational discipline to stay secure. The other is secure by design.
+
+The practical consequence is repeatability. Create a pool, add a provider with a tight attribute condition, and bind a least-privilege service account. That sequence held across every integration we did, which is the only reason mandating it across new projects was realistic. A pattern that needs rethinking each time does not scale to a hundred teams.
+
+The zero-credentials-stored outcome is worth the initial learning curve. There is nothing to rotate, nothing to accidentally commit, and nothing that gives an attacker permanent access if intercepted. For any team running CI/CD pipelines or connecting third-party services to GCP, WIF should be the default choice.
+
+## About the Author
+
+### Rate this Article
+
+Adoption
+
+Style
+
+Author Contacted

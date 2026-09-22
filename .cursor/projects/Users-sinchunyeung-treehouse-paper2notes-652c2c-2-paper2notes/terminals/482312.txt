@@ -1,0 +1,31 @@
+---
+pid: 27334
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/2/paper2notes/notes/book5/ch01-radiation-and-radioactivity"
+command: "python3 -m http.server 8767 --bind 127.0.0.1"
+title: "Serve notes chapter on port 8767"
+status: failed   
+started_at: 2026-09-10T15:36:32.354Z
+running_for_ms: 417815695
+---
+127.0.0.1 - - [10/Sep/2026 23:37:27] "GET /25-1.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 23:37:27] "GET /css/notes.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 23:37:27] "GET /js/lib/three.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 23:37:27] "GET /js/diagrams3d.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 23:37:27] "GET /js/notes.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 23:37:28] code 404, message File not found
+127.0.0.1 - - [10/Sep/2026 23:37:28] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [11/Sep/2026 22:03:01] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2026 22:03:02] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2026 22:03:02] "GET /css/notes.css HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2026 22:03:02] "GET /js/notes.js HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2026 22:03:02] code 404, message File not found
+127.0.0.1 - - [11/Sep/2026 22:03:02] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [15/Sep/2026 10:18:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 10:19:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 10:19:11] "GET /index.html HTTP/1.1" 200 -
+
+---
+exit_code: unknown
+elapsed_ms: 417815695
+ended_at: 2026-09-15T11:40:08.049Z
+---

@@ -1,0 +1,29 @@
+---
+pid: 93957
+cwd: "/Users/sinchunyeung/.config/nvim"
+command: "fd --color=never --type f --type l --exclude .git --exclude .jj nvim ~ 2>/dev/null | head -5; echo \"---hidden---\"; fd --color=never --type f --type l --exclude .git --exclude .jj --hidden nvim ~ 2>/dev/null | head -10"
+title: "Test fzf-lua default fd command with hidden flag"
+status: succeeded
+started_at: 2026-09-02T06:03:50.077Z
+running_for_ms: 114930   
+---
+/Users/sinchunyeung/github/nvim-config
+/Users/sinchunyeung/Library/Caches/com.apple.python/Users/sinchunyeung/Library/Python/3.9/lib/python/site-packages/pynvim/api/nvim.cpython-39.pyc
+/Users/sinchunyeung/Library/Python/3.9/lib/python/site-packages/pynvim/api/nvim.py
+---hidden---
+/Users/sinchunyeung/.vscode/extensions/ms-python.vscode-pylance-2026.2.1/dist/.cache/local_indices/dbf2b908cc8bae5603dc26fd93e78ff42239c66d71ed3ad6cf6e1db0c9f385b7/pynvim.json
+/Users/sinchunyeung/.vscode/extensions/ms-python.vscode-pylance-2026.2.1/dist/.cache/local_indices/5c728f51f4f2f0271e6196b59be7501209d093d623f3411241672a8e8a963497/pynvim.json
+/Users/sinchunyeung/.cache/nvim-test/luac/%2fUsers%2fsinchunyeung%2f.local%2fshare%2fnvim-test%2flazy%2flazy.nvim%2flua%2flazy%2fview%2fdiff.luac
+/Users/sinchunyeung/.cache/nvim-test/luac/%2fUsers%2fsinchunyeung%2f.local%2fshare%2fnvim-test%2flazy%2fcatppuccin%2flua%2fcatppuccin%2flib%2fhsluv.luac
+/Users/sinchunyeung/.cache/nvim-test/luac/%2fopt%2fhomebrew%2fCellar%2fneovim%2f0.12.5%2fshare%2fnvim%2fruntime%2flua%2fvim%2fhealth.luac
+/Users/sinchunyeung/.cache/nvim-test/luac/%2fUsers%2fsinchunyeung%2f.local%2fshare%2fnvim-test%2flazy%2flazy.nvim%2flua%2flazy%2fmanage%2fchecker.luac
+/Users/sinchunyeung/.cache/nvim-test/luac/%2fUsers%2fsinchunyeung%2f.local%2fshare%2fnvim-test%2flazy%2fcatppuccin%2flua%2fcatppuccin%2fpalettes%2finit.luac
+/Users/sinchunyeung/.cache/nvim-test/luac/%2fUsers%2fsinchunyeung%2f.local%2fshare%2fnvim-test%2flazy%2fcatppuccin%2flua%2fcatppuccin%2fgroups%2fsemantic_tokens.luac
+/Users/sinchunyeung/.cache/nvim-test/luac/%2fopt%2fhomebrew%2fCellar%2fneovim%2f0.12.5%2fshare%2fnvim%2fruntime%2flua%2fvim%2ftreesitter%2flanguage.luac
+/Users/sinchunyeung/.cache/nvim-test/luac/%2fUsers%2fsinchunyeung%2f.local%2fshare%2fnvim-test%2flazy%2flazy.nvim%2flua%2flazy%2fmanage%2ftask%2finit.luac
+
+---
+exit_code: 0
+elapsed_ms: 114928
+ended_at: 2026-09-02T06:05:45.005Z
+---

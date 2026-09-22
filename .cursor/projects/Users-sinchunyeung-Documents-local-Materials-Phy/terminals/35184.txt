@@ -1,0 +1,13 @@
+---
+pid: 17053
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy"
+command: "python3 << 'PYEOF'\nimport fitz  # pymupdf\nimport subprocess, tempfile, os, re\n\npdf_path = \"/Users/sinchunyeung/Documents-local/Materials/Phy/active-physics/Book 4.pdf\"\ndoc = fitz.open(pdf_path)\nprint(f\"Total pages: {len(doc)}\")\n\n# OCR first 30 pages looking for chapter 2 / electric circuits TOC\nfor i in range(min(40, len(doc))):\n    page = doc[i]\n    text = page.get_text()\n    if text.strip():\n        if re.search(r'electric|circuit|resistance|chapter|4\\.2|Ch\\.?\\s*2', text, re.I):\n            print(f\"\\n=== PAGE {i+1} (embedded text) ===\")\n            print(text[:1500])\n    \n# Try OCR on pages that might be TOC - search by rendering text from images\n# First find pages with \"Electric circuits\" via OCR on sample pages\nkeywords_found = []\nfor i in range(len(doc)):\n    page = doc[i]\n    pix = page.get_pixmap(dpi=150)\n    with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as tmp:\n        pix.save(tmp.name)\n        result = subprocess.run(['tesseract', tmp.name, 'stdout', '-l', 'eng'], capture_output=True, text=True)\n        os.unlink(tmp.name)\n    text = result.stdout\n    if re.search(r'electric circuit|4\\.2|Resistance|Ohm', text, re.I):\n        keywords_found.append((i+1, text[:500]))\n        if len(keywords_found) <= 15:\n            print(f\"\\n=== OCR PAGE {i+1} ===\")\n            print(text[:1200])\n\nprint(f\"\\nTotal keyword pages: {len(keywords_found)}\")\nPYEOF"
+started_at: 2026-08-22T14:29:54.568Z
+running_for_ms: 315049   
+---
+
+---
+exit_code: unknown
+elapsed_ms: 317575
+ended_at: 2026-08-22T14:35:12.143Z
+---

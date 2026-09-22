@@ -1,0 +1,28 @@
+---
+pid: 90912
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "# Adopt pipeline head into local classify (preserves review/document fix commits)\ngit fetch no-mistakes classify 2>&1\ngit reset --hard 7f549d07352407e1a87569666562663116f6417b 2>&1\ngit log --oneline -8\necho '===='\n# Retry push with larger HTTP buffer (do not write git config)\ngit -c http.postBuffer=524288000 -c http.version=HTTP/1.1 push --force-with-lease=refs/heads/classify:0e09810b6746ce415efb107837c71038d853d6b9 origin HEAD:refs/heads/classify 2>&1\n"
+title: "Adopt pipeline head and retry GitHub push"
+status: failed   
+started_at: 2026-09-05T15:55:37.819Z
+running_for_ms: 920823   
+---
+fatal: write error: No space left on device
+fatal: fetch-pack: invalid index-pack output
+fatal: Could not parse object '7f549d07352407e1a87569666562663116f6417b'.
+6ae022a chore: clean LQ assets and drop page-render caches
+0243ff9 feat: classify LQ questions into curriculum sections
+0e09810 feat: classify MC questions into curriculum sections
+6f95bad chore(paper): organize PDFs into mc, lq, and ans folders
+437e109 Add MC segmentation pipeline and per-year question crops.
+====
+error: RPC failed; HTTP 500 curl 22 The requested URL returned error: 500
+send-pack: unexpected disconnect while reading sideband packet
+fatal: the remote end hung up unexpectedly
+Everything up-to-date
+
+---
+exit_code: 1
+elapsed_ms: 920823
+ended_at: 2026-09-05T16:10:58.642Z
+---

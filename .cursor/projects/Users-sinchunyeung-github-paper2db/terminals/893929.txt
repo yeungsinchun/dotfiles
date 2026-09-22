@@ -1,0 +1,156 @@
+---
+pid: 23793
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && for pdf in paper/lq/*.pdf; do\n  base=$(basename \"$pdf\" .pdf)\n  case \"$base\" in\n    20[0-9][0-9]*) year=${base:0:4} ;;\n    ppp*) year=pp ;;\n    *) year=$base ;;\n  esac\n  echo \"=== pages $year ===\"\n  ./segment \"$pdf\" \"output/lq/$year\" --type lq --questions 12 --max-scale 3.5 || echo FAIL $year\ndone 2>&1\n"
+title: "Re-export all LQ years as full pages only"
+status: succeeded
+started_at: 2026-09-05T00:36:50.128Z
+running_for_ms: 1450836  
+---
+=== pages 2012 ===
+Paper type: LQ (2012p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=3.50 (detect 2.50)
+  saved 18 page PNGs -> /Users/sinchunyeung/github/paper2db/output/lq/2012/pages
+  detected Q1-Q1 (1 questions)
+  wrote starts.json (1 questions)
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2012/combined.pdf (18 pages)
+Wrote 1 questions (page split) -> /Users/sinchunyeung/github/paper2db/output/lq/2012
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2012/combined.pdf
+=== pages 2013 ===
+Paper type: LQ (2013p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=2.78 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 18 page PNGs -> /Users/sinchunyeung/github/paper2db/output/lq/2013/pages
+  detected Q1-Q11 (11 questions)
+  wrote starts.json (11 questions)
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2013/combined.pdf (18 pages)
+Wrote 11 questions (page split) -> /Users/sinchunyeung/github/paper2db/output/lq/2013
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2013/combined.pdf
+=== pages 2014 ===
+Paper type: LQ (2014p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=3.50 (detect 2.50)
+  saved 19 page PNGs -> /Users/sinchunyeung/github/paper2db/output/lq/2014/pages
+  detected Q1-Q10 (10 questions)
+  wrote starts.json (10 questions)
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2014/combined.pdf (19 pages)
+Wrote 10 questions (page split) -> /Users/sinchunyeung/github/paper2db/output/lq/2014
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2014/combined.pdf
+=== pages 2015 ===
+Paper type: LQ (2015p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=3.50 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 18 page PNGs -> /Users/sinchunyeung/github/paper2db/output/lq/2015/pages
+  detected Q1-Q10 (10 questions)
+  wrote starts.json (10 questions)
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2015/combined.pdf (18 pages)
+Wrote 10 questions (page split) -> /Users/sinchunyeung/github/paper2db/output/lq/2015
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2015/combined.pdf
+=== pages 2016 ===
+Paper type: LQ (2016p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=3.50 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 19 page PNGs -> /Users/sinchunyeung/github/paper2db/output/lq/2016/pages
+  detected Q1-Q9 (9 questions)
+  wrote starts.json (9 questions)
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2016/combined.pdf (19 pages)
+Wrote 9 questions (page split) -> /Users/sinchunyeung/github/paper2db/output/lq/2016
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2016/combined.pdf
+=== pages 2017 ===
+Paper type: LQ (2017p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=2.78 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 19 page PNGs -> /Users/sinchunyeung/github/paper2db/output/lq/2017/pages
+  detected Q1-Q10 (10 questions)
+  wrote starts.json (10 questions)
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2017/combined.pdf (19 pages)
+Wrote 10 questions (page split) -> /Users/sinchunyeung/github/paper2db/output/lq/2017
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2017/combined.pdf
+=== pages 2018 ===
+Paper type: LQ (2018p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=3.50 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 18 page PNGs -> /Users/sinchunyeung/github/paper2db/output/lq/2018/pages
+  detected Q1-Q10 (10 questions)
+  wrote starts.json (10 questions)
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2018/combined.pdf (18 pages)
+Wrote 10 questions (page split) -> /Users/sinchunyeung/github/paper2db/output/lq/2018
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2018/combined.pdf
+=== pages 2019 ===
+Paper type: LQ (2019p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=3.50 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 19 page PNGs -> /Users/sinchunyeung/github/paper2db/output/lq/2019/pages
+  detected Q1-Q10 (10 questions)
+  wrote starts.json (10 questions)
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2019/combined.pdf (19 pages)
+Wrote 10 questions (page split) -> /Users/sinchunyeung/github/paper2db/output/lq/2019
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2019/combined.pdf
+=== pages 2020 ===
+Paper type: LQ (2020p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=3.50 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 19 page PNGs -> /Users/sinchunyeung/github/paper2db/output/lq/2020/pages
+  detected Q1-Q10 (10 questions)
+  wrote starts.json (10 questions)
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2020/combined.pdf (19 pages)
+Wrote 10 questions (page split) -> /Users/sinchunyeung/github/paper2db/output/lq/2020
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2020/combined.pdf
+=== pages 2021 ===
+Paper type: LQ (2021p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=3.50 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 19 page PNGs -> /Users/sinchunyeung/github/paper2db/output/lq/2021/pages
+  detected Q1-Q9 (9 questions)
+  wrote starts.json (9 questions)
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2021/combined.pdf (19 pages)
+Wrote 9 questions (page split) -> /Users/sinchunyeung/github/paper2db/output/lq/2021
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2021/combined.pdf
+=== pages 2022 ===
+Paper type: LQ (2022p1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=3.50 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 19 page PNGs -> /Users/sinchunyeung/github/paper2db/output/lq/2022/pages
+  detected Q1-Q10 (10 questions)
+  wrote starts.json (10 questions)
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2022/combined.pdf (19 pages)
+Wrote 10 questions (page split) -> /Users/sinchunyeung/github/paper2db/output/lq/2022
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2022/combined.pdf
+=== pages 2023 ===
+Paper type: LQ (2023q1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=3.50 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 19 page PNGs -> /Users/sinchunyeung/github/paper2db/output/lq/2023/pages
+  detected Q1-Q9 (9 questions)
+  wrote starts.json (9 questions)
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2023/combined.pdf (19 pages)
+Wrote 9 questions (page split) -> /Users/sinchunyeung/github/paper2db/output/lq/2023
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/2023/combined.pdf
+=== pages pp ===
+Paper type: LQ (ppp1b.pdf)
+=== LQ: split exam pages (no question crops) ===
+  render scale=3.50 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  saved 19 page PNGs -> /Users/sinchunyeung/github/paper2db/output/lq/pp/pages
+  detected Q1-Q12 (12 questions)
+  wrote starts.json (12 questions)
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/pp/combined.pdf (19 pages)
+Wrote 12 questions (page split) -> /Users/sinchunyeung/github/paper2db/output/lq/pp
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/lq/pp/combined.pdf
+
+---
+exit_code: 0
+elapsed_ms: 1450820
+ended_at: 2026-09-05T01:01:00.948Z
+---

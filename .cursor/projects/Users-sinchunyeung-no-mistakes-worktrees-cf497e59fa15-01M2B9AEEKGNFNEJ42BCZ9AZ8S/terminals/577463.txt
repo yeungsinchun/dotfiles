@@ -1,0 +1,16 @@
+---
+pid: 89860
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/cf497e59fa15/01M2B9AEEKGNFNEJ42BCZ9AZ8S"
+command: "which python3; ls -la scripts/.venv 2>/dev/null; ls -la .venv 2>/dev/null; ls -la ~/.venvs 2>/dev/null; find /Users/sinchunyeung -name 'pymupdf*' -path '*site-packages*' 2>/dev/null | head -20; ls /usr/local/bin/python* 2>/dev/null; type python3; python3 -c 'import sys; print(sys.executable, sys.path[:3])'"
+title: "Find Python env with pymupdf installed"
+status: failed   
+started_at: 2026-09-12T17:21:00.891Z
+running_for_ms: 47514    
+---
+/opt/homebrew/bin/python3
+
+---
+exit_code: unknown
+elapsed_ms: 47511
+ended_at: 2026-09-12T17:21:48.402Z
+---

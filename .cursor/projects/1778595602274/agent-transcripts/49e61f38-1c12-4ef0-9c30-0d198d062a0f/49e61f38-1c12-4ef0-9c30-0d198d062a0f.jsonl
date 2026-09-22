@@ -1,0 +1,2 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<timestamp>Tuesday, May 12, 2026, 10:20 PM (UTC+8)</timestamp>\n<user_query>\nhi\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"Hi! How can I help you today?"}]}}

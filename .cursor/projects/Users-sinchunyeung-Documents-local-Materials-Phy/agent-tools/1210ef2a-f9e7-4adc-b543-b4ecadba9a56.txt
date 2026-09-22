@@ -1,0 +1,1697 @@
+2014 HKDSE Physics Paper 1A Solutions | PDF | Radioactive Decay | Electromagnetic Induction
+
+Skip to main content
+
+Open navigation menu
+
+Close suggestionsSearchSearch
+
+Change Language, English
+
+Sign in
+
+Sign in
+
+0% found this document useful (0 votes)
+
+4K views20 pages
+
+# 2014 HKDSE Physics Paper 1A Solutions
+
+2014 HKDSE Physics Paper 1A Solutions
+
+## Uploaded by
+
+Copyright
+
+© © All Rights Reserved
+
+We take content rights seriously. If you suspect this is your content, claim it here.
+
+Available Formats
+
+Download as PDF, TXT or read online on Scribd
+
+Download
+
+Save 2014 HKDSE Physics Paper 1A Solutions For Later
+
+Share
+
+0% found this document useful, undefined
+
+, undefined
+
+Print
+
+Embed
+
+Report
+
+0% found this document useful (0 votes)
+
+4K views20 pages
+
+# 2014 HKDSE Physics Paper 1A Solutions
+
+2014 HKDSE Physics Paper 1A Solutions
+
+## Uploaded by
+
+Copyright
+
+© © All Rights Reserved
+
+We take content rights seriously. If you suspect this is your content, claim it here.
+
+Available Formats
+
+Download as PDF, TXT or read online on Scribd
+
+Go to previous items
+
+Download
+
+Save 2014 HKDSE Physics Paper 1A Solutions For Later
+
+Share
+
+0% found this document useful, undefined
+
+, undefined
+
+Print
+
+Embed
+
+Report
+
+Go to next items
+
+OutlinePage view
+
+Download
+
+Save 2014 HKDSE Physics Paper 1A Solutions For Later
+
+Search
+
+Fullscreen
+
+- Answer Summary
+- Detailed Solutions
+- Instructor Information
+
+# DSE-PHY-14-1AS
+
+20142014 HKDSE PHYSICSPHYSICS Paper 1ASuggested Solutions
+
+## Prepared by Andy Lai
+
+HKDSE
+
+Physics Teacher
+
+MC ABC Grade ,
+
+, ,
+
+## Enrollment Hotline: 6772 3001
+
+Website: [Link]
+
+MSN: mrandylai@[Link]
+
+Address: Rm706, Prosper Commercial Building, 9 Yin Chong Street, Mong Kok, Kowloon, Hong Kong.
+
+## 2014 HKDSE Physics Paper IA Suggested Answers
+
+1.
+
+2.
+
+3.
+
+4.
+
+5.
+
+6.
+
+7.
+
+8.
+
+9.
+
+10.
+
+11.
+
+12.
+
+13.
+
+14.
+
+15.
+
+16.
+
+17.
+
+18.
+
+19.
+
+20.
+
+21.
+
+22.
+
+23.
+
+24.
+
+25.
+
+26.
+
+27.
+
+28.
+
+29.
+
+30.
+
+31.
+
+32.
+
+33.
+
+MC ABC Grade ,
+
+, !
+
+, !
+
+! !
+
+## Andys predicted M.C. Grade boundaries:
+
+5**: 30 / 33 5*: 26 / 335: 22 / 334: 17 / 333: 13 / 362: 10 / 36
+
+sir 2014 HKDSE Physics Paper IA Suggested Solutions
+
+DSE-PHY-14-1AS
+
+Section A1.
+
+Sir
+
+## 1. Vacuum flask: reduce the rate of heat transfer by conduction and
+
+convection.2. The temperature of ice-cream < temperature of surroundings Heat transfer from the surroundings to the ice-cream Heat gain by ice-cream from surroundings3. Therefore, the rate of heat gains from surroundings is slower for theice-cream inside the vacuum than that insider a paper cup. The time taken to melt the ice-cream completely inside the vacuum flask islonger than that inside the paper cup.
+
+2.
+
+Sir
+
+## 1. Define the symbols as follows:
+
+## P: Power of the heater
+
+t: time taken for the change of temperature
+
+## m: mass of the solid substance X
+
+c: specific heat capacity of the solid substance X
+
+T : Change in temperature
+
+## l: specific latent heat of fusion of the solid substance X
+
+2. By Pt = mc( T )P (2 60) = m (800)(80 20)P = 400 m
+
+3. By Pt = ml400m (8 2)(60) = mll = 144 kJ kg-1
+
+## 2014 A Lai learning Center. ALL RIGHTS RESERVED.
+
+[Link] Prepared by Andy Lai
+
+P. 1
+
+sir 2014 HKDSE Physics Paper IA Suggested Solutions
+
+3.
+
+Sir
+
+DSE-PHY-14-1AS
+
+## 1. Uniform density Center of mass is located in the middle of the rod!
+
+2. Two different materials Two center of mass!3. Taking moment at Q: mPQ g ( 2) = mQR g (3)
+
+4.
+
+Sir
+
+mPQ 3= mPQ : mQR = 3 : 2 !mQR 2
+
+## 1. Tension of the left string = 30 N
+
+2. Tension of the right string = 20 N3. Resolving Tension of the left string and that of the right string intohorizontal and vertical components respectively gives:
+
+## Vertical direction : 30 sin + 20 sin = W
+
+## Horizontal direction : 30 cos = 20 sin
+
+## 4. Q and are less than 90 Both sin and sin < 1
+
+5. Therefore, W < 30(1) + 20(1) = 50 N!
+
+P. 2
+
+## 2014 A Lai learning Center. ALL RIGHTS RESERVED.
+
+[Link] Prepared by Andy Lai
+
+sir 2014 HKDSE Physics Paper IA Suggested Solutions
+
+5.
+
+Sir
+
+DSE-PHY-14-1AS
+
+## 1. In the 1st phase, let u = u, v = v, a = a, s = 36, t = 4,
+
+By S =
+
+(u + v )t 36 = (u + v)(4)/2 u + v = 182
+
+(1)
+
+## 2. In the 2nd phase, let u = v, v = w, a = a, s = 36, t = 2
+
+By S =
+
+(u + v )t 36 = (v + w)(2)/2 v + w = 362
+
+(2)
+
+## 3. By (2) (1) gives: w u = 18
+
+4. By a =
+
+6.
+
+(v + u )(w u )18 a= a= a = 3 m s 2t4+2t
+
+Sir
+
+## 1. By law of conversation of energy Loss in G.P.E. = Gain in K.E.
+
+1mgH = mv 22
+
+v = 2 gH
+
+## 2. Therefore, Same height Same velocity!
+
+3. Consider the downward component of weight and by Newtons 2 nd law:mg sin = ma a = g sin
+
+4. Since sin a t !5. Therefore, t2 > t1 !
+
+## 2014 A Lai learning Center. ALL RIGHTS RESERVED.
+
+[Link] Prepared by Andy Lai
+
+P. 3
+
+sir 2014 HKDSE Physics Paper IA Suggested Solutions
+
+7.
+
+Sir
+
+DSE-PHY-14-1AS
+
+1. The force on ball Q by ball P is to the right Ball Q can only move to theright and so the ball P since both of ball P and Q moves in the same directionafter collision.2. Take the right direction as positive, by Law of conservation of momentum,Option 1: (2)(+6) + 1(0) = 2(v) + 1(+2) v = +6 m s-1 > + 2 m s-1 Not possible since both P and Q move in the same direction after collision but
+
+## the speed of P cannot be faster than that of Q!
+
+Option 2: (2)(+6) + 1(0) = 2(v) + 1(+4) v = +3 m s-1 < + 4 m s-1 Possible since both P and Q move in the same direction after collision and the
+
+## speed of P should be slower than or equal to that of Q!
+
+Option 1: (2)(+6) + 1(0) = 2(v) + 1(+6) v = +2 m s-1 < + 6 m s-1 Possible since both P and Q move in the same direction after collision and the
+
+## speed of P should be slower than or equal to that of Q!
+
+8.
+
+Sir
+
+## 1. By Newtons second law and two block as a single system:
+
+5g 3g = 8a a = g
+
+9.
+
+Sir
+
+## 1. Taking downward as negative!
+
+2. Given u = -2, v = -11, s = ?, a = -9.81, t = ?3. By v 2 u 2 = 2as 121 4 = 2( 9.81) s s = -5.96 = - 6 m
+
+P. 4
+
+## 2014 A Lai learning Center. ALL RIGHTS RESERVED.
+
+[Link] Prepared by Andy Lai
+
+sir 2014 HKDSE Physics Paper IA Suggested Solutions
+
+10.
+
+Sir
+
+DSE-PHY-14-1AS
+
+## 1. Take downward as negative,
+
+2. Consider vertical motion: u = 0, v = ?, a = -9.81, s = -0.8, t = ?113. By s = ut + at 2 0.8 = ( 9.81)t 2 t = 0 .401 s22
+
+## 4. Consider horizontal motion: u = s/t u = 1/0.401 = 2.5 m s-1
+
+## 2014 A Lai learning Center. ALL RIGHTS RESERVED.
+
+[Link] Prepared by Andy Lai
+
+P. 5
+
+sir 2014 HKDSE Physics Paper IA Suggested Solutions
+
+11.
+
+Sir
+
+DSE-PHY-14-1AS
+
+1.
+
+## Weightless Losing all weights!
+
+2.
+
+## Weightless = Reading of the scale = 0 N, i.e. Normal Reaction = 0 N.
+
+3.
+
+## The astronaut inside a spacecraft is performing circular motion. The
+
+centripetal force is completely provided by his weight.
+
+4.
+
+Moreover, the astronaut and the spacecraft are both moving with the sameacceleration towards the Earth!
+
+5.
+
+Therefore, the normal reaction from the floor of the spacecraft is zero. andthus, the astronaut feels weightlessness.
+
+6.
+
+## To prove R = 0 N, consider the free body diagram of the astronaut:
+
+GMmmv 2
+
+R=r2rBut v =
+
+GMr
+
+## which is the orbital speed of the satellite.
+
+GMm 2 R=r
+
+GMrr
+
+R=0
+
+7.
+
+P. 6
+
+## Therefore, Normal Reaction = 0 N! Weightless occur!
+
+## 2014 A Lai learning Center. ALL RIGHTS RESERVED.
+
+[Link] Prepared by Andy Lai
+
+sir 2014 HKDSE Physics Paper IA Suggested Solutions
+
+12.
+
+Sir
+
+DSE-PHY-14-1AS
+
+## 1. By g = GM/R2 where R: radius of the Earth, M: Mass of the Earth, G:
+
+Gravitational constant, g: acceleration due to gravity on the Earth surface.
+
+2. By a =
+
+13.
+
+vr
+
+Sir
+
+a=
+
+GM 2)GM2R a=2R4R 2
+
+a=
+
+1g.4
+
+## 1. Please refer to the diagram below:
+
+14.
+
+Sir
+
+1. Draw the next moment of the wave and you will find P is moving upwardsand Q, R, and S are moving downwards.2. The particles apart from exactly one wavelength are in-phase duringtransformation while the particle apart from half wavelength are exactlyout-of-phase of antiphase.3. Only particle located at glucose can survive.
+
+## 2014 A Lai learning Center. ALL RIGHTS RESERVED.
+
+[Link] Prepared by Andy Lai
+
+P. 7
+
+sir 2014 HKDSE Physics Paper IA Suggested Solutions
+
+15.
+
+Sir 1. By
+
+DSE-PHY-14-1AS
+
+sin 1 v1 1 n2 v != ==sin 2 v2 2 n1
+
+## 2. Therefore, vIII < vI < vII
+
+16.
+
+Sir
+
+## 1. wavelength or gap size Degree of diffraction!
+
+2. Amplitude is nothing to do with diffraction!
+
+17.
+
+Sir
+
+## 1. By speed = distance / time 340 =
+
+64 + x + x + 64 x=4m0.5 0.1
+
+## 2. Therefore, v = 4 /[(0.5 0.1) / 2] = 20 m s 1
+
+18.
+
+Sir
+
+## 1. Two sources of sound waves are anti-phase,
+
+1 , n = 0, 1,..2
+
+## Constructive Interference if Path difference = PS1 PS2 = n +
+
+## Destructive Interference, Path difference = PS1 PS2 = n , n=0,1,2,..
+
+## 2. The path difference at O = 0 Destructive interference
+
+3. The path difference at P = (3 2.8) / 0.2 = 2 Destructive interference!
+
+P. 8
+
+## 2014 A Lai learning Center. ALL RIGHTS RESERVED.
+
+[Link] Prepared by Andy Lai
+
+sir 2014 HKDSE Physics Paper IA Suggested Solutions
+
+19.
+
+Sir
+
+DSE-PHY-14-1AS
+
+## 1. Sound waves are mechanical wave, not EM wave.
+
+2. Sound waves travel vaccum.
+
+20.
+
+Sir
+
+1. Holding a positive charge near ball X inside a vacuum, there are inducednegative charges on the left side of the ball X and induced positive chargeson the right side of the ball Y.2. When ball X is earthed, the Earth will regards ball X and ball Y are thesame conductor and ball X and ball Y are positively charged. (Do you knowwhy?) Therefore, the electrons will flow from the Earth to the ball Y toneutralize it.3. After separating the ball X and ball Y, ball X become negatively chargedwhile ball Y is neutral.4. Finally, removing the positively charged rod, the ball X and ball Y arenegatively charged and neutral.
+
+## 2014 A Lai learning Center. ALL RIGHTS RESERVED.
+
+[Link] Prepared by Andy Lai
+
+P. 9
+
+sir 2014 HKDSE Physics Paper IA Suggested Solutions
+
+21.
+
+Sir
+
+## 1. Option By Columbs Law: F =
+
+1 QaQb4 r 2
+
+Option A: For Q1 and Q3, The direction of resultant forces acting on themare to the right.
+
+Option C: For Q1 and Q2, The direction of resultant forces acting on themare to the right and left respectively
+
+## Option B: The resultant force on Q2 is zero! However, The resultant force on
+
+Q1 is not balanced.The resultant force on Q1 = F =
+
+1 ( +2)(1)1 ( +2)(+2)1+=224 ( r )4 (2 r )4 r 2
+
+Option D: The resultant force on all Q1, Q2 and Q3 are not zero!1 ( +1)(4)1 ( +4)( +4)The resultant force on Q1 = F =+= 0N24 ( r )4 ( 2r ) 2F=
+
+1 ( +1)(4)1 (+1)(4)+= 0N24 ( r )4 ( r ) 2
+
+F=
+
+1 ( +1)(4)1 ( 4)( 4)+= 0N24 ( r )4 ( 2r ) 2
+
+## The resultant force on Q2 =
+
+## The resultant force on Q3 =
+
+P. 10
+
+DSE-PHY-14-1AS
+
+## 2014 A Lai learning Center. ALL RIGHTS RESERVED.
+
+[Link] Prepared by Andy Lai
+
+sir 2014 HKDSE Physics Paper IA Suggested Solutions
+
+22.
+
+Sir
+
+DSE-PHY-14-1AS
+
+1. Electric force on electron to the left the right plate is positive while theleft plate is negative Electric field point from P to Q.
+
+2. By E = F/Q E =
+
+23.
+
+Sir 1. By V =
+
+:Q
+
+4 r
+
+, VX =
+
+2. Therefore, VY =
+
+24.
+
+Sir
+
+8 10 18= 50 N C 1 (from P to Q)191.6 10
+
+QQ=4 (3r ) 12 r
+
+QQ12Q3V==( )=4 ( 2r ) 8 r8 12 r2
+
+## 1. Before switch open, e.m.f. = (3)(6 + r)
+
+3. After switch open, e.m.f. = (I)(3 + 6 + r)
+
+(1) (2)
+
+## 4. By inspection, the current should be lower than 3 A, therefore, option D
+
+should not be the answer.5. Combining (1) and (2) gives 18 + 3r = 9I + Ir (3)6. By substituting I = 2.4 into (3) gives r = 6 ohms7. By substituting I = 2.0 into (3) gives r = 0 ohm which is not possible!8. By substituting I = 1.6 into (3) gives r = -2.57 ohm which is not possible!9. Therefore, the only possible answer is I = 2.4 A!
+
+## 2014 A Lai learning Center. ALL RIGHTS RESERVED.
+
+[Link] Prepared by Andy Lai
+
+P. 11
+
+sir 2014 HKDSE Physics Paper IA Suggested Solutions
+
+25.
+
+Sir
+
+DSE-PHY-14-1AS
+
+## 1. Voltmeter = 6 V = e.m.f. of the battery
+
+No potential difference between blub Q Blub Q is short-circutied!2. However, blub P cannot be short-circuited otherwise the current will not passthrough the voltmeter in parallel to blub P and so the reading of voltmeter iszero.3. Therefore, the only possible answer is D.
+
+26.
+
+Sir
+
+## 1. By right-hand grip rule,
+
+## The magnetic field due to the current S at point O = towards P
+
+## The magnetic field due to the current Q at point O = towards P
+
+## The magnetic field due to the current P at point O = towards S (cancel by Q)
+
+## The magnetic field due to the current R at point O = towards Q (cancel by S)
+
+2. Therefore, the direction of the resultant magnetic field at the centre O of thesquare is along OP.
+
+P. 12
+
+## 2014 A Lai learning Center. ALL RIGHTS RESERVED.
+
+[Link] Prepared by Andy Lai
+
+sir 2014 HKDSE Physics Paper IA Suggested Solutions
+
+27.
+
+Sir
+
+DSE-PHY-14-1AS
+
+1. The current flow from M to N for the first half period of time decreasingly By right hand grip rule B-field strength into the coil PQRS decreases!2. By Lenzs law Induced current flow in clockwise direction in coil PQRSto create a magnetic field into the paper to oppose the decrease in magneticflux linkage into the coil.3. When the current flow from N to M for the 2nd half period of timeincreasingly, By right hand grip rule B-field strength out of the coilPQRS increases.4. By Lenz law Induced current flow in clockwise direction in coil PQRSto crease a magnetic field into the paper to oppose the increase in magneticflux linkage out of the coil.5. Therefore, the direction of the induced current in the coil during the timeinterval from 0 to T is clockwise throughout.
+
+28.
+
+Sir
+
+NI, B-filed strength is nothing to do with the cross-sectional arealand inversely proportional to the length of the coil and directly proportionalto the current flowing inside the coil and numbers of turns insider the coil.
+
+1. By B =
+
+## 2. Therefore, only choice D is the answer.
+
+## 2014 A Lai learning Center. ALL RIGHTS RESERVED.
+
+[Link] Prepared by Andy Lai
+
+P. 13
+
+sir 2014 HKDSE Physics Paper IA Suggested Solutions
+
+29.
+
+Sir
+
+DSE-PHY-14-1AS
+
+## 1. PQ is found to be higher electric potential Negative potential on side SR
+
+2. The charge carriers in the metal block is electrons Electrons are pushedon the side SR by the magnetic force!3. By Fleming left hand rule, the magnetic force is pointing towards side SRand the current is flowing to the left the magnetic field should bepointing from Q to P.
+
+30.
+
+Sir
+
+## 1. r.m.s. of an alternating current as the steady d.c. which converts electric
+
+potential energy to other forms in a given pure resistance at the same rate asthat of the a.c.
+
+2. By P =
+
+31.
+
+1V10 2(d.c) and P = r .m.s .2RR
+
+Sir
+
+(a.c)
+
+100 Vr .m.s . =Vr . m . s . = 5 2 V2RR
+
+## 1. Assume there are 50 protons and 50 neutrons inside the nucleus of W,
+
+2. By decay equations:96W 48X + 24
+
+10050
+
+9648
+
+9649
+
+0X 9649Y + 1
+
+Y 5096 Z + 10
+
+## 3. Therefore, only option (2) and option (3) is the answers.
+
+P. 14
+
+## 2014 A Lai learning Center. ALL RIGHTS RESERVED.
+
+[Link] Prepared by Andy Lai
+
+sir 2014 HKDSE Physics Paper IA Suggested Solutions
+
+32.
+
+Sir
+
+DSE-PHY-14-1AS
+
+## 1. Radioactive source emits both alpha and gamma radiation.
+
+2. Alpha radiation Blocked by paper!3. Gamma radiation intensity halved by 25 mm lead4. Background radiation = 50 Cannot be blocked!5. Therefore, no matter what kinds of materials, the recorded count rate shouldbe at least 50! Option C is not the appropriate answer!6. Reading of X and Y should be nearly the same since there is no betaradiation! Option B should not be the answer!7. There should be some difference between reading y and reading z since thereshould be the intensity of gamma radiation can be reduced a bit by even 2mm of lead. Option D is not a suitable choice!8. Option A is suitable one because the reading of x is 300 Reading ofalpha radiation = 1509. And reading of x and y are nearly the same No beta radiation!10. And reading of y and z is difference by 200 Some Gamma radiation isblocked!11. Reading of z = 100 Some gamma radiation (50) + Background radiation(50)!
+
+## 2014 A Lai learning Center. ALL RIGHTS RESERVED.
+
+[Link] Prepared by Andy Lai
+
+P. 15
+
+sir 2014 HKDSE Physics Paper IA Suggested Solutions
+
+33.
+
+Sir
+
+DSE-PHY-14-1AS
+
+1. Ra Rn + + 4.9 MeV Ra ( Rn + ) = 4.9 MeV = 4.9 10 6 1.6 1019 /(3 108 ) 2 = 8.7 10 30 kg2. Therefore, the total mass of a radon nucleus and an alpha particle is8.7 1030 kg
+
+The end.
+
+sir 2014 7
+
+? sir 5**! 3 , ,, ! 6772 3001 .
+
+P. 16
+
+## 2014 A Lai learning Center. ALL RIGHTS RESERVED.
+
+[Link] Prepared by Andy Lai
+
+## sir Andy Lai
+
+
+
+## BEng CUHK, MIEEE
+
+, sir .
+
+## 15 / IB Diploma / GCE / HSC / SAT / AP / GCSE / IGCSE / IB MYP .
+
+,.,, sir ,,
+
+5**,., ; , .
+
+, , ; , .
+
+, ; , .
+
+sir , .
+
+, , , .
+
+: , , , , , .
+
+sir :
+
+ . (HKDSE),
+
+5/5*/5**
+
+5 5** 2 5* 1 5 , 72620 , 28, .
+
+##  (GCE AS/AL), A*/A ,
+
+5 A*. (IB Diploma), 6 / 7 , 40 .
+
+ (IGCSE / GCSE), A / A*,
+
+8 A* (CESI) MCV4U , 98 / 100, 99 / 100
+
+ (EAS), .
+
+ (HKCEE),
+
+20 .
+
+ (BIMC 2013) .. ////,,
+
+///// .
+
+ , , : [Link]/[Link]
+
+sir :
+
+(1 6 ), ; , .
+
+, 30 .
+
+, ; .
+
+ , .
+
+ : [Link]
+
+
+
+## sir A Lai Learning Center
+
+HKDSE / IB Diploma / GCE AS AL / AP / SAT / HSCIGCSE / GCSE / IB MYP / KS3 / MO / F.1 F.6 / Y9 Y13
+
+!!!
+
+sir 
+
+Andy Lai
+
+## BEng CUHK, MIEEE
+
+,, sir .. 15 / IB Diploma / GCE / HSC / SAT / AP / GCSE / IGCSE / IB MYP ..
+
+,.,, sir ,,
+
+5**,. sir ,, ,, ,, ..
+
+,, ;; ,, ,, ,, ;; ,, ..,,;; ,,
+
+. sir ,, ;;
+
+,, ,, , .. sir ,,
+
+,, .. 50%. "" OutstandingPerformer", .. sir ,, ,, ,,
+
+sir 
+
+(1 6 ),, ;; ,, ..
+
+, 30 ..,, ;;
+
+..,, ..
+
+:: [Link]::
+
+E2 ,, A2
+
+::
+
+## 1, 1A, 2, 3C, 6, 6C, 6F, 9, 30X, 35A, 41A, 42A,
+
+60X, 63X, 68X, 69X, 81S, 87D, 93K, 95, 104, 117,203, 212, 230X, 234P, 234X, 238P, 238S, 259B,270P, 281A
+
+## 21K, 74, 74S
+
+9 706 .
+
+::
+
+6772 3001
+
+enquiry@[Link]
+
+[Link]
+
+## You might also like
+
+2016 HKDSE Physics Paper 1A Solutions
+
+No ratings yet
+
+2016 HKDSE Physics Paper 1A Solutions
+
+22 pages
+
+2007 HKCEE Physics P2 Sol - Dec 1
+
+No ratings yet
+
+2007 HKCEE Physics P2 Sol - Dec 1
+
+24 pages
+
+Physics Exam Solutions and Key Insights
+
+No ratings yet
+
+Physics Exam Solutions and Key Insights
+
+14 pages
+
+2006 HKCEE Physics Paper II Solutions
+
+No ratings yet
+
+2006 HKCEE Physics Paper II Solutions
+
+16 pages
+
+2021 DSE Physics Mock Exam Answers
+
+No ratings yet
+
+2021 DSE Physics Mock Exam Answers
+
+45 pages
+
+2019 Dse Phy Paper 1a
+
+No ratings yet
+
+2019 Dse Phy Paper 1a
+
+16 pages
+
+2024 DSE Physics Paper 1 Section B
+
+No ratings yet
+
+2024 DSE Physics Paper 1 Section B
+
+20 pages
+
+2009 HKCEE Physics P2 Sol
+
+No ratings yet
+
+2009 HKCEE Physics P2 Sol
+
+20 pages
+
+DSE Physics Practice Paper Marking Scheme
+
+No ratings yet
+
+DSE Physics Practice Paper Marking Scheme
+
+17 pages
+
+HKDSE Physics Mock Exam Paper 1
+
+No ratings yet
+
+HKDSE Physics Mock Exam Paper 1
+
+6 pages
+
+2007 HKCEE Physics Paper 1
+
+0% (1)
+
+2007 HKCEE Physics Paper 1
+
+22 pages
+
+?? Physics SBA ?? Circular Motion ???? - ????
+
+100% (1)
+
+?? Physics SBA ?? Circular Motion ???? - ????
+
+12 pages
+
+More About Basic Properties of Circles: Oa Ob Ox Ox
+
+No ratings yet
+
+More About Basic Properties of Circles: Oa Ob Ox Ox
+
+55 pages
+
+2002 HKCEE Physics Paper 1
+
+100% (2)
+
+2002 HKCEE Physics Paper 1
+
+20 pages
+
+Plane Transmission Grating Experiment
+
+No ratings yet
+
+Plane Transmission Grating Experiment
+
+3 pages
+
+HermanYeung DSE Physics E2 AtomicWorld Temp Notes
+
+No ratings yet
+
+HermanYeung DSE Physics E2 AtomicWorld Temp Notes
+
+32 pages
+
+2024 DSE Physics Mock Exam Solutions
+
+No ratings yet
+
+2024 DSE Physics Mock Exam Solutions
+
+16 pages
+
+BBJL 7 Yh 90 HAO
+
+No ratings yet
+
+BBJL 7 Yh 90 HAO
+
+14 pages
+
+2023 DSE Physics Marking Scheme
+
+No ratings yet
+
+2023 DSE Physics Marking Scheme
+
+20 pages
+
+HKDSE Physics Mechanics Past Papers 2012-2023
+
+No ratings yet
+
+HKDSE Physics Mechanics Past Papers 2012-2023
+
+60 pages
+
+2020-2021 Mathematics Mock Exam Marking
+
+No ratings yet
+
+2020-2021 Mathematics Mock Exam Marking
+
+10 pages
+
+Focal Length Measurement of Convex Lens
+
+No ratings yet
+
+Focal Length Measurement of Convex Lens
+
+10 pages
+
+Phy BK Ans 3B PDF
+
+No ratings yet
+
+Phy BK Ans 3B PDF
+
+34 pages
+
+2018 DSE Physics Paper 2 Questions
+
+No ratings yet
+
+2018 DSE Physics Paper 2 Questions
+
+18 pages
+
+2016 DSE Physics Paper 2 Solutions
+
+No ratings yet
+
+2016 DSE Physics Paper 2 Solutions
+
+4 pages
+
+Momentum in Physics at Work
+
+100% (1)
+
+Momentum in Physics at Work
+
+12 pages
+
+S5 Physics Yearly Exam 2022-2023
+
+No ratings yet
+
+S5 Physics Yearly Exam 2022-2023
+
+29 pages
+
+Momentum Conservation in Collisions
+
+No ratings yet
+
+Momentum Conservation in Collisions
+
+7 pages
+
+2021 Math Mock Exam Solutions
+
+No ratings yet
+
+2021 Math Mock Exam Solutions
+
+14 pages
+
+2024 Oxford Phy Mock 1A
+
+No ratings yet
+
+2024 Oxford Phy Mock 1A
+
+16 pages
+
+2015 DSE Physics Paper 2 Marking Scheme
+
+No ratings yet
+
+2015 DSE Physics Paper 2 Marking Scheme
+
+8 pages
+
+2017 Dse Phy 2 MS
+
+No ratings yet
+
+2017 Dse Phy 2 MS
+
+5 pages
+
+2018 Dse Maths m2
+
+No ratings yet
+
+2018 Dse Maths m2
+
+28 pages
+
+Dom Physics SBA Lens ?? ?1 16?
+
+No ratings yet
+
+Dom Physics SBA Lens ?? ?1 16?
+
+16 pages
+
+HKDSE Physics Formula Sheet
+
+No ratings yet
+
+HKDSE Physics Formula Sheet
+
+5 pages
+
+No ratings yet
+
+809532605-2024-DSE-PHY-2 en
+
+23 pages
+
+HKCE 2008 Physics Past Paper
+
+No ratings yet
+
+HKCE 2008 Physics Past Paper
+
+49 pages
+
+HermanYeung DSE Physics Notes CHC ForPrint
+
+No ratings yet
+
+HermanYeung DSE Physics Notes CHC ForPrint
+
+65 pages
+
+Active Physics Textbook Solutions
+
+100% (1)
+
+Active Physics Textbook Solutions
+
+24 pages
+
+No ratings yet
+
+Phy Mock p1B
+
+22 pages
+
+Phy DSE PP 2020 Paper 1B With Working
+
+No ratings yet
+
+Phy DSE PP 2020 Paper 1B With Working
+
+20 pages
+
+Centripetal Force Experiment Report
+
+No ratings yet
+
+Centripetal Force Experiment Report
+
+4 pages
+
+2016 M2 Marking Scheme
+
+No ratings yet
+
+2016 M2 Marking Scheme
+
+17 pages
+
+Physics Concepts: Motion and Forces Guide
+
+No ratings yet
+
+Physics Concepts: Motion and Forces Guide
+
+34 pages
+
+La Salle 2017-2018 Final Exam F4 Physics
+
+No ratings yet
+
+La Salle 2017-2018 Final Exam F4 Physics
+
+20 pages
+
+HKDSE Physics Formula Sheet
+
+No ratings yet
+
+HKDSE Physics Formula Sheet
+
+13 pages
+
+2025 DSE Math Paper 2 Solutions
+
+No ratings yet
+
+2025 DSE Math Paper 2 Solutions
+
+24 pages
+
+DSE Physics Question Bank Overview
+
+No ratings yet
+
+DSE Physics Question Bank Overview
+
+14 pages
+
+2013 Dse Phy With Ans
+
+No ratings yet
+
+2013 Dse Phy With Ans
+
+74 pages
+
+F.4 Physics Final Exam Paper 2018-19
+
+No ratings yet
+
+F.4 Physics Final Exam Paper 2018-19
+
+23 pages
+
+2014 HKDSE Physics Paper 1A Sol
+
+No ratings yet
+
+2014 HKDSE Physics Paper 1A Sol
+
+20 pages
+
+2012 HKDSE Physics Paper 1A Sol
+
+No ratings yet
+
+2012 HKDSE Physics Paper 1A Sol
+
+26 pages
+
+2013 HKDSE Physics Paper 1A Sol
+
+No ratings yet
+
+2013 HKDSE Physics Paper 1A Sol
+
+30 pages
+
+2024 HKDSE Physics Paper 1B Marking Guide
+
+40% (5)
+
+2024 HKDSE Physics Paper 1B Marking Guide
+
+11 pages
+
+2017 HKDSE Physics Paper 1B Marking Scheme
+
+100% (1)
+
+2017 HKDSE Physics Paper 1B Marking Scheme
+
+10 pages
+
+DSE Physics Exam Practice Questions
+
+No ratings yet
+
+DSE Physics Exam Practice Questions
+
+31 pages
+
+2019 DSE Physics Paper 1B Marking Scheme
+
+No ratings yet
+
+2019 DSE Physics Paper 1B Marking Scheme
+
+11 pages
+
+2014 Dse Phy 1
+
+No ratings yet
+
+2014 Dse Phy 1
+
+34 pages
+
+No ratings yet
+
+CW Mock 2017
+
+74 pages
+
+2017 HKDSE Chemistry Paper 1A Sol PDF
+
+No ratings yet
+
+2017 HKDSE Chemistry Paper 1A Sol PDF
+
+26 pages
+
+2016 HKDSE Chemistry Paper 1A Sol
+
+No ratings yet
+
+2016 HKDSE Chemistry Paper 1A Sol
+
+20 pages
+
+2017 HKDSE Mathematics Core Paper 2 Sol
+
+No ratings yet
+
+2017 HKDSE Mathematics Core Paper 2 Sol
+
+22 pages
+
+2016 HKDSE Economics Paper 1 MC Suggested Solutions PDF
+
+No ratings yet
+
+2016 HKDSE Economics Paper 1 MC Suggested Solutions PDF
+
+36 pages
+
+2015 HKDSE Mathematics Core Paper 2 Sol PDF
+
+No ratings yet
+
+2015 HKDSE Mathematics Core Paper 2 Sol PDF
+
+20 pages
+
+Quick Installation Guide: Connect To A Computer
+
+No ratings yet
+
+Quick Installation Guide: Connect To A Computer
+
+1 page
+
+PhET Simulation Tips: Photoelectric Effect
+
+No ratings yet
+
+PhET Simulation Tips: Photoelectric Effect
+
+2 pages
+
+Electromagnetics Theory & Practice Guide
+
+No ratings yet
+
+Electromagnetics Theory & Practice Guide
+
+18 pages
+
+Theme 6 Magnets and Motors
+
+No ratings yet
+
+Theme 6 Magnets and Motors
+
+6 pages
+
+Electromagnet Ring Experiment Overview
+
+No ratings yet
+
+Electromagnet Ring Experiment Overview
+
+14 pages
+
+Moving Charges and Magnetism Notes
+
+100% (3)
+
+Moving Charges and Magnetism Notes
+
+7 pages
+
+Midterm Exam PYL101: Physics Problems
+
+No ratings yet
+
+Midterm Exam PYL101: Physics Problems
+
+2 pages
+
+No ratings yet
+
+Formato IEEE
+
+9 pages
+
+Electromagnetic Waves & Optics.: Preface
+
+No ratings yet
+
+Electromagnetic Waves & Optics.: Preface
+
+22 pages
+
+Understanding Inductors and Their Functions
+
+No ratings yet
+
+Understanding Inductors and Their Functions
+
+25 pages
+
+Telangana Model School Physics Exam Paper
+
+No ratings yet
+
+Telangana Model School Physics Exam Paper
+
+2 pages
+
+EMF Exam Paper - April/May 2014
+
+No ratings yet
+
+EMF Exam Paper - April/May 2014
+
+2 pages
+
+Boat Velocity in River Dynamics
+
+No ratings yet
+
+Boat Velocity in River Dynamics
+
+7 pages
+
+Physics Exam CU76013 January 2024
+
+No ratings yet
+
+Physics Exam CU76013 January 2024
+
+6 pages
+
+JEE Main 2024 EMI PYQs and Solutions
+
+No ratings yet
+
+JEE Main 2024 EMI PYQs and Solutions
+
+8 pages
+
+IGCSE Physics Magnetism Question Paper
+
+No ratings yet
+
+IGCSE Physics Magnetism Question Paper
+
+10 pages
+
+Class XII Physics Syllabus 2025-26
+
+No ratings yet
+
+Class XII Physics Syllabus 2025-26
+
+9 pages
+
+Electric and Magnetic Circuit Basics
+
+No ratings yet
+
+Electric and Magnetic Circuit Basics
+
+30 pages
+
+IB Physics Vocabulary for HL Students
+
+No ratings yet
+
+IB Physics Vocabulary for HL Students
+
+23 pages
+
+Helmholtz Coils Experiment Report
+
+No ratings yet
+
+Helmholtz Coils Experiment Report
+
+10 pages
+
+Induced EMF in Wire Loops
+
+100% (1)
+
+Induced EMF in Wire Loops
+
+35 pages
+
+Applied Calculus for Engineering Physics
+
+No ratings yet
+
+Applied Calculus for Engineering Physics
+
+15 pages
+
+Magnetic Dipole and Current Loops Quiz
+
+No ratings yet
+
+Magnetic Dipole and Current Loops Quiz
+
+3 pages
+
+Aptitude Test Prep for Oil Field Trainees
+
+100% (1)
+
+Aptitude Test Prep for Oil Field Trainees
+
+102 pages
+
+Properties and Experiments of EM Waves
+
+No ratings yet
+
+Properties and Experiments of EM Waves
+
+8 pages
+
+NEET Syllabus for Classes 11 & 12 Physics and Chemistry
+
+No ratings yet
+
+NEET Syllabus for Classes 11 & 12 Physics and Chemistry
+
+60 pages
+
+100% (3)
+
+Physics Sample Paper
+
+209 pages
+
+B.Tech Electromagnetic Fields Exam Guide
+
+No ratings yet
+
+B.Tech Electromagnetic Fields Exam Guide
+
+2 pages
+
+Electric and Magnetic Fields Course Guide
+
+No ratings yet
+
+Electric and Magnetic Fields Course Guide
+
+10 pages
+
+12th Grade Physics: Magnetism MCQs
+
+No ratings yet
+
+12th Grade Physics: Magnetism MCQs
+
+2 pages
+
+Class XII Physics Half-Yearly Exam 2023-24
+
+No ratings yet
+
+Class XII Physics Half-Yearly Exam 2023-24
+
+4 pages
+
+P3C AL 0003 - RevB
+
+100% (1)
+
+P3C AL 0003 - RevB
+
+13 pages

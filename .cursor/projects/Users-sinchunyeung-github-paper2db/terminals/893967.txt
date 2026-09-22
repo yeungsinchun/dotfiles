@@ -1,0 +1,109 @@
+---
+pid: 40144
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python - <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nfrom preprocess_lq_answers import *\nimport pymupdf as fitz\nfrom pathlib import Path\n\nfor year in (2018, 2019, 2020):\n    doc=fitz.open(f'paper/ans/{year}ans.pdf')\n    print(f'\\n==== {year} {len(doc)}p rot0={doc[0].rotation} size={doc[0].rect} ====')\n    for i in range(min(len(doc), 8)):\n        page=doc[i]\n        # native text sample\n        nt=page.get_text('text')[:150].replace('\\n',' | ')\n        im=render_page(page, 1.5)\n        panels=split_answer_panels(im)\n        print(f'p{i+1} panels={len(panels)} A={is_section_a_keys(im)} B={looks_like_section_b(im)} front={is_front_matter(im)} P2={is_paper_2_page(im)}')\n        print(f'  native: {nt[:120]!r}')\n        print(f'  header: {header_text(im)[:100]!r}')\n        for pi,p in enumerate(panels):\n            ys=find_main_question_ys(p,12)\n            pdf_ys=find_main_question_ys_pdf(page, max_questions=12, scale=1.5, x0_frac=pi/len(panels), x1_frac=(pi+1)/len(panels))\n            print(f'  panel{pi} ocr_ys={ys} pdf_ys={pdf_ys}')\n    doc.close()\nPY\n"
+title: "Diagnose 2018-2020 answer PDF structure"
+status: succeeded
+started_at: 2026-09-05T04:02:15.498Z
+running_for_ms: 64724    
+---
+
+==== 2018 6p rot0=0 size=Rect(0.0, 0.0, 595.219970703125, 842.0) ====
+p1 panels=1 A=False B=False front=False P2=False
+  native: 'Provided by dse.life | '
+  header: 'rrr\ngaeyes\nEH Es\nay\n'
+  panel0 ocr_ys=[] pdf_ys=[]
+p2 panels=1 A=False B=False front=False P2=False
+  native: 'Provided by dse.life | '
+  header: 'PH aoe é . |\n- $8.9 arg A - &\n= seg F ging 3 e325 G8 |\n'
+  panel0 ocr_ys=[] pdf_ys=[]
+p3 panels=1 A=False B=False front=False P2=False
+  native: 'Provided by dse.life | '
+  header: 'Vs gidye. ff 3\nrs + = ateest SEDESEESG! F023 T2503 f2527 22571\niy itd i a\n'
+  panel0 ocr_ys=[] pdf_ys=[]
+p4 panels=1 A=False B=False front=False P2=False
+  native: 'Provided by dse.life | '
+  header: 'Ts tebe a\nj |\n'
+  panel0 ocr_ys=[] pdf_ys=[]
+p5 panels=1 A=False B=False front=False P2=False
+  native: 'Provided by dse.life | '
+  header: ''
+  panel0 ocr_ys=[] pdf_ys=[]
+p6 panels=1 A=False B=False front=False P2=False
+  native: 'Provided by dse.life | '
+  header: ''
+  panel0 ocr_ys=[] pdf_ys=[]
+
+==== 2019 10p rot0=0 size=Rect(0.0, 0.0, 561.1199951171875, 800.8800048828125) ====
+p1 panels=1 A=True B=False front=False P2=False
+  native: ''
+  header: 'Paper I Section A\nQuestion No. Key Question No. Key\n'
+  panel0 ocr_ys=[] pdf_ys=[]
+p2 panels=1 A=False B=True front=False P2=False
+  native: ''
+  header: 'Paper 1 Section B\nee Sai Ya\n1. (a) (i) (1.5)(4200)(60 — 10) = m(3.34 x 10°) + m(4200(10- 0) |IM+1M\n\n'
+  panel0 ocr_ys=[(1, 114), (2, 623)] pdf_ys=[]
+p3 panels=1 A=False B=False front=False P2=False
+  native: ''
+  header: 'B @ @ @ 1\nOO Li? = gh M\nvy? =2(9.81)(12)\nv= 15344054 ms = 15.3 ms 1A |Accept: (15.0 ~ 15.5)ms™\nie ai'
+  panel0 ocr_ys=[(3, 78)] pdf_ys=[]
+p4 panels=1 A=False B=False front=False P2=False
+  native: ''
+  header: 'ft @ @ Rotation rate = 2. = 5\n2n Qn 7\n= 0.795775 (rev s) = 0.80 (revs) IM/IA Accept: (0.79 ~ 0.80) r'
+  panel0 ocr_ys=[(4, 95)] pdf_ys=[]
+p5 panels=1 A=False B=False front=False P2=False
+  native: ''
+  header: '[en i [\n=0.01 m (= 1 em) 1A\na\n'
+  panel0 ocr_ys=[(5, 79)] pdf_ys=[]
+p6 panels=1 A=False B=False front=False P2=False
+  native: ''
+  header: '6. (a) Lis diverging / concave. TA\nOnly diverging / concave lens forms diminished, virtual |1A.\na)\n'
+  panel0 ocr_ys=[(6, 93)] pdf_ys=[]
+p7 panels=1 A=False B=False front=False P2=False
+  native: ''
+  header: '7. (a)\n1|\n1A |Correct circuit with correct symbol\n+z 1A \\Correct polarity\n'
+  panel0 ocr_ys=[(7, 78)] pdf_ys=[]
+p8 panels=1 A=False B=False front=False P2=False
+  native: ''
+  header: 'is |e)\n8. (a) Earth NL\ntum | ||\n'
+  panel0 ocr_ys=[(8, 105)] pdf_ys=[]
+
+==== 2020 19p rot0=0 size=Rect(0.0, 0.0, 2320.080078125, 3300.0) ====
+p1 panels=1 A=False B=False front=True P2=False
+  native: ''
+  header: 'Marking Schemes\nae Ieee\n'
+  panel0 ocr_ys=[] pdf_ys=[]
+p2 panels=1 A=True B=False front=False P2=False
+  native: ''
+  header: 'Paper I Section A\nQuestion No. Key Question No. Key\n'
+  panel0 ocr_ys=[] pdf_ys=[]
+p3 panels=1 A=False B=True front=False P2=False
+  native: ''
+  header: 'Paper 1 Section B\n1. (a) Let 7 be the final temperature of the mixture.\n(5 x0.02) x3300 x(T— 4) = 0.'
+  panel0 ocr_ys=[] pdf_ys=[]
+p4 panels=1 A=False B=False front=False P2=False
+  native: ''
+  header: '2. (a) (i) prenconccccccecccecceseceecce, Piston 1A Fp correctly marked\n_— BRS, Chat htatat  gy\n'
+  panel0 ocr_ys=[] pdf_ys=[]
+p5 panels=1 A=False B=False front=False P2=False
+  native: ''
+  header: '4. (a) va>vc>vp>va\n|\n(b)  y\nam,\n'
+  panel0 ocr_ys=[] pdf_ys=[]
+p6 panels=1 A=False B=False front=False P2=False
+  native: ''
+  header: '5. (a) (i)\nnormal\n\\essin R ot\nae 1A Forces R(or N) and Wor Mg)\nD 1A correctly indicated and lahelled'
+  panel0 ocr_ys=[] pdf_ys=[]
+p7 panels=1 A=False B=False front=False P2=False
+  native: ''
+  header: '6. (a)\n\\___timer_ ON\nN bench top ; - START STOP\n'
+  panel0 ocr_ys=[(6, 359)] pdf_ys=[]
+p8 panels=1 A=False B=False front=False P2=False
+  native: ''
+  header: '7. (a) (i) Angle of incidence at A, ia |\nin = 90° 30°=60° 1A\n\nll\na5 = eo ee 1KA\n'
+  panel0 ocr_ys=[] pdf_ys=[]
+
+---
+exit_code: 0
+elapsed_ms: 64724
+ended_at: 2026-09-05T04:03:20.222Z
+---

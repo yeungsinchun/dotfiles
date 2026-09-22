@@ -1,0 +1,21 @@
+---
+pid: 4719
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy"
+command: "python3 \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/scripts/classify_lq_by_topic.py\" 2>&1 | tail -8"
+started_at: 2026-08-28T09:14:23.035Z
+running_for_ms: 120771   
+---
+Radiation / Nuclear reactions and binding energy: 2
+Updated /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/LQ/lq_questions.json
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/notes/lq_classification.json
+LQ questions: 91
+  one topic:  81
+  two topics: 10
+  fallback:   16
+  placements: 77
+
+---
+exit_code: 0
+elapsed_ms: 125276
+ended_at: 2026-08-28T09:16:28.311Z
+---

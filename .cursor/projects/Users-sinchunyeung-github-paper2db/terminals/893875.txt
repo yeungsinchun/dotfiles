@@ -1,0 +1,50 @@
+---
+pid: 46343
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && ./segment paper/mc/2026p1a.pdf output/2026 --type mc --intermediate output/2026-intermediate --questions 33 2>&1 | tee /tmp/seg2026.txt | tail -35\n"
+title: "Resegment 2026 MC paper"
+status: succeeded
+started_at: 2026-09-04T12:32:18.270Z
+running_for_ms: 123867   
+---
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q10.png (948x388)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q11.png (945x869)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q12.png (949x727)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q13.png (951x660)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q14.png (953x274)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q15.png (953x577)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q16.png (891x505)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q17.png (944x432)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q18.png (944x534)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q19.png (944x360)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q20.png (942x405)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q21.png (942x227)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q22.png (946x378)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q23.png (946x540)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q24.png (946x592)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q25.png (880x231)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q26.png (744x513)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q27.png (943x554)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q28.png (943x195)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q29.png (943x771)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q30.png (949x619)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q31.png (955x619)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q32.png (953x184)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q33.png (947x514)
+Wrote 33 questions to /Users/sinchunyeung/github/paper2db/output/2026 (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/combined.pdf (33 pages)
+Paper type: MC (2026p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Wrote /Users/sinchunyeung/github/paper2db/output/2026-intermediate/anchor.pdf
+Wrote /Users/sinchunyeung/github/paper2db/output/2026-intermediate/anchor.meta.json
+Wrote 13 preview PNGs (page01.png, ...) in /Users/sinchunyeung/github/paper2db/output/2026-intermediate
+Review anchor.pdf (blue dots next to each question number), then run step 2.
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2026
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2026/combined.pdf
+
+---
+exit_code: 0
+elapsed_ms: 123867
+ended_at: 2026-09-04T12:34:22.137Z
+---

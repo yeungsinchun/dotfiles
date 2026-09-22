@@ -1,0 +1,98 @@
+---
+pid: 29371
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/6/paper2db"
+command: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/.venv/bin/python3 << 'PY'\nimport io, subprocess, json\nfrom pathlib import Path\nfrom PIL import Image\nimport pymupdf as fitz\n\nROOT = Path(\"/Users/sinchunyeung/.treehouse/paper2db-41af0c/6/paper2db\")\nPHRASES = (\"formula sheet\", \"data sheet\", \"physical constants\", \"list of data\", \"formulae and relationships\")\n\ndef ocr_image(im: Image.Image) -> str:\n    buf = io.BytesIO()\n    im.save(buf, format=\"PNG\")\n    r = subprocess.run([\"tesseract\", \"stdin\", \"stdout\", \"--psm\", \"6\"], input=buf.getvalue(), stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)\n    return r.stdout.decode(\"utf-8\", errors=\"ignore\")\n\ndef hit(text: str):\n    t = text.lower()\n    return [p for p in PHRASES if p in t]\n\n# Bottom band of last qN.png\nprint(\"=== last qN.png bottom OCR ===\")\nfor year_dir in sorted((ROOT/\"output/lq\").iterdir()):\n    if not year_dir.is_dir():\n        continue\n    starts = year_dir/\"starts.json\"\n    if not starts.is_file():\n        continue\n    data = json.loads(starts.read_text())\n    last = data[\"questions\"][-1]\n    qn = last[\"q\"]\n    png = year_dir/f\"q{qn}.png\"\n    if not png.is_file():\n        print(year_dir.name, \"missing\", png.name)\n        continue\n    im = Image.open(png).convert(\"RGB\")\n    w,h = im.size\n    band = im.crop((0, max(0,h-900), w, h))\n    text = ocr_image(band)\n    found = hit(text)\n    snippet = \" \".join(text.split())[:180]\n    print(f\"{year_dir.name} Q{qn} size={w}x{h} hits={found} snippet={snippet!r}\")\n\nprint(\"\\n=== last 3 PDF pages OCR ===\")\nfor pdf in sorted((ROOT/\"paper/lq\").glob(\"*.pdf\")):\n    doc = fitz.open(pdf)\n    print(f\"-- {pdf.name} ({len(doc)} pages) --\")\n    for i in range(max(0,len(doc)-3), len(doc)):\n        pix = doc[i].get_pixmap(matrix=fitz.Matrix(1.5,1.5), alpha=False)\n        im = Image.frombytes(\"RGB\", (pix.width, pix.height), pix.samples)\n        text = ocr_image(im)\n        found = hit(text)\n        native = doc[i].get_text(\"text\")[:80].replace(\"\\n\",\" \")\n        snippet = \" \".join(text.split())[:160]\n        print(f\"  pdf[{i}] native_hits={hit(native)} ocr_hits={found} snippet={snippet!r}\")\n    doc.close()\nPY"
+title: "OCR last LQ stacks and PDF tails for formula sheets"
+status: succeeded
+started_at: 2026-09-12T17:23:33.266Z
+running_for_ms: 73646    
+---
+=== last qN.png bottom OCR ===
+2012 Q11 size=4916x6976 hits=[] snippet='sources Of materiais used In this paper will be acknowledged in the Lxamination Neport and VUuestion Fapers published by the Hong Kong Examinations and Assessment Authority at a la'
+2013 Q11 size=1408x4080 hits=[] snippet='S o ciertivenrth einen denne nn a mane nnnnnn aan ranean hi nancaeisin HuEsee Stee eeSsSeeTe tp HEkeRrAS Sem c = o 2 | *| | (iii) A neutral metal sphere of finite size is now place'
+2014 Q10 size=1767x5052 hits=[] snippet='o 3 | a < Sources of materials used in this paper will be acknowledged in the Examination Report and Question Papers published by the Hong Kong Examinations and Assessment Authorit'
+2015 Q10 size=1769x5067 hits=[] snippet='ES i =| < q Sources of materials used in this paper will be acknowledged in the Examination Report and Question Papers published by the Hong Kong Examinations and Assessment Author'
+2016 Q9 size=1767x5065 hits=[] snippet='2 i f nan : =i < t Sources of materials used in this paper will be acknowledged in the Examination Report and Question Papers published by the Hong Kong Examinations and Assessment'
+2017 Q10 size=1409x6174 hits=[] snippet='Aan aire Cl. Av=—— See ieee El. N=Ne™ law of radioactive decay u A , « ‘ . In2 , C2. dsin@=nd diffraction grating equation BZ. fy = ie half-life and decay constant 2 C3. =ts=5 equa'
+2018 Q10 size=1746x5062 hits=[] snippet='Sources of materials used in this paper will be acknowledged in the booklet HKDSE Question Papers published by the Hong Kong Examinations and Assessment Authority at a later stage.'
+2019 Q10 size=1767x7694 hits=[] snippet=''
+2020 Q10 size=1767x5055 hits=[] snippet=''
+2021 Q9 size=1781x2493 hits=[] snippet='eee ee ee ee eee ee ere eee eet eer ee eee ee ee ee ee ere ee eee eee eee ee eee Y S f= Sources of materials used in this paper will be acknowledged in the HKDSE Question Papers bo'
+2022 Q10 size=1768x3654 hits=[] snippet='Do not write on this page. Answers written on this page will not be marked.'
+2023 Q9 size=1767x5029 hits=[] snippet='a 3 Sources of materials used in this paper will be acknowledged in the HKDSE Question Papers booklet published by the Hong Kong Examinations and Assessment Authority at a later st'
+2024 Q12 size=1654x9360 hits=[] snippet='o o z 2 & q < Answers written in the margins will not be marked. 2024-DSE-PHY 1B-19 19'
+2025 Q12 size=3941x15300 hits=[] snippet='! |'
+2026 Q12 size=2097x7366 hits=[] snippet='Do not write on this page. Answers written on this page will not be marked.'
+pp Q12 size=1767x12886 hits=[] snippet='a *ai) = The haii-life of Cs-i37 is 36 years. A soii sampie coniaminaied by Cs-i37 nas an activity of 1.2 x 10° Ba (disintegrations per second). A physicist comments that the conta'
+
+=== last 3 PDF pages OCR ===
+-- 2012p1b.pdf (19 pages) --
+  pdf[16] native_hits=[] ocr_hits=[] snippet='(b) Explain what would happen if the human body touches (i) the live wire of the mains supply in the primary circuit; (2 marks) (ii) _ one of the conducting wir'
+  pdf[17] native_hits=[] ocr_hits=[] snippet='10. You are given a long conducting wire, a pair of slab-shaped magnets on steel yoke and a light-beam galvanometer for detecting small currents. With the aid o'
+  pdf[18] native_hits=[] ocr_hits=[] snippet='11. Radium-226 (748 Ra ) undergoes a-decay into radon (Rn). (a) Write a nuclear equation for the decay. (2 marks) *(b) Given : mass ofa radium nucleus = 226.025'
+-- 2013p1b.pdf (19 pages) --
+  pdf[16] native_hits=[] ocr_hits=[] snippet='. (c) (i) The potential difference Vag is used to drive an electronic switch connected across 4B to turn on a fan if temperature rises above a certain value suc'
+  pdf[17] native_hits=[] ocr_hits=[] snippet='A 11. Figure 11.1 shows two identical small metal spheres X and Y suspended by insulating threads of the same length. Each sphere has a mass of 1.0x10"* kg and '
+  pdf[18] native_hits=[] ocr_hits=[] snippet='(6) Point P is vertically below the fixed point O and itis 10 cm from each sphere. (Indicate the direction of the resultant electric field at P due to these two'
+-- 2014p1b.pdf (20 pages) --
+  pdf[17] native_hits=[] ocr_hits=[] snippet='10. Voyager Tis a space probe designed by NASA to operate for over ten years in space. It was equipped with & radioisotope thermoelectric generator (RTG) which '
+  pdf[18] native_hits=[] ocr_hits=[] snippet=': (6) Gi) When a plutonium-238 atom decays, it releases 5.5 MeV of energy. Estimate the power, in kW, delivered by the source at the time of launch. (2 marks) “'
+  pdf[19] native_hits=[] ocr_hits=[] snippet='aO——E—E—E—EOEOEaEaEaaEOEOeeeee ad e fs Do not write on this page. | Answers written on this page will not be marked. | . 2014-DSE-PHY 1n-20 20'
+-- 2015p1b.pdf (10 pages) --
+  pdf[7] native_hits=[] ocr_hits=[] snippet='8. Electricity generated from power plants are transmitted at a high voltage through overhead cables in suburban *(b) Electrical power of 180 MW is transmitted '
+  pdf[8] native_hits=[] ocr_hits=[] snippet='9. Figure 9.1 shows a set-up for demonstrating one of Faraday’s discoveries. A light metal rod is free to rotate ; ; ; ; ; Tie eau contains (©) Now the uniform '
+  pdf[9] native_hits=[] ocr_hits=[] snippet='10. Scientists had been experimenting controlled fusion in a nuclear reactor in which deuterium (3 H ) and tritium In the nuclear reactor, deuterium and tritium'
+-- 2016p1b.pdf (20 pages) --
+  pdf[17] native_hits=[] ocr_hits=[] snippet='9. Part of the decay series of uranium-238 (U-238) is shown below. The end product lead-206 (Pb-206) is stable. 28 a B 206, u——*4__> th_4# > Pa... 9 86Pb °° GSx'
+  pdf[18] native_hits=[] ocr_hits=[] snippet='(ii). State, with a reason, whether the answer in (b)(i) is an overestimate or an underestimate of the age of| the rock if some Pb-206 atoms have actually been '
+  pdf[19] native_hits=[] ocr_hits=[] snippet='Do not write on this page. Answers written on this page will not be marked. =z 2016-DSE-PHY 1-20 20'
+-- 2017p1b.pdf (20 pages) --
+  pdf[17] native_hits=[] ocr_hits=[] snippet='10, Dust may adhere to the surfaces of photos and films due to electrostatic attraction, To remove the dust effectively, a special brush with a thin slice of po'
+  pdf[18] native_hits=[] ocr_hits=['list of data', 'formulae and relationships'] snippet='( ! | ij 1 List of data, formulae and relationships | Data molar gas constant R=831SmolK* Avogadro constant Nq= 6.02 « 10” mol acceleration due to gravity g=9.8'
+  pdf[19] native_hits=[] ocr_hits=[] snippet='AL pemear — seytnnste duinghesing py, p22 Cty stew and cooling “ane gr’ 7 ‘energy transfer during change = yp, p=_2___ cleric field strength due to a2, E=tdm of'
+-- 2018p1b.pdf (19 pages) --
+  pdf[16] native_hits=[] ocr_hits=[] snippet='(b) Ata certain place the Earth’s magnetic field runs along the S-N direction such that the field lines make an angle Owith the horizontal as shown in Figure 9.'
+  pdf[17] native_hits=[] ocr_hits=[] snippet='10. (@) Part of the decay series of radium-226 (Ra-226) is shown below. Ra-226 decays to radon (Rn) by emitting an a particle with half-life 1600 years. ‘The en'
+  pdf[18] native_hits=[] ocr_hits=[] snippet='‘A Ra-226 source used in school laboratories is usually said to emit a, .as well as radiations, Gi) Explain why f radiation is also emitted even though the sour'
+-- 2019p1b.pdf (20 pages) --
+  pdf[17] native_hits=[] ocr_hits=[] snippet="10. (a) The equation below represents nuclear fission of uranium-235 (U-235). SU + gn > 'yBa+t 5¢Kr+xjn +200 MeV (i) What is the value of x? (1 mark) (Gi). Stat"
+  pdf[18] native_hits=[] ocr_hits=[] snippet='fay ) There must be underground water in the vicinity of this uranium-rich mineral deposit for natural nuclear fission to be possible. Since water can slow down'
+  pdf[19] native_hits=[] ocr_hits=[] snippet='Do not write on this page. Answers written on this page will not be marked. | | ws 2019-DSE-PHY 1B-20 20'
+-- 2020p1b.pdf (20 pages) --
+  pdf[17] native_hits=[] ocr_hits=[] snippet="10, Given: mass of proton = 1.0073 u mass of a particle = 4.0015 u mass of '$N nucleus = 13.9993 u mass of '3O nucleus = 16.9947 u When a stationary '$N nucleus"
+  pdf[18] native_hits=[] ocr_hits=[] snippet='Do not write on this page. Answers written on this page will not be marked. 2020-DSE-PHY 1B-19 19'
+  pdf[19] native_hits=[] ocr_hits=[] snippet='Do not write on this page. Answers written on this page will not be marked. a 2020-DSE-PHY 18-20 20'
+-- 2021p1b.pdf (20 pages) --
+  pdf[17] native_hits=[] ocr_hits=[] snippet='cr &. 0=10 mA R(KQ) 4 — (a) B S(10 kQ) Figure 8.1 D a Cc ov P x ° — $2 Figure 8.1 shows a circuit for measuring the resistance of resistor X connected across P '
+  pdf[18] native_hits=[] ocr_hits=[] snippet='> 9. Potassium-40 (49K) is a natural radioisotope of potassium. (a) (i) What kind of decay does 49K undergo if it decays to $$Ca ? (1 mark) (ii) As banana is ri'
+  pdf[19] native_hits=[] ocr_hits=[] snippet='an Do not write on this page. Answers written on this page will not be marked. 2021-DSE-PHY 1B-20 20'
+-- 2022p1b.pdf (20 pages) --
+  pdf[17] native_hits=[] ocr_hits=[] snippet='9. A square metal loop WXYZ of side length 0.10 m is inserted with a constant velocity v into a uniform magnetic field of flux density 0.03 T. ‘The magnetic fie'
+  pdf[18] native_hits=[] ocr_hits=[] snippet='10, Deuterium (3H) and tritium (3H) are isotopes of hydrogen. The fusion of two deuterium nuclides can be represented by the following equation: 7H + jH—> 3He +'
+  pdf[19] native_hits=[] ocr_hits=[] snippet='Do not write on this page. Answers written on this page will not be marked. i 2022-DSE-PHY 1B-20 20'
+-- 2023p1b.pdf (20 pages) --
+  pdf[17] native_hits=[] ocr_hits=[] snippet="9, Part of the decay series of thorium-232 (Th-232) is shown below. Th-232 decays to radium-228 (Ra-228) with a half-life of 1.41 x 10'° years. The end product "
+  pdf[18] native_hits=[] ocr_hits=[] snippet='(©) By adding thorium oxide (a compound containing Th-232) to glass, thoriated glass having a higher refractive index is produced. Camera lenses manufactured be'
+  pdf[19] native_hits=[] ocr_hits=[] snippet='Do not write on this page. Answers written on this page will not be marked. Lo 2023-DSE-PHY 1B-20 20'
+-- 2024p1b.pdf (19 pages) --
+  pdf[16] native_hits=[] ocr_hits=[] snippet='(©) A mobile phone with a receiver coil inside can be charged wirelessly by placing it on a charging pad equipped with a built-in transmitter coil, which is con'
+  pdf[17] native_hits=[] ocr_hits=[] snippet='13, Radon (Rn-222) is a radioactive gas with no colour, no smell and no taste. It is released from bedrock material underground or from concrete composed of gra'
+  pdf[18] native_hits=[] ocr_hits=[] snippet='© (b) Rn-222 belongs to a decay series starting from uranium-238 (U-238). It is known that U-238 undergoes decay in the sequence a--f-a to become thorium-230 (T'
+-- 2025p1b.pdf (20 pages) --
+  pdf[17] native_hits=[] ocr_hits=[] snippet='12. Carbon-14 ("4 C) nuclide decays into stable nitrogen-14 (\'4 N) nuclide with a half-life of 3730 years. Assume that the concentration of carbon-14 in the atm'
+  pdf[18] native_hits=[] ocr_hits=[] snippet='(b) A more advanced method involves directly measuring the number of carbon-14 atoms relative to that of the carbon-12 atoms. Carbon atoms from the wood sample '
+  pdf[19] native_hits=[] ocr_hits=[] snippet='Do not write on this page. Answers written on this page will not be marked. aa'
+-- 2026p1b.pdf (20 pages) --
+  pdf[17] native_hits=[] ocr_hits=[] snippet='12, (a) Bismuth-213 (Bi-213) is a radionuclide currently undergoing clinical trials for cancer treatment. It is prepared in liquid and injected into the human b'
+  pdf[18] native_hits=[] ocr_hits=[] snippet='(b) In hospital, technicians wear protective gloves to handle liquid radioactive materials, such as those containing Bi-213. To monitor radiation exposure, they'
+  pdf[19] native_hits=[] ocr_hits=[] snippet='Do not write on this page. Answers written on this page will not be marked. & 2026-DSE-PHY 13-20 20'
+-- ppp1b.pdf (20 pages) --
+  pdf[17] native_hits=[] ocr_hits=[] snippet='13, Josephine conducts an investigation on transformers. Primary and secondary coils are wound on two soft-iron C-cores to form a transformer. She sets up a cir'
+  pdf[18] native_hits=[] ocr_hits=[] snippet='(©) Josephine wants to study the relationship between the output voltage and the number of turns in the secondary coil of the transformer. Describe how she can '
+  pdf[19] native_hits=[] ocr_hits=[] snippet='14, In April 1986, a disastrous nuclear accident happened at the Chernobyl Nuclear Power Station. A large quantity of various radioactive substances was release'
+
+---
+exit_code: 0
+elapsed_ms: 73643
+ended_at: 2026-09-12T17:24:46.909Z
+---

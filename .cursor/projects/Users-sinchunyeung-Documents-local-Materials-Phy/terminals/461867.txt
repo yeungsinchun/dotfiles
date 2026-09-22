@@ -1,0 +1,21 @@
+---
+pid: 10153
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/dse"
+command: "cd \"/Users/sinchunyeung/Documents-local/Materials/Phy/DSE\" && python3 scripts/classify_by_topic.py 2>&1 | rg -n \"missing png|Questions:|one topic|two topics|fallback|unassigned|placements|Electric circuits:|Electrostatics:\""
+started_at: 2026-08-21T18:07:37.088Z
+running_for_ms: 35023    
+---
+25:Electricity and Magnetism / Electrostatics: 29
+26:Electricity and Magnetism / Electric circuits: 90
+43:Questions: 573
+44:  one topic:  535
+45:  two topics: 38
+46:  fallback (no keyword hit → Kinematics): 41
+47:  unassigned: 0
+48:  total placements in notes MC banks: 611
+
+---
+exit_code: 0
+elapsed_ms: 37397
+ended_at: 2026-08-21T18:08:14.485Z
+---

@@ -1,0 +1,52 @@
+---
+pid: 70941
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/dse"
+command: "cd \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse\" && python3 << 'PY'\nimport sys\nfrom pathlib import Path\nimport shutil\nfrom PIL import Image\nimport numpy as np\nsys.path.insert(0, 'scripts')\nfrom preprocess_lq import process_one, extract_fullpage_display, native_scale\nimport fitz\n\nROOT = Path('.')\nfor y in ['2016','2019','2021','2022']:\n  doc=fitz.open(ROOT/f'Year/LQ/{y}p1b.pdf'); doc.authenticate('')\n  page=doc[min(1,len(doc)-1)]\n  ext=extract_fullpage_display(page, doc)\n  print(y, 'extract', None if ext is None else ext.size, 'native', round(native_scale(page),2))\n  doc.close()\n\nfor y in ['2016','2019','2020','2021','2022']:\n  print(f'\\n=== {y} ===')\n  n=process_one(ROOT/f'Year/LQ/{y}p1b.pdf', ROOT/'processed/LQ'/y, 1, 0.0, 12, 9.0)\n  print('wrote', n)\n\nmapping={('2016','q7'):'2016_q7.png',('2019','q7'):'2019_q7.png',('2020','q8'):'2020_q8.png',('2021','q8'):'2021_q8.png',('2022','q8'):'2022_q8.png'}\ndests=[ROOT/'by-topic/Electricity and Magnetism/Electric circuits/lq', ROOT.parent/'DSE/by-topic/Electricity and Magnetism/Electric circuits/lq']\nfor (year,q),name in mapping.items():\n  src=ROOT/'processed/LQ'/year/f'{q}.png'\n  for d in dests:\n    shutil.copy2(src,d/name)\n  im=Image.open(src); g=np.asarray(im.convert('L'))\n  print(name, im.size, 'unique', len(np.unique(g)), 'mid%', round(float(((g>40)&(g<220)).mean())*100,2))\nPY\n"
+started_at: 2026-08-23T02:55:43.131Z
+running_for_ms: 230114   
+---
+2016 extract (2480, 3507) native 4.17
+2019 extract (3508, 4961) native 5.89
+2021 extract (2527, 3543) native 4.17
+2022 extract None native 4.17
+
+=== 2016 ===
+  render scale=4.17
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  detected Q1-Q9 (9 questions)
+wrote 9
+
+=== 2019 ===
+  render scale=5.89
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  detected Q1-Q10 (10 questions)
+wrote 10
+
+=== 2020 ===
+  render scale=5.89
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  detected Q1-Q10 (10 questions)
+wrote 10
+
+=== 2021 ===
+  render scale=4.17
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  detected Q1-Q9 (9 questions)
+wrote 9
+
+=== 2022 ===
+  render scale=4.17
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  detected Q1-Q10 (10 questions)
+wrote 10
+2016_q7.png (2055, 5782) unique 256 mid% 1.17
+2019_q7.png (2896, 9702) unique 256 mid% 1.81
+2020_q8.png (2895, 10250) unique 256 mid% 1.17
+2021_q8.png (2093, 3161) unique 2 mid% 0.0
+2022_q8.png (2055, 4733) unique 225 mid% 1.6
+
+---
+exit_code: 0
+elapsed_ms: 230935
+ended_at: 2026-08-23T02:59:34.066Z
+---

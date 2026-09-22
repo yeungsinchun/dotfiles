@@ -1,0 +1,142 @@
+---
+pid: 91823
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && for year in 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023; do\n  echo \"=== $year ===\"\n  .venv/bin/python scripts/preprocess_lq_answers.py \"answer/${year}ans.pdf\" \"output/lq/$year/ans\" --max-questions 12 --scale 2.0 2>&1 | rg \"skip|detected|Wrote q|Wrote [0-9]+ answer|WARNING\"\ndone\n"
+title: "Re-crop answers preferring Q1-based chains"
+status: succeeded
+started_at: 2026-09-04T17:48:01.638Z
+running_for_ms: 349381   
+---
+=== 2012 ===
+  skip Section A page 1/11
+  detected answers Q1-Q11 (11)
+  Wrote q1.png (1153x473)
+  Wrote q2.png (1136x295)
+  Wrote q4.png (1180x2822)
+  Wrote q5.png (1120x446)
+  Wrote q6.png (1180x1651)
+  Wrote q7.png (1180x1224)
+  Wrote q8.png (1118x452)
+  Wrote q9.png (1180x1202)
+  Wrote q10.png (1166x941)
+  Wrote q11.png (1180x7250)
+Wrote 10 answer crops -> output/lq/2012/ans
+=== 2013 ===
+  skip front-matter page 1/16
+  skip Section A page 2/16
+  detected answers Q1-Q10 (10)
+  Wrote q1.png (1158x306)
+  Wrote q2.png (1160x350)
+  Wrote q3.png (1129x378)
+  Wrote q4.png (1191x995)
+  Wrote q5.png (1187x324)
+  Wrote q6.png (1188x1074)
+  Wrote q7.png (1135x470)
+  Wrote q8.png (1180x1192)
+  Wrote q9.png (1182x461)
+  Wrote q10.png (1191x17830)
+Wrote 10 answer crops -> output/lq/2013/ans
+=== 2014 ===
+  detected answers Q1-Q10 (10)
+  Wrote q2.png (1191x118)
+  Wrote q3.png (1191x7694)
+  Wrote q5.png (1191x8376)
+  Wrote q6.png (1191x1671)
+  Wrote q7.png (1191x1637)
+  Wrote q8.png (1191x1749)
+  Wrote q10.png (1191x19905)
+Wrote 7 answer crops -> output/lq/2014/ans
+=== 2015 ===
+  skip Section A page 1/14
+  detected answers Q1-Q10 (10)
+  Wrote q1.png (1151x506)
+  Wrote q2.png (1180x1138)
+  Wrote q3.png (1180x1666)
+  Wrote q4.png (1180x1650)
+  Wrote q5.png (1180x1689)
+  Wrote q6.png (1180x1676)
+  Wrote q7.png (1150x1673)
+  Wrote q8.png (1134x1688)
+  Wrote q9.png (1180x1645)
+  Wrote q10.png (1180x8187)
+Wrote 10 answer crops -> output/lq/2015/ans
+=== 2016 ===
+  skip Section A page 1/14
+  detected answers Q1-Q9 (9)
+  Wrote q1.png (1158x1712)
+  Wrote q2.png (1180x1682)
+  Wrote q3.png (1165x1676)
+  Wrote q4.png (1180x1639)
+  Wrote q6.png (1180x8194)
+  Wrote q7.png (1180x1672)
+  Wrote q8.png (1180x1664)
+  Wrote q9.png (1180x8202)
+Wrote 8 answer crops -> output/lq/2016/ans
+=== 2017 ===
+  skip Section A page 1/14
+  detected answers Q1-Q5 (5)
+  Wrote q1.png (1191x645)
+  Wrote q2.png (1191x17965)
+  Wrote q5.png (1191x18292)
+Wrote 3 answer crops -> output/lq/2017/ans
+=== 2018 ===
+  detected answers Q2-Q5 (4)
+  Wrote q3.png (1154x7073)
+  Wrote q4.png (1154x1276)
+  Wrote q5.png (1154x1096)
+Wrote 3 answer crops -> output/lq/2018/ans
+=== 2019 ===
+  skip Section A page 1/10
+  detected answers Q1-Q2 (2)
+  Wrote q1.png (1022x764)
+  Wrote q2.png (1060x13521)
+Wrote 2 answer crops -> output/lq/2019/ans
+=== 2020 ===
+  detected answers Q1-Q10 (10)
+  Wrote q1.png (3402x845)
+  Wrote q2.png (4232x17873)
+  Wrote q4.png (4264x29627)
+  Wrote q5.png (4332x6562)
+  Wrote q7.png (4367x39428)
+  Wrote q8.png (4353x6676)
+  Wrote q9.png (4173x3578)
+  Wrote q10.png (4591x61524)
+Wrote 8 answer crops -> output/lq/2020/ans
+=== 2021 ===
+  skip Section A page 1/14
+  detected answers Q1-Q10 (10)
+  Wrote q1.png (1203x16870)
+  Wrote q3.png (1203x3557)
+  Wrote q5.png (1203x5171)
+  Wrote q6.png (1202x2809)
+  Wrote q7.png (1201x772)
+  Wrote q8.png (1202x2746)
+  Wrote q10.png (1203x19929)
+Wrote 7 answer crops -> output/lq/2021/ans
+=== 2022 ===
+  skip Section A page 1/14
+  detected answers Q1-Q10 (10)
+  Wrote q1.png (1015x1659)
+  Wrote q2.png (1072x1515)
+  Wrote q3.png (1022x1592)
+  Wrote q4.png (1068x9518)
+  Wrote q6.png (1077x8935)
+  Wrote q7.png (1067x1583)
+  Wrote q8.png (1027x1575)
+  Wrote q9.png (1017x879)
+  Wrote q10.png (1030x6883)
+Wrote 9 answer crops -> output/lq/2022/ans
+=== 2023 ===
+  detected answers Q1-Q6 (6)
+  Wrote q2.png (1015x120)
+  Wrote q3.png (1015x117)
+  Wrote q4.png (1191x5859)
+  Wrote q5.png (1191x6714)
+  Wrote q6.png (1191x13220)
+Wrote 5 answer crops -> output/lq/2023/ans
+
+---
+exit_code: 0
+elapsed_ms: 349377
+ended_at: 2026-09-04T17:53:51.015Z
+---

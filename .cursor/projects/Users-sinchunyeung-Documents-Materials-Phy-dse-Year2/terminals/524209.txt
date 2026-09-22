@@ -1,0 +1,442 @@
+---
+pid: 7595
+cwd: "/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2"
+command: "BASE=\"/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/candidate performance\"\nWORKDIR=\"/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work\"\nRAW=\"$WORKDIR/raw\"\nmkdir -p \"$RAW\"\nOCR_BIN=/tmp/vision_ocr\n\nocr_year() {\n  local year=\"$1\"\n  local pdf=\"$BASE/${year} performance.pdf\"\n  local pages\n  pages=$(pdfinfo \"$pdf\" | awk '/Pages:/ {print $2}')\n  local ydir=\"$RAW/$year\"\n  mkdir -p \"$ydir\"\n  echo \"[$year] rendering $pages pages...\"\n  gs -dNOPAUSE -dBATCH -dQUIET -sDEVICE=png16m -r300 \\\n    -sOutputFile=\"$ydir/page_%03d.png\" \"$pdf\"\n  local i=1\n  while [ $i -le $pages ]; do\n    local img\n    img=$(printf \"%s/page_%03d.png\" \"$ydir\" \"$i\")\n    local out\n    out=$(printf \"%s/page_%03d.txt\" \"$ydir\" \"$i\")\n    local meta\n    meta=$(printf \"%s/page_%03d.meta\" \"$ydir\" \"$i\")\n    # 2024 uses 2-up scans - allow auto column detection; others force single\n    if [ \"$year\" = \"2024\" ]; then\n      \"$OCR_BIN\" \"$img\" > \"$out\" 2>\"$meta\"\n    else\n      \"$OCR_BIN\" --single \"$img\" > \"$out\" 2>\"$meta\"\n    fi\n    # Also tesseract backup for option-letter recovery\n    tesseract \"$img\" stdout -l eng --psm 6 2>/dev/null > \"${out%.txt}.tess.txt\"\n    echo \"  page $i/$pages $(cat \"$meta\" 2>/dev/null | tr -d '\\n')\"\n    i=$((i+1))\n  done\n}\n\nfor y in 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025; do\n  ocr_year \"$y\"\ndone\n\necho \"DONE\"\n# Summary of confidence\nfor y in 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025; do\n  echo -n \"$y: \"\n  rg -o 'avg_conf=[0-9.]+' \"$RAW/$y\"/*.meta 2>/dev/null | sed 's/avg_conf=//' | awk '{s+=$1;n++} END{printf \"pages=%d avg_conf=%.3f\\n\", n, s/n}'\ndone"
+title: "OCR all CP PDF pages with Vision"
+status: succeeded
+started_at: 2026-09-04T09:37:20.159Z
+running_for_ms: 806681   
+---
+[2012] rendering 8 pages...
+  page 1/8 <!-- ocr avg_conf=0.930 boxes=57 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_001.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_001.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_001.meta
+  page 2/8 <!-- ocr avg_conf=0.977 boxes=43 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_002.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_002.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_002.meta
+  page 3/8 <!-- ocr avg_conf=0.890 boxes=29 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_003.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_003.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_003.meta
+  page 4/8 <!-- ocr avg_conf=0.894 boxes=35 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_004.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_004.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_004.meta
+  page 5/8 <!-- ocr avg_conf=0.967 boxes=46 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_005.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_005.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_005.meta
+  page 6/8 <!-- ocr avg_conf=0.984 boxes=61 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_006.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_006.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_006.meta
+  page 7/8 <!-- ocr avg_conf=0.970 boxes=56 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_007.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_007.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2012/page_007.meta
+  page 8/8 <!-- ocr avg_conf=0.943 boxes=35 columns=no -->
+[2013] rendering 8 pages...
+  page 1/8 <!-- ocr avg_conf=0.989 boxes=45 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_001.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_001.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_001.meta
+  page 2/8 <!-- ocr avg_conf=0.954 boxes=54 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_002.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_002.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_002.meta
+  page 3/8 <!-- ocr avg_conf=1.000 boxes=24 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_003.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_003.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_003.meta
+  page 4/8 <!-- ocr avg_conf=0.779 boxes=53 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_004.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_004.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_004.meta
+  page 5/8 <!-- ocr avg_conf=0.972 boxes=43 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_005.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_005.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_005.meta
+  page 6/8 <!-- ocr avg_conf=0.960 boxes=62 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_006.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_006.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_006.meta
+  page 7/8 <!-- ocr avg_conf=1.000 boxes=45 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_007.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_007.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2013/page_007.meta
+  page 8/8 <!-- ocr avg_conf=0.969 boxes=49 columns=no -->
+[2014] rendering 7 pages...
+  page 1/7 <!-- ocr avg_conf=0.982 boxes=56 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2014/page_001.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2014/page_001.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2014/page_001.meta
+  page 2/7 <!-- ocr avg_conf=0.958 boxes=71 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2014/page_002.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2014/page_002.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2014/page_002.meta
+  page 3/7 <!-- ocr avg_conf=0.935 boxes=46 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2014/page_003.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2014/page_003.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2014/page_003.meta
+  page 4/7 <!-- ocr avg_conf=0.989 boxes=46 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2014/page_004.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2014/page_004.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2014/page_004.meta
+  page 5/7 <!-- ocr avg_conf=1.000 boxes=57 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2014/page_005.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2014/page_005.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2014/page_005.meta
+  page 6/7 <!-- ocr avg_conf=0.977 boxes=43 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2014/page_006.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2014/page_006.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2014/page_006.meta
+  page 7/7 <!-- ocr avg_conf=0.984 boxes=64 columns=no -->
+[2015] rendering 7 pages...
+  page 1/7 <!-- ocr avg_conf=0.973 boxes=56 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2015/page_001.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2015/page_001.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2015/page_001.meta
+  page 2/7 <!-- ocr avg_conf=0.963 boxes=41 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2015/page_002.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2015/page_002.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2015/page_002.meta
+  page 3/7 <!-- ocr avg_conf=0.928 boxes=75 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2015/page_003.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2015/page_003.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2015/page_003.meta
+  page 4/7 <!-- ocr avg_conf=0.975 boxes=60 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2015/page_004.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2015/page_004.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2015/page_004.meta
+  page 5/7 <!-- ocr avg_conf=0.985 boxes=65 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2015/page_005.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2015/page_005.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2015/page_005.meta
+  page 6/7 <!-- ocr avg_conf=1.000 boxes=37 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2015/page_006.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2015/page_006.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2015/page_006.meta
+  page 7/7 <!-- ocr avg_conf=0.990 boxes=49 columns=no -->
+[2016] rendering 6 pages...
+  page 1/6 <!-- ocr avg_conf=0.943 boxes=44 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2016/page_001.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2016/page_001.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2016/page_001.meta
+  page 2/6 <!-- ocr avg_conf=0.927 boxes=56 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2016/page_002.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2016/page_002.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2016/page_002.meta
+  page 3/6 <!-- ocr avg_conf=0.950 boxes=74 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2016/page_003.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2016/page_003.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2016/page_003.meta
+  page 4/6 <!-- ocr avg_conf=0.984 boxes=61 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2016/page_004.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2016/page_004.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2016/page_004.meta
+  page 5/6 <!-- ocr avg_conf=1.000 boxes=24 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2016/page_005.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2016/page_005.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2016/page_005.meta
+  page 6/6 <!-- ocr avg_conf=0.941 boxes=66 columns=no -->
+[2017] rendering 9 pages...
+  page 1/9 <!-- ocr avg_conf=0.953 boxes=64 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_001.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_001.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_001.meta
+  page 2/9 <!-- ocr avg_conf=0.913 boxes=23 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_002.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_002.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_002.meta
+  page 3/9 <!-- ocr avg_conf=0.971 boxes=69 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_003.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_003.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_003.meta
+  page 4/9 <!-- ocr avg_conf=0.927 boxes=56 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_004.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_004.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_004.meta
+  page 5/9 <!-- ocr avg_conf=0.956 boxes=34 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_005.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_005.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_005.meta
+  page 6/9 <!-- ocr avg_conf=0.972 boxes=54 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_006.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_006.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_006.meta
+  page 7/9 <!-- ocr avg_conf=1.000 boxes=17 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_007.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_007.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_007.meta
+  page 8/9 <!-- ocr avg_conf=0.969 boxes=64 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_008.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_008.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2017/page_008.meta
+  page 9/9 <!-- ocr avg_conf=1.000 boxes=52 columns=no -->
+[2018] rendering 7 pages...
+  page 1/7 <!-- ocr avg_conf=0.949 boxes=53 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2018/page_001.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2018/page_001.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2018/page_001.meta
+  page 2/7 <!-- ocr avg_conf=0.988 boxes=42 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2018/page_002.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2018/page_002.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2018/page_002.meta
+  page 3/7 <!-- ocr avg_conf=0.983 boxes=60 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2018/page_003.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2018/page_003.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2018/page_003.meta
+  page 4/7 <!-- ocr avg_conf=0.975 boxes=80 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2018/page_004.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2018/page_004.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2018/page_004.meta
+  page 5/7 <!-- ocr avg_conf=0.981 boxes=53 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2018/page_005.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2018/page_005.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2018/page_005.meta
+  page 6/7 <!-- ocr avg_conf=0.986 boxes=49 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2018/page_006.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2018/page_006.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2018/page_006.meta
+  page 7/7 <!-- ocr avg_conf=0.986 boxes=71 columns=no -->
+[2019] rendering 7 pages...
+  page 1/7 <!-- ocr avg_conf=0.959 boxes=49 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2019/page_001.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2019/page_001.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2019/page_001.meta
+  page 2/7 <!-- ocr avg_conf=0.942 boxes=43 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2019/page_002.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2019/page_002.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2019/page_002.meta
+  page 3/7 <!-- ocr avg_conf=0.979 boxes=47 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2019/page_003.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2019/page_003.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2019/page_003.meta
+  page 4/7 <!-- ocr avg_conf=0.964 boxes=67 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2019/page_004.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2019/page_004.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2019/page_004.meta
+  page 5/7 <!-- ocr avg_conf=0.981 boxes=53 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2019/page_005.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2019/page_005.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2019/page_005.meta
+  page 6/7 <!-- ocr avg_conf=0.989 boxes=47 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2019/page_006.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2019/page_006.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2019/page_006.meta
+  page 7/7 <!-- ocr avg_conf=1.000 boxes=69 columns=no -->
+[2020] rendering 9 pages...
+  page 1/9 <!-- ocr avg_conf=0.950 boxes=54 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_001.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_001.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_001.meta
+  page 2/9 <!-- ocr avg_conf=0.885 boxes=39 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_002.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_002.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_002.meta
+  page 3/9 <!-- ocr avg_conf=1.000 boxes=48 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_003.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_003.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_003.meta
+  page 4/9 <!-- ocr avg_conf=0.986 boxes=37 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_004.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_004.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_004.meta
+  page 5/9 <!-- ocr avg_conf=0.963 boxes=27 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_005.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_005.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_005.meta
+  page 6/9 <!-- ocr avg_conf=0.991 boxes=57 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_006.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_006.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_006.meta
+  page 7/9 <!-- ocr avg_conf=0.990 boxes=49 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_007.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_007.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_007.meta
+  page 8/9 <!-- ocr avg_conf=0.981 boxes=53 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_008.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_008.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2020/page_008.meta
+  page 9/9 <!-- ocr avg_conf=1.000 boxes=58 columns=no -->
+[2021] rendering 8 pages...
+  page 1/8 <!-- ocr avg_conf=0.969 boxes=49 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_001.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_001.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_001.meta
+  page 2/8 <!-- ocr avg_conf=0.910 boxes=58 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_002.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_002.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_002.meta
+  page 3/8 <!-- ocr avg_conf=0.895 boxes=74 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_003.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_003.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_003.meta
+  page 4/8 <!-- ocr avg_conf=0.957 boxes=23 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_004.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_004.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_004.meta
+  page 5/8 <!-- ocr avg_conf=0.983 boxes=58 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_005.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_005.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_005.meta
+  page 6/8 <!-- ocr avg_conf=0.982 boxes=28 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_006.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_006.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_006.meta
+  page 7/8 <!-- ocr avg_conf=0.990 boxes=48 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_007.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_007.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2021/page_007.meta
+  page 8/8 <!-- ocr avg_conf=1.000 boxes=23 columns=no -->
+[2022] rendering 8 pages...
+  page 1/8 <!-- ocr avg_conf=0.940 boxes=50 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_001.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_001.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_001.meta
+  page 2/8 <!-- ocr avg_conf=0.976 boxes=63 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_002.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_002.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_002.meta
+  page 3/8 <!-- ocr avg_conf=0.887 boxes=48 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_003.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_003.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_003.meta
+  page 4/8 <!-- ocr avg_conf=1.000 boxes=32 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_004.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_004.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_004.meta
+  page 5/8 <!-- ocr avg_conf=0.831 boxes=74 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_005.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_005.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_005.meta
+  page 6/8 <!-- ocr avg_conf=0.966 boxes=59 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_006.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_006.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_006.meta
+  page 7/8 <!-- ocr avg_conf=0.991 boxes=55 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_007.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_007.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2022/page_007.meta
+  page 8/8 <!-- ocr avg_conf=0.984 boxes=61 columns=no -->
+[2023] rendering 7 pages...
+  page 1/7 <!-- ocr avg_conf=0.992 boxes=65 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2023/page_001.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2023/page_001.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2023/page_001.meta
+  page 2/7 <!-- ocr avg_conf=0.977 boxes=44 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2023/page_002.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2023/page_002.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2023/page_002.meta
+  page 3/7 <!-- ocr avg_conf=0.941 boxes=51 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2023/page_003.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2023/page_003.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2023/page_003.meta
+  page 4/7 <!-- ocr avg_conf=1.000 boxes=60 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2023/page_004.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2023/page_004.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2023/page_004.meta
+  page 5/7 <!-- ocr avg_conf=0.975 boxes=40 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2023/page_005.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2023/page_005.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2023/page_005.meta
+  page 6/7 <!-- ocr avg_conf=1.000 boxes=28 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2023/page_006.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2023/page_006.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2023/page_006.meta
+  page 7/7 <!-- ocr avg_conf=0.984 boxes=63 columns=no -->
+[2024] rendering 4 pages...
+  page 1/4 <!-- ocr avg_conf=0.969 boxes=112 columns=yes -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2024/page_001.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2024/page_001.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2024/page_001.meta
+  page 2/4 <!-- ocr avg_conf=0.965 boxes=100 columns=yes -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2024/page_002.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2024/page_002.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2024/page_002.meta
+  page 3/4 <!-- ocr avg_conf=0.968 boxes=93 columns=yes -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2024/page_003.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2024/page_003.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2024/page_003.meta
+  page 4/4 <!-- ocr avg_conf=0.995 boxes=106 columns=yes -->
+[2025] rendering 15 pages...
+  page 1/15 <!-- ocr avg_conf=0.946 boxes=56 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_001.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_001.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_001.meta
+  page 2/15 <!-- ocr avg_conf=0.932 boxes=37 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_002.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_002.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_002.meta
+  page 3/15 <!-- ocr avg_conf=0.888 boxes=34 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_003.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_003.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_003.meta
+  page 4/15 <!-- ocr avg_conf=0.968 boxes=62 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_004.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_004.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_004.meta
+  page 5/15 <!-- ocr avg_conf=0.962 boxes=40 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_005.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_005.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_005.meta
+  page 6/15 <!-- ocr avg_conf=0.981 boxes=53 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_006.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_006.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_006.meta
+  page 7/15 <!-- ocr avg_conf=1.000 boxes=17 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_007.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_007.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_007.meta
+  page 8/15 <!-- ocr avg_conf=0.981 boxes=52 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_008.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_008.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_008.meta
+  page 9/15 <!-- ocr avg_conf=1.000 boxes=24 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_009.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_009.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_009.meta
+  page 10/15 <!-- ocr avg_conf=0.973 boxes=73 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_010.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_010.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_010.meta
+  page 11/15 <!-- ocr avg_conf=1.000 boxes=11 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_011.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_011.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_011.meta
+  page 12/15 <!-- ocr avg_conf=0.904 boxes=53 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_012.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_012.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_012.meta
+  page 13/15 <!-- ocr avg_conf=1.000 boxes=31 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_013.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_013.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_013.meta
+  page 14/15 <!-- ocr avg_conf=0.971 boxes=51 columns=no -->
+img=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_014.png
+out=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_014.txt
+meta=/Users/sinchunyeung/Documents/Materials/Phy/dse/Year2/_ocr_md_work/raw/2025/page_014.meta
+  page 15/15 <!-- ocr avg_conf=1.000 boxes=13 columns=no -->
+DONE
+2012: pages=8 avg_conf=0.000
+2013: pages=8 avg_conf=0.000
+2014: pages=7 avg_conf=0.000
+2015: pages=7 avg_conf=0.000
+2016: pages=6 avg_conf=0.000
+2017: pages=9 avg_conf=0.000
+2018: pages=7 avg_conf=0.000
+2019: pages=7 avg_conf=0.000
+2020: pages=9 avg_conf=0.000
+2021: pages=8 avg_conf=0.000
+2022: pages=8 avg_conf=0.000
+2023: pages=7 avg_conf=0.000
+2024: pages=4 avg_conf=0.000
+2025: pages=15 avg_conf=0.000
+
+---
+exit_code: 0
+elapsed_ms: 806678
+ended_at: 2026-09-04T09:50:46.837Z
+---

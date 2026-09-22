@@ -1,0 +1,38 @@
+---
+pid: 40778
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "tasks-axi update tour-ux-polish --file /Users/sinchunyeung/github/firstmate/data/backlog.md --body \"mode=no-mistakes yolo=off; product UI tour polish; stack on fm/web-tour-copy if PR #14 open\" --repo simplification-of-trajectory-streams 2>&1; FM_HOME=/Users/sinchunyeung/github/firstmate /Users/sinchunyeung/github/firstmate/bin/fm-spawn.sh tour-ux-polish /Users/sinchunyeung/github/firstmate/projects/simplification-of-trajectory-streams --mode no-mistakes --yolo off --harness cursor 2>&1"
+title: "Spawn tour UX polish worker"
+status: failed   
+started_at: 2026-09-07T05:55:54.124Z
+running_for_ms: 83817    
+---
+ok: updated tour-ux-polish (body, repo)
+task:
+  id: tour-ux-polish
+  title: "Shorten tour copy, center spotlights, trim start-page instructions"
+  state: queued
+  blocked: no
+  blocked_by: none
+  held: no
+  hold_reason: "-"
+  hold_kind: "-"
+  hold_until: "-"
+  kind: task
+  repo: simplification-of-trajectory-streams
+  priority: "-"
+  created: 2026-09-07
+  closed: "-"
+  deps: none
+  links: none
+  body: mode=no-mistakes yolo=off; product UI tour polish; stack on fm/web-tour-copy if PR #14 open
+help[1]:
+  - Run `tasks-axi show tour-ux-polish --full --file=/Users/sinchunyeung/github/firstmate/data/backlog.md` to see the result
+fatal: unable to access 'https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams.git/': Failed to connect to github.com port 443 after 75004 ms: Couldn't connect to server
+error: could not fetch 'origin/main' for pooled worktree '/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams'; refusing to launch from a potentially stale base
+
+---
+exit_code: 1
+elapsed_ms: 83810
+ended_at: 2026-09-07T05:57:17.934Z
+---

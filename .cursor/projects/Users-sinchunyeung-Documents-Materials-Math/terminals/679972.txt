@@ -1,0 +1,19 @@
+---
+pid: 45519
+cwd: "/Users/sinchunyeung/Documents/Materials/Math"
+command: "mkdir -p /tmp/pdf-ocr2 && pdftoppm -png -r 200 \"/Users/sinchunyeung/Documents/Materials/Math/mock/F1/Math-First-Test-2.pdf\" /tmp/pdf-ocr2/test2 && for f in /tmp/pdf-ocr2/test2-*.png; do echo \"=== $f ===\"; tesseract \"$f\" stdout 2>/dev/null; done"
+started_at: 2026-09-01T05:41:17.708Z
+running_for_ms: 1201077  
+---
+=== /tmp/pdf-ocr2/test2-1.png ===
+=== /tmp/pdf-ocr2/test2-2.png ===
+=== /tmp/pdf-ocr2/test2-3.png ===
+=== /tmp/pdf-ocr2/test2-4.png ===
+=== /tmp/pdf-ocr2/test2-5.png ===
+=== /tmp/pdf-ocr2/test2-6.png ===
+
+---
+exit_code: 1
+elapsed_ms: 1201817
+ended_at: 2026-09-01T06:01:19.525Z
+---

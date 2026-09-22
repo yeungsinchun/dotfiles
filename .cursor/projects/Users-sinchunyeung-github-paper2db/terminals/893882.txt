@@ -1,0 +1,62 @@
+---
+pid: 16375
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python <<'PY'\nfrom pathlib import Path\nhtml=Path('.lavish/classified-review/index.html').read_text()\nprint('syncNav' in html)\n# find where it sits\ni=html.find('syncNavFromData')\nprint(repr(html[i-80:i+200]) if i>=0 else 'missing')\n# check for JS errors - node check main script\nimport re, subprocess\nscripts=re.findall(r'<script>(.*?)</script>', html, re.S)\nmain=[s for s in scripts if 'DATA' in s and 'renderSection' in s]\nprint('main scripts', len(main))\nif main:\n    Path('/tmp/lavish-boot.js').write_text(main[0])\n    r=subprocess.run(['node','--check','/tmp/lavish-boot.js'], capture_output=True, text=True)\n    print('node', r.returncode, r.stderr[:300] if r.stderr else 'ok')\nPY\n\n# Resplit every year with intermediate\nfor year in 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 2026 pp sap; do\n  inter=output/${year}-intermediate\n  [[ -f $inter/anchor.meta.json || -f $inter/anchor.pdf ]] || continue\n  case $year in\n    pp) pdf=paper/mc/ppp1a.pdf ;;\n    sap) pdf=paper/mc/sapp1a.pdf ;;\n    *) pdf=paper/mc/${year}p1a.pdf ;;\n  esac\n  echo \"RESplit $year\"\n  ./segment \"$pdf\" \"output/$year\" --type mc --step split --intermediate \"$inter\" >/tmp/paper2db-resegment/eos-$year.log 2>&1 && echo OK $year || echo FAIL $year\ndone\n\n# Check 2015 q33\n.venv/bin/python <<'PY'\nfrom PIL import Image\nimport subprocess, io, shutil\nfrom pathlib import Path\nim=Image.open('output/2015/q33.png')\nbuf=io.BytesIO(); im.save(buf,'PNG')\nr=subprocess.run(['tesseract','stdin','stdout','--psm','6'], input=buf.getvalue(), capture_output=True)\ntext=r.stdout.decode('utf-8','ignore')\nprint('2015 q33 END?', 'END OF SECTION' in text.upper(), im.size)\nprint(text[-120:])\n# sync all\nn=0\nfor year_dir in Path('output').iterdir():\n    if not year_dir.is_dir() or year_dir.name.endswith('-intermediate'): continue\n    for png in year_dir.glob('q*.png'):\n        shutil.copy2(png, Path('.lavish/classified-review/img')/f'{year_dir.name}_q{png.stem[1:]}.png'); n+=1\nprint('synced', n)\nPY\nnpx -y lavish-axi /Users/sinchunyeung/github/paper2db/.lavish/classified-review/index.html --reopen 2>&1 | head -8\n"
+title: "Resplit all years for END OF SECTION; reopen"
+status: succeeded
+started_at: 2026-09-04T14:53:02.576Z
+running_for_ms: 52362    
+---
+True
+"p sidebar counts in sync with DATA (static HTML counts go stale).\n    (function syncNavFromData() {\n      const total = DATA.sections.reduce((n, s) => n + (s.count || 0), 0);\n      const brand = document.querySelector('.brand p');\n      if (brand) brand.textContent = total + ' pl"
+main scripts 1
+node 0 ok
+RESplit 2013
+OK 2013
+RESplit 2014
+OK 2014
+RESplit 2015
+OK 2015
+RESplit 2016
+OK 2016
+RESplit 2017
+OK 2017
+RESplit 2018
+OK 2018
+RESplit 2019
+OK 2019
+RESplit 2020
+OK 2020
+RESplit 2021
+OK 2021
+RESplit 2022
+OK 2022
+RESplit 2023
+OK 2023
+RESplit 2026
+OK 2026
+RESplit pp
+OK pp
+RESplit sap
+OK sap
+2015 q33 END? True (981, 380)
+ Given: half-life of carbon-14 is 5730 years.
+
+A. 890 years
+B. 1300 years
+Cc. 2000 years
+D. 2900 years
+END OF SECTION A
+
+synced 573
+session:
+  file: /Users/sinchunyeung/github/paper2db/.lavish/classified-review/index.html
+  url: "http://127.0.0.1:4387/session/b5bd5001e87d036d"
+  status: opened
+next_step: "Do not respond to the user just yet. Now you must run `lavish-axi poll /Users/sinchunyeung/github/paper2db/.lavish/classified-review/index.html`. This command long-polls until the user sends feedback or ends the session, and it stays silent the whole time - that is normal, never kill it. Layout issues the browser detects do not return this poll; they wait in the user's Layout issues inbox until the user queues them, then arrive as an ordinary tag \"layout-warnings\" prompt. Do not pass --timeout-ms during normal agent use. Keep the poll in the foreground by default and let it return the feedback directly to the agent. A background poll is allowed only through a harness-native tracked background-job facility whose completion result is guaranteed to resume or notify the same agent. Never use `nohup`, shell `&`, `disown`, redirected fire-and-forget processes, or a detached terminal without an explicit verified callback merely to keep polling alive. If the harness has no completion-aware background facility, use the foreground poll or first wire a verified wake callback into the surrounding supervisor. Do not tell the user the artifact is being monitored until that wake path is live. If the poll gets killed or times out before feedback arrives, re-run it - feedback remains queued until delivery. Poll delivery consumes the response, so read it completely. After applying feedback, run `lavish-axi poll /Users/sinchunyeung/github/paper2db/.lavish/classified-review/index.html --agent-reply \"<message for the user>\"` without --timeout-ms to show your response in Lavish Editor and wait for more feedback. If the user ends the session, stop polling and do not reopen it by re-running `lavish-axi /Users/sinchunyeung/github/paper2db/.lavish/classified-review/index.html` unless the user asks for further review or something genuinely important needs their visual attention - deliver routine updates directly in this conversation instead. When reopening is warranted, run `lavish-axi /Users/sinchunyeung/github/paper2db/.lavish/classified-review/index.html --reopen`."
+
+---
+exit_code: 0
+elapsed_ms: 52361
+ended_at: 2026-09-04T14:53:54.937Z
+---

@@ -1,0 +1,24 @@
+---
+pid: 52896
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "export PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:$PATH\"\npython3 /tmp/fm-http-dual.py 8769 /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/.lavish/lq-classified-review"
+title: "Start LQ classified board on 8769"
+status: failed   
+started_at: 2026-09-11T14:03:21.815Z
+running_for_ms: 97224570 
+---
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:29] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:29] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:29] "GET /img/2026-q12.png?v=1788755555 HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:29] code 404, message File not found
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:29] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:48] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:04:08] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 23:59:28] "GET /index.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [13/Sep/2026 00:34:08] "HEAD / HTTP/1.1" 200 -
+
+---
+exit_code: 143
+elapsed_ms: 97224570
+ended_at: 2026-09-12T17:03:46.385Z
+---

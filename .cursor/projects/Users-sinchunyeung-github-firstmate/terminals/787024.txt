@@ -1,0 +1,30 @@
+---
+pid: 86508
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "git -C /Users/sinchunyeung/github/firstmate/projects/paper2db status 2>&1; git -C /Users/sinchunyeung/github/firstmate/projects/paper2db rev-parse HEAD 2>&1; git -C /Users/sinchunyeung/github/firstmate/projects/paper2db checkout -f main 2>&1; ls /Users/sinchunyeung/github/firstmate/projects/paper2db | head -20; git -C /Users/sinchunyeung/github/firstmate/projects/paper2db fetch /Users/sinchunyeung/github/paper2db pipeline:pipeline 2>&1; git -C /Users/sinchunyeung/github/firstmate/projects/paper2db branch -vv | head -10; git -C /Users/sinchunyeung/github/firstmate/projects/paper2db log pipeline -3 --oneline 2>&1"
+title: "Repair clone and import pipeline branch"
+status: failed   
+started_at: 2026-09-07T04:14:57.498Z
+running_for_ms: 48708    
+---
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+HEAD
+error: pathspec 'main' did not match any file(s) known to git
+fatal: could not open '.git/objects/pack/tmp_pack_0X17qg' for reading: No such file or directory
+fatal: fetch-pack: invalid index-pack output
+fatal: failed to resolve HEAD as a valid ref
+fatal: ambiguous argument 'pipeline': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+---
+exit_code: 128
+elapsed_ms: 48704
+ended_at: 2026-09-07T04:15:46.202Z
+---

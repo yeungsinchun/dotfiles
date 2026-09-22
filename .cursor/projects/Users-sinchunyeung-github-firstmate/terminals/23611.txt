@@ -1,0 +1,18 @@
+---
+pid: 7956
+cwd: "/Users/sinchunyeung/github/paper2notes"
+command: "export PATH=\"/Library/Developer/CommandLineTools/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/bin\"\n# find tasks-axi\ncommand -v tasks-axi || true\ntype tasks-axi 2>&1\nls \"$HOME/.local/bin/tasks-axi\" 2>&1\nls /opt/homebrew/bin/tasks-axi 2>&1\n# common agent paths\nfind \"$HOME\" -name 'tasks-axi' -type f 2>/dev/null | head -10\n# also check mise\nmise which tasks-axi 2>&1\nasdf which tasks-axi 2>&1\n"
+title: "Locate tasks-axi binary on system"
+status: failed   
+started_at: 2026-09-15T02:13:17.310Z
+running_for_ms: 40015    
+---
+tasks-axi not found
+ls: /Users/sinchunyeung/.local/bin/tasks-axi: No such file or directory
+ls: /opt/homebrew/bin/tasks-axi: No such file or directory
+
+---
+exit_code: unknown
+elapsed_ms: 40011
+ended_at: 2026-09-15T02:13:57.321Z
+---

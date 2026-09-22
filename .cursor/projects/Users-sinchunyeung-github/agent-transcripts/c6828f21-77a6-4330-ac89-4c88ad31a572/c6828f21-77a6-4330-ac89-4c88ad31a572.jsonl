@@ -1,0 +1,2 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<timestamp>Wednesday, Sep 2, 2026, 6:54 PM (UTC+8)</timestamp>\n<user_query>\nFix the merge conflict for me\n</user_query>"}]}}
+{"type":"turn_ended","status":"error","error":"Agent turn stopped after repeated resume attempts made no progress"}

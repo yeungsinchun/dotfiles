@@ -1,0 +1,16 @@
+---
+pid: 33376
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "export PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:$PATH\"\nexport FM_HOME=/Users/sinchunyeung/github/firstmate\n# retarget LQ review to the regenerated copy\nold=$(lsof -nP -t -iTCP:8769 -sTCP:LISTEN 2>/dev/null | head -1)\nif [ -n \"$old\" ]; then kill \"$old\"; sleep 0.3; fi\npython3 /tmp/fm-http-dual.py 8769 /Users/sinchunyeung/.treehouse/paper2db-41af0c/5/paper2db/.lavish/lq-classified-review\n"
+title: "Retarget LQ review board to regenerated pages"
+status: failed   
+started_at: 2026-09-12T17:03:45.829Z
+running_for_ms: 2946116  
+---
+::ffff:127.0.0.1 - - [13/Sep/2026 01:03:55] "HEAD / HTTP/1.1" 200 -
+
+---
+exit_code: 143
+elapsed_ms: 2946116
+ended_at: 2026-09-12T17:52:51.945Z
+---

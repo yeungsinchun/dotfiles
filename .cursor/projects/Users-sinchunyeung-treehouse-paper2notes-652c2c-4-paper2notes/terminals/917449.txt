@@ -1,0 +1,79 @@
+---
+pid: 74129
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/4/paper2notes"
+command: "no-mistakes axi respond --action fix --findings ch1-25-1-uses-2022-31 --step review --add-finding '{\"id\":\"dse-label-format\",\"severity\":\"warning\",\"file\":\"notes/book5/ch01-radiation-and-radioactivity/25-1.html\",\"line\":1,\"description\":\"Visible DSE tags still use 2022/31 MC. Rewrite every Book 5 subsection chip, figcaption, slot, alt, and test to 2022 MC Q31 / 2013 LQ Q9 / PP MC Q34 / SAP MC Q35. Leave no YYYY/n MC or YYYY/n LQ.\",\"authority\":\"ask-user\"}' --instructions 'Drop 2022 MC Q31 from the 25.1 discuss-uses bullet only. Keep the embed and the chips on the two X-ray nature/emission bullets. Relabel every visible DSE citation to YYYY MC Qn / YYYY LQ Qn (e.g. 2022 MC Q4). Practice: PP MC Qn, SAP MC Qn. Update tests that still match 2022/31 MC.'"
+title: "Fix uses chip and add DSE label-format finding"
+status: succeeded
+started_at: 2026-09-12T17:41:44.056Z
+running_for_ms: 488423   
+---
+[33mA new version of no-mistakes is available: v1.64.0 -> v1.72.0
+Run "no-mistakes update" to update[0m
+run: running
+  intent: completed
+  rebase: completed
+  review: fixing
+  review: fix_review
+run:
+  id: "01M2B7YV0MTFD9FEWQ1YF0G59C"
+  branch: fm/p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e
+  status: running
+  awaiting_agent: parked 0s
+  head: 3545ff3e
+  findings: 1 awaiting
+  steps[9]{step,status,findings,duration_ms}:
+    intent,completed,0,2
+    rebase,completed,0,2073
+    review,fix_review,1,3069930
+    test,pending,0,0
+    document,pending,0,0
+    lint,pending,0,0
+    push,pending,0,0
+    pr,pending,0,0
+    ci,pending,0,0
+branch_sync:
+  state: pipeline_owned
+  changed: false
+  local:
+    branch: fm/p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e
+    head: "0910c137ca342c02307776123afa9b3f3d47db1f"
+    clean: true
+  pipeline:
+    run: "01M2B7YV0MTFD9FEWQ1YF0G59C"
+    status: running
+    phase: pre_push
+    submitted_head: "0910c137ca342c02307776123afa9b3f3d47db1f"
+    current_head: 3545ff3e7b9f2aa64677eaaab22f25786df7d4ae
+    pushed_head: ""
+    pushed_at: 0
+    push_generation: 0
+  target:
+    kind: ""
+    remote: origin
+    url: "https://github.com/yeungsinchun/paper2notes.git"
+    ref: ""
+  remote:
+    observed_head: ""
+    freshness: pipeline_push
+    observed_at: 0
+  relation: unknown
+  safety: blocked_pipeline_owned
+  pr_state: none
+  note: the pipeline head has moved but has not been successfully pushed; do not make local follow-up commits yet
+  next_action:
+    code: continue_active_run
+    command: no-mistakes axi status
+gate:
+  step: review
+  status: fix_review
+  risk: medium
+  note: "Review auto-fix is disabled by default (`auto_fix.review: 0`; a repo or global `auto_fix.review > 0` override re-enables it), so blocking and ask-user review findings park for your decision rather than being silently self-fixed."
+  findings[1]{id,severity,file,action,description}:
+    ch2-26-3-hazards-unit-and-badge,warning,notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html,ask-user,"26.3 'discuss potential hazards ... and the ways to minimise the radiation dose absorbed' labels 2026 MC Q32 and 2015 MC Q32. The page's own copy of 2026 MC Q32 asks which unit is equivalent dose (Sv vs Bq vs J). 2015 MC Q32 is the film-badge-cannot-monitor-α paper, and the same page's ALARA check teaches that a film badge does not reduce exposure. A student who clicks those chips still lands on the wrong LO. Drop those two chips from the hazards bullet only. Keep 2026 MC Q32 on the sievert bullet. Keep 2015 MC Q32 on 26.3 safety and on 25.2/25.3. Keep 2021 LQ Q9 on 26.3."
+help[6]: Run `no-mistakes axi respond --action approve` to accept this step and continue,Run `no-mistakes axi respond --action fix --findings <ids>` to have the pipeline fix the selected findings (do not edit files yourself),Run `no-mistakes axi respond --action skip` to skip this step,Run `no-mistakes axi logs --step review --full` to read the full step log,"A long-running call is working, not stalled - background it if your harness needs to, but the run never advances past a gate on its own. Read every return; on a `gate:`, respond; loop until an `outcome:`.","Commit post-pipeline follow-up work on top of the existing branch so every pipeline fix commit remains present. Never abort-and-restart, reset, or replace the branch in a way that drops prior gate-fix commits."
+
+---
+exit_code: 0
+elapsed_ms: 488418
+ended_at: 2026-09-12T17:49:52.474Z
+---

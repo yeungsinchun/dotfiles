@@ -1,0 +1,21 @@
+---
+pid: 27694
+cwd: "/Users/sinchunyeung/github/simplification-of-trajectory-streams"
+command: "# Find how prior fixtures were screenshotted\nrg -l 'match-error-gray-path|screenshot|playwright|puppeteer|chromium' web/usability/*.html 2>/dev/null | head -3\nls node_modules 2>/dev/null | head -5\nwhich google-chrome chromium chromium-browser \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" 2>/dev/null\n# Try python playwright or selenium\npython3 -c \"import playwright; print('pw')\" 2>/dev/null || python3 -c \"from selenium import webdriver; print('sel')\" 2>/dev/null || echo \"no py browser\"\n# Check for npx playwright in cache\nls ~/.cache/ms-playwright 2>/dev/null | head -5\nfind /Users/sinchunyeung -path '*playwright*' -name 'chromium*' 2>/dev/null | head -10\n"
+title: "Locate browser tooling for screenshots"
+status: failed   
+started_at: 2026-09-05T20:47:34.376Z
+running_for_ms: 47009    
+---
+web/usability/desktop-start-instructions.html
+google-chrome not found
+chromium not found
+chromium-browser not found
+/Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+no py browser
+
+---
+exit_code: unknown
+elapsed_ms: 47009
+ended_at: 2026-09-05T20:48:21.385Z
+---

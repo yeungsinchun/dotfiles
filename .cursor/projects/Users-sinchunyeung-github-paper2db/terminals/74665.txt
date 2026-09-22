@@ -1,0 +1,28 @@
+---
+pid: 21139
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "git reset --hard refs/no-mistakes-recover/classify 2>&1\ngit log --oneline -6\necho '===='\ndf -h /Users/sinchunyeung | tail -1\n# Push with larger buffer and HTTP/1.1\ngit -c http.postBuffer=524288000 -c http.version=HTTP/1.1 push --force-with-lease=refs/heads/classify:0e09810b6746ce415efb107837c71038d853d6b9 origin HEAD:refs/heads/classify 2>&1\n"
+title: "Reset to pipeline tip; push to GitHub"
+status: failed   
+started_at: 2026-09-05T15:58:48.173Z
+running_for_ms: 501547   
+---
+HEAD is now at 7f549d0 no-mistakes(document): Align docs with split classification outputs
+7f549d0 no-mistakes(document): Align docs with split classification outputs
+03c6dd3 no-mistakes(review): Drop legacy MC names; preserve LQ crops
+25c86db chore: clean LQ assets and drop page-render caches
+863b880 feat: classify LQ questions into curriculum sections
+9489a3a feat: classify MC questions into curriculum sections
+665252d Merge pull request #2 from yeungsinchun/reorganize
+====
+/dev/disk3s5   460Gi   420Gi   2.7Gi   100%    6.6M   28M   19%   /System/Volumes/Data
+error: RPC failed; HTTP 500 curl 22 The requested URL returned error: 500
+send-pack: unexpected disconnect while reading sideband packet
+fatal: the remote end hung up unexpectedly
+Everything up-to-date
+
+---
+exit_code: 1
+elapsed_ms: 501547
+ended_at: 2026-09-05T16:07:09.720Z
+---

@@ -1,0 +1,15 @@
+---
+pid: 63181
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy"
+command: "cd \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse\" && python3 scripts/batch_preprocess_lq.py 2>&1"
+started_at: 2026-08-23T02:21:29.043Z
+running_for_ms: 195032   
+---
+/opt/anaconda3/lib/python3.10/site-packages/PIL/Image.py:3406: DecompressionBombWarning: Image size (159075952 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+
+---
+exit_code: unknown
+elapsed_ms: 196459
+ended_at: 2026-08-23T02:24:45.502Z
+---

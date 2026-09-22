@@ -1,0 +1,601 @@
+2013 Dse Phy With Ans | PDF
+
+Skip to main content
+
+Open navigation menu
+
+Close suggestionsSearchSearch
+
+Change Language, English
+
+Sign in
+
+Sign in
+
+0% found this document useful (0 votes)
+
+33K views74 pages
+
+# 2013 Dse Phy With Ans
+
+## Uploaded by
+
+Copyright
+
+© © All Rights Reserved
+
+We take content rights seriously. If you suspect this is your content, claim it here.
+
+Available Formats
+
+Download as PDF or read online on Scribd
+
+Download
+
+SaveSave 2013 Dse Phy With Ans For Later
+
+Share
+
+0%0% found this document useful, undefined
+
+0%, undefined
+
+Print
+
+Embed
+
+Report
+
+0% found this document useful (0 votes)
+
+33K views74 pages
+
+# 2013 Dse Phy With Ans
+
+## Uploaded by
+
+Copyright
+
+© © All Rights Reserved
+
+We take content rights seriously. If you suspect this is your content, claim it here.
+
+Available Formats
+
+Download as PDF or read online on Scribd
+
+Go to previous items
+
+Download
+
+SaveSave 2013 Dse Phy With Ans For Later
+
+Share
+
+0%0% found this document useful, undefined
+
+0%, undefined
+
+Print
+
+Embed
+
+Report
+
+Go to next items
+
+Outline
+
+Download
+
+Save 2013 Dse Phy With Ans For Later
+
+Fullscreen
+
+- Introduction
+- The Examination
+- Question Papers
+- Marking Schemes
+- Candidates’ Performance
+
+Physics 2013 Examination Report and Question Papers (with marking schemes) FBFRAEBA Hong Kong Examinations and Assessment Authority Introduction .. ‘The Examination . Question Papers Marking Schemes... Candidates’ Performance... CONTENTS Introduction ‘This publication provides a comprehensive report on the Physics examination in the 2013 Hong Kong Diploma of Secondary Education Examination. It covers various aspects of the examination, including the objectives, contents and format of the examination, the question papers, the marking schemes and the chief examiners’ comments on candidates’ performance in the live examination. Some statistics are also included. “Through this publication, we hope to provide useful information and feedback to assist teachers in their teaching of the subject and students in their learning. Similar publications are also available for other subjects in the 2013 HKDSE and HKALE. We would like to take this opportunity to express our gratitude to all the examination personnel who were involved in the development of question papers and the assessment of candidates’ performance. Without their contributions, it would not have been possible for us to conduct the examination smoothly. The Examination Assessment Objectives ‘The objectives of the public assessment of Physics are to evaluate candidates’ ability to: 1, recall and show understanding of the facts, concepts, models and principles of physics, and the relationships between different topic areas in the curriculum framework; 2. apply knowledge, concepts and principles of physics to explain phenomena and observations, and to solve problems; show an understanding of the use of apparatus in performing experiments, demonstrate an understanding of the method used inthe study of physics; present data in various forms, such as tables, graphs, charts, diagrams, and transpose them from one form into another; analyse and interpret data, and draw appropriate conclusions; show an understanding of the treatment of errors; select, organise, and communicate information clearly, precisely and logically; demonstrate understanding of the applications of physics to daily life and its contributions to the modern world; 10. show awareness of the ethical, moral, social, economic and technological implications of physics, and critically evaluate physics-related issues; and 11. make suggestions, choices and judgments based on the examination of evidence using knowledge and principles of physics. ‘Synopsis of curriculum contents ‘The topics in the curiculum of Physics are listed below. For details, please refer to the Physics Curriculum and Assessment Guide (Secondary 4-6) jointly prepared by the Curriculum Development Council and the Hong Kong Examinations and Assessment Authority Compulsory part I. Heat and Gases IL. Force and Motion Il, Wave Motion IV. Electricity and Magnetism Y. Radioactivity and Nuclear Energy Elective part ‘VI Astronomy and Space Science VII. Atomic World VIII. Energy and Use of Energy IX. Medical Physics ‘Mode of assessment ‘The public assessment of Physics consists of a public examination component and a school-based assessment component as outlined in the following table: ‘Component Weighting | Duration 2 hours Paper | Questions set on Compulsory Part 60% Public 30 minutes Examination Paper 2 Questions set on Elective Part 20% T hour School-based Assessment (SBA) 20% Paper I comprises two sections A and B, Section A consists of multiple-choice questions and carries 21% of the subject mark, Section B includes short questions, structured questions and an essay question, and it carries 39% of the subject mark. Candidates have to attempt all questions in Paper | Paper 2 contains multiple-choice questions and structured questions set on each of the four elective topics of the ‘curriculum, and questions on each elective carry 10% of the subject mark. Candidates are to attempt questions from any two of the four electives. For SBA, the detailed requirements, regulations, assessment criteria, guidelines and methods of assessment can be found in the SBA Handbook for HKDSE Physics and Combined Science (Physics part) published by the Hong Kong Examinations and Assessment Authority. 2013-DSE PHY PAPER 1A HONG KONG EXAMINATIONS AND ASSESSMENT AUTHORITY HONG KONG DIPLOMA OF SECONDARY EDUCATION EXAMINATION 2013 PHYSICS PAPER 1 8.30 am — 11.00 am (2% hours) This paper must be answered in English GENERAL INSTRUCTIONS | (1) There are TWO sections, A and 8, in this Paper. You are advised to finish Section A in about 60 minutes. (2) Section A consists of multiple-choice questions in this question paper, while Section B contains conventional questions printed separately in Question-Answer Book B. (3) Answers to Section A should be marked on the Multiple-choice Answer Sheet while answers to Section B should be written in the spaces provided in the Question-Answer Book. The Answer Sheet for Section A and the Question-Answer Book for Section B will be collected separately at the end of the examination. (4) The diagrams in this paper are NOT necessarily drawn to scale. (5) The last two pages of this question paper contain a list of data, formulae and relationships which you may find useful INSTRUCTIONS FOR SECTION A (MULTIPLE-CHOICE QUESTIONS) (1) Read carefully the instructions on the Answer Sheet. After the announcement of the start of the ‘examination, you should first stick a barcode label and insert the information required in the spaces provided. No extra time will be given for sticking on the barcode label after the ‘Time Is up’ announcement. (2) When told to open this book, you should check that all the questions are there. Look for the words "END OF SECTION A’ affer the last question, (3) All questions carry equal marks (4) ANSWER ALL QUESTIONS. You are advised to use an HB pencil to mark all the answers on the Answer Sheet, so that wrong marks can be completely erased with a rubber. You must mark the answers clearly; otherwise you will lose marks if the answers cannot be captured. (©) You should mark only ONE answer for each question. If you mark more than one answer, you will receive NO MARKS for that question (©) Nomarks will be deducted for wrong answers. Not to be taken away before the end of the examination session 2013-DSE-PHY 1A 4 Section A ‘There are 36 questions. Questions marked with 1 3 “4, volve knowledge of the extension component. Which of the following statements about boiling and evaporation ofa liquid is/are correct ? (1) A liquid absorbs energy when it boils but does not absorb energy when it evaporates (2) Boiling occurs ata definite temperature while evaporation takes place above room temperature. 3) Boiling occurs throughout the liquid while evaporation only takes place at the liqui’s surface. A. (only B. G)only Cand @) only D. — @)and (3) only In an experiment to measure the specific latent heat of vaporization of water, a beaker of water is boiled off using an electric heater. Which of the following sources of error would lead to an ‘experimental result smaller than the standard value ? A. Energy is lost to the surroundings. B. Water splashes out of the beaker. C. Steam condenses on the cooler part ofthe heater and drops back tothe beaker. 1D. Theheater is not completely immersed in water. In which of the following situations would the r.m.s. speed of the molecules of a fixed mass of an ideal gas increase ? (1). The gas is heated under constant volume (2). The gas expands under constant pressure. (G)_ The gas is compressed under constant temperature, Q) only ) only (1) and (2) only (2) and (3) only pope = ¥ “4s 2p P Vessel X of volume V and vessel ¥ of volume 2 are connected by @ short narrow tube as shown, Initially, tap Sis closed and the same kind of ideal ges atthe same temperature is contained in X and Y at pressure 2p and p respectively. The tap S is then opened and equilibrium state is finaly reached with the temperature unchanged. Which statement is INCORRECT ? A, Before Sis opened, both vessels contain the same number of gas molecules. B. Before $is opened, the average kinetic energy of the gas molecules in both vessels is the same, C. When Sis opened, a net flow of ges from X'to ¥ occurs. When equilibrium is reached, the gas pressure becomes 3 > 9 2013-DSE-PAY 14-2 5 20 ‘A block of weight 20 N is suspended by a light string from the ceiling A force F is applied such that the block is displaced to one side with the string making an angle of 25° with the vertical as shown, Find the magnitude of F A BSN B 93N G 181N D. 473N 6 In the figure, O is the centre of a regular hexagon. A particle at O is subject to six forces with ‘magnitudes indicated as shown, The resultant force acting on the particle is A. 9N along direction OB. B. 8 Nalong direction OE. C. 8 Noalong direction OF. D. 6 Nalong direction OE. ' 7. constant speed gee 2N—>f +2 {A block on a rough horizontal surface is moving to the left with constant speed under two horizontal forces 2 N and 12 N indicated as shown, If the force of 12 N is suddenly removed, what is the net force acting on the block at that instant ? A 12N + BION c 8N D. 2N 2013-DSE-PHY 14-3 6 10, A particle is released from rest at Xas shown. It takes time to fll rom X to Y and time to fll from YtoZ. JEXY: YZ=9: 16, find s, : fy. Neglect air resistance. pope ‘The figure shows a supermarket trolley resting on the ground. The separation between cylindrical wheels X and ¥ is 0.7 m. When the trolley is loaded to a total weight of 154 N, its centre of gravity G Ie ata horizontal distance of 0.5 m from the wheel ¥. What is the reaction acting on the wheel X from the ground ? A 44N Bo @2N Cc 2N D. 110N ; u v a ‘Two identical spheres are moving in opposite directions with speeds u and y (with x > ») respectively de shown. They make a head-on collision. Which of the following diagrams show(s) 8 possible situation of the spheres after collision ? o —~O O @|/ O- o O O- A (only B G)only €.— (Iand Q) only D. — @)and (3) only 2013-DSE-PHY 1A~4 1 1 12. 13. ‘Two particles P and Q start from the same position and travel along the same straight line. The figure shows the velocity-time (0) graph for P and Q. Which of the following descriptions about their motion is/are correct ? (1) Ate= 1s, P changes its direction of motion. (2) At¢=2s, the separation between P and Q is 4m, (3) Ate=4-s,P and Q meet each other. A. Q)only B. Q)only C.— @)andG) only D. — @)andG) only ‘A bullet of mass 50 g is fired ftom a gun with a speed of 400 m st and passes right through a fixed svooden block of 6 om thickness as shown, Find the average resistive force acting on the bullet due to the block if it emerges with a speed of 250 m s-'. Neglect air resistance and the effects of gravity. 4.06 x 10° N. 1.02. 10°N 125N “Answer cannot be found as the time of travel known, poe> of the bullet within the block is not Tl [A particle is projected into the air at time r= 0 and it performs a parabolic motion before landing on the round as shown. Which graph represents the variation ofthe kinetic energy (KE) ofthe particle with time before landing ? Neglect air resistance. A ME BKB ° time ° time © KE D. KE time ° time ° 2013-DSE-PHY 14-5 a A semi-circular cardboard hangs from a spring balance from point O as shown. The reading of the spring balance is 5 N. Which statements are correct ? (1) The weight of the cardboard is 5 N. (2). The centre of gravity of the cardboard is directly under O. (3). The reading of the balance would become zero if the set-up is brought to the Moon’s surface. A. (and Q) only B. (1) and (3) only C— @)and G3) only D. (1), @)and 3) 115. Wien dt the sf Mae i aout > of tat Ea le ai aout fe Earth’s radius. In terms of the gravitational acceleration g on the Earth’s surface, the approximate gravitational acceleration on the surface of Mars is 02g. O4g. 258. 4g pop displacement direction of travel — ‘The figure shows a snapshot of a section of a continuous transverse wave travelling along the xeditection at time = 0. Atf~ 1.55, the particle P just passes the equilibrium position for a second time at that moment. Find the wave speed. A 20ems? B. 12cms* Cc 6ems" D. dems! 2013-DSE-PHY 1A-6 9 17 Figure (1) fe ed: | | | direction of travel. | | Figure (1) shows the equilibrium positions of particles a to & separated by 5 cm from each other in a medium. A longitudinal wave is travelling ftom left to right with a speed of 80 cms". Ata certain tant, the positions ofthe particles are shown in Figure (2). Determine the amplitude and frequency of the wave. amplitude frequency A 6em 2Hz B. 6em 4H c. Sem 2Hz D. Som 4uz 18. vibrator ‘A vibrator generates a stationary wave on a string which is fixed at one end. The figure shows the appearance of the string at a certain instant, Which of the following descriptions about the motion of particles P, Q and R must be correct ? (1) Pand Q are momentarily t rest at this instant. 2) and R take the same time to reach their respective equilibrium positions. G) and R are always in antiphase. A. (1) only B. —G)only € —— (i)and 2) only D. — Q)and (3) only 19. 5 Top view on o£ Astronauts P and Q stand at 400.m and 600 m respectively from a vertical cliff on the surface of @ planet. The figure shows the top view. P claps his hands once and Q hears two clapping sounds separated by 4 s. What is the speed of sound in the atmosphere of this planet ? A 100ms" B. 150ms" Cc 200ms" D. .250ms" 2013-DSE-PHY 1-7 10 20. 2 A ray of light is travelling from a transparent medium X to air making an angle of 40° with the boundary plane as shown. If the angle between the refracted ray in air and the reflected ray in ‘medium X is 70°, find the refractive index of medium X. sin 40° a ee sin 30° Bsin30° sin 40° sin 60° Cinsor sin 50° De eee sin 60" White light can be resolved into component colours by using a glass prism. Which of the following. statements is/are correct ? (1). The refractive indices of glass for different component colours are not the same. (@)_ Red light travels faster than violet light in a vacuum, {G) ‘The frequencies of al the component colours are reduced when entering the prism (1) only 3) only (i) and @) only (2) and (3) only pomp principal axis x o ¥ 20m ‘A point light source at X on the principal axis of thin convex lens emits a ray of light. The ray passes through the lens and reaches the principal axis at point Y as shown. Q is the optical centre of the lens such that OX= 20 em and OY > OX. Which of the following statements is/are correct ? (1). The focal length of the lens is shorter than 20 em. @)_ Ifthe point light source is shifted away from the lens, separation OY would increase. @) An object placed at ¥ would give a diminished image at X. (only (2) only (1) and (3) only @) and G) only yom> 2013-DSE-PHY 14-8 1 23, 24, 25. first-order bright fringe central bright fringe incident beam yn rating Pane first-order bright fringe When monochromatic light passes through a diffraction grating, a pattern of bright fringes is formed. Which arrangement would produce the greatest angle 8 between the central and first-order bright fringes ? grating (ines per mm) colour of light A 400 green B. 400 blue c 200 green D. 200 blue X and ¥ are two small identical metal spheres carrying charges ~20 and +60 respectively. When X and Y are separated by a certain distance, the magnitude of the electrostatic force between them is F. or © The spheres are brought to touch each other and then placed back to their original positions. ‘The electrostatic force between them becomes 1 A LP, attractive B. +P, repulsive. a c. AP, atractive 3 > Ete Lightning flash may occur when the strength of the electric field (assumed uniform) between thundercloud and the ground reaches 3X 10° N C”'. A lightning flash on average discharges about 20 C of charge. If a thundercloud is at a height of 500 m above the ground, estimate the order of ‘magnitude of the energy released in a lightning flash, A 1087 B. 1085 c 10s D105 2013-DSE-PHY 14-9 2 26, (A straight wire carrying current J pointing into the paper is placed in a magnetic field between pole pleces X and ¥. The figure shows the resultant field line pattern. What is the polarity of pole piece ‘and in what direction is the magnetic force acting on the wire ? Ignore the effect of the Earth’s magnetic field polarity of X Girection of magnetic force A N to right B N to let & s to right D. 8 tole 21. : : 4 4 P.. praasieet °0 In the figure, four long straight wites P, Q, R and S in the same plane carry equal currents in the directions shown. The wires are insulated from each other. O is a point on the same plane and is equidistant from each wire, Removing which wire would increase the magnetic field strength at 07 A witeP B. wire Co wire D. wires 2013-DSE-PHY 1-10 13 magnetic 28. field conducting. rails A capper rod XY Is placed on pal of smoot inclined conducting rails which ae leted in a ‘magnetic field applied vertically downward. The rails make an angle @to the horizontal and a battery sraancaed to fe rala as anoom above. Which digam shown blow rprserts the magnetic free Fang on the od when viewed fom end Y? ZZ c D. es io XXXXXXXXX xX XX X X X XpX X XXX XX xX X xX X x) xX X x XXXXXXXXX xX XX XX XX XX XXXXXXXXX ‘A metal rod OP is rotated about O in a clockwise direction in the plane of the paper with @ uniform magnetic field pointing into the paper. Which statement is correct ? ‘An induced current flows inthe rod from Oto P. ‘An induced current flows in the rod ftom P t0 0. Ezmf. is induced inthe rod with end O ata higher electric potential um. is induced in the rod with end P ata higher electric potential Dopp 2013-DSE-PHY 1A-11 14 30. |- Resistors X, Y and Z in the above circuit are identical while the battery of negligible internal resistance supplies a total power of 24 W. What is the power dissipated in resistor Z? A 3W Bo O4W Cc 6w Dd 8W 31. Ly In each of the above circuits, the cell has constant em. and negligible internal resistance. When the sliding contact S of each rheostat shifs from the mid-position to the right, how would the brightness of each bulb change ? bulb L bulb La A becomes dimmer remains unchanged B. becomes dimmer becomes brighter c. remains unchanged becomes dimmer D. becomes brighter remains unchanged 32. i. ———— y x In the above circuit, the cell has negligible internal resistance. When switch Sis closed, both bulbs are not lit, The voltmeter has a reading but the ammeter reads zero. If only one fault has been developed in the circuit, which of the following is possible ? Bulb X has been shorted accidentally. Bulb ¥ has been shorted accidentally. Bulb X is burnt out and becomes open circuit. Bulb ¥ is burnt out and becomes open circuit. ooe> 2013-DSE-PHY 18-12 15 33. Which of the following domestic electrical appliances consumes a power close to 1 KW in normal ‘working conditions ? A. anelectie fan B. a microwave oven C.—afluorescent lamp D. aTV set 34, 4 U undergoes a-f-f-a decay and becomes a nuclide X. What are the atomic number and mass number of X? atomic number mass number A 90 230 B. 90 234 G 88 230 D. 88 234 35. Polonium-210 is a pure a-emittor with a half-life of 140 days and it will decay into lead, which is stable Initially there is a sample containing 420 mg of pure polonium-210. Estimate the mass of polonium-210 left ater 70 days. A. 315mg B 297mg C.-210mg D. 105mg 36. The sun releases huge amount of energy through thermonuclear fusion while at the same time its mass decreases. The average power released by the sun is about 3.8% 10% W. Estimate the decrease in ‘mass of the sun in one second. A 42 x10%kg B42 x10%kg C13 x10 kg D. 13X10%kg END OF SECTION A 2013-DSE-PHY 14-13 16 Blank page 2013-DSEPHY 14-14 7 List of data, formulae and relationships Data molar gas constant Avogadro constant acceleration due to gravity universal gravitational constant speed of light in vacuum charge of electron electron rest mass permittivity of free space permeability of free space ‘atomic mass unit astronomical unit light year parsec Stefan constant R= 831 J mol! Kt Ny 6.02 x 10 mol g= 9.81 ms” (close to the Earth) G= 6.67 10 Nm kg? 67 3.00x 10's" 1.60 x 10" C sme= 9.11 10 kg, = 8.85 x10" CN? p= 4xx 107m" = 1661 x 1077 kg 50 x 10!" m ly= 9.46 x 10" m pe= 3.09 x 10! m= 3.26 ly =206265 AU o=5.67 x 10° Wm? K* (1 wis equivalent to 931 MeV) Planck constant 63x10" Is Rectilinear motion Mathematics For uniformly accelerated motion Equation ofa straight line ym +6 eres ‘Are length =r Sree Surface area of cylinder = 2nrh + 2nr* 2 ‘olume of cylinder = ede Volume of eylind 7h Surface area of sphere = ane Volume of sphere fae For small angles, sin 8 tan 4~ 0(in radians) ‘Astronomy and Space Selence Tnergy and Use of Energy cue srtvitational potential enerey e-$ iluminance Seenislew, Ba ATn=TE) te o ener raster by anton Doppler effect f : ust thermal transmittance Uva da Padpav! sraximaim power by wind turbine Medical Physies Einstein's photoelectric equation On Ed Rayleigh criterion (resolving power) 1 power Np El. W=Me m= ae B3, A=kN 4, AB=Ame? 19 Coulomb's law electro field strength due to 1 point charge clettic potential due 10 ‘ point charge cletrie field between parallel plates (oumerically)| general current flow equation resistance and resistivity resistors in series resistors in parallel power in acireuit free on a moving charge ina ‘magnetic field force on a current-carrying conductor in a magnetie field Hall voltage magnetic field dve to a long straight wire ‘magnetic field inside a long solenoid induced emt. ratio of secondary voltage to primary voltage in transformer law of radioactive decay half-life and decey constant sctvity andthe number of undecayed nuclei mass-energy relationship 2013-DSE PHY PAPER 18 HONG KONG EXAMINATIONS AND ASSESSMENT AUTHORITY ‘HONG KONG DIPLOMA OF SECONDARY EDUCATION EXAMINATION 2013 PHYSICS PAPER 1 SECTION B: Question-Answer Book B This paper must be answered in English INSTRUCTIONS FOR SECTION B a (2) (3) 4) (} © After the announcement of the start of the examination, you should first write your Candidate Number in the space provided on Page 1 and stick barcode labels in the spaces provided on Pages 1, 3,5, 7and 9. Refer to the general instructions on the cover of the Question Paper for Section A. ‘Answer ALL questions. Write your answers in the spaces provided in ‘Question-Answer Book. Do not write in the margins. ‘Answers written in the margins will not be marked. Graph paper and supplementary answer sheets will be provided on request. Write your Candidate Number, mark the question number box and stick a barcode label on each sheet, and fasten them with string INSIDE this Question-Answer Book. No extra time will be given to candidates for sticking on the barcode labels or filling in the question number boxes after the ‘Time is up’ announcement. 2013-DSE-PHY 1B-1 20 Please stick the barcode label here. Candidate Number | Question No. Marks 1 6 2 6 3 8 4 T 5 7 | 10 I | 8 9 9 6 10 1“ " 7 OUNNINN Answers writen in the margins will not be marked. Section B: Answer ALL questions, Parts marked with * involve knowledge of the extension component. Write your answers in the spaces provided. storage tank Figure 1.1 ‘A solar water heater shown in Figure 1.1 is installed on the rooftop of a house. During the day, the heater heats up 1.5 m’ of water to 80°C, At night, the hot water in the storage tank is circulated to the radiators (see Figure 1.2) in different rooms of the house to keep the rooms warm. Figure 1.2 bien! Given: density of water = 1000 kg m? specific heat capacity of water = 4200 J kg °C"! (a) Given that 15% of the energy is lost during the transfer of water, how much heat can be released from the system to the rooms when the water temperature drops to 60°C ? (G marks) ‘Answers written in the margins will not be marked. 2013-DSE-PHY 1B-2 21 ‘Answers written in the margins will not be marked, ill not be marked. Answers written in the margins Please stick the barcode label here. Given that during night time the radiators maintain an average output power of 4.5 kW, how long can ‘the radiators maintain this average power until the water temperature in the system drops to 60°C? Give your answer in hours, (2 marks) ) ‘The rate of heat released by the solar water heating system during the time period calculated in (b) is in fact not constant and gradually drops. Explain why this is so. (mark) © ‘Answers written in the margins will not be marked. “Answers written in the margins will not be marked. 2013-DSE-PHY 1B-3 22 Answers writen in the margins will not be marked. 22, capillary tube scree mercury thread thermometer Figure 2.1 trapped water air column Figure 2.1 shows an air column trapped by a small mercury thread inside a uniform capillary tube. The Secup is heated by a water bath, The length ofthe air column L is measured at various temperature @. Some ‘of the results are tabulated below: 92 ‘Temperature 0/°C 20 Length of air column £ / mm. 64 80 (a) Deseribe the procedure(s) to be done before taking a reading in order to ensure that the trapped air reaches the same temperature as the water. (2 marks) “Answers written ia the margins will nat be marked. ‘Answers written in the margins will not be marked. 2013-DSE-PHY 1B-4 23 ‘Answers writen in the margins Please stick the barcode label here. (b) Assume that length Z increases linearly with temperature @ throughout, Estimate the length of the air column when the temperature indicated by the thermometer is 65°C. 0 (@ marks) “Answers written in the margins will not be marked. ‘Answers written in the margins will not be marked. 2013-DSE-PHY 1B-5 Answers written in the margins will not be marked, 3. Alliftcar of weight 8000 N is going up with constant speed 2 m 5”! as shown in Figure 3.1. ‘The upward {force raising the lift car is provided by the cable wound on 2 drum which is driven by a motor. The other end ofthe cable is firmly attached to the drum at P. Neglect air resistance and the mass ofthe cable. ia ell] ) ae ica cable lcable counterweight of 7000N, ii ica | itea 7A of 8000 N of 8000 N- Figue31 Ht amet Figure 32 Ht ams! (@) (Calculate the mechanical power detivered to the rising lift car by the motor. (2 marks) (i) The total mechanical power output of the motor is 20 kW. How much power is lost due to ‘overcoming friction between the movable parts ? (mark) ‘Answers written in the margins will not be marked. ‘Answers written in the margins will not be marked. 2013-DSE-PHY 1B-6 28 Answers written in the margins will not be marked. Please stick the barcode label here. (b) Now a 7000 N counterweight is installed at the other end of the cable as shown in Figure 3.2. The ‘counterweight always moves in the opposite direction to the lift car which again moves up at2 ms". ‘Assume that there is no slipping between the cable and the drum. (Calculate the total mechanical power output of the motor required in this case, assuming the same power loss in overcoming friction between movable parts as found in (a). (2 marks) i) State the advantage of having the counterweight installed. (mark) ‘Answers written in the margins will not be marked. A claim is made that as power is lost due to friction, a drum with frictionless surface can further reduce the power required from the motor, Comment on this claim, (2 marks) ‘Answers written in the margins will not be marked. 2013-DSE-PHY 1B-7 26 Answers written in the margins will not be marked. +4. An electron moving with speed 1.2 x 10” ms“ enters a square region ABCD with a uniform magnetic field ‘of 0.01 T pointing into the paper as shown in Figure 4.1. The electson describes a quarter circle from A to Cand it emerges from C withthe same speed. Neglect he effects of gravity electron Figure 4.1 (@ (Find the magnitude of the magnetic force acting onthe electron at point Pon its path (2 marks) (ii) Indicate in Figure 4.1 the direction of the electron’s acceleration at the point P. (mark) (b) Although the electron accelerates due to the magnetic force, explain why it emerges from the ‘magnetic field with the same speed, (2 marks) (0) Deduce the speed of the electron when entering the magnetic field such that it would describe a serni- circle from A to D instead, (2 marks) ‘Answers written in the margins will not be marked ‘Answers written in the margins will not be marked. 2013-DSE-PHY 1B-8 27 Answers written in the margins will not be marked. Please stick the barcode label here. 5. Figure $.1 shows a smooth sloping track ABC firmly fixed in a vertical plane with its horizontal part BC resting on a bench surface. You are given a toy skier, a metre rule and a long rough paper strip with adhesive tape on the bottom surface. voy air NP Figure 5.1 bench surface TN ‘ Using the apparatus provided, describe an experiment to study how the stopping distance of the toy skier depends on its height of release. Your description should include the physical quantities to be measured and the result expected. (8 marks) ‘Answers written in the margins will not be marked. ‘Answers written in the margins will not be marked. 2013-DSE-PHY 1B-9 28 Answers written in the margins will not be marked. 6 Read the following description about ‘Bungee jumping’ and answer the questions that follow. Bungee jumping is an activity that involves jumping fom a tall structure while the person is connected to it Via a thick elastic cord. When the bungee jumper jumps, the cord stretches after falling a certain distance. The bungee jumper is momentarily at rest atthe lowest point but then bounces back up into the air, The bungee jumper continues to oscillate up and down a few times before he comes to a complete stop. ankle attachment {A simple ‘ankle attachment’ (as shown in the above photo) can be used to secure the player to the ‘cord. However, due to accidents where the ankle attachment became detached from the bungee jumper, many operators now use a “full body harness’, full body harness ‘When answering the following questions, neglect the effects of air resistance. (@) (i) Describe the acceleration of the bungee jumper during the first downward fall to the lowest point. (G marks) ‘Answers written in the margins will not be markeé. 2013-DSE-PHY 1B-10 29 ‘Answers written in the margins will not be marked, Answers written in the margins will not be marked. (@) (i) Stat the energy change during the period from the beginning ofthe jump to the moment when the bungee jumper is atthe lowest point of his first downward fall @ marks) (b) _Interms of the net force acting on the bungee jumper, explain why the cord has to be elastic. In terms of contact area, explain why a ‘full body harness? i from the bungee jumper than a simpie ‘ankle attachment? during a fall. ©) (2 marks) less likely to cause injuries to or detach (2 marks) ‘Answers written in the margins will not be marked. 2013-DSE-PHY 1B-II 30 ‘Answers written in the margins will nat be marked. ‘Answers written in the margins will not be marked, metal plate] Figure 7.1 i‘ T Ft = 6 em To power supply 4 Diagram NOT drawn to scale Figure 7.1 shows a setup for the study of interference of microwaves. Microwaves of wavelength 2 cm emitted from a transmitter 7 pass through two slits 4 and B formed by metal plates. The slits are separated by 6 cm as shown. A probe R connecting to a meter is moved from X to Y to detect the intensity of microwaves received. ‘Transmitter T'and point X are equidistant from A and B. (@) Calculate the frequency of the microwaves. (2 marks) (©) (i) ‘The meter shows alternate maxima and minima when R moves along XY. Explain. (2 marks) ‘Answers written in the margins will not be marked. 2013-DSE-PHY 1B-12 31 ‘Answers written in the margins will not be marked. Answers written in the margins will not be marked. () Gil) The second minimum is found at position P where AP = 1.24 m. Find BP. to detect more than three maxima radar? iii When R is moved along XY from X towards Y and beyond, explain whether or not itis possible (©) Microwaves can be used in radar. Why are radio waves of lower frequencies not suitable for use in (2 marks) (2 marks) (2 marks) ‘Answers written in the margins will not be marked. 2013-DSE-PHY 1-13, 32 “Answers writen in the margins will not be marked. Answers written in the margins will not be marked. Figure 8.1 @ iG} @ (i) Isthe image real or virtual ? (ii) What kind of fens is used ? Explain your answer, Locate the optical centre O of lens Zand draw on Figure 8.1 the position of lens L. length. The horizontal scale is 1 cm to 5 em. Focal length =. 8. In Figure 8.1, 4’B" represents the image of an object 4B formed by a lens L (not shown) where XY is the principal axis of the lens. principal axis (mark) (2 marks) (1 mark) By drawing an additional light ray, mark the principal focus F of the lens and find its focal (2 marks) Draw alight ray to show how the eye E shown can see the image of head A through lens. (2-marks) State an application of lens Lin the situation as shown above. (1 mark), ‘Answers written in the margins will not be marked. ‘Answers written in the margins will not be marked. 2013-DSE-PHY 1B-I4 3 Answers written in the margins will not be marked. ‘9. Carbon-14 dating can be used to identify the age of some objects which have the “C isotope, as it is radioactive and decays by emitting a f-particle. A piece of wood sample is ‘examined using carbon-14 dating and its activity is 0.2 Bg. The half-life of “C is $730 years. Given: | year =3.16 x 10" s s!. Hence find the number of '“C nuclei in this wood sample. *(@)_ Calculate the decay constant of "C (3 marks) ‘Assume that living organisms contain a constant proportion of carbon-I4 in the ratio of /¢ = 1.3 x 10° during its lifetime via intake of carbon dioxide (CO;) from the atmosphere (b) The carbon content of this wood sample is found to contain a total of 1 x 10” carbon nuclei. Estimate the number of “C nucle inthe sample originally when it die. (mark) *() Estimate the age of this wood sample in years using the results found in (a) and (b). (2 marks) ‘Answers writen in the margins will not be marked, 2013-DSE-PHY 1B-15 34 ‘Answers written in the margins will not be marked. Answers writen in the margins will not be marked. 10. (@) Inthe circuit shown in Figure 10.1, @ 12 V battery of negligible internal resistance is connected with thermistor R and a resistor of resistance 120. The graph shows the variation of the thermistor's resistance with temperature. ‘Thermistor’s resistance 1202 Figure 10.1 (Find the resistance of the thermistor R at 25°C. (1 mark) (i) Whats the potential difference Vag across A and B at 25°C? (2 marks) (0) _ Kelly wants to confirm the above calculation by measuring Vas using a voltmeter of about 1 kG resistance. She finds that the reading registered is slightly different from the value found in (@) despite making careful measurements, Explain why this is so. Suggest how the accuracy of the measurement could be improved. G marks) voltmeter "Answers written in the margins will not be marked. 2013-DSE-PHY 1-16 38 “Answers written in the margins will not be marked. Answers written in the margins will not be marked. (© @ The potential diference Fp is used to drive an electronic switch connected across AB to turn on a fan if temperature rises above a certain value such that Vag is 6.0 V or above. Using the information provided in the graph, find the minimum temperature needed to keep the fan on Show your working (@ marks) ‘To electronic} switch 1202 (i) Without using additional components, complete the new circuit diagram below to illustrate how the circuit can be modified to turn on a heating device when temperature falls below a certain value. Explain the action ofthe cireit. No calculation is required. (G marks) pee i 12v ‘To electronic switch ‘Answers written in the margins will not be marked. 2013-DSE-PHY 1-17 36 ‘Answers written in the margins will not be marked. Answers written in the margins will not be marked. Tl. Figure 11.1 shows two identical small metal spheres X and Y suspended by insulating threads of the same length. Each sphere has a mass of 1.0x10~ kg and each carries a positive charge of 3.1 nC (1 nC = 10 C). ‘The separation d of the spheres is 10 cm. The size of the spheres is negligible compared with their separation, therefore they can be treated as point charges. 1 Take <1 =9%10? Nm? C*. (g=9.81 ms) ane ° Figure 11.1 Diagram NOT drawn to seale x Y (@) Find the angle between the threads. @ marks) ‘Answers written in the margins will not be marked. 2013-DSE-PHY 13-18 37 “Answers written in the margins will not be marked. Answers written in the margins will not be marked. (b) Point P is vertically below the fixed point O and it is 10 em from each sphere. (i) Indicate the direction of the resultant electric field at P due to these two charged spheres.(| mark)} oO Figure 11.2 +i). Calculate the electric potential at point P. The electric potential at infinity is taken to be zero. (Q marks) (iii) A neutral metal sphere of finite size is now placed at P. State whether the separation d would increase, decrease or remain unchanged due to the presence of this sphere. (mark) Separation d ... z END OF PAPER Sources of materials used in this paper will be acknowledged in the Examination Report and Question Papers published by the Hong Kong Examinations and Assessment Authority ata later stage. ‘Answers written in the margins will not be marked. 2013-DSE-PHY 1-19 38 not be marked. “Answers written in the margins wi 2013-DSE Please stick the barcode label here. PHY PAPER 2 HONG KONG EXAMINATIONS AND ASSESSMENT AUTHORITY HONG KONG DIPLOMA OF SECONDARY EDUCATION EXAMINATION 2013, Candidate Number PHYSICS PAPER 2 Question-Answer Book 11.45 am — 12.45 pm (1 hour) This paper must be answered in English INSTRUCTIONS (1) After the announcement of the start of the examination, you should first write your Candidate Number in the space provided on Page 1 and stick barcode labels in the spaces provided on Pages 1, 3, 5 and 7. (2) This paper consists of FOUR sections, Sections A, B, C and D, Each section contains eight multiple-choice questions and one structured question which carries 10 marks. Attempt ALL questions in any TWO sections. (3) Write your answers to the structured questions in the ANSWER BOOK provided. For multiple-choice questions, blacken the appropriate circle with an HB pencil. You should mark only ONE answer for each question. If you mark more than one answer, you will receive NO MARKS for that question. (4) Graph paper and supplementary answer sheets will be provided on request. Write your candidate number, mark the question number box and stick a barcode label on each sheet, and fasten them with string INSIDE the Answer Book. (5) The Question-Answer Book and Answer Book will be collected SEPARATELY at the end of the examination (6) The diagrams in this paper are NOT necessarily drawn to scale, (7) The last two pages of this Question-Answer Book contain a list of data, formulae and relationships which you may find useful (8) No extra time will be given to candidates for sticking on the barcode labels or filing in the question number boxes after the ‘Time is up’ announcement. *ATSOEOO2 * Section A : Astronomy and Space Science Q.l: Muttiple-choice questions 1.1 Arrange the following celestial bodies in ascending order of distance from the Barth (1) Sun (2). Sirius, which is 8.6 ly from Earth G)_ Uranus, which is 19 AU from Earth A (@@) AB. cD B. (1) G)@) c Me) OOOO Dd. B)@)(D 1.2. Which of the following statements about Prolemy's geocentric model and Copernican’s heliocentric model of the universe isare correct ? (2) Orbits are circular in both models. (2) The Earth is at the centre of the Moon’s orbit in both models. (3) Retrograde motion can be explained in both models. A. (only Ae eb B. G)only (and @) only meee D. (1), @and@) 1.3. Star Xorbits around Star Y approximately in a circular or from X found that its wavelength varies between the observed in the laboratory. ‘An observer on the Earth viewing 2 spectral line its Ly and Lz. Lo is the wavelength of that line red Lb violet Top view foes be are < Pl spectral line from Star X observer PL P2 PS Pa A Lo L, Lo Ly APB He HED B. Ly Lo L Ly c. Ly Ly Lo Li oO 0 90 0 D. Ly Le Ly Lo 2013-DSE-PHY 2-2 40 Please stick the barcode label here 14 The following are two pictures of the same region of the sky taken six months apart. Gridlines are overlaid on the pictures, Each grid square corresponds to an angular scale of 0.1 arc second. What is the distance of Star X from the Earth in unit of parsec ? ou" oa? A, Ol pe B. 0.2pe c Spe D. 10 pe. 1.5 The same star is observed at location X and location Y in the northern hemisphere. The scenes at the two locations on the same night are shown below. Location ¥ Location Y same arc length, same arc lengt! facing south facing south Which of the following descriptions is correct ? A. [itis south of ¥. “The time duration forthe star to rise and set is longer at X than at ¥. B. [iris south of ¥. "The time duration forthe star to rise and set is shorter at X than at Y. c. [Wisnorth of ¥. “The time duration for the star rise and set is Tonger at X than at ¥. D. [Hisnorth of ¥. "The time duration forthe star to rise and set is shorter atX than at Y. A B ¢€ D © 0 © 6 2013-DSE-PHY 2-3 41 1.6 Stars P and Q have the same luminosity. Star P is 25 times brighter than Star Q. We can deduce that A. Pos distance is 5 times tha of 0 A B GC D B. O'sdistance is 5 times that of P C. Pes distance is 25 times that of o 90 0 90 D, _Q'sdlstance is 25 times tha of 1.7 The figure below shows some information of stars ¥7, X, Yand Z. 2 1000 = 1 2 10 31 ze ol 2 001 0.001 40000 20000 190005000, 2500 Surface temperature / K Which statement(s) about the radii of stars is/are correct ? (1) radius of X> radius of (2) radius of > radius of Y (3) radius of ¥> radius of Z A (Donly x 8 © B Be G)only C — (Dand @) only Oooo D. — (2)and (3) only 18 + : {—_ ey B ‘The diagram shows the top view of galaxy and te observed variation ofthe rotation sped ¥ with radi F from the galactic centre. This curve suggests the existence of dark matters. Which of the following should be the expected rotation curve without the existence of dark matters ? A 4 B 4 i a Hi — Memanaaicer iar R R ’ ipatiea pa ® . ED: oO 2013-DSE-PHY 2-4 2 Please stick the barcode label here. bo Qu: Structured question Given: GM=4.0« 10" N mi? kg", where G is the universal gravitational constant and M is the mass ofthe Earth. Mean radius of the Earth ~ 6400 km. Radius of the geostationary orbit is about 42400 km, ic. 36000 km above Eart’s surface. The following describes a way to launch a satelite into the geostationary orbit: © The satellite is first launched by a rocket to a circular near-Earth orbit (1) at 300 km above the Earth’s surface, © Ata, the satellite's engine is fired for a short period of time to give it ¢ boost needed to enter the elliptical transfer orbit (2), with AB as the ellipse’s major axis. © AtB, the satellite's engine is fired again briefly o boost it into the geostationary orbit (3). @) Diagram NOT drawn to scale Assume that the three orbits are coplanar such that the elliptical orbit touches the two circular orbits at A and B respectively. During the period when the satellite travels from 4 to B along the transfer orbit, its engine is shut (2) Communications satelite are usually launched into the geostationary orbit. State and explain the advantage of such an arrangement. (2 marks) (b)_ Find the speed of the satelite in the near-Earth orbit (1). (2 marks) (© © Sow tat for a sli of mas m moving in 8 cel it of ais r ond he Ea ol chancery is £22, wae Histo ms of te Eath Take terval oe energy of the satellite at infinity to be zero. (2 marks) (ii) Use the result in (c)(i) to calculate the energy required to transfer a satellite of mass m= 2000 keg from the near-Earth orbit (1) through A to the geostationary orbit (3) through B. (@ marks) (il) How long does it take for the satellite to travel from A to B along the transfer orbit(2)? (2. marks) 2013-DSE-PHY 2-5 B Section B : Atomic World Q2: Multiple-ehoice questions 2.1 Iman aeparticle scattering experiment, the electrons of the atoms have negligible effects on the path of the incident a-particles. The most probable reason is that clectrons are so small that a-particles do not collide with them. electrons are uniformly distributed inside an atom, thus the resultant foree on an a-particle is zero. there is no electrical interaction between electrons and a-particles. the kinetic energy change of a-partcles colliding with electrons is negligible vop> Act HBiete@ oF 8D. Oo 0 0 0 2.2 According to classical electromagnetic theory, what deductions about Rutherford’s atomic model can be made? ‘A. Atoms are stable and atomic spectra are continuous spectra, B, Atoms are stable and atomic spectra are line spectra, C. Atoms are unstable and atomic spectra are continuous spectra. D. Atoms are unstable and atomic spectra are line spectra. A BG o 0080 2.3 Which of the following spectra is/are continuous ? (1) the spectrum from a burning candle (2) the spectrum from an incandescent lamp (3) the spectrum from a gas discharge tube A (only AB GD B. G)only C. (I)and 2) only Oo 0: 0 0 D. —2)and @) only Ey 2, where Bo is a constant and n= 1,2, 3). What is the maximum wavelength of a photon that can ionize a hydrogen atom in its first excited state ? (= Planck constant, c= speed of light ina vacuurn) 2.4 The energy level of an electron in a hydrogen atom is given by E,, ae acHiipiittt titty 2 oO 60 60 6 ae he Cae, pe Ey 2013-DSE-PHY 2-6 44 Please stick the barcode label here. 2.5 When an electron in a hydrogen atom falls from an excited state to the ground state, which of the following forms of radiation will NOT be emitted ? A. yradiation A BG HD B. shoe maton 0000 D. 26 , Figure (1) y Zz Figure (2) Figure (1) shows the line spectra of three elements X, ¥ and Z while Figure (2) shows the line spectrum of a certain mineral substance. From spectral analysis, which element must be ABSENT from the mineral substance ? A x AEE Gee Di BOY ea, ©--0 0" 0 D. _Allthree elements are present in the mineral substance. 2.7 The minimum resolvable length of « typical transmission electron microscope (TEM) is about 0.2 nm. Ifa particle has the same charge of an electron and its mass is four times that of an electron, and a beam of such particle is accelerated through the same voltage in a TEM, the minimum resolvable length becomes A 0.05 nm. A B c D B. 0.1 nm, 04mm oo 0 90 D. 08mm 2.8 Accube with 1 mm per side is divided into nano-scale cubes, each side measuring 1 nm. How many times has the total surface area of the cube been increased ? A. 10° A B c D B. 10% Se 0000 D. 10 2013-DSE-PHY 2-7 45 Q2: Structured question ‘A potassium metal surface is illuminated by violet light ofa certain wavelength and the maximum kinetic energy of the electrons emitted from the metal surface is 0.81 eV. The work function of potassium is 2.30 eV. potassium metal violet light |IK-—@ (@) Gi Findhe energy of vlc tght photon nunitofeV. (ima) Gi) Notatine eleewons ented can have maximo knee sey. Expl (1 mack) rey: ‘The intensity of the violet light used is 0.01 Wm. (6) (According to classical wave theory, an atom has to absorb enough energy from light waves to eject an électton. Estimate the minimum time required for @ potassium afom to absorb energy so as to eject an cleciton, Take the effective area of a potassium atom in absorbing energy as 0.01 nm? (1 nm = 10-° m). (2 marks) (Gi) Explain why in experiments almost no time delay is observed for electrons to be ejected from the metal surfece even though the intensity of light is very weak. (mark) (©) If the area of the potassium metal surface receiving violet light is 4.00*10~ m?, how many photons hit the surface per second ? Find the maximum photoelectric current if one electron is emitted for every 10 photons hitting the surface. (3 marks) (@) The curve of the photoelectric current / against the potential difference across the cathode and the anode is shown in the graph below. 2.00 ° 2.00 4.00 600 V/V COPY THE GRAPH TO YOUR ANSWER BOOK. If the light intensity is reduced to half of its original value, use a dotted line to sketch the corresponding curve in the graph you have copied. (2 marks) 2013-DSE-PHY 2-8 46 Section C : Energy and Use of Energy Q3: Multiple-choice questions 3.1 LED usually produces monochromatic light because ‘A. the difference in energy levels of the p-layer and n-layer in an LED is fixed. B. _ its surface is coated with only one type of fluorescent material. C. the operating temperature of an LED is fixed. D. current is only allowed to flow through an LED in one ditection, A Be Oo 0 0 0 3.2. A car of mass 1000 kg has a regenerative braking system that can convert its kinetic energy into chemical energy Which is stored in a battery of that system. How much energy can be stored in the battery after the car has gone downhill at a constant speed by a vertical distance of 10 m? The overall efficiency of the regenerative braking system is 30%, (g= 9.81 ms) A. 147Kd B 294k) Cc. 49.1kr D. 981K) 3.3. Assume that 1000 W m” of solar power reaches a certain place vertically on the Earth's surface. What is the power delivered to a solar panel of width 2 m and length 10 m inclined at 20° to the horizontal at that place ? A 6840W a Ae ie. ep B 7280W C1800 W o 09 0 D. 20000 W 3.4 A wind turbine is used to drive @ pump which pumps water up to a storage reservoir. The blade-length of the ‘wind turbine is 10 m while the average wind speed is Sm s'. How much water can be pumped up to the reservoir in 8 hours if the overall efficiency of the system is 20% ? Assume that the average gain in gravitational potential energy by water is 981 J kg". Given: density of air = 1.23 kg m™ A Akg A Bc »D B. 284 10*kg Cis 108kg oO 9 0 0 D. 1.42 x 10° kg. 2013-DSE-PHY 2-9 47 3.5. Acclosed foam box of dimensions 0.5 m x 0.3 m x 0.4 m and thickness 1 cm contains some melting ice. Estimate the rate of heat conducting ffom the surroundings into the box ifthe room temperature is 28°C: Given: thermal conductivity ofthe foam is 0.03 Wm °C A 395 Pasties Yaseen tenses) B 79W c. 3950 oo 0 0 D. — 7900W 3.6 The Overall Thermal Transfer Value (OTTV) of a building can be reduced by making its glass windows smaller because (1) glass has a much higher thermal conductivity than concrete. (2) heat can be transferred by convection if windows are open. G) glass allows heat transfer by radiation. A. only A Bc D B. Qjonly ©. ()and G) only oO 0 0 0 D. — Q)and G) only 37 ENERGY LABEL Rated Capacity :40L Heating time (15°C > 65°C): 75 min. Referring to the above energy label of a storage type water heater, estimate the effective output power of the heater when itis filled to maximum capacity with 40 L (1 L = 1000 cm’) of water at 15°C. Given: specific heat capacity of water = 4200 J kg” °C“, density of water = 1000 kgm” A 1870 W A B c D Bo 200W c 85000 oO 00 0 D. 112000 3.8 When four hydrogen nuclei, each of mass 1.007825 u, are fused together, one nucleus of element @ of mass 4.002603 w is formed. Which of the following statements is/are correct ? (1) Hydrogen nuclei need to have extremely high kinetic energy to start the fusion process. (2) Energy released in the process is about 26.7 MeV. (G) Element Q is radioactive, A. (only ALE HHEEnG EEE: B G)only C., Q)and @) only o 00 0 D. * @)and G) only 2013-DSE-PHY 2-10 48 Q.3: Structured question 34m Figure 3.1 blackboard The classroom shown in Figure 3.1 hasan incandescent light bulb 4 of fuminous flux 2000 Im (lumens). You may treat the light bulb as a point light source. (a) Find the illuminance, in im m-, by bulb A around the blackboard’s centre C. Neglect any reflection of light. (2 marks) (b) Bulb 4 is mainly for illuminating the student’s desk, however, the light ray reflected back into the student's eyes is undesirable (see the figure). Explain the type of surface that should be used for the blackboard so as to reduce such a problem. 2 marks) (©) Figure 3.2 shows the appearance of the classroom. The average rate of heat gain of the classroom from outside is 14.5 kW. Figure 3.2 ‘The classroom is designed to accommodate a maximum of 15 persons at the same time and each person produces on average 100 J of heat per second. There are altogether 6 identical incandescent light bulbs installed to illuminate the classroom and each bulb produces 80 J of heat per second (Estimate the cooling capacity, in kW, (due to heat produced inside the classroom and heat gain from outside) required for the classroom’s air-conditioning system. Assume that there is no other equipment producing heat in the classroom. (2 marks) (Gi) The power rating of each light bulb is 100 W. The air-conditioning system consumes 0.5 J of electrical ‘energy for removing 1 J of heat from the classroom. Estimate the total monthly cost of electricity for lighting and air-conditioning if te classroom operates 8 hours a day and 20 days a month, Given: cost of electricity = $1.0/kWh G marks) (ii) Suggest one way of changing either the building structure or the electrical appliance so as to reduce the cloctiity bill trough lower consumption of energy. (U-mark) 2013-DSE-PHY 2-11 49. Section D : Medical Physics Q.4: Multiple-choice questions 4.1. The diagram shows an eyeball of a person suffering from an eye defect, The distance between the retina and optical centre of the refracting parts is 2.0 cm while the minimum power of the refracting parts is +55 D. What is the power of the spectacles required to correct the defect ? 20 em A 5D A Bc oD B. -10D c 45D oO 0 90 0 D +0D 4.2. Two point objects of separation 5 mm emitting green light of wavelength 550 nm are observed by Jacky. “Assume that the diameter of the pupils of his eyes is about 3 mm in normal daylight. Estimate the maximum distance of the two objects from him such that he can still resolve them ? A 424m AB Bo 242m c 24m o 090 0 D. 204m 43. The diagram below represents two coherent optical fibre bundles X' and Y used in endoscopes. Their cross- sections have the same dimensions but X has more and finer fibres. Which statements are correct ? (1). X gives a much brighter image than ¥. (2) Xan be bent more than ¥. (G) _X gives an image of higher resolution than ¥. A, (I)and Q) only B. — (1)andG) only ©. Q)and G) only D. (1), @) and 3) 44 The sensitivity of the human ear is high because the pressure change in a sound wave is greatly amplified before reaching the inner ear. Which of the following facts contribute to this large amplification ? (1) When the ear bones transmit the vibrations from the ear drum to the oval window ofthe inner ear, lever action occurs @) The ear drum has a much larger area than the oval window of the inner ear G) The inner ear is filled with a liquid which has a much higher density than that of ar outside, A. (and Q)orly A B cD Band @)only C. ,QandG) nly oo 90 0 D. “@.@)and 3) 2013-DSE-PHY 2-12 50 4.5. A speaker is connected to an amplifier to produce sound. When the power supplied to the speaker is 50 W, the resulting sound intensity level at a certain location is 100 dB. Assume that there is no other sound source and the speaker has a fixed efficiency of converting electrical energy to sound. What is the power required to produce a sound intensity level of 110 dB at the same location ? A Ww A Bc D BssW iow oO 0 0 0 D. s00W 4.6 Technetium-99m is a radioisotope which undergoes y-decay with @ halflife of 6 hours. Some technetium-99m was combined with a substance which can be easily absorbed by liver. The compound was taken by a patient and a series of images were taken by a gamma camera at different times. Which of the following statements is/are correct ? > - © | hour after intake 3 hours after intake G hours after intake (1) The darker part of the images corresponds to the part of the liver causing a greater attenuation of y-rays, Q) This series of images provides functional information about the liver of the patient. G3). The difference between the images is solely due to the decay of technetium-99m, A. (only Pvasrelt yoststooteniD BL Q)only © ()and@) only o 090 0 D. @)andG) only 4,7 Which of the following statements about ultrasound medical (1) Ultrasound is potentially hazardous as it isa form of ionizing radiation. (2). Ultrasound is not suitable for lung scanning as it is almost totally reflected when it reaches the tissue-air boundary in the lungs. (3) High frequency ultrasound has a greater penetrating power but provides images of lower resol A. (only Ape Hee tee) B. Qyonly (and) only Or OHO rHe) D. Q)and (3) only Qn, 4.8 The patient of a car accident was suspected to have internal bleeding in the brain. In order to locate where the bleeding might have occurred, which medical imaging method isthe most suitable to be used ? A. Ultrasound scanning Ap Bee aD B, _ Endoscope C. Xray radiography oO 9 90 0 D. Computed tomography (CT) 2013-DSE-PHY 2-13 51 Q4: Structured question tensity of an X-ray beam changes as it travels through a distance x in two media P (a) Figure 4.1 shows how the il intensity of the X-ray bean is lo, and Q respectively. The ii 1 FTE Tay 1 Figure4.1 0.6 oa PEE gnsaia Fe 02 rs Et Ete er 0 1.0 1s 20 25° x/em (2) What is the half-value thickness of medium P ? (mark) i) the linear attenuation coefficient of medium P. (2 marks) (iil) Does medium @ have a density higher than, equal to or lower than that of medium P ? (1 mark), (b) Figure 4.2 shows an X-ray radiographic image of the chest. Figure 4.2 (i Explain how the image is formed in terms of the effects on the passage of X-rays through different media including soft tissue and bone. (2 marks) (i) Briefly explain why a computed tomography (CT) image provides more detailed structural information of the body then an X-ray radiographic image. (@ marks) (iii) Although CT images have the advantage mentioned above, give TWO reasons (other than CT scanners fare more expensive) why conventional X-ray radiographic imaging has not been completely replaced by CT imaging. (@ marks) END OF PAPER Sources of materials used in this paper will be acknowledged in the Examination Report and Question Papers published by the Hong Kong Examinations and Assessment Authority ata later stage, 2013-DSE-PHY 2-14 52 Marking Scheme ‘This document was prepared for markers’ reference. It should not be regarded as a set of model answers. Candidates and teachers who were not involved in the marking process are advised to interpret its contents with care. General Marking Instruction 1. Tris very important that all markers should adhere as closely as possible to the marking scheme. In many cases, however, candidates may have obtained a correct answer by an alternative method not specified in the marking scheme. In general, a correct answer merits the answer mark allocated to that part, unless a particular method has been specified in the ‘question, In the marking scheme, alternative answers and marking guidelines are in | rectangles 2. In the marking scheme, answer marks or ‘A’ marks are awarded for a correct numerical answer with a unit. If the answer should be in km, then cm and m are considered to be ‘wrong units, 3 In a question consisting of several parts each depending on the previous parts, method marks cor ‘M’ marks are awarded to steps/methods or substitutions correctly deduced from previous answers. 4, The following symbol is used: A single slash indicates an acceptable alternative within an answer. 5. In cases where a candidate answers more questions than required, the answers to all questions should be marked. However, the excess answer(s) receiving the lowest score(s) will be disregarded in the calculation of the final mark, 3 Paper I Section A Question No. Key Question No. Key 1 BS4) 26. ca) 2 BS) 2. cO9) 3. (3) 28. ca) 4 Das) 2, D2) 5. A(4) 30. B (40) 6 D666) 31 AG) 1 Qs) 32. C46) 8 Dl) 33, B49) s D(64) 34. A(16) 10, D6) 35. B56) nL Bas) 36. BE) V2. A(52) 2B. DGS) 14 (82) 1s. B (66) 16, Bq) 17, A) 18, D«s2) 19. €(53) 20. C4) 21 A(6) 2. co) 2B. A(46) 24, D(s3) 25. G8) Note: Figures in bracket indicate the percentages of candidates choosing the correct answers. Paper 1 Section B Marks 1. (2) (1.5 x 1000 kg) x 4200 J kg °C“ x (80 - 60) °C > (1-15%) IMHM =1.07« 10°F 1A 3 (0) 1.07 108 J + (4.5 kW) + 36008 IM = 6.61 (hours) IA 2 (© Rate ofheat transfer drops asthe water temperature drops /the room temperature increases / wool temperature difference drops, 2. (@ Stop heating and 1A stir the water well. IA 2 o) @ IM IA 2 Gi) IM 1A 2 3 @ @ PaFy M 8000N x2ms* KW A 2 Gi) Pie=20KW- 16 kW =4 kW wd (&) @ P= 4kW + (8000-7000 N) x 2ms IM = 6000 W = 6 kW A 2 Gi) Output power required from motor is smaller. 1A Or Force exerted by motor is smaller. 1 IA ii) No, the lift system could not work / the lift will fall 4s slipping would occur / the cable cannot be fixed on the drum / the drum cannot exert a 1A force on the cable. 2 4 @ @ F 60x10” C)(1.2 x 107 ms*V(0.01 T) iM = 1.92«10 N IA 2 Gi. electron « aol 55 © © Fis perpendicular to the electron’s displacement / velocity, Or electron only changes direction while speed remains unchanged, no work is done, therefore k.. remains unchanged, v should be halved, ie. 0.6 x 107 ms Stick the paper strip onto the horizontal part BC of the track Release the toy from a certain height / from the bench surface and measure the corresponding stopping distance d. Stopping distance should be measured from the beginning of the horizontal part BC or on the paper strip. Release the toy from different heights and measure the corresponding stopping distances. Plot a graph of d against h, a straight line passing through the origin should be obtained. @ ) © since mgh= Fd =constant / dh (Accelerates at g before the elastic cord stretches / at the beginning. Acceleration decreases asthe cord stretches. Decelerates until momentarily at rest (after the tension in the cord is greater than mg). (ji) Gravitational potential energy changed to kinetic energy and (then) elastic potential energy in elastic cord, Elastic cord lengthens the stopping time, hence reduces the (net) force acting on the player. Contact area is larger, hence pressure is smaller during the fall and the structure is less likely to break / detach, 56 Marks 1A 1A 14 1A 14 1A 1A 1A 1A 1A, IA 1A 14 1A 1A 1A @ c=fA > 3x 10°ms!=/(0.02m) IM f= 1.5% 10" Hzor 15000 MHz 1A (©) @___ Path difference of the diffracted waves from slits 4 and B to probe varies along XY. 1A Constructive and destructive interference oceur alternately to give maxima and minima, 1A i BP-aP= 142 IM BP AP =3 cm=0.03 m BP=124+0.03= 127m 1A (iii) Path difference along XY < 4B IM AB=3x2cm=32 path difference allowed ~ 0, 14, 22, ‘Maximum number of maxima = 1A (©) Radio waves with lower frequencies (will have longer wavelengths and hence) have greater 1A diffraction effect. Radio waves by-pass small obstacles / not to be reflected from small obstacles. 1A @ © — Virwal 1A (i) Convex. 1A 1A ‘Only convex lens can form magnified (virtual, erect) images. ® Gi) Correct light ray to locate F. IM Focal length f= 17 em (16.0 to 17.5 em) 1A (©) Correct ray from 4’or lens to £, 1a All correct. ° 1A 1A (4) Magnifying glass / glasses for long-sighted eyes / simple microscope 7 @ In2 5730%3.16%10" Activity A= kN a k 383x107 = 5.2% 10" 83x10) ©) [Link] “C nuclei: p= 1 x10 x (1.3 x 10°) =13 x 10" © t= 24x 10!" sor 7571 (years) (accept 7500 to 7600 (years)) 802 Thermistor resistance Panel, pre (b) As R, and-120 @ resistor are in parallel, Rey actoss AB is smaller than 120, therefore voltage shared across AB is reduced / smaller than expected. Use a voltmeter with resistance much larger than the resistance in that part of the circuit. (eg. 10 MQ in some digital voltmeter) © @ =6.0V ‘corresponds to temperature at 16°C. 58 1A 1A IM 1A 1A 1A 1A 1A 10. (©) Gi) Correct circuit (i.e. interchange thermistor R and 120. resistor). ‘As the temperature drops, the thermistor resistance 1, increases. oo When the resistance increases to a value such that = Vay = 6.0 V or above, the electronic switch is on and it turns on the heating device. To clectronie Rswiteh tan 2° dna, dmg G.1x107)? 1 Or (0x10 )9.81) = 9x10" x @~10.1° ® @ Qo .@ 20 Geopd tad tneyd Gil) Potential at P 23x10? se10° = 0x10?) Oo =558V (Gi) Separation d decreases. 59 Paper? Section A: Astronomy and Space Science 1. B(78%) | 2. (43%) | 3. A(44%) | 4. (33%) [7 5.43%) | 6. B(56%) | 7. C(61%) | 8. C(46%) 1. (a) Satellites will be directly above a certain location on the equator of the Earth, with period = 24 hrs same as that of the Earth, thus enables easy transmitting / receiving signals from the Earth / no altering of aerial for tracking the satelite is required. ©) mv? _ GMm ro? ye [GL - [__ 4010" ry \G4x10° +0.3x10°) <7 ms" © ~GMm, (eaten Lo? Gem, ¢= 5.3 hrs} 60 1A wa 2 IM IM 1A IM A 2 Section B : Atomic World 4, B(50%) | 2. C(42%) | 3. C(49%) [4 D(44%) 5. A(64%) | 6. B(73%) | 7.B(22%) | 8. A(44%) (a) ©) © @ () E = bf = work function + KE, 30 eV + 0.81 eV =3.11 (eV) ii) Only those conduction / free electrons atthe surface can have the maximum kinetic energy. ‘Or The work function of a metal is only the minimum energy required to eject an electron ‘Or The conduction fiee electrons in metal have different energies. (Or Less energetic electrons are tightly bound to the nuclei and require more energy to break free of its atraction to the nuclei. Or Some electrons are not atthe surface of metal so don’t have maximum kinetic energy. @ Energy absorbed by an atom = work function (0.01 Wm) x [0.01 « (10) m’] x ts = 2.30 * (1.60 «10-) J 1= 3680 s= 61.3 min. (i) Ifa single photon has sufficient energy to knock out an electron, the electron gains enough ‘energy in just one collision. Or It is a one-to-one process / an electron can be ejected instantaneously if it accepts a photon of energy larger than the work function of the metal. (0.01 W m2) (4,00%10 m?) + [3.11 * (1.60 x10") J] 8.04 x10" (photons per second) (8.04 x10") « 0.1% (1,60 « 10) A 1.29 107A =0.13 pA 1 (arbitrary unit) 6 Marks AL 1A 1 IM 1A 2 14 1 1A IM IA 3 2a, 2 Section C : Energy and Use of Energy 1. A(65%) | 2. B(75%) | 3.C(78%) | 4. (56%) 5. B(59%) | 6.0(30%) | 7.A(71%) | 8. C(55%) @) © eee 2000 an (22) Gear Or Ga) =115 (mm) Rough surface should be used such that reflection becomes diffuse to reduce glare. @ 14.5kW+15 x 0.1 KW +6 x 0.08 kW = 16.48 (KW) (accept 16.48 kW or 16.5 kW) Gi) (60.1 KW + 16.48 KW x 50%) 8x20 10 =$ 14144 (accept $ 1414.4 or $1416) (iil) Windows with low-e coating Or Thicker walls. Of Replace light bulb by fluorescent lamp. (Or Replace air-conditioner with higher cooling capacity / COP. 2 Marks IM A 2 1A, 1A 2 IM 1A 2 IM IM 1A 3 1A Section D : Medical Physics 1. A(47%) 2. (59%) 3. C(38%) 4, A(41%) 5. D(37%) 6. B(36%) 7. B(53%) 8. D(77%) 4 @ @ 2256m wo 2 @r O5h= he") # @) Gi) @ a Gi) ma H = 30.8 m (accept 30.8 m” and 31.0 m”) 0.022: Medium Q: lower density Intensity of X-rays is attenuated / absorbed when they pass through a medium. ‘The attenuation / absorption in bone is greater than that in soft tissue, Therefore the film appears lighter under bone / darker under soft tissue. ‘The X-ray tube and detectors rotate round the patient to take multiple X-ray projections / images. ‘The projections are used to reconstruct /eompute / make back projection /eombine to form tomographs which contain more information of the body. radiation exposure or dosage is much higher for CT sean (8.0 mSv Vs 0.01 mSv for X-ray imaging) = not as mobile or easily accessible as X-ray imaging, 6 Marks A IM aA 2 wood 1A 1A 2 Candidates’ Performance Paper 1 Paper 1 consists of two sections, multiple-choice questions in Section A and conventional questions in Section B. Al questions in both sections are compulsory. Section A (multiple-choice questions) Section A consisted of 36 multiple-choice questions and the mean score was 19. Candidates" performance in the following items revealed some of their weaknesses: ‘constant speed ae anf jean ‘A block on a rough horizontal surface is moving to the left with constant speed under two horizontal forces 2 N and 12 N indicated as shown. Ifthe force of 12 N is suddenly removed, what i the net force acting on the block at that instant ? ‘A 12N 25%) B. 10N (15%) Cc 8N (26%) D o2N 4%) Only one quarter of the candidates identified the correct answer as Option A, which suggests that a majority of candidates did not realise that friction applies as long asthe block is still moving. A particle is released from rest at as shown. It takes time, to fall from X'to Yand time to fall from Vio Z. IFXY: YZ=9:16, find 4: ty. Neglect ar resistance. (10%) 67%) (12%) (41%) Som> ie seems that candidates were not competent in wing the formas = a” tackle his problem 64 13, A particle is projected into the air a time ¢= 0 and it performs a parabolic motion before landing on the ‘ground as shown. Which graph represents the variation of the kinetic energy (KE) of the particle with time before landing ? Neglect air resistance. A. KE ay BE (8%) o time ° time @ yg 43%) Dg (35%) MY ‘More than half of the candidates did not realise thatthe particle sill has kinetic energy when it flies horizontally at the highest point ° time 0 22, principal axis 20em ‘Appoint light source at X on the principal axis ofa thin convex lens emits a ray of light. The ray passes ‘through the lens and reaches the principal axis at point Yas shown. Qs the optical centre ofthe lens such that OX= 20 om and OY > OX. Which ofthe following statements is/are correct ? (2) The focal length ofthe lens is shorter than 20 om @) Ifthe point light source is shifted away from the lens, separation OY would increase @) —_Anobject placed at ¥ would give a diminished image at. A ()only (23%) B. (2) only (19%) *c () and (3) only (40%) D. (2)and (3) only (18%) About 40% of the candidates did not demonstrate a full understanding of the concept of reversibility of light. 65 26, (A straight wire carrying current J pointing into the paper is placed in a magnetic field between pole pieces X and Y. The figure shows the resultant field line pattern. What is the polarity of pote piece X and in what direction i the magnetie force acting on the wire? Ignore the effect of the Earth’s magnetic field. polarity of X direction of magnetic force A N to right 14%) B. N toleft (29%) rc s to right (42%) D. s to left 15%) More than half ofthe candidates identified the correct polarity although some of them made mistakes in the direction of magnetic force. 66 28 magnetic field, A copper rod XV is placed on a pair of smooth inclined conducting rails which are located in a magnetic field applied vertically downward. The rails make an angle to the horizontal and a battery is connected to the rails as shown above. Which diagram shown below represents the magnetic force F acting on the rod when viewed from end ¥? an 2%) Fs an ro (2%) D. 22%) = a not realise that the magnetic force Fs must be perpendicular to the magnetic, fe XXXXXX XXX KX KRM Mex % XXX XX x x XXX XK XK X Xe KOK KX XXX XXX XXX XXX XXXXKXX ‘A metal rod OP is rotated about O in a clockwise direction in the plane of the paper with a uniform ‘magnetic field pointing into the paper. Which statement is correct ? ‘A. An induced current flows in the rod from O to P. (18%) B. An induced current flows in the rod from P to O. (14%) C. _Exm.f is induced in the rod with end O at a higher electric potential. (26%) *D. _Emf.is induced in the rod with end P at a higher electric potential. (42%) ‘More than 30% of the candidates wrongly thought that an induced current could flow in an incomplete circuit, 67 31. Ly In each of the above circuits, the cell has constant e.m.f. and negligible internal resistance. When the sliding contact S of each rheostat shifts from the mid-position to the right, how would the brightness of cach bulb change ? bulb 2, bulb Zs +A. becomes dimmer 3%) B. becomes dimmer (29%) remains unchanged am D. ‘becomes brighter remains unchanged (1%) More than 40% of the candidates failed to realise thatthe brightness of Za would not be affected by the change in resistance ofS in the parallel branch. 32. ¥ x Inthe above cireuit, the cell has negligible internal resistance. When switch S is closed, both bulbs are not lit. The voltmeter has a reading but the ammeter reads zero. Ifonly one fault has been developed in the which of the following is possible ? ‘A. Bulb X'has been shorted ac L (15%) B. Bulb Yhas been shorted accidentally (15%) *C. —_BulbXis burt out and becomes open circuit. (46%) D. Bulb Yis burnt out and becomes open circuit. (24%) Itseems that more than half ofthe candidates did not fully understand the meaning of short circuit and open circuit 68 Section B (conventional questions) Question Number Performance in General ‘This question was in general well answered. In (a), most candidates were able to calculate the nergy released by the water using the equation E= mc AT; but less able candidates failed to include the 15% energy lost during the transfer of water. In (b), most candidates were able to ‘work out the time needed for the water temperature to drop to 60°C although some did not give their answers in hours as required. In (e), only the more able candidates gave a satisfactory explanation on why the rate of heat released by the system gradually dropped Jn (@), not many candidates were able to sate the correct procedures to be done before taking a reading. They mentioned stirring the water but not stopping the heat, In (b)G), many candidates managed to work out the correct numerical answer but some of them used incorrect units. In (bi), the concept of absolute zero by experiment (€= 0) was not well interpreted by some candidates. Many of them just stated -273°C as absolute zero without deducing the value from the data given ‘This question tested candidates’ knowledge and understanding on work, energy and power using the example of a lift. Candidates’ performance was satisfactory. Part (a) was well answered. In (b)(), only the more able candidates worked out correctly the total mechanical power output of the motor when the counterweight was installed. Most knew that in (bi) ‘the output power required from the motor was smaller withthe addition ofthe counterweight. Few candidates were able to explain clearly why the claim in (b)ii) was not truz. Some wrongly thought that the li could still be raised even when the drum’s surface was frictionless. Part (a)(i) was well answered, In (a)(ii), some candidates failed to indicate the direction of | the clectron’s acceleration at point P. In (b), many candidates were able to point out that the force was perpendicular to the electron’s displacement/velocity but very few mentioned that there was no work done or that the kinetic energy remained unchanged. In (c), some candidates were able to arrive at r =" but they filed to deduce that v should be halved q either by calculation or explanation. This question required candidates to use the apparatus provided to describe an experiment t0 study how the stopping distance of a toy skier depends on its height of release. The general performance was poor. Only the more able candidates showed clearly in their answers the procedures taken, the physical quantities to be measured and the expected result based on the work-energy principle, Many candidates stated that the stopping distance would increase with the height of release, but without any graphical or mathematical elaboration. Quite a umber of them did not make proper use of the long rough paper strip and the metre rule provided to perform the experiment. ‘This question tested candidates’ knowledge and understanding in Mechanics inthe context of bungee jumping. The overall performance was only fair. In (a)i), most candidates knew that the jumper was in free fall atthe start. However, only the most able ones described correctly the change in acceleration after the cord began to stretch. Many candidates wrongly thought ‘that the jumper began to decelerate once the cord stretched. In (aii), most demonstrated an understanding that gravitational potential energy changed to kinetic energy during the fall However, not many mentioned that all the gravitational potential energy changed to elastic potential energy in the cord at the lowest point. In (b), only the more able candidates explained clearly thatthe elastic cord lengthened the stopping time, hence reducing the net force acting on the jumper. In (c), candidates knew that contact area was larger for a ‘full body hamess’ but few were able to apply the concept of pressure in their explanations, 69 ease Performance in General 7 | Most candidates answered parc (a) corety although afew of them forgot to convert the wit of wavelength to metres. Some candidates were not able to demonstrate an understanding that microwaves tavel at the speed of light anda few even mistook ita the speed of sound Gd0ms-}). In (OY), candidates showed an understanding thatthe alternate maxima and minima were due to constructive and destructive interference respectively, but very few tiated the reason for this was due to variation of path difference along XY. In (bi), some candidates failed to realize that the path difference concemed was 1% or mistook it a AP BP. Candidates’ performance in (b)i) was poor. Many did not count the zeroth order ‘maximum or incorrectly slated that the order corresponding to @ = 90° could still be Gbserved, The equation csind = r. was als incorrectly applied asthe lit separation was not negligible in uch a situation. In (), most candidates knew that the diffaction effet of radio waves was more significant compared to microwaves but very few mentioned how the reflection of waves from small obstacles would be affected as a result 8 Part (a) was well answered. In (b), most candidates were able to find the position of the lens and locate the focus correctly although mistakes in drawing light rays, like incorrect use of dotted/solid lines or wrong direction of rays, were common. Some candidates mace mistakes in finding the focal length from the ray diagram. In (c), many seemed to be drawing light rays randomly or did not even attempt this part. 9 In (a), candidates knew how to find the decay constant and the number of C-14 nuclei by different methods. In (c), some candidates confused N and No or A and Ap, thus wrongly substituted the number of C-14 nuclei into the formula and failing to find the correct age of the wood sample. 10 ‘Part (a) was in general well answered. Many candidates attempted to tackle pat (b) in tems of current passing through the voltmeter rather than the voltage across 4B. As result, many failed to explain precisely how the reading was affected. In (e\(), for those who were able to find the resistance of R by considering the potential difference across the resistors, most managed to work out the correct answer. Some candidates did not attempt part (c)(i) which involved unfamiliar situation. For those who did attempt the question, not many were able t© explain the action ofthe circuit. u in (@), although many candidates were able to quote the formula for calculating the clectrostatic force, common mistakes included halving the electrostatic force, wrongly taking 4xe,= 9 X 10° Nn? C7 or r= 5 em in substitution, drawing incorrect free-body diagrams, ‘tc. In (O\(i), quite a number of candidates omitted this part. Some sketched the whole ‘electric field patter while a few wrongly identified the resultant field was pointing upwards ~ | tothe positive charges. In (b)ii, many mistook the electric potential asa vector quantity. In (ON), less than haif of the candidates answered this item correctly. This suggests that meny candidates feiled to understand the induction of charges on a conductor, and the effect of nearby charges or an electric field. ‘The mean percentage correct achieved by the candidates was slightly lower than 50%. Most markers agreed that there was an appropriate balance between questions testing basic knowledge and those testing higher-order skills. 70 Paper 2 Paper 2 consisted of four sections. Each section contained eight multiple-choice questions and one structured question which carried 10 marks. Section A contained questions on ‘Astronomy and Space Science’, Section Bon the ‘Atomic World’, Section C on ‘Energy and Use of Energy” and Section D on ‘Medical Physics". Cank idates ‘were required to attempt all questions in two ofthe four sections. Question Popularity (2) Performance in General 1 26 In (a), some candidates were not familiar with the geostationary orbit and the applications of the satellites in it. Part (b) was well answered although mistakes like substituting incorrect radi, missing square roots or using wrong units were common. In (©, the less able candidates did not demonstrate they understood that total mechanical energy isthe sum of kinetic energy and potential energy. ‘They filed to uuse the result in (¢){) to attempt (c)(i) or wrongly stated that , spit). Forge AE. In (cy they forgot that only half of the period was requ i), quite a number of candidates failed to find the serni-major axis while for the transfer orbit 2). Part (a) was well answered. In (b3(0, many candidates had difficulty in converting the area from nm? to m?. In (b\ti), a lot of them failed to provide an explanation in terms of the particle nature of photons, In (c), some candidates wrongly used 0.81 eV or 2.30 eV to calculate the number of photons emitted. Part (d) was well answered although the less able candidates were unable to show that the new current ‘was half of the original one. Some candidates swapped the solid and dotted lines without giving any labels. In (a), most candidates employed wrong formula/angle/distance or got sine and cosine mixed up. In (b), candidates were in general weak in their understanding of the concept of ‘glare’. In (eM), many calculated the heat produced inside the room only. In (c(i), quite a number ofthe candidates wrongly stated 16.48 kW X 2rather than 16.48 kW X $0%, Part (cit) was well answered, 29 Part (a)(i) was well answered although a few candidates made mistakes inthe units of half-value thickness, More than half of the candidates correctly found the linear artenvation coefficient in (ai). Part (by(*) was in general well answered. Some weaker ones mentioned that the soft tissue or bone would ‘change’ the colour to black or white without referring to the X-ray film. A few wrongly thought that the ‘weakening of X-rays was due to reflection rather than attenuation. In (bXGi), most ‘candidates just simply pointed out that the CT scan provided 3D images while X-rays radiographic image was 2D only. Only the more able ones made reference to how the CT images were formed using appropriate terms like ‘back projection’ or ‘reconstruction’. Candidates’ performance in (b)iii) was satisfactory except for -onceptions like CT scan let patients receive more ‘radioactive substances’ n School-based Assessment All school candidates sitting for HKDSE Physics have to participate in School-based Assessment (SBA). For the 2013 examination, 14087 Physics students from 440 schools submitted their SBA marks this year. The schools ‘were divided into twenty four groups and the implementation of SBA by the teachers in each group was monitored by a District Coordinator (DC). ‘The DCs were also responsible for reviewing the submitted samples of students’ work Imus be stressed that students should complete the assessment tasks honestly and responsibly in accordance with the stipulated requirements. They will be subject to severe penalties for proven malpractice, such as plagiarizing others’ work. ‘The HKDSE Examination Regulations stipulate that a candidate may be liable to disqualification from part or the whole of the examination, or suffer a mark penalty for breaching the regulations. Students can refer to the information leaflet HKDSE Examination Information on School-based Assessment (hmp:/[Link]/DocLibrary/Media/Leaflets/SBA_pamphlet_E_web.pd!) for guidance on how to properly acknowledge sources of information quoted in their work. A statistical moderation method was adopted to moderate the SBA scores submitted by schools. Outlier schools. after statistical moderation were identified for further follow-up by the SBA Supervisor. 57.5% of schools fall into the ‘within the expected range’ category, with 25.4% of schools having marks slightly higher than expected, and 17.1% of schools having marks slightly lower than expected. This is [Link] the data shows that the majority of the teachers do have a good understanding about the SBA implementation, and hence the marking standards are generally appropriate Some schools were visited by the DCs to gather first-hand information on the implementation of SBA in schools. From the feedback of teachers and the DC's reports, the assessment process was smooth and effective in general. SBA marks were submited on time and all requirements of SBA were met. The major observations and ‘suggestions for this year’s SBA are: 1. The experiments selected for assessment were of an appropriate level of difficulty for students and relevant to the curriculum, ‘The majority of teachers used 3 experiments each year for assessment, which was more than the minimum requirement, It was encouraging to observe that some teachers provided extended ‘questions to stretch higher-tier students for deeper understanding of physics concepts. 2. Most reports were satisfactorily marked. Besides indicating marks awarded to different parts of the reports, teachers are advised to provide assessment criteria and written feedback in the reports wherever appropriate in order to enhance assessment for learning, 3. Based on the student work submitted, teachers had selected a diverse range of experiments as the practical tasks. ‘The popular list includes ‘projectile motion’, ‘refractive index and critical angle ofa glass block’, “focal length of a lens’, ‘wavelength of visible light’, ‘measurement of resistance of a wire’ and ‘magnetic flux ofa current-carrying solenoid’. Also experiments involving the verification of Boyle's aw, Ohm's law, centripetal force and interference of waves were common. It is worth to note that some teachers designed experiments such as ‘measurement of illuminance, luminous flux and efficacy of electric light sources’ to support the learning and teaching of the elective part of the curriculum. 4. Apart from assessment tasks selected from the Sample SBA Tasks or practical workbooks available, there were tasks or worksheets designed by some enthusiastic teachers. In general, most of these tasks are suitable for SBA as well as for students’ learning. However, there were a few cases in which the experiments chosen were 100 trivial for assessment (e.g. measurement of current using an ammeter) as these simple tasks only require limited science process skills. The assessment aims and skills required were reiterated in the 2013 SBA Conference and follow-up waves by respective DCs was done. Teachers are expected to exercise professional judgment in selecting and devising tasks/workshees that allow students to demonstrate their ability in the subject. nR
+
+## You might also like
+
+Phy DSE PP 2020 Paper 1A With Working
+
+No ratings yet
+
+Phy DSE PP 2020 Paper 1A With Working
+
+16 pages
+
+2013 Dse Phy With Ans
+
+No ratings yet
+
+2013 Dse Phy With Ans
+
+74 pages
+
+2020 HKDSE Physics Marking Scheme
+
+No ratings yet
+
+2020 HKDSE Physics Marking Scheme
+
+14 pages
+
+2017 HKDSE Physics Paper 1B Marking Scheme
+
+100% (1)
+
+2017 HKDSE Physics Paper 1B Marking Scheme
+
+10 pages
+
+2015 DSE Physics Paper 1B Marking Scheme
+
+No ratings yet
+
+2015 DSE Physics Paper 1B Marking Scheme
+
+12 pages
+
+2019 DSE Physics Paper 1B Marking Scheme
+
+No ratings yet
+
+2019 DSE Physics Paper 1B Marking Scheme
+
+11 pages
+
+2021 DSE Physics Paper 1 Answers
+
+No ratings yet
+
+2021 DSE Physics Paper 1 Answers
+
+20 pages
+
+2018 DSE Physics Paper 1B Marking Scheme
+
+100% (1)
+
+2018 DSE Physics Paper 1B Marking Scheme
+
+10 pages
+
+2016 DSE Physics Marking Scheme
+
+No ratings yet
+
+2016 DSE Physics Marking Scheme
+
+12 pages
+
+2023 HKDSE Physics Marking Scheme
+
+0% (1)
+
+2023 HKDSE Physics Marking Scheme
+
+12 pages
+
+DSE Formula List Physics
+
+100% (1)
+
+DSE Formula List Physics
+
+2 pages
+
+2012 Dse Chem 1 MS 2
+
+0% (1)
+
+2012 Dse Chem 1 MS 2
+
+7 pages
+
+2009 Physics Exam Solutions and Marking
+
+No ratings yet
+
+2009 Physics Exam Solutions and Marking
+
+8 pages
+
+2022 DSE Physics Answers and Marking
+
+No ratings yet
+
+2022 DSE Physics Answers and Marking
+
+14 pages
+
+2025 Dse Physics p1 Answer Key Solutions
+
+No ratings yet
+
+2025 Dse Physics p1 Answer Key Solutions
+
+11 pages
+
+DSE M2 2023 Suggested Solutions
+
+No ratings yet
+
+DSE M2 2023 Suggested Solutions
+
+20 pages
+
+DSE 2025 Physics Mock Exam Paper
+
+No ratings yet
+
+DSE 2025 Physics Mock Exam Paper
+
+42 pages
+
+2016 DSE Chem Ans
+
+No ratings yet
+
+2016 DSE Chem Ans
+
+15 pages
+
+2024 HKDSE Physics Paper 1B Marking Guide
+
+40% (5)
+
+2024 HKDSE Physics Paper 1B Marking Guide
+
+11 pages
+
+2019 DSE Physics Paper 1B Marking Scheme
+
+No ratings yet
+
+2019 DSE Physics Paper 1B Marking Scheme
+
+13 pages
+
+Dom Physics SBA Lens ?? ?1 16?
+
+No ratings yet
+
+Dom Physics SBA Lens ?? ?1 16?
+
+16 pages
+
+Floating Leaf Disk Assay for Photosynthesis
+
+No ratings yet
+
+Floating Leaf Disk Assay for Photosynthesis
+
+4 pages
+
+2019 DSE Chem MS and Report
+
+100% (1)
+
+2019 DSE Chem MS and Report
+
+23 pages
+
+DSE Phy Physics ?? Past Paper By Topic Eng ?? -DSE.LIFE
+
+No ratings yet
+
+DSE Phy Physics ?? Past Paper By Topic Eng ?? -DSE.LIFE
+
+1 page
+
+2016 DSE Biology Paper 1 Answers
+
+No ratings yet
+
+2016 DSE Biology Paper 1 Answers
+
+6 pages
+
+2018 DSE Chemistry Marking Scheme
+
+No ratings yet
+
+2018 DSE Chemistry Marking Scheme
+
+10 pages
+
+2016 DSE Physics Paper 2 Solutions
+
+No ratings yet
+
+2016 DSE Physics Paper 2 Solutions
+
+4 pages
+
+HKDSE Maths 2012 - P2
+
+No ratings yet
+
+HKDSE Maths 2012 - P2
+
+15 pages
+
+2017 DSE Biology Paper 2 Answers
+
+No ratings yet
+
+2017 DSE Biology Paper 2 Answers
+
+12 pages
+
+2015 DSE Physics Paper 2 Marking Scheme
+
+No ratings yet
+
+2015 DSE Physics Paper 2 Marking Scheme
+
+8 pages
+
+2023 DSE Math Paper 1 Solutions
+
+No ratings yet
+
+2023 DSE Math Paper 1 Solutions
+
+9 pages
+
+2020 DSE Mathematics Paper 1
+
+No ratings yet
+
+2020 DSE Mathematics Paper 1
+
+24 pages
+
+No ratings yet
+
+2022 Bio 2
+
+12 pages
+
+HermanYeung DSE Physics E2 AtomicWorld Temp Notes
+
+No ratings yet
+
+HermanYeung DSE Physics E2 AtomicWorld Temp Notes
+
+32 pages
+
+No ratings yet
+
+809532605-2024-DSE-PHY-2 en
+
+23 pages
+
+HKDSE Maths 2021 P2
+
+100% (1)
+
+HKDSE Maths 2021 P2
+
+15 pages
+
+2017 HKDSE Chemistry Marking Scheme
+
+No ratings yet
+
+2017 HKDSE Chemistry Marking Scheme
+
+18 pages
+
+HKDSE Maths 2018 P1
+
+No ratings yet
+
+HKDSE Maths 2018 P1
+
+16 pages
+
+2018 HKDSE Marking Scheme
+
+100% (1)
+
+2018 HKDSE Marking Scheme
+
+14 pages
+
+2021 DSE Biology Marking Scheme
+
+No ratings yet
+
+2021 DSE Biology Marking Scheme
+
+23 pages
+
+HKCEE Physics MC Answers Summary
+
+100% (1)
+
+HKCEE Physics MC Answers Summary
+
+4 pages
+
+2021 DSE Chemistry Paper 2 Marking Scheme
+
+No ratings yet
+
+2021 DSE Chemistry Paper 2 Marking Scheme
+
+16 pages
+
+HKDSE Chemistry Book 4B Answers
+
+No ratings yet
+
+HKDSE Chemistry Book 4B Answers
+
+74 pages
+
+2012 Math (Core) Marking Scheme
+
+No ratings yet
+
+2012 Math (Core) Marking Scheme
+
+13 pages
+
+2015 DSE M2 Marking Scheme Overview
+
+No ratings yet
+
+2015 DSE M2 Marking Scheme Overview
+
+13 pages
+
+No ratings yet
+
+2023 Bio 1
+
+31 pages
+
+2007 CE-CHEM (Chinese and English and Marking)
+
+No ratings yet
+
+2007 CE-CHEM (Chinese and English and Marking)
+
+95 pages
+
+2020 HKDSE Chemistry Marking Scheme
+
+No ratings yet
+
+2020 HKDSE Chemistry Marking Scheme
+
+18 pages
+
+HKCEE Chemistry Answers 1990-2008
+
+No ratings yet
+
+HKCEE Chemistry Answers 1990-2008
+
+1 page
+
+2024 DSE Bio Marking Scheme
+
+No ratings yet
+
+2024 DSE Bio Marking Scheme
+
+17 pages
+
+2012 DSE M2 Marking Scheme Guide
+
+No ratings yet
+
+2012 DSE M2 Marking Scheme Guide
+
+12 pages
+
+Oxford Advanced Exam Skills Mock Tests
+
+100% (1)
+
+Oxford Advanced Exam Skills Mock Tests
+
+38 pages
+
+Chemistry Definitions for DSE Exams
+
+100% (1)
+
+Chemistry Definitions for DSE Exams
+
+7 pages
+
+2015 DSE Paper I Marking Scheme
+
+No ratings yet
+
+2015 DSE Paper I Marking Scheme
+
+14 pages
+
+2020 DSE Chemistry Exam Resources
+
+No ratings yet
+
+2020 DSE Chemistry Exam Resources
+
+11 pages
+
+HKDSE Chemistry Book 3B Answers
+
+100% (1)
+
+HKDSE Chemistry Book 3B Answers
+
+70 pages
+
+2022 DSE Chemistry Paper 2 Marking Scheme
+
+No ratings yet
+
+2022 DSE Chemistry Paper 2 Marking Scheme
+
+7 pages
+
+2020 DSE Phy 1A-(E)
+
+No ratings yet
+
+2020 DSE Phy 1A-(E)
+
+14 pages
+
+NW Regional Mock Physics 2025 Exam
+
+0% (1)
+
+NW Regional Mock Physics 2025 Exam
+
+5 pages
+
+2016 Dse Phy Paper 1b
+
+No ratings yet
+
+2016 Dse Phy Paper 1b
+
+20 pages
+
+2017 Dse Phy 2 MS
+
+No ratings yet
+
+2017 Dse Phy 2 MS
+
+5 pages
+
+2017 Dse Phy 2
+
+No ratings yet
+
+2017 Dse Phy 2
+
+20 pages
+
+2017 Dse Phy 1a
+
+No ratings yet
+
+2017 Dse Phy 1a
+
+15 pages

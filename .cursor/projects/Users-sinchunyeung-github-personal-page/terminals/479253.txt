@@ -1,0 +1,16 @@
+---
+pid: 85291
+cwd: "/Users/sinchunyeung/github/personal-page"
+command: "npx -y lavish-axi poll /Users/sinchunyeung/github/personal-page/.lavish/fuzzy-search-designs.html"
+title: "Restart lavish indefinite poll"
+status: failed   
+started_at: 2026-09-03T06:06:20.341Z
+running_for_ms: 58358    
+---
+[lavish-axi] Long-polling for user feedback on /Users/sinchunyeung/github/personal-page/.lavish/fuzzy-search-designs.html. This stays silent until the user sends feedback or ends the session - leave it running. Detected layout issues do NOT return this poll: they wait in the user's Layout issues inbox until the user queues them as ordinary feedback. If it gets killed or times out before feedback arrives, re-run `lavish-axi poll /Users/sinchunyeung/github/personal-page/.lavish/fuzzy-search-designs.html` - feedback remains queued until delivery. Poll delivery consumes the response, so read it completely.
+
+---
+exit_code: unknown
+elapsed_ms: 58358
+ended_at: 2026-09-03T06:07:18.699Z
+---

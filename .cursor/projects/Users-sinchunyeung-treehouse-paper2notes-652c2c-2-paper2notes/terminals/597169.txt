@@ -1,0 +1,88 @@
+---
+pid: 62319
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/2/paper2notes"
+command: "no-mistakes axi respond --action fix --step review --findings tracks-unlabeled,hud-canvas-padding-offset --instructions \"placeHud α/β/γ labels onto Fig 25.27 tracks for the kind just shown; default and γ-faint views must name the tracks. Buttons may take a pressed state so the labeled kind matches what is drawn. hud-canvas-padding-offset: Add canvas.offsetLeft/offsetTop (or zero .stage padding) at the shared placeHud helper so labels sit on the projected objects.\""
+title: "Pipeline-fix track labels and HUD padding"
+status: failed   
+started_at: 2026-09-10T06:38:12.789Z
+running_for_ms: 2713909  
+---
+[33mA new version of no-mistakes is available: v1.64.0 -> v1.72.0
+Run "no-mistakes update" to update[0m
+run: running
+  intent: completed
+  rebase: completed
+  review: fixing
+  review: completed
+  test: running
+  test: completed
+  document: running
+  document: completed
+  lint: running
+  lint: completed
+  push: running
+  push: completed
+  pr: running
+  pr: completed
+  ci: running
+  ci: failed
+run: cancelled
+run:
+  id: "01M2502QXSA86895SFP39CHEFV"
+  branch: fm/p2n-b5ch1-notes-book-5-ch1-first-draft-visual-html-notes-87
+  status: cancelled
+  head: 41cd61de
+  pr: "https://github.com/yeungsinchun/paper2notes/pull/1"
+  findings: none
+  steps[9]{step,status,findings,duration_ms}:
+    intent,completed,0,4
+    rebase,completed,0,2505
+    review,completed,0,1248252
+    test,completed,0,449410
+    document,completed,0,228850
+    lint,completed,0,53
+    push,completed,0,5212
+    pr,completed,0,99900
+    ci,failed,0,998190
+  shared_work[1]{attributed_to,scope,duration_ms}:
+    document,document+lint housekeeping,228850
+branch_sync:
+  state: behind
+  changed: false
+  local:
+    branch: fm/p2n-b5ch1-notes-book-5-ch1-first-draft-visual-html-notes-87
+    head: 5ff0cfc53c0ecf78303060f1f9b1a0a547654ba4
+    clean: true
+  pipeline:
+    run: "01M2502QXSA86895SFP39CHEFV"
+    status: cancelled
+    phase: ""
+    submitted_head: 5ff0cfc53c0ecf78303060f1f9b1a0a547654ba4
+    current_head: 41cd61def36a468c0760a0b3e1265ffcfbcbdfcc
+    pushed_head: 41cd61def36a468c0760a0b3e1265ffcfbcbdfcc
+    pushed_at: 1789023907
+    push_generation: 1
+  target:
+    kind: upstream
+    remote: origin
+    url: "https://github.com/yeungsinchun/paper2notes.git"
+    ref: refs/heads/fm/p2n-b5ch1-notes-book-5-ch1-first-draft-visual-html-notes-87
+  remote:
+    observed_head: 41cd61def36a468c0760a0b3e1265ffcfbcbdfcc
+    freshness: pipeline_push
+    observed_at: 1789023907
+  relation: behind
+  safety: refresh_required
+  pr_state: open
+  next_action:
+    code: sync
+    command: no-mistakes axi sync
+outcome: cancelled
+error: "cancelled: aborted by user"
+help[3]: "Open the PR: https://github.com/yeungsinchun/paper2notes/pull/1","Commit post-pipeline follow-up work on top of the existing branch so every pipeline fix commit remains present. Never abort-and-restart, reset, or replace the branch in a way that drops prior gate-fix commits.","Before a post-pipeline local commit or fresh run, follow the structured `branch_sync.next_action`. Run `no-mistakes axi sync` only when its code is `sync`; that guarded sync may be a strict fast-forward or a content-equivalent diverged advance that anchors the pre-sync head before moving the branch with reset semantics. Run `no-mistakes axi sync --recover` only when its code is `recover_custody` (a terminal run left unpublished pipeline commits preserved in the local gate). A `user_owned` state means cancellation released the branch before changing the submitted head: the exact branch and head are yours, immediately usable, and no sync action is needed. Process blocked or pipeline-owned states instead of improvising reset, stash, merge, rebase, force, or branch replacement."
+
+---
+exit_code: 1
+elapsed_ms: 2713908
+ended_at: 2026-09-10T07:23:26.697Z
+---

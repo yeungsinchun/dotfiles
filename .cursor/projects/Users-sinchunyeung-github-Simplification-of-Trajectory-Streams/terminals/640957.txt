@@ -1,0 +1,86 @@
+---
+pid: 6095
+cwd: "/Users/sinchunyeung/github/simplification-of-trajectory-streams"
+command: "curl -s http://127.0.0.1:5051/ | rg -o \"Open Results, pick Compare algorithms[^<]+|Press Run beside Compare \\(or[^<]+\" | head -5; NODE_PATH=/tmp/node_modules node <<'JS'\nconst { chromium } = require('/tmp/node_modules/playwright');\n(async () => {\n  const browser = await chromium.launch({ headless: true });\n  const outDir = '/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/usability';\n  async function shoot(width, height, name) {\n    const page = await browser.newPage({ viewport: { width, height } });\n    await page.goto('http://127.0.0.1:5051/?t=' + Date.now(), { waitUntil: 'domcontentloaded' });\n    // Skip tours\n    await page.evaluate(() => {\n      localStorage.setItem('simplify-viewer-tour-v1', '1');\n      localStorage.setItem('simplify-viewer-playback-tour-v1', '1');\n    });\n    await page.reload({ waitUntil: 'domcontentloaded' });\n    // Pick preloaded trace\n    const hasTrigger = await page.$('#preloadedTrigger');\n    if (hasTrigger && await page.isVisible('#preloadedTrigger')) {\n      await page.click('#preloadedTrigger');\n      await page.waitForTimeout(200);\n      const opt = await page.$('[data-value=\"1\"]');\n      if (opt) await opt.click();\n      else await page.selectOption('#traceSelect', '1');\n    } else {\n      await page.selectOption('#traceSelect', '1');\n    }\n    await page.click('#loadBtn');\n    await page.waitForFunction(() => document.body.classList.contains('playback-ready') || (document.querySelector('#uploadStatus')?.textContent || '').includes('Loaded'), { timeout: 180000 });\n    await page.waitForTimeout(500);\n    // Open layers accordion Compare on mobile / ensure hint visible\n    await page.evaluate(() => {\n      document.body.classList.remove('mobile-panel-closed');\n      const layers = document.getElementById('layersSection');\n      if (layers) layers.classList.add('layers-open');\n      const acc = document.getElementById('accordionBaseline');\n      if (acc) acc.open = true;\n      const hint = document.getElementById('baselineLayerHint');\n      if (hint) hint.scrollIntoView({ block: 'center' });\n    });\n    await page.waitForTimeout(200);\n    const text = await page.evaluate(() => document.getElementById('baselineLayerHint')?.textContent?.trim() || '');\n    const fileControls = await page.evaluate(() => {\n      const el = document.querySelector('.file-controls');\n      if (!el) return null;\n      const s = getComputedStyle(el);\n      return { display: s.display, visibility: s.visibility, w: el.getBoundingClientRect().width };\n    });\n    console.log(name, JSON.stringify({ text, fileControls, scrollWidth: await page.evaluate(() => document.documentElement.scrollWidth), innerWidth: width }));\n    await page.screenshot({ path: `${outDir}/${name}`, fullPage: false });\n    await page.close();\n  }\n  await shoot(390, 844, 'layers-compare-hint-mobile-390-live.png');\n  await shoot(1280, 800, 'layers-compare-hint-mobile-1280-live.png');\n  await browser.close();\n})().catch(e => { console.error(e); process.exit(1); });\nJS\n"
+title: "Capture live mobile/desktop Layers hint screenshots"
+status: failed   
+started_at: 2026-09-05T17:44:25.887Z
+running_for_ms: 31620    
+---
+Open Results, pick Compare algorithms, then press Run compare to enable these layers. On wider screens you can also use Run beside Compare in the header.
+compdef:153: _comps: assignment to invalid subscript range
+page.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('#loadBtn')
+    - locator resolved to <button id="loadBtn" class="primary">…</button>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <button type="button" data-trace-id="52" class="trace-picker-item">…</button> from <div id="tracePicker" aria-hidden="false" class="trace-picker open">…</div> subtree intercepts pointer events
+  - retrying click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <button type="button" data-trace-id="53" class="trace-picker-item">…</button> from <div id="tracePicker" aria-hidden="false" class="trace-picker open">…</div> subtree intercepts pointer events
+  - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <button type="button" data-trace-id="53" class="trace-picker-item">…</button> from <div id="tracePicker" aria-hidden="false" class="trace-picker open">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    56 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <button type="button" data-trace-id="53" class="trace-picker-item">…</button> from <div id="tracePicker" aria-hidden="false" class="trace-picker open">…</div> subtree intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+
+    at shoot ([stdin]:25:16)
+    at async [stdin]:50:3 {
+  log: [
+    "  - waiting for locator('#loadBtn')",
+    '    - locator resolved to <button id="loadBtn" class="primary">…</button>',
+    '  - attempting click action',
+    '    - waiting for element to be visible, enabled and stable',
+    '    - element is visible, enabled and stable',
+    '    - scrolling into view if needed',
+    '    - done scrolling',
+    '    - <button type="button" data-trace-id="52" class="trace-picker-item">…</button> from <div id="tracePicker" aria-hidden="false" class="trace-picker open">…</div> subtree intercepts pointer events',
+    '  - retrying click action',
+    '    - waiting for element to be visible, enabled and stable',
+    '    - element is visible, enabled and stable',
+    '    - scrolling into view if needed',
+    '    - done scrolling',
+    '    - <button type="button" data-trace-id="53" class="trace-picker-item">…</button> from <div id="tracePicker" aria-hidden="false" class="trace-picker open">…</div> subtree intercepts pointer events',
+    '  - retrying click action',
+    '    - waiting 20ms',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is visible, enabled and stable',
+    '      - scrolling into view if needed',
+    '      - done scrolling',
+    '      - <button type="button" data-trace-id="53" class="trace-picker-item">…</button> from <div id="tracePicker" aria-hidden="false" class="trace-picker open">…</div> subtree intercepts pointer events',
+    '    - retrying click action',
+    '      - waiting 100ms',
+    '    56 × waiting for element to be visible, enabled and stable',
+    '       - element is visible, enabled and stable',
+    '       - scrolling into view if needed',
+    '       - done scrolling',
+    '       - <button type="button" data-trace-id="53" class="trace-picker-item">…</button> from <div id="tracePicker" aria-hidden="false" class="trace-picker open">…</div> subtree intercepts pointer events',
+    '     - retrying click action',
+    '       - waiting 500ms'
+  ],
+  name: 'TimeoutError'
+}
+
+---
+exit_code: 1
+elapsed_ms: 31620
+ended_at: 2026-09-05T17:44:57.507Z
+---

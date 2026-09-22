@@ -1,0 +1,37 @@
+---
+pid: 84366
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && ./segment paper/mc/2020p1a.pdf output/2020 --step anchors --intermediate output/2020-intermediate --questions 33 --overrides scripts/overrides_2020.json 2>&1"
+title: "Re-anchor 2020 with full overrides"
+status: succeeded
+started_at: 2026-09-04T08:27:48.069Z
+running_for_ms: 55881    
+---
+page 2: rail_x=72.4 left=36.4 right=527.4 top=103.8 bottom=778.9 footer=780.9 marker_x=54.2 questions=3 first_pad=20.0
+page 3: rail_x=74.8 left=38.8 right=529.8 top=49.4 bottom=777.7 footer=779.7 marker_x=58.5 questions=3 first_pad=20.0
+page 4: rail_x=69.0 left=33.0 right=524.0 top=48.8 bottom=778.5 footer=780.5 marker_x=51.8 questions=2 first_pad=20.0
+page 5: rail_x=76.3 left=40.3 right=531.3 top=48.8 bottom=777.3 footer=779.3 marker_x=60.3 questions=3 first_pad=20.0
+page 6: rail_x=70.1 left=34.1 right=525.1 top=48.2 bottom=778.5 footer=780.5 marker_x=53.8 questions=2 first_pad=20.0
+page 7: rail_x=75.6 left=39.6 right=530.6 top=48.8 bottom=776.5 footer=778.5 marker_x=58.8 questions=3 first_pad=20.0
+page 8: rail_x=70.4 left=34.4 right=497.9 top=49.0 bottom=778.1 footer=780.1 marker_x=54.4 questions=2 first_pad=20.0
+page 9: rail_x=72.5 left=36.5 right=488.1 top=54.6 bottom=778.5 footer=780.5 marker_x=55.3 questions=3 first_pad=20.0
+page 10: rail_x=76.5 left=40.5 right=531.5 top=48.4 bottom=776.9 footer=778.9 marker_x=60.5 questions=2 first_pad=20.0
+page 11: rail_x=69.4 left=33.4 right=524.4 top=47.6 bottom=778.1 footer=780.1 marker_x=53.2 questions=2 first_pad=20.0
+page 12: rail_x=77.8 left=41.8 right=532.8 top=48.6 bottom=776.5 footer=778.5 marker_x=61.8 questions=2 first_pad=20.0
+page 13: rail_x=69.4 left=33.4 right=524.4 top=47.6 bottom=777.7 footer=779.7 marker_x=53.1 questions=2 first_pad=20.0
+page 14: rail_x=77.5 left=41.5 right=532.5 top=48.0 bottom=776.5 footer=778.5 marker_x=61.0 questions=4 first_pad=20.0
+Wrote /Users/sinchunyeung/github/paper2db/output/2020-intermediate/anchor.meta.json
+Wrote /Users/sinchunyeung/github/paper2db/output/2020-intermediate/anchor.pdf with 13 pages and 33 anchors.
+Paper type: MC (2020p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Wrote /Users/sinchunyeung/github/paper2db/output/2020-intermediate/anchor.pdf
+Wrote /Users/sinchunyeung/github/paper2db/output/2020-intermediate/anchor.meta.json
+Wrote 13 preview PNGs (page01.png, ...) in /Users/sinchunyeung/github/paper2db/output/2020-intermediate
+Review anchor.pdf (blue dots next to each question number), then run step 2.
+Anchor review PDF -> /Users/sinchunyeung/github/paper2db/output/2020/anchor.pdf
+
+---
+exit_code: 0
+elapsed_ms: 55881
+ended_at: 2026-09-04T08:28:43.950Z
+---

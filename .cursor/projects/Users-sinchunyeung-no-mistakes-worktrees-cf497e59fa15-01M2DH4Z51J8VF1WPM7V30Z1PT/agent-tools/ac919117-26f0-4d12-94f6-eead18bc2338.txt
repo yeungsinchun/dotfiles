@@ -1,0 +1,1456 @@
+320717f Fix LQ last-question extras and leftover within-page y-crops.
+7fcf918 no-mistakes(document): Align LQ docs with formula-sheet exclusion
+f3a304b Exclude trailing HKDSE data/formulae sheets from LQ page ranges.
+339742a no-mistakes(document): Refresh stale A4 review-PDF documentation
+af487fc no-mistakes(review): Rebuild A4 answers PDFs and close once
+ec3b83f no-mistakes(review): Fix year-Q labels and start-page keys
+e88e178 Build LQ review PDFs from whole source exam pages.
+2c78e15 Sort MC section review questions by year.
+2774c03 Flow questions immediately under the chapter title.
+2810ae4 Drop the item list from section heading pages.
+d01c6d1 Pack review questions sequentially on A4 pages.
+ec7a474 Label each combined question page with year and Q number.
+bca1e78 Add A4 session headings to classified section review PDFs.
+d050472 Place combined.pdf review pages on A4.
+====
+320717f9c13ca556dd3ffcf2854740363a16e5c0
+Fix LQ last-question extras and leftover within-page y-crops.
+Keep 2017 Q10 as the single whole exam page without the formulae sheet, drop trailing blank insert pages the same way, and always rebuild qN.png so stale y-crops cannot linger. Split 2024/pp last questions so Q13/Q14 are no longer stacked onto the previous item.
+
+---
+7fcf918bdd90bcd4a65475515a21d3740074d78b
+no-mistakes(document): Align LQ docs with formula-sheet exclusion
+
+---
+f3a304bcc023ee82a4eda7d6c23a36680674de9f
+Exclude trailing HKDSE data/formulae sheets from LQ page ranges.
+The last long question was taking page_to through the final exported page, so the official List of data, formulae and relationships insert (and the same sheet under nearby wordings) was stacked onto that question. Detect those pages with the MC phrases plus the official title, drop them from starts.json, qN.png stacks, and review PDFs, and rebuild the LQ banks.
+
+---
+339742a0355e55eedb36781ceae9c73bcfa85960
+no-mistakes(document): Refresh stale A4 review-PDF documentation
+
+---
+af487fc0229603d5bb5c4746d5deeef5ce819539
+no-mistakes(review): Rebuild A4 answers PDFs and close once
+
+---
+ec3b83f06ab218f9f772b9a3891235a591b0f17c
+no-mistakes(review): Fix year-Q labels and start-page keys
+
+---
+e88e178f623a3857b32f6f2a0fe757e9c1933820
+Build LQ review PDFs from whole source exam pages.
+Captain asked not to crop or rasterize Paper 1B: split the original PDFs onto A4 and concatenate page_from..page_to ranges for combined.pdf and questions.pdf.
+
+---
+2c78e151d9696491c6981b650f52994a9fd9cf34
+Sort MC section review questions by year.
+combined.pdf and matching answer.pdf now follow year then question number so packs read in exam chronology.
+
+---
+2774c03ed6cb7fb723e6acd641b6100ca1cee334
+Flow questions immediately under the chapter title.
+The heading no longer consumes a whole page, and year/Q labels sit at the top right of each crop.
+
+---
+2810ae4fb30565080e3db9a2dc6a98136e6159d6
+Drop the item list from section heading pages.
+The first page only needs the chapter title; year and Q labels already sit on each crop.
+
+---
+d01c6d1fd1e05c40ad3d4e5508d83c9966207696
+Pack review questions sequentially on A4 pages.
+One crop per PDF page wasted paper; stack questions top to bottom and continue on the next page only when the next crop does not fit.
+
+---
+ec7a474ed3dd4f6743d0a69023690838d6b9e1cc
+Label each combined question page with year and Q number.
+Review packs need the crop identity on the page (2012 Q36, 2026 Q12) as well as on the session heading list, so items stay identifiable when printed.
+
+---
+bca1e783ce8f57faf3250dc2f072ed54bf57bec8
+Add A4 session headings to classified section review PDFs.
+Section banks now open with chN Section Name (exactly ch25 Radiation and Radioactivity for chapter 25) so MC combined.pdf and LQ questions.pdf can be used as titled review packs.
+
+---
+d0504729d898f02d1afd5435084ac98bf2a09c16
+Place combined.pdf review pages on A4.
+Question bank and year review PDFs used each PNG's native pixel size as the page; scale-to-fit on portrait A4 so they print like the existing answer PDFs.
+
+---
+====STAT====
+ .cursor/rules/combined-png-pdf.mdc                 |   5 +-
+ .lavish/lq-classified-review/data.json             |   2 +-
+ .lavish/lq-classified-review/img/2012-q1.png       | Bin 1090644 -> 799596 bytes
+ .lavish/lq-classified-review/img/2012-q10.png      | Bin 1468741 -> 404760 bytes
+ .lavish/lq-classified-review/img/2012-q11.png      | Bin 534356 -> 313529 bytes
+ .lavish/lq-classified-review/img/2012-q2.png       | Bin 379088 -> 247919 bytes
+ .lavish/lq-classified-review/img/2012-q3.png       | Bin 523417 -> 310341 bytes
+ .lavish/lq-classified-review/img/2012-q4.png       | Bin 941341 -> 581191 bytes
+ .lavish/lq-classified-review/img/2012-q5.png       | Bin 956359 -> 604552 bytes
+ .lavish/lq-classified-review/img/2012-q6.png       | Bin 999804 -> 344650 bytes
+ .lavish/lq-classified-review/img/2012-q7.png       | Bin 933422 -> 920902 bytes
+ .lavish/lq-classified-review/img/2012-q8.png       | Bin 682222 -> 496966 bytes
+ .lavish/lq-classified-review/img/2012-q9.png       | Bin 562501 -> 594330 bytes
+ .lavish/lq-classified-review/img/2013-q1.png       | Bin 1433511 -> 1759205 bytes
+ .lavish/lq-classified-review/img/2013-q10.png      | Bin 1702875 -> 2073189 bytes
+ .lavish/lq-classified-review/img/2013-q11.png      | Bin 1238153 -> 1483045 bytes
+ .lavish/lq-classified-review/img/2013-q2.png       | Bin 1293653 -> 1552463 bytes
+ .lavish/lq-classified-review/img/2013-q3.png       | Bin 1489381 -> 1780361 bytes
+ .lavish/lq-classified-review/img/2013-q4.png       | Bin 825696 -> 970216 bytes
+ .lavish/lq-classified-review/img/2013-q5.png       | Bin 734472 -> 872251 bytes
+ .lavish/lq-classified-review/img/2013-q6.png       | Bin 921345 -> 1124319 bytes
+ .lavish/lq-classified-review/img/2013-q7.png       | Bin 2068358 -> 2432679 bytes
+ .lavish/lq-classified-review/img/2013-q8.png       | Bin 1364446 -> 1624128 bytes
+ .lavish/lq-classified-review/img/2013-q9.png       | Bin 835560 -> 980057 bytes
+ .lavish/lq-classified-review/img/2014-q1.png       | Bin 1350594 -> 305793 bytes
+ .lavish/lq-classified-review/img/2014-q10.png      | Bin 1312350 -> 299700 bytes
+ .lavish/lq-classified-review/img/2014-q2.png       | Bin 888710 -> 232922 bytes
+ .lavish/lq-classified-review/img/2014-q3.png       | Bin 1253396 -> 272518 bytes
+ .lavish/lq-classified-review/img/2014-q4.png       | Bin 1265759 -> 311491 bytes
+ .lavish/lq-classified-review/img/2014-q5.png       | Bin 464600 -> 108431 bytes
+ .lavish/lq-classified-review/img/2014-q6.png       | Bin 997187 -> 207275 bytes
+ .lavish/lq-classified-review/img/2014-q7.png       | Bin 877358 -> 230831 bytes
+ .lavish/lq-classified-review/img/2014-q8.png       | Bin 1041592 -> 235624 bytes
+ .lavish/lq-classified-review/img/2014-q9.png       | Bin 793649 -> 214769 bytes
+ .lavish/lq-classified-review/img/2015-q1.png       | Bin 2203882 -> 9640621 bytes
+ .lavish/lq-classified-review/img/2015-q10.png      | Bin 3017711 -> 12496911 bytes
+ .lavish/lq-classified-review/img/2015-q2.png       | Bin 911953 -> 3631272 bytes
+ .lavish/lq-classified-review/img/2015-q3.png       | Bin 1926158 -> 7998757 bytes
+ .lavish/lq-classified-review/img/2015-q4.png       | Bin 1854716 -> 7706386 bytes
+ .lavish/lq-classified-review/img/2015-q5.png       | Bin 2546791 -> 10624043 bytes
+ .lavish/lq-classified-review/img/2015-q6.png       | Bin 3124880 -> 13436415 bytes
+ .lavish/lq-classified-review/img/2015-q7.png       | Bin 2566870 -> 10627649 bytes
+ .lavish/lq-classified-review/img/2015-q8.png       | Bin 1971737 -> 8044261 bytes
+ .lavish/lq-classified-review/img/2015-q9.png       | Bin 2701936 -> 11559203 bytes
+ .lavish/lq-classified-review/img/2016-q1.png       | Bin 739851 -> 1826601 bytes
+ .lavish/lq-classified-review/img/2016-q2.png       | Bin 922347 -> 2256571 bytes
+ .lavish/lq-classified-review/img/2016-q3.png       | Bin 837484 -> 2053552 bytes
+ .lavish/lq-classified-review/img/2016-q4.png       | Bin 1297533 -> 3242161 bytes
+ .lavish/lq-classified-review/img/2016-q5.png       | Bin 2442337 -> 6073150 bytes
+ .lavish/lq-classified-review/img/2016-q6.png       | Bin 822067 -> 2034061 bytes
+ .lavish/lq-classified-review/img/2016-q7.png       | Bin 1175117 -> 2808525 bytes
+ .lavish/lq-classified-review/img/2016-q8.png       | Bin 1507352 -> 3738615 bytes
+ .lavish/lq-classified-review/img/2016-q9.png       | Bin 1168132 -> 2617941 bytes
+ .lavish/lq-classified-review/img/2017-q1.png       | Bin 2525988 -> 3060451 bytes
+ .lavish/lq-classified-review/img/2017-q10.png      | Bin 3545058 -> 1530595 bytes
+ .lavish/lq-classified-review/img/2017-q2.png       | Bin 1054745 -> 1262540 bytes
+ .lavish/lq-classified-review/img/2017-q3.png       | Bin 1067082 -> 1275131 bytes
+ .lavish/lq-classified-review/img/2017-q4.png       | Bin 2258174 -> 2728018 bytes
+ .lavish/lq-classified-review/img/2017-q5.png       | Bin 1931771 -> 2324018 bytes
+ .lavish/lq-classified-review/img/2017-q6.png       | Bin 1836371 -> 2194166 bytes
+ .lavish/lq-classified-review/img/2017-q7.png       | Bin 1844453 -> 2190094 bytes
+ .lavish/lq-classified-review/img/2017-q8.png       | Bin 2337067 -> 2842763 bytes
+ .lavish/lq-classified-review/img/2017-q9.png       | Bin 2244125 -> 2709934 bytes
+ .lavish/lq-classified-review/img/2018-q1.png       | Bin 2090014 -> 5735194 bytes
+ .lavish/lq-classified-review/img/2018-q10.png      | Bin 4135696 -> 11557508 bytes
+ .lavish/lq-classified-review/img/2018-q2.png       | Bin 2136648 -> 6000137 bytes
+ .lavish/lq-classified-review/img/2018-q3.png       | Bin 4466229 -> 12680864 bytes
+ .lavish/lq-classified-review/img/2018-q4.png       | Bin 4170064 -> 11647611 bytes
+ .lavish/lq-classified-review/img/2018-q5.png       | Bin 4144356 -> 11756018 bytes
+ .lavish/lq-classified-review/img/2018-q6.png       | Bin 4409497 -> 12025151 bytes
+ .lavish/lq-classified-review/img/2018-q7.png       | Bin 4055059 -> 11189530 bytes
+ .lavish/lq-classified-review/img/2018-q8.png       | Bin 4036795 -> 11261394 bytes
+ .lavish/lq-classified-review/img/2018-q9.png       | Bin 4221614 -> 11801847 bytes
+ .lavish/lq-classified-review/img/2019-q1.png       | Bin 1612378 -> 5881798 bytes
+ .lavish/lq-classified-review/img/2019-q10.png      | Bin 1848155 -> 5938700 bytes
+ .lavish/lq-classified-review/img/2019-q2.png       | Bin 1698377 -> 6392815 bytes
+ .lavish/lq-classified-review/img/2019-q3.png       | Bin 2043388 -> 8002805 bytes
+ .lavish/lq-classified-review/img/2019-q4.png       | Bin 1422041 -> 5375961 bytes
+ .lavish/lq-classified-review/img/2019-q5.png       | Bin 936372 -> 3444321 bytes
+ .lavish/lq-classified-review/img/2019-q6.png       | Bin 1749210 -> 6806453 bytes
+ .lavish/lq-classified-review/img/2019-q7.png       | Bin 893335 -> 3262406 bytes
+ .lavish/lq-classified-review/img/2019-q8.png       | Bin 1363905 -> 5089316 bytes
+ .lavish/lq-classified-review/img/2019-q9.png       | Bin 1820080 -> 6769473 bytes
+ .lavish/lq-classified-review/img/2020-q1.png       | Bin 1127198 -> 4358827 bytes
+ .lavish/lq-classified-review/img/2020-q10.png      | Bin 863329 -> 2541203 bytes
+ .lavish/lq-classified-review/img/2020-q2.png       | Bin 1463218 -> 5745323 bytes
+ .lavish/lq-classified-review/img/2020-q3.png       | Bin 1129744 -> 4390941 bytes
+ .lavish/lq-classified-review/img/2020-q4.png       | Bin 991362 -> 3834106 bytes
+ .lavish/lq-classified-review/img/2020-q5.png       | Bin 609104 -> 2386075 bytes
+ .lavish/lq-classified-review/img/2020-q6.png       | Bin 746670 -> 2949285 bytes
+ .lavish/lq-classified-review/img/2020-q7.png       | Bin 1403809 -> 5513707 bytes
+ .lavish/lq-classified-review/img/2020-q8.png       | Bin 1081023 -> 4185393 bytes
+ .lavish/lq-classified-review/img/2020-q9.png       | Bin 1030159 -> 3990551 bytes
+ .lavish/lq-classified-review/img/2021-q1.png       | Bin 722037 -> 186465 bytes
+ .lavish/lq-classified-review/img/2021-q2.png       | Bin 967639 -> 229238 bytes
+ .lavish/lq-classified-review/img/2021-q3.png       | Bin 852522 -> 206923 bytes
+ .lavish/lq-classified-review/img/2021-q4.png       | Bin 1096165 -> 278115 bytes
+ .lavish/lq-classified-review/img/2021-q5.png       | Bin 777531 -> 226225 bytes
+ .lavish/lq-classified-review/img/2021-q6.png       | Bin 1855937 -> 409022 bytes
+ .lavish/lq-classified-review/img/2021-q7.png       | Bin 1027580 -> 246544 bytes
+ .lavish/lq-classified-review/img/2021-q8.png       | Bin 424569 -> 103605 bytes
+ .lavish/lq-classified-review/img/2021-q9.png       | Bin 531171 -> 110943 bytes
+ .lavish/lq-classified-review/img/2022-q1.png       | Bin 1122576 -> 917413 bytes
+ .lavish/lq-classified-review/img/2022-q10.png      | Bin 609569 -> 193436 bytes
+ .lavish/lq-classified-review/img/2022-q2.png       | Bin 903541 -> 425273 bytes
+ .lavish/lq-classified-review/img/2022-q3.png       | Bin 1082266 -> 851199 bytes
+ .lavish/lq-classified-review/img/2022-q4.png       | Bin 734283 -> 563129 bytes
+ .lavish/lq-classified-review/img/2022-q5.png       | Bin 1419972 -> 1050010 bytes
+ .lavish/lq-classified-review/img/2022-q6.png       | Bin 948641 -> 426739 bytes
+ .lavish/lq-classified-review/img/2022-q7.png       | Bin 1176401 -> 1110323 bytes
+ .lavish/lq-classified-review/img/2022-q8.png       | Bin 903528 -> 530200 bytes
+ .lavish/lq-classified-review/img/2022-q9.png       | Bin 512754 -> 315988 bytes
+ .lavish/lq-classified-review/img/2023-q1.png       | Bin 1096130 -> 4396762 bytes
+ .lavish/lq-classified-review/img/2023-q2.png       | Bin 1174899 -> 4683498 bytes
+ .lavish/lq-classified-review/img/2023-q3.png       | Bin 1734166 -> 7059069 bytes
+ .lavish/lq-classified-review/img/2023-q4.png       | Bin 1180194 -> 4810183 bytes
+ .lavish/lq-classified-review/img/2023-q5.png       | Bin 1170270 -> 4764858 bytes
+ .lavish/lq-classified-review/img/2023-q6.png       | Bin 1756922 -> 6995193 bytes
+ .lavish/lq-classified-review/img/2023-q7.png       | Bin 869300 -> 3384122 bytes
+ .lavish/lq-classified-review/img/2023-q8.png       | Bin 1681037 -> 7045467 bytes
+ .lavish/lq-classified-review/img/2023-q9.png       | Bin 1296440 -> 4563920 bytes
+ .lavish/lq-classified-review/img/2024-q1.png       | Bin 448808 -> 66157 bytes
+ .lavish/lq-classified-review/img/2024-q10.png      | Bin 840403 -> 121978 bytes
+ .lavish/lq-classified-review/img/2024-q11.png      | Bin 916488 -> 140046 bytes
+ .lavish/lq-classified-review/img/2024-q12.png      | Bin 1371885 -> 125110 bytes
+ .lavish/lq-classified-review/img/2024-q13.png      | Bin 0 -> 104279 bytes
+ .lavish/lq-classified-review/img/2024-q2.png       | Bin 398601 -> 56476 bytes
+ .lavish/lq-classified-review/img/2024-q3.png       | Bin 387535 -> 60418 bytes
+ .lavish/lq-classified-review/img/2024-q4.png       | Bin 619073 -> 94277 bytes
+ .lavish/lq-classified-review/img/2024-q5.png       | Bin 380831 -> 62494 bytes
+ .lavish/lq-classified-review/img/2024-q6.png       | Bin 494941 -> 76195 bytes
+ .lavish/lq-classified-review/img/2024-q7.png       | Bin 1059604 -> 154252 bytes
+ .lavish/lq-classified-review/img/2024-q8.png       | Bin 393245 -> 60240 bytes
+ .lavish/lq-classified-review/img/2024-q9.png       | Bin 436224 -> 64142 bytes
+ .lavish/lq-classified-review/img/2025-q1.png       | Bin 533653 -> 2489493 bytes
+ .lavish/lq-classified-review/img/2025-q10.png      | Bin 1285556 -> 5958103 bytes
+ .lavish/lq-classified-review/img/2025-q11.png      | Bin 910078 -> 4194814 bytes
+ .lavish/lq-classified-review/img/2025-q12.png      | Bin 1157397 -> 4926755 bytes
+ .lavish/lq-classified-review/img/2025-q2.png       | Bin 564315 -> 2513750 bytes
+ .lavish/lq-classified-review/img/2025-q3.png       | Bin 1193170 -> 5628865 bytes
+ .lavish/lq-classified-review/img/2025-q4.png       | Bin 554727 -> 2668897 bytes
+ .lavish/lq-classified-review/img/2025-q5.png       | Bin 772273 -> 3585834 bytes
+ .lavish/lq-classified-review/img/2025-q6.png       | Bin 1608490 -> 7689315 bytes
+ .lavish/lq-classified-review/img/2025-q7.png       | Bin 1300123 -> 6152920 bytes
+ .lavish/lq-classified-review/img/2025-q8.png       | Bin 708418 -> 3302814 bytes
+ .lavish/lq-classified-review/img/2025-q9.png       | Bin 464298 -> 2141939 bytes
+ .lavish/lq-classified-review/img/2026-q1.png       | Bin 620385 -> 1516589 bytes
+ .lavish/lq-classified-review/img/2026-q10.png      | Bin 1484403 -> 3582639 bytes
+ .lavish/lq-classified-review/img/2026-q11.png      | Bin 1381992 -> 3408723 bytes
+ .lavish/lq-classified-review/img/2026-q12.png      | Bin 1360710 -> 3108958 bytes
+ .lavish/lq-classified-review/img/2026-q2.png       | Bin 1185423 -> 2887409 bytes
+ .lavish/lq-classified-review/img/2026-q3.png       | Bin 891977 -> 2187144 bytes
+ .lavish/lq-classified-review/img/2026-q4.png       | Bin 973798 -> 2390859 bytes
+ .lavish/lq-classified-review/img/2026-q5.png       | Bin 649462 -> 1602389 bytes
+ .lavish/lq-classified-review/img/2026-q6.png       | Bin 579874 -> 1430795 bytes
+ .lavish/lq-classified-review/img/2026-q7.png       | Bin 775462 -> 1892028 bytes
+ .lavish/lq-classified-review/img/2026-q8.png       | Bin 988896 -> 2455219 bytes
+ .lavish/lq-classified-review/img/2026-q9.png       | Bin 724491 -> 1785960 bytes
+ .lavish/lq-classified-review/img/pp-q1.png         | Bin 316460 -> 247309 bytes
+ .lavish/lq-classified-review/img/pp-q10.png        | Bin 378420 -> 299701 bytes
+ .lavish/lq-classified-review/img/pp-q11.png        | Bin 633552 -> 457355 bytes
+ .lavish/lq-classified-review/img/pp-q12.png        | Bin 2294315 -> 718406 bytes
+ .lavish/lq-classified-review/img/pp-q13.png        | Bin 0 -> 1225542 bytes
+ .lavish/lq-classified-review/img/pp-q14.png        | Bin 0 -> 323545 bytes
+ .lavish/lq-classified-review/img/pp-q2.png         | Bin 419068 -> 271072 bytes
+ .lavish/lq-classified-review/img/pp-q3.png         | Bin 362558 -> 265942 bytes
+ .lavish/lq-classified-review/img/pp-q4.png         | Bin 523880 -> 435000 bytes
+ .lavish/lq-classified-review/img/pp-q5.png         | Bin 283817 -> 220575 bytes
+ .lavish/lq-classified-review/img/pp-q6.png         | Bin 360082 -> 294623 bytes
+ .lavish/lq-classified-review/img/pp-q7.png         | Bin 270960 -> 285158 bytes
+ .lavish/lq-classified-review/img/pp-q8.png         | Bin 661758 -> 447366 bytes
+ .lavish/lq-classified-review/img/pp-q9.png         | Bin 612849 -> 708141 bytes
+ .lavish/lq-classified-review/index.html            |   4 +-
+ AGENTS.md                                          |   2 +-
+ README.md                                          |  14 +-
+ .../01_Temperature_and_Heat_Transfer/2013-q2.png   | Bin 1141497 -> 1552463 bytes
+ .../01_Temperature_and_Heat_Transfer/2022-q1.png   | Bin 1376304 -> 917413 bytes
+ .../01_Temperature_and_Heat_Transfer/answers.pdf   | Bin 606270 -> 606779 bytes
+ .../performance.pdf                                | Bin 4775 -> 4775 bytes
+ .../01_Temperature_and_Heat_Transfer/questions.pdf | Bin 2366515 -> 817962 bytes
+ .../01_Heat_and_Gases/02_Heat_Capacity/2013-q1.png | Bin 1375640 -> 1759205 bytes
+ .../01_Heat_and_Gases/02_Heat_Capacity/2014-q1.png | Bin 1211831 -> 305793 bytes
+ .../01_Heat_and_Gases/02_Heat_Capacity/2016-q1.png | Bin 994306 -> 1826601 bytes
+ .../01_Heat_and_Gases/02_Heat_Capacity/2018-q1.png | Bin 3175219 -> 5735194 bytes
+ .../01_Heat_and_Gases/02_Heat_Capacity/2019-q1.png | Bin 2138709 -> 5881798 bytes
+ .../01_Heat_and_Gases/02_Heat_Capacity/2020-q1.png | Bin 1602455 -> 4358827 bytes
+ .../01_Heat_and_Gases/02_Heat_Capacity/2021-q1.png | Bin 830671 -> 186465 bytes
+ .../01_Heat_and_Gases/02_Heat_Capacity/2023-q1.png | Bin 1615209 -> 4396762 bytes
+ .../01_Heat_and_Gases/02_Heat_Capacity/answers.pdf | Bin 1080224 -> 1081331 bytes
+ .../02_Heat_Capacity/performance.pdf               | Bin 13700 -> 13700 bytes
+ .../02_Heat_Capacity/questions.pdf                 | Bin 11450045 -> 6815833 bytes
+ .../03_Change_of_State/2015-q1.png                 | Bin 3135507 -> 9640621 bytes
+ .../03_Change_of_State/2019-q1.png                 | Bin 2138709 -> 5881798 bytes
+ .../03_Change_of_State/2021-q1.png                 | Bin 830671 -> 186465 bytes
+ .../03_Change_of_State/2026-q1.png                 | Bin 390119 -> 1516589 bytes
+ .../03_Change_of_State/answers.pdf                 | Bin 857423 -> 857943 bytes
+ .../03_Change_of_State/performance.pdf             | Bin 9312 -> 9312 bytes
+ .../03_Change_of_State/questions.pdf               | Bin 8046687 -> 5311660 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/2015-q2.png      | Bin 1432989 -> 3631272 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/2016-q2.png      | Bin 1447105 -> 2256571 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/2017-q3.png      | Bin 901999 -> 1275131 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/2018-q2.png      | Bin 2542458 -> 6000137 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/2019-q2.png      | Bin 2552056 -> 6392815 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/2020-q2.png      | Bin 2160028 -> 5745323 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/2022-q2.png      | Bin 1204406 -> 425273 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/2023-q2.png      | Bin 1902127 -> 4683498 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/2026-q2.png      | Bin 1577807 -> 2887409 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/2026-q9.png      | Bin 1122800 -> 1785960 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/answers.pdf      | Bin 1988542 -> 1990234 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/performance.pdf  | Bin 27972 -> 27972 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/pp-q1.png        | Bin 163614 -> 247309 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/questions.pdf    | Bin 18393997 -> 13119126 bytes
+ .../lq/02_Force_and_Motion/05_Motion/2014-q3.png   | Bin 1185871 -> 272518 bytes
+ .../lq/02_Force_and_Motion/05_Motion/2015-q4.png   | Bin 2960142 -> 7706386 bytes
+ .../lq/02_Force_and_Motion/05_Motion/2016-q3.png   | Bin 1216113 -> 2053552 bytes
+ .../lq/02_Force_and_Motion/05_Motion/2017-q6.png   | Bin 1729015 -> 2194166 bytes
+ .../lq/02_Force_and_Motion/05_Motion/2023-q3.png   | Bin 2289475 -> 7059069 bytes
+ .../lq/02_Force_and_Motion/05_Motion/2026-q11.png  | Bin 2803714 -> 3408723 bytes
+ .../lq/02_Force_and_Motion/05_Motion/answers.pdf   | Bin 1482529 -> 1483840 bytes
+ .../02_Force_and_Motion/05_Motion/performance.pdf  | Bin 14236 -> 14236 bytes
+ .../lq/02_Force_and_Motion/05_Motion/pp-q10.png    | Bin 240112 -> 299701 bytes
+ .../lq/02_Force_and_Motion/05_Motion/pp-q4.png     | Bin 183978 -> 435000 bytes
+ .../lq/02_Force_and_Motion/05_Motion/pp-q9.png     | Bin 747650 -> 708141 bytes
+ .../lq/02_Force_and_Motion/05_Motion/questions.pdf | Bin 13736891 -> 7674611 bytes
+ .../lq/02_Force_and_Motion/06_Force/2014-q4.png    | Bin 1524289 -> 311491 bytes
+ .../lq/02_Force_and_Motion/06_Force/2015-q5.png    | Bin 3981504 -> 10624043 bytes
+ .../lq/02_Force_and_Motion/06_Force/2016-q4.png    | Bin 2183117 -> 3242161 bytes
+ .../lq/02_Force_and_Motion/06_Force/2017-q1.png    | Bin 2580745 -> 3060451 bytes
+ .../lq/02_Force_and_Motion/06_Force/2017-q5.png    | Bin 1917195 -> 2324018 bytes
+ .../lq/02_Force_and_Motion/06_Force/2020-q5.png    | Bin 940773 -> 2386075 bytes
+ .../lq/02_Force_and_Motion/06_Force/2022-q3.png    | Bin 1171532 -> 851199 bytes
+ .../lq/02_Force_and_Motion/06_Force/answers.pdf    | Bin 2596339 -> 2598015 bytes
+ .../02_Force_and_Motion/06_Force/performance.pdf   | Bin 21485 -> 21485 bytes
+ .../lq/02_Force_and_Motion/06_Force/questions.pdf  | Bin 16811054 -> 6271166 bytes
+ .../07_More_about_Forces/2014-q2.png               | Bin 731673 -> 232922 bytes
+ .../07_More_about_Forces/2018-q5.png               | Bin 5693275 -> 11756018 bytes
+ .../07_More_about_Forces/answers.pdf               | Bin 840048 -> 840560 bytes
+ .../07_More_about_Forces/performance.pdf           | Bin 5975 -> 5975 bytes
+ .../07_More_about_Forces/questions.pdf             | Bin 6524142 -> 3759859 bytes
+ .../08_Work_Energy_and_Power/2013-q5.png           | Bin 706093 -> 872251 bytes
+ .../08_Work_Energy_and_Power/2018-q3.png           | Bin 6515247 -> 12680864 bytes
+ .../08_Work_Energy_and_Power/2021-q3.png           | Bin 1064776 -> 206923 bytes
+ .../08_Work_Energy_and_Power/2026-q4.png           | Bin 1813538 -> 2390859 bytes
+ .../08_Work_Energy_and_Power/answers.pdf           | Bin 1507754 -> 1508235 bytes
+ .../08_Work_Energy_and_Power/performance.pdf       | Bin 9655 -> 9655 bytes
+ .../08_Work_Energy_and_Power/pp-q2.png             | Bin 208156 -> 271072 bytes
+ .../08_Work_Energy_and_Power/questions.pdf         | Bin 9677568 -> 4815201 bytes
+ .../lq/02_Force_and_Motion/09_Momentum/2017-q2.png | Bin 1129359 -> 1262540 bytes
+ .../lq/02_Force_and_Motion/09_Momentum/2018-q4.png | Bin 5988194 -> 11647611 bytes
+ .../lq/02_Force_and_Motion/09_Momentum/2026-q3.png | Bin 1564569 -> 2187144 bytes
+ .../lq/02_Force_and_Motion/09_Momentum/answers.pdf | Bin 1817624 -> 1818708 bytes
+ .../09_Momentum/performance.pdf                    | Bin 11055 -> 11055 bytes
+ .../02_Force_and_Motion/09_Momentum/questions.pdf  | Bin 12262169 -> 5699784 bytes
+ .../10_Projectile_Motion/answers.pdf               | Bin 51591 -> 51910 bytes
+ .../10_Projectile_Motion/performance.pdf           | Bin 3715 -> 3715 bytes
+ .../10_Projectile_Motion/pp-q3.png                 | Bin 211516 -> 265942 bytes
+ .../10_Projectile_Motion/questions.pdf             | Bin 1194864 -> 654595 bytes
+ .../11_Uniform_Circular_Motion/2019-q4.png         | Bin 2137131 -> 5375961 bytes
+ .../11_Uniform_Circular_Motion/2023-q4.png         | Bin 1927235 -> 4810183 bytes
+ .../11_Uniform_Circular_Motion/answers.pdf         | Bin 843088 -> 843975 bytes
+ .../11_Uniform_Circular_Motion/performance.pdf     | Bin 8185 -> 8185 bytes
+ .../11_Uniform_Circular_Motion/questions.pdf       | Bin 4652317 -> 3622361 bytes
+ .../lq/03A_Wave_Motion/13_Wave_Motion/2016-q6.png  | Bin 1270118 -> 2034061 bytes
+ .../lq/03A_Wave_Motion/13_Wave_Motion/2017-q6.png  | Bin 1729015 -> 2194166 bytes
+ .../lq/03A_Wave_Motion/13_Wave_Motion/2026-q5.png  | Bin 1349138 -> 1602389 bytes
+ .../lq/03A_Wave_Motion/13_Wave_Motion/answers.pdf  | Bin 226706 -> 227015 bytes
+ .../03A_Wave_Motion/13_Wave_Motion/performance.pdf | Bin 4989 -> 4989 bytes
+ .../lq/03A_Wave_Motion/13_Wave_Motion/pp-q5.png    | Bin 163945 -> 220575 bytes
+ .../03A_Wave_Motion/13_Wave_Motion/questions.pdf   | Bin 3058160 -> 1342889 bytes
+ .../2014-q7.png                                    | Bin 132107 -> 230831 bytes
+ .../2018-q7.png                                    | Bin 5477047 -> 11189530 bytes
+ .../2019-q5.png                                    | Bin 1459716 -> 3444321 bytes
+ .../answers.pdf                                    | Bin 1395102 -> 1396197 bytes
+ .../performance.pdf                                | Bin 9489 -> 9489 bytes
+ .../questions.pdf                                  | Bin 8534150 -> 5440487 bytes
+ .../2013-q7.png                                    | Bin 1367537 -> 2432679 bytes
+ .../2015-q7.png                                    | Bin 3292934 -> 10627649 bytes
+ .../2026-q5.png                                    | Bin 1349138 -> 1602389 bytes
+ .../answers.pdf                                    | Bin 2098684 -> 2099368 bytes
+ .../performance.pdf                                | Bin 10380 -> 10380 bytes
+ .../questions.pdf                                  | Bin 11107111 -> 5820048 bytes
+ .../03A_Wave_Motion/16_Light_and_Sound/2020-q6.png | Bin 1191711 -> 2949285 bytes
+ .../03A_Wave_Motion/16_Light_and_Sound/2021-q2.png | Bin 1199625 -> 229238 bytes
+ .../03A_Wave_Motion/16_Light_and_Sound/2022-q6.png | Bin 1086974 -> 426739 bytes
+ .../03A_Wave_Motion/16_Light_and_Sound/2023-q5.png | Bin 1721819 -> 4764858 bytes
+ .../03A_Wave_Motion/16_Light_and_Sound/2026-q6.png | Bin 1152847 -> 1430795 bytes
+ .../03A_Wave_Motion/16_Light_and_Sound/answers.pdf | Bin 1222259 -> 1223346 bytes
+ .../16_Light_and_Sound/performance.pdf             | Bin 12172 -> 12172 bytes
+ .../16_Light_and_Sound/questions.pdf               | Bin 5744497 -> 2286880 bytes
+ .../18_Refraction_of_Light/2014-q5.png             | Bin 549292 -> 108431 bytes
+ .../18_Refraction_of_Light/2015-q6.png             | Bin 5097531 -> 13436415 bytes
+ .../18_Refraction_of_Light/2017-q7.png             | Bin 1777224 -> 2190094 bytes
+ .../18_Refraction_of_Light/2020-q7.png             | Bin 2134957 -> 5513707 bytes
+ .../18_Refraction_of_Light/2021-q6.png             | Bin 1456697 -> 409022 bytes
+ .../18_Refraction_of_Light/2023-q6.png             | Bin 3009213 -> 6995193 bytes
+ .../18_Refraction_of_Light/2026-q10.png            | Bin 2980338 -> 3582639 bytes
+ .../18_Refraction_of_Light/answers.pdf             | Bin 1562137 -> 1563219 bytes
+ .../18_Refraction_of_Light/performance.pdf         | Bin 12448 -> 12448 bytes
+ .../18_Refraction_of_Light/questions.pdf           | Bin 10226664 -> 4692884 bytes
+ classified/lq/03B_Ray_Optics/19_Lenses/2013-q8.png | Bin 1047342 -> 1624128 bytes
+ classified/lq/03B_Ray_Optics/19_Lenses/2014-q6.png | Bin 708931 -> 207275 bytes
+ classified/lq/03B_Ray_Optics/19_Lenses/2015-q6.png | Bin 5097531 -> 13436415 bytes
+ classified/lq/03B_Ray_Optics/19_Lenses/2016-q5.png | Bin 2522521 -> 6073150 bytes
+ classified/lq/03B_Ray_Optics/19_Lenses/2018-q6.png | Bin 6259169 -> 12025151 bytes
+ classified/lq/03B_Ray_Optics/19_Lenses/2019-q6.png | Bin 1310692 -> 6806453 bytes
+ classified/lq/03B_Ray_Optics/19_Lenses/2021-q6.png | Bin 1456697 -> 409022 bytes
+ classified/lq/03B_Ray_Optics/19_Lenses/2022-q5.png | Bin 1396839 -> 1050010 bytes
+ classified/lq/03B_Ray_Optics/19_Lenses/answers.pdf | Bin 6606238 -> 6608111 bytes
+ .../lq/03B_Ray_Optics/19_Lenses/performance.pdf    | Bin 21308 -> 21308 bytes
+ .../lq/03B_Ray_Optics/19_Lenses/questions.pdf      | Bin 23603289 -> 13752996 bytes
+ .../20_Electrostatics/2013-q11.png                 | Bin 1009930 -> 1483045 bytes
+ .../20_Electrostatics/2016-q8.png                  | Bin 2569774 -> 3738615 bytes
+ .../20_Electrostatics/2020-q9.png                  | Bin 1499391 -> 3990551 bytes
+ .../20_Electrostatics/2026-q7.png                  | Bin 1592276 -> 1892028 bytes
+ .../20_Electrostatics/answers.pdf                  | Bin 379154 -> 379655 bytes
+ .../20_Electrostatics/performance.pdf              | Bin 8315 -> 8315 bytes
+ .../20_Electrostatics/questions.pdf                | Bin 5859681 -> 3342439 bytes
+ .../21_Circuit_and_Power/2013-q10.png              | Bin 1531960 -> 2073189 bytes
+ .../21_Circuit_and_Power/2013-q3.png               | Bin 1361785 -> 1780361 bytes
+ .../21_Circuit_and_Power/2015-q3.png               | Bin 2946303 -> 7998757 bytes
+ .../21_Circuit_and_Power/2015-q8.png               | Bin 3232887 -> 8044261 bytes
+ .../21_Circuit_and_Power/2016-q7.png               | Bin 1839829 -> 2808525 bytes
+ .../21_Circuit_and_Power/2017-q4.png               | Bin 2307681 -> 2728018 bytes
+ .../21_Circuit_and_Power/2017-q8.png               | Bin 2003169 -> 2842763 bytes
+ .../21_Circuit_and_Power/2019-q3.png               | Bin 3200633 -> 8002805 bytes
+ .../21_Circuit_and_Power/2019-q7.png               | Bin 1176127 -> 3262406 bytes
+ .../21_Circuit_and_Power/2020-q4.png               | Bin 1460031 -> 3834106 bytes
+ .../21_Circuit_and_Power/2021-q4.png               | Bin 1484065 -> 278115 bytes
+ .../21_Circuit_and_Power/2021-q5.png               | Bin 867981 -> 226225 bytes
+ .../21_Circuit_and_Power/2021-q8.png               | Bin 535437 -> 103605 bytes
+ .../21_Circuit_and_Power/2022-q4.png               | Bin 729448 -> 563129 bytes
+ .../21_Circuit_and_Power/2022-q8.png               | Bin 1092479 -> 530200 bytes
+ .../21_Circuit_and_Power/2023-q7.png               | Bin 1297697 -> 3384122 bytes
+ .../21_Circuit_and_Power/2026-q8.png               | Bin 1683717 -> 2455219 bytes
+ .../21_Circuit_and_Power/answers.pdf               | Bin 3545156 -> 3548032 bytes
+ .../21_Circuit_and_Power/performance.pdf           | Bin 45778 -> 45778 bytes
+ .../21_Circuit_and_Power/pp-q11.png                | Bin 355653 -> 457355 bytes
+ .../21_Circuit_and_Power/questions.pdf             | Bin 37328221 -> 16547458 bytes
+ .../22_AC_and_Domestic_Electricity/2014-q8.png     | Bin 1057357 -> 235624 bytes
+ .../22_AC_and_Domestic_Electricity/2018-q8.png     | Bin 5758599 -> 11261394 bytes
+ .../22_AC_and_Domestic_Electricity/2019-q8.png     | Bin 2031714 -> 5089316 bytes
+ .../22_AC_and_Domestic_Electricity/2020-q8.png     | Bin 1550150 -> 4185393 bytes
+ .../22_AC_and_Domestic_Electricity/answers.pdf     | Bin 1476087 -> 1477178 bytes
+ .../22_AC_and_Domestic_Electricity/performance.pdf | Bin 11563 -> 11563 bytes
+ .../22_AC_and_Domestic_Electricity/pp-q8.png       | Bin 697231 -> 447366 bytes
+ .../22_AC_and_Domestic_Electricity/questions.pdf   | Bin 11043288 -> 5930503 bytes
+ .../23_Electromagnetism/2013-q4.png                | Bin 631349 -> 970216 bytes
+ .../23_Electromagnetism/2017-q9.png                | Bin 2247462 -> 2709934 bytes
+ .../23_Electromagnetism/2019-q9.png                | Bin 2359821 -> 6769473 bytes
+ .../23_Electromagnetism/2020-q3.png                | Bin 1736179 -> 4390941 bytes
+ .../23_Electromagnetism/2022-q7.png                | Bin 1558698 -> 1110323 bytes
+ .../23_Electromagnetism/2022-q9.png                | Bin 670145 -> 315988 bytes
+ .../23_Electromagnetism/2023-q8.png                | Bin 2086724 -> 7045467 bytes
+ .../23_Electromagnetism/answers.pdf                | Bin 2444272 -> 2446153 bytes
+ .../23_Electromagnetism/performance.pdf            | Bin 22432 -> 22432 bytes
+ .../23_Electromagnetism/questions.pdf              | Bin 15561836 -> 6545893 bytes
+ .../24_Electromagnetic_Induction/2014-q9.png       | Bin 115667 -> 214769 bytes
+ .../24_Electromagnetic_Induction/2015-q9.png       | Bin 4194601 -> 11559203 bytes
+ .../24_Electromagnetic_Induction/2018-q9.png       | Bin 6069923 -> 11801847 bytes
+ .../24_Electromagnetic_Induction/2021-q7.png       | Bin 1336822 -> 246544 bytes
+ .../24_Electromagnetic_Induction/answers.pdf       | Bin 1549461 -> 1550560 bytes
+ .../24_Electromagnetic_Induction/performance.pdf   | Bin 15181 -> 15532 bytes
+ .../24_Electromagnetic_Induction/pp-q12.png        | Bin 2492163 -> 718406 bytes
+ .../24_Electromagnetic_Induction/pp-q13.png        | Bin 0 -> 1225542 bytes
+ .../24_Electromagnetic_Induction/pp-q6.png         | Bin 231996 -> 294623 bytes
+ .../24_Electromagnetic_Induction/pp-q7.png         | Bin 355490 -> 285158 bytes
+ .../24_Electromagnetic_Induction/questions.pdf     | Bin 15227253 -> 7558068 bytes
+ .../25_Radiation_and_Radioactivity/2026-q12.png    | Bin 2902735 -> 3108958 bytes
+ .../25_Radiation_and_Radioactivity/questions.pdf   | Bin 0 -> 651302 bytes
+ .../2013-q6.png                                    | Bin 1140136 -> 1124319 bytes
+ .../2013-q9.png                                    | Bin 724598 -> 980057 bytes
+ .../2014-q10.png                                   | Bin 1418528 -> 299700 bytes
+ .../2016-q9.png                                    | Bin 1694519 -> 2617941 bytes
+ .../2017-q10.png                                   | Bin 3431103 -> 1530595 bytes
+ .../2018-q10.png                                   | Bin 5851673 -> 11557508 bytes
+ .../2021-q9.png                                    | Bin 586531 -> 110943 bytes
+ .../2023-q9.png                                    | Bin 1812232 -> 4563920 bytes
+ .../2024-q12.png                                   | Bin 229465 -> 125110 bytes
+ .../2024-q13.png                                   | Bin 0 -> 104279 bytes
+ .../2025-q12.png                                   | Bin 5326944 -> 4926755 bytes
+ .../answers.pdf                                    | Bin 1986878 -> 1988161 bytes
+ .../performance.pdf                                | Bin 17498 -> 19110 bytes
+ .../pp-q14.png                                     | Bin 0 -> 323545 bytes
+ .../questions.pdf                                  | Bin 14523238 -> 6042974 bytes
+ .../27_Nuclear_Energy/2015-q10.png                 | Bin 4564917 -> 12496911 bytes
+ .../27_Nuclear_Energy/2016-q9.png                  | Bin 1694519 -> 2617941 bytes
+ .../27_Nuclear_Energy/2017-q10.png                 | Bin 3431103 -> 1530595 bytes
+ .../27_Nuclear_Energy/2019-q10.png                 | Bin 2602624 -> 5938700 bytes
+ .../27_Nuclear_Energy/2020-q10.png                 | Bin 1073375 -> 2541203 bytes
+ .../27_Nuclear_Energy/2022-q10.png                 | Bin 771859 -> 193436 bytes
+ .../27_Nuclear_Energy/2023-q9.png                  | Bin 1812232 -> 4563920 bytes
+ .../27_Nuclear_Energy/2026-q12.png                 | Bin 2902735 -> 3108958 bytes
+ .../27_Nuclear_Energy/answers.pdf                  | Bin 1682066 -> 1683769 bytes
+ .../27_Nuclear_Energy/performance.pdf              | Bin 18095 -> 18435 bytes
+ .../27_Nuclear_Energy/pp-q14.png                   | Bin 0 -> 323545 bytes
+ .../27_Nuclear_Energy/questions.pdf                | Bin 18664796 -> 8450370 bytes
+ classified/lq/classification.csv                   |  27 +-
+ classified/lq/llm_classifications.json             |  19 +
+ classified/lq/ocr_cache/2017/q10.txt               |  36 +-
+ classified/lq/ocr_cache/2024/q13.txt               |  40 +++
+ classified/lq/ocr_cache/pp/q13.txt                 |  33 ++
+ classified/lq/ocr_cache/pp/q14.txt                 |  26 ++
+ classified/lq_classification.csv                   |  27 +-
+ classified/lq_classification.json                  |  63 +++-
+ .../01_Temperature_and_Heat_Transfer/answer.pdf    | Bin 4028 -> 4028 bytes
+ .../01_Temperature_and_Heat_Transfer/combined.pdf  | Bin 1272024 -> 1273350 bytes
+ .../01_Heat_and_Gases/02_Heat_Capacity/answer.pdf  | Bin 3658 -> 3657 bytes
+ .../02_Heat_Capacity/combined.pdf                  | Bin 1163372 -> 1164491 bytes
+ .../03_Change_of_State/answer.pdf                  | Bin 4393 -> 4393 bytes
+ .../03_Change_of_State/combined.pdf                | Bin 1378494 -> 1380022 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/answer.pdf       | Bin 5309 -> 5310 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/combined.pdf     | Bin 1469686 -> 1471636 bytes
+ .../mc/02_Force_and_Motion/05_Motion/answer.pdf    | Bin 6747 -> 6745 bytes
+ .../mc/02_Force_and_Motion/05_Motion/combined.pdf  | Bin 1823360 -> 1825925 bytes
+ .../mc/02_Force_and_Motion/06_Force/answer.pdf     | Bin 8335 -> 8338 bytes
+ .../mc/02_Force_and_Motion/06_Force/combined.pdf   | Bin 3137781 -> 3141356 bytes
+ .../07_More_about_Forces/answer.pdf                | Bin 5492 -> 5488 bytes
+ .../07_More_about_Forces/combined.pdf              | Bin 2564322 -> 2566860 bytes
+ .../08_Work_Energy_and_Power/answer.pdf            | Bin 4591 -> 4587 bytes
+ .../08_Work_Energy_and_Power/combined.pdf          | Bin 1636262 -> 1638210 bytes
+ .../mc/02_Force_and_Motion/09_Momentum/answer.pdf  | Bin 5304 -> 5302 bytes
+ .../02_Force_and_Motion/09_Momentum/combined.pdf   | Bin 2291220 -> 2293361 bytes
+ .../10_Projectile_Motion/answer.pdf                | Bin 3516 -> 3517 bytes
+ .../10_Projectile_Motion/combined.pdf              | Bin 1069963 -> 1071283 bytes
+ .../11_Uniform_Circular_Motion/answer.pdf          | Bin 3136 -> 3139 bytes
+ .../11_Uniform_Circular_Motion/combined.pdf        | Bin 576734 -> 577865 bytes
+ .../02_Force_and_Motion/12_Gravitation/answer.pdf  | Bin 4045 -> 4040 bytes
+ .../12_Gravitation/combined.pdf                    | Bin 1122885 -> 1124434 bytes
+ .../mc/03A_Wave_Motion/13_Wave_Motion/answer.pdf   | Bin 6582 -> 6587 bytes
+ .../mc/03A_Wave_Motion/13_Wave_Motion/combined.pdf | Bin 3272195 -> 3275229 bytes
+ .../answer.pdf                                     | Bin 6405 -> 6405 bytes
+ .../combined.pdf                                   | Bin 2500665 -> 2503614 bytes
+ .../15_Interference_and_Stationary_Wave/answer.pdf | Bin 6774 -> 6767 bytes
+ .../combined.pdf                                   | Bin 2604062 -> 2607224 bytes
+ .../03A_Wave_Motion/16_Light_and_Sound/answer.pdf  | Bin 6222 -> 6206 bytes
+ .../16_Light_and_Sound/combined.pdf                | Bin 1830478 -> 1832255 bytes
+ .../17_Reflection_of_Light/answer.pdf              | Bin 2417 -> 2417 bytes
+ .../17_Reflection_of_Light/combined.pdf            | Bin 595567 -> 596670 bytes
+ .../18_Refraction_of_Light/answer.pdf              | Bin 3873 -> 3876 bytes
+ .../18_Refraction_of_Light/combined.pdf            | Bin 1118174 -> 1119915 bytes
+ classified/mc/03B_Ray_Optics/19_Lenses/answer.pdf  | Bin 5644 -> 5643 bytes
+ .../mc/03B_Ray_Optics/19_Lenses/combined.pdf       | Bin 2127797 -> 2130325 bytes
+ .../20_Electrostatics/answer.pdf                   | Bin 7078 -> 7083 bytes
+ .../20_Electrostatics/combined.pdf                 | Bin 2199647 -> 2202215 bytes
+ .../21_Circuit_and_Power/answer.pdf                | Bin 9577 -> 9579 bytes
+ .../21_Circuit_and_Power/combined.pdf              | Bin 3029419 -> 3033449 bytes
+ .../22_AC_and_Domestic_Electricity/answer.pdf      | Bin 6389 -> 6392 bytes
+ .../22_AC_and_Domestic_Electricity/combined.pdf    | Bin 1675114 -> 1677309 bytes
+ .../23_Electromagnetism/answer.pdf                 | Bin 6731 -> 6727 bytes
+ .../23_Electromagnetism/combined.pdf               | Bin 3123215 -> 3126592 bytes
+ .../24_Electromagnetic_Induction/answer.pdf        | Bin 6214 -> 6215 bytes
+ .../24_Electromagnetic_Induction/combined.pdf      | Bin 2788377 -> 2791142 bytes
+ .../25_Radiation_and_Radioactivity/answer.pdf      | Bin 4786 -> 4788 bytes
+ .../25_Radiation_and_Radioactivity/combined.pdf    | Bin 1181231 -> 1182995 bytes
+ .../answer.pdf                                     | Bin 4616 -> 4619 bytes
+ .../combined.pdf                                   | Bin 1040670 -> 1041863 bytes
+ .../27_Nuclear_Energy/answer.pdf                   | Bin 3867 -> 3866 bytes
+ .../27_Nuclear_Energy/combined.pdf                 | Bin 822677 -> 823998 bytes
+ output/2012/combined.pdf                           | Bin 3182020 -> 3179943 bytes
+ output/2013/combined.pdf                           | Bin 2964426 -> 2961765 bytes
+ output/2014/combined.pdf                           | Bin 2181520 -> 2184173 bytes
+ output/2015/combined.pdf                           | Bin 2673246 -> 2670288 bytes
+ output/2016/combined.pdf                           | Bin 1907077 -> 1909508 bytes
+ output/2017/combined.pdf                           | Bin 3152690 -> 3155899 bytes
+ output/2018/combined.pdf                           | Bin 3850314 -> 3845926 bytes
+ output/2019/combined.pdf                           | Bin 4880551 -> 4883882 bytes
+ output/2020/combined.pdf                           | Bin 3199617 -> 3202561 bytes
+ output/2021/combined.pdf                           | Bin 1681054 -> 1683642 bytes
+ output/2022/combined.pdf                           | Bin 2414661 -> 2417391 bytes
+ output/2023/combined.pdf                           | Bin 4191907 -> 4186773 bytes
+ output/2024/combined.pdf                           | Bin 2881038 -> 2883760 bytes
+ output/2025/combined.pdf                           | Bin 3044885 -> 3047619 bytes
+ output/2026/combined.pdf                           | Bin 3514951 -> 3517667 bytes
+ output/lq/2012/ans/combined.pdf                    | Bin 1245118 -> 1246444 bytes
+ output/lq/2012/combined.pdf                        | Bin 6145295 -> 4112379 bytes
+ output/lq/2012/questions.pdf                       | Bin 6142873 -> 3885991 bytes
+ output/lq/2012/starts.json                         |   4 +-
+ output/lq/2013/ans/combined.pdf                    | Bin 2147844 -> 2148947 bytes
+ output/lq/2013/combined.pdf                        | Bin 14180010 -> 5716636 bytes
+ output/lq/2013/q1.png                              | Bin 1375640 -> 1759205 bytes
+ output/lq/2013/q10.png                             | Bin 1531960 -> 2073189 bytes
+ output/lq/2013/q11.png                             | Bin 1009930 -> 1483045 bytes
+ output/lq/2013/q2.png                              | Bin 1141497 -> 1552463 bytes
+ output/lq/2013/q3.png                              | Bin 1361785 -> 1780361 bytes
+ output/lq/2013/q4.png                              | Bin 631349 -> 970216 bytes
+ output/lq/2013/q5.png                              | Bin 706093 -> 872251 bytes
+ output/lq/2013/q6.png                              | Bin 1140136 -> 1124319 bytes
+ output/lq/2013/q7.png                              | Bin 1367537 -> 2432679 bytes
+ output/lq/2013/q8.png                              | Bin 1047342 -> 1624128 bytes
+ output/lq/2013/q9.png                              | Bin 724598 -> 980057 bytes
+ output/lq/2013/questions.pdf                       | Bin 9895556 -> 5419794 bytes
+ output/lq/2013/starts.json                         |   4 +-
+ output/lq/2014/ans/combined.pdf                    | Bin 3871493 -> 3873544 bytes
+ output/lq/2014/combined.pdf                        | Bin 11746719 -> 1805187 bytes
+ output/lq/2014/q1.png                              | Bin 1211831 -> 305793 bytes
+ output/lq/2014/q10.png                             | Bin 1418528 -> 299700 bytes
+ output/lq/2014/q2.png                              | Bin 731673 -> 232922 bytes
+ output/lq/2014/q3.png                              | Bin 1185871 -> 272518 bytes
+ output/lq/2014/q4.png                              | Bin 1524289 -> 311491 bytes
+ output/lq/2014/q5.png                              | Bin 549292 -> 108431 bytes
+ output/lq/2014/q6.png                              | Bin 708931 -> 207275 bytes
+ output/lq/2014/q7.png                              | Bin 132107 -> 230831 bytes
+ output/lq/2014/q8.png                              | Bin 1057357 -> 235624 bytes
+ output/lq/2014/q9.png                              | Bin 115667 -> 214769 bytes
+ output/lq/2014/questions.pdf                       | Bin 7035112 -> 1688365 bytes
+ output/lq/2014/starts.json                         |  10 +-
+ output/lq/2015/ans/combined.pdf                    | Bin 2436837 -> 2438526 bytes
+ output/lq/2015/combined.pdf                        | Bin 46146752 -> 24446035 bytes
+ output/lq/2015/q1.png                              | Bin 3135507 -> 9640621 bytes
+ output/lq/2015/q10.png                             | Bin 4564917 -> 12496911 bytes
+ output/lq/2015/q2.png                              | Bin 1432989 -> 3631272 bytes
+ output/lq/2015/q3.png                              | Bin 2946303 -> 7998757 bytes
+ output/lq/2015/q4.png                              | Bin 2960142 -> 7706386 bytes
+ output/lq/2015/q5.png                              | Bin 3981504 -> 10624043 bytes
+ output/lq/2015/q6.png                              | Bin 5097531 -> 13436415 bytes
+ output/lq/2015/q7.png                              | Bin 3292934 -> 10627649 bytes
+ output/lq/2015/q8.png                              | Bin 3232887 -> 8044261 bytes
+ output/lq/2015/q9.png                              | Bin 4194601 -> 11559203 bytes
+ output/lq/2015/questions.pdf                       | Bin 35381867 -> 23476715 bytes
+ output/lq/2015/starts.json                         |   4 +-
+ output/lq/2016/ans/combined.pdf                    | Bin 2516826 -> 2518736 bytes
+ output/lq/2016/combined.pdf                        | Bin 18586099 -> 9198676 bytes
+ output/lq/2016/q1.png                              | Bin 994306 -> 1826601 bytes
+ output/lq/2016/q2.png                              | Bin 1447105 -> 2256571 bytes
+ output/lq/2016/q3.png                              | Bin 1216113 -> 2053552 bytes
+ output/lq/2016/q4.png                              | Bin 2183117 -> 3242161 bytes
+ output/lq/2016/q5.png                              | Bin 2522521 -> 6073150 bytes
+ output/lq/2016/q6.png                              | Bin 1270118 -> 2034061 bytes
+ output/lq/2016/q7.png                              | Bin 1839829 -> 2808525 bytes
+ output/lq/2016/q8.png                              | Bin 2569774 -> 3738615 bytes
+ output/lq/2016/q9.png                              | Bin 1694519 -> 2617941 bytes
+ output/lq/2016/questions.pdf                       | Bin 13746814 -> 8389249 bytes
+ output/lq/2016/starts.json                         |  10 +-
+ output/lq/2017/ans/combined.pdf                    | Bin 3453291 -> 3454543 bytes
+ output/lq/2017/combined.pdf                        | Bin 25939864 -> 4491256 bytes
+ output/lq/2017/q1.png                              | Bin 2580745 -> 3060451 bytes
+ output/lq/2017/q10.png                             | Bin 3431103 -> 1530595 bytes
+ output/lq/2017/q2.png                              | Bin 1129359 -> 1262540 bytes
+ output/lq/2017/q3.png                              | Bin 901999 -> 1275131 bytes
+ output/lq/2017/q4.png                              | Bin 2307681 -> 2728018 bytes
+ output/lq/2017/q5.png                              | Bin 1917195 -> 2324018 bytes
+ output/lq/2017/q6.png                              | Bin 1729015 -> 2194166 bytes
+ output/lq/2017/q7.png                              | Bin 1777224 -> 2190094 bytes
+ output/lq/2017/q8.png                              | Bin 2003169 -> 2842763 bytes
+ output/lq/2017/q9.png                              | Bin 2247462 -> 2709934 bytes
+ output/lq/2017/questions.pdf                       | Bin 20047665 -> 4193530 bytes
+ output/lq/2017/starts.json                         |  12 +-
+ output/lq/2018/ans/combined.pdf                    | Bin 4515209 -> 4516891 bytes
+ output/lq/2018/combined.pdf                        | Bin 83025954 -> 33012379 bytes
+ output/lq/2018/q1.png                              | Bin 3175219 -> 5735194 bytes
+ output/lq/2018/q10.png                             | Bin 5851673 -> 11557508 bytes
+ output/lq/2018/q2.png                              | Bin 2542458 -> 6000137 bytes
+ output/lq/2018/q3.png                              | Bin 6515247 -> 12680864 bytes
+ output/lq/2018/q4.png                              | Bin 5988194 -> 11647611 bytes
+ output/lq/2018/q5.png                              | Bin 5693275 -> 11756018 bytes
+ output/lq/2018/q6.png                              | Bin 6259169 -> 12025151 bytes
+ output/lq/2018/q7.png                              | Bin 5477047 -> 11189530 bytes
+ output/lq/2018/q8.png                              | Bin 5758599 -> 11261394 bytes
+ output/lq/2018/q9.png                              | Bin 6069923 -> 11801847 bytes
+ output/lq/2018/questions.pdf                       | Bin 54458742 -> 31114150 bytes
+ output/lq/2018/starts.json                         |   4 +-
+ output/lq/2019/ans/combined.pdf                    | Bin 3644680 -> 3646378 bytes
+ output/lq/2019/combined.pdf                        | Bin 30330937 -> 10790075 bytes
+ output/lq/2019/q1.png                              | Bin 2138709 -> 5881798 bytes
+ output/lq/2019/q10.png                             | Bin 2602624 -> 5938700 bytes
+ output/lq/2019/q2.png                              | Bin 2552056 -> 6392815 bytes
+ output/lq/2019/q3.png                              | Bin 3200633 -> 8002805 bytes
+ output/lq/2019/q4.png                              | Bin 2137131 -> 5375961 bytes
+ output/lq/2019/q5.png                              | Bin 1459716 -> 3444321 bytes
+ output/lq/2019/q6.png                              | Bin 1310692 -> 6806453 bytes
+ output/lq/2019/q7.png                              | Bin 1176127 -> 3262406 bytes
+ output/lq/2019/q8.png                              | Bin 2031714 -> 5089316 bytes
+ output/lq/2019/q9.png                              | Bin 2359821 -> 6769473 bytes
+ output/lq/2019/questions.pdf                       | Bin 21711477 -> 9800447 bytes
+ output/lq/2019/starts.json                         |  10 +-
+ output/lq/2020/ans/combined.pdf                    | Bin 1363569 -> 1365614 bytes
+ output/lq/2020/combined.pdf                        | Bin 17893826 -> 5886849 bytes
+ output/lq/2020/q1.png                              | Bin 1602455 -> 4358827 bytes
+ output/lq/2020/q10.png                             | Bin 1073375 -> 2541203 bytes
+ output/lq/2020/q2.png                              | Bin 2160028 -> 5745323 bytes
+ output/lq/2020/q3.png                              | Bin 1736179 -> 4390941 bytes
+ output/lq/2020/q4.png                              | Bin 1460031 -> 3834106 bytes
+ output/lq/2020/q5.png                              | Bin 940773 -> 2386075 bytes
+ output/lq/2020/q6.png                              | Bin 1191711 -> 2949285 bytes
+ output/lq/2020/q7.png                              | Bin 2134957 -> 5513707 bytes
+ output/lq/2020/q8.png                              | Bin 1550150 -> 4185393 bytes
+ output/lq/2020/q9.png                              | Bin 1499391 -> 3990551 bytes
+ output/lq/2020/questions.pdf                       | Bin 13787444 -> 5431786 bytes
+ output/lq/2020/starts.json                         |  12 +-
+ output/lq/2021/ans/combined.pdf                    | Bin 4244015 -> 4245463 bytes
+ output/lq/2021/combined.pdf                        | Bin 9767934 -> 1072920 bytes
+ output/lq/2021/q1.png                              | Bin 830671 -> 186465 bytes
+ output/lq/2021/q2.png                              | Bin 1199625 -> 229238 bytes
+ output/lq/2021/q3.png                              | Bin 1064776 -> 206923 bytes
+ output/lq/2021/q4.png                              | Bin 1484065 -> 278115 bytes
+ output/lq/2021/q5.png                              | Bin 867981 -> 226225 bytes
+ output/lq/2021/q6.png                              | Bin 1456697 -> 409022 bytes
+ output/lq/2021/q7.png                              | Bin 1336822 -> 246544 bytes
+ output/lq/2021/q8.png                              | Bin 535437 -> 103605 bytes
+ output/lq/2021/q9.png                              | Bin 586531 -> 110943 bytes
+ output/lq/2021/questions.pdf                       | Bin 7472681 -> 681679 bytes
+ output/lq/2021/starts.json                         |  10 +-
+ output/lq/2022/ans/combined.pdf                    | Bin 4344267 -> 4346357 bytes
+ output/lq/2022/combined.pdf                        | Bin 13977353 -> 1128128 bytes
+ output/lq/2022/q1.png                              | Bin 1376304 -> 917413 bytes
+ output/lq/2022/q10.png                             | Bin 771859 -> 193436 bytes
+ output/lq/2022/q2.png                              | Bin 1204406 -> 425273 bytes
+ output/lq/2022/q3.png                              | Bin 1171532 -> 851199 bytes
+ output/lq/2022/q4.png                              | Bin 729448 -> 563129 bytes
+ output/lq/2022/q5.png                              | Bin 1396839 -> 1050010 bytes
+ output/lq/2022/q6.png                              | Bin 1086974 -> 426739 bytes
+ output/lq/2022/q7.png                              | Bin 1558698 -> 1110323 bytes
+ output/lq/2022/q8.png                              | Bin 1092479 -> 530200 bytes
+ output/lq/2022/q9.png                              | Bin 670145 -> 315988 bytes
+ output/lq/2022/questions.pdf                       | Bin 9967229 -> 1061809 bytes
+ output/lq/2022/starts.json                         |  10 +-
+ output/lq/2023/ans/combined.pdf                    | Bin 1535291 -> 1537139 bytes
+ output/lq/2023/combined.pdf                        | Bin 23011513 -> 9881276 bytes
+ output/lq/2023/q1.png                              | Bin 1615209 -> 4396762 bytes
+ output/lq/2023/q2.png                              | Bin 1902127 -> 4683498 bytes
+ output/lq/2023/q3.png                              | Bin 2289475 -> 7059069 bytes
+ output/lq/2023/q4.png                              | Bin 1927235 -> 4810183 bytes
+ output/lq/2023/q5.png                              | Bin 1721819 -> 4764858 bytes
+ output/lq/2023/q6.png                              | Bin 3009213 -> 6995193 bytes
+ output/lq/2023/q7.png                              | Bin 1297697 -> 3384122 bytes
+ output/lq/2023/q8.png                              | Bin 2086724 -> 7045467 bytes
+ output/lq/2023/q9.png                              | Bin 1812232 -> 4563920 bytes
+ output/lq/2023/questions.pdf                       | Bin 17745011 -> 8967609 bytes
+ output/lq/2023/starts.json                         |  10 +-
+ output/lq/2024/ans/combined.pdf                    | Bin 1870681 -> 1872373 bytes
+ output/lq/2024/combined.pdf                        | Bin 1323286 -> 720339 bytes
+ output/lq/2024/q12.png                             | Bin 229465 -> 125110 bytes
+ output/lq/2024/q13.png                             | Bin 0 -> 104279 bytes
+ output/lq/2024/questions.pdf                       | Bin 1320555 -> 671637 bytes
+ output/lq/2024/starts.json                         |  12 +-
+ output/lq/2025/ans/combined.pdf                    | Bin 2627351 -> 2629297 bytes
+ output/lq/2025/combined.pdf                        | Bin 59447209 -> 8043105 bytes
+ output/lq/2025/q12.png                             | Bin 5326944 -> 4926755 bytes
+ output/lq/2025/questions.pdf                       | Bin 59440050 -> 7452103 bytes
+ output/lq/2025/starts.json                         |  10 +-
+ output/lq/2026/combined.pdf                        | Bin 22593667 -> 5890816 bytes
+ output/lq/2026/q1.png                              | Bin 390119 -> 1516589 bytes
+ output/lq/2026/q10.png                             | Bin 2980338 -> 3582639 bytes
+ output/lq/2026/q11.png                             | Bin 2803714 -> 3408723 bytes
+ output/lq/2026/q12.png                             | Bin 2902735 -> 3108958 bytes
+ output/lq/2026/q2.png                              | Bin 1577807 -> 2887409 bytes
+ output/lq/2026/q3.png                              | Bin 1564569 -> 2187144 bytes
+ output/lq/2026/q4.png                              | Bin 1813538 -> 2390859 bytes
+ output/lq/2026/q5.png                              | Bin 1349138 -> 1602389 bytes
+ output/lq/2026/q6.png                              | Bin 1152847 -> 1430795 bytes
+ output/lq/2026/q7.png                              | Bin 1592276 -> 1892028 bytes
+ output/lq/2026/q8.png                              | Bin 1683717 -> 2455219 bytes
+ output/lq/2026/q9.png                              | Bin 1122800 -> 1785960 bytes
+ output/lq/2026/questions.pdf                       | Bin 17536352 -> 5537887 bytes
+ output/lq/2026/starts.json                         |  10 +-
+ output/lq/pp/combined.pdf                          | Bin 7165077 -> 1223272 bytes
+ output/lq/pp/q1.png                                | Bin 163614 -> 247309 bytes
+ output/lq/pp/q10.png                               | Bin 240112 -> 299701 bytes
+ output/lq/pp/q11.png                               | Bin 355653 -> 457355 bytes
+ output/lq/pp/q12.png                               | Bin 2492163 -> 718406 bytes
+ output/lq/pp/q13.png                               | Bin 0 -> 1225542 bytes
+ output/lq/pp/q14.png                               | Bin 0 -> 323545 bytes
+ output/lq/pp/q2.png                                | Bin 208156 -> 271072 bytes
+ output/lq/pp/q3.png                                | Bin 211516 -> 265942 bytes
+ output/lq/pp/q4.png                                | Bin 183978 -> 435000 bytes
+ output/lq/pp/q5.png                                | Bin 163945 -> 220575 bytes
+ output/lq/pp/q6.png                                | Bin 231996 -> 294623 bytes
+ output/lq/pp/q7.png                                | Bin 355490 -> 285158 bytes
+ output/lq/pp/q8.png                                | Bin 697231 -> 447366 bytes
+ output/lq/pp/q9.png                                | Bin 747650 -> 708141 bytes
+ output/lq/pp/questions.pdf                         | Bin 5696175 -> 1205581 bytes
+ output/lq/pp/starts.json                           |  18 +-
+ output/pp/combined.pdf                             | Bin 1373778 -> 1376814 bytes
+ output/sap/combined.pdf                            | Bin 1706423 -> 1709253 bytes
+ scripts/classify_mc_llm.py                         |   2 +-
+ scripts/combine_lq_section_pdfs.py                 |  66 ++--
+ scripts/combine_section_pdfs.py                    |  58 +--
+ scripts/crop_lq_from_pages.py                      | 140 ++++++--
+ scripts/formula_sheet.py                           | 242 +++++++++++++
+ scripts/lq_pdf_review.py                           | 235 +++++++++++++
+ scripts/png_pdf.py                                 | 211 ++++++++++-
+ scripts/preprocess_lq.py                           |  30 +-
+ scripts/preprocess_mc.py                           |   7 +-
+ segment                                            |   6 +-
+ tests/test_combined_pdf_a4.py                      | 288 +++++++++++++++
+ tests/test_lq_whole_pages.py                       | 388 +++++++++++++++++++++
+ 686 files changed, 1893 insertions(+), 228 deletions(-)
+====NAME====
+M	.cursor/rules/combined-png-pdf.mdc
+M	.lavish/lq-classified-review/data.json
+M	.lavish/lq-classified-review/img/2012-q1.png
+M	.lavish/lq-classified-review/img/2012-q10.png
+M	.lavish/lq-classified-review/img/2012-q11.png
+M	.lavish/lq-classified-review/img/2012-q2.png
+M	.lavish/lq-classified-review/img/2012-q3.png
+M	.lavish/lq-classified-review/img/2012-q4.png
+M	.lavish/lq-classified-review/img/2012-q5.png
+M	.lavish/lq-classified-review/img/2012-q6.png
+M	.lavish/lq-classified-review/img/2012-q7.png
+M	.lavish/lq-classified-review/img/2012-q8.png
+M	.lavish/lq-classified-review/img/2012-q9.png
+M	.lavish/lq-classified-review/img/2013-q1.png
+M	.lavish/lq-classified-review/img/2013-q10.png
+M	.lavish/lq-classified-review/img/2013-q11.png
+M	.lavish/lq-classified-review/img/2013-q2.png
+M	.lavish/lq-classified-review/img/2013-q3.png
+M	.lavish/lq-classified-review/img/2013-q4.png
+M	.lavish/lq-classified-review/img/2013-q5.png
+M	.lavish/lq-classified-review/img/2013-q6.png
+M	.lavish/lq-classified-review/img/2013-q7.png
+M	.lavish/lq-classified-review/img/2013-q8.png
+M	.lavish/lq-classified-review/img/2013-q9.png
+M	.lavish/lq-classified-review/img/2014-q1.png
+M	.lavish/lq-classified-review/img/2014-q10.png
+M	.lavish/lq-classified-review/img/2014-q2.png
+M	.lavish/lq-classified-review/img/2014-q3.png
+M	.lavish/lq-classified-review/img/2014-q4.png
+M	.lavish/lq-classified-review/img/2014-q5.png
+M	.lavish/lq-classified-review/img/2014-q6.png
+M	.lavish/lq-classified-review/img/2014-q7.png
+M	.lavish/lq-classified-review/img/2014-q8.png
+M	.lavish/lq-classified-review/img/2014-q9.png
+M	.lavish/lq-classified-review/img/2015-q1.png
+M	.lavish/lq-classified-review/img/2015-q10.png
+M	.lavish/lq-classified-review/img/2015-q2.png
+M	.lavish/lq-classified-review/img/2015-q3.png
+M	.lavish/lq-classified-review/img/2015-q4.png
+M	.lavish/lq-classified-review/img/2015-q5.png
+M	.lavish/lq-classified-review/img/2015-q6.png
+M	.lavish/lq-classified-review/img/2015-q7.png
+M	.lavish/lq-classified-review/img/2015-q8.png
+M	.lavish/lq-classified-review/img/2015-q9.png
+M	.lavish/lq-classified-review/img/2016-q1.png
+M	.lavish/lq-classified-review/img/2016-q2.png
+M	.lavish/lq-classified-review/img/2016-q3.png
+M	.lavish/lq-classified-review/img/2016-q4.png
+M	.lavish/lq-classified-review/img/2016-q5.png
+M	.lavish/lq-classified-review/img/2016-q6.png
+M	.lavish/lq-classified-review/img/2016-q7.png
+M	.lavish/lq-classified-review/img/2016-q8.png
+M	.lavish/lq-classified-review/img/2016-q9.png
+M	.lavish/lq-classified-review/img/2017-q1.png
+M	.lavish/lq-classified-review/img/2017-q10.png
+M	.lavish/lq-classified-review/img/2017-q2.png
+M	.lavish/lq-classified-review/img/2017-q3.png
+M	.lavish/lq-classified-review/img/2017-q4.png
+M	.lavish/lq-classified-review/img/2017-q5.png
+M	.lavish/lq-classified-review/img/2017-q6.png
+M	.lavish/lq-classified-review/img/2017-q7.png
+M	.lavish/lq-classified-review/img/2017-q8.png
+M	.lavish/lq-classified-review/img/2017-q9.png
+M	.lavish/lq-classified-review/img/2018-q1.png
+M	.lavish/lq-classified-review/img/2018-q10.png
+M	.lavish/lq-classified-review/img/2018-q2.png
+M	.lavish/lq-classified-review/img/2018-q3.png
+M	.lavish/lq-classified-review/img/2018-q4.png
+M	.lavish/lq-classified-review/img/2018-q5.png
+M	.lavish/lq-classified-review/img/2018-q6.png
+M	.lavish/lq-classified-review/img/2018-q7.png
+M	.lavish/lq-classified-review/img/2018-q8.png
+M	.lavish/lq-classified-review/img/2018-q9.png
+M	.lavish/lq-classified-review/img/2019-q1.png
+M	.lavish/lq-classified-review/img/2019-q10.png
+M	.lavish/lq-classified-review/img/2019-q2.png
+M	.lavish/lq-classified-review/img/2019-q3.png
+M	.lavish/lq-classified-review/img/2019-q4.png
+M	.lavish/lq-classified-review/img/2019-q5.png
+M	.lavish/lq-classified-review/img/2019-q6.png
+M	.lavish/lq-classified-review/img/2019-q7.png
+M	.lavish/lq-classified-review/img/2019-q8.png
+M	.lavish/lq-classified-review/img/2019-q9.png
+M	.lavish/lq-classified-review/img/2020-q1.png
+M	.lavish/lq-classified-review/img/2020-q10.png
+M	.lavish/lq-classified-review/img/2020-q2.png
+M	.lavish/lq-classified-review/img/2020-q3.png
+M	.lavish/lq-classified-review/img/2020-q4.png
+M	.lavish/lq-classified-review/img/2020-q5.png
+M	.lavish/lq-classified-review/img/2020-q6.png
+M	.lavish/lq-classified-review/img/2020-q7.png
+M	.lavish/lq-classified-review/img/2020-q8.png
+M	.lavish/lq-classified-review/img/2020-q9.png
+M	.lavish/lq-classified-review/img/2021-q1.png
+M	.lavish/lq-classified-review/img/2021-q2.png
+M	.lavish/lq-classified-review/img/2021-q3.png
+M	.lavish/lq-classified-review/img/2021-q4.png
+M	.lavish/lq-classified-review/img/2021-q5.png
+M	.lavish/lq-classified-review/img/2021-q6.png
+M	.lavish/lq-classified-review/img/2021-q7.png
+M	.lavish/lq-classified-review/img/2021-q8.png
+M	.lavish/lq-classified-review/img/2021-q9.png
+M	.lavish/lq-classified-review/img/2022-q1.png
+M	.lavish/lq-classified-review/img/2022-q10.png
+M	.lavish/lq-classified-review/img/2022-q2.png
+M	.lavish/lq-classified-review/img/2022-q3.png
+M	.lavish/lq-classified-review/img/2022-q4.png
+M	.lavish/lq-classified-review/img/2022-q5.png
+M	.lavish/lq-classified-review/img/2022-q6.png
+M	.lavish/lq-classified-review/img/2022-q7.png
+M	.lavish/lq-classified-review/img/2022-q8.png
+M	.lavish/lq-classified-review/img/2022-q9.png
+M	.lavish/lq-classified-review/img/2023-q1.png
+M	.lavish/lq-classified-review/img/2023-q2.png
+M	.lavish/lq-classified-review/img/2023-q3.png
+M	.lavish/lq-classified-review/img/2023-q4.png
+M	.lavish/lq-classified-review/img/2023-q5.png
+M	.lavish/lq-classified-review/img/2023-q6.png
+M	.lavish/lq-classified-review/img/2023-q7.png
+M	.lavish/lq-classified-review/img/2023-q8.png
+M	.lavish/lq-classified-review/img/2023-q9.png
+M	.lavish/lq-classified-review/img/2024-q1.png
+M	.lavish/lq-classified-review/img/2024-q10.png
+M	.lavish/lq-classified-review/img/2024-q11.png
+M	.lavish/lq-classified-review/img/2024-q12.png
+A	.lavish/lq-classified-review/img/2024-q13.png
+M	.lavish/lq-classified-review/img/2024-q2.png
+M	.lavish/lq-classified-review/img/2024-q3.png
+M	.lavish/lq-classified-review/img/2024-q4.png
+M	.lavish/lq-classified-review/img/2024-q5.png
+M	.lavish/lq-classified-review/img/2024-q6.png
+M	.lavish/lq-classified-review/img/2024-q7.png
+M	.lavish/lq-classified-review/img/2024-q8.png
+M	.lavish/lq-classified-review/img/2024-q9.png
+M	.lavish/lq-classified-review/img/2025-q1.png
+M	.lavish/lq-classified-review/img/2025-q10.png
+M	.lavish/lq-classified-review/img/2025-q11.png
+M	.lavish/lq-classified-review/img/2025-q12.png
+M	.lavish/lq-classified-review/img/2025-q2.png
+M	.lavish/lq-classified-review/img/2025-q3.png
+M	.lavish/lq-classified-review/img/2025-q4.png
+M	.lavish/lq-classified-review/img/2025-q5.png
+M	.lavish/lq-classified-review/img/2025-q6.png
+M	.lavish/lq-classified-review/img/2025-q7.png
+M	.lavish/lq-classified-review/img/2025-q8.png
+M	.lavish/lq-classified-review/img/2025-q9.png
+M	.lavish/lq-classified-review/img/2026-q1.png
+M	.lavish/lq-classified-review/img/2026-q10.png
+M	.lavish/lq-classified-review/img/2026-q11.png
+M	.lavish/lq-classified-review/img/2026-q12.png
+M	.lavish/lq-classified-review/img/2026-q2.png
+M	.lavish/lq-classified-review/img/2026-q3.png
+M	.lavish/lq-classified-review/img/2026-q4.png
+M	.lavish/lq-classified-review/img/2026-q5.png
+M	.lavish/lq-classified-review/img/2026-q6.png
+M	.lavish/lq-classified-review/img/2026-q7.png
+M	.lavish/lq-classified-review/img/2026-q8.png
+M	.lavish/lq-classified-review/img/2026-q9.png
+M	.lavish/lq-classified-review/img/pp-q1.png
+M	.lavish/lq-classified-review/img/pp-q10.png
+M	.lavish/lq-classified-review/img/pp-q11.png
+M	.lavish/lq-classified-review/img/pp-q12.png
+A	.lavish/lq-classified-review/img/pp-q13.png
+A	.lavish/lq-classified-review/img/pp-q14.png
+M	.lavish/lq-classified-review/img/pp-q2.png
+M	.lavish/lq-classified-review/img/pp-q3.png
+M	.lavish/lq-classified-review/img/pp-q4.png
+M	.lavish/lq-classified-review/img/pp-q5.png
+M	.lavish/lq-classified-review/img/pp-q6.png
+M	.lavish/lq-classified-review/img/pp-q7.png
+M	.lavish/lq-classified-review/img/pp-q8.png
+M	.lavish/lq-classified-review/img/pp-q9.png
+M	.lavish/lq-classified-review/index.html
+M	AGENTS.md
+M	README.md
+M	classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/2013-q2.png
+M	classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/2022-q1.png
+M	classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/answers.pdf
+M	classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/performance.pdf
+M	classified/lq/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/questions.pdf
+M	classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2013-q1.png
+M	classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2014-q1.png
+M	classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2016-q1.png
+M	classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2018-q1.png
+M	classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2019-q1.png
+M	classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2020-q1.png
+M	classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2021-q1.png
+M	classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2023-q1.png
+M	classified/lq/01_Heat_and_Gases/02_Heat_Capacity/answers.pdf
+M	classified/lq/01_Heat_and_Gases/02_Heat_Capacity/performance.pdf
+M	classified/lq/01_Heat_and_Gases/02_Heat_Capacity/questions.pdf
+M	classified/lq/01_Heat_and_Gases/03_Change_of_State/2015-q1.png
+M	classified/lq/01_Heat_and_Gases/03_Change_of_State/2019-q1.png
+M	classified/lq/01_Heat_and_Gases/03_Change_of_State/2021-q1.png
+M	classified/lq/01_Heat_and_Gases/03_Change_of_State/2026-q1.png
+M	classified/lq/01_Heat_and_Gases/03_Change_of_State/answers.pdf
+M	classified/lq/01_Heat_and_Gases/03_Change_of_State/performance.pdf
+M	classified/lq/01_Heat_and_Gases/03_Change_of_State/questions.pdf
+M	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2015-q2.png
+M	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2016-q2.png
+M	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2017-q3.png
+M	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2018-q2.png
+M	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2019-q2.png
+M	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2020-q2.png
+M	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2022-q2.png
+M	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2023-q2.png
+M	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2026-q2.png
+M	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2026-q9.png
+M	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/answers.pdf
+M	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/performance.pdf
+M	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/pp-q1.png
+M	classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/questions.pdf
+M	classified/lq/02_Force_and_Motion/05_Motion/2014-q3.png
+M	classified/lq/02_Force_and_Motion/05_Motion/2015-q4.png
+M	classified/lq/02_Force_and_Motion/05_Motion/2016-q3.png
+M	classified/lq/02_Force_and_Motion/05_Motion/2017-q6.png
+M	classified/lq/02_Force_and_Motion/05_Motion/2023-q3.png
+M	classified/lq/02_Force_and_Motion/05_Motion/2026-q11.png
+M	classified/lq/02_Force_and_Motion/05_Motion/answers.pdf
+M	classified/lq/02_Force_and_Motion/05_Motion/performance.pdf
+M	classified/lq/02_Force_and_Motion/05_Motion/pp-q10.png
+M	classified/lq/02_Force_and_Motion/05_Motion/pp-q4.png
+M	classified/lq/02_Force_and_Motion/05_Motion/pp-q9.png
+M	classified/lq/02_Force_and_Motion/05_Motion/questions.pdf
+M	classified/lq/02_Force_and_Motion/06_Force/2014-q4.png
+M	classified/lq/02_Force_and_Motion/06_Force/2015-q5.png
+M	classified/lq/02_Force_and_Motion/06_Force/2016-q4.png
+M	classified/lq/02_Force_and_Motion/06_Force/2017-q1.png
+M	classified/lq/02_Force_and_Motion/06_Force/2017-q5.png
+M	classified/lq/02_Force_and_Motion/06_Force/2020-q5.png
+M	classified/lq/02_Force_and_Motion/06_Force/2022-q3.png
+M	classified/lq/02_Force_and_Motion/06_Force/answers.pdf
+M	classified/lq/02_Force_and_Motion/06_Force/performance.pdf
+M	classified/lq/02_Force_and_Motion/06_Force/questions.pdf
+M	classified/lq/02_Force_and_Motion/07_More_about_Forces/2014-q2.png
+M	classified/lq/02_Force_and_Motion/07_More_about_Forces/2018-q5.png
+M	classified/lq/02_Force_and_Motion/07_More_about_Forces/answers.pdf
+M	classified/lq/02_Force_and_Motion/07_More_about_Forces/performance.pdf
+M	classified/lq/02_Force_and_Motion/07_More_about_Forces/questions.pdf
+M	classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2013-q5.png
+M	classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2018-q3.png
+M	classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2021-q3.png
+M	classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/2026-q4.png
+M	classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/answers.pdf
+M	classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/performance.pdf
+M	classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/pp-q2.png
+M	classified/lq/02_Force_and_Motion/08_Work_Energy_and_Power/questions.pdf
+M	classified/lq/02_Force_and_Motion/09_Momentum/2017-q2.png
+M	classified/lq/02_Force_and_Motion/09_Momentum/2018-q4.png
+M	classified/lq/02_Force_and_Motion/09_Momentum/2026-q3.png
+M	classified/lq/02_Force_and_Motion/09_Momentum/answers.pdf
+M	classified/lq/02_Force_and_Motion/09_Momentum/performance.pdf
+M	classified/lq/02_Force_and_Motion/09_Momentum/questions.pdf
+M	classified/lq/02_Force_and_Motion/10_Projectile_Motion/answers.pdf
+M	classified/lq/02_Force_and_Motion/10_Projectile_Motion/performance.pdf
+M	classified/lq/02_Force_and_Motion/10_Projectile_Motion/pp-q3.png
+M	classified/lq/02_Force_and_Motion/10_Projectile_Motion/questions.pdf
+M	classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/2019-q4.png
+M	classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/2023-q4.png
+M	classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/answers.pdf
+M	classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/performance.pdf
+M	classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/questions.pdf
+M	classified/lq/03A_Wave_Motion/13_Wave_Motion/2016-q6.png
+M	classified/lq/03A_Wave_Motion/13_Wave_Motion/2017-q6.png
+M	classified/lq/03A_Wave_Motion/13_Wave_Motion/2026-q5.png
+M	classified/lq/03A_Wave_Motion/13_Wave_Motion/answers.pdf
+M	classified/lq/03A_Wave_Motion/13_Wave_Motion/performance.pdf
+M	classified/lq/03A_Wave_Motion/13_Wave_Motion/pp-q5.png
+M	classified/lq/03A_Wave_Motion/13_Wave_Motion/questions.pdf
+M	classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/2014-q7.png
+M	classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/2018-q7.png
+M	classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/2019-q5.png
+M	classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/answers.pdf
+M	classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/performance.pdf
+M	classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/questions.pdf
+M	classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/2013-q7.png
+M	classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/2015-q7.png
+M	classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/2026-q5.png
+M	classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/answers.pdf
+M	classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/performance.pdf
+M	classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/questions.pdf
+M	classified/lq/03A_Wave_Motion/16_Light_and_Sound/2020-q6.png
+M	classified/lq/03A_Wave_Motion/16_Light_and_Sound/2021-q2.png
+M	classified/lq/03A_Wave_Motion/16_Light_and_Sound/2022-q6.png
+M	classified/lq/03A_Wave_Motion/16_Light_and_Sound/2023-q5.png
+M	classified/lq/03A_Wave_Motion/16_Light_and_Sound/2026-q6.png
+M	classified/lq/03A_Wave_Motion/16_Light_and_Sound/answers.pdf
+M	classified/lq/03A_Wave_Motion/16_Light_and_Sound/performance.pdf
+M	classified/lq/03A_Wave_Motion/16_Light_and_Sound/questions.pdf
+M	classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2014-q5.png
+M	classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2015-q6.png
+M	classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2017-q7.png
+M	classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2020-q7.png
+M	classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2021-q6.png
+M	classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2023-q6.png
+M	classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2026-q10.png
+M	classified/lq/03B_Ray_Optics/18_Refraction_of_Light/answers.pdf
+M	classified/lq/03B_Ray_Optics/18_Refraction_of_Light/performance.pdf
+M	classified/lq/03B_Ray_Optics/18_Refraction_of_Light/questions.pdf
+M	classified/lq/03B_Ray_Optics/19_Lenses/2013-q8.png
+M	classified/lq/03B_Ray_Optics/19_Lenses/2014-q6.png
+M	classified/lq/03B_Ray_Optics/19_Lenses/2015-q6.png
+M	classified/lq/03B_Ray_Optics/19_Lenses/2016-q5.png
+M	classified/lq/03B_Ray_Optics/19_Lenses/2018-q6.png
+M	classified/lq/03B_Ray_Optics/19_Lenses/2019-q6.png
+M	classified/lq/03B_Ray_Optics/19_Lenses/2021-q6.png
+M	classified/lq/03B_Ray_Optics/19_Lenses/2022-q5.png
+M	classified/lq/03B_Ray_Optics/19_Lenses/answers.pdf
+M	classified/lq/03B_Ray_Optics/19_Lenses/performance.pdf
+M	classified/lq/03B_Ray_Optics/19_Lenses/questions.pdf
+M	classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/2013-q11.png
+M	classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/2016-q8.png
+M	classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/2020-q9.png
+M	classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/2026-q7.png
+M	classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/answers.pdf
+M	classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/performance.pdf
+M	classified/lq/04_Electricity_and_Magnetism/20_Electrostatics/questions.pdf
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2013-q10.png
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2013-q3.png
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2015-q3.png
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2015-q8.png
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2016-q7.png
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2017-q4.png
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2017-q8.png
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2019-q3.png
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2019-q7.png
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2020-q4.png
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2021-q4.png
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2021-q5.png
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2021-q8.png
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2022-q4.png
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2022-q8.png
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2023-q7.png
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2026-q8.png
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/answers.pdf
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/performance.pdf
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/pp-q11.png
+M	classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/questions.pdf
+M	classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2014-q8.png
+M	classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2018-q8.png
+M	classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2019-q8.png
+M	classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2020-q8.png
+M	classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/answers.pdf
+M	classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/performance.pdf
+M	classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/pp-q8.png
+M	classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/questions.pdf
+M	classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2013-q4.png
+M	classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2017-q9.png
+M	classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2019-q9.png
+M	classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2020-q3.png
+M	classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2022-q7.png
+M	classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2022-q9.png
+M	classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2023-q8.png
+M	classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/answers.pdf
+M	classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/performance.pdf
+M	classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/questions.pdf
+M	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/2014-q9.png
+M	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/2015-q9.png
+M	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/2018-q9.png
+M	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/2021-q7.png
+M	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/answers.pdf
+M	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/performance.pdf
+M	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/pp-q12.png
+A	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/pp-q13.png
+M	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/pp-q6.png
+M	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/pp-q7.png
+M	classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/questions.pdf
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/2026-q12.png
+A	classified/lq/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/questions.pdf
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2013-q6.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2013-q9.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2014-q10.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2016-q9.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2017-q10.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2018-q10.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2021-q9.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2023-q9.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2024-q12.png
+A	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2024-q13.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2025-q12.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/answers.pdf
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/performance.pdf
+A	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/pp-q14.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/questions.pdf
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2015-q10.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2016-q9.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2017-q10.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2019-q10.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2020-q10.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2022-q10.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2023-q9.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2026-q12.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/answers.pdf
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/performance.pdf
+A	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/pp-q14.png
+M	classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/questions.pdf
+M	classified/lq/classification.csv
+M	classified/lq/llm_classifications.json
+M	classified/lq/ocr_cache/2017/q10.txt
+A	classified/lq/ocr_cache/2024/q13.txt
+A	classified/lq/ocr_cache/pp/q13.txt
+A	classified/lq/ocr_cache/pp/q14.txt
+M	classified/lq_classification.csv
+M	classified/lq_classification.json
+M	classified/mc/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/answer.pdf
+M	classified/mc/01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/combined.pdf
+M	classified/mc/01_Heat_and_Gases/02_Heat_Capacity/answer.pdf
+M	classified/mc/01_Heat_and_Gases/02_Heat_Capacity/combined.pdf
+M	classified/mc/01_Heat_and_Gases/03_Change_of_State/answer.pdf
+M	classified/mc/01_Heat_and_Gases/03_Change_of_State/combined.pdf
+M	classified/mc/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/answer.pdf
+M	classified/mc/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/combined.pdf
+M	classified/mc/02_Force_and_Motion/05_Motion/answer.pdf
+M	classified/mc/02_Force_and_Motion/05_Motion/combined.pdf
+M	classified/mc/02_Force_and_Motion/06_Force/answer.pdf
+M	classified/mc/02_Force_and_Motion/06_Force/combined.pdf
+M	classified/mc/02_Force_and_Motion/07_More_about_Forces/answer.pdf
+M	classified/mc/02_Force_and_Motion/07_More_about_Forces/combined.pdf
+M	classified/mc/02_Force_and_Motion/08_Work_Energy_and_Power/answer.pdf
+M	classified/mc/02_Force_and_Motion/08_Work_Energy_and_Power/combined.pdf
+M	classified/mc/02_Force_and_Motion/09_Momentum/answer.pdf
+M	classified/mc/02_Force_and_Motion/09_Momentum/combined.pdf
+M	classified/mc/02_Force_and_Motion/10_Projectile_Motion/answer.pdf
+M	classified/mc/02_Force_and_Motion/10_Projectile_Motion/combined.pdf
+M	classified/mc/02_Force_and_Motion/11_Uniform_Circular_Motion/answer.pdf
+M	classified/mc/02_Force_and_Motion/11_Uniform_Circular_Motion/combined.pdf
+M	classified/mc/02_Force_and_Motion/12_Gravitation/answer.pdf
+M	classified/mc/02_Force_and_Motion/12_Gravitation/combined.pdf
+M	classified/mc/03A_Wave_Motion/13_Wave_Motion/answer.pdf
+M	classified/mc/03A_Wave_Motion/13_Wave_Motion/combined.pdf
+M	classified/mc/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/answer.pdf
+M	classified/mc/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/combined.pdf
+M	classified/mc/03A_Wave_Motion/15_Interference_and_Stationary_Wave/answer.pdf
+M	classified/mc/03A_Wave_Motion/15_Interference_and_Stationary_Wave/combined.pdf
+M	classified/mc/03A_Wave_Motion/16_Light_and_Sound/answer.pdf
+M	classified/mc/03A_Wave_Motion/16_Light_and_Sound/combined.pdf
+M	classified/mc/03B_Ray_Optics/17_Reflection_of_Light/answer.pdf
+M	classified/mc/03B_Ray_Optics/17_Reflection_of_Light/combined.pdf
+M	classified/mc/03B_Ray_Optics/18_Refraction_of_Light/answer.pdf
+M	classified/mc/03B_Ray_Optics/18_Refraction_of_Light/combined.pdf
+M	classified/mc/03B_Ray_Optics/19_Lenses/answer.pdf
+M	classified/mc/03B_Ray_Optics/19_Lenses/combined.pdf
+M	classified/mc/04_Electricity_and_Magnetism/20_Electrostatics/answer.pdf
+M	classified/mc/04_Electricity_and_Magnetism/20_Electrostatics/combined.pdf
+M	classified/mc/04_Electricity_and_Magnetism/21_Circuit_and_Power/answer.pdf
+M	classified/mc/04_Electricity_and_Magnetism/21_Circuit_and_Power/combined.pdf
+M	classified/mc/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/answer.pdf
+M	classified/mc/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/combined.pdf
+M	classified/mc/04_Electricity_and_Magnetism/23_Electromagnetism/answer.pdf
+M	classified/mc/04_Electricity_and_Magnetism/23_Electromagnetism/combined.pdf
+M	classified/mc/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/answer.pdf
+M	classified/mc/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/combined.pdf
+M	classified/mc/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/answer.pdf
+M	classified/mc/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/combined.pdf
+M	classified/mc/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/answer.pdf
+M	classified/mc/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/combined.pdf
+M	classified/mc/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/answer.pdf
+M	classified/mc/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/combined.pdf
+M	output/2012/combined.pdf
+M	output/2013/combined.pdf
+M	output/2014/combined.pdf
+M	output/2015/combined.pdf
+M	output/2016/combined.pdf
+M	output/2017/combined.pdf
+M	output/2018/combined.pdf
+M	output/2019/combined.pdf
+M	output/2020/combined.pdf
+M	output/2021/combined.pdf
+M	output/2022/combined.pdf
+M	output/2023/combined.pdf
+M	output/2024/combined.pdf
+M	output/2025/combined.pdf
+M	output/2026/combined.pdf
+M	output/lq/2012/ans/combined.pdf
+M	output/lq/2012/combined.pdf
+M	output/lq/2012/questions.pdf
+M	output/lq/2012/starts.json
+M	output/lq/2013/ans/combined.pdf
+M	output/lq/2013/combined.pdf
+M	output/lq/2013/q1.png
+M	output/lq/2013/q10.png
+M	output/lq/2013/q11.png
+M	output/lq/2013/q2.png
+M	output/lq/2013/q3.png
+M	output/lq/2013/q4.png
+M	output/lq/2013/q5.png
+M	output/lq/2013/q6.png
+M	output/lq/2013/q7.png
+M	output/lq/2013/q8.png
+M	output/lq/2013/q9.png
+M	output/lq/2013/questions.pdf
+M	output/lq/2013/starts.json
+M	output/lq/2014/ans/combined.pdf
+M	output/lq/2014/combined.pdf
+M	output/lq/2014/q1.png
+M	output/lq/2014/q10.png
+M	output/lq/2014/q2.png
+M	output/lq/2014/q3.png
+M	output/lq/2014/q4.png
+M	output/lq/2014/q5.png
+M	output/lq/2014/q6.png
+M	output/lq/2014/q7.png
+M	output/lq/2014/q8.png
+M	output/lq/2014/q9.png
+M	output/lq/2014/questions.pdf
+M	output/lq/2014/starts.json
+M	output/lq/2015/ans/combined.pdf
+M	output/lq/2015/combined.pdf
+M	output/lq/2015/q1.png
+M	output/lq/2015/q10.png
+M	output/lq/2015/q2.png
+M	output/lq/2015/q3.png
+M	output/lq/2015/q4.png
+M	output/lq/2015/q5.png
+M	output/lq/2015/q6.png
+M	output/lq/2015/q7.png
+M	output/lq/2015/q8.png
+M	output/lq/2015/q9.png
+M	output/lq/2015/questions.pdf
+M	output/lq/2015/starts.json
+M	output/lq/2016/ans/combined.pdf
+M	output/lq/2016/combined.pdf
+M	output/lq/2016/q1.png
+M	output/lq/2016/q2.png
+M	output/lq/2016/q3.png
+M	output/lq/2016/q4.png
+M	output/lq/2016/q5.png
+M	output/lq/2016/q6.png
+M	output/lq/2016/q7.png
+M	output/lq/2016/q8.png
+M	output/lq/2016/q9.png
+M	output/lq/2016/questions.pdf
+M	output/lq/2016/starts.json
+M	output/lq/2017/ans/combined.pdf
+M	output/lq/2017/combined.pdf
+M	output/lq/2017/q1.png
+M	output/lq/2017/q10.png
+M	output/lq/2017/q2.png
+M	output/lq/2017/q3.png
+M	output/lq/2017/q4.png
+M	output/lq/2017/q5.png
+M	output/lq/2017/q6.png
+M	output/lq/2017/q7.png
+M	output/lq/2017/q8.png
+M	output/lq/2017/q9.png
+M	output/lq/2017/questions.pdf
+M	output/lq/2017/starts.json
+M	output/lq/2018/ans/combined.pdf
+M	output/lq/2018/combined.pdf
+M	output/lq/2018/q1.png
+M	output/lq/2018/q10.png
+M	output/lq/2018/q2.png
+M	output/lq/2018/q3.png
+M	output/lq/2018/q4.png
+M	output/lq/2018/q5.png
+M	output/lq/2018/q6.png
+M	output/lq/2018/q7.png
+M	output/lq/2018/q8.png
+M	output/lq/2018/q9.png
+M	output/lq/2018/questions.pdf
+M	output/lq/2018/starts.json
+M	output/lq/2019/ans/combined.pdf
+M	output/lq/2019/combined.pdf
+M	output/lq/2019/q1.png
+M	output/lq/2019/q10.png
+M	output/lq/2019/q2.png
+M	output/lq/2019/q3.png
+M	output/lq/2019/q4.png
+M	output/lq/2019/q5.png
+M	output/lq/2019/q6.png
+M	output/lq/2019/q7.png
+M	output/lq/2019/q8.png
+M	output/lq/2019/q9.png
+M	output/lq/2019/questions.pdf
+M	output/lq/2019/starts.json
+M	output/lq/2020/ans/combined.pdf
+M	output/lq/2020/combined.pdf
+M	output/lq/2020/q1.png
+M	output/lq/2020/q10.png
+M	output/lq/2020/q2.png
+M	output/lq/2020/q3.png
+M	output/lq/2020/q4.png
+M	output/lq/2020/q5.png
+M	output/lq/2020/q6.png
+M	output/lq/2020/q7.png
+M	output/lq/2020/q8.png
+M	output/lq/2020/q9.png
+M	output/lq/2020/questions.pdf
+M	output/lq/2020/starts.json
+M	output/lq/2021/ans/combined.pdf
+M	output/lq/2021/combined.pdf
+M	output/lq/2021/q1.png
+M	output/lq/2021/q2.png
+M	output/lq/2021/q3.png
+M	output/lq/2021/q4.png
+M	output/lq/2021/q5.png
+M	output/lq/2021/q6.png
+M	output/lq/2021/q7.png
+M	output/lq/2021/q8.png
+M	output/lq/2021/q9.png
+M	output/lq/2021/questions.pdf
+M	output/lq/2021/starts.json
+M	output/lq/2022/ans/combined.pdf
+M	output/lq/2022/combined.pdf
+M	output/lq/2022/q1.png
+M	output/lq/2022/q10.png
+M	output/lq/2022/q2.png
+M	output/lq/2022/q3.png
+M	output/lq/2022/q4.png
+M	output/lq/2022/q5.png
+M	output/lq/2022/q6.png
+M	output/lq/2022/q7.png
+M	output/lq/2022/q8.png
+M	output/lq/2022/q9.png
+M	output/lq/2022/questions.pdf
+M	output/lq/2022/starts.json
+M	output/lq/2023/ans/combined.pdf
+M	output/lq/2023/combined.pdf
+M	output/lq/2023/q1.png
+M	output/lq/2023/q2.png
+M	output/lq/2023/q3.png
+M	output/lq/2023/q4.png
+M	output/lq/2023/q5.png
+M	output/lq/2023/q6.png
+M	output/lq/2023/q7.png
+M	output/lq/2023/q8.png
+M	output/lq/2023/q9.png
+M	output/lq/2023/questions.pdf
+M	output/lq/2023/starts.json
+M	output/lq/2024/ans/combined.pdf
+M	output/lq/2024/combined.pdf
+M	output/lq/2024/q12.png
+A	output/lq/2024/q13.png
+M	output/lq/2024/questions.pdf
+M	output/lq/2024/starts.json
+M	output/lq/2025/ans/combined.pdf
+M	output/lq/2025/combined.pdf
+M	output/lq/2025/q12.png
+M	output/lq/2025/questions.pdf
+M	output/lq/2025/starts.json
+M	output/lq/2026/combined.pdf
+M	output/lq/2026/q1.png
+M	output/lq/2026/q10.png
+M	output/lq/2026/q11.png
+M	output/lq/2026/q12.png
+M	output/lq/2026/q2.png
+M	output/lq/2026/q3.png
+M	output/lq/2026/q4.png
+M	output/lq/2026/q5.png
+M	output/lq/2026/q6.png
+M	output/lq/2026/q7.png
+M	output/lq/2026/q8.png
+M	output/lq/2026/q9.png
+M	output/lq/2026/questions.pdf
+M	output/lq/2026/starts.json
+M	output/lq/pp/combined.pdf
+M	output/lq/pp/q1.png
+M	output/lq/pp/q10.png
+M	output/lq/pp/q11.png
+M	output/lq/pp/q12.png
+A	output/lq/pp/q13.png
+A	output/lq/pp/q14.png
+M	output/lq/pp/q2.png
+M	output/lq/pp/q3.png
+M	output/lq/pp/q4.png
+M	output/lq/pp/q5.png
+M	output/lq/pp/q6.png
+M	output/lq/pp/q7.png
+M	output/lq/pp/q8.png
+M	output/lq/pp/q9.png
+M	output/lq/pp/questions.pdf
+M	output/lq/pp/starts.json
+M	output/pp/combined.pdf
+M	output/sap/combined.pdf
+M	scripts/classify_mc_llm.py
+M	scripts/combine_lq_section_pdfs.py
+M	scripts/combine_section_pdfs.py
+M	scripts/crop_lq_from_pages.py
+A	scripts/formula_sheet.py
+A	scripts/lq_pdf_review.py
+M	scripts/png_pdf.py
+M	scripts/preprocess_lq.py
+M	scripts/preprocess_mc.py
+M	segment
+A	tests/test_combined_pdf_a4.py
+M	tests/test_lq_whole_pages.py

@@ -1,0 +1,20 @@
+---
+pid: 94144
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && ./segment paper/2012p1a.pdf output/2012 --type mc 2>&1 | tail -5"
+title: "Segment 2012 with fixed pipeline"
+status: succeeded
+started_at: 2026-09-01T08:54:39.866Z
+running_for_ms: 139552   
+---
+Wrote 36 questions to /Users/sinchunyeung/github/paper2db/output/2012 (from original PDF)
+Paper type: MC (2012p1a.pdf)
+=== MC step 1/2: anchor questions ===
+=== MC step 2/2: split into PNGs ===
+Wrote 36 questions -> /Users/sinchunyeung/github/paper2db/output/2012
+
+---
+exit_code: 0
+elapsed_ms: 139552
+ended_at: 2026-09-01T08:56:59.418Z
+---

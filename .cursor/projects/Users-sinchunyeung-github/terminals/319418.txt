@@ -1,0 +1,19 @@
+---
+pid: 73403
+cwd: "/Users/sinchunyeung/github/dotfiles"
+command: "kill 66272; sleep 1; cd /Users/sinchunyeung/github/simplification-of-trajectory-streams/web && python3 server.py"
+title: "Restart Flask server with streaming code"
+status: failed   
+started_at: 2026-08-30T14:31:22.618Z
+running_for_ms: 1912     
+---
+Traceback (most recent call last):
+  File "/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/server.py", line 15, in <module>
+    from flask import Flask, request, jsonify, send_from_directory, Response
+ModuleNotFoundError: No module named 'flask'
+
+---
+exit_code: 1
+elapsed_ms: 1909
+ended_at: 2026-08-30T14:31:24.527Z
+---

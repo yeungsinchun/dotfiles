@@ -1,0 +1,16 @@
+---
+pid: 92572
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes"
+command: "cd /Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes && (node --test notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs > /tmp/p2n-test-ch1.log 2>&1; echo \"CH1 EXIT $?\" >> /tmp/p2n-test-ch1.log; node --test notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.interactives.test.mjs > /tmp/p2n-test-ch2.log 2>&1; echo \"CH2 EXIT $?\" >> /tmp/p2n-test-ch2.log) &\necho started"
+title: "Run Ch1 and Ch2 Chrome tests in background"
+status: succeeded
+started_at: 2026-09-15T02:46:25.186Z
+running_for_ms: 5239     
+---
+started
+
+---
+exit_code: 0
+elapsed_ms: 5211
+ended_at: 2026-09-15T02:46:30.397Z
+---

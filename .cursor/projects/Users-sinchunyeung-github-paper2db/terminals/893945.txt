@@ -1,0 +1,81 @@
+---
+pid: 3368
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && for y in 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2023; do\n  src=\"answer/${y}ans.pdf\"\n  [ -f \"$src\" ] || continue\n  echo \"==== $y ====\"\n  .venv/bin/python scripts/preprocess_lq_answers.py \"$src\" \"output/lq/$y/ans\" 2>&1 | tail -5\ndone\n"
+title: "Re-crop all year answer schemes"
+status: succeeded
+started_at: 2026-09-05T02:06:04.433Z
+running_for_ms: 169504   
+---
+==== 2012 ====
+  Wrote q9.png (1126x992)
+  Wrote q10.png (1166x913)
+  Wrote q11.png (1180x522)
+Wrote output/lq/2012/ans/combined.pdf (9 pages)
+Wrote 9 answer crops -> output/lq/2012/ans
+==== 2013 ====
+  Wrote q5.png (1191x2554)
+  Wrote q9.png (1182x450)
+  Wrote q10.png (1191x2411)
+Wrote output/lq/2013/ans/combined.pdf (5 pages)
+Wrote 5 answer crops -> output/lq/2013/ans
+==== 2014 ====
+  Wrote q8.png (1191x1498)
+  Wrote q9.png (1191x1401)
+  Wrote q10.png (1191x1403)
+Wrote output/lq/2014/ans/combined.pdf (9 pages)
+Wrote 9 answer crops -> output/lq/2014/ans
+==== 2015 ====
+  Wrote q7.png (1152x2841)
+  Wrote q9.png (1118x1385)
+  Wrote q10.png (1130x1426)
+Wrote output/lq/2015/ans/combined.pdf (8 pages)
+Wrote 8 answer crops -> output/lq/2015/ans
+==== 2016 ====
+  Wrote q7.png (1180x1440)
+  Wrote q8.png (1167x1436)
+  Wrote q9.png (1163x1102)
+Wrote output/lq/2016/ans/combined.pdf (9 pages)
+Wrote 9 answer crops -> output/lq/2016/ans
+==== 2017 ====
+  Wrote q7.png (1191x2850)
+  Wrote q9.png (1191x1437)
+  Wrote q10.png (1191x1400)
+Wrote output/lq/2017/ans/combined.pdf (6 pages)
+Wrote 6 answer crops -> output/lq/2017/ans
+==== 2018 ====
+  include answer page 6/6 (1191x1684)
+  detected answers Q3-Q3 (1)
+  Wrote q3.png (1152x2604)
+Wrote output/lq/2018/ans/combined.pdf (1 pages)
+Wrote 1 answer crops -> output/lq/2018/ans
+==== 2019 ====
+  Wrote q8.png (1021x729)
+  Wrote q9.png (1032x854)
+  Wrote q10.png (1022x975)
+Wrote output/lq/2019/ans/combined.pdf (7 pages)
+Wrote 7 answer crops -> output/lq/2019/ans
+==== 2020 ====
+  Wrote q8.png (4198x5667)
+  Wrote q9.png (4173x3458)
+  Wrote q10.png (4167x1633)
+Wrote output/lq/2020/ans/combined.pdf (9 pages)
+Wrote 9 answer crops -> output/lq/2020/ans
+==== 2021 ====
+  Wrote q3.png (1203x3031)
+  Wrote q5.png (1202x5897)
+  Wrote q9.png (1203x7438)
+Wrote output/lq/2021/ans/combined.pdf (4 pages)
+Wrote 4 answer crops -> output/lq/2021/ans
+==== 2023 ====
+  Wrote q6.png (1129x2861)
+  Wrote q8.png (1118x1455)
+  Wrote q9.png (1106x1415)
+Wrote output/lq/2023/ans/combined.pdf (7 pages)
+Wrote 7 answer crops -> output/lq/2023/ans
+
+---
+exit_code: 0
+elapsed_ms: 169495
+ended_at: 2026-09-05T02:08:53.928Z
+---

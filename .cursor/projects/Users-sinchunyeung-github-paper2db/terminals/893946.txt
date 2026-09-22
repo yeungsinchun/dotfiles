@@ -1,0 +1,42 @@
+---
+pid: 4587
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python - <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nfrom preprocess_lq_answers import *\nimport pymupdf as fitz\n\ndef debug(year):\n  doc=fitz.open(f'answer/{year}ans.pdf')\n  pages=[]; section_b=False; seen_a=False\n  for index in range(len(doc)):\n    image=render_page(doc[index],2.0)\n    if not section_b:\n      if is_section_a_keys(image):\n        seen_a=True; continue\n      if looks_like_section_b(image) or seen_a:\n        section_b=True\n      else:\n        continue\n    elif is_paper_2_page(image):\n      print(f'{year}: stop paper2 at pdf {index+1}')\n      break\n    pages.append(image)\n  cands=[]\n  for pi,im in enumerate(pages):\n    ys=find_main_question_ys(im,12)\n    if ys: print(f'  pageidx {pi}: {ys}')\n    for qn,y in ys: cands.append((qn,pi,int(y)))\n  print(f'{year}: starts', longest_question_chain(cands,12))\n  doc.close()\n\nfor y in [2013,2017,2018,2021]:\n  print('====',y)\n  debug(y)\nPY\n"
+title: "Debug answer detection regressions"
+status: succeeded
+started_at: 2026-09-05T02:09:13.129Z
+running_for_ms: 39427    
+---
+==== 2013
+2013: stop paper2 at pdf 8
+  pageidx 0: [(2, 512), (4, 1537)]
+  pageidx 1: [(4, 157), (5, 453)]
+  pageidx 3: [(9, 153), (10, 612)]
+  pageidx 4: [(10, 0)]
+2013: starts [(2, 0, 512), (4, 0, 1537), (5, 1, 453), (9, 3, 153), (10, 3, 612)]
+==== 2017
+2017: stop paper2 at pdf 10
+  pageidx 0: [(1, 211), (2, 755)]
+  pageidx 2: [(5, 150)]
+  pageidx 4: [(7, 180)]
+  pageidx 6: [(9, 178)]
+  pageidx 7: [(10, 186)]
+2017: starts [(1, 0, 211), (2, 0, 755), (5, 2, 150), (7, 4, 180), (9, 6, 178), (10, 7, 186)]
+==== 2018
+  pageidx 0: [(3, 400)]
+2018: starts [(3, 0, 400)]
+==== 2021
+  pageidx 0: [(1, 147)]
+  pageidx 2: [(3, 78)]
+  pageidx 4: [(5, 160)]
+  pageidx 8: [(9, 184)]
+  pageidx 10: [(1, 101), (5, 202), (2, 265)]
+  pageidx 11: [(2, 111), (5, 170)]
+  pageidx 12: [(1, 59), (5, 118), (4, 230)]
+2021: starts [(1, 0, 147), (3, 2, 78), (5, 4, 160), (9, 8, 184)]
+
+---
+exit_code: 0
+elapsed_ms: 39426
+ended_at: 2026-09-05T02:09:52.555Z
+---

@@ -1,0 +1,1463 @@
+==================== ch1.pdf ====================
+2.3.1      Compulsory Part (184 hours)
+
+
+I       Heat and Gases (23 hours)
+
+Overview
+
+This topic examines the concept of thermal energy and transfer processes which are crucial
+for the maintenance and quality of our lives. Particular attention is placed on the distinction
+and relationships among temperature, internal energy and energy transfer. Students are also
+encouraged to adopt microscopic interpretations of various important concepts in the topic of
+thermal physics.
+
+
+Calculations involving specific heat capacity will serve to complement the theoretical aspects
+of heat and energy transfer. The practical importance of the high specific heat capacity of
+water can be illustrated with examples close to the experience of students. A study of
+conduction, convection and radiation provides a basis for analysing the containment of
+internal energy and transfer of energy related to heat. The physics involving the change of
+states is examined and numerical problems involving specific latent heat are used to
+consolidate the theoretical aspects of energy conversion.
+
+
+The ideal gas law relating the pressure, temperature and volume of an ideal gas was originally
+derived from the experimentally measured Charles’ law and Boyle’s law. Many common
+gases exhibit behaviour very close to that of an ideal gas at ambient temperature and pressure.
+The ideal gas law is a good approximation for studying the properties of gases because it does
+not deviate much from the ways that real gases behave. The kinetic theory of gases is
+intended to correlate temperature to the kinetic energy of gas molecules and interpret pressure
+in terms of the motion of gas molecules.
+
+
+
+
+                                              18
+Students should
+                         Students should be able to:
+learn:
+a.   Temperature,
+     heat and
+     internal energy
+
+
+     temperature and        realise temperature as the degree of hotness of an object
+     thermometers           interpret temperature as a quantity associated with the average kinetic
+                             energy due to the random motion of molecules in a system
+                            explain the use of temperature-dependent properties in measuring
+                             temperature
+                            define and use degree Celsius as a unit of temperature
+
+
+     heat and               realise that heat is the energy transferred as a result of the temperature
+     internal energy         difference between two objects
+                            describe the effect of mass, temperature and state of matter on the
+                             internal energy of a system
+                            relate internal energy to the sum of the kinetic energy of random motion
+                             and the potential energy of molecules in the system
+
+
+                                                           Q                                     Q
+     heat capacity and      define heat capacity as C       and specific heat capacity as c 
+                                                           T                                   mT
+     specific heat
+                            determine the specific heat capacity of a substance
+     capacity
+                            discuss the practical importance of the high specific heat capacity of
+                             water
+                            solve problems involving heat capacity and specific heat capacity
+
+
+b.   Transfer
+     processes
+
+
+     conduction,            identify the means of energy transfer in terms of conduction, convection
+     convection and          and radiation
+     radiation              interpret energy transfer by conduction in terms of molecular motion
+                            realise the emission of infra-red radiation by hot objects
+                            determine the factors affecting the emission and absorption of radiation
+
+
+
+
+                                                    19
+Students should
+                       Students should be able to:
+learn:
+c.   Change of state
+
+
+     melting and          state the three states of matter
+     freezing,            determine the melting point and boiling point
+     boiling and
+     condensing
+
+
+     latent heat          realise latent heat as the energy transferred during the change of state
+                           without temperature change
+                          interpret latent heat in terms of the change of potential energy of the
+                           molecules during a change of state
+                                                                            Q
+                          define specific latent heat of fusion as  f 
+                                                                            m
+                                                                                  Q
+                          define specific latent heat of vaporization as  v 
+                                                                                  m
+                          solve problems involving latent heat
+
+
+     evaporation          realise the occurrence of evaporation below boiling point
+                          explain the cooling effect of evaporation
+                          discuss the factors affecting rate of evaporation
+                          explain evaporation in terms of molecular motion
+
+
+d.   Gases
+
+
+     general gas law      realise the existence of gas pressure
+                          verify Boyle’s law
+                          determine pressure-temperature and volume-temperature relationships
+                           of a gas
+                          determine absolute zero by the extrapolation of pressure-temperature or
+                           volume-temperature relationships
+                          use kelvin as a unit of temperature
+                          combine the three relationships (p-V, p-T and V-T) of a gas to
+                                                   pV
+                           obtain the relationship     constant
+                                                   T
+                          apply the general gas law pV= nRT to solve problems
+
+
+     kinetic theory       realise the random motion of molecules in a gas
+                          realise the gas pressure resulted from molecular bombardment
+                          interpret gas expansion in terms of molecular motion
+
+
+
+                                                  20
+Students should
+                         Students should be able to:
+learn:
+                            state the assumptions of the kinetic model of an ideal gas
+
+                                              Nmc 2
+                            realize pV            that connects micropic and macroscopic quantities
+                                               3
+
+                             of an ideal gas and solve problems
+
+                                                                                           3RT
+                            interpret temperature of an ideal gas using K .E. average 
+                                                                                           2N A
+
+                            realise the condition that at high temperature and low pressure a real gas
+                             behaves as an ideal gas
+                            solve problems involving kinetic theory
+
+
+(Note: The underlined text represents the extension component)
+
+
+
+
+Suggested Learning and Teaching Activities
+
+Students should develop experimental skills in measuring temperature, volume, pressure and
+energy of a gas. The precautions essential for accurate measurements in heat experiments
+should be understood in terms of the concepts learned in this topic. Students should also be
+encouraged to suggest their own methods for improving the accuracy of these experiments,
+and arrangement for performing these investigations should be made, if feasible. In some of
+the experiments, a prior knowledge of electrical energy may be required for a solid
+understanding of the energy transfer processes involved.
+
+
+Considerable emphasis is given to the importance of graphical representations of physical
+phenomena in this topic. Students should learn how to plot graphs with suitable choices of
+scales, display experimental results graphically and interpret, analyse and draw conclusions
+from graphical information. In particular, they should learn to extrapolate the trends of the
+graphs to determine the absolute zero of the temperature. Students should be able to plan
+and interpret information from different types of data sources. Most experiments and
+investigations will produce a set of results which can readily be compared with data in
+textbooks and handbooks.
+
+
+Possible learning activities that students may engage in are suggested below for reference:
+  Studying the random motion of molecules inside a smoke cell using a microscope and
+   video camera
+
+
+                                                    21
+   Performing an experiment to show how to measure temperature using a device with
+    temperature-dependent properties
+   Calibrating a thermometer
+   Reproducing fixed points on the Celsius scale
+   Performing experiments to determine specific heat capacity and latent heat
+   Measuring the specific latent heat of fusion of water (e.g. using a domestic electric boiler,
+    heating an ice-water mixture in a composite container, or using an ice calorimeter)
+   Performing experiments to study the cooling curve of a substance and determine its
+    melting point
+   Performing experiments to study the relationship among volume, pressure and
+    temperature of a gas
+   Determining factors affecting the rate of evaporation
+   Feeling the sensation of coldness by touching a few substances in the kitchen and
+    clarifying some misconceptions that may arise from their daily experience
+   Studying conduction, convection, radiation, the greenhouse effect and heat capacity by
+    designing and constructing a solar cooker
+   Challenging their preconceived ideas on energy transfer through appropriate competitions
+    (e.g. attaining a temperature closest to 4oC by mixing a soft drink with ice)
+   Using dimension analysis to check the results of mathematical solutions
+   Investigating the properties of a gas using simulations or modelling
+   Reading articles on heat stroke and discussing heat stroke precautions and care
+
+
+
+Values and Attitudes
+
+Students should develop positive values and attitudes through studying this topic. Some
+particular examples are:
+
+
+   to be aware of the proper use of heat-related domestic appliances as this helps to reduce
+    the cost of electricity and contributes to the worthwhile cause of saving energy
+   to be aware of the large amount of energy associated with the transfer of heat and to
+    develop good habits in using air-conditioning in summer and heating in winter
+   to develop an interest in using alternative environmentally friendly energy sources such as
+    solar and geothermal energy
+   to be aware of the importance of home safety in relation to the use of radiation heaters
+    and to be committed to safe practices in daily life
+
+
+
+
+                                               22
+STSE connections
+
+Students are encouraged to develop an awareness and understanding of issues associated with
+the interconnections among science, technology, society and the environment. Some
+examples of such issues related to this topic are:
+
+
+   the importance of greenhouses in agriculture and the environmental issues of the
+    “greenhouse effect”
+   debates on the gradual rise in global temperature due to human activities, the associated
+    potential global hazards due to the melting of the polar ice caps and the effects on the
+    world’s agricultural production
+   projects, such as the “Design of Solar Cooker”, to develop investigation skills as well as
+    foster the concept of using alternative environmentally friendly energy sources
+
+
+
+
+                                              23
+
+
+==================== ch2.pdf ====================
+II     Force and Motion (50 hours)
+
+Overview
+
+Motion is a common phenomenon in our daily experience. It is an important element in
+physics where students learn to describe how objects move and investigate why objects move
+in the way that they do. In this topic, the fundamentals of mechanics in kinematics and
+dynamics are introduced, and the foundation for describing motion with physics terminology
+is laid. Various types of graphical representation of motion are studied. Students learn
+how to analyse different forms of motion and solve simple problems relating to uniformly
+accelerated motion. They also learn about motion in one or two dimensions and rules
+governing the motion of objects on Earth.
+
+The concept of inertia and its relation to Newton’s First Law of motion are covered. Simple
+addition and resolution of forces are used to illustrate the vector properties of forces.
+Free-body diagrams are used to work out the net force acting on a body. Newton’s Second
+Law of motion, which relates the acceleration of an object to the net force, is examined.
+The concepts of mass, weight and gravitational force are introduced. Newton’s Third Law
+of motion is related to the nature of forces. The study of motion is extended to two
+dimensions, including projectile motion and circular motion which lead to an investigation of
+gravitation.
+
+
+Work is a process of energy transfer. The concepts of mechanical work done and energy
+transfer are examined and used in the derivation of kinetic energy and gravitational potential
+energy. Conservation of energy in a closed system is a fundamental concept in physics.
+The treatment of energy conversion is used to illustrate the law of conservation of energy,
+and the concept of power is also introduced. Students learn how to compute quantities such
+as momentum and energy in examples involving collisions. The relationship among the
+change in the momentum of a body, impact time and impact force is emphasised.
+
+
+
+
+                                             24
+Students should learn:        Students should be able to:
+
+
+a.   Position and movement
+
+
+     position, distance and      describe the change of position of objects in terms of distance
+     displacement                 and displacement
+                                 present information on displacement-time graphs for moving
+                                  objects
+
+
+     scalars and vectors         distinguish between scalar and vector quantities
+                                 use scalars and vectors to represent physical quantities
+
+
+     speed and velocity          define average speed as the distance travelled in a given period
+                                  of time and average velocity as the displacement changed in a
+                                  period of time
+                                 distinguish between instantaneous and average speed/velocity
+                                 describe the motion of objects in terms of speed and velocity
+                                 present information on velocity-time graphs for moving objects
+                                 use displacement-time and velocity-time graphs to determine
+                                  the displacement and velocity of objects
+
+
+     uniform motion              interpret the uniform motion of objects using algebraic and
+                                  graphical methods
+                                 solve problems involving displacement, time and velocity
+
+
+     acceleration                define acceleration as the rate of change of velocity
+                                 use velocity-time graphs to determine the acceleration of
+                                  objects in uniformly accelerated motion
+                                 present information on acceleration-time graphs for moving
+                                  objects
+
+
+     equations of uniformly      derive equations of uniformly accelerated motion
+     accelerated motion                v  u  at
+                                       s  12 (u  v )t
+                                       s  ut  12 at 2
+                                       v 2  u 2  2as
+                                 solve problems involving objects in uniformly accelerated
+                                  motion
+
+
+
+                                               25
+Students should learn:         Students should be able to:
+
+
+     vertical motion under        examine the motion of free-falling objects experimentally and
+     gravity                       estimate the acceleration due to gravity
+                                  present graphically information on vertical motions under
+                                   gravity
+                                  apply equations of uniformly accelerated motion to solve
+                                   problems involving objects in vertical motion
+                                  describe the effect of air resistance on the motion of objects
+                                   falling under gravity
+
+
+b.   Force and motion
+
+
+     Newton’s First Law           describe the meaning of inertia and its relationship to mass
+     of motion                    state Newton’s First Law of motion and use it to explain
+                                   situations in which objects are at rest or in uniform motion
+                                  understand friction as a force opposing motion/tendency of
+                                   motion
+
+
+     addition and resolution      find the vector sum of coplanar forces graphically and
+     of forces                     algebraically
+                                  resolve a force graphically and algebraically into components
+                                   along two mutually perpendicular directions
+
+
+     Newton’s Second Law          describe the effect of a net force on the speed and/or direction
+     of motion                     of motion of an object
+                                  state Newton’s Second Law of motion and verify F = ma
+                                   experimentally
+                                  use newton as a unit of force
+                                  use free-body diagrams to show the forces acting on objects
+                                  determine the net force acting on object(s)
+                                  apply Newton’s Second Law of motion to solve problems
+                                   involving motion in one dimension
+
+
+     Newton’s Third Law           realise forces acting in pairs
+     of motion                    state Newton’s Third Law of motion and identify action and
+                                   reaction pair of forces
+
+
+
+
+                                                   26
+Students should learn:           Students should be able to:
+
+
+     mass and weight                distinguish between mass and weight
+                                    realise the relationship between mass and weight
+
+
+     moment of a force              define moment of a force as the product of the force and its
+                                     perpendicular distance from the pivot
+                                    discuss the uses of torques and couples
+                                    state the conditions for equilibrium of forces acting on a rigid
+                                     body and solve problems involving a fixed pivot
+                                    interpret the centre of gravity and determine it experimentally
+
+
+c.   Projectile motion              describe the shape of the path taken by a projectile launched at
+                                     an angle of projection
+                                    understand the independence of horizontal and vertical motions
+                                    solve problems involving projectile motion
+
+
+d.   Work, energy and
+     power
+
+
+     mechanical work                interpret mechanical work as a way of energy transfer
+                                    define mechanical work done W = Fs cos
+                                    solve problems involving mechanical work
+
+
+     gravitational potential        state that gravitational potential energy is the energy possessed by
+     energy (P.E.)                   an object due to its position under gravity
+                                    derive P.E. = mgh
+                                    solve problems involving gravitational potential energy
+
+
+     kinetic energy (K.E.)          state that kinetic energy is the energy possessed by an object due
+                                     to its motion
+                                    derive K.E. = ½ mv 2
+                                    solve problems involving kinetic energy
+
+
+     law of conservation of         state the law of conservation of energy
+     energy in a closed system      discuss the inter-conversion of P.E. and K.E. with consideration
+                                     of energy loss
+                                    solve problems involving conservation of energy
+
+
+                                                     27
+Students should learn:            Students should be able to:
+
+
+     power                           define power as the rate of energy transfer
+                                                W
+                                     apply P      to solve problems
+                                                t
+
+
+e.   Momentum
+
+
+     linear momentum                 realise momentum as a quantity of motion of an object and
+                                      define momentum p = mv
+
+
+     change in momentum and          understand that a net force acting on an object for a period of
+     net force                        time results a change in momentum
+                                     interpret force as the rate of change of momentum (Newton’s
+                                      Second Law of motion)
+
+
+     law of conservation of          state the law of conservation of momentum and relate it to
+     momentum                         Newton’s Third Law of motion
+                                     distinguish between elastic and inelastic collisions
+                                     solve problems involving momentum in one dimension
+
+
+f.   Uniform circular motion         define angular velocity as the rate of change of angular
+                                      displacement and relate it to linear velocity
+                                                                         v2
+                                     state centripetal acceleration a     and apply it to solve problem
+                                                                          r
+                                      involving uniform circular motion
+                                     realise the resultant force pointing towards the centre of
+                                      uniform circular motion
+
+                                                                                         GMm
+g.   Gravitation                     state Newton' s law of universal gravitation F 
+                                                                                          r2
+                                     define gravitational field strength as force per unit mass
+                                     determine the gravitational field strength at a point above a
+                                      planet
+                                     determine the velocity of an object in a circular orbit
+                                     solve problems involving gravitation
+
+(Note: The underlined text represents the extension component)
+
+
+
+
+                                                   28
+Suggested Learning and Teaching Activities
+
+
+Students should develop experimental skills in measuring time and in recording the positions,
+velocities and accelerations of objects using various types of measuring instruments such as
+stop watches and data logging sensors. Skills in measuring masses, weights and forces are
+also required. Data-handling skills such as converting data of displacement and time into
+information on velocity or acceleration are important. Students may be encouraged to carry
+out project-type investigations on the motion of vehicles. Considerable emphasis is placed
+on the importance of graphical representations of physical phenomena in this topic.
+Students should learn how to plot graphs with a suitable choice of scale, display experimental
+results in graphical forms and interpret, analyse and draw conclusions from graphical
+information. In particular, they should learn to interpret the physical significances of slopes,
+intercepts and areas in certain graphs. Students should be able to plan and interpret
+information from different types of data source. Most experiments and investigations will
+produce a set of results which may readily be compared with data in textbooks and
+handbooks.
+
+Possible learning activities that students may engage in are suggested below for reference:
+
+   Performing experiments on motion and forces (e.g. using ticker-tape timers, multi-flash
+    photography, video motion analysis and data loggers) and a graphical analysis of the
+    results
+       Using light gates or motion sensors to measure the speed and acceleration of a moving
+        object
+       Inferring the relationships among acceleration, velocity, displacement and time from a
+        graphical analysis of empirical data for uniformly accelerated motion
+       Using light gates or motion sensors to measure the acceleration due to gravity
+       Using light gates or motion sensors to determine the factors affecting acceleration
+       Using force and motion sensors to determine the relationship among force, mass and
+        acceleration
+       Using multi-flash photography or a video camera to analyse projectile motion or
+        circular motion
+       Using force sensors to determine the relationship among radius, angular speed and the
+        centripetal force on an object moving in a circle
+   Performing experiments on energy and momentum (e.g. colliding dynamic carts, gliders
+    on air tracks, pucks on air tables, rolling a ball-bearing down an inclined plane, dropping
+    a mass attached to a spring)
+       Using light gates or motion sensors to measure the change of momentum during a
+        collision
+
+
+
+                                              29
+       Using light gates or motion sensors and air track to investigate the principle of
+        conservation of linear momentum
+       Using force sensors to measure the impulse during collision
+   Performing experiments to show the independence of horizontal and vertical motions
+    under the influence of gravity
+   Performing experiments to investigate the relationships among mechanical energy, work
+    and power
+   Determining the output power of an electric motor by measuring the rate of energy
+    transfer
+   Estimating the work required for various tasks, such as lifting a book, stretching a spring
+    and climbing Lantau Peak
+   Estimating the K.E. of various moving objects such as a speeding car, a sprinter and an
+    air molecule
+   Investigating the application of conservation principles in designing energy transfer
+    devices
+   Evaluating the design of energy transfer devices, such as household appliances, lifts,
+    escalators and bicycles
+   Using free-body diagrams in organising and presenting the solutions of dynamic
+    problems
+   Tackling problems that, even if a mathematical treatment is involved, have a direct
+    relevance to their experience (e.g. sport, transport and skating) in everyday life and
+    exploring solutions of problems related to these experiences
+   Using dimension analysis to check the results of mathematical solutions
+   Challenging their preconceived ideas on motion and force by posing appropriate
+    thought-provoking questions (e.g. “zero” acceleration at the maximum height and “zero”
+    gravitational force in space shuttle)
+   Increasing their awareness of the power and elegance of the conservation laws by
+    contrasting such solutions with those involving the application of Newton’s Second Law
+    of motion.
+   Investigating     motion     in     a  plane      using    simulations     or    modelling
+    (http://modellus.co/index.php/en/)
+   Using the Ocean Park Hong Kong as a large laboratory to investigate laws of motion and
+    develop numerous concepts in mechanics from a variety of experiences at the park
+    (http://www.hk-phy.org/oceanpark/index.html)
+
+
+
+
+                                              30
+Values and Attitudes
+
+Students should develop positive values and attitudes through studying this topic. Some
+particular examples are:
+
+
+   to be aware of the importance of car safety and be committed to safe practices in their
+    daily life
+   to be aware of the potential danger of falling objects from high-rise buildings and to adopt
+    a cautious attitude in matters concerning public safety
+   to be aware of the environmental implications of different modes of transport and to make
+    an effort to reduce energy consumption in daily life
+   to accept uncertainty in the description and explanation of motions in the physical world
+   to be open-minded in evaluating potential applications of principles in mechanics to new
+    technology
+   to appreciate the efforts made by scientists to find alternative environmentally friendly
+    energy sources
+   to appreciate that the advances in important scientific theories (such as Newton’s laws of
+    motion) can ultimately have a huge impact on technology and society
+   to appreciate the contributions of Galileo and Newton that revolutionised the scientific
+    thinking of their time
+   to appreciate the roles of science and technology in the exploration of outer-space and the
+    efforts of humankind in the quest to understand nature
+
+
+
+STSE connections
+
+Students are encouraged to develop an awareness and understanding of issues associated with
+the interconnections among science, technology, society and the environment. Some
+examples of such issues related to this topic are:
+
+
+   the effects of energy use on the environment
+   the reduction of pollutants and energy consumption by restricting the use of private cars
+    in order to protect the environment
+   penalising drivers and passengers who do not wear seatbelts and raising public awareness
+    of car safety with scientific rationales
+   how the danger of speeding and its relation to the chances of serious injury or death in car
+    accidents can be related to the concepts of momentum and energy
+   the use of principles in mechanics in traffic accident investigations
+
+
+                                               31
+   modern transportation: the dilemma in choosing between speed and safety; and between
+    convenience and environmental protection
+   evaluating the technological design of modern transport (e.g. airbags in cars, tread
+    patterns on car tyres, hybrid vehicles, magnetically levitated trains)
+   the use of technological devices including terrestrial and space vehicles (e.g. Shenzhou
+    spacecraft)
+   enhancement of recreational activities and sports equipment
+   the ethical issue of dropping objects from high-rise buildings and its potential danger as
+    the principles of physics suggest
+   careers that require an understanding and application of kinematics and dynamics
+
+
+
+
+                                              32
+
+
+==================== ch3.pdf ====================
+III      Wave Motion (47 hours)
+
+Overview
+
+This topic examines the basic nature and properties of waves. Light and sound, in particular,
+are also studied in detail. Students are familiar with examples of energy being transmitted
+from one place to another, together with the transfer of matter. In this topic, the concept of
+waves as a means of transmitting energy without transferring matter is emphasised. The
+foundations for describing wave motion with physics terminology are laid. Students learn
+the graphical representations of travelling waves. The basic properties and characteristics
+displayed by waves are examined; reflection, refraction, diffraction and interference are
+studied, using simple wavefront diagrams.
+
+
+Students acquire specific knowledge about light in two important aspects.                     The
+characteristics of light as a part of the electromagnetic spectrum are studied. Also, the linear
+propagation of light in the absence of significant diffraction and interference effects is used to
+explain image formation in the domain of geometrical optics. The formation of real and
+virtual images using mirrors and lenses is studied with construction rules for light rays.
+
+
+Sound as an example of longitudinal waves is examined and its general properties are
+compared with those of light waves. Students also learn about ultrasound. The general
+descriptions of musical notes are related to the terminology of waves. The effects of noise
+pollution and the importance of acoustic protection are also studied.
+
+
+
+Students should learn:           Students should be able to:
+
+
+a.    Nature and properties of
+      waves
+
+
+      nature of waves               interpret wave motion in terms of oscillation
+                                    realise waves as transmitting energy without transferring
+                                     matter
+
+
+
+
+                                                 33
+Students should learn:          Students should be able to:
+
+
+    wave motion and                 distinguish between transverse and longitudinal waves
+    propagation                     describe wave motion in terms of waveform, crest, trough,
+                                     compression, rarefaction, wavefront, phase, displacement,
+                                     amplitude, period, frequency, wavelength and wave speed
+                                    present information on displacement-time and
+                                     displacement-distance graphs for travelling waves
+                                    determine factors affecting the speed of propagation of waves
+                                     along stretched strings or springs
+                                                1
+                                    apply f      and v = f to solve problems
+                                                T
+
+
+    reflection and refraction       realise the reflection of waves at a plane barrier/reflector/surface
+                                    realise the refraction of waves across a plane boundary
+                                    examine the change in wave speeds during refraction and
+                                     define refractive index in terms of wave speeds
+                                    draw wavefront diagrams to show reflection and refraction
+
+
+    diffraction and interference    describe the diffraction of waves through a narrow gap and
+                                     around a corner
+                                    examine the effect of the width of slit on the degree of
+                                     diffraction
+                                    describe the superposition of two pulses
+                                    realise the interference of waves
+                                    distinguish between constructive and destructive interferences
+                                    examine the interference of waves from two coherent sources
+                                    determine the conditions for constructive and destructive
+                                     interferences in terms of path difference
+                                    draw wavefront diagrams to show diffraction and interference
+
+
+    stationary wave (transverse     explain the formation of a stationary wave
+    waves only)                     describe the characteristics of stationary waves
+
+
+
+
+                                                   34
+Students should learn:           Students should be able to:
+
+
+b.   Light
+
+
+     light in electromagnetic       state that the speed of light and electromagnetic waves in a
+     spectrum                        vacuum is 3.0  108 m s-1
+                                    state the range of wavelengths for visible light
+                                    state the relative positions of visible light and other parts of
+                                     the electromagnetic spectrum
+
+
+     reflection of light            state the laws of reflection
+                                    construct images formed by a plane mirror graphically
+
+
+     refraction of light            examine the laws of refraction
+                                    sketch the path of a ray refracted at a boundary
+                                                 sin i
+                                    realise n        as the refractive index of a medium
+                                                 sin r
+                                    solve problems involving refraction at a boundary
+
+
+     total internal reflection      examine the conditions for total internal reflection
+                                    solve problems involving total internal reflection at a
+                                     boundary
+
+
+     formation of images by         construct images formed by converging and diverging lenses
+     lenses                          graphically
+                                    distinguish between real and virtual images
+                                             1 1 1
+                                    apply       to solve problems for a single thin lens
+                                             u v f
+
+                                     (using the convention “REAL is positive”)
+
+
+     wave nature of light           point out light as an example of transverse wave
+                                    realise diffraction and interference as evidences for the wave
+                                     nature of light
+                                    examine the interference patterns in the Young’s double slit
+                                     experiment
+                                                   D
+                                    apply y          to solve problems
+                                                   a
+
+
+
+
+                                                   35
+Students should learn:             Students should be able to:
+
+
+                                      examine the interference patterns in the plane transmission
+                                       grating
+                                      apply dsin  = n  to solve problems
+
+
+c. Sound
+
+
+     wave nature of sound             realise sound as an example of longitudinal waves
+                                      realise that sound can exhibit reflection, refraction, diffraction
+                                       and interference
+                                      realise the need for a medium for sound transmission
+                                      compare the general properties of sound waves and those of
+                                       light waves
+
+
+     audible frequency range          determine the audible frequency range
+                                      examine the existence of ultrasound beyond the audible
+                                       frequency range
+
+
+     musical notes                    compare musical notes using pitch, loudness and quality
+                                      relate frequency and amplitude with the pitch and loudness of
+                                       a note respectively
+
+
+     noise                            represent sound intensity level using the unit decibel
+                                      discuss the effects of noise pollution and the importance of
+                                       acoustic protection
+
+(Note: The underlined text represents the extension component)
+
+
+
+
+                                                     36
+Suggested Learning and Teaching Activities
+
+Students should develop experimental skills in the study of vibration and waves through
+various physical models. They need to develop the skills for interpreting indirect
+measurements and demonstrations of wave motion through the displays on the CRO or the
+computer. They should appreciate that scientific evidence is obtained through indirect
+measurement coupled with logical deduction. They should also be aware that various
+theoretical models are used in the study of physics  for example, the ray model is used in
+geometrical optics for image formation and the wave model of light is used to explain
+phenomena such as diffraction and interference. Through the study of the physics of
+musical notes, students understand that most everyday experiences can be explained using
+scientific concepts.
+
+
+Possible learning activities that students may engage in are suggested below for reference:
+
+
+   Investigating the properties of waves generated in springs and ripple tanks
+   Investigating factors affecting the speed of transverse progressive waves along a slinky
+    spring
+   Determining the speed of a water wave in a ripple tank or a wave pulse travelling along a
+    stretched spring or string
+   Demonstrating the superposition of transverse waves on a slinky spring
+   Using CRO waveform demonstrations to show the superposition of waves
+   Drawing the resultant wave when two waves interfere by using the principle of
+    superposition
+   Estimating the wavelength of light by using double slit or plane transmission grating
+   Estimating the wavelength of microwaves by using double slit
+   Demonstrating interference patterns in soap film
+   Determining the effects of wavelength, slit separation or screen distance on an
+    interference pattern in an experiment by using double slit
+   Measuring the focal lengths of lenses
+   Locating real and virtual images in lenses by using ray boxes and ray tracing
+   Using ray diagrams to predict the nature and position of an image in an optical device
+   Searching for information on the development of physics of light
+   Discussing some everyday uses and effects of electromagnetic radiation
+   Using computer simulations to observe and investigate the properties of waves
+   Investigating the relationship between the frequency and wavelength of a sound wave
+   Carrying out an experiment to verify Snell’s law
+   Determining the refractive index of glass or perspex
+
+
+                                              37
+   Determining the conditions for total internal reflection to occur
+   Identifying the differences between sounds in terms of loudness, pitch and quality
+   Using dimension analysis to check the results of mathematical solutions
+
+
+
+Values and Attitudes
+
+Students should develop positive values and attitudes through studying this topic. Some
+particular examples are:
+
+
+   to be aware that science has its limitations and cannot always provide clear-cut solutions;
+    the advancement of science also requires perseverance, openness and scepticism, as
+    demonstrated in the different interpretations on the nature of light in the history of physics
+    over the past centuries
+   to appreciate that the advancement of important scientific theories (such as those related
+    to the study of light) is the fruit of the hard work of generations of scientists who devoted
+    themselves to scientific investigations by applying their intelligence, knowledge and
+    skills
+   to be aware of the potential health hazards of a prolonged exposure to extreme noise and
+    to make an effort to reduce noise-related disturbances to neighbours
+   to be aware of the importance of the proper use of microwave ovens and to be committed
+    to safe practices in daily life
+
+
+
+STSE connections
+
+Students are encouraged to develop an awareness and understanding of issues associated with
+the interconnections among science, technology, society and the environment. Some
+examples of such issues related to this topic are:
+
+
+   controversial issues about the effects of microwave radiation on the health of the general
+    public through the use of mobile phones
+   the biological effects of increased ultra-violet radiation from the Sun on the human body
+    as a result of the depletion of the atmospheric ozone layer by artificial pollutants
+   the problem of noise pollution in the local context
+   the impact on society of the scientific discovery of electromagnetic waves and the
+    technological advances in the area of telecommunications
+   how major breakthroughs in scientific and technological development that eventually
+
+
+                                               38
+    affect society are associated with new understanding of fundamental physics as illustrated
+    by the study of light in the history of science
+   how technological advances can provide an impetus for scientific investigations as
+    demonstrated in the invention and development of the microscope, telescope and X-ray
+    diffraction, with these scientific investigations in turn shedding light on our own origin
+    and the position of humankind in the universe
+
+
+
+
+                                              39
+
+
+==================== ch4.pdf ====================
+IV      Electricity and Magnetism (48 hours)
+
+Overview
+
+This topic examines the basic principles of electricity and magnetism. The abstract concept
+of an electric field is introduced through its relationship with the electrostatic force. The
+inter-relationships among voltage, current, resistance, charge, energy and power are
+examined and the foundation for basic circuitry is laid. As electricity is the main energy
+source in homes and electrical appliances have become an integral part of daily life, the
+practical use of electricity in households is studied. Particular attention is paid to the safety
+aspects of domestic electricity.
+
+
+The concept of magnetic field is applied to the study of electromagnetism. The magnetic
+effects of electric current and some simple magnetic field patterns are studied. Students also
+learn the factors that affect the strength of an electromagnet. A magnetic force is produced
+when a current-carrying conductor is placed in a magnetic field. An electric motor requires
+the supply of electric current to the coil in a magnetic field to produce a turning force causing
+it to rotate.
+
+
+The general principles of electromagnetic induction are introduced. Electrical energy can be
+generated when there is relative motion between a conductor and a magnetic field.
+Generators reverse the process in motors to convert mechanical energy into electrical energy.
+The operation of simple d.c. and a.c. generators are studied. Students learn how a.c.
+voltages can be stepped up or down with transformers. The system by which electrical
+energy is transmitted over great distances to our homes is also studied.
+
+
+
+Students should learn:          Students should be able to:
+
+
+a.   Electrostatics
+
+
+     electric charges              examine the evidence for two kinds of charges in nature
+                                   realise the attraction and repulsion between charges
+                                                                  QQ
+                                   state Coulomb’s law F  1 2 2
+                                                                 4 o r
+                                   interpret charging in terms of electron transfer
+                                   solve problems involving forces between point charges
+
+
+
+
+                                                40
+Students should learn:       Students should be able to:
+
+
+     electric field             describe the electric field around a point charge and between
+                                 parallel charged plates
+                                represent an electric field using field lines
+                                explain how charges interact via an electric field
+                                define electric field strength E at a point as the force per unit
+                                 charge on a positive test charge placed at that point
+                                state electric field strength around a point charge
+                                              Q                                               V
+                                  by E                  and between parallel plates by E      ,
+                                           4 o r   2
+                                                                                              d
+
+                                  and solve problems
+
+
+
+b.   Circuits and domestic
+     electricity
+
+
+     electric current           define electric current as the rate of flow of electric charges
+                                state the convention for the direction of electric current
+
+
+     electrical energy and      describe the energy transformations in electric circuits
+     electromotive force        define the potential difference (p.d.) between two points in a
+                                 circuit as the electric potential energy converted to other
+                                 forms per unit charge passing between the points outside the
+                                 source
+                                define the electromotive force (e.m.f.) of a source as the
+                                 energy imparted by the source per unit charge passing through
+                                 it
+
+
+                                                             V
+     resistance                 define resistance R 
+                                                             I
+                                describe the variation of current with applied p.d. in metal
+                                 wires, electrolytes, filament lamps and diodes
+                                realise Ohm’s law as a special case of resistance behaviour
+                                determine the factors affecting the resistance of a wire and
+                                                            RA
+                                 define its resistivity  
+                                                             l
+
+
+
+                                              41
+Students should learn:             Students should be able to:
+
+
+                                      describe the effect of temperature on resistance of metals and
+                                       semiconductors
+
+
+    series and parallel circuits      compare series and parallel circuits in terms of p.d. across the
+                                       components of each circuit and the current through them
+                                      derive the resistance combinations in series and parallel
+                                          R = R1 + R2 + …..     for resistors connected in series
+                                          1 1       1
+                                                     .....   for resistors connected in parallel
+                                          R R1 R2
+
+
+    simple circuits                   measure I, V and R in simple circuits
+                                      assign the electrical potential of any earthed points as zero
+                                      compare the e.m.f. of a source and the terminal voltage across
+                                       the source experimentally and relate the difference to the
+                                       internal resistance of the source
+                                      explain the effects of resistance of ammeters and voltmeters
+                                       on measurements
+                                      solve problems involving simple circuits
+
+
+    electrical power                  examine the heating effect when a current passes through a
+                                       conductor
+                                      apply P = VI to solve problems
+
+
+    domestic electricity              determine the power rating of electrical appliances
+                                      use kilowatt-hour (kW h) as a unit of electrical energy
+                                      calculate the costs of running various electrical appliances
+                                      understand household wiring and discuss safety aspects of
+                                       domestic electricity
+                                      determine the operating current for electrical appliances
+                                      discuss the choice of power cables and fuses for electrical
+                                       appliances based on the power rating
+
+
+
+
+                                                   42
+Students should learn:             Students should be able to:
+
+
+c.   Electromagnetism
+
+
+     magnetic force and               realise the attraction and repulsion between magnetic poles
+     magnetic field                   examine the magnetic field in the region around a magnet
+                                      describe the behaviour of a compass in a magnetic field
+                                      represent magnetic field using field lines
+
+
+     magnetic effect of electric      realise the existence of a magnetic field due to moving
+     current                           charges or electric currents
+                                      examine the magnetic field patterns associated with currents
+                                       through a long straight wire, a circular coil and a long
+                                       solenoid
+                                                   o I         NI
+                                      apply B         and B  o         to represent the magnetic
+                                                   2r           l
+                                       fields around a long straight wire, and inside a long solenoid
+                                       carrying current, and solve related problems
+                                      examine the factors affecting the strength of an electromagnet
+
+
+     force due to magnetic field      examine the existence of a force on a current-carrying
+                                       conductor in a magnetic field and determine the relative
+                                       directions of force, field and current
+                                      determine the factors affecting the force on a straight
+                                       current-carrying wire in a magnetic field and represent the
+                                       force by F = BIl sin
+                                      determine the turning effect on a current-carrying coil in a
+                                       magnetic field
+                                      describe the structure of a simple d.c. motor and how it works
+                                      solve problems involving current-carrying conductors in a
+                                       magnetic field
+                                      represent the force on a moving charge in a magnetic field by
+                                       F = BQ sin and solve problems
+
+
+     electromagnetic induction        examine induced e.m.f. resulting from a moving conductor in
+                                       a steady magnetic field or a stationary conductor in a changing
+                                       magnetic field
+
+
+
+
+                                                   43
+Students should learn:             Students should be able to:
+
+
+                                      apply Lenz’s law to determine the direction of induced
+                                       e.m.f./current
+                                      define magnetic flux  = BA cos and weber (Wb) as a unit of
+                                       magnetic flux
+                                      interpret magnetic field B as magnetic flux density
+                                                                     Φ
+                                      state Faraday' s Law as   -    and apply it to calculate the
+                                                                     t
+                                       average induced e.m.f.
+                                      examine magnetic fields using a search coil
+                                      describe the structures of simple d.c. and a.c. generators and
+                                       how they work
+                                      discuss the occurrence and practical uses of eddy currents
+
+
+     alternating currents (a.c.)      distinguish between direct currents (d.c.) and alternating
+                                       currents (a.c.)
+                                      define r.m.s. of an alternating current as the steady d.c. which
+                                       converts electric potential energy to other forms in a given
+                                       pure resistance at the same rate as that of the a.c.
+                                      relate the r.m.s. and peak values of an a.c.
+
+
+    transformer                       describe the structure of a simple transformer and how it
+                                       works
+                                                                                   VP N P
+                                      relate the voltage ratio to turn ratio by         and apply it to
+                                                                                   VS N S
+
+                                       solve problems
+                                      examine methods for improving the efficiency of a transformer
+
+
+
+     high voltage transmission        discuss the advantages of transmission of electrical energy
+     of electrical energy              with a.c. at high voltages
+                                      describe various stages of stepping up and down of the voltage
+                                       in a grid system for power transmission
+
+(Note: The underlined text represents the extension component)
+
+
+
+
+                                                    44
+Suggested Learning and Teaching Activities
+
+Students should develop experimental skills in connecting up circuits. They are required to
+perform electrical measurements using various types of equipment, such as galvanometer,
+ammeter, voltmeter, multi-meter, joulemeter, CRO and data logging sensors. Students
+should acquire the skills in performing experiments to study, demonstrate and explore
+concepts of physics, such as electric fields, magnetic fields and electromagnetic induction.
+Students can gain practical experience related to design and engineering in building physical
+models, such as electric motors and generators. It should, however, be noted that all
+experiments involving the mains power supply and EHT supply must be carefully planned to
+avoid the possibility of an electric shock. Handling apparatus properly and safely is a very
+basic practical skill of great importance.
+
+
+
+Possible learning activities that students may engage in are suggested below for reference:
+
+
+   Showing the nature of attraction and repulsion using simple electrostatic generation and
+    testing equipment
+   Investigating the nature of the electric field surrounding charges and between parallel
+    plates
+   Plotting electric field lines by using simple measurement of equipotentials in the field
+   Measuring current, e.m.f., and potential difference around the circuit by using appropriate
+    meters and calculating the resistance of any unknown resistors
+   Verifying Ohm’s law by finding the relationship between p.d. across a resistor and
+    current passing through it
+   Determining factors affecting the resistance of a resistor
+   Comparing the changing resistance of ohmic devices, non-ohmic devices and
+    semiconductors
+   Designing and constructing an electric circuit to perform a simple function
+   Analysing real or simulated circuits to identify faults and suggesting appropriate changes
+   Comparing the efficiency of various electrical devices and suggesting ways of improving
+    efficiency
+   Measuring magnetic field strength by using simple current balance, search coil and Hall
+    probe
+   Performing demonstrations to show the relative directions of motion, force and field in
+    electromagnetic devices
+   Disassembling loudspeakers to determine the functions of individual components
+   Investigating the magnetic fields around electric currents (e.g. around a long straight wire,
+
+
+                                               45
+    at the centre of a coil, inside and around a slinky solenoid and inside a solenoid)
+   Constructing electric motor kits and generator kits
+   Measuring the transformation of voltages under step-up or step-down transformers
+   Estimating the e/m ratio by measuring the radius of curvature in a magnetic field of
+    known strength
+   Planning and selecting appropriate equipment or resources to demonstrate the generation
+    of an alternating current
+   Using computer simulations to observe and investigate the electric field and magnetic
+    field
+   Using dimension analysis to check the results of mathematical solutions
+   Identifying hazardous situations and safety precautions in everyday uses of electrical
+    appliances
+   Investigating the need for and the functioning of circuit breakers in household circuits
+   Reading articles on the possible hazardous effects on residents living near high voltage
+    transmission cables
+   Searching for information on the uses of resistors in common appliances (e.g. volume
+    control, light dimmer switch)
+
+
+Values and Attitudes
+
+Students should develop positive values and attitudes through studying this topic. Some
+particular examples are:
+
+
+   to appreciate that the application of scientific knowledge can produce useful practical
+    products and transform the daily life of human beings as illustrated in the numerous
+    inventions related to electricity
+   to be aware of the importance of technological utilities such as the use of electricity, to
+    modern society and the effects on modern life if these utilities are not available for
+    whatever reason
+   to be aware of the need to save electrical energy for reasons of economy as well as
+    environmental protection
+   to be committed to the wise use of natural resources and to develop a sense of shared
+    responsibility for sustainable development of humankind
+   to be aware of the danger of electric shocks and the fire risk associated with improper use
+    of electricity, and develop good habits in using domestic electricity
+
+
+
+
+                                              46
+STSE connections
+
+Students are encouraged to develop an awareness and understanding of issues associated with
+the interconnections among science, technology, society and the environment. Some
+examples of such issues related to this topic are:
+
+
+   the effects on health of living near high-power transmission cables
+   the potential hazards of the mains supply versus the convenience of “plug-in” energy and
+    automation it offers to society
+   the environmental implications and recent developments of electric vehicles as an
+    alternative to traditional fossil-fuel vehicles; and the role of the government on such
+    issues
+   the views of some environmentalists on the necessity to return to a more primitive or
+    natural lifestyle with minimum reliance on technology
+
+
+
+
+                                             47
+
+
+==================== ch5.pdf ====================
+V       Radioactivity and Nuclear Energy (16 hours)
+
+Overview
+
+In this topic, nuclear processes are examined. Ionizing radiation is very useful in industrial
+and medical fields but at the same time is hazardous to us. Nuclear radiation comes from
+natural and artificial sources. It is essential for students to understand the origin of
+radioactivity, the nature and the properties of radiation. Students should also learn simple
+methods to detect radiation and identify major sources of background radiation in our natural
+environment. Simple numerical problems involving half-lives are performed in order to
+understand the long-term effects of some radioactive sources. The potential hazards of
+ionizing radiation are studied scientifically and in a balanced way by bringing in the concept
+of dosage.
+
+
+In the atomic model, the basic structure of a nuclide is represented by a symbolic notation.
+Students learn the concepts of isotopes. They are also introduced to fission and fusion,
+nature’s most powerful energy sources.
+
+
+
+Students should learn:         Students should be able to:
+
+
+a.   Radiation and
+     Radioactivity
+
+
+     X-rays                       realise X-rays as ionizing electromagnetic radiations of short
+                                   wavelengths with high penetrating power
+                                  realise the emission of X-rays when fast electrons hit a heavy
+                                   metal target
+                                  discuss the uses of X-rays
+
+
+     ,  and  radiations        describe the origin and nature of ,  and  radiations
+                                  compare ,  and  radiations in terms of their penetrating
+                                   power, ranges, ionizing power, behaviour in electric field and
+                                   magnetic field, and cloud chamber tracks
+
+
+     radioactive decay            realise the occurrence of radioactive decay in unstable
+                                   nuclides
+                                  examine the random nature of radioactive decay
+
+
+                                                  48
+Students should learn:          Students should be able to:
+
+
+                                   state the proportional relationship between the activity of a
+                                    sample and the number of undecayed nuclei
+                                   define half-life as the period of time over which the number of
+                                    radioactive nuclei decreases by a factor of one-half
+                                   determine the half-life of a radioisotope from its decay graph
+                                    or from numerical data
+                                   realise the existence of background radiation
+                                   solve problems involving radioactive decay
+                                   represent the number of undecayed nuclei by the exponential
+                                    law of decay N = No e-kt
+                                   apply the exponential law of decay N = No e-kt to solve problems
+                                   relate the decay constant and the half-life
+
+
+     detection of radiation        detect radiation with a photographic film and GM counter
+                                   detect radiation in terms of count rate using a GM counter
+
+
+     radiation safety              represent radiation equivalent dose using the unit sievert (Sv)
+                                   discuss potential hazards of ionizing radiation and the ways to
+                                    minimise the radiation dose absorbed
+                                   suggest safety precautions in handling radioactive sources
+
+
+b.   Atomic model
+
+
+     atomic structure              describe the structure of an atom
+                                   define atomic number as the number of protons in the nucleus
+                                    and mass number as the sum of the number of protons and
+                                    neutrons in the nucleus of an atom
+                                   use symbolic notations to represent nuclides
+
+
+     isotopes and radioactive      define isotope
+     transmutation                 realise the existence of radioactive isotopes in some elements
+                                   discuss uses of radioactive isotopes
+                                   represent radioactive transmutations in ,  and  decays
+                                    using equations
+
+
+
+
+                                                49
+Students should learn:             Students should be able to:
+
+
+c.   Nuclear energy
+
+
+     nuclear fission and fusion       realise the release of energy in nuclear fission and fusion
+                                      realise nuclear chain reaction
+                                      realise nuclear fusion as the source of solar energy
+
+
+     mass-energy relationship         state mass-energy relationship E= m c2
+                                      use atomic mass unit as a unit of energy
+                                      determine the energy release in nuclear reactions
+                                      apply E= m c2 to solve problems
+
+(Note: The underlined text represents the extension component)
+
+
+
+
+Suggested Learning and Teaching Activities
+
+Students must be properly warned about the potential danger of radioactive sources. The
+regulations regarding the use of radioactivity for school experiments must be strictly
+observed. Although students are not allowed to handle sealed sources, they can acquire
+experimental skills by participating in the use of the Geiger-Muller counter in an
+investigation of background radiation. Fire alarms making use of weak sources may also be
+used in student experiments under teachers’ supervision. However, proper procedures
+should be adopted and precautions should be taken to avoid accidental detachment of the
+source from the device. Analytic skills are often required to draw meaningful conclusions
+from the results of radioactive experiments that inevitably involve background radiation.
+
+
+Possible learning activities that students may engage in are suggested below for reference:
+
+    Measuring background radiation by using a GM counter
+    Showing the activity of a sample to be proportional to the remaining number of unstable
+     nuclides by using simulation or decay analogy with dice
+    Demonstrating the random variation of count rate by using a GM counter and a source
+    Identifying sources of natural radiations and investigating why exposure to natural
+     radiation is increased for airline crews and passengers
+    Determining the factors leading to an increase in the concentration of radon in high-rise
+     buildings
+
+
+                                                   50
+   Reading the specification for commercial products containing radiation such as smoke
+    detectors
+   Assessing the risks and benefits of using nuclear radiations in medical diagnosis
+   Suggesting ways of disposing of radioactive wastes
+   Estimating the half-life from a graph of activity plotted against time
+   Searching for information on the use of radioactive dating, radioactive tracers, food
+    irradiation and product sterilisation
+   Searching for information on the ethics of using nuclear weapons
+   Comparing the relative costs and benefits from the use of nuclear reactors with other
+    methods of producing electrical power
+   Searching for information on nuclear accidents and reporting a case study on them
+
+
+
+Values and Attitudes
+
+Students should develop positive values and attitudes through studying this topic. Some
+particular examples are:
+
+
+   to be aware of the usefulness of models and theories in physics as shown in the atomic
+    model and appreciate the wonders of nature
+   to be aware of the need to use natural resources judiciously to ensure the quality of life
+    for future generations
+   to be aware of the benefits and disadvantages of nuclear energy sources when compared
+    to fossil fuels
+   to be aware of the views of society on the use of radiation: the useful applications of
+    radiation in research, medicine, agriculture and industry are set against its potential
+    hazards
+   to be aware of different points of view in society on controversial issues and appreciate
+    the need to respect others’ points of view even when disagreeing; and to adopt a scientific
+    attitude when facing controversial issues, such as the use of nuclear energy
+
+
+
+
+                                              51
+STSE connections
+
+Students are encouraged to develop an awareness and understanding of issues associated with
+the interconnections among science, technology, society and the environment. Some
+examples of such issues related to this topic are:
+
+
+   the use of nuclear power; the complex nature of the effects caused by developments in
+    science and technology in our society
+   the moral issue of using various mass destruction weapons in war
+   the political issue of nuclear deterrents
+   the roles and responsibilities of scientists and the related ethics in releasing the power of
+    nature as demonstrated in the development of nuclear power
+   the stocking and testing of nuclear weapons
+   the use of fission reactors and the related problems such as disposal of radioactive wastes
+    and leakage of radiation
+
+
+
+
+                                               52
+
+

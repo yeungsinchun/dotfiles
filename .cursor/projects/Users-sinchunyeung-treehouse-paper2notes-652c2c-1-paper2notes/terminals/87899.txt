@@ -1,0 +1,59 @@
+---
+pid: 19278
+cwd: "/tmp/book5-ch1-intake/hires"
+command: "cd /tmp/book5-ch1-intake/hires\nmkdir -p /tmp/book5-ch1-intake/tsv\nn=0\nfor f in p-0{01..48}.png; do\n  num=${f:2:3}\n  tesseract \"$f\" \"/tmp/book5-ch1-intake/tsv/$num\" -l eng tsv 2>/dev/null &\n  n=$((n+1))\n  if [ $((n % 6)) -eq 0 ]; then wait; fi\ndone\nwait\necho \"TSV files: $(ls /tmp/book5-ch1-intake/tsv/*.tsv | wc -l)\"\n# Parse Fig/Table captions\npython3 << 'PY'\nimport csv, os, re\ntsvdir = \"/tmp/book5-ch1-intake/tsv\"\nprint(f\"{'page':5} {'x':5} {'y':5} caption\")\nfor n in range(1,49):\n    path = f\"{tsvdir}/{n:03d}.tsv\"\n    if not os.path.exists(path):\n        continue\n    rows=[]\n    with open(path, newline=\"\", encoding=\"utf-8\", errors=\"replace\") as f:\n        reader = csv.DictReader(f, delimiter=\"\\t\")\n        for row in reader:\n            text = (row.get(\"text\") or \"\").strip()\n            if not text:\n                continue\n            try:\n                conf=float(row[\"conf\"])\n            except Exception:\n                continue\n            if conf < 0:\n                continue\n            rows.append((text, int(row[\"left\"]), int(row[\"top\"]), int(row[\"width\"]), int(row[\"height\"])))\n    for i,(t,x,y,w,h) in enumerate(rows):\n        tl=t.lower().rstrip(\".,\")\n        if tl in (\"fig\",\"fig.\",\"figure\",\"table\") or re.match(r\"fig\\.?$\", tl) or tl==\"ig.\":\n            nxt=\" \".join(r[0] for r in rows[i:i+10])\n            if re.search(r\"25\\.\\d+\", nxt):\n                print(f\"{n:03d}  {x:4d} {y:4d}  {nxt[:90]}\")\nPY"
+title: "TSV-OCR all Ch.1 pages; list figure captions"
+status: succeeded
+started_at: 2026-09-08T16:50:04.999Z
+running_for_ms: 33821    
+---
+TSV files:       48
+page  x     y     caption
+001   216 2459  Fig. 25.1 Would you think of these things when you
+001   216 3802  Fig. 25.2 A light beam (left) and an electron beam
+002   643 1212  Fig. 25.3 lonizing radiation can ‘knock’ electrons out of an
+002   375 2228  Fig. 25.5 EM spectrum Since ionizing radiation usually has a
+002  2080 1685  Fig. 25.4 A damaged DNA molecule Pee eee ee eee
+003   215 1821  Fig. 25.6 X-ray tube (left) and how it produces X-rays
+005  2009 2280  Fig. 25.10 Uranium ore The emission of nuclear radiation is
+008   703 3021  Fig. 25.11 Structure of an atom (not to scale) Orbiting
+009   214  715  Table 25.1 Comparison between protons, neutrons and electrons eee eee
+010  1606 1292  Fig. 25.12 Nuclide notation hydrogen-1 | helium-4 lithium-7 carbon-12 mass
+010   286 2408  Table 25.2 Atomic structures of some nuclides Isotopes Isotopes are
+010   682 3524  Fig. 25.13 Isotopes of hydrogen DEERE EEE EEE EERE EEE
+012   515 2356  Fig. 25.14 Radioactive decay During radioactive decay, if the original
+013   359 1012  Fig. 25.15 a decay of polonium-208 For a nuclide undergoing
+014   551 1545  Fig. 25.16 B decay of cobalt-60 For a nuclide undergoing
+015   386 1562  Fig. 25.17 y emission of excited nickel-60 Since the original
+016   287 3459  Fig. 25.18 Decay series of uranium-238
+018   287 3528  Fig. 25.19 Sealed sources we wire mesh metal case
+019   212 1430  Table 25.3 lists some common radionuclides used in school laboratories.
+019   214 2126  Table 25.3 Common laboratory radioactive sources lead box lead cover
+019  2009  956  Fig. 25.20 A sealed radioactive source, lead boxes with warning
+020   287 2478  Fig. 25.21 Natural sources of background radiation Snapshot Radon risk
+021   216 1731  Fig. 25.22 Artificial sources of background radiation Fig. 25.23 shows
+021   214 1871  Fig. 25.23 shows the breakdown of the various sources of
+021  1866 2564  Fig. 25.23 Sources of background radiation % Watch-out Irradiation and
+024   529 2185  Fig. 25.24 Formation of an ion-pair Since a radiation of
+024   283 2719  Table 25.4 lists the properties of different nuclear radiations. &
+024   285 3395  Table 25.4 Properties of different nuclear radiations DEERE EEE EEE
+025  1635  292  Table 25.4 on the last page, we see that a
+025   501 1478  Fig. 25.25 lonizing power of different nuclear radiations (not to
+025   288 2663  Fig. 25.26 An ionized gas is electrically conducting. WES, Example
+027   215 1662  Fig. 25.27 Diffusion cloud chamber > IQ Experiment 25.2 Diffusion
+028   285  292  Table 25.5 shows the tracks produced by different nuclear radiations
+028   286 1485  Table 25.5 Cloud chamber tracks of different nuclear radiations in
+029   643 1546  Fig. 25.28 Film badge A film badge usually contains a
+029   461 3204  Fig. 25.29 Internal structure of a film badge This detection
+030   407 2647  Fig. 25.30 GM counter (top) and how it works (bottom)
+032   557 2882  Fig. 25.31 Typical ranges of nuclear radiations in air (not
+034   444  894  Fig. 25.32 Penetrating power of nuclear radiations (not to scale)
+037  1682 3467  Fig. 25.33 Deflection of a, ! electric field B and
+038   401 1452  Fig. 25.34 Deflection of a, B and y radiations in
+039   214 3795  Table 25.6 Summary of the properties of a, B and
+
+---
+exit_code: 0
+elapsed_ms: 33821
+ended_at: 2026-09-08T16:50:38.820Z
+---

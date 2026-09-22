@@ -1,0 +1,35 @@
+---
+pid: 63791
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes"
+command: "node --test notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.interactives.test.mjs"
+title: "Run complete Ch2 browser tests"
+status: succeeded
+started_at: 2026-09-15T05:07:24.706Z
+running_for_ms: 107134   
+---
+▶ Book 5 menu and Ch.2 notes
+  ✔ Book 5 picker lists both textbook chapter titles (4201.25075ms)
+  ✔ Ch.1 and Ch.2 top bars link back to the Book 5 menu (17941.403292ms)
+  ✔ 26.1 dice remaining falls and N+decayed stays 40 billion (6464.6365ms)
+  ✔ student pages hide intake chrome and keep per-box scale (25531.675875ms)
+  ✔ 26.1 concept check marks the random-decay answer (3445.201875ms)
+  ✔ 26.2 leak, smoke, and C-14 alive equals just-dead (3592.576583ms)
+  ✔ 26.3 sievert check and activity vs dose labels (725.367875ms)
+  ✔ Ch.2 pages show syllabus LOs, KaTeX, and summary DSE embeds (29485.823708ms)
+  ✔ Book 5 menu keeps two chapter cards and hosts nuclear-energy LOs with papers (1018.334625ms)
+  ✔ each Ch.2 subsection groups links to its own DSE practice (11876.639291ms)
+✔ Book 5 menu and Ch.2 notes (105719.673042ms)
+ℹ tests 10
+ℹ suites 1
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 106125.681
+
+---
+exit_code: 0
+elapsed_ms: 107133
+ended_at: 2026-09-15T05:09:11.839Z
+---

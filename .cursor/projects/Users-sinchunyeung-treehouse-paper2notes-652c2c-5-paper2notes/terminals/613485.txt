@@ -1,0 +1,37 @@
+---
+pid: 88084
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes"
+command: "node --test --test-name-pattern='each Ch.2 subsection groups links to its own DSE practice' notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.interactives.test.mjs"
+title: "Diagnose Ch2 DSE practice test"
+status: failed   
+started_at: 2026-09-15T04:58:45.116Z
+running_for_ms: 10187    
+---
+▶ Book 5 menu and Ch.2 notes
+  ✖ each Ch.2 subsection groups links to its own DSE practice (8099.573708ms)
+✖ Book 5 menu and Ch.2 notes (9108.720792ms)
+ℹ tests 1
+ℹ suites 1
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9441.387541
+
+✖ failing tests:
+
+test at notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.interactives.test.mjs:246:3
+✖ each Ch.2 subsection groups links to its own DSE practice (8099.573708ms)
+  Error: 26-1.html: SyntaxError: missing ) after argument list
+      at TestContext.<anonymous> (file:///Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.interactives.test.mjs:704:13)
+      at async Test.run (node:internal/test_runner/test:1404:7)
+      at async Promise.all (index 9)
+      at async Suite.run (node:internal/test_runner/test:1889:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+---
+exit_code: 1
+elapsed_ms: 10186
+ended_at: 2026-09-15T04:58:55.302Z
+---

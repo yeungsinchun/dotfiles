@@ -1,0 +1,5159 @@
+www.oupchina.com.hk
+
+MOCK PAPER
+
+A new set of papers is provided in this sample
+
+• Full marking scheme 
+• Completely new set of papers available every year With video solution to paper 1A 
+• Word files available on OUP web: 
+
+for HKDSE
+
+### Progressive
+
+Exam Resources
+
+Sample
+
+5
+
+Contents (sample)
+
+Set 1 (new)
+
+Paper 1A 1 
+Paper 1B 18 
+Paper 2 38 
+Solutions 60 
+Set 2 
+Paper 1A 71 
+Paper 1B 91 
+Paper 2 114 
+Solutions 139 
+
+Oxford University Press is a department of the University of Oxford. 
+It furthers the University’s objective of excellence in research, scholarship, 
+and education by publishing worldwide. Oxford is a registered trade mark of 
+Oxford University Press in the UK and in certain other countries 
+Published in Hong Kong by 
+Oxford University Press (China) Limited 
+39th Floor, One Kowloon, 1 Wang Yuen Street, Kowloon Bay, 
+Hong Kong 
+© Oxford University Press (China) Limited 2023 
+First Edition published in 2023 
+All rights reserved. No part of this publication may be reproduced, stored in a 
+retrieval system, or transmitted, in any form or by any means, without the prior 
+permission in writing of Oxford University Press (China) Limited, or as expressly 
+permitted by law, by licence, or under terms agreed with the appropriate 
+reprographics rights organization. Enquiries concerning reproduction outside 
+the scope of the above should be sent to the Rights Department, 
+Oxford University Press (China) Limited, at the address above 
+You must not circulate this work in any other form 
+and you must impose this same condition on any acquirer 
+ISBN: 978-6-31-000989-6 
+1 3 5 7 9 10 8 6 4 2 
+Links to third party websites are provided by Oxford in good faith and 
+for information only. Oxford disclaims any responsibility for the materials 
+contained in any third party website referenced in this work. 
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 1A 1 
+ Oxford University Press 2023 
+
+OXFORD UNIVERSITY PRESS PHYSICS AT WORK FOR HKDSE
+
+MOCK EXAMINATION (Set 1) PHYSICS PAPER 1
+
+Time allowed: 2 hours 30 minutes This paper must be answered in English
+
+GENERAL INSTRUCTIONS 
+(1) There are TWO sections, A and B, in this Paper. You are advised to finish Section A in about 50 minutes. 
+(2) Section A consists of multiple-choice questions in this question paper, while Section B contains conventional questions printed separately in Question-Answer Book B. 
+(3) Answers to Section A should be marked on the Multiple-choice Answer Sheet while answers to Section B should be written in the spaces provided in the Question-Answer Book. The Answer Sheet for Section A and the Question-Answer Book for Section B will be collected separately at the end of the examination. 
+(4) The diagrams in this paper are NOT necessarily drawn to scale. 
+(5) The last two pages of this question paper contain a list of data, formulae and relationships which you may find useful. 
+INSTRUCTIONS FOR SECTION A (MULTIPLE-CHOICE QUESTIONS) 
+(1) Read carefully the instructions on the Answer Sheet. After the announcement of the start of the examination, you should first insert the information required in the spaces provided. No extra time will be given after the ‘Time is up’ announcement. 
+(2) When told to open this book, you should check that all the questions are there. Look for the words ‘END OF SECTION A’ after the last question. 
+(3) All questions carry equal marks. 
+(4) ANSWER ALL QUESTIONS. You are advised to use an HB pencil to mark all the answers on the Answer Sheet, so that wrong marks can be completely erased with a rubber. You must mark the answers clearly; otherwise you will lose marks if the answers cannot be captured. 
+(5) You should mark only ONE answer for each question. If you mark more than one answer, you will receive NO MARKS for that question. 
+(6) No marks will be deducted for wrong answers. 
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 1A 2 
+ Oxford University Press 2023 
+Section A 
+There are 33 questions. Questions marked with * involve knowledge of the extension component. 
+1 Sherman adds 200 g of milk at 10 °C into a cup of coffee at 60 °C. The final temperature of the 
+mixture is 40 °C. Which of the following must be correct? Assume there is no energy transfer 
+with the surroundings. 
+A The specific heat capacity of the milk is lower than that of the coffee. 
+B The final temperature of the mixture would be 20 °C if 400 g of milk is added instead. 
+C The heat capacity of the coffee is higher than that of the milk. 
+D The mass of the coffee is larger than that of the milk. 
+
+2 The figure shows how an object’s temperature varies with time. It is in liquid state at instant P.
+
+The temperature remains unchanged during period QR. Which of the following must be correct? 
+(1) The object absorbs energy during period PQ. 
+(2) The object is purely solid at instant S. 
+(3) The average potential energy of the molecules of the object is decreasing during period 
+QR. 
+A (3) only 
+B (1) and (2) only 
+C (2) and (3) only 
+D (1), (2) and (3) 
+3 An ideal gas is heated from 25 °C to 100 °C in an inexpansible container. The pressure inside 
+the container will 
+A be doubled. 
+B become 4 times of its original value. 
+C increase by 12.5%. 
+D increase by 25%. 
+4 Two cars X and Y start moving from rest and travel along the same straight road. X starts moving 
+first. The figure shows their velocity−time graph. 
+
+temperature
+
+time
+
+P
+
+Q R
+
+S
+
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 1A 3 
+ Oxford University Press 2023 
+Which of the following statements about the motion of the cars must be correct? 
+(1) X and Y have the same average velocity from t = 0 to t = 10 s. 
+(2) X and Y have the same instantaneous velocity at t = 10 s. 
+(3) X and Y have the same average acceleration from t = 0 to t = 10 s. 
+A (1) only 
+B (2) only 
+C (1) and (3) only 
+D (2) and (3) only 
+
+5 At t = 0, a car of mass 1000 kg starts moving from rest. The car then moves in a straight line. The figure shows how the net force acting on the car varies with time. Find the speed of the car at t = 15 s.
+
+A 9 m s −1 
+B 13.5 m s −1 
+C 15 m s −1 
+D 22.5 m s −1 
+
+velocity time / s
+
+X
+
+0
+
+Y
+
+10
+
+net force / N
+
+time / s 0 10 15
+
+900
+
+1500
+
+6 The figure shows a rod with a uniform cross-section. PQ and QR are made of different materials, each of uniform density. The ratio of the length of PQ to that of QR is 1 : 3. When the rod is hung at Q, it remains in equilibrium as shown. If the mass of PQ is m, find the tension in the string.
+
+A mg B 1.33mg C 3mg D 4mg
+
+7 A block of mass m is placed on a wedge as shown. The inclined plane of the wedge makes an angle θ with the horizontal and the mass of the wedge is 3m. If the block remains stationary on the wedge, find the magnitude of the force acting on the wedge by the ground.
+
+A mg sin θ 
+B 3mg 
+C mg(3 + sin θ) 
+D 4mg 
+
+8 A shuttlecock of mass 5.5 g is smashed by a badminton racket and the time of impact is 0.2 s. The speed of the shuttlecock just before hitting the racket is 12 m s −1. When the shuttlecock just leaves the racket, it moves with the same speed but in the opposite direction. Find the magnitude of the average force acting on the shuttlecock during impact. Assume that the effect of gravity is negligible during impact. A 0.33 N B 0.66 N C 1.32 N D 6.6 N
+
+P Q R
+
+θ
+
+3m m
+
+9 Two balls P and Q are projected horizontally from a vertical wall at the same time. The figure shows the path of the balls.
+
+P Q wall ground
+
+| | (1) | | | The projecting speed of Q is higher. | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| | (2) | | | P and Q reach the ground with the same velocity. | | | |
+| | (3) | | | P and Q reach the ground at the same time. | | | |
+| | A | | | (1) only | | | |
+| | B | | | (1) and (2) only | | | |
+| | C | | | (2) and (3) only | | | |
+| | D | | | (1), (2) and (3) | | | |
+
+Which of the the following statements is/are correct? Neglect air resistance.
+
+10 A rectangular block lies on the ground as shown in Figure a. It is then pulled up and stand as shown in Figure b. The mass of the block is 0.3 kg and its density is uniform. Estimate the change in potential energy of the block.
+
+10 cm
+
+20 cm
+
+20 cm
+
+10 cm
+
+Figure a Figure b
+
+A Zero B 0.015 J C 0.147 J D 0.294 J
+
+11 An airplane flies with a constant speed of 200 m s −1 in a horizontal circular path. The radius of the circular path is 15 km. Find the angle between the wings and the horizontal.
+
+aircraft
+
+15 km centre of circular path
+
+A 15.2° B 15.8° C 74.2° D 74.8°
+
+12 An astronaut moves in a circular orbit around the Earth at 2RE from the Earth’s surface, where RE is the Earth’s radius. The gravitational field strength on the Earth’s surface is 9.81 N kg −1. Find the gravitational field strength at the orbit. A 1.09 N kg −1 B 2.45 N kg −1 C 3.27 N kg −1 D 4.91 N kg −1
+
+13 The figure shows the displacement−time graph of particle X on a longitudinal wave that travels to the right. Displacement to the right is taken as positive.
+
+displacement time / s
+
+0 3
+
+| | (2) | | | The kinetic energy of X is maximum at t = 3 s. | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| | (3) | | | The frequency of the wave is 1 Hz. | | | |
+| | A | | | (1) only | | | |
+| | B | | | (2) only | | | |
+| | C | | | (1) and (2) only | | | |
+| | D | | | (2) and (3) only | | | |
+
+Which of the following statements is/are correct? (1) X is moving upward at t = 3 s.
+
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 1A 6 
+ Oxford University Press 2023 
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 1A 7 
+ Oxford University Press 2023 
+
+14 One end of a string is tied to a vibrator and the other end is fixed to a wall. When the vibrator is turned on, a stationary wave is formed. The figure shows the waveform at a certain instant. At this instant, particle P is momentarily at rest.
+
+Which of the following statements about particles P, Q and R is/are correct? 
+(1) R is moving upwards at the instant shown. 
+(2) Q and R always reach their equilibrium positions at the same time. 
+(3) P and Q vibrate with different amplitudes. 
+A (1) only 
+B (3) only 
+C (1) and (2) only 
+D (2) and (3) only 
+
+15 Particles a−k are located on a slinky spring. Figure c shows the positions of the the particles when the spring is not disturbed. When a travelling wave propagates along the spring from right to left, the particles vibrate. Figure d shows the positions of the particles at a certain instant.
+
+Which of the following statements must be correct? 
+A The wavelength of the wave is 40 cm. 
+B Particle b is moving to the left at the instant shown in Figure d. 
+C Particle f is moving to the left at the instant shown in Figure d. 
+D Particle j is momentarily at rest at the instant shown in Figure d. 
+
+P
+
+Q
+
+R vibrator
+
+wall
+
+Figure c
+
+Figure d
+
+a b c d e f g h i j k a b c d e f g h i j k
+
+10 cm
+
+direction of travel
+
+16 Isaac and Johnny are in front of a wall. They are on the same straight line perpendicular to the wall. Johnny is 50 m from Isaac and 120 m from the wall. After Isaac blows a whistle once, Johnny hears two sounds. What is the time difference between the two sounds? Given: speed of sound in air = 340 m s −1
+
+wall
+
+50 m
+
+Johnny Isaac
+
+120 m
+
+| | A | | 0.21 s | | | |
+| --- | --- | --- | --- | --- | --- | --- |
+| | B | | 0.41 s | | | |
+| | C | | 0.56 s | | | |
+| | D | | Cannot be determined as there is not enough information provided. | | | |
+
+17 In the figure, S1 and S2 are loudspeakers. A student stands at position P which is equidistant from S1 and S2. At the beginning, only S1 is turned on and the student hears a sound with normal loudness. S2 is then turned on so that sound waves in antiphase are produced by S1 and S2. Which of the following best describes what the student hears over a period of time?
+
+P
+
+S1 S2
+
+| | A | | An alternative loud and soft sound | | | |
+| --- | --- | --- | --- | --- | --- | --- |
+| | B | | A soft sound | | | |
+| | C | | A loud sound | | | |
+| | D | | A sound with normal loudness | | | |
+
+18 Two dippers are placed at positions X and Y in a ripple tank. They are set to vibrate in phase at a frequency of 10 Hz. It is found that the amplitude of the wave attains a minimum at position P, where PX = 0.64 m and PY = 0.62 m.
+
+X
+
+0.64 m
+
+P ×
+
+Y
+
+0.62 m
+
+| | Which of the following may be the speed of the water wave? | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| | (1) | | | 0.13 m s | | −1 | |
+| | (2) | | | 0.2 m s | | −1 | |
+| | (3) | | | 0.4 m s | | −1 | |
+| | A | | | (2) only | | | |
+| | B | | | (3) only | | | |
+| | C | | | (1) and (3) only | | | |
+| | D | | | (2) and (3) only | | | |
+
+19 A light ray is directed towards a convex lens with focus F as shown. Which of the following (P, Q, R or S) is a possible path after the light ray has passed through the lens?
+
+P
+
+Q
+
+F
+
+R
+
+S
+
+A P B Q C R D S
+
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 1A 9 
+ Oxford University Press 2023 
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 1A 10 
+ Oxford University Press 2023 
+
+20 A travelling wave is generated on a stretched string by a vibrator. If the frequency of the vibrator and the tension in the string are adjusted at the same time, which of the following changes must result in a shorter wavelength? Frequency of vibrator Tention in string A increase increase B increase decrease C decrease increase D decrease decrease
+
+21 A letter ‘F’ is placed at 10 cm in front of a convex lens as shown in the figure. A sharp image is captured by the screen placed 15 cm behind the lens.
+
+If the screen is moved towards the lens, which of the following adjustments may allow a sharp 
+image to be captured on the screen again? 
+(1) Move the letter ‘F’ away from the lens. 
+(2) Replace the lens with a convex lens of longer focal length. 
+(3) Replace the lens with a concave lens of the same focal length. 
+A (1) only 
+B (2) only 
+C (1) and (2) only 
+D (1), (2) and (3) 
+
+22 Two point charges −4Q and +Q are fixed at the positions as shown in the figure.
+
+If the magnitude of the resultant electric field strength at point X is E, what is the magnitude of 
+the resultant electric field strength at point Y? 
+A Zero 
+B 1.6E 
+C 2.67E 
+D 3E 
+
+screen
+
+10 cm 15 cm
+
+letter F × × –4Q Y +Q X
+
+23 A charged oil droplet is suspended between two horizontal metal plates. The voltage applied across the plates is 4 kV and the separation between the plates is 20 cm. If the mass of the oil droplet is 1 × 10 −5 kg, estimate the charge carried by the oil droplet.
+
+20 cm oil droplet 4 kV
+
+A 1.23 × 10 −9 C B 2.45 × 10 −9 C C 4.91 × 10 −9 C D 9.81 × 10 −9 C
+
+24 Three light bulbs L1, L2 and L3 are connected in a circuit as shown. The battery has negligible internal resistance.
+
+L1 L2
+
+L3
+
+Which of the following changes will make L3 brighter? 
+(1) L1 is shorted. 
+(2) L2 is shorted. 
+(3) L2 is removed. 
+A (1) only 
+B (1) and (2) only 
+C (1) and (3) only 
+D (2) and (3) only 
+
+| | (1) | | L1 is shorted. | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| | (2) | | L2 is shorted. | | | | |
+| | (3) | | L2 is removed. | | | | |
+| | A | | (1) only | | | | |
+| | B | | (1) and (2) only | | | | |
+| | C | | (1) and (3) only | | | | |
+| | D | | (2) and (3) only | | | | |
+
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 1A 11 
+ Oxford University Press 2023 
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 1A 12 
+ Oxford University Press 2023 
+
+25 In the curcuit shown, each light bulb is rated at ’12 V, 30 W’.
+
+Which of the following can be the rating of fuse X? Assume that the transformer is ideal. 
+A 250 mA 
+B 500 mA 
+C 1 A 
+D 3 A 
+
+26 Three long straight wires P, Q and R are placed as shown. Each wire carries a current of 1 A.
+
+If the magnetic force per unit length acting on Q by P is F, find the resultant magnetic force per 
+unit length acting on R by P and Q. 
+A 0.75F 
+B F 
+C 1.25F 
+D 1.5F 
+
+240 V
+
+X
+
+P Q R r r
+
+1 A 1 A 1 A
+
+27 In the circuit shown, the three resistors are identical. The 12-V battery has a negligile internal resistance. The ammeter and the voltmeter are ideal. Find the reading of the voltmeter.
+
+A Zero B 4 V C 6 V D 12 V
+
+28 A metal rod of length L is placed on two parallel conducting rails PQ and RS as shown. The rod makes an angle of 60° to the rail PQ. The separation between PQ and RS is d.
+
+If the rod is pulled so that it moves to the left with a uniform velocity v along the rail, what is the 
+induced current flowing through the resistor with resistance r? 
+A 
+
+BLv r
+
+B
+
+Bdv r
+
+C
+
+BLv sin 60° r
+
+D
+
+BLv sin 30° r
+
+A
+
+V
+
+12 V
+
+P Q
+
+R S × × × × × × × × × × × × × × × × × × × × × × × × × × × × × × × × × × × × × × × ×
+
+d
+
+L
+
+60°
+
+r v
+
+29 Two solenoids are placed next to each other as shown.
+
+When switch S is just closed, what will be the direction of the induced current through the 
+ammeter and the magnetic polarity of end P of the solenoid? 
+Direction of induced current Magnetic polarity of end P 
+A from M to N north 
+B from N to M north 
+C from M to N south 
+D from N to M south 
+
+30 A long current-carrying straight wire is placed between two slab-shaped magnets and the resultant magnetic field is shown in the figure. The current I in the wire flows out of the page.
+
+What is the polarity of X and the direction of the magnetic force experienced by the wire? 
+Polarity of X Direction of magnetic force 
+A north upward 
+B north downward 
+C south upward 
+D south downward 
+
+A S N M
+
+P
+
+X Y
+
+31 A ଽ଴Th ଶଷଶ nuclide undergoes a decay series and becomes a ଼ସPb ଶଵ଺ nuclide. How many α and β particles are emitted during the decay series? α particles β particles A 4 2 B 3 0 C 5 4 D 4 0
+
+32 A radioactive source which emits α and β radiation but does not emit γ radiation is placed near a uniform magnetic field. The field points out of paper. When a GM tube is placed at position P, the recorded count rate is 15 min −1. The count rate reaches a peak value of 60 min −1 when the GM tube is moved to position Q. The magnetic field is then removed and the count rate recorded at P becomes 80 min −1. Estimate the count rate contributed by β radiation.
+
+A 20 min −1 
+B 35 min −1 
+C 65 min −1 
+D 80 min −1 
+
+33 The nuclear fuel in a nuclear plant undergoes nuclear fission to generate electricity. If a power of 50 MW is generated, estimate the mass of the fuel that is converted into energy in 2 hours. A 1.11 × 10 −9 kg B 4 × 10 −6 kg C 6 × 10 −4 kg D 1200 kg
+
+END OF SECTION A
+
+Q
+
+source P
+
+     
+     
+     
+     
+GM tube uniform 
+magnetic 
+field 
+
+lead box with a small opening
+
+Data 
+molar gas constant R = 8.31 J mol −1 K −1 
+Avogadro constant NA = 6.02 × 10 23 mol −1 
+acceleration due to gravity g = 9.81 m s −2 (close to the Earth) 
+universal gravitational constant G = 6.67 × 10 −11 N m 2 kg −2 
+speed of light in vacuum c = 3.00 × 10 8 m s −1 
+charge of electron qe = 1.60 × 10 −19 C 
+electron rest mass me = 9.11 × 10 −31 kg 
+permittivity of free space ε0 = 8.85 × 10 −12 C 2 N −1 m −2 
+permeability of free space μ0 = 4π × 10 −7 H m −1 
+atomic mass unit u = 1.661 × 10 −27 kg (1 u is equivalent to 931 MeV) 
+astronomical unit AU = 1.50 × 10 11 m 
+light year ly = 9.46 × 10 15 m 
+parsec pc = 3.09 × 10 16 m = 3.26 ly = 206 265 AU 
+Stefan constant σ = 5.67 × 10 −8 W m −2 K −4 
+Planck constant h = 6.63 × 10 −34 J s 
+Rectilinear motion Mathematics 
+For uniformly accelerated motion: 
+v = u + at 
+s = ut + 2 
+2 
+
+1at v 2 = u 2 + 2as
+
+Equation of a straight line y = mx + c Arc length = rθ Surface area of cylinder = 2πrh + 2πr 2 Volume of cylinder = πr 2h Surface area of sphere = 4πr 2 Volume of sphere = 3 π 3
+
+4 r For small angles, sin θ ≈ tan θ ≈ θ (in radians)
+
+Astronomy and Space Science U =
+
+r
+
+GMm − gravitational potential energy P = σAT 4 Stefan’s law ฬ Δf f0ฬ  v c  ฬ Δλ λ0ฬ Doppler effect
+
+Energy and Use of Energy
+
+A
+
+E Φ= illuminance
+
+t
+
+Q =
+
+d
+
+TTA )( − CH κ rate of energy transfer by conduction
+
+U =
+
+d
+
+κ thermal transmittance U-value
+
+P = 3 2
+
+1ρAv maximum power by wind turbine
+
+Atomic World 2
+
+maxe 2
+
+1 vm = hf − φ Einstein’s photoelectric equation En = –
+
+1
+
+n2 ቊ me qe
+
+4
+
+8h 2ε0 2ቋ = – 13.6 n2 eV energy level equation for hydrogen atom λ = p h = mv h de Broglie formula
+
+θ ≈
+
+d
+
+22.1 λ Rayleigh criterion (resolving power)
+
+Medical Physics
+
+θ ≈
+
+d
+
+22.1 λ Rayleigh criterion (resolving power) power =
+
+f
+
+1 power of a lens
+
+L =
+
+0
+
+log10
+
+I
+
+I intensity level (dB) Z = ρc acoustic impedance α =
+
+0 r
+
+I I = 2 12
+
+ZZ +
+
+− intensity reflection coefficient = ଴ିఓ௫ transmitted intensity through a medium
+
+A1. E = mcΔT energy transfer during heating and cooling D1. F = 2 0
+
+21 
+4π r 
+
+QQ ε Coulomb’s law
+
+A2. E = lΔm energy transfer during change of state D2. E = 2 π 0 4 r
+
+Q ε
+
+electric field strength due to a point charge
+
+A3. pV = nRT equation of state for an ideal gas D3. E =
+
+d
+
+V electric field between parallel plates (numerically) A4. = 13 ଶ kinetic theory equation D4. = resistance and resistivity
+
+A5. EK =
+
+2 A
+
+3 N
+
+RT
+
+molecular kinetic energy D5. R = R1 + R2 resistors in series
+
+D6. 1 = 1ଵ൅1ଶ resistors in parallel
+
+B1. F = m
+
+Δv
+Δt =
+
+Δp
+Δt
+
+force D7. P = IV = I 2R power in a circuit B2. moment = F × d moment of a force D8. F = BQv sin θ force on a moving charge in a magnetic field
+
+B3. EP = mgh gravitational potential energy D9. F = BIl sin θ force on a current-carrying conductor in a magnetic field
+
+B4. EK = 2 2 1 mv kinetic energy D10. B =
+
+r
+
+I 2π
+
+μ0 magnetic field due to a long straight wire
+
+B5. P = Fv mechanical power D11. B =
+
+l
+
+NI μ 0 magnetic field inside a long solenoid
+
+B6. a =
+
+r v 2
+
+= ω 2r centripetal acceleration D12. ε =
+
+t
+
+N
+
+Δ
+
+ΔΦ
+
+induced e.m.f.
+
+B7. F = 2
+
+21
+
+r
+
+Gm m Newton’s law of gravitation D13. p
+
+s V
+
+V ≈
+
+p s
+
+N
+
+N ratio of secondary voltage to primary voltage in a transformer
+
+C1.  =
+
+fringe width in double-slit interference E1. N = N0e −kt law of radioactive decay C2. d sin θ = nλ diffraction grating equation E2.
+
+ଵଶ =
+
+ln 2 k
+
+half-life and decay constant
+
+C3. 1൅1 = 1 equation for a single lens E3. A = kN activity and the number of undecayed nuclei E4. ΔE = Δmc 2 mass-energy relationship
+
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 1B 18 
+© Oxford University Press 2023 
+Name 
+Class 
+Class number 
+
+Teacher's Use Only Question No. Marks 1 / 7 2 / 9 3 / 9 4 / 11 5 / 8 6 / 9 7 / 7 8 / 8 9 / 9 10 / 7 Total / 84
+
+OXFORD UNIVERSITY PRESS PHYSICS AT WORK FOR HKDSE
+
+MOCK EXAMINATION (Set 1) PHYSICS PAPER 1 Section B: Question-Answer Book B
+
+This paper must be answered in English
+
+INSTRUCTIONS FOR SECTION B 
+(1) After the announcement of the start of the examination, you should first insert your information in the spaces provided on Page 1. 
+(2) Refer to the general instructions on the cover of the Question Paper for Section A. 
+(3) Answer ALL questions. 
+(4) Write your answers in the spaces provided in this Question-Answer Book. Do not write in the margins. Answers written in the margins will not be marked. 
+(5) Graph paper and supplementary answer sheets will be provided on request. Insert the information required, mark the question number box, and fasten them with string INSIDE this Question-Answer Book. 
+(6) No extra time will be given for inserting your information or filling in the question number boxes after the ‘Time is up’ announcement. 
+
+B
+
+Section B: Answer ALL questions. Parts marked with * involve knowledge of the extension component. Write your answers in the spaces provided.
+
+1 Figure 1.1 shows an instant water heater used in an apartment.
+
+.
+
+water outlet water inlet (25 °C)
+
+Figure 1.1
+
+s
+
+(Photo credit: Volodymyr Shtun | Dreamstime.com)
+
+(a) The heater is rated at ‘220 V, 6 kW’, and the rate of water flow is 0.1 kg s −1.
+
+(i) Which fuse, 10-A, 30-A or 50-A, is most suitable for this heater? Justify
+
+n e t
+
+your answer. (2 marks)
+
+A
+
+| | w s n A |
+| --- | --- |
+| | |
+| | |
+| (ii) | Suggest a design for the water pile inside the heater to facilitate the heating process of water. (1 mark) |
+| | |
+| | |
+
+(iii) Suppose the temperature of the water flowing into the heater is 25 °C.
+
+Estimate the temperature of water flowing out of the heater.
+
+Given: Specific heat capacity of water = 4200 J kg –1 °C –1 (2 marks)
+
+(b) The water outlet is connected to a faucet (Fig 1.2) where the hot water in (a)(iii) is
+
+mixed with water at 25 °C.
+
+Figure 1.2
+
+Given that the flow rate of hot water remains at 0.1 kg s −1 and the flow rate of
+
+25 °C water is 0.2 kg s −1, find the final temperature of the water coming out of the faucet. (2 marks)
+
+25 °C water hot water
+
+2 A rigid container of volume 0.3 m 3 is used to store compressed helium gas. The gas pressure is 1.2 × 10 6 Pa when the container is stored at a cool place where the temperature is 15 °C. Assume that the helium gas behaves like an ideal gas.
+
+.
+
+Figure 2.1
+
+m e
+
+(Photo credit: Artiom Storojenco | Dreamstime.com)
+
+(a) The container is moved to a room where the temperature is 25 °C.
+
+(i) Find the new pressure of the helium gas. (2 marks)
+
+A
+
+| | | h t n i n |
+| --- | --- | --- |
+| | | e t t i r w |
+| | | s r e w s n |
+| (ii) | Using the kinetic theory, explain how the gas pressure changes when the temperature of the helium gas in the container increases. | A (3 marks) |
+| | | |
+| | | |
+| | | |
+| | | |
+
+(b) The helium gas in the container is used in a room at 25 °C for pumping balloons
+
+(Fig 2.2).
+
+Figure 2.2
+
+Given that the standard volume and pressure of a pumped balloon is 0.05 m 3 and
+
+1.02 × 10 5 Pa, find the gas pressure inside the container after getting 10 standard pumped balloons. Assume the temperature of the gas remains constant in the process. (4 marks)
+
+##### 3 Read the following passage about the g-force and answer the questions that follow.
+
+The speed of a spacecraft can reach 9000 km h −1 in a short period of time during the launch. A great force is experienced by an astronaut in the spacecraft when the spacecraft accelerates or decelerates rapidly (Fig 3.1). To express the size of the force that an astronaut experiences per unit mass, g-force is commonly used. A g-force of 1g is equal to the gravitational force that a 1-kg object experiences under normal pull of gravity on the Earth’s surface. If an astronaut experiences a g-force of 2g from the spacecraft, he or she actually experiences a force from the spacecraft which is equal to
+
+a double of his or her normal weight.
+
+Figure 3.1 (Photo credit: NASA)
+
+In the launch of a spacecraft, a g-force greater than 3g is usually experienced.
+
+Astronauts wear g-suits to prevent their blood from moving away from their brains,
+
+which can lead to unconsciousness.
+
+(a) A spacecraft ejects gas downwards during the launch. Explain, in terms of newton’s laws of motion, why the spacecraft can leave the ground. (2 marks)
+
+(b) An astronaut of 60 kg sits in a spacecraft. During the launch, he experiences a g force of 3g from his seat. Assume the spacecraft accelerates vertically upwards and the force acting on him by his seat remains unchanged during the launch.
+
+(i) In Figure 3.2, draw and label all forces acting on the astronaut. (1 mark)
+
+Figure 3.2
+
+(ii) Estimate the acceleration of the spacecraft during the launch. (2 marks)
+
+.
+
+A
+
+| | | a m e b |
+| --- | --- | --- |
+| | | t o n l l i |
+| | | w s n i g |
+| (iii) | Estimate the time needed for the speed of the spacecraft to reach 9000 km h from rest. | r a m e −1 h t n i (2 marks) n e t t i r w |
+| | | s r e w |
+| | | s n A |
+| | | |
+| (iv) | Assume that the propelling force acting on the spacecraft remains the same when the spacecraft is very far away from the Earth. Would the acceleration of the spacecraft increase, decrease or remain unchanged? Explain your answer. | (2 marks) |
+| | | |
+| | | |
+
+4 Janice slides down from rest at the top of a water slide in an amusement park (Fig 4.1).
+
+After she leaves the exit of the water slide, she moves in mid-air for a while and then falls onto a pool of length D. The top of the slide is 10 m above the water surface while the exit of the slide is 2 m above the water surface. The direction in which Janice leaves the exit makes an angle of 30° to the horizontal. Assume that the slide is smooth and air
+
+resistance is negligible.
+
+Figure 4.1
+
+(a) (i) In Figure 4.1, draw an arrow to show the direction of the velocity of Janice leaving the exit of the slide. (1 mark)
+
+(ii) Find the speed of Janice when she leaves the exit of the slide. (2 marks)
+
+(iii) Find the time during which Janice moves in mid-air. (2 marks)
+
+10 m
+
+2 m
+
+D
+
+(iv) Estimate the minimum value of D so that Janice can fall on the pool.
+
+(1 mark)
+
+.
+
+| | | | |
+| --- | --- | --- | --- |
+| | (v) | If another person of larger mass slides down the water slide, how will the result in (a)(ii) be changed? | (1 mark) |
+| | | | |
+| (b) | After Janice enters the water, she sinks and finally reaches the maximum depth. (i) | Describe the energy conversion when Janice sinks from the water surface to the maximum depth. | . d e k r a m e b t o n (2 marks) l l i w s |
+| | | | n i g r a m |
+| | | | e h t n i |
+| | | | n e t t i r w |
+| | (ii) | Janice will badly injured if she hits the ground, but does not get injured when hitting the water surface. Explain why. | s r e w s n A (2 marks) |
+| | | | |
+| | | | |
+| | | | |
+
+A
+
+5 Monochromatic light is directed onto a plane transmission grating and a screen is placed
+
+70 cm behind the grating (Fig 5.1). The grating has 500 lines per mm.
+
+70 cm
+
+monochromatic light
+
+73 cm grating
+
+Diagram NOT
+
+| | | second-order | | Diagram NOT | |
+| --- | --- | --- | --- | --- | --- |
+| | | | drawn to scale screen | | |
+| | | bright dots | | | |
+
+.
+
+d e k
+
+Figure 5.1
+
+r a m e
+
+Several bright dots are observed on the screen. The two second-order bright dots are
+
+b t o
+
+separated by 73 cm.
+
+(a) In Figure 5.2, draw the pattern of bright dots observed on the screen. (2 marks)
+
+73 cm w s n
+
+A
+
+Figure 5.2
+
+(b) Find the frequency of the monochromatic light. (3 marks)
+
+(c) Find the maximum number of bright dots formed. (2 marks)
+
+| | | |
+| --- | --- | --- |
+| | | |
+| (d) | If the monochromatic light is replaced by red light, how will the separation between the bright dots on the screen change? | (1 mark) |
+| | | . |
+| | | d e k r a m |
+
+.
+
+A
+
+6 (a) The following apparatus is provided.
+
+1 convex lens with stand, 1 metre rule, 1 screen, some LEDs forming a letter ‘F’
+
+Describe how you would use the above apparatus to find the focal length of the convex lens. (4 marks)
+
+(b) A green monochromatic light beam is directed to a glass prism as shown in
+
+Figure 6.1. It makes an angle of 67° to side AB of the prism.
+
+A
+
+60°
+
+67° 15°
+
+60° 60°
+
+.
+
+B C
+
+Figure 6.1
+
+(i) Find the refractive index of the prism. (2 marks)
+
+A
+
+| | | n i n e t t i |
+| --- | --- | --- |
+| | | r w s r e |
+| (ii) Sketch the path of the light beam after it hits side AC. Explain your answer. | (3 marks) | w s n A |
+| | | |
+| | | |
+
+7 Figure 7.1 shows the simplified circuit diagram of a heater with two heating modes (high power and low power). The three resistors are identical. It is known that when the heater is in low power mode, its rated values are ‘220 V, 600 W’.
+
+Figure 7.1
+
+(a) Which side, A or B, should the switch be turned to for the heater to operate in low power mode? Explain your answer. (2 marks)
+
+(b) Hence, find the resistance of each resistor. (2 marks)
+
+A
+
+B 220 V a.c. source
+
+(c) The heater is now in high power mode.
+
+(i) Find the rated power of the heater. (2 marks)
+
+| | |
+| --- | --- |
+| | |
+| | |
+| (ii) What will happen if the heater is plugged into a 120-V a.c. source? | (1 mark) . d e |
+| | k r a m e |
+
+.
+
+A
+
+8 Figure 8.1 shows two parallel metal plates which are separated by 10 cm. They are connected to an EHT power supply so that a potential difference of 3 kV is applied to the
+
+plates.
+
+Figure 8.1
+
+(a) In Figure 8.1, draw the electric field lines between the plates. (1 mark)
+
+(b) Calculate the magnitude of the electric field strength between the plates. (2 marks)
+
+(c) A light conducting sphere carrying a charge of +1 × 10 −6 C is hanged by an insulating string between the plates as shown in Figure 8.2. The sphere is stationary when the string makes an angle of 30° to the vertical.
+
+Figure 8.2
+
+E.H.T. + –
+
+E.H.T. + –
+
+30°
+
+(i) Find the mass of the metal sphere. (3 marks)
+
+| | | |
+| --- | --- | --- |
+| | | |
+| | | |
+| (ii) | If both plates are moved to the right slightly with the separation unchanged, how will the angle between the string and the vertical change? Explain your answer. | (2 marks) . d e k |
+| | | r a m e b |
+| | | t o n l l i |
+
+.
+
+A
+
+9 A magnetic field is used to separate the isotopes of an element. A stream of particles enters a region with a uniform magnetic field of 0.5 T as shown in Figure 9.1, with a speed of 1.2 × 10 5 m s −1. The amount of charge that each particle carries is 1.6 × 10 −19 C.
+
+Two paths of the particles, A and B, are observed. The effect of gravity is negligible.
+
+× × × × × × × × × × × × × × × × × × × × × × × × × × × × × × × × × × × ×
+
+30 cm path B
+
+× × × × × × × × ×
+
+.
+
+× × × × × × × × ×
+
+m path A e b
+
+× × × × × × × × ×
+
+t o n
+
+sensor
+
+Figure 9.1
+
+i g r a
+
+(a) Consider a particle moving in path A.
+
+(i) Does the particle carry a positive charge or a negative charge? (1 mark)
+
+A
+
+| (ii) Find the magnitude of the magnetic force acting on the particle. | s r e w (2 marks) s n A |
+| --- | --- |
+| | |
+| | |
+| | |
+
+(iii) It is observed that the speed of the particle remains unchanged when the particle moves in path A. Explain why. (2 marks)
+
+| | |
+| --- | --- |
+| | |
+| (iv) Find the mass of the particle. | (2 marks) |
+| | . |
+| | d e k r a m |
+
+.
+
+(b) Is a particle in path B heavier, lighter, or of the same mass when compared with the
+
+o n l
+
+one in path A? Explain your answer. (2 marks)
+
+A
+
+10 Plutonium-238 (Pu-238) of atomic number 94 is used in a ‘nuclear battery’ to provide electricity. It can decay to U-234 through an α decay.
+
+Given: Mass of Pu-238 = 238.049 56 u
+
+Mass of U-234 = 234.040 95 u
+
+Mass of α particle = 4.0015 u
+
+(a) Write down an equation for the decay process mentioned above. (1 mark)
+
+(b) Find the amount of energy released in the decay. Express your answer in MeV.
+
+(2 marks)
+
+(c) It is known that the plutonium in a nuclear battery initially releases energy at a power of 10 W. Assume that Pu-238 only undergoes the decay mentioned above
+
+and its half-life is 87.7 years.
+
+(i) Estimate the initial activity of the plutonium in the battery. (2 marks)
+
+(ii) Estimate the power of the plutonium in the battery after 30 years. (2 marks)
+
+END OF PAPER
+
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 2 38 
+© Oxford University Press 2023 
+Name 
+Class 
+Class number 
+
+OXFORD UNIVERSITY PRESS PHYSICS AT WORK FOR HKDSE
+
+MOCK EXAMINATION (Set 1) PHYSICS PAPER 2 Question-Answer Book
+
+Time allowed: 1 hour This paper must be answered in English INSTRUCTIONS (1) After the announcement of the start of the examination, you should first insert the information required in the space provided on Page 1. (2) This paper consists of FOUR sections, Sections A, B, C and D. Each section contains eight multiple-choice questions and one structured question which carries 10 marks. Attempt ALL questions in any TWO sections. (3) Write your answers to the structured questions in the ANSWER BOOK provided. For multiple-choice questions, blacken the appropriate circle with an HB pencil. You should mark only ONE answer for each question. If you mark more than one answer, you will receive NO MARKS for that question. (4) Graph paper and supplementary answer sheets will be provided on request. Insert the information required, mark the question number box on each sheet, and fasten them with string INSIDE the Answer Book. (5) The Question-Answer Book and Answer Book will be collected SEPARATELY at the end of the examination. (6) The diagrams in this paper are NOT necessarily drawn to scale. (7) The last two pages of this Question-Answer Book contain a list of data, formulae and relationships which you may find useful. (8) No extra time will be given to candidates for inserting any information or filling in the question number boxes after the ‘Time is up’ announcement.
+
+Section A: Astronomy and Space Science
+
+Q.1: Multiple-choice questions 
+1.1 Which of the following statements about the Ptolemaic geocentric model and the Copernican 
+heliocentric model are correct? 
+(1) Both models can explain the retrograde motion of Mars. 
+(2) The Copernican model can explain the complete cycle of phases of Venus while the 
+Ptolemic model cannot. 
+(3) The Earth moves in a circular orbit in both models. 
+A (1) and (2) only 
+B (1) and (3) only 
+C (2) and (3) only 
+D (1), (2) and (3) 
+
+| | A | | (1) and (2) only | | |
+| --- | --- | --- | --- | --- | --- |
+| | B | | (1) and (3) only | | |
+| | | | | | A B C D |
+| | C | | (2) and (3) only | | |
+| | D | | (1), (2) and (3) | | |
+
+1.2 Two astronauts of different masses experience weightlessness in a space station. Which of the following statements is/are correct? (1) The two astronauts experience the same magitude of gravitational force. (2) The gravitational forces acting on the astronauts are balanced by other forces. (3) The two astronauts have the same acceleration. A (1) only B (3) only C (1) and (3) only D (2) and (3) only
+
+| | A | | (1) only | | |
+| --- | --- | --- | --- | --- | --- |
+| | B | | (3) only | | |
+| | | | | | A B C D |
+| | C | | (1) and (3) only | | |
+| | D | | (2) and (3) only | | |
+
+1.3 An absorption spectrum can be obtained when a star is observed from the Earth. Which of the following can be deduced from the spectral lines? (1) The composition of the star’s outer surface (2) The radial velocity of the star (3) The temperature of the star’s core A (1) only B (3) only C (1) and (2) only D (2) and (3) only
+
+| | A | | (1) only | | |
+| --- | --- | --- | --- | --- | --- |
+| | B | | (3) only | | |
+| | | | | | A B C D |
+| | C | | (1) and (2) only | | |
+| | D | | (2) and (3) only | | |
+
+1.4 The two pictures below show the same region of the sky taken in January and May of the same year. P, Q, R, S and T are five stars.
+
+P
+
+P
+
+S
+
+S
+
+Q
+
+Q
+
+T
+
+T
+
+R
+
+R
+
+January view May view
+
+| | (2) | | Star T is the brightest among the five stars when observed from the Earth. | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | (3) | | Star T is closer to the Earth than star S. | | | | | |
+| | A | | (1) only | | | | | |
+| | B | | (3) only | | | A | B C | D |
+| | C | | (1) and (2) only | | | | | |
+| | D | | (2) and (3) only | | | | | |
+
+Which of the following statements must be correct? (1) Stars P and R are equidistant from the Earth.
+
+1.5 The following table lists the apparent magnitudes and the absolute magnitudes of several stars. Star Apparent magnitude Absolute magnitude X −2.5 3.2 Y 2.5 1.7 Z 0.3 1
+
+Which of the following statements about the three stars is/are correct? 
+(1) Star X has the smallest luminosity. 
+(2) Star Y is the farthest from the Earth. 
+(3) Star Z is the dimmest in the sky. 
+A (1) only 
+B (3) only 
+C (1) and (2) only 
+D (2) and (3) only 
+
+| | A | | (1) only | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | B | | (3) only | | | A | B C | D |
+| | C | | (1) and (2) only | | | | | |
+| | D | | (2) and (3) only | | | | | |
+
+1.6 The following figure compares the luminosity and the surface temperature of star P, star Q and the Sun.
+
+increasing luminosity
+
+Sun P
+
+Q
+
+increasing surface temperature
+
+Which of the following statements is/are correct? 
+(1) P is larger than the Sun. 
+(2) Q is the smallest among the three stars. 
+(3) P must be brighter than Q when observed from the Earth. 
+A (3) only 
+B (1) and (2) only 
+C (2) and (3) only 
+D (1), (2) and (3) 
+
+| | A | | (3) only | | |
+| --- | --- | --- | --- | --- | --- |
+| | B | | (1) and (2) only | | A B C D |
+| | C | | (2) and (3) only | | |
+| | D | | (1), (2) and (3) | | |
+
+1.7 Two stars P and Q are found to have equal brightness when observed from the Earth. The parallax of P is doubled that of Q. If the luminosity of P is L, what is the luminosity of Q? A 0.25L B 0.5L C 2L D 4L
+
+A B C D
+
+1.8 Io and Europa are two satellites of Jupiter. The orbital periods of Io and Europa are 42 hours and 85 hours respectively. If the semi-major axis of Io’s orbit is 4.22 × 10 8 m, what is the semi major axis of Europa’s orbit? A 1.03 × 10 8 m B 2.64 × 10 8 m C 6.75 × 10 8 m D 8.54 × 10 8 m
+
+A B C D
+
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 2 41 
+© Oxford University Press 2023 
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 2 42 
+© Oxford University Press 2023 
+Q.1: Structured question 
+1 Spacecraft X is launched from point A on the Earth’s surface and travels to a circular orbit at 
+2000 km above the Earth’s surface (Fig 1.1). During the launch, the engine is turned on until the 
+speed of the spacecraft reaches 8500 m s −1 within a short time. The engine is turned off after the 
+launch. Given: radius of the Earth = 6370 km, mass of the Earth = 5.97 × 10 24 kg 
+
+Figure 1.1
+
+(a) Find the speed of the spacecraft when it arrives the orbit at B. (2 marks) 
+(b) When the spacecraft reaches B, the engine is turned on again to accelerate the spacecraft 
+so that it remains in the circular orbit. Find the speed of the spacecraft to remain in the 
+orbit. (2 marks) 
+(c) How will the answer in (a) change if a spacecraft of a larger mass is launched from A 
+with the same speed? (1 mark) 
+(d) Another spacecraft Y moves in an elliptical orbit around the Earth as shown in Figure 1.2. 
+The figure also shows their positions and moving direction at a certain instant. 
+
+Figure 1.2
+
+×
+
+A
+
+B
+
+Diagram NOT drawn to scale
+
+×
+
+Earth
+
+X Y
+
+Diagram NOT drawn to scale
+
+Earth
+
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 2 43 
+© Oxford University Press 2023 
+(i) It is known that the semi-major axis of Y’s orbit is the same as the radius of X’s 
+orbit. Are the two spacecrafts possible to collide with each other? Explain your 
+answer. (3 marks) 
+(ii) A telescope is installed on spacecraft Y. When it is used to observe the spectrum of 
+a distant star, a spectral line with a wavelength of 578.1 nm is observed. However, 
+laboratory measurement shows that the line should have an unshifted wavelength 
+of 578 nm. Find the radial velocity of the star. (2 marks) 
+
+Section B: Atomic World
+
+Q.2: Multiple-choice questions 
+2.1 In Rutherford’s scattering experiment, some α particles are observed to have bounced back 
+from the foil. Which of the following best explains the observation? 
+A The nucleus contains neutrons. 
+B Most of the mass of an atom is concentrated in the nucleus. 
+C An atom is neutral in charge. 
+D Electrons orbit around the nucleus. 
+
+A B C D
+
+2.2 In the absorption spectrum of hydrogen gas, dark lines are observed. Which of the following best explains the formation of the dark lines? A Light of certain wavelengths from the light source is completely absorbed by the hydrogen gas. B Light of certain wavelengths from the light source is partially absorbed by the hydrogen gas. C The hydrogen gas does not emit light of certain wavelengths. D Hydrogen gas emits ligh of certain wavelengths.
+
+A B C D
+
+| | ground state? | | | | |
+| --- | --- | --- | --- | --- | --- |
+| | (1) | | A photon of energy 10.8 eV | | |
+| | (2) | | A photon of energy 12.1 eV | | |
+| | (3) | | A photon of energy 13.8 eV | | |
+| | A | | (2) only | | |
+| | B | | (3) only | | |
+| | | | | | A B C D |
+| | C | | (2) and (3) only | | |
+| | D | | (1), (2) and (3) | | |
+
+2.3 According to Bohr model, which of the following can be absorbed by a hydrogen atom in the
+
+2.4 The following figure shows the set-up for investigating the maximum kinetic energy of the photoelectrons emitted in the photoelectric effect. Monochromatic red light is shone onto the metal plate in a photocell. The output voltage of the power supply is varied and the corresponding ammeter reading I and voltmeter reading V are recorded. The result is displayed in the graph below.
+
+I
+
+A
+
+IS
+
+I0
+
+V
+
+V
+
+VS
+
+power supply
+
+Which of the following must be correct if the red light is replaced by monochromatic green 
+light? 
+(1) The magnitude of Vs will increase. 
+(2) I0 will remain unchanged. 
+(3) Is will remain unchanged. 
+A (1) only 
+B (2) only 
+C (1) and (2) only 
+D (2) and (3) only 
+
+| | A | | (1) only | | |
+| --- | --- | --- | --- | --- | --- |
+| | B | | (2) only | | A B C D |
+| | C | | (1) and (2) only | | |
+| | D | | (2) and (3) only | | |
+
+2.5 A metal plate is illuminated by electromagnetic radiation of wavelength 300 nm. Given that the work function of the metal is 2.7 eV, find the maximum kinetic energy of the photoelectrons emitted from the metal plate. A 1.44 eV B 2.7 eV C 4.14 eV D 6.84 eV
+
+A B C D
+
+2.6 A photon is emitted when a hydrogen atom drops from the first excited state to the ground state. Find the momentum of the photon. A 1.81 × 10 −27 kg m s –1 B 5.44 × 10 −27 kg m s –1 C 7.25 × 10 −27 kg m s –1 D 9.07 × 10 −27 kg m s –1
+
+A B C D
+
+2.7 Which of the following statements about a transmission electron microscope (TEM) is/are correct? (1) The sample imaged by a TEM must conduct electricity. (2) A TEM has a similar working principle to an optical microscope except that it uses high energy electrons instead of visible light. (3) When the accelerating voltage of a TEM is increased, its resolving power increases. A (1) only B (3) only C (1) and (2) only D (2) and (3) only
+
+| | A | (1) only | | |
+| --- | --- | --- | --- | --- |
+| | B | (3) only | | |
+| | | | | A B C D |
+| | C | (1) and (2) only | | |
+| | D | (2) and (3) only | | |
+
+2.8 Which of the following statements about nanotechnology is incorrect? A The Lotus effect can be utilized to make windows water-attracting for self-cleaning. B A material in bulk size and nano size may show different colours. C A material in bulk size and nano size may show different electrical properties. D A carbon nanotube is stronger than steel of the same size.
+
+A B C D
+
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 2 46 
+© Oxford University Press 2023 
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 2 47 
+© Oxford University Press 2023 
+Q.2: Structured question 
+2 According to Bohr’s model, the energy level En of an electron in a hydrogen atom can be 
+expressed as: 
+
+En = െ ଵଷ.଺௡మ eV
+
+(a) Bohr’s model is considered a semi-quantum model. State two quantum aspects of Bohr’s 
+model. (2 marks) 
+(b) State the meaning of the negative sign in the equation. (1 mark) 
+(c) Some cool hydrogen gas is illuminated by photons each with energy 9.1 eV. Why does 
+the photons pass through the gas without absorption? (1 mark) 
+(d) The emission spectrumm of some hydrogen gas is observed. Figure 2.1 shows all 
+emission lines due to the transition to the ground state. Line A has the longest wavelength 
+among these lines. 
+
+Figure 2.1
+
+(i) Suppose an hydrogen atom is excited to the third excited state (n = 4). Draw arrow(s) in Figure 2.2 to show all possible transitions when the atom returns to the ground state. (2 marks)
+
+Figure 2.2
+
+(ii) State the transition in (d)(i) that produces spectral line A in the spectrum in Figure 2.1. (1 mark) (iii) Find the wavelength of spectral line A. (3 marks)
+
+line A
+
+increasing wavelength
+
+n = 4 
+n = 3 
+n = 2 
+
+n = 1
+
+Section C: Energy and Use of Energy
+
+Q.3: Multiple-choice questions 3.1 The following figure shows a simplified diagram of an air conditioner.
+
+compressor
+
+R S
+
+X Y
+
+Q P
+
+flow of refrigerant expansion valve
+
+Which of the following statements is/are correct? 
+(1) Energy is transferred from X to Y by the refrigerant. 
+(2) The refrigerant is hotter at point P than at point Q. 
+(3) The refrigerant is hotter at point R than at point Q. 
+A (1) only 
+B (1) and (2) only 
+C (2) and (3) only 
+D (1), (2) and (3) 
+
+| | A | | (1) only | | |
+| --- | --- | --- | --- | --- | --- |
+| | B | | (1) and (2) only | | |
+| | | | | | A B C D |
+| | C | | (2) and (3) only | | |
+| | D | | (1), (2) and (3) | | |
+
+3.2 Which of the following comparisons between electric vehicles and conventional fossil-fuel vehicles is/are correct? (1) Only electric vehicles are installed with regenerative braking system. (2) Electric vehicles do not produce greenhouse gases when they are moving. (3) Electric vehicles are more energy efficient than conventional fossil-fuel vehicles. A (1) only B (3) only C (1) and (2) only D (1), (2) and (3)
+
+| | A | | (1) only | | |
+| --- | --- | --- | --- | --- | --- |
+| | B | | (3) only | | |
+| | | | | | A B C D |
+| | C | | (1) and (2) only | | |
+| | D | | (1), (2) and (3) | | |
+
+| | What is the rate at which heat is being released to the outside? | | | | | |
+| --- | --- | --- | --- | --- | --- | --- |
+| | A | | 1100 W | | | |
+| | B | | 2100 W | | | |
+| | | | | | | A B C D |
+| | C | | 3200 W | | | |
+| | D | | 4800 W | | | |
+
+3.3 An air conditioner with a coefficient of performance of 3.2 has a cooling capacity of 1600 W.
+
+3.4 Which of the following statements about a microwave oven is/are correct? (1) The microwaves can only transfer energy to the food’s surface. (2) Water is the only material that can be heated up directly by the microwaves. (3) Water molecules flip vigorously when the microwaves pass through them. A (1) only B (3) only C (1) and (2) only D (2) and (3) only
+
+| | A | | (1) only | | | |
+| --- | --- | --- | --- | --- | --- | --- |
+| | B | | (3) only | | | |
+| | | | | | | A B C D |
+| | C | | (1) and (2) only | | | |
+| | D | | (2) and (3) only | | | |
+
+3.5 A composite wall consists of a concrete layer and a brick layer as shown in the figure.
+
+18 °C 46 °C concrete brick
+
+The two sides of the wall are maintained at 18 °C and 46 °C respectively. Find the temperature 
+at the junction of the two layers. 
+Given: U-value of the concrete layer = 20.2 W m −2 K −1 
+U-value of the brick layer = 2.60 W m −2 K −1 
+A 21.2 °C 
+B 23 °C 
+C 32 °C 
+D 42.8 °C 
+
+A B C D
+
+3.6 The following are the steps describing how a fluorescent tube lamp works. (1) The electrons in the phosphor coating absorb the ultra-violet radiation and are excited. (2) The tube is heated up bythe electric current, cauing the mercury inside to vaporize and distribute throughout the tube. (3) The electrons in phosphor coating return to lower energy levels, and visible light is emitted. (4) Mercury atoms are collided and excited by the electrons. (5) When the excited electrons in the mercury atoms return to lower energy levels, ultra violet radiation is emitted. Arrange the steps in the correct order. A (2) → (3) → (5) → (4) → (1) B (2) → (4) → (5) → (1) → (3) C (4) → (5) → (1) → (2) → (3) D (4) → (2) → (1) → (5) → (3)
+
+A B C D
+
+3.7 Which of the following changes in building design will reduce the Overall Thermal Transfer Value (OTTV) of the building? (1) Increase the size of the windows. (2) Make the outermost walls thicker. (3) Install solar control films to the windows. A (1) only B (3) only C (1) and (2) only D (2) and (3) only
+
+| | A | | (1) only | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| | B | | (3) only | | | | |
+| | | | | | | | A B C D |
+| | C | | (1) and (2) only | | | | |
+| | D | | (2) and (3) only | | | | |
+
+| | Given: density of air = 1.23 kg m | | | | | −3 | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| | A | | 27 | | | | |
+| | B | | 28 | | | | |
+| | | | | | | | A B C D |
+| | C | | 29 | | | | |
+| | D | | 30 | | | | |
+
+3.8 Wind turbines with blade length of 12 m will be installed to generate electricity for a village. By taking the overall efficiency of the wind turbines as 20% and the wind speed as 5 m s –1, find the minimum number of wind turbines needed to generate 200 kW of electricity for the village.
+
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 2 50 
+© Oxford University Press 2023 
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 2 51 
+© Oxford University Press 2023 
+Q.3: Structured question 
+3 In an art gallery, a lamp with a luminous flux of 2000 lm is used to illuminate a piece of 
+artwork. Figure 3.1 shows the arrangement. Regard the lamp as a point source and assume that 
+reflection is negligible. 
+
+Figure 3.1
+
+(a) Calculate the illuminance at point P on the surface of the artwork. (3 marks) 
+(b) The information of two lamps is listed below. 
+Luminous flux Input power 
+Lamp A 2000 lm 18 W 
+Lamp B 2300 lm 20 W 
+Which lamp, A or B, has a higher efficacy? Show your calculation. (2 marks) 
+(c) Compared with an incandescent lamp, a light emitting diode (LED) lamp is considered as 
+a more energy-saving option for lighting. Explain why. (2 marks) 
+(d) Figure 3.2 shows the appearance of the gallery. The average rate of heat gain per unit area 
+from outside through the building envolope is 21 W m −2. 
+
+1 m
+
+2 m
+
+2 m
+
+P
+
+lamp artwork
+
+10 m
+
+4 m
+
+5 m
+
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 2 52 
+© Oxford University Press 2023 
+(i) Find the total rate of heat gain from outside. (2 marks) 
+(ii) If there are 20 people inside the gallery and each person releases 200 J of heat per 
+second, find the cooling capacity of the air conditioning system of the gallery so 
+that a constant temperature inside the gallery can be maintained. (1 mark) 
+
+Section D: Medical Physics
+
+Q.4: Multiple-choice questions 
+4.1 Which of the following statements about rod cells and cone cells in the retina is/are correct? 
+(1) Rod cells only work well in bright light. 
+(2) Most cone cells are concentrated at the yellow spot.. 
+(3) Cone cells are responsible for colour vision. 
+A (1) only 
+B (3) only 
+C (1) and (2) only 
+D (2) and (3) only 
+
+| | A | | (1) only | | |
+| --- | --- | --- | --- | --- | --- |
+| | B | | (3) only | | |
+| | | | | | A B C D |
+| | C | | (1) and (2) only | | |
+| | D | | (2) and (3) only | | |
+
+4.2 James is looking at two small objects 5 m away with only one eye as shown below. The two objects reflect monochromatic red light of 700 nm to his eye. The diameter of the pupil of James’ eye is 4 × 10 −3 m. Determine the separation d of the two objects if they can just be resolved by James’ eye.
+
+d
+
+James
+
+5 m
+
+| | A | | 2.14 × 10 | −4 m | |
+| --- | --- | --- | --- | --- | --- |
+| | B | | 5.34 × 10 | −4 m | |
+| | | | | | A B C D |
+| | C | | 1.07 × 10 | −3 m | |
+| | D | | 0.683 m | | |
+
+4.3 The near point of Peter’s eye is 22 cm from his eye and the far point is 300 cm from his eye. It is known that the distance between the retina and the optical centre of the refracting parts of the eye is 3 cm. Which of the following is a possible focal length of Peter’s eye? (1) 2.6 cm (2) 2.8 cm (3) 3 cm A (2) only B (3) only C (1) and (2) only D (2) and (3) only
+
+| | A | | (2) only | | |
+| --- | --- | --- | --- | --- | --- |
+| | B | | (3) only | | |
+| | | | | | A B C D |
+| | C | | (1) and (2) only | | |
+| | D | | (2) and (3) only | | |
+
+4.4 Optical fibres are used in an endoscope. The figure below shows the arrangement of some fibres at the two ends (X and Y) of a bundle. A number is assigned to each fibre.
+
+end X
+
+×
+
+end Y
+
+×
+
+end X end Y
+
+Which of the following statements about this bundle is/are correct? 
+(1) This bundle is used to transmit light from end Y to end X. 
+(2) This bundle does not allow the image at one end to be reproduced at the other end. 
+(3) This bundle is used for illumination. 
+A (1) only 
+B (1) and (2) only 
+C (2) and (3) only 
+D (1), (2) and (3) 
+
+| | A | | (1) only | |
+| --- | --- | --- | --- | --- |
+| | B | | (1) and (2) only | |
+| | | | | A B C D |
+| | C | | (2) and (3) only | |
+| | D | | (1), (2) and (3) | |
+
+4.5 Which of the following contribute(s) to the amplification of pressure in the ear? (1) The ear bones work as a lever. (2) The oval window has a much smaller area than the eardrum. (3) The cochlea is filled with fluid. A (1) only B (1) and (2) only C (2) and (3) only D (1), (2) and (3)
+
+| | A | | (1) only | |
+| --- | --- | --- | --- | --- |
+| | B | | (1) and (2) only | |
+| | | | | A B C D |
+| | C | | (2) and (3) only | |
+| | D | | (1), (2) and (3) | |
+
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 2 54 
+© Oxford University Press 2023 
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 2 55 
+© Oxford University Press 2023 
+
+4.6 An X-ray source paired with a detector is moved horizontally for body scanning as shown. X-rays from the source only travel towards the detector.
+
+Which of the following graphs best shows the variation of intensity of the X-ray detected when 
+the detector is moved from P to Q? 
+A B 
+
+C D
+
+position of detector intensity of X-ray detected
+
+P Q position of detector
+
+intensity of X-ray detected
+
+P Q position of detector intensity of X-ray detected
+
+P Q position of detector
+
+intensity of X-ray detected
+
+P Q
+
+fat bone direction of movement of the X-ray source and detector
+
+X-ray
+
+P Q
+
+A B C D
+
+4.7 A loudspeaker produces sound and the sound intensity level measured at 3 m from it is 60 dB. If the power output of the loudspeaker is doubled, what will be the sound intensity level measured at 6 m from it? A 50 dB B 54 dB C 57 dB D 60 dB
+
+4.8 A GM counter is used to find out the count rate due to a gamma source. At 1 m away from the source, the count rate due to the source is 4000 s −1. To store the source safely, the source is then placed in a lead box. What is the thickness of the lead so that the count rate due to the source is reduced to 100 s −1 at 1 m away from the source? Given that the half-value thickness of lead is 5 mm. A 1.4 cm B 2.7 cm C 4.0 cm D 5.3 cm
+
+A B C D
+
+A B C D
+
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 2 57 
+© Oxford University Press 2023 
+Q.4: Structured question 
+4 A piezoelectric transducer is used to examine an organ X of a patient (Fig 4.1). Coulping gel is 
+applied between the transducer and the skin. 
+Figure 4.1 
+(a) Explain briefly how a piezoelectric transducer can produce ultrasound. (2 marks) 
+(b) An ultrasound pulse is emitted and the echoes from interfaces A, B and C are displayed 
+on a CRO (Fig 4.2). Given that the speed of ultrasound in organ X is 1600 m s −1, estimate 
+the thickness of organ X. (2 marks) 
+
+Figure 4.2 (c) The acoustuc impedances of the body tissues involved are listed below. Tissue Acoustic impedance / kg m −2 s −1 soft tissue 1.38 × 10 6 organ X 1.63 × 10 6
+
+(i) Find the density of organ X. (2 marks) (ii) Find the percentage of the energy of the incident ultrasound reflected from interface B. (2 marks) (d) State one advantage and one disadvantage of using ultrasound of higher frequency in medical imaging. (2 marks)
+
+END OF PAPER soft tissue transducer coupling gel
+
+A B C
+
+organ X
+
+10 µs echo from A echo from B echo from C
+
+Data 
+molar gas constant R = 8.31 J mol −1 K −1 
+Avogadro constant NA = 6.02 × 10 23 mol −1 
+acceleration due to gravity g = 9.81 m s −2 (close to the Earth) 
+universal gravitational constant G = 6.67 × 10 −11 N m 2 kg −2 
+speed of light in vacuum c = 3.00 × 10 8 m s −1 
+charge of electron e = 1.60 × 10 −19 C 
+electron rest mass me = 9.11 × 10 −31 kg 
+permittivity of free space ε0 = 8.85 × 10 −12 C 2 N −1 m −2 
+permeability of free space μ0 = 4π × 10 −7 H m −1 
+atomic mass unit u = 1.661 × 10 −27 kg (1 u is equivalent to 931 MeV) 
+astronomical unit AU = 1.50 × 10 11 m 
+light year ly = 9.46 × 10 15 m 
+parsec pc = 3.09 × 10 16 m = 3.26 ly = 206 265 AU 
+Stefan constant σ = 5.67 × 10 −8 W m −2 K −4 
+Planck constant h = 6.63 × 10 −34 J s 
+Rectilinear motion Mathematics 
+For uniformly accelerated motion: 
+v = u + at 
+s = ut + 2 
+2 
+
+1at v 2 = u 2 + 2as
+
+Equation of a straight line y = mx + c Arc length = rθ Surface area of cylinder = 2πrh + 2πr 2 Volume of cylinder = πr 2h Surface area of sphere = 4πr 2 Volume of sphere = 3 π 3
+
+4 r
+
+For small angles, sin θ ≈ tan θ ≈ θ (in radians)
+
+Astronomy and Space Science U =
+
+r
+
+GMm − gravitational potential energy P = σAT 4 Stefan’s law
+
+0f
+
+Δf
+
+≈ c v ≈
+
+0λ
+
+Δλ
+
+Doppler effect
+
+Energy and Use of Energy
+
+A
+
+E Φ = illuminance
+
+t
+
+Q =
+
+d
+
+TTA )( − CH κ rate of energy transfer by conduction
+
+U =
+
+d κ
+
+thermal transmittance U-value
+
+P = 3 2
+
+1ρAv maximum power by wind turbine
+
+Atomic World 2
+
+maxe 2
+
+1 vm = hf − φ Einstein’s photoelectric equation
+
+En =
+
+      
+
+ − 2 0
+
+2
+
+4 e
+
+2 8
+
+1
+
+h ε em
+
+n = 2
+
+6.13 n
+
+− eV energy level equation for hydrogen atom
+
+λ =
+
+p
+
+h = mv
+
+h
+
+de Broglie formula
+
+θ ≈
+
+d
+
+22.1 λ Rayleigh criterion (resolving power)
+
+Medical Physics
+
+θ ≈
+
+d
+
+22.1 λ Rayleigh criterion (resolving power) power =
+
+f
+
+1 power of a lens
+
+L =
+
+0
+
+log10
+
+I
+
+I intensity level (dB) Z = ρc acoustic impedance α =
+
+0 r
+
+I
+
+I
+
+= 2 
+12 
+2 
+
+12 )( )( ZZ
+
+ZZ +
+
+−
+
+intensity reflection coefficient I = I0e −μx transmitted intensity through a medium
+
+| A1. | | | E = mcΔT | | energy transfer during | | | | | | | | | QQ 21 | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | | | | | | | | ε | Coulomb’s law | | | | |
+| | | | | | heating and cooling | | | | | | D1. | | | F = 4π r 0 | 2 | | | | |
+| A2. | | | E = lΔm | | energy transfer during | | | | | | | | | Q | electric field strength due to a | | | | |
+| | | | | | change of state | | | | | | D2. | | | E = ε 4π r 0 | 2 point charge | | | | |
+| A3. | | | pV = nRT | | equation of state for an | | | | | | | | | V | electric field between parallel | | | | |
+| | | | | | ideal gas | | | | | | D3. | | | E = | | | | | |
+| | | | | | | | | | | | | | | d | plates (numerically) | | | | |
+| A4. | | | pV = | 2 | | | | | | | | | | ρ l | | | | | |
+| | | | | 1 cNm | kinetic theory equation | | | | | | D4. | | | R = | resistance and resistivity | | | | |
+| | | | | 3 | | | | | | | | | | A | | | | | |
+| | | | | 3 RT | | | | | | | | | | | | | | | |
+| A5. | | | EK = | | molecular kinetic energy | | | | | | D5. | | | R = R1 + R2 | resistors in series | | | | |
+| | | | | 2 N A | | | | | | | | | | | | | | | |
+
+| | | | | | | | | | | | | | | 1 1 = + | 1 resistors in parallel R | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | | | | | D6. | | | R R 1 | 2 | | | | |
+| | | | | Δ p Δ vm | | | | | | | | | | | | | | | |
+| B1. | | | F = | = | force | | | | | | D7. | | | P = IV = I | 2R power in a circuit | | | | |
+| | | | | Δ Δ t | t | | | | | | | | | | | | | | |
+| B2. | | | moment = F | × | moment of a force d | | | | | | D8. | | | F = BQv sin θ | force on a moving charge in a | | | | |
+| | | | | | | | | | | | | | | | magnetic field | | | | |
+| B3. | | | EP = mgh | | gravitational potential energy | | | | | | D9. | | | F = BIl sin θ | force on a current-carrying | | | | |
+| | | | | | | | | | | | | | | | conductor in a magnetic field | | | | |
+| B4. | | | EK = | 2 | | | | | | | | | | μ I 0 | magnetic field due to a long | | | | |
+| | | | | 1 mv | kinetic energy | | | | | | D10. | | | B = | | | | | |
+| | | | | 2 | | | | | | | | | | r 2π | straight wire | | | | |
+| | | | | | | | | | | | | | | μ NI 0 | magnetic field inside a long | | | | |
+| B5. | | | P = Fv | | mechanical power | | | | | | D11. | | | B = | | | | | |
+| | | | | | | | | | | | | | | l | solenoid | | | | |
+
+| | | | | 2 v | | | | | | | | | | ΔΦ | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| B6. | | | a = | = ω 2r | centripetal acceleration | | | | | | D12. | | | N ε = | induced e.m.f. | | | | |
+| | | | | r | | | | | | | | | | Δ t | | | | | |
+| | | | | | | | | | | | | | | N | ratio of secondary voltage to | | | | |
+| | | | | mGm 21 | Newton’s law of | | | | | | | | | V s s ≈ | | | | | |
+| B7. | | | F = | 2 | gravitation | | | | | | D13. | | | | primary voltage in a | | | | |
+| | | | | r | | | | | | | | | | V N p p | | | | | |
+| | | | | | | | | | | | | | | | transformer | | | | |
+| | | | | λD | fringe width in | | | | | | | | | | | | | | |
+| C1. | | | Δy = | a | double-slit interference | | | | | | E1. | | | −kt N = N0e | law of radioactive decay | | | | |
+
+λD fringe width in double-slit interference E1. N = N0e −kt law of radioactive decay C2. d sin θ = nλ diffraction grating equation E2.
+
+| C2. | | | d sin θ = nλ | | diffraction grating | | | | | | | | | 2ln | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | equation | | | | | | E2. | | | = t 1 | half-life and decay constant | | | | |
+| | | | | | | | | | | | | | | k 2 | | | | | |
+
+11 + =
+
+f
+
+C3. vu
+
+1 equation for a single lens E3. A = kN activity and the number of undecayed nuclei E4. ΔE = Δmc 2 mass-energy relationship
+
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Paper 2 59 
+© Oxford University Press 2023 
+Physics at Work for HKDSE 
+Mock Exam (Set 1) Solution 60 
+ Oxford University Press 2023 
+
+OXFORD UNIVERSITY PRESS
+
+PHYSICS AT WORK FOR HKDSE 
+Mock Examination (Set 1) Papers 1 and 2 
+Solutions 
+Paper 1 (75% of subject mark) 
+SECTION A (26.25% of subject mark) 
+Question No. Key Question No. Key 
+
+1 C 21 A 
+2 C 22 C 
+3 D 23 C 
+4 D 24 C 
+5 C 25 C 
+6 B 26 D 
+7 D 27 C 
+8 B 28 B 
+9 A 29 D 
+10 C 30 A 
+11 A 31 A 
+12 A 32 A 
+13 B 33 B 
+14 D 
+15 D 
+16 B 
+17 B 
+18 C 
+19 D 
+20 B 
+
+SECTION B (84 marks, 48.75% of subject mark) 1
+
+(a) (i) Rated current
+
+= ௉௏ = ଺଴଴଴ଶଶ଴ = 27.3 A Therefore, a 30-A fuse is most suitable for this heater. 1M 1A (ii) The water pile can be coiled inside the heater. 1A (iii) Consider the heating of water in each second. Energy supplied by heater = energy gained by water Pt = mcΔT 6000 × 1 = 0.1 × 4200 × (T − 25) T = 39.3 °C The temperature of water flowing out of the heater is 39.3 °C.
+
+1M 
+1A 
+
+(b) Consider the mixing of water in each second. Energy lost by heated water = energy gained by cool water m1cΔT1 = m2cΔT2 0.1 × 4200 × (39.3 − T) = 0.2 × 4200 × (T − 25) T = 29.8 °C The final temperature of water coming out of the faucet is 29.8 °C.
+
+1M 
+1A 
+2 
+
+(a) (i) By pressure law, ௣భ்భ = ௣మ்మ ଵ.ଶ×ଵ଴లଵହାଶ଻ଷ = ௣మଶହାଶ଻ଷp2 = 1.24 × 10 6 Pa The new pressure is 1.24 × 10 6 Pa.
+
+1M 
+1A 
+
+(ii) The speeds of the gas molecules increase due to the increase in temperature. Since the volume remains unchanged, the collisions of molecules on the wall of the container become more frequent and violent. Therefore, the gas pressure increases.
+
+1A 
+1A 
+1A 
+
+(b) By pV = nRT, n = ௣௏ோ் Number of moles before pumping = ൫ଵ.ଶସ×ଵ଴ల൯×଴.ଷ଼.ଷଵ×ሺଶହାଶ଻ଷሻ = 150 mol 1M Number of moles in each balloon
+
+= ൫ଵ.଴ଶ×ଵ଴ఱ൯×଴.଴ହ଼.ଷଵ×ሺଶହାଶ଻ଷሻ = 2.06 mol Number of moles after pumping = 150 − 10 × 2.06 = 129 mol By pV = nRT, ௣௡ = ோ்௏ = constant
+
+௣భ௡భ = ௣మ௡మ
+
+1M
+
+ଵ.ଶସ×ଵ଴లଵହ଴ = ௣మଵଶଽ 1M p2 = 1.07 × 10 6 Pa The gas pressure is 1.07 × 10 6 Pa. 1A
+
+(a) During the launch, a spacecraft exerts a downward force on the gas. By Newton’s third law, the gas exerts an upward force on the spacecraft. The spacecraft can leave the ground if this force is larger than its weight.
+
+1A 
+1A 
+
+(b) (i)
+
+(Correct forces) 1A (ii) Take upward as positive. Consider the astronaut. By Fnet = ma, N − mg = ma 60 × (3 × 9.81) − 60 × 9.81 = 60 × a a = 19.62 m s −2 ≈ 19.6 m s −2 The acceleration of the spacecraft is the same as that of the astronaut and is equal to 19.6 m s −2.
+
+1M
+
+1A
+
+(iii) By v = u + at, ଽ଴଴଴ଷ.଺ = 0 + 19.62 × t t = 127 s The time needed is 127 s.
+
+1M 
+1A 
+
+(iv) The weight of the spacecraft (gravitational force acting on the it) decreases when it is far away from the Earth. Therefore, its acceleration increases.
+
+1A 
+1A 
+4 
+
+(a) (i)
+
+(Correct direction of arrow) 1A
+
+normal force by the seat weight
+
+10 m
+
+2 m
+
+D
+
+30
+
+o
+
+(ii) Consider the motion from the top to the exit of the slide. Loss in PE = gain in KE
+
+mgΔh = ଵଶሺଶ − ଶሻ gΔh = ଵଶ ሺଶ − ଶሻ 9.81 × (10 −2) = ଵଶ ሺଶ − 0ሻ v = 12.5 m s −1 The speed of Janice is 12.5 m s −1 when she leaves the slide.
+
+1M 
+1A 
+
+(iii) Consider the motion along the vertical direction when Janice is in mid-air. Take downward as positive. By s = ut + ଵଶ ଶ ,
+
+2 = (−12.5 sin 30°) t + ଵଶ× 9.81 × ଶ t = 1.54 s or −0.265 s (rejected) The time is 1.54 s. 1M 1A (iv) Minimum value of D = uxt = (12.5 cos 30°) × 1.54 = 16.7 m 1A (v) The result will remain unchanged. 1A (b) (i) Janice’s gravitational potential energy and kinetic energy are converted to thermal energy of Janice and the water (and kinetic energy of water). 1A 1A (ii) Janice will stop within a very short time after hitting the ground but will continue moving after hitting the water surface. Therefore, the force acting on Janice when hitting the ground will be much larger than that when hitting the water surface. 1A 1A 5 (a)
+
+(Symmetric pattern) 
+(Larger separation between 2nd-order and 1st-order bright dots than 
+1st-order and central bright dots) 
+
+1A 
+1A 
+
+(b) tan θ2 = ଻ଷ÷ଶ଻଴ θ2 = 27.5° d = ଵ×ଵ଴షయହ଴଴ = 2 × 10 −6 m By d sin θ = nλ, (2 × 10 −6) × sin 27.5° = 2 × λ λ = 4.617 × 10 −7 m f = ௖ఒ = ଷ.଴଴×ଵ଴ఴସ.଺ଵ଻×ଵ଴షళ = 6.50 × 10 14 Hz (accept 6.48 × 10 14 Hz to 6.52 × 10 14 Hz)
+
+1M 
+1M 
+1A 
+
+73 cm
+
+(c) n ≤ ௗఒn ≤ ଶ×ଵ଴షలସ.଺ଵ଻×ଵ଴షళn ≤ 4.33 Maximum number of bright dots = 2 × 4 + 1 = 9
+
+1M
+
+1A (d) Decrease 1A
+
+6
+
+(a) Put the letter ‘F’ at a certain distance from the convex lens. Put the screen on the other side of the lens. Move the screen to capture a sharp image of the letter ‘F’. Measure the object distance u and the image distance v with the metre rule. The focal length f of the convex lens can be calculated by using f = ቀଵ௨ + ଵ௩ቁିଵ.
+
+1A 
+1A 
+1A 
+1A 
+
+(b) (i) n = ୱ୧୬ሺଽ଴°ି଺଻°ሻୱ୧୬ ଵହ° = 1.51 1M 1A (ii)
+
+(Correct path)
+
+Critical angle C = sinିଵ ቀ ଵଵ.ହଵቁ = 41.5° The angle of incidence is 45° and is larger than the critical angle, so total internal reflection occurs at side AC.
+
+1A 
+1A 
+
+1A
+
+7
+
+(a) A. When the switch is turned to A, the equivalent resistance of the circuit is higher. This results in a lower power.
+
+1A 
+1A 
+
+(b) Let r be the resistance of one resistor. When the switch is turned to A, Req = r + r = 2r
+
+By P = ௏మோ ,
+
+600 = ଶଶ଴మଶ௥ r = 40.3 Ω
+
+1M 
+1A 
+
+60°
+
+60° 60°
+
+67° 15°
+
+A
+
+B C
+
+(c) (i) When the switch is turned to B,
+
+Req = ቀଵ௥ + ଵଶ௥ቁିଵ = ଶଷ = ଶଷ× 40.3 = 26.9 Ω
+
+P = ௏మோ = ଶଶ଴మଶ଺.ଽ = 1800 W 1M 1A (ii) The power will become lower. 1A 8 (a)
+
+(Uniformly separated field lines, correct direction) 1A (b) E = ௏ௗ = ଷ଴଴଴଴.ଵ = 30 000 N C −1 1M 1A (c) (i) Consider the horizontal direction. T sin 30° = qE T sin 30° = (1 × 10 −6) × 30 000 T = 0.06 N Consider the vertical direction. T cos 30° = mg 0.06 × cos 30° = m × 9.81 m = 5.30 × 10 −3 kg
+
+1M
+
+1M 
+1A 
+
+(ii) The angle will remain unchanged as the electric field strength remains unchanged.
+
+1A 
+1A 
+9 
+
+(a) (i) Negative 1A (ii) F = Bqv = 0.5 × (1.6 × 10 −19) × (1.2 × 10 5) = 9.6 × 10 −15 N
+
+1M 
+1A 
+
+(iii) As the magnetic force is always perpendicular to the velocity of the particle, it does no work on the particle.
+
+1A 
+1A 
+
+(iv) Magnetic force = ௠௩మ௥ 9.6 × 10 −15 = ௠×൫ଵ.ଶ×ଵ଴ఱ൯మ଴.ଵହ m = 1 × 10 −25 kg
+
+1M 
+1A 
+
+(b) The particles in paths A and B experience the same magnetic force F and have the same speed v.
+
+Since the radius r of path B is smaller, by F = ௠௩మ௥ , the particle in path B is lighter. 1A 1A
+
+E.H.T. + –
+
+(a) ଽସPu ଶଷ଼ → ଽଶU ଶଷସ + ଶαସ 1A (b) Δm = 238.049 56 − (234.040 95 − 4.0015) = 0.007 11 u ΔE = 0.007 11 × 931 = 6.62 MeV 1M 1A (c) (i) Activity = powerenergy released in each decay = ଵ଴଺.଺ଶ×ଵ଴ల×ଵ.଺଴×ଵ଴షభవ = 9.44 × 10 12 Bq 1M 1A (ii) As power ∝ activity,
+
+P = ଴ ቀଵଶቁ௡ = 10 ቀଵଶቁ యబఴళ.ళ = 7.89 W 1M 1A
+
+Paper 2 (25% of subject mark)
+
+SECTION A: Astronomy and Space Science (20 marks, 12.5% of subject mark) 
+Multiple-choice questions 
+1.1 A 1.25A 
+1.2 B 1.25A 
+1.3 C 1.25A 
+1.4 B 1.25A 
+1.5 C 1.25A 
+1.6 B 1.25A 
+1.7 D 1.25A 
+1.8 C 1.25A 
+
+Structured question 1
+
+(a) K1 + U1 = K2 + U2
+
+ଵଶ ଵଶ + ቀ− ீெ௠௥భቁ = ଵଶ ଶଶ + ቀ− ீெ௠௥మቁଵଶ× 8500ଶ − ൫଺.଺଻×ଵ଴షభభ൯×൫ହ.ଽ଻×ଵ଴మర൯଺ଷ଻଴×ଵ଴య = ଵଶଶଶ − ൫଺.଺଻×ଵ଴షభభ൯×൫ହ.ଽ଻×ଵ଴మర൯ሺ଺ଷ଻଴ାଶ଴଴଴ሻ×ଵ଴య v2 = 6510 m s −1
+
+1M
+
+1A
+
+(b) By ீெ௠௥మ = ௠௩మ௥ ,
+
+v = ටீெ௥ = ටሺ଺.଺଻×ଵ଴షభభሻ×ሺହ.ଽ଻×ଵ଴మరሻሺ଺ଷ଻଴ାଶ଴଴଴ሻ×ଵ଴య = 6900 m s −1 1M 
+1A 
+(c) Unchanged 1A 
+(d) (i) No. 
+According to Kepler’s third law, the orbital periods of X and Y 
+are the same. 
+X is always at the lower half of its orbit when Y is at the upper 
+half of its orbit, 
+and so they will never collide with each other. 
+
+1A 
+1A 
+1A 
+
+(ii)
+
+By ୼ఒఒబ ≈ ௩ೝ௖ , vr ≈
+
+୼ఒఒబ × c = ହ଻଼.ଵିହ଻଼ହ଻଼ × (3.00 × 10 8) = 51 900 m s −1 1M 1A
+
+SECTION B: Atomic World (20 marks, 12.5% of subject mark) 
+Multiple-choice questions 
+2.1 B 1.25A 
+2.2 B 1.25A 
+2.3 C 1.25A 
+2.4 A 1.25A 
+2.5 A 1.25A 
+2.6 B 1.25A 
+2.7 D 1.25A 
+2.8 A 1.25A 
+
+Structured question 2
+
+(a) Any two of the following: - The electron can only occupy certain discrete orbits. - When the electron stays in an orbit, it does not radiate and its total energy remains unchanged. - The electron can jump from one orbit to another by gaining or losing energy. This can be done by absorbing or emitting a photon. - The angular momentum of the electron is quantized in integral multiples of ௛ଶπ .
+
+2A
+
+(b) It means that the electron is bound by the nucleus. 1A (c) The energy 9.1 eV does not match the differences between ground state of hydrogen and other energy levels. 1A (d) (i)
+
+(Transitions to the ground state drawn) (All transitions drawn)
+
+1A 1A (ii) The transition from n = 2 to n = 1 1A (iii) Energy of photon corresponding to spectral line A
+
+= E2 − E1 = ቀିଵଷ.଺ଶమ ቁ − (−13.6) = 10.2 eV By E = hf and c = fλ, λ = ௛௖ா = ൫଺.଺ଷ×ଵ଴షయర൯×൫ଷ.଴଴×ଵ଴ఴ൯ଵ଴.ଶ×ሺଵ.଺଴×ଵ଴షభవሻ = 1.22 × 10 −7 m
+
+1M
+
+n = 1
+
+SECTION C: Energy and Use of Energy (20 marks, 12.5% of subject mark) 
+Multiple-choice questions 
+3.1 D 1.25A 
+3.2 D 1.25A 
+3.3 B 1.25A 
+3.4 B 1.25A 
+3.5 A 1.25A 
+3.6 B 1.25A 
+3.7 D 1.25A 
+3.8 C 1.25A 
+
+Structured question 3
+
+(a) r 2 = 1 2 + 2 2 = 5 cos θ = ଵ√ହE = ஍ ୡ୭ୱ ఏସπ௥మ = ଶ଴଴଴× భ√ఱସπ×ହ = 14.2 lx
+
+1M 
+1M 
+1A 
+(b) Efficacy of lamp A = ଶ଴଴଴ଵ଼ = 111 lm W −1 
+Efficacy of lamp B = ଶଷ଴଴ଶ଴ = 115 lm W −1 
+
+∴ Lamp B has a higher efficacy.
+
+1M 
+1A 
+
+(c) An incandescent lamp produces a lot of thermal energy as waste while an LED lamp does not. Therefore, an LED lamp consumes less amount of power to give the same luminous flux.
+
+1A 
+1A 
+
+(d) (i) Total rate of heat gain = 21 × (10 × 5 + 10 × 4 × 2 + 5 × 4 × 2) = 3570 W
+
+1M 1A (ii) Cooling capacity = 3570 + 200 × 20 = 7570 W 1A
+
+SECTION D: Medical Physics (20 marks, 12.5% of subject mark) 
+Multiple-choice questions 
+4.1 D 1.25A 
+4.2 C 1.25A 
+4.3 A 1.25A 
+4.4 C 1.25A 
+4.5 B 1.25A 
+4.6 A 1.25A 
+4.7 C 1.25A 
+4.8 B 1.25A 
+
+Structured question 4
+
+(a) When a fluctuating voltage is applied across the piezoelectric crystal in the transducer, the crystal contracts and expands to produce an ultrasound pulse.
+
+1A 
+1A 
+
+(b) Thickness = ଵଶ × 1600 × (30 × 10 −6) = 0.024 m 1M 1A (c) (i) By Z = ρc, ρ = ௓௖ = ଵ.଺ଷ×ଵ଴లଵ଺଴଴ = 1020 kg m −3 1M 1A (ii) α = ሺ௓మି௓భሻమሺ௓మା௓భሻమ = ൫ଵ.଺ଷ×ଵ଴లିଵ.ଷ଼×ଵ଴ల൯మሺଵ.଺ଷ×ଵ଴లାଵ.ଷ଼×ଵ଴లሻమ = 0.00690 Percentage = 0.00690 × 100% = 0.690%
+
+1M
+
+1A
+
+(d) Advantage: produces images of higher resolution Disadvantage: smaller penetration depth
+
+1A 
+1A 
+
+OXFORD UNIVERSITY PRESS PHYSICS AT WORK FOR HKDSE
+
+MOCK EXAMINATION (Set 2) PHYSICS PAPER 1
+
+Time allowed: 2 hours 30 minutes This paper must be answered in English
+
+GENERAL INSTRUCTIONS 
+(1) There are TWO sections, A and B, in this Paper. You are advised to finish Section A in about 50 minutes. 
+(2) Section A consists of multiple-choice questions in this question paper, while Section B contains conventional questions printed separately in Question-Answer Book B. 
+(3) Answers to Section A should be marked on the Multiple-choice Answer Sheet while answers to Section B should be written in the spaces provided in the Question-Answer Book. The Answer Sheet for Section A and the Question-Answer Book for Section B will be collected separately at the end of the examination. 
+(4) The diagrams in this paper are NOT necessarily drawn to scale. 
+(5) The last two pages of this question paper contain a list of data, formulae and relationships which you may find useful. 
+INSTRUCTIONS FOR SECTION A (MULTIPLE-CHOICE QUESTIONS) 
+(1) Read carefully the instructions on the Answer Sheet. After the announcement of the start of the examination, you should first insert the information required in the spaces provided. No extra time will be given after the ‘Time is up’ announcement. 
+(2) When told to open this book, you should check that all the questions are there. Look for the words ‘END OF SECTION A’ after the last question. 
+(3) All questions carry equal marks. 
+(4) ANSWER ALL QUESTIONS. You are advised to use an HB pencil to mark all the answers on the Answer Sheet, so that wrong marks can be completely erased with a rubber. You must mark the answers clearly; otherwise you will lose marks if the answers cannot be captured. 
+(5) You should mark only ONE answer for each question. If you mark more than one answer, you will receive NO MARKS for that question. 
+(6) No marks will be deducted for wrong answers. 
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 1A 72 
+ Oxford University Press 2023 
+Section A 
+There are 33 questions. Questions marked with * involve knowledge of the extension component. 
+1 An uncovered refrigerator is used in a supermarket. 
+After the refrigerator is turned off, the food inside stays cold for a long while because 
+A the refrigerator is made of materials with high specific heat capacity. 
+B the conduction between the food and the refrigerator is good. 
+C the convection of air around the food is negligible. 
+D the food emits more radiation than it absorbs. 
+
+2 Two insulated metal blocks X and Y are made of different materials with unknown mass. They are heated separately by two identical electric heaters at the same power. The graph below shows how the temperatures of X and Y change with time.
+
+Which of the following statements must be correct? 
+A The specific heat capacity of Y is greater than that of X. 
+B The specific heat capacity of X is greater than that of Y. 
+C The heat capacity of Y is greater than that of X. 
+D The heat capacity of X is greater than that of Y. 
+
+time
+
+temperature
+
+X
+
+Y
+
+*3 An ideal gas is heated in a closed container. Its temperature T increases linearly from 0 °C with time t as shown in the graph below.
+
+T / °C t / s
+
+0
+
+Which of the following graphs best shows how the root-mean-square speed v of the gas particles 
+changes with t? 
+A B 
+
+v / m s −1 v / m s −1
+
+t / s
+
+0 t / s
+
+0
+
+v / m s −1 v / m s −1
+
+C D
+
+t / s
+
+0 t / s
+
+0
+
+4 Particle X moves from P to Q along a semicircular path (solid line) while particle Y along a straight path (dotted line). They have the same average speed.
+
+X
+
+P Q × ×
+
+Y
+
+Taking vX and vY as the magnitudes of the average velocities of X and Y moving P to Q 
+respectively. Find the ratio vX : vY. 
+A 2 : π 
+B 1 : 1 
+C π : 2 
+D π : 1 
+
+| | A | | 2 : π | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| | B | | 1 : 1 | | | | |
+| | C | | π : 2 | | | | |
+| | D | | π : 1 | | | | |
+| Physics at Work for HKDSE | | | | | | | |
+
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 1A 73 
+ Oxford University Press 2023 
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 1A 74 
+ Oxford University Press 2023 
+
+5 Peter starts running from rest when John is running at 5 m s −1 and is 15 m away from him at time t = 0. The figure below shows the velocity–time (v–t) graph for Peter and John.
+
+Which of the following statements about their motions must be correct? 
+A Peter meets John at t = 1 s. 
+B The separation between Peter and John is the greatest at t = 4 s. 
+C Peter and John run in opposite directions from t = 0 to 4 s. 
+D The accelerations of Peter and John have the same magnitude from t = 0 to 4 s. 
+
+6 A block sliding from rest along a smooth inclined plane passes through points L, M and N, where M is the mid-point of LN. The speed of the block is u at L and v at N. What is the speed of the block at M?
+
+A u + v 2
+
+B
+
+2uv u + v
+
+## C ට
+
+u2 + v2 
+2 
+
+D √ uv
+
+1 2 3 4 t / s
+
+v / m s −1
+
+0
+
+5
+
+10 –5
+
+Peter
+
+John –10
+
+L
+
+M
+
+N
+
+7 Two identical blocks, P and Q, are connected with a light inextensible string which passes over a smooth fixed pulley as shown. P is placed on a rough inclined plane while Q is hung vertically. Both P and Q stay at rest.
+
+Which free-body diagram below correctly shows the forces acting on P? A
+
+B
+
+C
+
+D
+
+Q
+
+P
+
+Block Y of mass 1 kg is stacked on block X of mass 2 kg. Block X is placed on a smooth 
+horizontal ground and pulled by two forces, 9 N to the right and 3 N to the left. The two blocks 
+move together without slipping. The friction acting on X by Y is 
+A 2 N to the left 
+B 2 N to the right 
+C 4 N to the left 
+D 4 N to the right 
+
+9 A rocket with two stages is launched at an acceleration of 3g (Fig a). The propelling force acting on the rocket is F. After the first stage of mass m is released, the second stage of mass 2m is kept propelled by the same force F and has an acceleration of a as shown in Figure b. Assume the acceleration due to gravity g is constant. Find a.
+
+A 3.5g B 4.5g C 5g D 6g
+
+Y
+
+3 N X 9 N
+
+m
+
+2m 3g
+
+F m
+
+2m a
+
+F
+
+Figure a Figure b
+
+10 A firefighter rappels down a building. A rope of negligible weight is tied to his waist to the right of his centre of gravity (c.g.) as shown. At the instant shown, he remains at rest horizontally.
+
+L M
+
+O
+
+N c.g.
+
+P
+
+The reaction force acting on the firefighter’s feet by the wall of the building is along the 
+direction 
+A OL. 
+B OM. 
+C ON. 
+D OP. 
+
+11 At the bottom of a bowl-shaped smooth track, two trolleys P and Q are held at rest with a light compressed spring in between. After the trolleys are released, they move apart.
+
+compressed spring
+
+P Q
+
+| | (1) | | | Just after separation, Q moves faster than P. | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | (2) | | | P and Q reach the same maximum height. | | | | |
+| | (3) | | | The total momentum of P and Q is always zero. | | | | |
+| | A | | | (1) only | | | | |
+| | B | | | (2) only | | | | |
+| | C | | | (1) and (3) only | | | | |
+| | D | | | (2) and (3) only | | | | |
+
+Given that P is heavier than Q. Which of the following statements is/are correct?
+
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 1A 77 
+ Oxford University Press 2023 
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 1A 78 
+ Oxford University Press 2023 
+
+X
+
+Y
+
+Z
+
+*12 A skateboarder moves along track XYZ as shown. The track is straight at X, circular at Y and horizontal at Z. The skateboarder moves horizontally at Y and Z.
+
+The magnitudes of the normal forces acting on the skateboarder by the track at X, Y and Z are denoted by FX, FY and FZ respectively. Which of the following relationships between FX, FY and FZ is correct?
+
+A FX < FZ = FY B FX < FZ < FY C FX < FY < FZ
+
+D FX = FY < FZ
+
+*13
+
+O is a point on the line joining the centres of the Earth (E) and the Moon (M). The resultant 
+gravitational field strength due to the two celestial bodies at O is zero. Given that the 
+gravitational field strength on the Earth surface is about 6 times of that on the Moon surface and 
+the radius of the Earth is about 4 times of that of the Moon. The ratio OE : OM is approximately 
+A 1 : 24. 
+B 1 : 10. 
+C 10 : 1. 
+D 24 : 1. 
+
+M E O
+
+14 The figure below shows plane water waves travelling towards a straight barrier.
+
+Which of the following wave phenomena can be observed? 
+(1) Reflection 
+(2) Diffraction 
+(3) Interference 
+A (1) only 
+B (3) only 
+C (1) and (2) only 
+D (1), (2) and (3) 
+
+| | (1) | | | Reflection | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | (2) | | | Diffraction | | | | |
+| | (3) | | | Interference | | | | |
+| | A | | | (1) only | | | | |
+| | B | | | (3) only | | | | |
+| | C | | | (1) and (2) only | | | | |
+| | D | | | (1), (2) and (3) | | | | |
+
+15 The figure below shows the equilibrium positions of particles a to h in a medium and their positions at time t when a longitudinal wave propagates in the medium.
+
+a b c d e f g h i
+
+equilibrium positions
+
+a b c d e f g h i
+
+at time t
+
+| | A | | | | to the right | to the right | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | B | | | | to the right | to the left | | |
+| | C | | | momentarily at rest | | to the right | | |
+| | D | | | momentarily at rest | | to the left | | |
+
+Given that particle d is moving to the left at time t, in which directions are particle f and the 
+wave moving at time t? 
+particle f longitudinal wave 
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 1A 79 
+ Oxford University Press 2023 
+
+1.2 m vibrator
+
+| | (1) | | | There are 3 antinodes on the string. | |
+| --- | --- | --- | --- | --- | --- |
+| | (2) | | | The speed of the wave along the string is 12 m s | −1. |
+| | (3) | | | When the frequency increases to 40 Hz, more antinodes are shown on the string. | |
+| | A | | | (1) and (2) only | |
+| | B | | | (1) and (3) only | |
+| | C | | | (2) and (3) only | |
+| | D | | | (1), (2) and (3) | |
+
+A string is 1.2 m long. One of its end is fixed and the other end is tied to a vibrator. A stationary wave is formed as shown at 30 Hz. Which of the following statements are correct?
+
+17 At a certain position, the sound intensity level of the sound produced by engine X is higher than that by engine Y. This implies that the sounds produced by engine X and Y are different in A waveform. B pitch. C wave speed. D amplitude.
+
+| | A | | | waveform. | |
+| --- | --- | --- | --- | --- | --- |
+| | B | | | pitch. | |
+| | C | | | wave speed. | |
+| | D | | | amplitude. | |
+
+| | (1) | | | Ultraviolet radiation can transmit energy but ultrasound cannot. | |
+| --- | --- | --- | --- | --- | --- |
+| | (2) | | | Ultraviolet radiation can travel in a vacuum but ultrasound cannot. | |
+| | (3) | | | Human being can see ultraviolet radiation but cannot hear ultrasound. | |
+| | A | | | (1) only | |
+| | B | | | (2) only | |
+| | C | | | (1) and (3) only | |
+| | D | | | (2) and (3) only | |
+
+18 Which of the following statements about ultraviolet radiation and ultrasound is/are correct?
+
+*19 Two beams of monochromatic light, red and green, strike normally on a diffraction grating. Several orders of bright fringes are formed. The first-order red fringe makes an angle of 10° to the central bright fringe as shown. The wavelength of red light is 700 nm and that of the green light is 550 nm.
+
+first-order red fringe
+
+grating
+
+10°
+
+central bright fringe light beams
+
+| | (1) | | | A green fringe is formed between the central bright fringe and the first-order red fringe. | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | (2) | | | Between any two consecutive green fringes there must be a red fringe. | | | | |
+| | (3) | | | The maximum order of red fringe is 6. | | | | |
+| | A | | | (1) only | | | | |
+| | B | | | (2) only | | | | |
+| | C | | | (1) and (3) only | | | | |
+| | D | | | (2) and (3) only | | | | |
+
+Which of the following statements is/are correct?
+
+20 A paper printed with letters ‘O’, ‘P’, ‘Q’, ‘R’ and ‘S’ is placed in front of a mirror. The figure below shows the image in the mirror.
+
+plane mirror back of paper
+
+Which of the following best represents the positions of the letters printed on the paper? A B
+
+Q P
+
+S R
+
+O
+
+O
+
+S R
+
+Q P
+
+C D
+
+R S
+
+P Q
+
+O
+
+O
+
+P Q
+
+R S
+
+glass block
+
+red violet
+
+The figure above shows two parallel rays of light, red and violet, entering a rectangular glass block. Given that
+
+refractive index of glass for violet light refractive index of glass for red light = 1.03, which of the following ray diagrams best represents the emerging light rays? A B
+
+red red
+
+glass block glass block violet violet red red violet violet
+
+C D
+
+red
+
+glass block glass block
+
+red violet red red violet violet violet
+
+22 There are three point charges +QX, +QY and −QZ. In which of the following arrangements could all the charges be in equilibrium? (1) (2)
+
++QX –QΖ +QY –QZ +QY +QX
+
+(3)
+
++QX +QY
+
+–QΖ
+
+| | A | | | (1) only | | |
+| --- | --- | --- | --- | --- | --- | --- |
+| | B | | | (2) only | | |
+| | C | | | (1) and (3) only | | |
+| | D | | | (2) and (3) only | | |
+
+Y
+
+X
+
+Two light bulbs X and Y are connected to a battery of negligible internal resistance as shown. In 
+1 s, X consumes 4 J of energy and Y consumes 8 J of energy. The resistance of X is R. Find the 
+equivalent resistance of X and Y. 
+A 
+
+R 3
+
+2R 
+3 
+
+B
+
+C
+
+3R 2 D 3R
+
+24
+
+X
+
+Q
+
+P
+
+R
+
+S
+
+| | A | | P only | | | |
+| --- | --- | --- | --- | --- | --- | --- |
+| | B | | Q only | | | |
+| | C | | S only | | | |
+| | D | | P, Q and S | | | |
+| Physics at Work for HKDSE | | | | | | |
+| Mock Exam (Set 2) Paper 1A | | | | | | 83 |
+
+In the above circuit, all light bulbs are identical and the battery is of negligible internal resistance. X becomes brighter when one of the other light bulbs is shorted-circuited. Which light bulb could it be?  Oxford University Press 2023
+
+25 Three resistors, RX, RY and RZ, of unknown resistance values are provided. Which of the following combination of resistors will consume the most power from the same battery? A B
+
+C D
+
+26
+
+A uniform metal wire MN of length L is connected to a battery and an ideal voltmeter as shown. 
+The battery has an e.m.f. ε and an internal resistance r. The voltmeter is connected to the wire 
+with a sliding contact at O. Which of the following graphs best represents the variation of the 
+voltmeter reading V with the length OM? 
+A B 
+
+C D
+
+RX RY RZ
+
+RY
+
+RX
+
+RZ
+
+RX RY
+
+RZ
+
+RX
+
+RY
+
+RZ
+
+OM
+
+0 L
+
+ε
+
+V
+
+OM
+
+0 L
+
+ε
+
+V
+
+OM
+
+0 L
+
+ε
+
+V
+
+OM
+
+0 L
+
+ε
+
+V
+
+M
+
+V
+
+N O
+
+L
+
+Four long straight insulated wires overlap to form a square. O is the centre of the square. The 
+figure above shows the currents in the wires. The strength of the magnetic field at O due to the 
+current I in the wire PQ is B. Find the resultant magnetic field at O. 
+Strength of magnetic field Direction of magnetic field 
+A 2B Into the paper 
+B 2B Out of the paper 
+C 4B Into the paper 
+D 4B Out of the paper 
+
+*28 As shown below, a charged particle X is accelerated from rest in a uniform electric field produced by two parallel plates with a voltage V applied across them. After leaving the electric field horizontally with velocity v, the particle passes through a uniform magnetic field and reaches point T on the screen.
+
+What kind of charge does the particle carry and how should V be changed to make the particle 
+reach S on the screen? 
+charge V 
+A positive increases 
+B positive decreases 
+C negative increases 
+D negative decreases 
+
+O
+
+P Q I
+
+2I
+
+3I
+
+4I
+
+× × × × × × × × × × × × × × × × × × × ×
+
+V
+
+• T
+
+uniform magnetic field
+
+v
+
+screen • S
+
+X
+
+*29 Peter buys a transformer designed for changing an a.c. input voltage of 240 V to an a.c. output of 12 V. When using it, he finds the output voltage less than 12 V. Which of the following causes is/are possible? (1)
+
+##### Number of turns of primary coilNumber of turns of secondary coil
+
+< 20.
+
+(2) There is magnetic flux leakage from the coils of the transformer. 
+(3) Eddy currents are induced in the iron core of the transformer. 
+A (2) only 
+B (3) only 
+C (1) and (2) only 
+D (1) and (3) only 
+
+30
+
+The figure above shows a copper ring suspended horizontally by inextensible threads. The total tension in the threads is T. Which of the following graphs best represent the variation of the tension in the threads with time when a bar magnet falls through the ring? A B
+
+C D
+
+time
+
+0
+
+T
+
+tension time
+
+0
+
+T
+
+tension time
+
+0
+
+T
+
+tension time
+
+0
+
+T
+
+tension threads copper ring
+
+S
+
+N
+
+ଽସP ଶଷଽ u ൅ n →→൅ ସ଴Z ଵ଴ଷ r ൅ 3 n The nuclear equation represents the fission of plutonium-239 ( ଽସP ଶଷଽ u ) induced by a slow neutron. Q and R are nuclides involved in the fission. Which of the following statements about the fission is/are correct? (1) Q is an isotope of plutonium. (2) R is lighter than ସ଴Z ଵ଴ଷ r . (3) The fission of ଽସP ଶଷଽ u may lead to a chain reaction. A (1) only B (2) only C (1) and (3) only D (2) and (3) only
+
+32 The figure below shows the interior of a film badge. The photographic film is wrapped in paper. O, P and Q are the areas of the film behind the open window, aluminium filter and lead filter respectively.
+
+photographic film wrapped in paper aluminium filter
+
+P
+
+open window
+
+O
+
+Q
+
+plastic case lead filter
+
+| | (1) | | | O and P are blackened to the same extent. | | |
+| --- | --- | --- | --- | --- | --- | --- |
+| | (2) | | | P is blackened to a greater extent than Q. | | |
+| | (3) | | | The rest of the film other than O, P and Q is not blackened. | | |
+| | A | | | (2) only | | |
+| | B | | | (1) and (2) only | | |
+| | C | | | (1) and (3) only | | |
+| | D | | | (1), (2) and (3) | | |
+
+A worker wearing the film badge is accidentally exposed to α radiation and γ radiations. What will be observed on the developed film?
+
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 1A 87 
+ Oxford University Press 2023 
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 1A 88 
+ Oxford University Press 2023 
+
+*33 Given: mass of a neutron = 1.0073 u mass of a proton = 1.0087 u mass of an α particle = 4.00151 u 1 u is equivalent to 931 MeV If an α particle is broken into individual neutrons and protons, how much energy will be released or absorbed? A 4.54 × 10 −12 J released B 4.54 × 10 −12 J absorbed C 2.96 × 10 −10 J released D 2.96 × 10 −10 J absorbed
+
+END OF SECTION A
+
+Data 
+molar gas constant R = 8.31 J mol −1 K −1 
+Avogadro constant NA = 6.02 × 10 23 mol −1 
+acceleration due to gravity g = 9.81 m s −2 (close to the Earth) 
+universal gravitational constant G = 6.67 × 10 −11 N m 2 kg −2 
+speed of light in vacuum c = 3.00 × 10 8 m s −1 
+charge of electron qe = 1.60 × 10 −19 C 
+electron rest mass me = 9.11 × 10 −31 kg 
+permittivity of free space ε0 = 8.85 × 10 −12 C 2 N −1 m −2 
+permeability of free space μ0 = 4π × 10 −7 H m −1 
+atomic mass unit u = 1.661 × 10 −27 kg (1 u is equivalent to 931 MeV) 
+astronomical unit AU = 1.50 × 10 11 m 
+light year ly = 9.46 × 10 15 m 
+parsec pc = 3.09 × 10 16 m = 3.26 ly = 206 265 AU 
+Stefan constant σ = 5.67 × 10 −8 W m −2 K −4 
+Planck constant h = 6.63 × 10 −34 J s 
+Rectilinear motion Mathematics 
+For uniformly accelerated motion: 
+v = u + at 
+s = ut + 2 
+2 
+
+Equation of a straight line y = mx + c Arc length = rθ Surface area of cylinder = 2πrh + 2πr 2 Volume of cylinder = πr 2h Surface area of sphere = 4πr 2 Volume of sphere = 3 π 3
+
+1at v 2 = u 2 + 2as
+
+4 r For small angles, sin θ ≈ tan θ ≈ θ (in radians)
+
+Astronomy and Space Science U =
+
+Energy and Use of Energy A
+
+E Φ= illuminance
+
+r
+
+GMm − gravitational potential energy P = σAT 4 Stefan’s law ฬ Δf f0ฬ  v c  ฬ Δλ λ0ฬ Doppler effect
+
+| | | | | | | | | Q | κ = | TTA )( | | − CH | | | rate of energy transfer by conduction | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | | t | | | | d | | | | | |
+| | | | | | | | | | κ | | | | | | | | |
+| | | | | | | | U = | | d | | | | | | thermal transmittance U-value | | |
+
+d
+
+1ρAv maximum power by wind turbine
+
+P = 3 2
+
+Medical Physics
+
+Atomic World 2
+
+θ ≈
+
+d
+
+maxe 2
+
+22.1 λ Rayleigh criterion (resolving power) power =
+
+1 vm = hf − φ Einstein’s photoelectric equation En = –
+
+4
+
+1
+
+me qe
+
+1 power of a lens
+
+n2 ቊ
+
+f
+
+L = log10
+
+8h 2ε0 2ቋ = – 13.6 n2 eV energy level equation for hydrogen atom λ = p h = mv h de Broglie formula
+
+I
+
+0
+
+I intensity level (dB) Z = ρc acoustic impedance α =
+
+r
+
+− intensity reflection coefficient
+
+ZZ +
+
+I I = 2 12
+
+0
+
+= ଴ିఓ௫ transmitted intensity through a medium
+
+22.1 λ Rayleigh criterion (resolving power)
+
+θ ≈
+
+d
+
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 1A 89 
+ Oxford University Press 2023 
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 1A 90 
+ Oxford University Press 2023 
+
+A1. E = mcΔT energy transfer during heating and cooling D1. F = 2 0
+
+21 
+4π r 
+
+QQ ε Coulomb’s law
+
+A2. E = lΔm energy transfer during change of state D2. E = 2 4π 0 r
+
+Q ε
+
+electric field strength due to a point charge
+
+A3. pV = nRT equation of state for an ideal gas D3. E =
+
+d
+
+V electric field between parallel plates (numerically) A4. = 13 ଶ kinetic theory equation D4. = resistance and resistivity
+
+A5. EK =
+
+2 A
+
+3 N
+
+RT
+
+molecular kinetic energy D5. R = R1 + R2 resistors in series
+
+D6. 1 = 1ଵ+1ଶ resistors in parallel
+
+B1. F = m
+
+Δv
+Δt =
+
+Δp
+Δt
+
+force D7. P = IV = I 2R power in a circuit B2. moment = F × d moment of a force D8. F = BQv sin θ force on a moving charge in a magnetic field
+
+B3. EP = mgh gravitational potential energy D9. F = BIl sin θ force on a current-carrying conductor in a magnetic field
+
+B4. EK = 2 2 1 mv kinetic energy D10. B =
+
+r
+
+I
+
+2π
+
+μ 0 magnetic field due to a long straight wire
+
+B5. P = Fv mechanical power D11. B =
+
+l
+
+NI μ 0 magnetic field inside a long solenoid
+
+B6. a =
+
+r v 2
+
+= ω 2r centripetal acceleration D12. ε =
+
+t
+
+N
+
+Δ
+
+ΔΦ
+
+induced e.m.f.
+
+B7. F = 2
+
+21
+
+r
+
+mGm Newton’s law of gravitation D13. p
+
+s V
+
+V ≈
+
+p s
+
+N
+
+N ratio of secondary voltage to primary voltage in a transformer
+
+C1.  =
+
+fringe width in double-slit interference E1. N = N0e −kt law of radioactive decay C2. d sin θ = nλ diffraction grating equation E2.
+
+ଵଶ =
+
+ln 2 k
+
+half-life and decay constant
+
+C3. 1+1 = 1 equation for a single lens E3. A = kN activity and the number of undecayed nuclei E4. ΔE = Δmc 2 mass-energy relationship
+
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 1B 91 
+© Oxford University Press 2023 
+Name 
+Class 
+Class number 
+
+Teacher's Use Only Question No. Marks 1 / 7 2 / 8 3 / 7 4 / 13 5 / 10 6 / 10 7 / 8 8 / 7 9 / 8 10 / 6 Total / 84
+
+OXFORD UNIVERSITY PRESS PHYSICS AT WORK FOR HKDSE
+
+MOCK EXAMINATION (Set 2) PHYSICS PAPER 1 Section B: Question-Answer Book B
+
+This paper must be answered in English
+
+INSTRUCTIONS FOR SECTION B 
+(1) After the announcement of the start of the examination, you should first insert your information in the spaces provided on Page 1. 
+(2) Refer to the general instructions on the cover of the Question Paper for Section A. 
+(3) Answer ALL questions. 
+(4) Write your answers in the spaces provided in this Question-Answer Book. Do not write in the margins. Answers written in the margins will not be marked. 
+(5) Graph paper and supplementary answer sheets will be provided on request. Insert the information required, mark the question number box, and fasten them with string INSIDE this Question-Answer Book. 
+(6) No extra time will be given for inserting your information or filling in the question number boxes after the ‘Time is up’ announcement. 
+
+B
+
+Section B: Answer ALL questions. Parts marked with * involve knowledge of the extension component. Write your answers in the spaces provided.
+
+1 700 g of cooking oil in a wok is heated up to and maintained at 160 °C. 300 g of cashew nuts at 30 °C with moisture are put into the oil for deep frying. The nuts bubble immediately. When the nuts stop bubbling and turn light brown, they are removed from the oil for cooling. The nuts after deep-frying become dry and, excluding the cooking oil
+
+absorbed, the total mass becomes 280 g.
+
+Given: Specific heat capacity of cashew nut (dry) = 1500 J kg –1 °C –1
+
+Specific heat capacity of cooking oil = 2300 J kg –1 °C –1
+
+Specific heat capacity of water = 4200 J kg –1 °C –1
+
+.
+
+d
+
+Heat capacity of the wok = 1000 J °C –1
+
+e k r a
+
+Specific latent heat of vaporization of water = 2.26 × 10 6 J kg –1
+
+(a) Explain why the nuts bubble in the hot oil. (2 marks)
+
+A
+
+| | | n i g r a m |
+| --- | --- | --- |
+| | | e h t n i |
+| | | n e t t i r |
+| | | w s r e w |
+| (b) | Estimate the minimum energy absorbed by the nuts with moisture so that the moisture totally vaporizes. Assume that the moisture vaporizes at 100 °C. (2 marks) | s n A |
+| | | |
+| | | |
+| | | |
+| | | |
+| | | |
+
+(c) If heating is stopped when the nuts are put into the oil at 160 °C, what is the final temperature when thermal equilibrium is reached? Assume that the heat loss to the surroundings is negligible. (3 marks)
+
+*2 A pressure relief valve connected to a gas tank prevents the tank from failure due to excessive pressure (Figure 2.1). It has a spring-piston unit contained in a case with an outlet. When the gas pressure P in the tank is higher than the atmospheric pressure Pa, the spring is compressed. As P reaches the safety limit 5Pa, the spring is compressed by a length x and the gas in the tank is vented to the atmosphere through the outlet. This keeps
+
+P not exceeding the limit. Given: Pa = 1.0 × 10 5 Pa
+
+Figure 2.1
+
+(a) Figure 2.2 shows the relationship between the compression of the spring and the force applied on it. The cross-sectional area of the piston is 2.0 cm 2. Find x.
+
+(2 marks)
+
+Figure 2.2
+
+P
+
+valve
+
+Pa
+
+Pa
+
+P = 5Pa
+
+x
+
+gas as P increases to 5Pa
+
+P = Pa
+
+Pa
+
+outlet piston spring tank
+
+compression / mm
+
+40 80 120
+
+2
+
+4
+
+0 force / N
+
+(b) An ideal gas is stored in the tank with pressure 3Pa at 25 °C. What is the safety limit of the storing temperature? Assume the volume of the valve is negligible.
+
+(2 marks)
+
+(c) Use the kinetic theory to explain the change in gas pressure as the temperature increases from 25 °C to above the safety limit found in (b). (4 marks)
+
+3 The following items are provided to set up an experiment to estimate the gravitational
+
+acceleration g:
+
+a stand
+
+a small metal sphere an inextensible string
+
+a light-gate used to measure the time taken for the metal sphere to pass it
+
+a metre rule a vernier caliper
+
+The set-up is as shown in Figure 3.1.
+
+Figure 3.1
+
+(a) Describe the procedures of the experiment. State the physical quantities to be measured and an equation for finding g. (4 marks)
+
+to data-logger light-gate
+
+stand
+
+inextensible string
+
+metal sphere
+
+table
+
+(b) The value of g found in the experiment in (a) is greater than 10 m s −2. Suggest a source of error and explain. (2 marks)
+
+| | |
+| --- | --- |
+| | |
+| | |
+| | |
+| | . |
+| (c) Write down ONE precaution for getting a more accurate result. | d e k r a (1 mark) m e b t o |
+| | n l l i w |
+| | s n i g r a |
+
+.
+
+A
+
+4 Peter participates in a BMX race on a pump track, which is a circuit of obstacles and banked corners, shown in Figure 4.1. All riders get ready on the start hill and run along
+
+the track to compete.
+
+Figure 4.1 (Photo credit: Ymgerman | Dreamstime.com)
+
+(a) Starting from rest at A, Peter pedals down the start hill and jumps over a ‘step-up’ obstacle BCDE as shown in Figure 4.2. He takes 3.0 s to reach C and takes off at
+
+9.0 m s −1 with an angle 30° to the horizontal. A, C and D are 3.5 m, 1.0 m and 1.6 m above the ground respectively. D is 5.0 m away from C horizontally. The total mass of Peter and his bike is 70 kg. Neglect air resistance.
+
+Figure 4.2
+
+(i) Find the work done by Peter in running from A to C. (2 marks)
+
+start hill banked corner obstacles
+
+5.0 m
+
+3.5 m
+
+1.0 m start hill not to scale ground
+
+30
+
+o
+
+1.6 m
+
+A
+
+B
+
+C
+
+D
+
+E
+
+Peter
+
+(ii) Hence, estimate Peter’s average power from A to C. (2 marks)
+
+*(iii) Can Peter jump over D? Take Peter and his bike as a point mass. (3 marks)
+
+*(b) Peter is right behind competitor X when turning at a banked corner. The track at the corner can be divided into three lanes, I, II and III. Lanes I and II bank at 30° which is smaller than the banking angle of Lane III. X moves along Lane II to make a turn of radius 10.0 m. Figure 4.3 shows the front view of X.
+
+Figure 4.3
+
+X
+
+banked corner
+
+II
+
+I 30°
+
+10.0 m
+
+III
+
+(i) X’s bike experiences no frictional force along the inclined surface when turning. What is the speed of X? (2 marks)
+
+.
+
+| | | |
+| --- | --- | --- |
+| | | |
+| | | |
+| | | |
+| | | . |
+| | | d e k r a m |
+| | | e b t o |
+| (ii) | Peter tries to overtake X at the corner. State one advantage and one disadvantage of taking Lane III over Lane I for Peter to do so. | n l l i w s n i g (2 marks) r a m e |
+| | | h t n i n e |
+| | | t t i r w s |
+| | | r e w s n |
+| | | A |
+| | | |
+| (iii) | X speeds up on Lane II to prevent Peter from overtaking. On Figure 4.3, draw the frictional force acting on X’s bike along the inclined surface. Explain your answer. | (2 marks) |
+| | | |
+| | | |
+
+A
+
+5 Mary watches a video from the internet about making a solar heater with a water lens.
+
+The lens is a pool of water held by an elastic transparent film that results in a dome shape downward. Placed under the sun, the lens produces a hot spot that can burn a wood plate.
+
+Figure 5.1
+
+(a) (i) What kind of lens is the water lens? (1 mark)
+
+(ii) Explain how the solar heater works. (2 marks)
+
+(b) Mary makes a similar heater of smaller size by adding some water into a round glass container placed 15 cm above the ground (Figure 5.2). To check the water lens, she places a lined paper printed with letters ‘P’ on the ground under the container. The image in Figure 5.3 is observed from above through the water. The
+
+image is twice as large as the object.
+
+Figure 5.2 Figure 5.3
+
+15 cm glass container water stand ground water surface
+
+P P P P P P P elastic transparent film water lens
+
+L 5 cm
+
+A
+
+B
+
+principal axis
+
+Mary studies the lens further using a graphical method. In the figure below, AB represents a letter ‘P’ as the object. L is the water lens.
+
+(i) Indicate in the figure, the position and height of the image of AB. (2 marks)
+
+(ii) By drawing a suitable light ray, locate and mark the position of the focus, F, of the water lens L. Find the focal length of the lens.
+
+Focal length = ____________________ (3 marks)
+
+(iii) After checking the water lens, Mary suggests changing the height of the stand in order to make the heater produce a hotter spot. Should the stand be higher or lower? Or, will a change in height have no effect on the hotness of a hot spot that the heater can produce? Explain your choice. (2 marks)
+
+6 As shown in Figure 6.1, a dipper S1 is connected with a hinge at A to a bar AB so that it produces circular waves in a ripple tank when the bar oscillates about its centre, O.
+
+Figure 6.1
+
+(a) P is a point on the water surface and is 24 cm away from S1 (Fig 6.2). After the bar
+
+AB starts oscillating at a fixed frequency for 0.6 s, the water at P begins to vibrate and 12 complete waves are produced between S1 and P.
+
+Figure 6.2
+
+(i) Find the speed and the wavelength of the water wave. (2 marks)
+
+(ii) What is the frequency of oscillation of the bar AB? (2 marks)
+
+S1
+
+ripple tank water
+
+O A
+
+B
+
+bar AB oscillates about O
+
+S1 P
+
+24 cm
+
+•
+
+(iii) Sketch in Figure 6.3 how the amplitude of the water wave varies with the distance from S1 along S1P. (1 mark)
+
+Figure 6.3
+
+(b) As shown in Figure 6.4, dipper S2, identical to S1, is now connected with a hinge at
+
+B to the bar.
+
+Figure 6.4
+
+Figure 6.5 shows the top view of the water surface.
+
+Figure 6.5
+
+The bar starts oscillating at the frequency found in (a)(ii) for a while.
+
+(i) What kind of wave phenomenon is observed at P? (1 mark)
+
+amplitude distance
+
+P 0
+
+S1
+
+ripple tank water
+
+O A
+
+B
+
+bar AB oscillates about O
+
+S2
+
+S2 30 cm
+
+P
+
+S1 24 cm
+
+•
+
+(ii) State the phase relationship between the vibration of S1 and S2. (1 mark)
+
+(iii) How does the amplitude of vibration of the water at P change after adding
+
+S2? Explain your answer. (3 marks)
+
+##### 7 Read the following passage about a Lithium ion battery and answer the questions that
+
+follow.
+
+Rechargeable Lithium ion (Li-ion) batteries are commonly used in electric vehicles and
+
+portable electronics like mobile phones.
+
+A simple Li-ion battery consists of two electrodes (negative and positive), an electrolyte and a separator. When the battery is connected to a load, electrons travel from the negative to the positive electrode via the load while Li ions flow from the negative electrode to the positive electrode through the electrolyte inside the battery.
+
+The electric current formed delivers energy to the load from the battery. In charging, the process is reversed and the battery stores energy from a charger that replaces the load. The separator in the electrolyte allows Li ions to pass between the electrodes while preventing an internal short circuit.
+
+Figure 7.1
+
+A Li-ion battery can store a large amount of energy. However, its performance depends on its internal resistance which causes it to heat up and the output voltage to drop when it is connected to a load. Besides, some batteries made from flammable materials cause
+
+safety concern.
+
+(a) In Figure 7.1, draw an arrow to represent the direction of current inside the battery when the battery is connected to a load. (1 mark)
+
+e –
+
+Li
+
++
+
+Li
+
++
+
+load (e.g. electric motor)
+
+separator electrolyte positive electrode negative electrode
+
+Li-ion (Li
+
++ )
+
+battery
+
+e –
+
+(b) A Li-ion battery of 10 V has an internal resistance of 20 mΩ which is assumed to
+
+be constant.
+
+(i) Find the drop in output voltage of the battery when connected to a load of
+
+2 Ω. (2 marks)
+
+(ii) The battery allows fast charging that the current is three times of that in
+
+normal charging. What is the ratio of
+
+power loss as heat in fast charging power loss as heat in normal charging?
+
+(2 marks)
+
+(c) The separator of an Li-ion battery is accidentally broken. Explain why it may result in a fire. (3 marks)
+
+8 Figure 8.1 shows an extension cord that has a long cable with a plug on one end and two
+
+switched sockets, 1 and 2, on the other end.
+
+socket 1 socket 2
+
+cable plug
+
+Figure 8.1
+
+.
+
+d
+
+(a) Sockets 1 and 2 are connected to the pins of the plug via wires X, Y and Z as shown
+
+e r k a
+
+in Figure 8.2.
+
+socket 1 socket 2
+
+n
+
+Z e t h
+
+Figure 8.2
+
+i n n
+
+(i) Which pin of the plug should X connect to? (1 mark)
+
+A
+
+| (ii) What is the advantage of connecting switches in Y over Z? | w s n A (1 mark) |
+| --- | --- |
+| | |
+
+(b) The extension cord is connected to a mains socket providing 220-V a.c. at 50 Hz. A vacuum cleaner is plugged into socket 1 and an electric fan into socket 2. The vacuum cleaner is switched on for 5 minutes and the fan for 2 hours. Their rated
+
+values are given below:
+
+| | | Power / W | 1000 W | | | 50 W | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | Voltage / V | 220 V | | | 220 V | | |
+| | | Frequency / Hz | 50 Hz | | | 50 Hz | | |
+
+Vacuum cleaner Electric fan
+
+(i) Find the current in the cable of the extension cord when the two electrical appliances are both on. (2 marks)
+
+(ii) Explain which electrical appliance demands a higher cost of electricity?
+
+Show your calculation. (3 marks)
+
+9 The setup in Figure 9.1 is used to measure the magnetic field between two slab-shaped
+
+magnets.
+
+insulating segment pivot edges
+
+W P current in
+
+Q
+
+C
+
+X
+
+Z
+
+electronic balance
+
+D
+
+slab-shaped magnet on steel yoke
+
+Y
+
+current out
+
+Figure 9.1
+
+m b e
+
+The rectangular frame WXYZ is made from a metal wire with an insulating segment PQ.
+
+n o t
+
+The frame is supported by two conducting pivot edges C and D with CX = CW and DY =
+
+i l l w
+
+DZ. The frame is in equilibrium and segment PQ is just above the electronic balance without touching it. Segment XY is placed between two slab-shaped magnets with unlike poles facing each other.
+
+When the measurement starts, a current I flows in the direction CXYD and the balance
+
+i n
+
+shows a non-zero reading. The balance is calibrated in newtons and its reading is equal to
+
+the size of the magnetic force acting on segment XY.
+
+w e r s
+
+(a) In the diagram below, state the poles of the magnets facing each other and draw an
+
+n s w
+
+A
+
+arrow to represent the direction of the magnetic force acting on segment XY. (2 marks)
+
+X
+
+| | | | slab-shaped | _______ pole | | |
+| --- | --- | --- | --- | --- | --- | --- |
+| | | | magnet on | | | |
+| | | | steel yoke | Y | | |
+
+_______ pole
+
+(b) (i) I is increased step by step and the corresponding reading of the electronic balance, F, is measured. Sketch the expected variation of F with I in the graph below. (1 mark)
+
+(ii) Explain how the strength of the magnetic field B between the magnets can be found from the graph in (i). Hence, state the quantity that needs to be measured to obtain the value of B. (2 marks)
+
+(c) The pair of magnets are replaced by stronger ones of the same size. Sketch the new variation of F with I in the graph in (b)(i) using a dotted line. (1 mark)
+
+(d) The power supply is turned off and no current flows through the frame. A student suggests that the balance will have a non-zero reading if the magnets are moved upwards quickly without touching the frame. Explain whether the student is correct or not. (2 marks)
+
+0 I
+
+F
+
+*10 Carbon-14 ( 14C) is a radioisotope of carbon with a decay constant of 3.84 × 10 −12 s −1. It is commonly used in a method called 14C dating to date the fossil of an organism containing carbon by comparing the 14C/ 12C ratio (i.e. the number of 14C nuclei to that of 12C nuclei)
+
+in the fossil with that in the atmosphere. The 14C/ 12C ratio in the atmosphere is equal to
+
+1.3 × 10 −12 and is assumed to be constant over time. Given: 1 year = 3.16 × 10 7 s (a) The oldest dates that can be reliably measured by 14C dating is about 50 000 years ago. How long is it in terms of the half-life of 14C, t1/2? (2 marks)
+
+(b) A fruit buried deep in frozen soil is discovered on an archeological site and examined using 14C dating. A sample of the fruit shows a 14C/ 12C ratio of
+
+2.2 × 10 −14.
+
+(i) How long has the fruit been buried in the frozen soil? (2 marks)
+
+(ii) A researcher finds that the fruit sample is contaminated. Some 12C of the sample does not belong to the fruit. Is the time found in (i) longer or shorter than the actual value? Explain. (2 marks)
+
+END OF PAPER
+
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 2 114 
+© Oxford University Press 2023 
+Name 
+Class 
+Class number 
+
+OXFORD UNIVERSITY PRESS PHYSICS AT WORK FOR HKDSE
+
+MOCK EXAMINATION (Set 2) PHYSICS PAPER 2 Question-Answer Book
+
+Time allowed: 1 hour This paper must be answered in English INSTRUCTIONS (1) After the announcement of the start of the examination, you should first insert the information required in the space provided on Page 1. (2) This paper consists of FOUR sections, Sections A, B, C and D. Each section contains eight multiple-choice questions and one structured question which carries 10 marks. Attempt ALL questions in any TWO sections. (3) Write your answers to the structured questions in the ANSWER BOOK provided. For multiple-choice questions, blacken the appropriate circle with an HB pencil. You should mark only ONE answer for each question. If you mark more than one answer, you will receive NO MARKS for that question. (4) Graph paper and supplementary answer sheets will be provided on request. Insert the information required, mark the question number box on each sheet, and fasten them with string INSIDE the Answer Book. (5) The Question-Answer Book and Answer Book will be collected SEPARATELY at the end of the examination. (6) The diagrams in this paper are NOT necessarily drawn to scale. (7) The last two pages of this Question-Answer Book contain a list of data, formulae and relationships which you may find useful. (8) No extra time will be given to candidates for inserting any information or filling in the question number boxes after the ‘Time is up’ announcement.
+
+Section A: Astronomy and Space Science
+
+Q.1: Multiple-choice questions 
+1.1 Voyager 1, a space probe launched on September 5, 1977, is the most distant artificial object 
+from Earth. The possible distance of Voyager 1 away from Earth on September 5, 2023 is 
+A 14 pc. 
+B 45 ly. 
+C 160 AU. 
+D 2.0 × 10 11 m. 
+
+A B C D
+
+1.2 Which of the following are Galileo’s astronomical discoveries? (1) Venus shows a full cycle of phases. (2) Planets’ orbits are elliptical rather than circular. (3) Jupiter has satellites. A (1) and (2) only B (1) and (3) only C (2) and (3) only D (1), (2) and (3)
+
+| | A | (1) and (2) only | | | |
+| --- | --- | --- | --- | --- | --- |
+| | B | (1) and (3) only | | | |
+| | | | | | A B C D |
+| | C | (2) and (3) only | | | |
+| | D | (1), (2) and (3) | | | |
+
+1.3 The parallax of star X is 0.10″ measured on Earth.
+
+Earth
+
+1 AU
+
+0.10″
+
+Sun star X
+
+1 AU
+
+Given that the orbital radius of Mars is 2.3 × 10 11 m. What is the parallax of star X measured on 
+Mars? 
+A 0.065″ 
+B 0.13″ 
+C 0.15″ 
+D 0.31″ 
+
+A B C D
+
+1.4 The figure below shows some information of stars X, Y and Z. The three stars fall on a straight line on the graph.
+
+star Z lu m star Y la r ( s o
+
+1000 
+100 
+10 
+1 
+0.1 
+0.01 
+0.001 
+40 000 20 000 10 000 5000 2500 
+surface temperature / K 
+
+star X in o s i t y lu m
+
+Which of the following comparisons about the size of the three stars is correct? 
+A Z > Y > X 
+B Z = Y = X 
+C X > Y = Z 
+D X > Y > Z 
+
+A B C D
+
+1.5 The spectra of stars P and Q are observed on Earth. Compared with the wavelengths of the corresponding spectral lines obtained in a laboratory, the hydrogen red line of P is 10 nm longer while the calcium violet line of Q is 10 nm shorter. Which of the following correctly describe the motions of stars P and Q and the magnitudes of their radial velocities vP and vQ relative to Earth?
+
+| | Earth? | | | | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | | Star P | Radial velocity | Star Q |
+| | A | | | moving away from Earth | | | | | ⏐vP⏐ < ⏐vQ⏐ | moving towards Earth |
+| | B | | | moving away from Earth | | | | | ⏐vP⏐ = ⏐vQ⏐ | moving towards Earth |
+| | C | | | | moving towards Earth | | | | ⏐vP⏐ = ⏐vQ⏐ | moving away from Earth |
+| | D | | | | moving towards Earth | | | | ⏐vP⏐ > ⏐vQ⏐ | moving away from Earth |
+
+A B C D
+
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 2 116 
+© Oxford University Press 2023 
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 2 117 
+© Oxford University Press 2023 
+
+1.6
+
+The lines joining stars U, V and the Sun (S) form an isosceles right triangle with UV = US. The luminosity of the Sun is 2 times that of U and 4 times that of V. As observed on Earth, the ratio of
+
+##### brightness of U brightness of ௏
+
+is
+
+A 0.25.
+
+B √ 2. C 2√ 2. D 4.
+
+1.7
+
+The diagram above shows the spectra of radiation from stars P and Q. Which of the following 
+pairs of spectral class for P and Q is possible? 
+Spectral class of P Spectral class of Q 
+A M B 
+B O K 
+C F B 
+D G A 
+
+S
+
+V
+
+U
+
+wavelength relative intensity
+
+P
+
+Q
+
+0
+
+A B C D
+
+A B C D
+
+1.8
+
+The diagram shows the observed and the predicted variation of the orbiting speed v of stars in 
+the Milky Way Galaxy with their distance R from the galatic centre. Which of the following 
+statements about the curves is/are correct? 
+(1) The orbital speeds of the distant stars (R > 15 kpc) is higher than expected. 
+(2) The curve suggests that the Milky Way Galaxy may contain more stars than expected. 
+(3) The curves suggest that the Milky Way Galaxy may contain more matter than expected. 
+A (1) only 
+B (2) only 
+C (1) and (3) only 
+D (1), (2) and (3) 
+
+300
+
+200
+
+100
+
+0 5 10 15 20 25 30 35
+
+Sun
+
+prediction observation v / km s ‒1
+
+R / kpc
+
+A B C D
+
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 2 119 
+© Oxford University Press 2023 
+Q.1: Structured question 
+1 The following describes a way to transfer a spacecraft from a circular orbit around the Earth to 
+another as shown in Figure 1.1: 
+• At X, the spacecraft moving in a circular orbit (1) fires its engine for a short period of time to enter the elliptical transfer orbit (2), with XY as the ellipse’s major axis. 
+• At Y, the spacecraft’s engine is fired briefly again to enter another elliptical transfer orbit (3), with YZ as the ellipse’s major axis. 
+• At Z, the spacecraft’s engine is fired briefly for the last time to enter a new circular orbit (4). 
+Figure 1.1 
+All four orbits are coplanar. Orbits (1) and (2) touch each other at X, orbits (2) and (3) at Y and 
+orbits (3) and (4) at Z. During the period when the spacecraft travels from X to Y and Y to Z 
+along the transfer orbits (in solid line), its engine is shut. 
+(a) (i) Show that the total mechanical energy of the spacecraft of mass m moving in a 
+circular orbit around the Earth of mass M is – GMm 
+2r , where G is the universal 
+gravitational constant and r is the radius of the orbit. (2 marks) 
+(ii) In (a)(i), at where is the gravitational potential energy of the spacecraft taken to be 
+zero? (1 mark) 
+(b) At Y, the spacecraft accelerates from 141 m s –1 to 818 m s –1 to enter orbit (3). 
+Given: GM = 4.0 × 10 14 N m 2 kg –1 
+Mean radius of the Earth = 6400 km. 
+Altitude at X (above Earth’s surface) = 191 km 
+Altitude at Y (above Earth’s surface) = 504 000 km 
+Altitude at Z (above Earth’s surface) = 376 000 km 
+
+Diagram NOT drawn to scale
+
+X (2)
+
+(1) Y Z
+
+(3)
+
+(4)
+
+Earth
+
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 2 120 
+© Oxford University Press 2023 
+(i) Describe how the speed of the spacecraft changes at Z to enter orbit (4). Justify 
+your answer. (3 marks) 
+(ii) Hence, or otherwise, explain whether the energy required to transfer the 
+spacecraft’s orbit from (1) to (4) is higher, lower or equal to the difference in 
+mechanical energy of the spacecraft in the two orbits. (2 marks) 
+(iii) How long does it take for the spacecraft to travel from X to Z along the transfer 
+orbits (2) and (3)? (2 marks) 
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 2 121 
+© Oxford University Press 2023 
+
+Section B: Atomic World Q.2: Multiple-choice questions
+
+2.1 In the photoelectric effect experiment, a monochromatic light is incident on the cathode of a photocell. The figure below shows how the photoelectric current I passing through the photocell varies with the voltage V across the photocell.
+
+The experiment is repeated with another monochromatic light of lower intensity and higher frequency. Which of the following dotted line graphs best represents the variation of I with V? A B
+
+C D
+
+I
+
+V
+
+0
+
+I
+
+V
+
+0
+
+I
+
+V
+
+0
+
+I
+
+V
+
+0
+
+I
+
+V
+
+0
+
+A B C D
+
+2.2 When monochromatic light of frequency 3f and 2f are incident on the cathode surface of a photocell separately, the maximum kinetic energy of the photoelectrons emitted are 9.0 eV and 5.0 eV respectively. When the frequency of the incident light is f, what would happen? A The maximum kinetic energy of the photoelectrons becomes 3.0 eV. B The maximum kinetic energy of the photoelectrons becomes 2.5 eV. C The maximum kinetic energy of the photoelectrons becomes 1.0 eV. D No photoelectron is emitted.
+
+A B C D
+
+2.3 Which of the following is/are the feature(s) of Rutherford’s atomic model ? (1) The atom contains positively and negatively charged particles. (2) All positively charged particles of the atom are found in a tiny region called the nucleus. (3) All negatively charged particles moves around the nucleus of the atom in some discrete orbits. A (1) only B (3) only C (1) and (2) only D (1), (2) and (3)
+
+| | A | | (1) only | | |
+| --- | --- | --- | --- | --- | --- |
+| | B | | (3) only | | |
+| | | | | | A B C D |
+| | C | | (1) and (2) only | | |
+| | D | | (1), (2) and (3) | | |
+
+2.4 After absorbing photons with energy E1, some hydrogen atoms emit photons with energy E1, E2, E3, E4, E5 and E6 only, where E1 > E2 > E3 > E4 > E5 > E6. Which of the following relationships is/are correct?
+
+(1) E1 = E2 + E6 (2) E4 = E5 + E6 (3) E2 = E3 + E5
+
+A B C D
+
+A (1) only B (2) only C (1) and (3) only D (1), (2) and (3)
+
+2.5 λp is the wavelength of a photon with energy of 1 eV and λe is the de Brogile wavelength of an electron with kinetic energy of 1 eV. What is the ratio of
+
+?
+
+λp
+λe
+
+A B C D
+
+A 1000 
+B 1 
+C 0.1 
+D 0.001 
+
+2.6 Helium ions can be used for microscopy as electrons. Suppose a beam of singly charged helium ions (i.e. the charge of a helium ion is +e, where e is the quantity of charge of an electron) and a beam of electrons are moving at the same speed. By considering the Rayleigh criterion, compare the resolving power of the two beams for imaging and the voltage required to accelerate the particles from rest. Resolving power Accelerating voltage required A electrons > helium ions helium ions > electrons B electrons > helium ions helium ions = electrons C helium ions > electrons helium ions > electrons D helium ions > electrons helium ions = electrons
+
+| | A | | | electrons > helium ions | | helium ions > electrons | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| | B | | | electrons > helium ions | | helium ions = electrons | |
+| | C | | | helium ions > electrons | | helium ions > electrons | |
+| | D | | | helium ions > electrons | | helium ions = electrons | |
+
+A B C D
+
+2.7 Which of the following about transmission electron microscope (TEM) and scanning tunnelling microscope (STM) for imaging is/are correct? (1) TEM and STM attain atomic resolutions. (2) TEM and STM operate at high voltages in the order of kV. (3) TEM and STM require the surface of the specimen to be electrically conducting. A (1) only B (2) only C (1) and (3) only D (1), (2) and (3)
+
+| | A | | (1) only | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| | B | | (2) only | | | A B | C D |
+| | C | | (1) and (3) only | | | | |
+| | D | | (1), (2) and (3) | | | | |
+
+2.8 Which of the following statements is INCORRECT? A Nano materials are generally more reactive than the same material in bulk size. B Nano materials may harm the human body when inhaled. C A material may appear in different colours in the nano form and the bulk form. D All nano structures of carbon conduct electricity.
+
+A B C D
+
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 2 123 
+© Oxford University Press 2023 
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 2 124 
+© Oxford University Press 2023 
+Q.2: Structured question 
+2 The light emitted by a filament lamp passes through a hydrogen gas. Figure 2.1 shows some 
+darks lines in the visible spectrum of the light. 
+
+Figure 2.1
+
+(a) Use Bohr’s model of the hydrogen atom to explain how the dark lines in the continuous 
+spectrum are formed. (3 marks) 
+(b) The darks lines shown in Figure 2.1 belongs to a series of spectral lines with wavelength 
+λ given by 
+
+1
+
+## λ ൌ R ቀ
+
+1
+
+22 െ
+
+1
+
+n2ቁ where R is a constant and n = 3, 4, 5…. There are no spectral lines in the series with wavelengths longer than that of line P (656 nm). (i) Find the energy of the photon corresponding to line P. Express your answer in eV. (2 marks) (ii) State the transition in a hydrogen atom that produces line P. (1 mark) (iii) How can the hydrogen atom producing line P return to its lowest energy state? (2 marks) (iv) Show whether all the dark lines of the series can be found in the visible spectrum (400 – 700 nm). (2 marks)
+
+656 (in nm)
+
+P
+
+400 500 600 700
+
+Section C: Energy and Use of Energy
+
+| | (1) | | Microwave oven | | | |
+| --- | --- | --- | --- | --- | --- | --- |
+| | (2) | | Induction cooker | | | |
+| | (3) | | Electric hotplate | | | |
+| | A | | (1) only | | | |
+| | B | | (2) only | | | |
+| | | | | | | A B C D |
+| | C | | (1) and (3) only | | | |
+| | D | | (2) and (3) only | | | |
+
+Q.3: Multiple-choice questions 
+3.1 In cooking with a cooking device X, the utensil holding the food is hotter than X and the food. 
+Which of the following is/are X? 
+
+3.2 On the packaging box of a 10-W LED lamp, there are an energy label and some information claiming that the lamp is as bright as a 83-W incandescent lamp and a 16-W compact fluorescent lamp (CFL).
+
+According to the information given above, which of the following deductions about the 10-W LED lamp, the 83-W incandescent lamp and the 16-W CFL is/are correct? (1) Luminous flux of the LED =
+
+96 × 10 2 lm
+
+| | (3) | | Efficacy of the incandescent lamp < Efficacy of the CFL < Efficacy of the LED | | | |
+| --- | --- | --- | --- | --- | --- | --- |
+| | A | | (1) only | | | |
+| | B | | (3) only | | | |
+| | | | | | | A B C D |
+| | C | | (1) and (2) only | | | |
+| | D | | (2) and (3) only | | | |
+
+(2) Efficacy of the CFL = 60 lm W –1
+
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 2 125 
+© Oxford University Press 2023 
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 2 126 
+© Oxford University Press 2023 
+
+3.3 A book placed at O on a table as shown. The luminous flux of lamp P is 15 000 lm.
+
+Lamps P and Q provide the same illuminance to the book. Take the lamps as point sources 
+emitting light uniformly in all directions, and neglect the reflections of the walls and the ceiling. 
+What is the luminous flux of lamp Q ? 
+A 450 lm 
+B 600 lm 
+C 800 lm 
+D 3000 lm 
+
+3.4 A room is cooled down by a 1500-W air conditioner. The coeffienent of performance (COP) of the air conditioner is 3. What is the rate of releasing heat to the exterior by the air conditioner? A 1500 W B 3000 W C 4500 W D 6000 W
+
+lamp P
+
+20x
+
+15x table lamp Q
+
+3x
+
+4x
+
+O •
+
+Diagram NOT drawn to scale
+
+A B C D
+
+A B C D
+
+3.5
+
+warehouse
+
+A refrigerated warehouse is built like a closed box without any window. Its envelope is formed by walls made of uniform material with uniform thickness. Which of the following U-values of building material and the total area of the envelope listed below give the lowest Overall Thermal Transfer value of the warehouse? U-value of building material / W m –2 K –1 Total area of the envelope / m 2 A 3.5 5000 B 3.0 3000 C 2.5 2500 D 2.0 1000
+
+A B C D
+
+3.6 Which of the following statements about hybrid cars and petrol cars is/are correct? (1) Hybrid cars emit less carbon dioxide than petrol cars because hybrid cars have a higher end-use energy efficiency. (2) Petrol cars have friction brakes while hybrid cars do not have friction brakes. (3) Hybrid cars take a longer time to refuel than pertrol cars because the batteries of hybrid cars need to be recharged. A (1) only B (3) only C (1) and (2) only D (1), (2) and (3)
+
+| | A | | (1) only | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| | B | | (3) only | | | | |
+| | | | | | | | A B C D |
+| | C | | (1) and (2) only | | | | |
+| | D | | (1), (2) and (3) | | | | |
+
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 2 127 
+© Oxford University Press 2023 
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 2 128 
+© Oxford University Press 2023 
+
+3.7 Which of the following statements about the pressurized water in the pressurized water reactor (PWR) of a nuclear power plant is INCORRECT? A It absorbs neutrons for controlling the rate of fission. B It slows down the fast-moving neutrons produced by fission reactions. C It absorbs the energy released by the fission reactions. D It remains in the liquid state in the reactor.
+
+3.8
+
+Fig a
+
+Fig b A solar panel of area 0.5 m 2 is installed horizontally on a pole (Fig a) in an open area at city Y. At the instant shown, sunlight falls normally on city X, which is at the same longitude as Y (Fig b). 35% of the radiation power is absorbed by the atmosphere above Y. The solar constant is 1366 W m –2. Assume the Earth is a perfect sphere and C is the centre of the Earth. Estimate the radiation power reaching the solar panel. A 168 W B 221 W C 411 W D 480 W
+
+solar panel ground
+
+Y
+
+Earth
+
+X
+
+Y 22.3° sunlight C • •
+
+•
+
+A B C D
+
+A B C D
+
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 2 129 
+© Oxford University Press 2023 
+Q.3: Structured question 
+3 (a) The length of each blade of a wind turbine is R. If the wind turbine were 100% efficient 
+in converting wind energy into electrical energy, show that its maximum power output 
+would be 
+
+1 2 ρπR 2v 3, where ρ is the density of air, when the wind speed is v. (2 marks) (b) The blades of wind turbine X are 22 m long. Figure 3.1 shows how the power efficiency of X depends on the wind speed.
+
+Figure 3.1 (i) X consists of two main components, a rotor with blades and a generator. Given that the efficiency of the generator is 93% and remains constant. What is the maximum efficiency of the rotor and at what wind speed is this efficiency attained?
+
+(2 marks)
+
+wind speed / m s –1
+
+(ii) An engineer suggests using turbine X to supply electricity for a small community Y. Figure 3.2 and Figure 3.3 show how the wind speed at Y and Y’s electrical power demand vary with time on a typical day.
+
+(1) Using the result in (a) and Figure 3.1, calculate the electrical power outputs of turbine X at different time of the day at Y. Hence, draw lines in Figure 3.3 to show your answer. Take ρ = 1.22 kg m –3. (3 marks) (2) Hence, suggest with a reason how to improve the wind power system so that the electrical power demand of community Y can be totally fulfilled by using turbine X. (3 marks)
+
+0
+
+time of a day / hour wind speed / m s
+
+–1
+
+2 4 6 8 10 12 14 16 18 20 22 24 
+16 
+12 
+8 
+4 
+24 
+20 
+32 
+28 
+40 
+36 
+2 
+
+0
+
+time of a day / hour electrical power demand / kW
+
+2 4 6 8 10 12 14 16 18 20 22 24 
+400 
+300 
+200 
+100 
+600 
+500 
+800 
+700 
+1000 
+900 
+Figure 3.2 
+
+Figure 3.3
+
+Section D: Medical Physics
+
+Q.4: Multiple-choice questions 
+4.1 In a bright room, a student is looking at two green LEDs on the wall far from him. Which of the 
+following changes can increase the resolving power of the student’s eyes? 
+(1) The green LEDs are replaced by red ones. 
+(2) The room is dark. 
+(3) The student stands closer to the wall. 
+A (1) only 
+B (2) only 
+C (1) and (3) only 
+D (2) and (3) only 
+
+4.2 Peter wears spectacles with lens of focal length 18 cm that correct his near point to 25 cm. What is the type of spectacles and where is his near point without the spectacles? types of spectacles
+
+near point at (without spectacles) A concave lens 10.5 cm B convex lens 10.5 cm C concave lens 64.3 cm D convex lens 64.3 cm
+
+4.3
+
+A loudspeaker S, taken as a point source of sound, is placed on a straight line formed by points 
+A, B and C as shown. The sound intensity level at A is 14 dB higher than that at B and 28 dB 
+higher than that at C. If A and B are 4 m apart, how far is C away from B? 
+A 4.0 m 
+B 8.0 m 
+C 16.0 m 
+D 20.0 m 
+
+NOT drawn to scale
+
+S A B C
+
+A B C D
+
+A B C D
+
+A B C D
+
+4.4 The graph below shows the curve of equal loudness at 0 phon of a person.
+
+In which of the following graphs does the shaded area best represent the sound that cannot be 
+detected by the person? 
+A 
+
+B
+
+C
+
+D
+
+A B C D
+
+4.5 Endoscopy, X-ray imaging and radionuclide imaging are methods used to take an image of an organ. Which of the following descriptions about the advantage of one method over the other two is/are correct? (1) Endoscopy provides the direct observation of the organ’s surface. (2) X-ray imaging provides the image of the organ’s cross section. (3) Radionuclide imaging provides functional information about the organ. A (1) only B (2) only C (1) and (3) only D (1), (2) and (3)
+
+| | A | | (1) only | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| | B | | (2) only | | | | A B C D |
+| | C | | (1) and (3) only | | | | |
+| | D | | (1), (2) and (3) | | | | |
+
+4.6 Two patients P and Q take in the same amount of radioactive tracer X for performing radionuclide imaging of their kidneys. P has more urine output in a day than Q while they drink the same amount of water. How do the biological half-life and the effective half-life of X in P compare with those in Q? Biological half-life Effective half-life A P < Q P < Q B P < Q P > Q C P > Q P < Q D P > Q P > Q
+
+A B C D
+
+4.7 Which of the following statements about radionuclide imaging and computed tomography (CT) scan is INCORRECT? A Both use ionizing radiations to form images of body tissues. B Both can be used to produce images of bone. C The radiation dose of a CT scan is higher due to longer radiation time. D Radionuclide imaging produces images of lower resolution.
+
+A B C D
+
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 2 133 
+© Oxford University Press 2023 
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 2 134 
+© Oxford University Press 2023 
+
+4.8
+
+Figure a Figure b The diagram shows an X-ray beam of intensity I0 passing through two plates, one made of material P with thickness t and the other made of material Q with thickness 2t (Fig a). The beam emerges from the plates with an intensity
+
+1 
+16I0 (Fig b). After the Q plate is removed, the 
+
+intensity of the emergent beam becomes
+
+1 
+8 I0. Find the ratio of 
+
+##### half-value thicknes of P half-value thicknes of Q
+
+.
+
+A 6 B
+
+3 
+2 
+
+C
+
+2 
+3 
+
+D
+
+1 
+6 
+
+I016 I0 P Q t 2t
+
+1 8 I P 0 t
+
+I0
+
+A B C D
+
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Paper 2 135 
+© Oxford University Press 2023 
+Q.4: Structured question 
+4 Figure 4.1 shows the set-up for measuring the thickness of the fat between the skin and the 
+muscle at the abdomen with ultrasound. An ultrasound transducer with coupling gel is applied 
+to the skin. A, B and C are the gel-skin, skin-fat and fat-muscle boundaries respectively. 
+The information about the speed of sound and the acoustic impedance for various body tissues 
+are provided in the table below. 
+Medium Speed of sound / m s –1 Acoustic Impedance / × 10 6 kg m –2 s –1 
+Skin 1600 1.60 
+Fat 1450 1.38 
+Muscle 1585 1.70 
+(a) (i) Explain why the coupling gel is applied between the transducer and the skin when 
+performing an ultrasound scan. (2 marks) 
+(ii) Calculate the ratio of density of fat to that of muscle. (2 marks) 
+(b) The fat thickness measurement is done on a healthy adult with a 10-MHz transducer. 
+Figure 4.2 shows the result of the ultrasound scan which is a CRO display of the 
+ultrasound pulses reflected from boundaries A, B and C. The time scale of the CRO is set 
+to 10 μs per division. 
+
+(i) State the type of ultrasound scan used. (1 mark) (ii) Find the thickness of fat. (2 marks)
+
+fat skin muscle
+
+A B
+
+C
+
+Figure 4.1 coupling gel ultrasound transducer
+
+Figure 4.2
+
+A B C
+
+(c) The measurement is repeated for an obese patient whose fat layer is expected to be much thicker than the healthy adult’s in (b). A 2.5-MHz, instead of 10-MHz, transducer is used. (i) What is the advantage of using ultrasound of lower frequency for this measurement? Explain briefly. (2 marks) (ii) What is the trade-off of using a lower frequency in ultrasound scan? (1 mark)
+
+END OF PAPER
+
+Data 
+molar gas constant R = 8.31 J mol −1 K −1 
+Avogadro constant NA = 6.02 × 10 23 mol −1 
+acceleration due to gravity g = 9.81 m s −2 (close to the Earth) 
+universal gravitational constant G = 6.67 × 10 −11 N m 2 kg −2 
+speed of light in vacuum c = 3.00 × 10 8 m s −1 
+charge of electron e = 1.60 × 10 −19 C 
+electron rest mass me = 9.11 × 10 −31 kg 
+permittivity of free space ε0 = 8.85 × 10 −12 C 2 N −1 m −2 
+permeability of free space μ0 = 4π × 10 −7 H m −1 
+atomic mass unit u = 1.661 × 10 −27 kg (1 u is equivalent to 931 MeV) 
+astronomical unit AU = 1.50 × 10 11 m 
+light year ly = 9.46 × 10 15 m 
+parsec pc = 3.09 × 10 16 m = 3.26 ly = 206 265 AU 
+Stefan constant σ = 5.67 × 10 −8 W m −2 K −4 
+Planck constant h = 6.63 × 10 −34 J s 
+Rectilinear motion Mathematics 
+For uniformly accelerated motion: 
+v = u + at 
+s = ut + 2 
+2 
+
+1at v 2 = u 2 + 2as
+
+Equation of a straight line y = mx + c Arc length = rθ Surface area of cylinder = 2πrh + 2πr 2 Volume of cylinder = πr 2h Surface area of sphere = 4πr 2 Volume of sphere = 3 π 3
+
+4 r
+
+For small angles, sin θ ≈ tan θ ≈ θ (in radians)
+
+Astronomy and Space Science U =
+
+r
+
+GMm − gravitational potential energy P = σAT 4 Stefan’s law
+
+0f
+
+Δf ≈
+
+c v ≈
+
+0 λ
+
+Δλ Doppler effect
+
+Energy and Use of Energy
+
+A
+
+E Φ= illuminance
+
+t
+
+Q =
+
+d
+
+TTA )( − CH κ rate of energy transfer by conduction
+
+U =
+
+d κ
+
+thermal transmittance U-value
+
+P = 3 2
+
+1ρAv maximum power by wind turbine
+
+Atomic World 2
+
+maxe 2
+
+1 vm = hf − φ Einstein’s photoelectric equation
+
+En =
+
+      
+
+ − 2 0
+
+2
+
+4 e
+
+2 8
+
+1
+
+h ε em
+
+n = 2
+
+6.13 n
+
+− eV energy level equation for hydrogen atom
+
+λ =
+
+p
+
+h = mv
+
+h
+
+de Broglie formula
+
+θ ≈
+
+d
+
+22.1 λ Rayleigh criterion (resolving power)
+
+Medical Physics
+
+θ ≈
+
+d
+
+22.1 λ Rayleigh criterion (resolving power)
+
+power =
+
+f
+
+1 power of a lens
+
+L =
+
+0
+
+log10
+
+I
+
+I intensity level (dB) Z = ρc acoustic impedance α =
+
+0 r
+
+I
+
+I
+
+= 2 
+12 
+2 
+
+12 )( )( ZZ
+
+ZZ +
+
+−
+
+intensity reflection coefficient I = I0e −μx transmitted intensity through a medium
+
+| A1. | | | E = mcΔT | | | | energy transfer during | | | | | | | | QQ 21 | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | heating and cooling | | | | | D1. | | | F = | Coulomb’s law 2 | | | |
+| | | | | | | | | | | | | | | | ε 4π r 0 | | | | |
+| A2. | | | E = lΔm | | | | energy transfer during | | | | | | | | Q | electric field strength due to a | | | |
+| | | | | | | | change of state | | | | | D2. | | | E = ε r 4π 0 | 2 point charge | | | |
+| A3. | | | pV = nRT | | | | equation of state for an | | | | | | | | V | electric field between parallel | | | |
+| | | | | | | | ideal gas | | | | | D3. | | | E = | | | | |
+| | | | | | | | | | | | | | | | d | plates (numerically) | | | |
+| A4. | | | pV = | | | 2 | | | | | | | | | ρl | | | | |
+| | | | | | 1 cNm 3 | | kinetic theory equation | | | | | D4. | | | R = A | resistance and resistivity | | | |
+
+A
+
+| | | | | | RT 3 | | | | | | | | | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A5. | | | EK = | | | | molecular kinetic energy | | | | | D5. | | | R = R1 + R2 | resistors in series | | | |
+| | | | | | N 2 | A | | | | | | | | | | | | | |
+
+| | | | | | | | | | | | | | | | 1 1 = | 1 + resistors in parallel R | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | | | | | | D6. | | | R R 1 | 2 | | | |
+| | | | | vm | Δ | Δ | p | | | | | | | | | | | | |
+| B1. | | | F = | | | = | force | | | | | D7. | | | P = IV = I | 2R power in a circuit | | | |
+| | | | | | Δ | Δ t | t | | | | | | | | | | | | |
+| B2. | | | moment = F | | | × | moment of a force d | | | | | D8. | | | F = BQv sin θ | force on a moving charge in a | | | |
+| | | | | | | | | | | | | | | | | magnetic field | | | |
+| B3. | | | EP = mgh | | | | gravitational potential energy | | | | | D9. | | | F = BIl sin θ | force on a current-carrying | | | |
+| | | | | | | | | | | | | | | | | conductor in a magnetic field | | | |
+| B4. | | | EK = | | | 2 | | | | | | | | | μ I 0 | magnetic field due to a long | | | |
+| | | | | | 1 mv | | kinetic energy | | | | | D10. | | | B = | | | | |
+| | | | | | 2 | | | | | | | | | | r 2π | straight wire | | | |
+| | | | | | | | | | | | | | | | μ NI 0 | magnetic field inside a long | | | |
+| B5. | | | P = Fv | | | | mechanical power | | | | | D11. | | | B = | | | | |
+| | | | | | | | | | | | | | | | l | solenoid | | | |
+
+| | | | | v | 2 | | | | | | | | | | ΔΦ | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| B6. | | | a = | | | = ω 2r | centripetal acceleration | | | | | D12. | | | N ε = | induced e.m.f. | | | |
+| | | | | | r | | | | | | | | | | Δ t | | | | |
+| | | | | | | | | | | | | | | | V N | ratio of secondary voltage to | | | |
+| | | | | mGm | | 21 | Newton’s law of | | | | | | | | s s | | | | |
+| | | | | | | | gravitation | | | | | D13. | | | ≈ | primary voltage in a | | | |
+| B7. | | | F = | | | 2 | | | | | | | | | V N | | | | |
+| | | | | | r | | | | | | | | | | p p | transformer | | | |
+| | | | | | λD | | fringe width in | | | | | | | | | | | | |
+| C1. | | | Δy = | | | | double-slit interference | | | | | E1. | | | −kt N = N0e | law of radioactive decay | | | |
+| | | | | | a | | | | | | | | | | | | | | |
+| C2. | | | d sin θ = nλ | | | | diffraction grating | | | | | | | | 2ln | | | | |
+| | | | | | | | equation | | | | | E2. | | | 1t = | half-life and decay constant | | | |
+| | | | | | | | | | | | | | | | k 2 | | | | |
+
+| | | | | | | 1 | equation for a single lens | | | | | E3. | | | A = kN | activity and the number of | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | 11 | + | = | | | | | | | | | | | | | | |
+| C3. | | | u | | v | f | | | | | | | | | | undecayed nuclei | | | |
+| | | | | | | | | | | | | E4. | | | ΔE = Δmc | 2 mass-energy relationship | | | |
+| | Physics at Work for HKDSE | | | | | | | | | | | | | | | | | | |
+| | Mock Exam (Set 2) Paper 2 | | | | | | | | | | | 138 | | | | | | | |
+
+© Oxford University Press 2023
+
+OXFORD UNIVERSITY PRESS
+
+PHYSICS AT WORK FOR HKDSE 
+Mock Examination (Set 2) Papers 1 and 2 
+Solutions 
+Paper 1 (75% of subject mark) 
+SECTION A (26.25% of subject mark) 
+Question No. Key Question No. Key 
+
+1 C 21 C 
+2 D 22 A 
+3 D 23 A 
+4 A 24 D 
+5 D 25 D 
+6 C 26 A 
+7 C 27 A 
+8 A 28 B 
+9 C 29 A 
+10 B 30 C 
+11 A 31 C 
+12 B 32 B 
+13 C 33 B 
+14 D 
+15 D 
+16 B 
+17 D 
+18 B 
+19 A 
+20 D 
+
+SECTION B (84 marks, 48.75% of subject mark) 1
+
+(a) Since the temperature of oil is much higher than the boiling point of water, the moisture in the nuts is heated and vaporizes. The water vapour coming out from the nut forms bubbles in the oil.
+
+1A 
+1A 
+
+(b) Minimum energy required = ௪௪ Δ௪ + ௪௩ + ௖௖ Δ௖= ሺ0.3 − 0.28ሻሺ4200ሻሺ100 − 30ሻ + ሺ0.3 − 0.28ሻሺ2.26 × 10଺ሻ+ (0.28)(1500)(100 − 30)= 80480 J ≈ 80500 J (or 80.5 kJ)
+
+1M
+
+1A
+
+(c) The energy released by the oil and the wok to cool down to 100 °C = ௪௢௞Δ + ௢௜௟௢௜௟Δ= (1000)(160 − 100) + (0.7)(2300)(160 − 100)= 156 600 J (> 80 480 J) Hence, the final temperature of the mixture is higher than 100 °C. Let T be the final temperature.
+
+80480 + ௖௖( − 100) = (௪௢௞ + ௢௜௟௢௜௟)(160 − ) 80480 + (0.28)(1500)( − 100) = ሾ1000 + (0.7)(2300)ሿ(160 − ) 80480 + 420 − 42000 = 417600 − 2610 = 125 °C
+
+1A
+
+1M 
+1A 
+2 
+
+(a) At the safety limit, the force applied on the spring = = (5 − 1) × 10ହ(2 × 10ିସ) = 80 N From the graph given, the compression of the spring is 3.2 mm. Hence, x = 3.2 mm 1M 1A (b) ௉భ௉మ = ்భ்మଷ௉ೌହ௉ೌ = (ଶ଻ଷାଶହ)்మ ଶ = 497 K The safety limit of the storing temperature is 497 K (or 224 °C).
+
+1M 
+1A 
+
+(c) As the temperature increases (from 25 °C), the speed of the gas molecules increases. 1A They collide more frequently and violently with the tank. Hence, the gas pressure increases. 1A As the temperature reaches 224 °C or higher, the gas pressure reaches 5Pa. The outlet of the valve opens, so some gas molecules escape through the outlet and the gas pressure decreases. When the pressure becomes slightly lower than 5Pa, the valve closes. Therefore, the gas pressure fluctuates about 5Pa.
+
+1A 
+1A 
+3 
+
+(a) Pull the metal sphere to a height H above the table and measure H. Release the sphere and record the time taken for the sphere to pass the light-gate at its lowest point, t. Measure the height of the sphere at its lowest point, h, above the table and the diameter of the sphere, d.
+
+1A 
+1A 
+1A 
+
+Gravitational acceleration g can be found by mg(H – h) = ଵଶ m ቀௗ௧ቁଶ g = ଵଶ(ுି௛)ቀௗ௧ቁଶ 1A
+
+(b) The centre of the sphere and the light sensor of the light-gate are not at the same level. This makes t smaller than actual value. Therefore, the value of g is over-estimated. (Accept any source of error that reasonably explains the overestimation of g)
+
+1A 
+1A 
+
+(c) (Any one of the below)
+
+• Measure h and H from the centre of the sphere to the table. 
+• Make sure that when the sphere passes the light-gate, its centre and the light sensor of the light-gate are at the same level. 
+• Use the heaviest sphere when there is a choice. 
+• Repeat the experiment and take average of the results. 
+
+1A
+
+4
+
+(a) (i) Work done = ΔKE + ΔPE = ଵଶ(஼ଶ − ஺ଶ) + ( ℎ஼ − ℎ஺) = ଵଶ (70)(9ଶ − 0) + (70)(9.81)(1 − 3.5) = 1120 J
+
+1M 
+1A 
+
+(ii) = ௐ௧ = ଵଵଶ଴ଷ = 373 W 1M 1A (iii) The height different between C and D = 1.6 – 1 = 0.6 m Consider the horizontal motion:
+
+௫ = ௫ 5 = (9 cos 30°)() = 0.6415 s Consider the vertical motion:
+
+௬ = ௬ − ଵଶ ଶ = (9 sin 30°)(0.6415) − ଵଶ (9.81)(0.6415)ଶ = 0.868 m (> 0.6 m) Hence, the Peter can jump over D.
+
+1M
+
+1M 
+1A 
+
+(b) (i) Resolving the normal reaction R on the bike into vertical and horizontal components.
+
+sin 30° = ௠௩మ௥ (1) cos 30° = (2) Dividing (1) by (2),
+
+tan 30° = ௩మ௚௥ = ඥ tan 30° = ඥ(9.81)(10) tan 30° = 7.53 m s −1 1M 1A
+
+R R cos30 o
+
+R sin30 o
+
+30 o
+
+30 o
+
+(ii) Advantage: Taking Lane III, Peter can move at a higher speed with lower chance of skidding. Disadvantage: Taking Lane III, Peter has to travel a longer distance than X.
+
+1A 
+1A 
+
+(iii)
+
+As X’s bike moves faster than 7.53 m s –1 (the speed in (b)(i)), it tends to skid upwards along the inclined plane.
+
+1A
+
+1A
+
+5
+
+(a) (i) Convex / converging lens 1A (ii) The water lens converges parallel light rays from the sun (distant object) to a small spot at its focus. This concentrates the energy collected by the whole lens to a small area so that an object placed at the focus can be heated up effectively.
+
+1A 
+1A 
+
+(b) (i) & (ii)
+
+Focal length = 30 cm (correct position of image) (correct height of image) (correct light ray with arrows) (correct location of F)
+
+(iii) The stand should be higher. This allows the lens to converge sunlight to a smaller and hotter spot for heating.
+
+1A 
+1A 
+6 
+
+(a) (i) Speed of water wave = ௗ௧ = ଶସ଴.଺= 40 cm s 1 Wavelength of the water wave = ଶସଵଶ= 2 cm 1A 1A (ii) Frequency f = ௩ఒ = ସ଴ଶ = 20 Hz 1M 1A
+
+frictional force f banked corner
+
+F
+
+(iii)
+
+1A
+
+(b) (i) Interference 1A (ii) They are in antiphase. 1A (iii) The path difference at P = S2P – S1P = 30 – 24 = 6 cm (= 3) Since S1 and S2 are in antiphase, destructive interference occurs at P. After adding S2, the amplitude of vibration of the water at P becomes smaller.
+
+1A 
+1A 
+1A 
+7 
+
+(a)
+
+1A
+
+(b) (i) Drop in voltage
+
+= 10(2+0.02) (0.02) = 0.099 V (≈ 99 mV) 1M 1A (ii) Since P = I 2R, power loss in fast charging power loss in normal charging = (3I) 2R (I) 2R = 9 1M 1A (c) When the separator is broken, an internal short circuit may happen and a large current (I) is produced in the battery. Heating rate (I 2R) due to the large current is very high in a battery. (or any correct reason for generating large amount of heat in a short time) The temperature of the battery rises rapidly and may result in a fire.
+
+1A 
+1A 
+
+1A
+
+8
+
+(a) (i) Earth pin 1A (ii) The switches in Y ensure that the electrical appliances are cut off from the high voltage of the mains when opened. 1A (b) (i) = (1000 + 50) = 220 = 4.77 A 1M 1A
+
+amplitude distance
+
+0 P
+
+(ii) Electrical energy consumed by vacuum cleaner in 5 minutes = = (1000)(5 × 60) = 300 000 J The electrical energy consumed by the fan in 2 hours = = (50)(2 × 60 × 60) = 360 000 J > 300 000 J Hence, the fan demands a higher cost of electricity.
+
+1M 
+1M 
+1A 
+9 
+
+(a)
+
+(Both poles correct) (Upward arrow)
+
+1A 
+1A 
+
+(b) (i)
+
+(Straight line passing through the origin) 1A (ii) By F = BIl, where l is the length of wire within the gap between the magnets, the slope of the graph is equal to Bl. l needs to be measured to obtain the value of B.
+
+1A 
+1A 
+(c) (Straight line passing through the origin and with a greater slope.) 1A 
+(d) No, the student is not correct. 
+Since there is an insulating segment in the frame, no current is induced 
+in the frame when the magnets move. 
+
+1A 
+1A 
+10 
+
+(a) ଵ/ଶ = ୪୬ ଶ௞ = ୪୬ ଶଷ.଼ସ×ଵ଴షభమ = 1.805 × 10ଵଵ s = 5712 yr 50 000 yr ≈ ହ଴ ଴଴଴ହ଻ଵଶଵ/ଶ = 8.75ଵ/ଶ (Accept 8.76ଵ/ଶ )
+
+1M 
+1A 
+
+(b) (i) ேిభరேిభమ= ቀேిభరேిభమቁ஺eି௞௧
+
+2.2 × 10ିଵସ = 1.3 × 10ିଵଶି൫ଷ.଼ସ×ଵ଴షభమ൯௧ = 1.06 × 10ଵଶ s = 33600 yr
+
+1M
+
+1A
+
+(ii) Since the sample contains more 12C than it should have, the 14C/ 12C ratio in the sample is smaller than that in the fruit. Hence, the time found in (i) is longer than the actual value.
+
+1A 
+1A 
+
+_______ pole _______ pole
+
+X
+
+Y
+
+slab-shaped magnet on steel yoke
+
+south north
+
+I
+
+F
+
+0
+
+(b)(i)
+
+(c)
+
+Paper 2 (25% of subject mark)
+
+SECTION A: Astronomy and Space Science (20 marks, 12.5% of subject mark) 
+Multiple-choice questions 
+1.1 C 1.25A 
+1.2 B 1.25A 
+1.3 C 1.25A 
+1.4 A 1.25A 
+1.5 A 1.25A 
+1.6 D 1.25A 
+1.7 B 1.25A 
+1.8 C 1.25A 
+
+Structured question 1
+
+(a) (i) ீெ௠௥మ = ௠௩మ௥
+
+= ටீெ௥ The total mechanical energy of the spacecraft = KE + PE = ଵଶ ଶ + ቀ− ீெ௠௥ ቁ = ଵଶ ீெ௥ − ீெ௠௥ = − ீெ௠ଶ௥
+
+1M
+
+1M
+
+(ii) At infinity 1A (b) (i) At Z, Speed of the spacecraft in orbit (4):
+
+= ටீெ௥ = ට ସ.଴×ଵ଴భర(ଷ଻଺ ଴଴଴ ା ଺ସ଴଴)×ଵ଴య = 1020 m s –1 Speed of the spacecraft in orbit (3):
+
+ଵଶ ௓ଶ − ீெ௠௥ೋ= ଵଶ ௒ଶ − ீெ௠௥ೊ ଵଶ௓ଶ − ସ.଴×ଵ଴భర(ଷ଻଺ ଴଴଴ ା ଺ସ଴଴)×ଵ଴య = ଵଶ (818)ଶ − ସ.଴×ଵ଴భర(ହ଴ସ ଴଴଴ ା ଺ସ଴଴)×ଵ଴య = 1090 m s –1 > 1020 m s –1 Therefore, at Z the speed of the spacecraft decreases from 1090 m s –1 to 1020 m s –1.
+
+1M
+
+1M
+
+1A
+
+(ii) The work done by the engine at Z reduces the speed (or kinetic energy) of the spacecraft to enter orbit (4). (or Extra energy is used to reduce the speed of the spacecraft at Z to enter orbit (4)) Therefore, the energy required to transfer the spacecraft’s orbit from (1) to (4) is higher than the difference in the mechanical energy of the spacecraft in the two orbits.
+
+1A
+
+1A
+
+(iii) Kepler’s third law for elliptical orbit ଶ = ସ πమீெଷ Time of travel in transfer orbits (2) and (3)
+
+= ଵଶ ටସ஠మீெଶଷ + ଵଶ ටସ஠మீெଷଷ
+
+= πට ଵସ.଴×ଵ଴భర × ቂ(ଵଽଵାହ଴ସ ଴଴଴ା଺ସ଴଴×ଶ)×ଵ଴యଶ ቃଷ+ πට ଵସ.଴×ଵ଴భర × ቂ(ଷ଻଺ ଴଴଴ାହ଴ସ ଴଴଴ା଺ସ଴଴×ଶ)×ଵ଴యଶ ቃଷ
+
+= 2.13 × 10଺ s ( or 24.7 d)
+
+1M
+
+1A
+
+SECTION B: Atomic World (20 marks, 12.5% of subject mark) 
+Multiple-choice questions 
+2.1 B 1.25A 
+2.2 C 1.25A 
+2.3 C 1.25A 
+2.4 D 1.25A 
+2.5 A 1.25A 
+2.6 C 1.25A 
+2.7 A 1.25A 
+2.8 D 1.25A 
+
+Structured question 2
+
+(a) In Bohr’s model of the hydrogen atom, the electron in the hydrogen atom can only occupy certain discrete orbits around the nucleus, each corresponds to a discrete energy level of the atom. When light of continuous frequency is sent through a hydrogen gas, photons with the exact amount of energy to raise electrons from lower energy levels to higher ones may be absorbed. Light of frequencies corresponding to these amounts of energy has a much lower intensity in the original direction and appears as dark lines in the spectrum.
+
+1A
+
+1A
+
+1A
+
+(b) (i) = ௛௖ఒ = (଺.଺ଷ×ଵ଴షయర)(ଷ×ଵ଴ఴ)଺ହ଺×ଵ଴షవ × ଵଵ.଺×ଵ଴షభవ = 1.90 eV
+
+1M 
+1A 
+(ii) The transition from n = 2 to n = 3. 1A 
+(iii) The excited hydrogen atom can return to the lowest energy level 
+by emitting a photon due to an electron transition from n = 3 to 
+n = 1, 
+or by emitting two photons, one due to an electron transition 
+from n = 3 to n = 2 and one from n = 2 to n = 1. 
+
+1A 
+1A 
+
+(iv) When n  ∞, the wavelength is the shortest, which is
+
+λ = ൬ 1 2 2 – 1 3
+
+2൰൬ 1 2 2 – 0൰ × 656 = 364 nm ( < 400 nm) Therefore, not all dark lines of the series can be found in the visible spectrum.
+
+1M
+
+1A
+
+SECTION C: Energy and Use of Energy (20 marks, 12.5% of subject mark) 
+Multiple-choice questions 
+3.1 B 1.25A 
+3.2 D 1.25A 
+3.3 B 1.25A 
+3.4 D 1.25A 
+3.5 D 1.25A 
+3.6 A 1.25A 
+3.7 A 1.25A 
+3.8 C 1.25A 
+
+Structured question 3
+
+(a) Consider the wind passing perpendicularly through a circular area swept by the blades of the turbine. In time t, the volume of air passing through the blades = πଶ The kinetic energy of the wind = 12 ଶ = 12 ( πଶ)ଶ = 12 πଶଷ The maximum power of wind turbine P = ୩୧୬ୣ୲୧ୡ ୣ୬ୣ୰୥୷ ୭୤
+
+#### ୵୧୬ୢ௧= ଵଶ πଶଷ
+
+1A
+
+1A
+
+(b) (i) The maximum efficiency of the rotor is attained at the wind speed of 9 m s –1. 1A
+
+Maximum efficiency of rotor = 0.430.93 = 0.462 = 46.2% 1A
+
+(ii) (1) From 20:00 to 4:00, the wind speed is either too low or too high for X to run (overall efficiency =0), the output power
+
+1A = 0.
+
+From 4:00 to 20:00, the output power = ଵଶ (1.22)(π)(22)ଶ(12)ଷ(0.35) = 561 kW
+
+1A
+
+electrical power demand / kW
+
+1000 
+900 
+800 
+700 
+
+1A
+
+561 
+600 
+500 
+
+| | 500 | | | | |
+| --- | --- | --- | --- | --- | --- |
+| | 400 | | | | |
+| | 300 | | | | |
+| | 200 | | | | |
+| | 100 | | | | |
+| | | 0 | 10 12 14 16 18 4 8 2 6 | 20 22 24 | |
+
+time of a day / hour
+
+(2) The total electrical energy output of X for a day (= 561 × 16 = 8980 kW h ) is larger than the total energy
+
+1A
+
+1A
+
+1A
+
+demand of Y (= 100 × 10 + 900 × 4 + 400 × 10 =8600 kW h ). The system can be improved by adding rechargeable batteries / building a small-scale reservoir to store the excess electrical energy generated during the time of low power demand and supplement the power supply during the time of high power demand. Not Accept: Building two turbines X⎯⎯Although the total power output of the turbines (= 561 × 2 = 1122 kW ) is larger than the demand at the peak hours, the shortage of power supply when wind is too high or too low cannot be solved. Adding solar panels⎯⎯The output power of the panels will be low during the high-demand periods (dawn and dusk of a day) when sunlight is weak. Increasing the blade length to increase the power output⎯⎯Increasing the blade length cannot solve the problem of power shortage during the low-wind-speed period.
+
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Solutions 149 
+© Oxford University Press 2023 
+Physics at Work for HKDSE 
+Mock Exam (Set 2) Solutions 150 
+© Oxford University Press 2023 
+
+SECTION D: Medical Physics (20 marks, 12.5% of subject mark) 
+Multiple-choice questions 
+4.1 B 1.25A 
+4.2 A 1.25A 
+4.3 D 1.25A 
+4.4 B 1.25A 
+4.5 C 1.25A 
+4.6 A 1.25A 
+4.7 C 1.25A 
+4.8 D 1.25A 
+
+Structured question 4
+
+(a) (i) Since air and skin have a great difference in acoustic impedance, a strong reflection of ultrasound will occur at the air-skin boundary. Adding coupling gel, which has an acoustic impedance close to that of skin, between the skin and the transducer can greatly improve the transmission of ultrasound to the skin.
+
+1A
+
+1A
+
+(ii) ఘಷఘಾ= ௓ಷ௓ಾ× ௖ಾ௖ಷ = ଵ.ଷ଼ଵ.଻଴×ଵହ଼ହଵସହ଴ = 0.887 1M 1A (b) (i) A-scan 1A (ii) Thickness of fat = ୼௧ଶ× ி = ସ×ଵ଴×ଵ଴షలଶ × 1450 = 0.029 m (≈ 29 mm) 1M 1A (c) (i) The attenuation of ultrasound increases with the frequency. When the fat layer is very thick, using ultrasound of lower frequency is more likely to make the reflected pulses from the fat-muscle boundary strong enough for the transducer to detect.
+
+1A
+
+1A
+
+(ii) The smallest thickness of fat that can be measured becomes greater (i.e. lower axial resolution). 1A
+

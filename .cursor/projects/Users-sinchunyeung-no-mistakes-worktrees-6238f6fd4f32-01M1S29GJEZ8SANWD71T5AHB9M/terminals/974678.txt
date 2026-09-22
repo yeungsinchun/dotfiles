@@ -1,0 +1,61 @@
+---
+pid: 78420
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/6238f6fd4f32/01M1S29GJEZ8SANWD71T5AHB9M"
+command: "cd /Users/sinchunyeung/.no-mistakes/worktrees/6238f6fd4f32/01M1S29GJEZ8SANWD71T5AHB9M && git show --name-status --diff-filter=D 25c86db | grep -E 'output/[0-9]+/pages|output/(pp|sap)/pages' | head -20; echo count MC page deletes:; git show --name-status --diff-filter=D 25c86db | grep -E 'output/([0-9]+|pp|sap)/pages' | wc -l; echo count LQ page deletes:; git show --name-status --diff-filter=D 25c86db | grep 'output/lq/.*/pages' | wc -l; echo '=== does MC preprocess use pages? ==='; rg -n 'pages' scripts/preprocess_mc.py scripts/split_mc.py | head -20; echo '=== gitignore intent vs pattern ==='; git show 25c86db -- .gitignore; echo '=== were MC pages tracked on base? ===' && git ls-tree -r --name-only 665252d | grep -E 'output/.*/pages/' | awk -F/ '{print $1\"/\"$2}' | sort | uniq -c"
+title: "Check if gitignore over-scopes beyond LQ"
+status: succeeded
+started_at: 2026-09-05T15:26:38.004Z
+running_for_ms: 62684    
+---
+count MC page deletes:
+       0
+count LQ page deletes:
+     244
+=== does MC preprocess use pages? ===
+scripts/split_mc.py:352:    page_crops = {int(page["source_page"]): page for page in meta["pages"]}
+scripts/preprocess_mc.py:23:# Scanned pages shift left/right, so absolute --left/--right alone drift vs "N.".
+scripts/preprocess_mc.py:85:    parser.add_argument("--cover-pages", type=int, default=1)
+scripts/preprocess_mc.py:360:    content_pages: list[int],
+scripts/preprocess_mc.py:374:        for page_index in content_pages:
+scripts/preprocess_mc.py:379:    for page_index in content_pages:
+scripts/preprocess_mc.py:384:            # footer junk "2" as Q12 on later pages.
+scripts/preprocess_mc.py:402:    content_pages: list[int],
+scripts/preprocess_mc.py:411:    merged: dict[int, dict[int, tuple[int, float, float]]] = {pi: {} for pi in content_pages}
+scripts/preprocess_mc.py:412:    for page_index in content_pages:
+scripts/preprocess_mc.py:503:def _span_pages(
+scripts/preprocess_mc.py:508:    pages: set[int] = set()
+scripts/preprocess_mc.py:515:            pages.update(range(start_page + 1, end_page))
+scripts/preprocess_mc.py:516:    return pages
+scripts/preprocess_mc.py:756:    source_pages: list[int],
+scripts/preprocess_mc.py:797:            if page_index >= len(source_pages):
+scripts/preprocess_mc.py:799:            candidates.append((source_pages[page_index], y + source_top))
+scripts/preprocess_mc.py:853:    """Reject output pages whose marker centres do not share one vertical rail."""
+scripts/preprocess_mc.py:877:        content_pages = sorted({page_index for page_index, _x, _y in overrides.values()})
+scripts/preprocess_mc.py:879:        excluded_pages = {
+=== gitignore intent vs pattern ===
+commit 25c86dbd297eee1c494e438694cf7dbe29171b39
+Author: TYeung <scyeungaf@connect.ust.hk>
+Date:   Sat Sep 5 23:06:47 2026 +0800
+
+    chore: clean LQ assets and drop page-render caches
+    
+    Stop tracking output/lq/*/pages intermediates, split MC/LQ classification
+    artifacts, and refresh LQ crops, answers, and Lavish review after preprocess
+    fixes. Rename mislabeled 2023q1b and add 2024-2026 LQ papers.
+
+diff --git a/.gitignore b/.gitignore
+index 3d8dfa5..f28602a 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -5,3 +5,4 @@ __pycache__/
+ output/*-intermediate/
+ output/*-test/
+ output/*/intermediate/
++output/**/pages/
+=== were MC pages tracked on base? ===
+
+---
+exit_code: 0
+elapsed_ms: 62684
+ended_at: 2026-09-05T15:27:40.688Z
+---

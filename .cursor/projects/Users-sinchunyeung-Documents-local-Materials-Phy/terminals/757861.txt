@@ -1,0 +1,15 @@
+---
+pid: 27400
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/dse"
+command: "python3 << 'EOF'\nimport sys\nsys.path.insert(0, \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/scripts\")\nimport fitz\nfrom preprocess_mc import collect_labels, is_formula_sheet, detect_crop_top\n\nsrc = fitz.open(\"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/Year/MC/sapp1a.pdf\")\ncontent = [i for i in range(1, len(src)) if not is_formula_sheet(src[i])]\nlabels = collect_labels(src, content, 5.0, 36, {})\np,x,y = labels[1]\ntop = detect_crop_top(src[p], 2.0, x-14, x+455, y, pad=8)\nprint(f\"sapp q1y={y:.1f} top={top:.1f} gap={y-top:.1f}\")\n\n# also 2012\nsrc2 = fitz.open(\"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/Year/MC/2012p1a.pdf\")\nlabels2 = collect_labels(src2, [i for i in range(1,len(src2)) if not is_formula_sheet(src2[i])], 5.0, 36, {})\np,x,y = labels2[1]\ntop = detect_crop_top(src2[p], 2.0, x-14, x+455, y, pad=8)\nprint(f\"2012 q1y={y:.1f} top={top:.1f} gap={y-top:.1f}\")\nsrc.close(); src2.close()\nEOF\n"
+started_at: 2026-08-21T22:28:59.128Z
+running_for_ms: 45050    
+---
+sapp q1y=122.4 top=118.4 gap=4.0
+2012 q1y=132.8 top=128.8 gap=4.0
+
+---
+exit_code: 0
+elapsed_ms: 47491
+ended_at: 2026-08-21T22:29:46.619Z
+---

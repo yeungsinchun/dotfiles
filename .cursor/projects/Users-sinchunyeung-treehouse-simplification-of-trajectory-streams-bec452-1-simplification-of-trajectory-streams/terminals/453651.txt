@@ -1,0 +1,91 @@
+---
+pid: 86820
+cwd: "/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams"
+command: "rm -f results/_smoke_10.err results/_smoke_2.err results/profile_summary.txt results/p0_ci_gate.log results/profile_run.log results/profile_sweep.csv 2>/dev/null\n# Keep profile_hotspots as useful tooling from the benchmark phase\ngit add scripts/profile_hotspots.py\ngit commit -m \"$(cat <<'EOF'\nchore: add hotspot profiling harness for epsilon/delta sweeps\n\nHelper used to locate intersect/find_F as the dominant cost drivers before\nthe wedge-prune optimization.\nEOF\n)\"\ngit status\nno-mistakes axi run --intent \"$(cat <<'EOF'\nImplement the first optimization from the profiling plan: enable the existing Frechet-safe wedge_gi_disjoint prune in the stab loop so candidates that are robustly disjoint from Gi skip find_F and intersect. Share computed tangents with find_F on prune misses to avoid regressing performance. Also add a --time flag for hotspot summaries and scripts/local_ci_gate.py / profile_hotspots.py for Frechet/points/perf and hotspot checks. Acceptance: no Frechet regression, no points regression, no perf regression vs previous commit on taxi IDs 1-10 (CI params e=299 d=1). Do not merge other planned optimizations (intersect AABB, alive-index compaction) in this change - those come next one-by-one after this passes CI.\nEOF\n)\" 2>&1"
+title: "Clean tree and start no-mistakes for P0"
+status: succeeded
+started_at: 2026-09-04T15:33:02.569Z
+running_for_ms: 1140472  
+---
+[optimize 910bae3] chore: add hotspot profiling harness for epsilon/delta sweeps
+ 1 file changed, 291 insertions(+)
+ create mode 100644 scripts/profile_hotspots.py
+On branch optimize
+nothing to commit, working tree clean
+[33mA new version of no-mistakes is available: v1.60.2 -> v1.64.0
+Run "no-mistakes update" to update[0m
+run: running
+  intent: completed
+  rebase: running
+  rebase: completed
+  review: running
+  review: completed
+  test: running
+  test: completed
+  document: running
+  document: completed
+  lint: running
+  lint: completed
+  push: running
+  push: completed
+  pr: running
+  pr: completed
+  ci: running
+run:
+  id: "01M1PGTM1CS1NAABF3J200CX3R"
+  branch: optimize
+  status: running
+  head: f4123f3e
+  pr: "https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/pull/6"
+  findings: none
+  steps[9]{step,status,findings,duration_ms}:
+    intent,completed,0,0
+    rebase,completed,0,1749
+    review,completed,0,259181
+    test,completed,0,336442
+    document,completed,0,192893
+    lint,completed,0,30
+    push,completed,0,3809
+    pr,completed,0,52492
+    ci,running,0,0
+  active_steps[1]{step,status,active_for,last_activity,agent_pid,round}:
+    ci,running,4m51s,"0s ago: log: all CI checks passed - still monitoring until merged or closed","",starting
+branch_sync:
+  state: behind
+  changed: false
+  local:
+    branch: optimize
+    head: 910bae387c466586ef5b483d038e1b14fc34a94b
+    clean: true
+  pipeline:
+    run: "01M1PGTM1CS1NAABF3J200CX3R"
+    status: running
+    phase: ""
+    submitted_head: 910bae387c466586ef5b483d038e1b14fc34a94b
+    current_head: f4123f3e9d92f01a84461af6265ca93f9473fb79
+    pushed_head: f4123f3e9d92f01a84461af6265ca93f9473fb79
+    pushed_at: 1788536779
+    push_generation: 1
+  target:
+    kind: upstream
+    remote: origin
+    url: "https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams.git"
+    ref: refs/heads/optimize
+  remote:
+    observed_head: f4123f3e9d92f01a84461af6265ca93f9473fb79
+    freshness: pipeline_push
+    observed_at: 1788536779
+  relation: behind
+  safety: refresh_required
+  pr_state: open
+  next_action:
+    code: sync
+    command: no-mistakes axi sync
+outcome: checks-passed
+help[5]: "CI checks passed - the PR is ready. Ask the user to review and merge it: https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/pull/6","Summarize this pipeline run for the user in a concise, easily readable format: what was validated and what was found.","Commit post-pipeline follow-up work on top of the existing branch so every pipeline fix commit remains present. Never abort-and-restart, reset, or replace the branch in a way that drops prior gate-fix commits.","Before a post-pipeline local commit or fresh run, follow the structured `branch_sync.next_action`. Run `no-mistakes axi sync` only when its code is `sync`; that guarded sync may be a strict fast-forward or a content-equivalent diverged advance that anchors the pre-sync head before moving the branch with reset semantics. Run `no-mistakes axi sync --recover` only when its code is `recover_custody` (a terminal run left unpublished pipeline commits preserved in the local gate). A `user_owned` state means cancellation released the branch before changing the submitted head: the exact branch and head are yours, immediately usable, and no sync action is needed. Process blocked or pipeline-owned states instead of improvising reset, stash, merge, rebase, force, or branch replacement.","If this PR later falls behind the default branch or hits a merge conflict, the CI monitor rebases onto the base, resolves it, revalidates from Review because rebasing cannot prove continuity with the reviewed head, and re-pushes it through Push automatically - run no command and never hand-rebase. Only when that monitor is no longer running (PR closed, run aborted, idle-timeout, or auto-fix exhausted) recover with `no-mistakes rerun`."
+
+---
+exit_code: 0
+elapsed_ms: 1140469
+ended_at: 2026-09-04T15:52:03.038Z
+---

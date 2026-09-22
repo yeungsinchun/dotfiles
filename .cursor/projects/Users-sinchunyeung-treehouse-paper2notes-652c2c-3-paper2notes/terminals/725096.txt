@@ -1,0 +1,33 @@
+---
+pid: 28327
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/3/paper2notes"
+command: "node --test \"/Users/sinchunyeung/.treehouse/paper2notes-652c2c/3/paper2notes/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.interactives.test.mjs\""
+title: "Run Chapter 2 Chrome interactive tests"
+status: succeeded
+started_at: 2026-09-11T15:48:52.072Z
+running_for_ms: 30406    
+---
+compdef:153: _comps: assignment to invalid subscript range
+▶ Book 5 menu and Ch.2 notes
+  ✔ Book 5 picker lists both textbook chapter titles (937.984708ms)
+  ✔ Ch.1 and Ch.2 top bars link back to the Book 5 menu (11296.842542ms)
+  ✔ 26.1 dice remaining falls and N+decayed stays 40 billion (3338.542833ms)
+  ✔ student pages hide intake chrome and keep per-box scale (6456.297042ms)
+  ✔ 26.1 concept check marks the random-decay answer (2118.89675ms)
+  ✔ 26.2 leak, smoke, and C-14 alive equals just-dead (2710.088ms)
+  ✔ 26.3 sievert check and activity vs dose labels (611.699417ms)
+✔ Book 5 menu and Ch.2 notes (28953.121541ms)
+ℹ tests 7
+ℹ suites 1
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 29279.578708
+
+---
+exit_code: 0
+elapsed_ms: 30406
+ended_at: 2026-09-11T15:49:22.478Z
+---

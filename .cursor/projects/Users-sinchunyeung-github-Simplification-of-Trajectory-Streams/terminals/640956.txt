@@ -1,0 +1,47 @@
+---
+pid: 3612
+cwd: "/Users/sinchunyeung/github/simplification-of-trajectory-streams"
+command: "cd /Users/sinchunyeung/github/simplification-of-trajectory-streams/web && (test -x .venv/bin/python || python3 -m venv .venv && .venv/bin/pip install -q -r requirements.txt) && lsof -ti:5055 | xargs kill -9 2>/dev/null; .venv/bin/python server.py"
+title: "Start Flask web viewer on 5055"
+status: failed   
+started_at: 2026-09-05T17:44:04.761Z
+running_for_ms: 82895    
+---
+
+[1m[[0m[34;49mnotice[0m[1;39;49m][0m[39;49m A new release of pip is available: [0m[31;49m26.1.2[0m[39;49m -> [0m[32;49m26.2.1[0m
+[1m[[0m[34;49mnotice[0m[1;39;49m][0m[39;49m To update, run: [0m[32;49m/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/.venv/bin/python3.14 -m pip install --upgrade pip[0m
+Repo root: /Users/sinchunyeung/github/simplification-of-trajectory-streams
+Binary: /Users/sinchunyeung/github/simplification-of-trajectory-streams/build/simplify
+Baselines: dots=True dp=True squish=True
+Starting Flask server on http://0.0.0.0:5051
+ * Serving Flask app 'server'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5051
+ * Running on http://192.168.31.91:5051
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [06/Sep/2026 01:44:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:44:26] "GET /?t=1788630266879 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:44:26] "GET /viewer.js?v=eps-delta-gloss-1 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:44:27] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:44:27] "[36mGET /?t=1788630266879 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [06/Sep/2026 01:44:27] "[36mGET /viewer.js?v=eps-delta-gloss-1 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [06/Sep/2026 01:44:27] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:45:12] "GET /?t=1788630312904 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:45:12] "GET /viewer.js?v=eps-delta-gloss-1 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:45:13] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:45:13] "GET /api/trace/1?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:45:13] "GET /api/trace/1/compare?algorithm=none HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:45:14] "GET /?t=1788630314100 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:45:14] "GET /viewer.js?v=eps-delta-gloss-1 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:45:14] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:45:14] "GET /api/trace/1?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:45:14] "GET /api/trace/1/compare?algorithm=none HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2026 01:45:19] "POST /api/frechet HTTP/1.1" 200 -
+
+---
+exit_code: unknown
+elapsed_ms: 82895
+ended_at: 2026-09-05T17:45:27.656Z
+---

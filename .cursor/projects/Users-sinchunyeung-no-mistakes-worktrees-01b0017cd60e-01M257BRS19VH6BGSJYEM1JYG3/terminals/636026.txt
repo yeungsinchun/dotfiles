@@ -1,0 +1,36 @@
+---
+pid: 12799
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/01b0017cd60e/01M257BRS19VH6BGSJYEM1JYG3"
+command: "EVIDENCE_DIR=\"/Users/sinchunyeung/.no-mistakes/evidence/01M257BRS19VH6BGSJYEM1JYG3\" node --test notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs"
+title: "Re-run notes interactives after flake fix"
+status: succeeded
+started_at: 2026-09-10T08:59:48.644Z
+running_for_ms: 318744   
+---
+▶ Book 5 Ch.1 notes interactives
+  ✔ 25.1 spectrum is static with the ionizing barrier in UV (24346.416375ms)
+  ✔ 25.1 imaging is X-rays down onto bone beside flesh, white film under bone (11893.601625ms)
+  ✔ 25.2 pie wedge is 20% and Pu-239 bookkeeping is static n_α=8 (17567.872708ms)
+  ✔ 25.2 decay labels sit on the parent and outgoing particle (26517.387292ms)
+  ✔ 25.3 absorber presets follow paper/Al/Pb contribution rules (12844.90475ms)
+  ✔ 25.3 GM extra recomputes when the plastic grid toggles (18680.621417ms)
+  ✔ 25.3 identification graph keeps taken yes/no edges (18501.65225ms)
+  ✔ 25.1 knockout ejects the bound electron already on the atom (39897.561959ms)
+  ✔ 25.3 ion-pair capture, Flip B marks, and β/γ check (21175.43625ms)
+  ✔ chapter map, summary, and concept-check scoring are the public notes surface (35208.530833ms)
+  ✔ 3d scenes magnify, label the tube, keep β drift, and pulse radially (88805.241084ms)
+✔ Book 5 Ch.1 notes interactives (317032.089833ms)
+ℹ tests 11
+ℹ suites 1
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 317493.554834
+
+---
+exit_code: 0
+elapsed_ms: 318744
+ended_at: 2026-09-10T09:05:07.388Z
+---

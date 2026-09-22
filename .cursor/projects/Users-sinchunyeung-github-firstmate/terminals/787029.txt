@@ -1,0 +1,73 @@
+---
+pid: 77386
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "ls /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams/data 2>&1 | head -5; test -d /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams/data || ln -sfn /Users/sinchunyeung/github/simplification-of-trajectory-streams/data /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams/data; PY=/Users/sinchunyeung/github/simplification-of-trajectory-streams/web/.venv/bin/python; WT=/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams; \"$PY\" \"$WT/web/server.py\""
+title: "Ensure data + start worktree viewer"
+status: failed   
+started_at: 2026-09-07T04:30:50.049Z
+running_for_ms: 5899199  
+---
+1
+10
+11
+12
+13
+Repo root: /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams
+Binary: /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams/build/simplify
+Baselines: dots=True dp=True squish=True
+Starting Flask server on http://0.0.0.0:5051
+ * Serving Flask app 'server'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5051
+ * Running on http://192.168.31.91:5051
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [07/Sep/2026 12:31:26] "GET /?nocache=1788755466 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:31:26] "GET /viewer.js?v=compare-method-glosses-1 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:31:26] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:31:27] "GET /viewer.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:31:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:31:36] "GET /viewer.js?v=compare-method-glosses-1 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:31:36] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:31:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:31:59] "[36mGET /viewer.js?v=compare-method-glosses-1 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [07/Sep/2026 12:31:59] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:32:04] "GET /viewer.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:50:36] "GET /?nocache=1788755466 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:50:36] "[36mGET /viewer.js?v=compare-method-glosses-1 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [07/Sep/2026 13:50:36] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:50:48] "GET /?nocache=1788755466 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:50:48] "[36mGET /viewer.js?v=compare-method-glosses-1 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [07/Sep/2026 13:50:48] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:51:17] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:51:44] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:51:44] "GET /viewer.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:51:44] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:51:45] "[36mGET /viewer.js?v=compare-method-glosses-1 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [07/Sep/2026 13:51:45] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:52:31] "GET /?nocache=1 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:52:31] "GET /viewer.js?v=compare-method-glosses-1 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:52:31] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:52:32] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 13:55:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:55:23] "[36mGET /viewer.js?v=compare-method-glosses-1 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [07/Sep/2026 13:55:23] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:55:27] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:55:27] "[36mGET /viewer.js?v=compare-method-glosses-1 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [07/Sep/2026 13:55:27] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:08:26] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:08:46] "GET /viewer.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:08:47] "GET /?nocache=1788761326 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:08:47] "[36mGET /viewer.js?v=compare-method-glosses-1 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [07/Sep/2026 14:08:47] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:09:02] "GET /viewer.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:09:03] "GET /?nocache=1788761342 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:09:03] "[36mGET /viewer.js?v=compare-method-glosses-1 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [07/Sep/2026 14:09:03] "GET /api/traces HTTP/1.1" 200 -
+
+---
+exit_code: 137
+elapsed_ms: 5899198
+ended_at: 2026-09-07T06:09:09.247Z
+---

@@ -1,0 +1,315 @@
+---
+pid: 62439
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nimport preprocess_lq_answers as a\nimport pymupdf as fitz\ndoc=fitz.open('answer/2018ans.pdf')\nfor scale in (1.0, 1.2, 1.5, 2.0):\n    im=a.render_page(doc[0], scale)\n    print('scale', scale, 'is_a', a.is_section_a_keys(im), 'hdr', a.header_text(im)[:80].replace('\\n',' '))\ndoc.close()\n# Batch answers for all years that have question crops\nPY\nfor year in 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023; do\n  qdir=output/lq/$year\n  n=$(ls \"$qdir\"/q*.png 2>/dev/null | wc -l | tr -d ' ')\n  if [ \"$n\" = \"0\" ]; then echo \"skip $year (no questions)\"; continue; fi\n  ans=answer/${year}ans.pdf\n  if [ ! -f \"$ans\" ]; then echo \"no ans $year\"; continue; fi\n  echo \"=== answers $year ($n questions) ===\"\n  .venv/bin/python scripts/preprocess_lq_answers.py \"$ans\" \"$qdir/ans\" --max-questions 12 --scale 1.5 || echo FAIL\ndone 2>&1\n"
+title: "Tune answer scale; batch-crop all LQ answers"
+status: succeeded
+started_at: 2026-09-04T17:35:55.858Z
+running_for_ms: 375571   
+---
+scale 1.0 is_a False hdr git! dee 
+scale 1.2 is_a False hdr HET 
+scale 1.5 is_a False hdr rrr gaeyes EH Es ay 
+scale 2.0 is_a False hdr rr gEgetg2 zfs jas e728 823 
+=== answers 2012 (11 questions) ===
+Answers: 2012ans.pdf
+  skip Section A page 1/11
+  include answer page 2/11 (885x1255)
+  include answer page 3/11 (885x1255)
+  include answer page 4/11 (885x1255)
+  include answer page 5/11 (885x1255)
+  include answer page 6/11 (885x1255)
+  include answer page 7/11 (885x1255)
+  skip Section A page 8/11
+  include answer page 9/11 (885x1255)
+  include answer page 10/11 (885x1255)
+  include answer page 11/11 (885x1255)
+  detected answers Q1-Q10 (10)
+  Wrote q1.png (885x7581)
+  Wrote q4.png (885x2117)
+  Wrote q5.png (825x335)
+  Wrote q6.png (858x1236)
+  Wrote q7.png (885x921)
+  Wrote q8.png (834x339)
+  Wrote q9.png (837x904)
+  Wrote q10.png (885x4887)
+Wrote output/lq/2012/ans/combined.pdf (8 pages)
+Wrote 8 answer crops -> output/lq/2012/ans
+=== answers 2013 (11 questions) ===
+Answers: 2013ans.pdf
+  skip front-matter page 1/16
+  skip Section A page 2/16
+  include answer page 3/16 (893x1263)
+  include answer page 4/16 (893x1263)
+  include answer page 5/16 (893x1263)
+  include answer page 6/16 (893x1263)
+  include answer page 7/16 (893x1263)
+  skip Section A page 8/16
+  include answer page 9/16 (893x1263)
+  include answer page 10/16 (893x1263)
+  include answer page 11/16 (893x1263)
+  skip Section A page 12/16
+  include answer page 13/16 (893x1263)
+  include answer page 14/16 (893x1263)
+  include answer page 15/16 (893x1263)
+  include answer page 16/16 (893x1263)
+  detected answers Q1-Q6 (6)
+  Wrote q2.png (875x263)
+  Wrote q3.png (852x284)
+  Wrote q4.png (891x744)
+  Wrote q5.png (893x244)
+  Wrote q6.png (893x13230)
+Wrote output/lq/2013/ans/combined.pdf (5 pages)
+Wrote 5 answer crops -> output/lq/2013/ans
+=== answers 2014 (10 questions) ===
+Answers: 2014ans.pdf
+  include answer page 1/16 (893x1263)
+  skip Section A page 2/16
+  include answer page 3/16 (893x1263)
+  include answer page 4/16 (893x1263)
+  include answer page 5/16 (893x1263)
+  include answer page 6/16 (893x1263)
+  include answer page 7/16 (893x1263)
+  include answer page 8/16 (893x1263)
+  include answer page 9/16 (893x1263)
+  include answer page 10/16 (893x1263)
+  include answer page 11/16 (893x1263)
+  include answer page 12/16 (893x1263)
+  skip Section A page 13/16
+  include answer page 14/16 (893x1263)
+  include answer page 15/16 (893x1263)
+  include answer page 16/16 (893x1263)
+  detected answers Q1-Q10 (10)
+  Wrote q1.png (893x158)
+  Wrote q2.png (893x89)
+  Wrote q3.png (893x88)
+  Wrote q4.png (893x664)
+  Wrote q5.png (893x6272)
+  Wrote q6.png (893x1252)
+  Wrote q7.png (893x1226)
+  Wrote q8.png (893x1311)
+  Wrote q10.png (893x13651)
+Wrote output/lq/2014/ans/combined.pdf (9 pages)
+Wrote 9 answer crops -> output/lq/2014/ans
+=== answers 2015 (10 questions) ===
+Answers: 2015ans.pdf
+  skip Section A page 1/14
+  include answer page 2/14 (885x1255)
+  include answer page 3/14 (885x1255)
+  include answer page 4/14 (885x1255)
+  include answer page 5/14 (885x1255)
+  include answer page 6/14 (885x1255)
+  include answer page 7/14 (885x1255)
+  skip Section A page 8/14
+  include answer page 9/14 (885x1255)
+  include answer page 10/14 (885x1255)
+  skip Section A page 11/14
+  include answer page 12/14 (885x1255)
+  include answer page 13/14 (885x1255)
+  include answer page 14/14 (885x1255)
+  detected answers Q1-Q7 (7)
+  Wrote q1.png (866x380)
+  Wrote q2.png (874x851)
+  Wrote q3.png (871x1248)
+  Wrote q4.png (885x1236)
+  Wrote q5.png (874x1264)
+  Wrote q6.png (885x1255)
+  Wrote q7.png (874x7378)
+Wrote output/lq/2015/ans/combined.pdf (7 pages)
+Wrote 7 answer crops -> output/lq/2015/ans
+=== answers 2016 (9 questions) ===
+Answers: 2016ans.pdf
+  skip Section A page 1/14
+  include answer page 2/14 (885x1255)
+  include answer page 3/14 (885x1255)
+  include answer page 4/14 (885x1255)
+  include answer page 5/14 (885x1255)
+  include answer page 6/14 (885x1255)
+  include answer page 7/14 (885x1255)
+  include answer page 8/14 (885x1255)
+  include answer page 9/14 (885x1255)
+  include answer page 10/14 (885x1255)
+  skip Section A page 11/14
+  include answer page 12/14 (885x1255)
+  include answer page 13/14 (885x1255)
+  include answer page 14/14 (885x1255)
+  detected answers Q1-Q9 (9)
+  Wrote q1.png (872x1282)
+  Wrote q2.png (885x1260)
+  Wrote q3.png (877x1254)
+  Wrote q4.png (885x7490)
+  Wrote q6.png (885x6133)
+  Wrote q7.png (885x1253)
+  Wrote q8.png (885x1245)
+  Wrote q9.png (875x4894)
+Wrote output/lq/2016/ans/combined.pdf (8 pages)
+Wrote 8 answer crops -> output/lq/2016/ans
+=== answers 2017 (10 questions) ===
+Answers: 2017ans.pdf
+  skip Section A page 1/14
+  include answer page 2/14 (893x1263)
+  include answer page 3/14 (893x1263)
+  include answer page 4/14 (893x1263)
+  include answer page 5/14 (893x1263)
+  include answer page 6/14 (893x1263)
+  include answer page 7/14 (893x1263)
+  include answer page 8/14 (893x1263)
+  include answer page 9/14 (893x1263)
+  skip Section A page 10/14
+  include answer page 11/14 (893x1263)
+  include answer page 12/14 (893x1263)
+  include answer page 13/14 (893x1263)
+  include answer page 14/14 (893x1263)
+  detected answers Q1-Q5 (5)
+  Wrote q1.png (893x7031)
+  Wrote q2.png (893x1157)
+  Wrote q5.png (893x14569)
+Wrote output/lq/2017/ans/combined.pdf (3 pages)
+Wrote 3 answer crops -> output/lq/2017/ans
+=== answers 2018 (8 questions) ===
+Answers: 2018ans.pdf
+  skip front-matter page 1/6
+  include answer page 2/6 (893x1263)
+  include answer page 3/6 (893x1263)
+  include answer page 4/6 (893x1263)
+  include answer page 5/6 (893x1263)
+  include answer page 6/6 (893x1263)
+  detected answers Q2-Q3 (2)
+  Wrote q3.png (871x5824)
+Wrote output/lq/2018/ans/combined.pdf (1 pages)
+Wrote 1 answer crops -> output/lq/2018/ans
+=== answers 2019 (10 questions) ===
+Answers: 2019ans.pdf
+  skip Section A page 1/10
+  include answer page 2/10 (842x1202)
+  include answer page 3/10 (842x1202)
+  include answer page 4/10 (842x1202)
+  include answer page 5/10 (842x1202)
+  include answer page 6/10 (842x1202)
+  include answer page 7/10 (842x1202)
+  include answer page 8/10 (842x1202)
+  include answer page 9/10 (842x1202)
+  include answer page 10/10 (842x1202)
+  detected answers Q5-Q7 (3)
+  Wrote q5.png (801x1210)
+  Wrote q6.png (793x1181)
+  Wrote q7.png (800x4704)
+Wrote output/lq/2019/ans/combined.pdf (3 pages)
+Wrote 3 answer crops -> output/lq/2019/ans
+=== answers 2020 (10 questions) ===
+Answers: 2020ans.pdf
+  include answer page 1/19 (3481x4950)
+  skip Section A page 2/19
+  include answer page 3/19 (3481x4950)
+  include answer page 4/19 (3481x4950)
+  include answer page 5/19 (3481x4950)
+  include answer page 6/19 (3481x4950)
+  include answer page 7/19 (3481x4950)
+  include answer page 8/19 (3481x4950)
+  include answer page 9/19 (3481x4950)
+  include answer page 10/19 (3481x4950)
+  skip Section A page 11/19
+  include answer page 12/19 (3481x4950)
+  include answer page 13/19 (3481x4950)
+  include answer page 14/19 (3481x4950)
+  skip Section A page 15/19
+  include answer page 16/19 (3481x4950)
+  include answer page 17/19 (3481x4950)
+  include answer page 18/19 (3481x4950)
+  include answer page 19/19 (3481x4950)
+  detected answers Q1-Q10 (10)
+  Wrote q1.png (2558x634)
+  Wrote q2.png (2566x355)
+  Wrote q3.png (2565x351)
+  Wrote q4.png (3205x17269)
+  Wrote q5.png (3255x4920)
+  Wrote q7.png (3282x29559)
+  Wrote q8.png (3272x5006)
+  Wrote q9.png (3135x2684)
+  Wrote q10.png (3257x36246)
+Wrote output/lq/2020/ans/combined.pdf (9 pages)
+Wrote 9 answer crops -> output/lq/2020/ans
+=== answers 2021 (9 questions) ===
+Answers: 2021ans.pdf
+  skip Section A page 1/14
+  include answer page 2/14 (901x1275)
+  include answer page 3/14 (899x1330)
+  include answer page 4/14 (902x1299)
+  include answer page 5/14 (900x1317)
+  include answer page 6/14 (901x1281)
+  include answer page 7/14 (899x1311)
+  include answer page 8/14 (901x1287)
+  include answer page 9/14 (900x1336)
+  include answer page 10/14 (902x1324)
+  include answer page 11/14 (901x1330)
+  include answer page 12/14 (899x1293)
+  include answer page 13/14 (899x1336)
+  include answer page 14/14 (902x1336)
+  detected answers Q1-Q7 (7)
+  Wrote q1.png (902x8243)
+  Wrote q4.png (901x1004)
+  Wrote q5.png (902x4109)
+  Wrote q6.png (901x2103)
+  Wrote q7.png (902x9078)
+Wrote output/lq/2021/ans/combined.pdf (5 pages)
+Wrote 5 answer crops -> output/lq/2021/ans
+=== answers 2022 (10 questions) ===
+Answers: 2022ans.pdf
+  skip Section A page 1/14
+  include answer page 2/14 (839x1188)
+  include answer page 3/14 (839x1188)
+  include answer page 4/14 (839x1188)
+  include answer page 5/14 (839x1188)
+  include answer page 6/14 (839x1188)
+  include answer page 7/14 (839x1188)
+  include answer page 8/14 (839x1188)
+  include answer page 9/14 (839x1188)
+  include answer page 10/14 (839x1188)
+  skip Section A page 11/14
+  include answer page 12/14 (839x1188)
+  include answer page 13/14 (839x1188)
+  include answer page 14/14 (839x1188)
+  detected answers Q1-Q8 (8)
+  Wrote q1.png (768x1243)
+  Wrote q2.png (810x1135)
+  Wrote q3.png (772x1093)
+  Wrote q4.png (807x7137)
+  Wrote q7.png (807x1186)
+  Wrote q8.png (778x5814)
+Wrote output/lq/2022/ans/combined.pdf (6 pages)
+Wrote 6 answer crops -> output/lq/2022/ans
+=== answers 2023 (9 questions) ===
+Answers: 2023ans.pdf
+  include answer page 1/16 (894x1264)
+  skip Section A page 2/16
+  include answer page 3/16 (894x1264)
+  include answer page 4/16 (894x1264)
+  include answer page 5/16 (894x1264)
+  include answer page 6/16 (894x1264)
+  include answer page 7/16 (894x1264)
+  include answer page 8/16 (894x1264)
+  include answer page 9/16 (894x1264)
+  include answer page 10/16 (894x1264)
+  include answer page 11/16 (894x1264)
+  include answer page 12/16 (894x1264)
+  skip Section A page 13/16
+  include answer page 14/16 (894x1264)
+  include answer page 15/16 (894x1264)
+  include answer page 16/16 (894x1264)
+  detected answers Q1-Q9 (9)
+  Wrote q1.png (894x2110)
+  Wrote q3.png (894x4474)
+  Wrote q4.png (894x2511)
+  Wrote q5.png (894x1264)
+  Wrote q6.png (894x1261)
+  Wrote q7.png (894x1254)
+  Wrote q8.png (894x1259)
+  Wrote q9.png (894x4883)
+Wrote output/lq/2023/ans/combined.pdf (8 pages)
+Wrote 8 answer crops -> output/lq/2023/ans
+
+---
+exit_code: 0
+elapsed_ms: 375571
+ended_at: 2026-09-04T17:42:11.429Z
+---

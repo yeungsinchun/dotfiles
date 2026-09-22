@@ -143,4 +143,3 @@ if [[ -r "$_p10k_theme" ]]; then
   [[ -r ~/.p10k.zsh ]] && source ~/.p10k.zsh
 fi
 unset _p10k_theme
-

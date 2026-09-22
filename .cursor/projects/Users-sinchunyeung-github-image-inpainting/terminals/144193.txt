@@ -1,0 +1,16 @@
+---
+pid: 94749
+cwd: "/Users/sinchunyeung/github/image-inpainting"
+command: "npx -y lavish-axi poll /Users/sinchunyeung/github/image-inpainting/.lavish/inpainting-review.html"
+title: "Poll Lavish for user feedback"
+status: failed   
+started_at: 2026-09-15T15:07:00.797Z
+running_for_ms: 458081   
+---
+[lavish-axi] Long-polling for user feedback on /Users/sinchunyeung/github/image-inpainting/.lavish/inpainting-review.html. This stays silent until the user sends feedback or ends the session - leave it running. Detected layout issues do NOT return this poll: they wait in the user's Layout issues inbox until the user queues them as ordinary feedback. If it gets killed or times out before feedback arrives, re-run `lavish-axi poll /Users/sinchunyeung/github/image-inpainting/.lavish/inpainting-review.html` - feedback remains queued until delivery. Poll delivery consumes the response, so read it completely.
+
+---
+exit_code: unknown
+elapsed_ms: 458080
+ended_at: 2026-09-15T15:14:38.877Z
+---

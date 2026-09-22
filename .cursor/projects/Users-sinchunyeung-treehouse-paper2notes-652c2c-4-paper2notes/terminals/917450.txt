@@ -1,0 +1,80 @@
+---
+pid: 47301
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/4/paper2notes"
+command: "no-mistakes axi respond --action fix --findings ch2-26-3-hazards-unit-and-badge --step review --instructions 'Drop 2026 MC Q32 and 2015 MC Q32 from the 26.3 hazards-and-minimise-dose bullet only. Keep 2026 MC Q32 on the sievert bullet. Keep 2015 MC Q32 on 26.3 safety precautions and on 25.2/25.3. Keep 2021 LQ Q9 on 26.3 hazards. Do not remove those papers from 26.3. Keep visible DSE labels as YYYY MC Qn / YYYY LQ Qn.'"
+title: "Authorize 26.3 hazards chip drop via pipeline"
+status: succeeded
+started_at: 2026-09-12T17:53:11.500Z
+running_for_ms: 405729   
+---
+[33mA new version of no-mistakes is available: v1.64.0 -> v1.72.0
+Run "no-mistakes update" to update[0m
+run: running
+  intent: completed
+  rebase: completed
+  review: fixing
+  review: fix_review
+run:
+  id: "01M2B7YV0MTFD9FEWQ1YF0G59C"
+  branch: fm/p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e
+  status: running
+  awaiting_agent: parked 0s
+  head: "095e7e3d"
+  findings: 2 awaiting
+  steps[9]{step,status,findings,duration_ms}:
+    intent,completed,0,2
+    rebase,completed,0,2073
+    review,fix_review,2,3473886
+    test,pending,0,0
+    document,pending,0,0
+    lint,pending,0,0
+    push,pending,0,0
+    pr,pending,0,0
+    ci,pending,0,0
+branch_sync:
+  state: pipeline_owned
+  changed: false
+  local:
+    branch: fm/p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e
+    head: "0910c137ca342c02307776123afa9b3f3d47db1f"
+    clean: true
+  pipeline:
+    run: "01M2B7YV0MTFD9FEWQ1YF0G59C"
+    status: running
+    phase: pre_push
+    submitted_head: "0910c137ca342c02307776123afa9b3f3d47db1f"
+    current_head: "095e7e3d0b5a89e0615db70d638acbd3ec92fd9f"
+    pushed_head: ""
+    pushed_at: 0
+    push_generation: 0
+  target:
+    kind: ""
+    remote: origin
+    url: "https://github.com/yeungsinchun/paper2notes.git"
+    ref: ""
+  remote:
+    observed_head: ""
+    freshness: pipeline_push
+    observed_at: 0
+  relation: unknown
+  safety: blocked_pipeline_owned
+  pr_state: none
+  note: the pipeline head has moved but has not been successfully pushed; do not make local follow-up commits yet
+  next_action:
+    code: continue_active_run
+    command: no-mistakes axi status
+gate:
+  step: review
+  status: fix_review
+  risk: medium
+  note: "Review auto-fix is disabled by default (`auto_fix.review: 0`; a repo or global `auto_fix.review > 0` override re-enables it), so blocking and ask-user review findings park for your decision rather than being silently self-fixed."
+  findings[2]{id,severity,file,action,description}:
+    ch2-26-1-activity-2025-31,warning,notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html,ask-user,"26.1 'state the proportional relationship between the activity of a sample and the number of undecayed nuclei' labels 2025 MC Q31. The page's own copy of that paper (activity check: 300 nuclides decayed in 1 minute) asks for the activity in Bq (5 Bq, not 300 Bq). It tests 1 Bq = 1 s^-1, not A proportional to N. A student who clicks that chip still lands on the wrong LO. Drop the 2025 MC Q31 chip from the A-proportional-to-N bullet only. Keep the embed. Keep SAP MC Q35 and 2023 MC Q31 on that bullet."
+    ch1-25-2-define-az-series,warning,notes/book5/ch01-radiation-and-radioactivity/25-2.html,ask-user,"25.2 'define atomic number as the number of protons... and mass number as...' labels 2013 MC Q34 and 2021 MC Q31. The page's own copies ask for A and Z after U-238 α-β-β-α, and how many β decays in Pu-239 to Pb-207. Those are transmutation/series papers, already chipped on 'represent radioactive transmutations'. A student who clicks the definition chips still lands on the wrong LO. Drop 2013 MC Q34 and 2021 MC Q31 from the define-A/Z bullet only. Keep 2012 MC Q36 there. Keep both papers on transmutation and their other 25.2 homes."
+help[6]: Run `no-mistakes axi respond --action approve` to accept this step and continue,Run `no-mistakes axi respond --action fix --findings <ids>` to have the pipeline fix the selected findings (do not edit files yourself),Run `no-mistakes axi respond --action skip` to skip this step,Run `no-mistakes axi logs --step review --full` to read the full step log,"A long-running call is working, not stalled - background it if your harness needs to, but the run never advances past a gate on its own. Read every return; on a `gate:`, respond; loop until an `outcome:`.","Commit post-pipeline follow-up work on top of the existing branch so every pipeline fix commit remains present. Never abort-and-restart, reset, or replace the branch in a way that drops prior gate-fix commits."
+
+---
+exit_code: 0
+elapsed_ms: 405728
+ended_at: 2026-09-12T17:59:57.228Z
+---

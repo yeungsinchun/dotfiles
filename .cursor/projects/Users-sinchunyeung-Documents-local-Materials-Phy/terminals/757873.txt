@@ -1,0 +1,44 @@
+---
+pid: 72400
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/dse"
+command: "# Verify wipe no longer destroys text, then reexport\ncd \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse\" && python3 << 'PY'\nimport sys\nfrom pathlib import Path\nimport shutil\nfrom PIL import Image\nimport numpy as np\nimport fitz\nsys.path.insert(0,'scripts')\nfrom preprocess_lq import extract_fullpage_display, wipe_answer_lines, process_one\n\ndoc=fitz.open('Year/LQ/2016p1b.pdf'); doc.authenticate('')\next=extract_fullpage_display(doc[9], doc)\npart=ext.crop((int(ext.width*0.05), 400, int(ext.width*0.95), 2000))\nbefore=part.crop((0,800,900,1100))\nwiped=wipe_answer_lines(part).crop((0,800,900,1100))\n# ink remaining ratio\nb=np.asarray(before.convert('L')); a=np.asarray(wiped.convert('L'))\nprint('ink before', float((b<200).mean()), 'after', float((a<200).mean()), 'diff mean', float(np.mean(np.abs(b.astype(float)-a.astype(float)))))\nbefore.save('processed/LQ/_quality/wipe2_before.png')\nwiped.save('processed/LQ/_quality/wipe2_after.png')\ndoc.close()\n\nmapping={('2016','q7'):'2016_q7.png',('2019','q7'):'2019_q7.png',('2020','q8'):'2020_q8.png',('2021','q8'):'2021_q8.png',('2022','q8'):'2022_q8.png'}\nfor y in ['2016','2019','2020','2021','2022']:\n  print(f'=== {y} ===')\n  n=process_one(Path(f'Year/LQ/{y}p1b.pdf'), Path('processed/LQ')/y, 1, 0.0, 12, 9.0)\n  print('wrote', n)\ndests=[Path('by-topic/Electricity and Magnetism/Electric circuits/lq'), Path('../DSE/by-topic/Electricity and Magnetism/Electric circuits/lq')]\nfor (year,q),name in mapping.items():\n  src=Path('processed/LQ')/year/f'{q}.png'\n  for d in dests:\n    shutil.copy2(src,d/name)\n  im=Image.open(src); g=np.asarray(im.convert('L'))\n  print(name, im.size, 'unique', len(np.unique(g)), 'ink%', round(float((g<200).mean())*100,2))\nPY\n"
+started_at: 2026-08-23T03:02:28.922Z
+running_for_ms: 190062   
+---
+ink before 0.03017037037037037 after 0.03017037037037037 diff mean 0.035637037037037037
+=== 2016 ===
+  render scale=4.17
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  detected Q1-Q9 (9 questions)
+wrote 9
+=== 2019 ===
+  render scale=5.89
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  detected Q1-Q10 (10 questions)
+wrote 10
+=== 2020 ===
+  render scale=5.89
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  detected Q1-Q10 (10 questions)
+wrote 10
+=== 2021 ===
+  render scale=4.17
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  detected Q1-Q9 (9 questions)
+wrote 9
+=== 2022 ===
+  render scale=4.17
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  detected Q1-Q10 (10 questions)
+wrote 10
+2016_q7.png (2055, 5782) unique 256 ink% 2.72
+2019_q7.png (2896, 9702) unique 256 ink% 1.97
+2020_q8.png (2895, 10250) unique 256 ink% 2.59
+2021_q8.png (2093, 3161) unique 2 ink% 2.6
+2022_q8.png (2055, 4733) unique 225 ink% 2.9
+
+---
+exit_code: 0
+elapsed_ms: 193057
+ended_at: 2026-08-23T03:05:41.979Z
+---

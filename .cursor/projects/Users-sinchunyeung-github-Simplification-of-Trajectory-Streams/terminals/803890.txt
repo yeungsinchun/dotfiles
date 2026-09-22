@@ -1,0 +1,18 @@
+---
+pid: 46287
+cwd: "/Users/sinchunyeung/github/simplification-of-trajectory-streams"
+command: "ls /Users/sinchunyeung/github/simplification-of-trajectory-streams/node_modules 2>/dev/null | head -5; which chromium google-chrome \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" 2>/dev/null; rg -n 'playwright|chromium|screenshot' .gnhf 2>/dev/null | head -20; find /Users/sinchunyeung -name 'playwright' -type d 2>/dev/null | head -5"
+title: "Locate browser/screenshot tooling"
+status: failed   
+started_at: 2026-09-05T18:51:23.473Z
+running_for_ms: 44739    
+---
+chromium not found
+google-chrome not found
+/Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+
+---
+exit_code: unknown
+elapsed_ms: 44738
+ended_at: 2026-09-05T18:52:08.211Z
+---

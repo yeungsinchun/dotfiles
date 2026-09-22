@@ -1,0 +1,18 @@
+---
+pid: 34757
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes/notes"
+command: "sleep 2; curl -s -o /dev/null -w \"%{http_code}\\n\" http://127.0.0.1:8790/book5/index.html && cd /tmp/p2n-before && CHROME=\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\"; for spec in \"book5/index.html:b5-index\" \"book5/ch01-radiation-and-radioactivity/index.html:ch1-index\" \"book5/ch01-radiation-and-radioactivity/25-1.html:ch1-25-1\" \"book5/ch01-radiation-and-radioactivity/25-2.html:ch1-25-2\" \"book5/ch01-radiation-and-radioactivity/25-3.html:ch1-25-3\" \"book5/ch01-radiation-and-radioactivity/summary.html:ch1-summary\" \"book5/ch02-rate-of-decay-and-uses-of-radionuclides/index.html:ch2-index\" \"book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html:ch2-26-1\" \"book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-2.html:ch2-26-2\" \"book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-3.html:ch2-26-3\" \"book5/ch02-rate-of-decay-and-uses-of-radionuclides/summary.html:ch2-summary\"; do url=\"${spec%%:*}\"; name=\"${spec##*:}\"; \"$CHROME\" --headless=new --use-angle=swiftshader --disable-gpu --hide-scrollbars --window-size=1280,5000 --virtual-time-budget=5000 --screenshot=\"/tmp/p2n-before/$name.png\" \"http://127.0.0.1:8790/$url\" >/dev/null 2>&1; echo \"$name $(stat -f%z /tmp/p2n-before/$name.png 2>/dev/null)\"; done"
+title: "Capture before screenshots of all pages"
+status: failed   
+started_at: 2026-09-15T01:44:08.796Z
+running_for_ms: 546408   
+---
+200
+b5-index 770051
+ch1-index 328318
+
+---
+exit_code: unknown
+elapsed_ms: 546400
+ended_at: 2026-09-15T01:53:15.196Z
+---

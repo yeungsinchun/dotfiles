@@ -1,0 +1,104 @@
+---
+pid: 75510
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python <<'PY'\nimport pymupdf as fitz\nfrom PIL import Image\nimport io, subprocess\n# Render first content pages of 2019 LQ paper to see Q numbers\ndoc=fitz.open('paper/lq/2019p1b.pdf')\nprint('pages', doc.page_count)\nfor i in [1,2,3,4]:\n    page=doc[i]\n    pix=page.get_pixmap(matrix=fitz.Matrix(1.2,1.2), alpha=False)\n    im=Image.frombytes('RGB',(pix.width,pix.height),pix.samples)\n    # left strip\n    strip=im.crop((0,0,120,im.height))\n    buf=io.BytesIO(); strip.save(buf,'PNG')\n    r=subprocess.run(['tesseract','stdin','stdout','--psm','6'],input=buf.getvalue(),\n                     stdout=subprocess.PIPE,stderr=subprocess.DEVNULL)\n    print(f'\\n=== paper page {i+1} left OCR ===')\n    print(r.stdout.decode()[:400])\nPY\n# Look at cropped q sizes\nls -la output/lq/2019/*.png\n# Check find_question_starts on detect pages\n.venv/bin/python <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nimport preprocess_lq as p\nfrom pathlib import Path\n# debug detection only\nimport pymupdf as fitz\ndoc=fitz.open('paper/lq/2019p1b.pdf')\npages=p.expand_pdf_pages(doc, 2.5, cover_pages=1)\nstarts=p.find_question_starts(pages, cover_pages=0, max_questions=12)\nprint('starts', starts)\nPY\n"
+status: succeeded
+started_at: 2026-09-04T16:44:52.952Z
+running_for_ms: 41685    
+---
+pages 20
+
+=== paper page 2 left OCR ===
+section
+youre
+Le!
+(
+i] -
+E
+3
+a)
+Fi
+A)...
+F
+s ¢
+g
+5
+=
+‘Anew
+rovonse
+
+
+=== paper page 3 left OCR ===
+)
+os
+f
+1
+t
+zg
+a]
+z
+By
+z
+i (
+&
+&
+“Answers w
+2o1s-Dse-
+
+
+=== paper page 4 left OCR ===
+2 Aw
+
+go
+
+@!
+
+Oe
+
+7 :
+:
+z
+z
+z
+=
+2
+=
+a
+E
+
+g .
+
+2
+
+“Answers
+
+2o19.st1
+
+
+=== paper page 5 left OCR ===
+5
+(
+=
+a
+?
+z
+3
+=
+g
+E .
+H
+:
+“Answers
+2019-DsE-?
+
+-rw-r--r--@ 1 sinchunyeung  staff   3678290  5 Sep 00:44 output/lq/2019/q2.png
+-rw-r--r--@ 1 sinchunyeung  staff    306661  5 Sep 00:44 output/lq/2019/q3.png
+-rw-r--r--@ 1 sinchunyeung  staff   9898922  5 Sep 00:44 output/lq/2019/q5.png
+-rw-r--r--@ 1 sinchunyeung  staff  24441599  5 Sep 00:44 output/lq/2019/q7.png
+starts [(2, 1, 154.0), (3, 4, 1816.5182608695652), (7, 5, 667.4822641509434), (5, 29, 830.5)]
+
+---
+exit_code: 0
+elapsed_ms: 41684
+ended_at: 2026-09-04T16:45:34.636Z
+---

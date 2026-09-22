@@ -1,0 +1,39 @@
+---
+pid: 10366
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python <<'PY'\nimport sys, io, subprocess\nsys.path.insert(0,'scripts')\nimport preprocess_lq as p\nimport pymupdf as fitz\n\ndef probe(year, pdf, cover=1):\n    doc=fitz.open(pdf)\n    scale=min(p.native_scale(doc[min(cover,len(doc)-1)], cap=3.0), 3.0)\n    pages=p.expand_pdf_pages(doc, scale, cover_pages=cover)\n    print(f'\\n=== {year} pages={len(pages)} scale={scale:.2f} size0={pages[0].size if pages else None} ===')\n    if not pages:\n        doc.close(); return\n    pages[0].crop((0,0,min(500,pages[0].width),min(600,pages[0].height))).save(f'/tmp/lq{year}_tl.png')\n    starts=p.find_question_starts(pages, 0, 12)\n    print('starts', starts)\n    for i in range(min(3,len(pages))):\n        hits=p.find_starts_on_image(pages[i], 12)\n        w,h=pages[i].size\n        strip=pages[i].crop((int(w*0.045), int(h*0.04), int(w*0.28), int(h*0.25)))\n        buf=io.BytesIO(); strip.resize((strip.width*2,strip.height*2)).save(buf, format='PNG')\n        r=subprocess.run(['tesseract','stdin','stdout','--psm','6'], input=buf.getvalue(), stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)\n        print(f'  p{i} hits={hits} ocr={r.stdout.decode()[:120]!r}')\n    doc.close()\n\nfor year, name in [('2013','paper/lq/2013p1b.pdf'),('2014','paper/lq/2014p1b.pdf'),('2020','paper/lq/2020p1b.pdf'),('2015','paper/lq/2015p1b.pdf')]:\n    probe(year, name)\nPY\n"
+title: "Probe failed years for OCR/detection issues"
+status: succeeded
+started_at: 2026-09-04T17:07:50.183Z
+running_for_ms: 123065   
+---
+
+=== 2013 pages=18 scale=2.78 size0=(1653, 2338) ===
+starts []
+  p0 hits=[] ocr='Section B: Answe\nyour answers in the\nl.\n\nFigure 1.1\n'
+  p1 hits=[] ocr='(b) Given thé\nthe radiat\nGive you\n'
+  p2 hits=[] ocr='+2,\nFigure 2.1]\n'
+
+=== 2014 pages=19 scale=3.00 size0=(1785, 2525) ===
+starts []
+  p0 hits=[] ocr='Section B: Answer ALL\nyour answers in the space\n1.\n\nFigure 1.1\n'
+  p1 hits=[] ocr='. 4\n(c) Given: fn\nh\nh\n(i) By c\ncanac\n'
+  p2 hits=[(2, 205.0)] ocr='*2. Figure 2.1 sho\ninward, the pv\ntemperature int\n\nFigure 2.1\n'
+
+=== 2020 pages=19 scale=3.00 size0=(1785, 2525) ===
+starts [(1, 16, 1812.6842105263156)]
+  p0 hits=[] ocr='Section B: Answer AL!\nyour answers in the spac\n1. Ina restaurant, ‘wo\n0.60 kg of soup at te\nGiven: average mas:\nspecific'
+  p1 hits=[] ocr='(ii) A student us\nthe containe!\ntemperature |\n'
+  p2 hits=[(2, 101.0)] ocr='2. Figure 2.1 shows a\n\nwith a smooth pistc\n\n237 °C under a pres\n\nGiven: atmospheric\nFigure 2.1\n\nhigh-pres\n\n{997 Of 9\n'
+
+=== 2015 pages=18 scale=3.00 size0=(1787, 2527) ===
+starts [(1, 0, 267.06), (2, 1, 459.5)]
+  p0 hits=[(1, 267.06)] ocr='Section B: Answer ALI\nyour answers in the space\n1. The solid curve in\ntemperature. This |\nthe steam point of |\nvaries wi'
+  p1 hits=[(2, 459.5)] ocr='C\n*2. The aqua-lung (a cyl\naqua-lung is filled, tt\naqua-lung is allowec\nsurrounding water bef\nalways equal to that o\n'
+  p2 hits=[] ocr='es\nFigure 3.1\n'
+
+---
+exit_code: 0
+elapsed_ms: 123064
+ended_at: 2026-09-04T17:09:53.247Z
+---

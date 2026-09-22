@@ -1,0 +1,30 @@
+---
+pid: 86623
+cwd: "/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams"
+command: "NODE_PATH=/Users/sinchunyeung/.npm/_npx/e41f203b7505f1fb/node_modules node /tmp/audit-layers-playback.mjs"
+title: "Re-run audit with page debug logs"
+status: failed   
+started_at: 2026-09-04T17:42:25.989Z
+running_for_ms: 32996    
+---
+PAGE log [Traces] Fetching trace list from /api/traces...
+PAGE log [Traces] Response status: 200 OK
+PAGE log [Traces] Received data: {traces: Array(1)}
+PAGE log [Traces] Added 1 traces to dropdown
+PAGE error Failed to load resource: the server responded with a status of 404 (Not Found)
+PAGE log [Client] Starting trace load (ID=1) with eps=0.9, delta=500
+file:///private/tmp/audit-layers-playback.mjs:207
+    throw new Error(`load failed: ${JSON.stringify({ before, debug })}`);
+          ^
+
+Error: load failed: {"before":"Demo selected. Click 'Load Trace' to generate.","debug":{"status":"Cannot read properties of undefined (reading 'length')","bodyClass":"","options":["","──────────────────","1"]}}
+    at loadTrace (file:///private/tmp/audit-layers-playback.mjs:207:11)
+    at async file:///private/tmp/audit-layers-playback.mjs:245:5
+
+Node.js v24.20.0
+
+---
+exit_code: 1
+elapsed_ms: 32996
+ended_at: 2026-09-04T17:42:58.985Z
+---

@@ -1,0 +1,37 @@
+---
+pid: 73425
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes"
+command: "node --test --test-name-pattern='Book 5 hub and chapter maps keep objectives on subsection pages' notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.interactives.test.mjs && node --test --test-name-pattern='chapter map, summary, and concept-check scoring are the public notes surface' notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs"
+title: "Verify objective placement on Book 5 maps"
+status: succeeded
+started_at: 2026-09-15T06:24:01.939Z
+running_for_ms: 54739    
+---
+▶ Book 5 menu and Ch.2 notes
+  ✔ Book 5 hub and chapter maps keep objectives on subsection pages (3508.04225ms)
+✔ Book 5 menu and Ch.2 notes (4442.993125ms)
+ℹ tests 1
+ℹ suites 1
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4745.717291
+▶ Book 5 Ch.1 notes interactives
+  ✔ chapter map, summary, and concept-check scoring are the public notes surface (48406.339291ms)
+✔ Book 5 Ch.1 notes interactives (49131.810083ms)
+ℹ tests 1
+ℹ suites 1
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 49444.569791
+
+---
+exit_code: 0
+elapsed_ms: 54722
+ended_at: 2026-09-15T06:24:56.661Z
+---

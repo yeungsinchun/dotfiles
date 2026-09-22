@@ -1,0 +1,30 @@
+---
+pid: 5894
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && for y in 2013 2017 2021 2022; do\n  echo \"==== $y ====\"\n  .venv/bin/python scripts/preprocess_lq_answers.py \"answer/${y}ans.pdf\" \"output/lq/$y/ans\" 2>&1 | rg 'detected|Wrote [0-9]+ answer|WARNING|stop|fallback'\ndone\n"
+title: "Re-test answer crops after dual-strip fix"
+status: succeeded
+started_at: 2026-09-05T02:12:54.091Z
+running_for_ms: 61347    
+---
+==== 2013 ====
+  stop at Paper 2 page 8/16
+  detected answers Q1-Q10 (8)
+Wrote 8 answer crops -> output/lq/2013/ans
+==== 2017 ====
+  stop at Paper 2 page 10/14
+  detected answers Q1-Q10 (6)
+Wrote 6 answer crops -> output/lq/2017/ans
+==== 2021 ====
+  detected answers Q1-Q10 (2)
+Wrote 2 answer crops -> output/lq/2021/ans
+==== 2022 ====
+  stop at Paper 2 page 11/14
+  detected answers Q1-Q10 (10)
+Wrote 10 answer crops -> output/lq/2022/ans
+
+---
+exit_code: 0
+elapsed_ms: 61343
+ended_at: 2026-09-05T02:13:55.434Z
+---

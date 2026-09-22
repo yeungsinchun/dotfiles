@@ -1,0 +1,46 @@
+---
+pid: 33210
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "WT=/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams; test -e \"$WT/build/simplify\" || ln -sfn /Users/sinchunyeung/github/simplification-of-trajectory-streams/build \"$WT/build\"; test -d \"$WT/data/1\" || ln -sfn /Users/sinchunyeung/github/simplification-of-trajectory-streams/data \"$WT/data\"; /Users/sinchunyeung/github/simplification-of-trajectory-streams/web/.venv/bin/python \"$WT/web/server.py\""
+title: "Start viewer from tour-ux-polish worktree"
+status: failed   
+started_at: 2026-09-07T06:09:14.900Z
+running_for_ms: 1696271  
+---
+Warning: dots binary not found at /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/build/dots
+  Compare pane for dots will fail until you build it:
+  cmake -B build && cmake --build build --target dots
+Warning: dp binary not found at /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/build/dp
+  Compare pane for dp will fail until you build it:
+  cmake -B build && cmake --build build --target dp
+Warning: squish binary not found at /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/build/squish
+  Compare pane for squish will fail until you build it:
+  cmake -B build && cmake --build build --target squish
+Repo root: /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams
+Binary: /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/build/simplify
+Baselines: dots=False dp=False squish=False
+Starting Flask server on http://0.0.0.0:5051
+ * Serving Flask app 'server'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5051
+ * Running on http://192.168.31.91:5051
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [07/Sep/2026 14:09:23] "GET /viewer.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:09:23] "GET /?nocache=1788761363 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:09:23] "GET /viewer.js?v=compare-method-glosses-1 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:09:23] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:15:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:15:41] "GET /?nocache=1788761741 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:15:41] "GET /viewer.js?v=compare-method-glosses-1 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:15:41] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:16:51] "GET /api/trace/1?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:16:52] "GET /api/trace/1/compare?algorithm=none HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:17:04] "POST /api/frechet HTTP/1.1" 200 -
+
+---
+exit_code: 143
+elapsed_ms: 1696271
+ended_at: 2026-09-07T06:37:31.171Z
+---

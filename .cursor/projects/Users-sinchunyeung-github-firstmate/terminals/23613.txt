@@ -1,0 +1,16 @@
+---
+pid: 93008
+cwd: "/Users/sinchunyeung/github/paper2notes"
+command: "export PATH=\"/Users/sinchunyeung/Documents/path:/Library/Developer/CommandLineTools/usr/bin:/Users/sinchunyeung/.nvm/versions/node/v24.20.0/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin\"\nexport FM_HOME=/Users/sinchunyeung/github/firstmate\n# find cursor/agent CLIs and gpt-6 models\ncommand -v agent; command -v cursor; command -v cursor-agent\n(agent models 2>&1 || true) | rg -i 'gpt' | head -40\n(cursor agent --list-models 2>&1 || true) | rg -i 'gpt' | head -40\nls /Users/sinchunyeung/.cursor/bin 2>/dev/null | head\n# peek design overhaul\ntmux list-windows -a -F 's=#{session_name} id=#{window_id} n=#{window_name} p=#{pane_current_path} c=#{pane_current_command}' | rg 'design-overhaul|paper2notes-652c2c/5'\n/Users/sinchunyeung/github/firstmate/bin/fm-peek.sh p2n-b5-book-5-both-chapters-design-overhaul-for-a5 40 2>&1 | tail -50\n# existing localhost still 8790?\ncurl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8790/book5/ 2>/dev/null; echo\n# backlog mint help\ntasks-axi add --help 2>&1 | head -40\n"
+title: "Find GPT-6 model id; peek design worker"
+status: failed   
+started_at: 2026-09-15T03:07:47.036Z
+running_for_ms: 41856    
+---
+alias cursor=/Applications/Cursor.app/Contents/MacOS/Cursor
+
+---
+exit_code: unknown
+elapsed_ms: 41854
+ended_at: 2026-09-15T03:08:28.890Z
+---

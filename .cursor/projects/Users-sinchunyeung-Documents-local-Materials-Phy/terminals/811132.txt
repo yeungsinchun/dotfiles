@@ -1,0 +1,91 @@
+---
+pid: 97232
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy"
+command: "python3 \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/scripts/batch_preprocess_lq.py\" 2>&1"
+started_at: 2026-08-28T08:53:49.710Z
+running_for_ms: 1085220  
+---
+
+=== 2012p1b.pdf -> 2012 ===
+  render scale=8.34 (detect 4.59)
+  loaded 36 page PNGs from /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2012/pages
+  detected Q1-Q10 (10 questions)
+
+=== 2013p1b.pdf -> 2013 ===
+  render scale=2.78 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  loaded 18 page PNGs from /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2013/pages
+  detected Q2-Q10 (9 questions)
+
+=== 2014p1b.pdf -> 2014 ===
+  render scale=4.17 (detect 2.50)
+  loaded 19 page PNGs from /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2014/pages
+  detected Q2-Q10 (9 questions)
+
+=== 2015p1b.pdf -> 2015 ===
+  render scale=5.56 (detect 3.06)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  loaded 9 page PNGs from /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2015/pages
+  detected Q1-Q10 (9 questions)
+
+=== 2016p1b.pdf -> 2016 ===
+  render scale=4.17 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  loaded 19 page PNGs from /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2016/pages
+  detected Q1-Q9 (9 questions)
+
+=== 2017p1b.pdf -> 2017 ===
+  render scale=2.78 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  loaded 19 page PNGs from /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2017/pages
+  detected Q4-Q2 (4 questions)
+
+=== 2018p1b.pdf -> 2018 ===
+  render scale=4.17 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  loaded 18 page PNGs from /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2018/pages
+  detected Q1-Q10 (10 questions)
+
+=== 2019p1b.pdf -> 2019 ===
+  render scale=5.89 (detect 3.24)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  loaded 38 page PNGs from /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2019/pages
+  detected Q7-Q2 (2 questions)
+
+=== 2020p1b.pdf -> 2020 ===
+  render scale=5.89 (detect 3.24)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  loaded 38 page PNGs from /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2020/pages
+  detected Q2-Q5 (6 questions)
+
+=== 2021p1b.pdf -> 2021 ===
+  render scale=4.17 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  loaded 19 page PNGs from /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2021/pages
+  detected Q1-Q9 (9 questions)
+
+=== 2022p1b.pdf -> 2022 ===
+  render scale=4.17 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  loaded 19 page PNGs from /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2022/pages
+  detected Q1-Q10 (10 questions)
+
+=== 2023q1b.pdf -> 2023 ===
+  render scale=5.89 (detect 3.24)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  loaded 38 page PNGs from /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2023/pages
+  detected Q1-Q4 (4 questions)
+
+=== ppp1b.pdf -> ppp ===
+  render scale=3.50 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  loaded 24 page PNGs from /Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/ppp/pages
+  detected Q2-Q11 (10 questions)
+
+Done. 101 LQ PNGs across 13 papers.
+
+---
+exit_code: 0
+elapsed_ms: 1089642
+ended_at: 2026-08-28T09:11:59.352Z
+---

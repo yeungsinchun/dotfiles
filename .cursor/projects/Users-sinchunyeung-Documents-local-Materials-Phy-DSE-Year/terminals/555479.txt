@@ -1,0 +1,20 @@
+---
+pid: 83310
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/DSE/scripts"
+command: "python3 segment_crop.py && python3 classify.py && python3 assemble.py"
+started_at: 2026-07-31T19:50:56.455Z
+running_for_ms: 750446   
+---
+Created 107 crops/pages in /Users/sinchunyeung/Documents-local/Materials/Phy/DSE/work/crops
+Traceback (most recent call last):
+  File "/Users/sinchunyeung/Documents-local/Materials/Phy/DSE/scripts/classify.py", line 66, in <module>
+    main()
+  File "/Users/sinchunyeung/Documents-local/Materials/Phy/DSE/scripts/classify.py", line 56, in main
+    for (year, paper, q), paths in crops.items():
+ValueError: too many values to unpack (expected 3)
+
+---
+exit_code: 1
+elapsed_ms: 753258
+ended_at: 2026-07-31T20:03:29.713Z
+---

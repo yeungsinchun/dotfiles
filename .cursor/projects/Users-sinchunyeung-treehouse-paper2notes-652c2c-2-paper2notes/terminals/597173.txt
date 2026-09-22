@@ -1,0 +1,76 @@
+---
+pid: 56521
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/2/paper2notes"
+command: "no-mistakes axi respond --action fix --step review --findings fig25-2-stacked-class-title,beams-hasDivider-hardcoded --instructions \"fig25-2-stacked-class-title: Remove the extra 3D labelPlane title at classAnchor so the class name is not stacked on the HUD. Keep placeHud(hudClass) and the floor/rail frame. beams-hasDivider-hardcoded: Do not hardcode hasDivider false. Compute it from the actual scene graph (for example no tall box at x≈0 between the wave and the electron stream) so the no-wall contract would fail if the divider returned.\""
+title: "Pipeline-fix stacked title and hasDivider snapshot"
+status: failed   
+started_at: 2026-09-10T08:14:47.521Z
+running_for_ms: 616582   
+---
+[33mA new version of no-mistakes is available: v1.64.0 -> v1.72.0
+Run "no-mistakes update" to update[0m
+run: running
+  intent: completed
+  rebase: completed
+  review: fixing
+  review: completed
+  test: running
+  test: failed
+run: cancelled
+run:
+  id: "01M255MS5F9K5XYKEQYAZFX8A6"
+  branch: fm/p2n-b5ch1-notes-book-5-ch1-first-draft-visual-html-notes-87
+  status: cancelled
+  head: f3998dd0
+  findings: none
+  steps[9]{step,status,findings,duration_ms}:
+    intent,completed,0,6
+    rebase,completed,0,2218
+    review,completed,0,658695
+    test,failed,0,261899
+    document,pending,0,0
+    lint,pending,0,0
+    push,pending,0,0
+    pr,pending,0,0
+    ci,pending,0,0
+branch_sync:
+  state: pipeline_owned
+  changed: false
+  local:
+    branch: fm/p2n-b5ch1-notes-book-5-ch1-first-draft-visual-html-notes-87
+    head: 6dbd7cc0ff5f5fa61b9b53b66b987e5388268d0b
+    clean: true
+  pipeline:
+    run: "01M255MS5F9K5XYKEQYAZFX8A6"
+    status: cancelled
+    phase: pre_push
+    submitted_head: 6dbd7cc0ff5f5fa61b9b53b66b987e5388268d0b
+    current_head: f3998dd07f8b39c0c480dcf73e156d9a0fa63083
+    pushed_head: ""
+    pushed_at: 0
+    push_generation: 0
+  target:
+    kind: ""
+    remote: origin
+    url: "https://github.com/yeungsinchun/paper2notes.git"
+    ref: ""
+  remote:
+    observed_head: ""
+    freshness: pipeline_push
+    observed_at: 0
+  relation: unknown
+  safety: blocked_pipeline_owned_recoverable
+  pr_state: none
+  note: the run finished cancelled with unpublished pipeline commits preserved in the local gate; recover custody before any local follow-up commit
+  next_action:
+    code: recover_custody
+    command: no-mistakes axi sync --recover
+outcome: cancelled
+error: "cancelled: aborted by user"
+help[2]: "Commit post-pipeline follow-up work on top of the existing branch so every pipeline fix commit remains present. Never abort-and-restart, reset, or replace the branch in a way that drops prior gate-fix commits.","Before a post-pipeline local commit or fresh run, follow the structured `branch_sync.next_action`. Run `no-mistakes axi sync` only when its code is `sync`; that guarded sync may be a strict fast-forward or a content-equivalent diverged advance that anchors the pre-sync head before moving the branch with reset semantics. Run `no-mistakes axi sync --recover` only when its code is `recover_custody` (a terminal run left unpublished pipeline commits preserved in the local gate). A `user_owned` state means cancellation released the branch before changing the submitted head: the exact branch and head are yours, immediately usable, and no sync action is needed. Process blocked or pipeline-owned states instead of improvising reset, stash, merge, rebase, force, or branch replacement."
+
+---
+exit_code: 1
+elapsed_ms: 616582
+ended_at: 2026-09-10T08:25:04.103Z
+---

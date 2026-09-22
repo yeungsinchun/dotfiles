@@ -1,0 +1,58 @@
+---
+pid: 3145
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python <<'PY'\nfrom pathlib import Path\nfrom PIL import Image\n# years with intermediate\nready=[]\nfor p in Path('output').glob('*-intermediate'):\n    if (p/'anchor.meta.json').is_file() or (p/'anchor.pdf').is_file():\n        year=p.name.replace('-intermediate','')\n        ready.append(year)\nprint('ready', ready)\n# current 2023 width\nim=Image.open('output/2023/q4.png')\nprint('2023 q4 current', im.size)\nfor q in [1,2,3,4,5]:\n    p=Path(f'output/2023/q{q}.png')\n    if p.exists():\n        print(' ', q, Image.open(p).size)\nPY\n\n# Re-split every year that has intermediate (parallel would fight; sequential fast without OCR)\nfor year in sap 2012 2013 2014 2015 2016 2017 2018 pp; do\n  inter=output/${year}-intermediate\n  pdf=\"\"\n  case $year in\n    pp) pdf=paper/mc/ppp1a.pdf ;;\n    sap) pdf=paper/mc/sapp1a.pdf ;;\n    *) pdf=paper/mc/${year}p1a.pdf ;;\n  esac\n  if [[ -f \"$inter/anchor.pdf\" || -f \"$inter/anchor.meta.json\" ]]; then\n    echo \"RESplit $year\"\n    ./segment \"$pdf\" \"output/$year\" --type mc --step split --intermediate \"$inter\" >>/tmp/paper2db-resegment/resplit.log 2>&1 && echo OK $year || echo FAIL $year\n  fi\ndone\n\n# Run 2023 full now (anchors+split) - may parallel with 2019\n./segment paper/mc/2023p1a.pdf output/2023 --type mc --step all --intermediate output/2023-intermediate 2>&1 | tee /tmp/paper2db-resegment/2023.log | tail -20\n"
+title: "Re-split ready years; full segment 2023"
+status: succeeded
+started_at: 2026-09-04T14:42:17.356Z
+running_for_ms: 238404   
+---
+ready ['2019', '2018', '2015', 'pp', '2014', '2013', '2016', '2020', '2017', '2026', 'sap']
+2023 q4 current (483, 244)
+  1 (946, 270)
+  2 (946, 460)
+  3 (945, 507)
+  4 (483, 244)
+  5 (943, 530)
+RESplit sap
+OK sap
+RESplit 2013
+OK 2013
+RESplit 2014
+OK 2014
+RESplit 2015
+OK 2015
+RESplit 2016
+OK 2016
+RESplit 2017
+OK 2017
+RESplit 2018
+OK 2018
+RESplit pp
+OK pp
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q25.png (1073x462)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q26.png (1073x391)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q27.png (1073x508)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q28.png (987x315)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q29.png (987x461)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q30.png (987x500)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q31.png (1074x293)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q32.png (1074x344)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q33.png (1074x312)
+Wrote 33 questions to /Users/sinchunyeung/github/paper2db/output/2023 (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/combined.pdf (33 pages)
+Paper type: MC (2023p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Wrote /Users/sinchunyeung/github/paper2db/output/2023-intermediate/anchor.pdf
+Wrote /Users/sinchunyeung/github/paper2db/output/2023-intermediate/anchor.meta.json
+Wrote 13 preview PNGs (page01.png, ...) in /Users/sinchunyeung/github/paper2db/output/2023-intermediate
+Review anchor.pdf (blue dots next to each question number), then run step 2.
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2023
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2023/combined.pdf
+
+---
+exit_code: 0
+elapsed_ms: 238404
+ended_at: 2026-09-04T14:46:15.760Z
+---

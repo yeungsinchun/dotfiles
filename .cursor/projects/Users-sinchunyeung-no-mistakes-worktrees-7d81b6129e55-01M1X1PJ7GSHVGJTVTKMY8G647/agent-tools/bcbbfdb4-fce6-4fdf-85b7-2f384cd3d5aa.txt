@@ -1,0 +1,477 @@
+[2503.23025] Simplification of Trajectory Streams
+
+HKUST, Hong Kong, Chinascheng@cse.ust.hk https://orcid.org/0000-0002-3557-9935 HKUST, Hong Kong, Chinahaoqiang.huang@connect.ust.hkhttps://orcid.org/0000-0003-1497-6226 USTC, Hefei, Chinalejiang@mail.ustc.edu.cnhttps://orcid.org/0009-0009-8379-0266
+
+# Simplification of Trajectory Streams
+
+Siu-Wing Cheng Haoqiang Huang Le Jiang
+
+###### Abstract
+
+While there are software systems that simplify trajectory streams on the fly, few curve simplification algorithms with quality guarantees fit the streaming requirements. We present streaming algorithms for two such problems under the Fréchet distance $d_{F}$ in $\mathbb{R}^{d}$ for some constant $d\geq 2$ .
+
+Consider a polygonal curve $\tau$ in $\mathbb{R}^{d}$ in a stream. We present a streaming algorithm that, for any $\varepsilon\in(0,1)$ and $\delta>0$ , produces a curve $\sigma$ such that $d_{F}(\sigma,\tau[v_{1},v_{i}])\leq(1+\varepsilon)\delta$ and $|\sigma|\leq 2\,\mathrm{opt}-2$ , where $\tau[v_{1},v_{i}]$ is the prefix in the stream so far, and $\mathrm{opt}=\min\{|\sigma^{\prime}|:d_{F}(\sigma^{\prime},\tau[v_{1},v_{i}])\leq\delta\}$ . Let $\alpha=2(d-1){\lfloor d/2\rfloor}^{2}+d$ . The working storage is $O(\varepsilon^{-\alpha})$ . Each vertex is processed in $O(\varepsilon^{-\alpha}\log\frac{1}{\varepsilon})$ time for $d\in\{2,3\}$ and $O(\varepsilon^{-\alpha})$ time for $d\geq 4$ . Thus, the whole $\tau$ can be simplified in $O(\varepsilon^{-\alpha}|\tau|\log\frac{1}{\varepsilon})$ time. Ignoring polynomial factors in $1/\varepsilon$ , this running time is a factor $|\tau|$ faster than the best static algorithm that offers the same guarantees.
+
+We present another streaming algorithm that, for any integer $k\geq 2$ and any $\varepsilon\in(0,\frac{1}{17})$ , maintains a curve $\sigma$ such that $|\sigma|\leq 2k-2$ and $d_{F}(\sigma,\tau[v_{1},v_{i}])\leq(1+\varepsilon)\cdot\min\{d_{F}(\sigma^{\prime},\tau[v_{1},v_{i}]):|\sigma^{\prime}|\leq k\}$ , where $\tau[v_{1},v_{i}]$ is the prefix in the stream so far. The working storage is $O((k\varepsilon^{-1}+\varepsilon^{-(\alpha+1)})\log\frac{1}{\varepsilon})$ . Each vertex is processed in $O(k\varepsilon^{-(\alpha+1)}\log^{2}\frac{1}{\varepsilon})$ time for $d\in\{2,3\}$ and $O(k\varepsilon^{-(\alpha+1)}\log\frac{1}{\varepsilon})$ time for $d\geq 4$ .
+
+###### ccs
+
+Theoretical computer science Computational geometry
+
+###### keywords
+
+streaming algorithm, curve simplification, Fréchet distance
+
+††runningtitle: Simplification of Trajectory Streams††runningauthor: S.-W. Cheng, H. Huang, and L. Jiang††copyright: S.-W. Cheng, H. Huang, and L. Jiang††funding: This research is supported by the Research Grants Council, Hong Kong, China (project no. 16208923).††editors: Oswin Aichholzer and Haitao Wang††event-title: 41st International Symposium on Computational Geometry (SoCG 2025)††event-shorttitle: SoCG 2025††event-acronym: SoCG††year: 2025††event-date: June 23–27, 2025††event-location: Kanazawa, Japan††event-logo: socg-logo.pdf††series-volume: 332††articleno: XX
+
+## 1 Introduction
+
+The pervasive use of GPS sensors has enabled tracking of moving objects. For example, a car fleet can use real-time information about its vehicles to deploy them in response to dynamic demands. The sensor periodically samples the location of the moving object and sends it as a vertex to the remote cloud server for storage and processing. The remote server interprets the sequence of vertices received as a polygonal curve (trajectory).
+
+For a massive stream, it has been reported [6, 8, 19, 20] that sending all vertices uses too much network bandwidth and storage at the server, and it may aggravate issues like out-of-order and duplicate data points. Software systems have been built for the sensor side to simplify trajectory streams on the fly (e.g. [17, 18, 19, 28, 29]). A local buffer is used. Every incoming vertex in the stream triggers a new round of computation that uses only the incoming vertex and the data in the local buffer. At the end of a round, these systems may determine the next vertex and send it to the cloud server, but they may also send nothing.
+
+It is important to keep the local buffer small [17, 18, 19, 28, 29]. It means a small working storage and less computation in processing the next vertex in the stream, which enables real-time response and requires less computing power. In theoretical computer science, streaming algorithms have three goals [23]. Let $n$ be the number of items in the stream so far. First, the working storage should be $o(n)$ if not $\mathrm{polylog}(n)$ . Second, an item in the stream should be processed in $\mathrm{polylog}(n)$ time or at worst $o(n)$ time because items are arriving continuously. Third, although the best solution is unattainable as the entire input is not processed as a whole, the solution should be provably satisfactory. Let $\tau$ be the curve in the stream. The abovementioned software systems only deal with some local error measures between the simplified curve $\sigma$ and $\tau$ . We want to provide guarantees on the size of $\sigma$ and the global similarity between $\sigma$ and $\tau$ .
+
+A popular similarity measure is the Fréchet distance [15]. Let $\rho_{\tau}:[0,1]\rightarrow\mathbb{R}^{d}$ be a parameterization of $\tau$ such that, as $t$ increases from 0 to 1, $\rho_{\tau}(t)$ moves from the beginning of $\tau$ to its end without backtracking. It is possible that $\rho_{\tau}(t)=\rho_{\tau}(t^{\prime})$ for two distinct $t,t^{\prime}\in[0,1]$ . We can similarly define a parameterization $\rho_{\sigma}$ for $\sigma$ . These parameterizations induce a matching $\mathcal{M}$ between $\rho_{\sigma}(t)$ and $\rho_{\tau}(t)$ for all $t\in[0,1]$ . A point may have multiple matching partners. The Fréchet distance is $d_{F}(\sigma,\tau)=\inf_{\mathcal{M}}\max_{t\in[0,1]}d(\rho_{\sigma}(t),\rho_{\tau}(t))$ . We call a matching that realizes the Fréchet distance a Fréchet matching.
+
+We study two problems. The $\delta$ -simplification problem is to compute, for a given $\delta>0$ , a curve $\sigma$ of the minimum size (number of vertices) such that $d_{F}(\sigma,\tau)\leq\delta$ . The $k$ -simplification problem is to compute, for a given integer $k\geq 2$ , a curve $\sigma$ of size $k$ that minimizes $d_{F}(\sigma,\tau)$ .
+
+Given a polygonal curve $\tau=(v_{1},v_{2},\ldots)$ , $|\tau|$ denotes its number of vertices, and for any $i<j$ , $\tau[v_{i},v_{j}]$ denotes the subcurve $(v_{i},v_{i+1},\ldots,v_{j})$ . For a subset $P\subset\mathbb{R}^{d}$ , $d(x,P)=\inf_{p\in P}d(x,p)$ . Given two points $x,y\in\mathbb{R}^{d}$ , $xy$ denotes the oriented line segment from $x$ to $y$ .
+
+### 1.1 Related works
+
+Static $\boldsymbol{\delta}$ -simplification. Let $n=|\tau|$ . In $\mathbb{R}$ , if the vertices of $\sigma$ are restricted to lie on $\tau$ (anywhere), then $|\sigma|$ can be minimized in $O(n)$ time [25]; if the vertices of $\sigma$ must be a subset of those of $\tau$ , it takes $O(n)$ time to compute $\sigma$ such that $|\sigma|$ is at most two more than the minimum [11]. In $\mathbb{R}$ , there is a data structure [26] that, for any given $\delta$ , reports a curve $\sigma$ with the minimum $|\sigma|$ such that the vertices of $\sigma$ lie on $\tau$ (anywhere) and $d_{F}(\sigma,\tau)\leq\delta$ . The query time is $O(|\sigma|)$ , and the preprocessing time is $O(n)$ .
+
+In $\mathbb{R}^{2}$ , a curve $\sigma$ with minimum $|\sigma|$ such that $d_{F}(\sigma,\tau)\leq\delta$ can be computed in $O(n^{2}\log^{2}n)$ time [16]. In $\mathbb{R}^{d}$ for $d\geq 3$ , if the vertices of $\sigma$ must be a subset of those of $\tau$ , then $|\sigma|$ can be minimized in $O(n^{3})$ time [5, 25, 27]. If there is no restriction on the vertices of $\sigma$ , it has been recently shown that $|\sigma|$ can be minimized in $O\bigl((|\sigma|n)^{O(d|\sigma|)}\bigr)$ time [10].
+
+Faster algorithms have been developed by allowing inexact output. Let $\kappa(\tau,r)$ be the minimum simplified curve size for an error $r$ . In $\mathbb{R}^{2}$ , it was shown [3] that for any $\delta>0$ , a curve $\sigma$ can computed in $O(n\log n)$ time such that $d_{F}(\sigma,\tau)\leq\delta$ and $|\sigma|\leq\kappa(\tau,\delta/2)$ . It is possible that $\kappa(\tau,\delta/2)\gg\kappa(\tau,\delta)$ . A better control of the curve size has been obtained later. In $\mathbb{R}^{d}$ , it was shown [25] that for any $\varepsilon\in(0,1)$ and $\delta>0$ , a curve $\sigma$ can be constructed in $O(\varepsilon^{2-2d}n^{2}\log n\log\log n\bigr)$ time such that $d_{F}(\sigma,\tau)\leq(1+\varepsilon)\delta$ and $|\sigma|\leq 2\kappa(\tau,\delta)-2$ .11 1 In [25], the first and last vertices of $\sigma$ are restricted to be the same as those of $\tau$ . Later, it was shown [9] that for any $\alpha,\varepsilon\in(0,1)$ and $\delta>0$ , a curve $\sigma$ can be computed in $\tilde{O}\bigl(n^{O(1/\alpha)}\cdot(d/(\alpha\varepsilon))^{O(d/\alpha)}\bigr)$ time such that $d_{F}(\sigma,\tau)\leq(1+\varepsilon)\delta$ and $|\sigma|\leq(1+\alpha)\cdot\kappa(\tau,\delta)$ .
+
+The algorithms above for $d\geq 2$ do not fit the streaming setting [3, 5, 9, 10, 16, 25, 27]. In [3], the simplified curve $\sigma$ is a subsequence of the vertices in $\tau$ , and the vertices of $\sigma$ are picked from $\tau$ in a traversal of $\tau$ . Given the last pick $v_{i}$ , for any $j>i$ , whether $v_{j}$ should be included in $\sigma$ is determined by examining the subcurve $\tau[v_{i},v_{j}]$ . This requires an $O(n)$ working storage which is too large. If the algorithms in [5, 9, 10, 16, 25, 27] are used in the streaming setting, the processing time per vertex would be $O(n)$ or more which is too high.
+
+Static $\boldsymbol{k}$ -simplification. In $\mathbb{R}$ , for any given $k$ , the data structure for $\delta$ -simplification in [26] can be queried in $O(k)$ time to report a curve $\sigma$ such that $|\sigma|=k$ , the vertices of $\sigma$ lie on $\tau$ (anywhere), and $d_{F}(\sigma,\tau)$ is minimized. In $\mathbb{R}^{d}$ , if the vertices of $\sigma$ must be a subset of those of $\tau$ , it was shown [15] that a solution $\sigma$ can be computed in $O(n^{4}\log n)$ time such that $d_{F}(\sigma,\tau)\leq 7\cdot\min\bigl\{d_{F}(\sigma^{\prime},\tau):|\sigma^{\prime}|\leq k,\,\text{no restriction on the vertices of $\sigma^{\prime}$}\bigr\}$ . The factor 7 can be reduced to 4 by a better analysis [3]. Nevertheless, if this algorithm is used in the streaming setting, the vertex processing time would be $O(n^{3}\log n)$ or more, which is way too high.
+
+Streaming line simplification. A line simplification $\sigma$ of a stream $\tau$ is a subsequence of the vertices such that the first and last vertices of $\sigma$ are the first and last vertices in the stream so far. In $\mathbb{R}^{2}$ , for any integer $k\geq 2$ and any $\varepsilon\in(0,1)$ , it was shown [1, 2] how to maintain $\sigma$ such that $|\sigma|\leq 2k$ and $d_{F}(\sigma,\tau)\leq(4\sqrt{2}+\varepsilon)\cdot\mathrm{opt}_{k}$ , where $\mathrm{opt}_{k}=\min\{d_{F}(\sigma^{\prime},\tau):\text{line simplification $\sigma^{\prime}$ of $\tau$},\,|\sigma^{\prime}|\leq k\}$ . The working storage is $O(k^{2}+k\varepsilon^{-1/2})$ . Each vertex is processed in $O(k\log\frac{1}{\varepsilon})$ amortized time. There are also streaming software systems for this problem that minimize some local error measures (e.g. [14, 21, 22, 24]); however, they do not provide any guarantee on the global similarity between $\tau$ and the output curve.
+
+Discrete Fréchet distance. The discrete Fréchet distance $d_{\text{dF}}(\sigma,\tau)$ is obtained with the restriction that the parameterizations $\rho_{\sigma}$ and $\rho_{\tau}$ must match the vertices of $\sigma$ to those of $\tau$ and vice versa. Note that $d_{\text{dF}}(\sigma,\tau)\geq d_{F}(\sigma,\tau)$ and $d_{\text{dF}}(\sigma,\tau)\gg d_{F}(\sigma,\tau)$ in the worst case.
+
+There are several results in $\mathbb{R}^{3}$ [4]. A curve $\sigma$ with the minimum $|\sigma|$ such that $d_{\text{dF}}(\sigma,\tau)\leq\delta$ can be computed in $O(n\log n)$ time; if the vertices of $\sigma$ must be a subset of those of $\tau$ , the computation time increases to $O(n^{2})$ . On the other hand, if $k$ is given instead of $\delta$ , a curve $\sigma$ such that $|\sigma|=k$ and $d_{\text{dF}}(\sigma,\tau)$ is minimized can be computed in $O(kn\log n\log(n/k))$ time; if the vertices of $\sigma$ must a subset of those of $\tau$ , the computation time increases to $O(n^{3})$ .
+
+In $\mathbb{R}^{d}$ , a streaming $k$ -simplification algorithm was proposed in [12] with guarantees on $d_{\text{dF}}(\sigma,\tau)$ , where $\tau$ is the curve seen in the stream so far. It was shown that for any integer $k\geq 2$ and any $\varepsilon\in(0,1)$ , a curve $\sigma$ can be computed such that $|\sigma|\leq k$ and $d_{\text{dF}}(\sigma,\tau)\leq 8\cdot\min\{d_{\text{dF}}(\sigma^{\prime},\tau):|\sigma^{\prime}|\leq k\}$ . The working storage is $O(kd)$ .
+
+Improved results have been obtained subsequently [13]. For the streaming $\delta$ -simplification problem, there is a streaming algorithm in $\mathbb{R}^{d}$ that, for any $\gamma>1$ , computes a curve $\sigma$ such that $d_{\text{dF}}(\sigma,\tau)\leq\delta$ and $|\sigma|\leq\kappa(\tau,\delta/\gamma)$ . This algorithm relies on a streaming algorithm for maintaining a $\gamma$ -approximate minimum closing ball (MEB) of points in $\mathbb{R}^{d}$ ; the processing time per vertex is asymptotically the same as the $\gamma$ -approximate MEB streaming algorithm. There are two streaming $k$ -simplification algorithms in [13]. The first one uses $O(\frac{1}{\varepsilon}kd\log\frac{1}{\varepsilon})+O(\varepsilon)^{-(d+1)/2}\log^{2}\frac{1}{\varepsilon}$ working storage and maintains a curve $\sigma$ such that $|\sigma|\leq k$ and $d_{\text{dF}}(\sigma,\tau)\leq(1+\varepsilon)\cdot\min\{d_{\text{dF}}(\sigma^{\prime},\tau):|\sigma^{\prime}|\leq k\}$ . The second algorithm uses $O(\frac{1}{\varepsilon}kd\log\frac{1}{\varepsilon})$ working storage and maintains a curve $\sigma$ such that $|\sigma|\leq k$ and $d_{\text{dF}}(\sigma,\tau)\leq(1.22+\varepsilon)\cdot\min\{d_{\text{dF}}(\sigma^{\prime},\tau):|\sigma^{\prime}|\leq k\}$ .
+
+### 1.2 Our results
+
+We present streaming algorithms for the $\delta$ -simplification and $k$ -simplification problems in $\mathbb{R}^{d}$ for $d\geq 2$ under the Fréchet distance. Let $\tau=(v_{1},v_{2},\ldots)$ be the input stream.
+
+Streaming $\delta$ -simplification. Our algorithm outputs vertices occasionally and maintains some vertices in the working storage. The simplified curve $\sigma$ for the prefix $\tau[v_{1},v_{i}]$ in the stream so far consists of vertices that have been output and vertices in the working storage. Vertices that have been output cannot be modified, so they form a prefix of all simplified curves to be produced in the future for the rest of the stream.
+
+For any $\varepsilon\in(0,1)$ and any $\delta>0$ , our algorithm produces a curve $\sigma$ for the prefix $\tau[v_{1},v_{i}]$ in the stream so far such that $d_{F}(\sigma,\tau[v_{1},v_{i}])\leq(1+\varepsilon)\delta$ and $|\sigma|\leq 2\kappa(\tau[v_{1},v_{i}],\delta)-2$ . Let $\alpha=2(d-1){\lfloor d/2\rfloor}^{2}+d$ . The working storage is $O(\varepsilon^{-\alpha})$ . Each vertex in the stream is processed in $O(\varepsilon^{-\alpha}\log\frac{1}{\varepsilon})$ time for $d\in\{2,3\}$ and $O(\varepsilon^{-\alpha})$ time for $d\geq 4$ . If our algorithm is used in the static case, the running time on a curve of size $n$ is $O(\varepsilon^{-\alpha}n\log\frac{1}{\varepsilon})$ . Ignoring polynomial factors in $1/\varepsilon$ , our time bound is a factor $n$ smaller than the $O(\varepsilon^{2-2d}n^{2}\log n\log\log n)$ running time of the best static algorithm that achieves the same error and size bounds [25].
+
+Intuitively, our streaming algorithm finds a line segment that stabs as many balls as possible that are centered at consecutive vertices of $\tau$ with radii $(1+O(\varepsilon))\delta$ . If such a line segment ceases to exist upon the arrival of a new vertex, we start a new line segment. Concatenating these segments forms the simplified curve. For efficiency, we approximate each ball by covering it with grid cells of $O(\varepsilon\delta)$ width. In [25], vertex balls and their covers by grid cells of $O(\varepsilon\delta)$ width are also used. Connections between all pairs of balls are computed to create a graph such that the simplified curve corresponds to a shortest path in the graph. In contrast, we maintain some geometric structures so that we can read off the next line segment from them. We prove an $O(\varepsilon^{-\alpha})$ bound on the total size of these structures, which yields the desired working storage and processing time per vertex.
+
+Streaming $\boldsymbol{k}$ -simplification. A memory budget may cap the size of the simplified curve, motivating the streaming $k$ -simplification problem. For example, in some wildlife tracking applications, the location-acquisition device is not readily accessible after deployment, and data is only offloaded from it after an extended period [20].
+
+Our algorithm maintains the simplified curve $\sigma$ in the working storage for the prefix $\tau[v_{1},v_{i}]$ in the stream so far. For any $k\geq 2$ and any $\varepsilon\in(0,\frac{1}{17})$ , our algorithm guarantees that $|\sigma|\leq 2k-2$ and $d_{F}(\sigma,\tau[v_{1},v_{i}])\leq(1+\varepsilon)\cdot\min\{d_{F}(\sigma^{\prime},\tau[v_{1},v_{i}]):|\sigma^{\prime}|\leq k\}$ . Recall that $\alpha=2(d-1){\lfloor d/2\rfloor}^{2}+d$ . The working storage is $O((k\varepsilon^{-1}+\varepsilon^{-(\alpha+1)})\log\frac{1}{\varepsilon})$ . Each vertex in the stream is processed in $O(k\varepsilon^{-(\alpha+1)}\log^{2}\frac{1}{\varepsilon})$ time for $d\in\{2,3\}$ and $O(k\varepsilon^{-(\alpha+1)}\log\frac{1}{\varepsilon})$ time for $d\geq 4$ . We first simplify as in the case of $\delta$ -simplification. When the simplified curve reaches a size of $2k-1$ , the key idea is to run our $\delta$ -simplification algorithm with a suitable error tolerance to bring its size down to $2k-2$ .
+
+There is only one prior streaming $k$ -simplification algorithm [1, 2]. It works in $\mathbb{R}^{2}$ . It restricts the vertices of the simplified curve $\sigma$ to be a subset of those of $\tau$ , whereas our algorithm does not. It uses $O(k^{2}+k\varepsilon^{-1/2})$ working storage, processes each vertex in $O(k\log\frac{1}{\varepsilon})$ amortized time, and guarantees that $|\sigma|\leq 2k$ and $d_{F}(\sigma,\tau)\leq(4\sqrt{2}+\varepsilon)\cdot\mathrm{optimum}$ under the requirement that the vertices of $\sigma$ must be a subset of those of $\tau$ . For $d=2$ , our algorithm uses $O((k\varepsilon^{-1}+\varepsilon^{-5})\log\frac{1}{\varepsilon})$ working storage, processes each vertex in $O(k\varepsilon^{-5}\log^{2}\frac{1}{\varepsilon})$ worst-case time, and guarantees that $|\sigma|\leq 2k-2$ and $d_{F}(\sigma,\tau)\leq(1+\varepsilon)\cdot\mathrm{optimum}$ . Ignoring the restriction on the vertices of $\sigma$ , we offer a better approximation ratio for $d_{F}(\sigma,\tau)$ . Although our vertex processing time bound is larger, it is worst-case instead of amortized. The comparison between working storage depends on the relative magnitudes of $k$ and $1/\varepsilon$ .
+
+## 2 Streaming $\boldsymbol{\delta}$ -simplification
+
+Given a subset $X\subseteq\mathbb{R}^{d}$ , we use $\conv(X)$ to denote the convex hull of $X$ . For any point $x\in\mathbb{R}^{d}$ , let $B_{x}$ denote the $d$ -ball centered at $x$ with radius $\delta$ . Consider the infinite $d$ -dimenisonal grid with $x$ as a grid vertex and side length $\varepsilon\delta/(2\sqrt{d})$ . Let $G_{x}$ be the subset of grid cells that intersect the ball centered at $x$ with radius $(1+\varepsilon/2)\delta$ . We say that an oriented line segment $s$ stabs the objects $O_{1},\ldots,O_{m}$ in order if there exist points $x_{i}\in s\cap O_{i}$ for $i\in[m]$ such that $x_{1},\ldots,x_{m}$ appear in this order along $s$ [16].
+
+### 2.1 Algorithm
+
+The high-level idea is to find the longest sequence $v_{1},v_{2},\ldots,v_{i}$ of vertices such that there is a segment $s_{1}$ that stabs $B_{v_{a}}$ for $a\in[i]$ in order. Then, restart to find the longest sequence $v_{i+1},\ldots,v_{j}$ such that there is a segment $s_{2}$ that stabs $B_{v_{a}}$ for $a\in[i+1,j]$ in order. Repeating this way gives a sequence of segments $s_{1},s_{2},\ldots$ . Concatenating these segments gives the simplified curve. The problem is the large working storage: a long vertex sequence may be needed to determine a line segment. We use several ideas to overcome this problem.
+
+First, we approximate $B_{v_{a}}$ by $\conv(G_{v_{a}})$ and find a line segment that stabs the longest sequence $\conv(G_{v_{1}}),\ldots,\conv(G_{v_{i}})$ in order. We will show that it suffices for this line segment to start from the set $P$ of grid points in $G_{v_{1}}$ . So $|P|=O(\varepsilon^{-d})$ .
+
+Second, as the vertices arrive in the stream, for each point $p\in P$ , we construct a structure $S_{a}[p]$ inductively as follows:
+
+•
+
+Set $S_{1}[p]=\{p\}$ for all $p\in P$ . We write $S_{1}[p]=p$ for convenience.
+
+•
+
+For all $a\geq 1$ , set $S_{a+1}[p]=\conv(G_{v_{a+1}})\cap F(S_{a}[p],p)$ for all $p\in P$ , where $F(S_{a}[p],p)=\{y\in\mathbb{R}^{d}:py\cap S_{a}[p]\not=\emptyset\}$ .
+
+If $p\in S_{a}[p]$ , then $F(S_{a}[p],p)=\mathbb{R}^{d}$ and hence $S_{a+1}[p]=\conv(G_{v_{a+1}})$ . If $S_{a}[p]=\emptyset$ , then $F(S_{a}[p],p)=\emptyset$ and hence $S_{a+1}[p]=\emptyset$ . Otherwise, by viewing $p$ as a light source, $F(S_{a}[p],p)$ is the unbounded convex polytope consisting of $S_{a}[p]$ and the non-illuminated subset of $\mathbb{R}^{d}$ .
+
+We will show that for $a\geq 2$ , $S_{a}[p]$ is equal to $\{x\in\conv(G_{v_{a}}):\text{$px$ stabs $\conv(G_{v_{1}})$}$ , $\ldots$ , $\conv(G_{v_{a}})\text{ in order}\}$ . We will also show that for each $p\in P$ , $S_{a}[p]$ and $F(S_{a}[p],p)$ have $\mathrm{poly}(1/\varepsilon)$ complexities, and they can be constructed in $\mathrm{poly}(1/\varepsilon)$ time. The array $S_{a}$ is deleted after computing $S_{a+1}$ , which keeps the working storage small.
+
+We pause when we encounter a vertex $v_{i+1}$ such that $S_{i+1}[p]=\emptyset$ for all $p\in P$ . We choose any vertex $q$ of any non-empty $S_{i}[p]$ (which must exist) and output the segment $pq$ . Since $pq$ stabs $\conv(G_{v_{1}}),\ldots,\conv(G_{v_{i}})$ in order, we can show that $d_{F}(pq,\tau[v_{1},v_{i}])\leq(1+\varepsilon)\delta$ . All is well except that $S_{i}$ has been deleted after computing $S_{i+1}$ . A fix is that after processing a vertex $v_{a}$ , we store a segment $pq$ in a buffer $\tilde{\sigma}$ for an arbitrary vertex $q$ of an arbitrary non-empty $S_{a}[p]$ . We output the content of $\tilde{\sigma}$ after discovering that $S_{i+1}[p]=\emptyset$ for all $p\in P$ .
+
+Afterward, we reset $P$ as the set of grid points in $G_{v_{i+1}}$ and restart the above processing from $v_{i+1}$ . That is, reset $S_{i+1}[p]=p$ for all $p\in P$ . One of the points in $P$ will be the start of the next segment that will be output in the future. The start of this next segment may be far from $\conv(G_{v_{i}})$ , which contains the end of $\tilde{\sigma}$ that was just output. For $a=i+1,i+2,\ldots$ , we set $S_{a+1}[p]=\conv(G_{v_{a+1}})\cap F(S_{a}[p],p)$ for all $p\in P$ until $S_{a}[p]$ becomes empty for all $p\in P$ again. In summary, the simplified curve $\sigma$ is the concatenation of the output segments $s_{1},s_{2},\ldots$ , i.e., the end of $s_{j}$ is connected to the start of $s_{j+1}$ . Figure 1 illustrates a few steps of this algorithm. The procedure Simplify $(\varepsilon,\delta)$ in Algorithm 1 gives the details.
+
+Figure 1: The shaded balls denote the $\conv(G_{v_{a}})$ ’s. The vertices arrive in order (from left to right and top to bottom). The first $P$ consists of the grid points inside the blue dashed ball. Let $p_{1}$ be a grid point in $P$ . $F(S_{2}[p_{1}],p_{1})$ is the green unbounded convex region that is bounded by the tangents from $p_{1}$ to $S_{2}[p_{1}]$ . $S_{3}[p_{1}]=\conv(G_{v_{3}})\cap F(S_{2}[p_{1}],p_{1})$ is denoted by the dashed clipped ball around $v_{3}$ . Similarly, $F(S_{3}[p_{1}],p_{1})$ is the red unbounded convex region that is bounded by the tangents from $p_{1}$ to $S_{3}[p_{1}]$ . $S_{4}[p_{1}]$ is denoted by the dashed clipped ball around $v_{4}$ . In this example, $S_{5}[p]=\emptyset$ for all $p\in P$ , so we output $\tilde{\sigma}$ which may be equal to $(p_{1},q)$ for a vertex $q$ of $S_{4}[p_{1}]$ . We reset $P$ as the set of grid points in $G_{v_{5}}$ (inside the red dashed ball) and reset $S_{5}[p]=p$ for all $p\in P$ .
+
+Algorithm 1 Simplify
+
+Input: A stream $\tau=(v_{1},v_{2},\ldots)$ , $\varepsilon$ , and $\delta$ .
+
+Output: The output curve $\sigma$ consists of the sequence of vertices output so far and the vertices in the buffer $\tilde{\sigma}$ . After processing the last vertex $v_{i}$ at the end of the stream, Simpify returns $(P,S_{i})$ , which will be useful for the $k$ -simplification problem.
+
+1: function Simplify( $\varepsilon,\delta$ )
+
+2: read $v_{1}$ from the data stream; $i\leftarrow 1$ ; $\mathit{init}\leftarrow\mathrm{true}$ ; $\tilde{\sigma}\leftarrow\emptyset$
+
+3: while true do
+
+4: if init = true then
+
+5: $\mathit{init}\leftarrow\mathrm{false}$
+
+6: output the vertices in $\tilde{\sigma}$ $\triangleright$ output the line segment in $\tilde{\sigma}$
+
+7: $\tilde{\sigma}\leftarrow(v_{i})$ $\triangleright$ view $v_{i}$ as a degenerate line segment
+
+8: $P\leftarrow$ the grid points of $G_{v_{i}}$
+
+9: $S_{i}[p]\leftarrow p$ for all $p\in P$
+
+10: else
+
+11: choose a vertex $q$ of some non-empty $S_{i}[p]$
+
+12: $\tilde{\sigma}\leftarrow(p,q)$ $\triangleright$ update the last edge of the simplified curve
+
+13: end if
+
+14: if end of data stream then
+
+15: output $\tilde{\sigma}$
+
+16: return $(P,S_{i})$ $\triangleright$ will be useful for $k$ -simplification
+
+17: else
+
+18: read $v_{i+1}$ from the data stream
+
+19: end if
+
+20: $S_{i+1}[p]\leftarrow\conv(G_{v_{i+1}})\cap F(S_{i}[p],p)$ for all $p\in P$
+
+21: delete $S_{i}$
+
+22: $\mathit{init}\leftarrow\mathrm{true}$ if $S_{i+1}[p]=\emptyset$ for all $p\in P$
+
+23: $i\leftarrow i+1$
+
+24: end while
+
+25: end function
+
+### 2.2 Analysis
+
+Given a polytope $Q\subset\mathbb{R}^{d}$ , let $|Q|$ denote its complexity, i.e., the total number of its faces of all dimensions.
+
+###### Lemma 1.
+
+Let $P$ be the set of grid points in $G_{v_{i}}$ . Assume that $S_{i}[p]=p$ for all $p\in P$ . Take any $p\in P$ and any index $j\geq i+1$ such that $S_{a}[p]\not=\emptyset$ for all $a\in[i,j-1]$ .
+
+(i)
+
+$S_{j}[p]=\{x\in\conv(G_{v_{j}}):\text{$px$ stabs $\conv(G_{v_{i}}),\ldots,\conv(G_{v_{j}})$ in order}\}$ .
+
+(ii)
+
+$S_{j}[p]$ is a convex polytope that can be computed in $O\bigl(\bigl|S_{j-1}[p]\bigr|+N\log N+N^{\lfloor d/2\rfloor}\bigr)$ time, where $N$ is any upper bound on the number of support hyperplanes of $F(S_{j-1}[p],p)$ such that $N=\Omega(\varepsilon^{(1-d)\lfloor d/2\rfloor})$ .
+
+###### Proof.
+
+When $j=i+1$ , (i) is true as $S_{i+1}[p]=\conv(G_{v_{i+1}})$ . Assume inductively that (i) holds for $j-1$ for some $j\geq i+2$ . For any $x\in F(S_{j-1}[p],p)$ , $px$ intersects $S_{j-1}[p]$ by definition, which implies that $px$ stabs $\conv(G_{v_{i}}),\ldots,\conv(G_{v_{j-1}})$ in order by induction assumption. Therefore, for every $x\in\conv(G_{v_{j}})\cap F(S_{j-1}[p],p)$ , $px$ stabs $\conv(G_{v_{i}}),\ldots,\conv(G_{v_{j}})$ in order. Conversely, for every $x\in\conv(G_{v_{j}})$ , if $px$ stabs $\conv(G_{v_{i}}),\ldots,\conv(G_{v_{j}})$ in order, then $px$ contains a point in $S_{j-1}[p]$ by induction assumption, which implies that $x\in F(S_{j-1}[p],p)$ .
+
+Consider (ii). If $p\in S_{j-1}[p]$ , then $F(S_{j-1}[p],p)=\mathbb{R}^{d}$ and $S_{j}[p]=\conv(G_{v_{j}})$ . This case can be handled in $O\bigl(\bigl|S_{j-1}[p]\bigr|\bigr)$ time. If $p\not\in S_{j-1}[p]$ , then $F(S_{j-1}[p],p)$ has two types of support hyperplanes. The first type consists of support hyperplanes of $S_{j-1}[p]$ that separate $p$ from $S_{j-1}[p]$ . The second type consists of hyperplanes that pass through $p$ and are tangent to $S_{j-1}[p]$ at some $(d-2)$ -dimensional faces of $S_{j-1}[p]$ . Since the side length of $G_{v_{j}}$ is $\varepsilon\delta/(2\sqrt{d})$ , the number of cells in $G_{v_{j}}$ that intersect the boundary of $B_{v_{j}}$ is $O(\varepsilon^{1-d})$ . Hence, $\conv(G_{v_{j}})$ has $O(\varepsilon^{(1-d)\lfloor d/2\rfloor})$ complexity which is $O(N)$ , and $S_{j}[p]$ can be computed in $O(N\log N+N^{\lfloor d/2\rfloor})$ time [7]. ∎
+
+###### Lemma 2.
+
+Let $\tau[v_{1},v_{i}]$ be the prefix in the stream so far. The simplified curve $\sigma$ satisfies the properties that $d_{F}(\sigma,\tau[v_{1},v_{i}])\leq(1+\varepsilon)\delta$ and $|\sigma|\leq 2\kappa(\tau[v_{1},v_{i}],\delta)-2$ .
+
+###### Proof.
+
+Let $\sigma$ be the concatenation of line segments $s_{1},s_{2},\ldots$ . That is, the end of $s_{j}$ is connected to the start of $s_{j+1}$ for $j\geq 1$ to produce $\sigma$ .
+
+The start of $s_{1}$ is a grid point $p_{1}$ of $G_{v_{1}}$ , the end of $s_{1}$ is a vertex $p_{b}$ of $S_{b}[p_{1}]\subseteq\conv(G_{v_{b}})$ for some $b>1$ , and the start of $s_{2}$ is a grid point $p_{b+1}$ in $G_{v_{b+1}}$ . By Lemma 1(i), $s_{1}$ stabs $\conv(G_{v_{1}}),\ldots,\conv(G_{v_{b}})$ in order. Let $p_{2},\ldots,p_{b-1}$ be some points on $s_{1}$ in this order such that $p_{a}\in s_{1}\cap\conv(G_{v_{a}})$ for $a\in[2,b-1]$ . Then, $d(v_{a},p_{a})\leq(1+\varepsilon)\delta$ for $a\in[b]$ . So we can match $v_{a}v_{a+1}$ to $p_{a}p_{a+1}$ for $a\in[b-1]$ by linear interpolation within a distance of $(1+\varepsilon)\delta$ . Similarly, we can match $v_{b}v_{b+1}$ to the segment $p_{b}p_{b+1}$ between $s_{1}$ and $s_{2}$ by linear interpolation within a distance of $(1+\varepsilon)\delta$ . Continuing this way shows that $d_{F}(\sigma,\tau[v_{1},v_{i}])\leq(1+\varepsilon)\delta$ .
+
+Figure 2: The points $x_{i}$ for $i\in[6]$ are matched to $v_{i}$ for $i\in[6]$ by the Fréchet matching.
+
+Let $k=\kappa(\tau[v_{1},v_{i}],\delta)$ . Let $\gamma=(u_{1},u_{2},\ldots,u_{k})$ be a polygonal curve that satisfies $d_{F}(\gamma,\tau[v_{1},v_{i}])\leq\delta$ . For $a\in[i]$ , let $x_{a}$ be a point on $\gamma$ mapped to $v_{a}$ by a Fréchet matching. We can assume that $x_{1}=u_{1}$ and $x_{i}=u_{k}$ . Let $b=\max\{a\in[i]:x_{a}\in u_{1}u_{2}\}$ . So $x_{1}u_{2}$ stabs balls of radii $\delta$ centered at $v_{1},v_{2},\ldots,v_{b}$ in order. Refer to Figure 2. There is a grid point $p$ of $G_{v_{1}}$ within a distance $\varepsilon\delta/2$ from $x_{1}$ . By a linear interpolation between $x_{1}u_{2}$ and $pu_{2}$ , for $i\in[b]$ , $x_{i}$ is mapped to a point on $pu_{2}$ at distance no more than $(1+\varepsilon/2)\delta$ from $v_{i}$ . That is, $pu_{2}$ stabs the balls centered at $v_{1},v_{2},\ldots,v_{b}$ with radii $(1+\varepsilon/2)\delta$ in order. It follows that $pu_{2}$ stabs $\conv(G_{v_{1}}),\ldots,\conv(G_{v_{b}})$ in order, which implies that $S_{a}[p]\not=\emptyset$ for $a\in[b]$ by Lemma 1(i). Therefore, Simplify outputs the first segment when it encounters $v_{c+1}$ for some $c\geq b$ . We charge the first output segment to $u_{1}u_{2}$ . The vertex $v_{c+1}$ is matched to the point $x_{c+1}$ that lies on $u_{j}u_{j+1}$ for some $j\geq 2$ . We repeat the above argument to $x_{c+1}u_{j+1}$ . This way, every output segment is charged to a unique edge of $\gamma$ , so there are at most $k-1$ output segments. Concatenating them uses at most $k-2$ more edges. Hence, $|\sigma|\leq 2k-2$ . ∎
+
+###### Theorem 3.
+
+Let $\tau$ be a polygonal curve in $\mathbb{R}^{d}$ that arrives in a data stream. Let $\alpha=2(d-1)\lfloor d/2\rfloor^{2}+d$ . For every $\delta>0$ and every $\varepsilon\in(0,1)$ , the output curve $\sigma$ of Simplify $(\varepsilon,\delta)$ satisfies $d_{F}(\sigma,\tau)\leq(1+\varepsilon)\delta$ and $|\sigma|\leq 2\kappa(\tau,\delta)-2$ . The working storage is $O(\varepsilon^{-\alpha})$ . Each vertex is processed in $O(\varepsilon^{-\alpha}\log\frac{1}{\varepsilon})$ time for $d\in\{2,3\}$ and $O(\varepsilon^{-\alpha})$ time for $d\geq 4$ .
+
+###### Proof.
+
+The guarantees on $\sigma$ follow from Lemma 2. We will bound the number of support hyperplanes and complexities of $S_{j}[p]$ and $F(S_{j-1}[p],p)$ . The working storage and processing time then follow from Lemma 1(ii) and the fact that $|P|=O(\varepsilon^{-d})$ .
+
+A bounding halfspace of a convex polytope $O$ is a halfspace that contains $O$ and is bounded by the support hyperplane of a facet of $O$ . We count the bounding halfspaces of $S_{j}[p]$ . Some are bounding halfspaces of $F(S_{j-1}[p],p)$ whose boundaries pass through $p$ and are tangent to $S_{j-1}[p]$ . We call them the pivot bounding halfspaces. The remaining ones are bounding halfspaces of $\conv(G_{v_{a}})$ for some $a\leq j$ . We call these non-pivot bounding halfspaces.
+
+Since $\conv(G_{v_{a}})$ ’s are translates of each other, their facets share a set $V$ of unit outward normals. We have $|V|\leq|\conv(G_{v_{a}})|=O(\varepsilon^{(1-d)\lfloor d/2\rfloor})$ . No two facets of $S_{j}[p]$ have the same vector in $V$ because the two corresponding bounding halfspaces would be identical or nested—neither is possible. This feature helps us to prevent a cascading growth in the complexities of $S_{j}[p]$ in the inductive construction.
+
+Take a pivot bounding halfspace $h$ of $S_{j}[p]$ . Suppose that $h$ was introduced for the first time as a bounding halfspace of $S_{i}[p]$ for some $i\leq j$ . The boundary of $h$ , denoted by $\partial h$ , passes through $p$ and is tangent to $S_{i-1}[p]$ at a $(d-2)$ -dimensional face $f$ of $S_{i-1}[p]$ . Let $g_{1}$ and $g_{2}$ be the bounding halfspaces of $S_{i-1}[p]$ whose boundaries contain the two facets of $S_{i-1}[p]$ incident to $f$ . We make three observations. First, $F(S_{i-1}[p],p)$ lies inside the cone $C_{i}$ of rays that shoot from $p$ towards $S_{i-1}[p]$ . Second, $h$ is a bounding halfspace of $C_{i}$ . Third, $S_{a}[p]\subseteq C_{i}$ for all $a\in[i,j]$ .
+
+We claim that neither $\partial g_{1}$ nor $\partial g_{2}$ passes through $p$ . Neither $g_{1}$ nor $g_{2}$ is equal to $h$ because $h$ was not introduced before $S_{i}[p]$ . If both $\partial g_{1}$ and $\partial g_{2}$ pass through $p$ , then $f$ spans a $(d-2)$ -dimensional affine subspace $\ell$ that passes through $p$ . But then $\partial h$ meets $C_{i}$ at $\ell$ only, which is a contradiction because $\partial h$ should support a facet of $S_{j}[p]$ . If either $\partial g_{1}$ or $\partial g_{2}$ passes through $p$ , say $\partial g_{2}$ , then the affine subspace spanned by $f$ does not pass through $p$ . But then $p$ and $f$ span a unique hyperplane, giving the contradiction that $g_{2}=h$ .
+
+By our claim, $g_{1}$ and $g_{2}$ are non-pivot bounding halfspaces of $S_{i-1}[p]$ . We charge $h$ to $(\phi_{1},\phi_{2})$ or $(\phi_{2},\phi_{1})$ , where $\phi_{1}$ and $\phi_{2}$ are the outward unit normals of $g_{1}$ and $g_{2}$ , respectively. The pair $(\phi_{1},\phi_{2})$ is charged if a ray that shoots from $p$ to an interior point of $g_{1}\cap g_{2}$ arbitrarily near $\partial g_{1}\cap\partial g_{2}$ hits $\partial g_{1}$ before $\partial g_{2}$ . Otherwise, the pair $(\phi_{2},\phi_{1})$ is charged. Suppose that $h$ is charged to $(\phi_{1},\phi_{2})$ . We argue that $(\phi_{1},\phi_{2})$ is not charged again at some $(d-2)$ -dimensional face of $S_{a}[p]$ for all $a\in[i,j-1]$ due to another pivot bounding halfspace of $S_{j}[p]$ .
+
+Assume to the contrary that $(\phi_{1},\phi_{2})$ is charged again at some $(d-2)$ -dimensional face of $S_{b}[p]$ for some $b\in[i,j-1]$ due to a pivot bounding halfspace $h^{\prime}$ of $S_{j}[p]$ . Either the dimension of $\partial h^{\prime}\cap C_{i}$ is zero or one, or the dimension of $\partial h^{\prime}\cap C_{i}$ is two. In the first case, $\partial h^{\prime}$ cannot support any facet of $S_{j}[p]$ , a contradiction. In the second case, since $h^{\prime}$ is charged to the same ordered pair $(\phi_{1},\phi_{2})$ , $\partial h^{\prime}$ must separate $S_{b}[p]$ from $\partial h$ . Figure 3 illustrates the configuration. Therefore, the cone of rays $C_{b}$ that shoot from $p$ towards $S_{b}[p]$ meets $\partial h$ only at $p$ . However, $S_{j}[p]\subseteq C_{b}$ , which means that $\partial h$ cannot support any facet of $S_{j}[p]$ , a contradiction.
+
+In all, $S_{j}[p]$ has $O(\varepsilon^{(1-d)\lfloor d/2\rfloor})$ non-pivot bounding halfspaces and at most $|V|(|V|-1)=O(\varepsilon^{2(1-d)\lfloor d/2\rfloor})$ pivot bounding halfspaces. The same bounds hold for $S_{j-1}[p]$ . If a support hyperplane $L$ of $F(S_{j-1}[p],p)$ is not a support hyperplane of $S_{j-1}[p]$ , then $L$ passes through $p$ and is tangent to $S_{j-1}[p]$ at some $(d-2)$ -dimensional face $f$ . Since $L$ is different from the support hyperplanes of the two facets of $S_{j-1}[p]$ incident to $f$ , these two hyperplanes do not pass through $p$ . So the two facets incident to $f$ induce some non-pivot bounding halfspaces of $S_{j-1}[p]$ , implying that $F(S_{j-1}[p],p)$ has $O(\varepsilon^{2(1-d)\lfloor d/2\rfloor})$ bounding halfspaces. It follows that $\bigl|S_{j}[p]\bigr|$ and $\bigl|F(S_{j-1}[p],p)\bigr|$ are $O(\varepsilon^{2(1-d){\lfloor d/2\rfloor}^{2}})$ . ∎
+
+Figure 3: The shaded cones denote $C_{i}$ . Let $g^{\prime}_{1}$ and $g^{\prime}_{2}$ be the bounding halfspaces of $S_{b}[p]$ such that $\partial h^{\prime}$ is spanned by $p$ and $\partial g^{\prime}_{1}\cap\partial g^{\prime}_{2}$ . Without loss of generality, assume that $g_{i}$ and $g^{\prime}_{i}$ have the same unit outward normal $\phi_{i}$ for $i\in\{1,2\}$ . A local neighborhood of $g_{1}\cap g_{2}$ is shown in green, and a local neighborhood of $g^{\prime}_{1}\cap g^{\prime}_{2}$ is shown in red. In the first row, both $h$ and $h^{\prime}$ are charged to $(\phi_{1},\phi_{2})$ , and $\partial h^{\prime}$ separates $g^{\prime}_{1}\cap g^{\prime}_{2}\cap C_{i}$ from $\partial h$ . Note that $S_{b}[p]\subseteq g^{\prime}_{1}\cap g^{\prime}_{2}\cap C_{i}$ . In the second row, the alternative configuration is shown in which $\partial h^{\prime}$ does not separate $g^{\prime}_{1}\cap g^{\prime}_{2}\cap C_{i}$ from $\partial h$ . In this case, a ray that shoots from $p$ to any interior point of $g^{\prime}_{1}\cap g^{\prime}_{2}$ arbitrarily close to $\partial g^{\prime}_{1}\cap\partial g^{\prime}_{2}$ must intersect $\partial g^{\prime}_{2}$ before $\partial g^{\prime}_{1}$ . Therefore, $h^{\prime}$ is charged to $(\phi_{2},\phi_{1})$ instead of $(\phi_{1},\phi_{2})$ .
+
+## 3 Streaming algorithm for the $\boldsymbol{k}$ -simplification problem
+
+### 3.1 Algorithm
+
+Let $\sigma_{i}^{*}$ be the optimal solution for the $k$ -simplification problem for $\tau[v_{1},v_{i}]$ . If we knew $\delta_{i}^{*}=d_{F}(\sigma_{i}^{*},\tau[v_{1},v_{i}])$ , we could call Simplify $(\varepsilon,\delta_{i}^{*})$ to obtain an approximate solution for the $k$ -simplification problem. Therefore, we try to estimate $\delta_{i}^{*}$ on the fly.
+
+We maintain an output simplified curve $\sigma_{i}$ in the working storage after processing every vertex $v_{i}$ in the stream. The first simplified curve $\sigma_{2k-1}$ is obtained by calling Simplify, via an invocation of a new procedure Compress, on $\tau[v_{1},v_{2k-1}]$ with $\delta$ equal to some value $\delta_{2k-1}$ . Given a curve of size $2k-1$ , Compress simplifies it to a curve of size at most $2k-2$ .
+
+For $i\geq 2k$ , when a vertex $v_{i}$ arrives in the stream, we either update the last edge of $\sigma_{i-1}$ to produce $\sigma_{i}$ as in Simplify, or start a new segment (initially just the vertex $v_{i}$ ) as in Simplify. Suppose that we start new segment. If $|\sigma_{i-1}|<2k-2$ , we can append $v_{i}$ to $\sigma_{i-1}$ to form $\sigma_{i}$ . Otherwise, $\sigma_{i}$ is obtained by calling Simplify, via an invocation of Compress, on $\sigma_{i-1}\circ(v_{i})$ with $\delta$ equal to some value $\delta_{i}$ to be specified later. We will prove in Lemmas 4–8 that $\delta_{i}\leq(1+O(\varepsilon))\delta^{*}_{i}$ . Afterward, we repeat the above to process the next vertex in the stream. The above processing is elaborated in Reduce in Algorithm 2.
+
+We define a curve $\tau_{i}$ for every $i\geq 2k-1$ in the comments in lines 6, 11, and 22. These curves facilitate the analysis, but they are not maintained by the algorithm as variables. For each $i$ , $\tau_{i}$ is the curve from which the simplification $\sigma_{i}$ is computed. Therefore, $\tau_{2k-1}=\tau[v_{1},v_{2k-1}]$ (line 6). Consider any $i\geq 2k$ . If we call Compress to simplify $\sigma_{i-1}\circ(v_{i})$ to a curve $\sigma_{i}$ of size at most $2k-2$ , we set $\tau_{i}=\sigma_{i-1}\circ(v_{i})$ (line 22). Otherwise, $\sigma_{i}$ is obtained by simplifying $\tau_{i-1}\circ(v_{i})$ whether we start a new segment at $v_{i}$ or not, so $\tau_{i}=\tau_{i-1}\circ(v_{i})$ (line 11).
+
+The input parameter $r$ of Reduce needs an explanation. We will show how to compute a lower bound $\delta_{\min}>0$ for $d_{F}(\sigma^{*}_{2k-1},\tau[v_{1},v_{2k-1}])$ . For $i\geq 2k-1$ , let $r_{i}\geq 1$ and $s_{i}\geq 0$ be integers such that
+
+| $$\frac{1}{\varepsilon^{s_{i}}}\delta_{\min}\leq\frac{(1+\varepsilon)^{r_{i}-1}}{\varepsilon^{s_{i}}}\delta_{\min}\leq\delta_{i}^{*}\leq\frac{(1+\varepsilon)^{r_{i}}}{\varepsilon^{s_{i}}}\delta_{\min}\leq\frac{1}{\varepsilon^{s_{i}+1}}\delta_{\min}.$$ |
+| --- |
+
+We will show that if we can start the processing of the data stream with an initial error tolerance of $\delta_{2k-2}=\varepsilon(1+\varepsilon)^{r_{i}+1}(1-4\varepsilon)^{-1}\delta_{\min}$ , then the output curve $\sigma_{i}$ will be within a Fréchet distance of $\varepsilon^{-s_{i}}(1+\varepsilon)^{r_{i}+1}(1-4\varepsilon)^{-1}\delta_{\min}$ from $\tau[v_{1},v_{i}]$ . By the definitions of $r_{i}$ and $s_{i}$ , the error is at most $(1+O(\varepsilon))\delta_{i}^{*}$ . The correct values of $r_{i}$ and $s_{i}$ are unknown to us. Nevertheless, no matter what $s_{i}$ is, we have $1\leq r_{i}\leq\lfloor\log_{1+\varepsilon}\frac{1}{\varepsilon}\rfloor$ . We launch $\lfloor\log_{1+\varepsilon}\frac{1}{\varepsilon}\rfloor=O(\frac{1}{\varepsilon}\log\frac{1}{\varepsilon})$ independent runs of Reduce for each $r$ between 1 and $\lfloor\log_{1+\varepsilon}\frac{1}{\varepsilon}\rfloor$ . After processing the arriving vertex $v_{i}$ , the run with the minimum $\delta_{i}$ gives the right answer. This idea of using multiple independent runs to capture the right $\delta$ was proposed in [13] for streaming $k$ -simplification under the discrete Fréchet distance. We still have to obtain $s_{i}$ . This is achieved by establishing a lower bound for $\delta^{*}_{i}$ (Lemma 5) and computing a particular upper bound for $\delta_{i}^{*}$ in line 2 of Compress.
+
+We assume that no three consecutive vertices in the stream are collinear. We enforce it using $O(1)$ more working storage as follows. Remember the last two vertices $(x,y)$ in the stream, but do not feed $y$ to Reduce yet. Wait until the next vertex $z$ arrives. If $x$ , $y$ and $z$ are not colinear, feed $y$ to Reduce and remember $(y,z)$ as the last two vertices. If $x$ , $y$ and $z$ are collinear, then drop $y$ , make $(x,z)$ the last two vertices, and wait for the next vertex.
+
+Algorithm 3 shows the procedure Compress. If Compress is called when processing $v_{i}$ , its task is to simplify $\tau_{i}=\sigma_{i-1}\circ(v_{i})$ to a curve $\sigma_{i}$ of size at most $2k-2$ with error estimate $\delta_{i}=\varepsilon^{-t}\delta_{i-1}$ , where $t$ is some judiciously chosen positive integer.
+
+Algorithm 2 Reduce
+
+Input: A data stream $\tau=(v_{1},v_{2},\ldots)$ and three parameters $r$ , $\varepsilon$ , and $k$ . Output: Let $\tau[v_{1},v_{i}]$ be the prefix in the stream so far. A curve $\sigma_{i}$ is maintained such that $|\sigma_{i}|\leq 2k-2$ and $d_{F}(\sigma_{i},\tau[v_{1},v_{i}])\leq(1+\varepsilon)\delta_{i}$ .
+
+1: procedure Reduce( $r,\varepsilon,k$ )
+
+2: read the first $2k-1$ vertices $v_{1},\ldots,v_{2k-1}$ of $\tau$
+
+3: $\triangleright$ no three consecutive vertices are collinear
+
+4: $\delta_{\min}\leftarrow\frac{1}{2}\min\bigl\{d(v_{i},v_{i-1}v_{i+1}):i\in[2,2k-2]\bigr\}$
+
+5: $\delta_{2k-2}\leftarrow\varepsilon(1+\varepsilon)^{r+1}(1-4\varepsilon)^{-1}\delta_{\min}$
+
+6: $\sigma_{2k-2}\leftarrow\tau[v_{1},v_{2k-2}]$ $\triangleright$ $\tau_{2k-1}\leftarrow\tau[v_{1},v_{2k-1}]$
+
+7: $(\sigma_{2k-1},\delta_{2k-1},P,S_{2k-1})\leftarrow\text{{\sc Compress}}(\tau[v_{1},v_{2k-1}],\varepsilon,k,\delta_{2k-2})$
+
+8: $i\leftarrow 2k$
+
+9: while true do
+
+10: read $v_{i}$ from the data stream
+
+11: $\delta_{i}\leftarrow\delta_{i-1}$ $\triangleright$ $\tau_{i}\leftarrow\tau_{i-1}\circ(v_{i})$
+
+12: $S_{i}[p]\leftarrow\conv(G_{v_{i}})\cap F(S_{i-1}[p],p)$ for all $p\in P$ , where $G_{v_{i}}$ is defined with $\delta=\delta_{i}$
+
+13: if $S_{i}[p]\not=\mathrm{null}$ for some $p\in P$ then
+
+14: $\triangleright$ update the last possibly degenerate segment as in Simplify
+
+15: $q\leftarrow$ any vertex of $S_{i}[p]$
+
+16: $\sigma_{i}\leftarrow\sigma_{i-1}$ with the last segment replaced by $pq$
+
+17: else if $|\sigma_{i-1}|<2k-2$ then $\triangleright$ start a new segment as in Simplify
+
+18: $P\leftarrow$ the grid points of $G_{v_{i}}$ $\triangleright$ $G_{v_{i}}$ is defined with $\delta=\delta_{i}$
+
+19: $S_{i}[p]\leftarrow p$ for all $p\in P$
+
+20: $\sigma_{i}\leftarrow\sigma_{i-1}\circ(v_{i})$ $\triangleright$ treat $v_{i}$ as a degenerate segment
+
+21: else $\triangleright$ simplify $\sigma_{i-1}\circ(v_{i})$ to produce $\sigma_{i}$
+
+22: $(\sigma_{i},\delta_{i},P,S_{i})\leftarrow\text{{\sc Compress}}(\sigma_{i-1}\circ(v_{i}),\varepsilon,k,\delta_{i-1})$ $\triangleright$ $\tau_{i}=\sigma_{i-1}\circ(v_{i})$
+
+23: end if
+
+24: delete $\sigma_{i-1}$ , $\delta_{i-1}$ , and $S_{i-1}$
+
+25: $i\leftarrow i+1$
+
+26: end while
+
+27: end procedure
+
+Algorithm 3 Compress
+
+Input: A polygonal curve $(x_{1},\ldots,x_{2k-1})$ and three parameters $\varepsilon$ , $k$ , and $\delta$ . Output: $(\zeta,\varepsilon^{-t}\delta,P,S)$ , where $\zeta$ is the output curve of calling Simplify $(\varepsilon,\varepsilon^{-t}\delta)$ on $(x_{1},\ldots,x_{2k-1})$ for some $t\in\mathbb{N}$ , and $(P,S)$ are the output returned by Simplify after processing $x_{2k-1}$ .
+
+1: function Compress( $(x_{1},\ldots,x_{2k-1}),\varepsilon,k,\delta$ )
+
+2: $t\leftarrow\min\left\{i\in\mathbb{N}:i\geq 1,\varepsilon^{-i}\delta\geq\frac{1}{2}\min\{d(x_{j},x_{j-1}x_{j+1}):j\in[2,2k-2],\,\text{$j$ is even}\}\right\}$
+
+3: $\zeta\leftarrow\text{output curve produced by calling {\sc Simplify}}(\varepsilon,\varepsilon^{-t}\delta)$ on $(x_{1},\ldots,x_{2k-1})$
+
+4: $(P,S)\leftarrow$ output returned by the above call of Simplify after processing $x_{2k-1}$
+
+5: return $(\zeta,\varepsilon^{-t}\delta,P,S)$
+
+6: end function
+
+### 3.2 Analysis
+
+Lemma 4 below gives a lower bound for the Fréchet distance between a curve of size $m$ and another curve of size $n$ such that $m\geq 2n-1$ . An application of this result shows that $\delta_{\min}$ computed in line 4 of Reduce is a lower bound for $d_{F}(\sigma^{*}_{2k-1},\tau[v_{1},v_{2k-1}])$ as $|\sigma_{2k-1}^{*}|=k$ .
+
+###### Lemma 4.
+
+Let $\xi=(p_{1},\ldots,p_{m})$ and $\zeta=(q_{1},\ldots,q_{n})$ be any two curves such that $m\geq 2n-1$ . Then, $d_{F}(\xi,\zeta)\geq\frac{1}{2}\min\bigl\{d(p_{i},p_{i-1}p_{i+1}):i\in[2,m-1]\bigr\}$ .
+
+###### Proof.
+
+Let $\mathcal{M}$ be a Fréchet matching between $\xi$ and $\zeta$ . Since $m\geq 2n-1$ , there must exist an index $c\in[2,m-1]$ such that $\mathcal{M}$ matches $\xi[p_{c-1},p_{c+1}]$ to an edge of $\zeta$ . Let $xy$ be the line segment to which $\xi[p_{c-1},p_{c+1}]$ is matched by $\mathcal{M}$ . Let $r=d_{\mathcal{M}}(\xi[p_{c-1},p_{c+1}],xy)$ . We claim that $r\geq\frac{1}{2}d(p_{c},p_{c-1}p_{c+1})$ . Since $d(p_{c-1},x)\leq r$ and $d(p_{c+1},y)\leq r$ , by linear interpolation, every point on $xy$ is at a distance no more than $r$ from $p_{c-1}p_{c+1}$ . Let $z$ be the point in $xy$ that is matched with $p_{c}$ by $\mathcal{M}$ . We have $d(p_{c},p_{c-1}p_{c+1})\leq d(p_{c},z)+d(z,p_{c-1}p_{c+1})$ . We have shown that $d(z,p_{c-1}p_{c+1})\leq r$ , so $d(p_{c},p_{c-1}p_{c+1})\leq 2r$ , completing the proof of our claim. Hence, $d_{F}(\xi,\zeta)\geq r\geq\frac{1}{2}d(p_{c},p_{c-1}p_{c+1})\geq\frac{1}{2}\min\bigl\{d(p_{i},p_{i-1}p_{i+1}):i\in[2,m-1]\bigr\}$ . ∎
+
+Lemma 5 below shows that a curve $(p_{1},\ldots,p_{2k-1})$ can be simplified to a curve of size at most $2k-2$ using an error tolerance of $\frac{1}{2}\min\bigl\{d(p_{j},p_{j-1}p_{j+1}):j\in[2,2k-2],\,\text{$j$ is even}\bigr\}$ . By Lemma 5, Compress always returns a curve of size at most $2k-2$ .
+
+###### Lemma 5.
+
+Let $\xi=(p_{1},\ldots,p_{2k-1})$ . Assume no three consecutive vertices are collinear. Let $\hat{\delta}$ be the minimum value such that calling Simplify $(\varepsilon,\hat{\delta})$ on $\xi$ produces a curve of size at most $2k-2$ . Then,
+
+| $$\hat{\delta}\leq\frac{1}{2}\min\bigl\{d(p_{j},p_{j-1}p_{j+1}):j\in[2,2k-2],\,\text{$j$ is even}\bigr\}\leq(1+\varepsilon)\hat{\delta}.$$ |
+| --- |
+
+###### Proof.
+
+Consider the run of Simplify $(\varepsilon,\hat{\delta})$ on $\xi$ . Let $p_{i_{1}},p_{i_{2}}\ldots$ be the vertices in order along $\xi$ at which Simplify starts a new segment. Note that $i_{1}=1$ and $i_{j+1}\geq i_{j}+2$ for all $j$ .
+
+Simplify replaces each subcurve $\xi[p_{i_{j}},p_{i_{j+1}-1}]$ by a segment. The simplified curve is a concatenation of these segments. Since $|\xi|=2k-1$ , there must be an index $j$ such that $i_{j+1}>i_{j}+2$ so that Simplify $(\varepsilon,\hat{\delta})$ simplifies $\xi$ to a curve of size at most $2k-2$ . Let $b=\min\{j:i_{j+1}>i_{j}+2\}$ . Because $i_{1}=1$ and $i_{j+1}=i_{j}+2$ for all $j\in[b-1]$ , we know that $i_{j}$ is odd for every $j\in[b]$ and $i_{b}+1$ is even. It follows from the choice of $b$ that Simplify does not start a new segment at $p_{i_{b}+2}$ . By the working of Simplify $(\varepsilon,\hat{\delta})$ , there is a grid point $p$ in $G_{p_{i_{b}}}$ (defined with $\delta=\hat{\delta}$ ) such that $S_{i_{b}+2}[p]\not=\emptyset$ . By the reasoning in the proof of Lemma 2, for any point $x\in S_{i_{b}+2}[p]$ , $d_{F}(px,\xi[p_{i_{b}},p_{i_{b}+2}])\leq(1+\varepsilon)\hat{\delta}$ . On the other hand, by Lemma 4, $d_{F}(px,\xi[p_{i_{b}},p_{i_{b}+2}])\geq\frac{1}{2}d(p_{i_{b}+1},p_{i_{b}}p_{i_{b}+2})$ . Hence, $(1+\varepsilon)\hat{\delta}\geq\frac{1}{2}d(p_{i_{b}+1},p_{i_{b}}p_{i_{b}+2})\geq\frac{1}{2}\min\bigl\{d(p_{j},p_{j-1}p_{j+1}):j\in[2,2k-2],\,\text{$j$ is even}\bigr\}$ .
+
+It remains to argue that $\hat{\delta}\leq\frac{1}{2}\min\bigl\{d(p_{j},p_{j-1}p_{j+1}):j\in[2,2k-2],\,\text{$j$ is even}\bigr\}$ . Let $\delta=\frac{1}{2}\min\bigl\{d(p_{j},p_{j-1}p_{j+1}):j\in[2,2k-2],j\text{ is even}\bigr\}$ . It suffices to show that calling Simplify $(\varepsilon,\delta)$ on $\xi$ returns a curve of size at most $2k-2$ . Let $p_{a_{1}},p_{a_{2}},\ldots$ be the vertices in order along $\xi$ at which Simplify $(\varepsilon,\delta)$ starts a new segment. Let $c$ be the even number in $[2,2k-2]$ such that $d(p_{c},p_{c-1}p_{c+1})=\min\bigl\{d(p_{j},p_{j-1}p_{j+1}):j\in[2,2k-2],\,\text{$j$ is even}\bigr\}$ .
+
+Suppose that there is an index $j$ that satisfies $a_{j}\leq c-1$ and $a_{j+1}>a_{j}+2$ . Since $\xi[p_{a_{j}},p_{a_{j+1}-1}]$ is simplified to a line segment, the prefix $\xi[p_{1},p_{a_{j+1}-1}]$ is simplified to a curve of size at most $a_{j+1}-2$ , i.e., at least one vertex less. We are done because the size of the whole simplified curve must be at most $2k-2$ .
+
+The remaining possibility is that $a_{j+1}=a_{j}+2$ for all $a_{j}\in[c-1]$ . Since $a_{1}=1$ and $c$ is even, we have $a_{1}=1,a_{2}=3,a_{3}=5,\ldots,a_{j}=c-1$ . It follows that Simplify starts a new segment at $p_{c-1}$ . Let $r=d(p_{c},p_{c-1}p_{c+1})$ .
+
+We claim that there is a line segment $xy$ such that $d_{F}(xy,\xi[p_{c-1},p_{c+1}])\leq r/2$ . Let $z$ be the nearest point in $p_{c-1}p_{c+1}$ to $p_{c}$ . So $zp_{c}$ has length $r$ . Let $z^{\prime}$ be the midpoint of $zp_{c}$ . Translate $p_{c-1}p_{c+1}$ by the vector $z^{\prime}-z$ to obtain a segment $xy$ . Observe that $z^{\prime}\in xy$ and $d(x,p_{c-1})=d(y,p_{c+1})=d_{F}(z^{\prime},p_{c})=r/2$ . By linear interpolations between $xz^{\prime}$ and $p_{c-1}p_{c}$ and between $z^{\prime}y$ and $p_{c}p_{c+1}$ , we have $d_{F}(xy,\xi[p_{c-1},p_{c+1}])\leq r/2$ , establishing our claim.
+
+By the choice of $c$ , $\frac{1}{2}r=\frac{1}{2}d(p_{c},p_{c-1}c_{c+1})=\delta$ . Then, our claim implies that $xy$ stabs balls of radii $\delta$ centered at $p_{c-1},p_{c},p_{c+1}$ in order. There is a grid point $p^{\prime}$ in $G_{p_{c-1}}$ (defined using $\delta$ ) within a distance $\varepsilon\delta/2$ from $x$ . By a linear interpolation between $p^{\prime}y$ and $xy$ , we know that $p^{\prime}y$ stabs $\conv(G_{p_{c-1}}),\conv(G_{p_{c}}),\conv(G_{p_{c+1}})$ in order. Therefore, $S_{c+1}[p^{\prime}]\not=\emptyset$ by Lemma 1(i), implying that Simplify does not start a new segment at $p_{c+1}$ . Hence, Simplify replaces a subcurve $\xi[p_{c-1},p_{e}]$ for some $e\geq c+1$ by a segment and produces a curve of size at most $2k-2$ . This proves that $\delta\geq\hat{\delta}$ . ∎
+
+Recall the curves $\tau_{i}$ for $i\geq 2k-1$ defined in the comments in lines 6, 11, and 22. The next result follows immediately from the working of Reduce.
+
+###### Lemma 6.
+
+For $i\geq 2k-1$ , $\sigma_{i}$ computed by Reduce can also be produced by calling Simplify $(\varepsilon,\delta_{i})$ on $\tau_{i}$ .
+
+###### Lemma 7.
+
+Assume that $\varepsilon\in(0,1/3]$ . For $i\geq 2k-1$ , $d_{F}(\tau_{i},\tau[v_{1},v_{i}])\leq 2\varepsilon\delta_{i}$ .
+
+###### Proof.
+
+We prove the lemma by induction on $i$ . As $\tau_{2k-1}=\tau[v_{1},v_{2k-1}]$ , $d_{F}(\tau_{2k-1},\tau[v_{1},v_{2k-1}])$ is zero. Assume that the lemma is true for some $i-1\geq 2k-1$ . There are two cases.
+
+If $\delta_{i}=\delta_{i-1}$ , then $\tau_{i}=\tau_{i-1}\circ(v_{i})$ . Since $d_{F}(\tau_{i-1},\tau[v_{1},v_{i-1}])\leq 2\varepsilon\delta_{i-1}$ , the last vertex of $\tau_{i-1}$ is within a distance $2\varepsilon\delta_{i-1}$ from $v_{i-1}$ . A linear interpolation between $v_{i-1}v_{i}$ and the last edge of $\tau_{i}$ shows that $d_{F}(\tau_{i},\tau[v_{1},v_{i}])\leq d_{F}(\tau_{i-1},\tau[v_{1},v_{i-1}])\leq 2\varepsilon\delta_{i-1}=2\varepsilon\delta_{i}$ .
+
+If $\delta_{i}>\delta_{i-1}$ , then $\tau_{i}=\sigma_{i-1}\circ(v_{i})$ . Compress ensures that $\delta_{i}\geq\varepsilon^{-1}\delta_{i-1}$ . By Lemma 6 and Theorem 3, $d_{F}(\tau_{i-1},\sigma_{i-1})\leq(1+\varepsilon)\delta_{i-1}$ . Therefore, $d_{F}(\sigma_{i-1},\tau[v_{1},v_{i-1}])\leq d_{F}(\tau_{i-1},\sigma_{i-1})+d_{F}(\tau_{i-1},\tau[v_{1},v_{i-1}])\leq(1+3\varepsilon)\delta_{i-1}\leq\varepsilon(1+3\varepsilon)\delta_{i}\leq 2\varepsilon\delta_{i}$ . A linear interpolation between $v_{i-1}v_{i}$ and the last edge of $\tau_{i}$ gives $d_{F}(\tau_{i},\tau[v_{1},v_{i}])\leq d_{F}(\sigma_{i-1},\tau[v_{1},v_{i-1}])\leq 2\varepsilon\delta_{i}$ . ∎
+
+Recall that $\sigma^{*}_{i}$ is the curve of size $k$ at minimum Fréchet distance from $\tau[v_{1},v_{i}]$ and that $\delta_{i}^{*}=d_{F}(\sigma_{i}^{*},\tau[v_{1},v_{i}])$ . Also, recall that for $i\geq 2k-1$ , $r_{i}\geq 1$ and $s_{i}\geq 0$ are integers that satisfy the following inequalities:
+
+| $$\frac{1}{\varepsilon^{s_{i}}}\delta_{\min}\leq\frac{(1+\varepsilon)^{r_{i}-1}}{\varepsilon^{s_{i}}}\delta_{\min}\leq\delta_{i}^{*}\leq\frac{(1+\varepsilon)^{r_{i}}}{\varepsilon^{s_{i}}}\delta_{\min}\leq\frac{1}{\varepsilon^{s_{i}+1}}\delta_{\min}.$$ | (1) |
+| --- | --- |
+
+By Lemma 4, $\delta_{\min}\leq\delta_{2k-1}^{*}$ . Also, $\delta_{a}^{*}\leq\delta_{b}^{*}$ for all $a<b$ because a Fréchet matching between $\sigma^{*}_{b}$ and $\tau[v_{1},v_{b}]$ also matches $\tau[v_{1},v_{a}]$ to a curve of size at most $k$ . Therefore, $\delta_{\min}\leq\delta^{*}_{i}$ for $i\geq 2k-1$ , which implies that $r_{i}$ and $s_{i}$ are well defined for $i\geq 2k-1$ . Note that $r_{i}$ is an integer between 1 and $\lfloor\log_{1+\varepsilon}(1/\varepsilon)\rfloor$ .
+
+###### Lemma 8.
+
+For all $i\geq 2k-1$ and $\varepsilon\in\bigl(0,\frac{1}{17})$ , Reduce $(r_{i},\varepsilon,k)$ computes $\delta_{i}\leq(1+8\varepsilon)\delta_{i}^{*}$ .
+
+###### Proof.
+
+We prove that Reduce $(r_{i},\varepsilon,k)$ computes $\delta_{i}\leq\varepsilon^{-s_{i}}1+\varepsilon)^{r_{i}+1}(1-4\varepsilon)^{-1}\delta_{\min}$ . By (1), this is at most $(1+\varepsilon)^{2}(1-4\varepsilon)^{-1}\delta^{*}_{i}\leq(1+8\varepsilon)\delta_{i}^{*}$ for $\varepsilon\leq 1/17$ .
+
+Consider the case of $i=2k-1$ . We examine the call Reduce $(r_{2k-1},\varepsilon,k)$ . By (1), $\varepsilon^{-s_{2k-1}}(1+\varepsilon)^{r_{2k-1}-1}\delta_{\min}\leq\delta_{2k-1}^{*}\leq\varepsilon^{-s_{2k-1}}(1+\varepsilon)^{r_{2k-1}}\delta_{\min}$ . Theorem 3 and Lemma 5 imply that $\varepsilon^{-s_{2k-1}}(1+\varepsilon)^{r_{2k-1}-1}\delta_{\min}\leq\delta^{*}_{2k-1}\leq\frac{1}{2}\min\bigl\{d(v_{j},v_{j-1}v_{j+1}):j\in[2,2k-2],\,\text{$j$ is even}\bigr\}\leq(1+\varepsilon)\delta^{*}_{2k-1}\leq\varepsilon^{-s_{2k-1}}(1+\varepsilon)^{r_{2k-1}+1}\delta_{\min}$ . Since the input parameter $r$ of Reduce is equal to $r_{2k-1}$ , line 5 of Reduce sets $\delta_{2k-2}=\varepsilon(1+\varepsilon)^{r_{2k-1}+1}(1-4\varepsilon)^{-1}\delta_{\min}$ . For $\varepsilon\leq 1/17$ , we have $\varepsilon^{-1}>(1+\varepsilon)^{2}(1-4\varepsilon)^{-1}$ , and so $\varepsilon^{1-s_{2k-1}}(1+\varepsilon)^{r_{2k-1}+1}(1-4\varepsilon)^{-1}\delta_{\min}<\varepsilon^{-s_{2k-1}}(1+\varepsilon)^{r_{2k-1}-1}\delta_{\min}\leq\frac{1}{2}\min\bigl\{d(v_{j},v_{j-1}v_{j+1}):j\in[2,2k-2],\,\text{$j$ is even}\bigr\}$ . As a result, line 2 of Compress ensures that $\delta_{2k-1}=\varepsilon^{-s_{2k-1}}(1+\varepsilon)^{r_{2k-1}+1}(1-4\varepsilon)^{-1}\delta_{\min}$ .
+
+Consider an index $i>2k-1$ . We examine the call Reduce $(r_{i},\varepsilon,k)$ . Define:
+
+| $$\Delta=\varepsilon^{-s_{i}}(1+\varepsilon)^{r_{i}+1}\delta_{\min}.$$ | (2) |
+| --- | --- |
+
+Our goal is to prove that $\delta_{i}\leq(1-4\varepsilon)^{-1}\Delta$ . We rewrite the middle inequalities in (1) as
+
+| $$(1+\varepsilon)^{-2}\Delta\leq\delta_{i}^{*}\leq(1+\varepsilon)^{-1}\Delta.$$ | (3) |
+| --- | --- |
+
+Define:
+
+| $$a=\max\bigl\{j\in[2k-2,i]:\delta_{j}\leq\varepsilon(1-4\varepsilon)^{-1}\Delta\bigr\}.$$ | (4) |
+| --- | --- |
+
+The index $a$ is well defined because one can verify that $\delta_{2k-2}=\varepsilon(1+\varepsilon)^{r_{i}+1}(1-4\varepsilon)^{-1}\delta_{\min}\leq\varepsilon(1-4\varepsilon)^{-1}\Delta$ .
+
+By (4), (2), line 5 of Reduce, and line 2 of Compress, $\delta_{a}=\varepsilon^{h}(1-4\varepsilon)^{-1}\Delta$ for some integer $h\geq 1$ . If $a=i$ , then $\delta_{i}=\delta_{a}\leq\varepsilon(1-4\varepsilon)^{-1}\Delta$ , so we are done. Suppose that $a<i$ . Note that $\delta_{a+1}\not=\delta_{a}$ by (4), which implies that $\delta_{a+1}>\delta_{a}$ . So $\tau_{a+1}=\sigma_{a}\circ(v_{a+1})$ , and Compress $(\tau_{a+1},\varepsilon,k,\delta_{a})$ is called to produce $\sigma_{a+1}$ and $\delta_{a+1}$ . We have
+
+| $\displaystyle d_{F}(\sigma^{*}_{a+1},\tau_{a+1})$ | $\displaystyle\leq$ | $\displaystyle d_{F}(\sigma^{*}_{a+1},\tau[v_{1},v_{a+1}])+d_{F}(\tau_{a+1},\tau[v_{1},v_{a+1}])$ | (5) |
+| --- | --- | --- | --- |
+| | $\displaystyle=$ | $\displaystyle\delta_{a+1}^{*}+d_{F}(\tau_{a+1},\tau[v_{1},v_{a+1}])\,\,\leq\,\,\delta_{i}^{*}+d_{F}(\tau_{a+1},\tau[v_{1},v_{a+1}]).$ | |
+
+If $a+1=2k-1$ , then $\tau_{a+1}=\tau_{2k-1}=\tau[v_{1},v_{2k-1}]$ , so $d_{F}(\tau_{a+1},\tau[v_{1},v_{a+1}])=0$ . Suppose that $a+1>2k-1$ . By Lemma 6 and Theorem 3, $d_{F}(\sigma_{a},\tau_{a})\leq(1+\varepsilon)\delta_{a}$ . By Lemma 7, $d_{F}(\tau_{a},\tau[v_{1},v_{a}])\leq 2\varepsilon\delta_{a}$ . So $d_{F}(\tau_{a+1},\tau[v_{1},v_{a+1}])\leq d_{F}(\sigma_{a},\tau[v_{1},v_{a}])\leq d_{F}(\sigma_{a},\tau_{a})+d_{F}(\tau_{a},\tau[v_{1},v_{a}])\leq(1+3\varepsilon)\delta_{a}$ . Since $\delta_{a}\leq\varepsilon(1-4\varepsilon)^{-1}\Delta$ , we conclude that
+
+| $$d_{F}(\tau_{a+1},\tau[v_{1},v_{a+1}])\leq\varepsilon(1+3\varepsilon)(1-4\varepsilon)^{-1}\Delta.$$ | (6) |
+| --- | --- |
+
+Plugging (6) into (5) and using (3), we obtain the following inequality for $\varepsilon<1/17$ :
+
+| $$d_{F}(\sigma_{a+1}^{*},\tau_{a+1})\leq\left(\frac{1}{1+\varepsilon}+\frac{\varepsilon+3\varepsilon^{2}}{1-4\varepsilon}\right)\Delta\leq\frac{\Delta}{(1+\varepsilon)(1-4\varepsilon)}.$$ | (7) |
+| --- | --- |
+
+Consider the call of Simplify in Compress $(\tau_{a+1},\varepsilon,k,\delta_{a})$ . By (7) and Theorem 3, calling Simplify on $\tau_{a+1}$ with an error tolerance of $\frac{1}{(1+\varepsilon)(1-4\varepsilon)}\Delta$ will produce a curve of size at most $2k-2$ . Then, by Lemma 5, $\frac{1}{2}\min\bigl\{d(v_{j},v_{j-1}v_{j+1}):j\in[2,2k-2],\,\text{$j$ is even}\bigr\}\leq(1+\varepsilon)\cdot\frac{1}{(1+\varepsilon)(1-4\varepsilon)}\Delta=(1-4\varepsilon)^{-1}\Delta$ . Line 2 of Compress ensures that $\delta_{a+1}=\varepsilon^{-t}\delta_{a}=\varepsilon^{h-t}(1-4\varepsilon)^{-1}\Delta$ for the smallest integer $t\geq 1$ such that $\delta_{a+1}\geq\frac{1}{2}\min\bigl\{d(v_{j},v_{j-1}v_{j+1}):j\in[2,2k-2],\,\text{$j$ is even}\bigr\}$ . Hence, $t$ cannot be greater than $h$ . But $t$ cannot be less than $h$ because $\delta_{a+1}>\varepsilon(1-4\varepsilon)^{-1}\Delta$ by (4). So $\delta_{a+1}=(1-4\varepsilon)^{-1}\Delta$ . For every $b\in[a+2,i]$ ,
+
+| $\displaystyle d_{F}(\sigma^{*}_{b},\tau_{a+1}\circ\tau[v_{a+2},v_{b}])$ | $\displaystyle\leq$ | $\displaystyle d_{F}(\sigma^{*}_{b},\tau[v_{1},v_{b}])+d_{F}(\tau_{a+1}\circ\tau[v_{a+2},v_{b}],\tau[v_{1},v_{b}])$ |
+| --- | --- | --- |
+| | $\displaystyle\leq$ | $\displaystyle\delta_{b}^{*}+d_{F}(\tau_{a+1},\tau[v_{1},v_{a+1}])$ |
+| | $\displaystyle\leq$ | $\displaystyle\delta_{i}^{*}+\varepsilon(1+3\varepsilon)(1-4\varepsilon)^{-1}\Delta\quad\quad\quad~~~(\because\eqref{eq:-1})$ |
+| | $\displaystyle<$ | $\displaystyle(1-4\varepsilon)^{-1}\Delta\,=\,\delta_{a+1}.\quad\quad\quad\quad\quad~~~~(\because\eqref{eq:def2})$ |
+
+Then, when processing $v_{a+2}$ , Lemma 6 and Theorem 3 imply that Reduce executes lines 10–20 with $\delta_{a+2}=\delta_{a+1}=(1-4\varepsilon)^{-1}\Delta$ to produce $\sigma_{a+2}$ of size at most $2k-2$ . Applying this reasoning inductively gives $\delta_{i}=(1-4\varepsilon)^{-1}\Delta$ . ∎
+
+###### Theorem 9.
+
+Let $\tau$ be a polygonal curve in $\mathbb{R}^{d}$ that arrives in a data stream. Let $\alpha=2(d-1)\lfloor d/2\rfloor^{2}+d$ . There is a streaming algorithm that, for any integer $k\geq 2$ and any $\varepsilon\in(0,\frac{1}{17})$ , maintains a curve $\sigma$ such that $|\sigma|\leq 2k-2$ and $d_{F}(\tau,\sigma)\leq(1+\varepsilon)\cdot\min\{d_{F}(\tau,\sigma^{\prime}):|\sigma^{\prime}|\leq k\}$ . It uses $O\bigl((k\varepsilon^{-1}+\varepsilon^{-(\alpha+1)})\log\frac{1}{\varepsilon}\bigr)$ working storage and processes each vertex of $\tau$ in $O(k\varepsilon^{-(\alpha+1)}\log^{2}\frac{1}{\varepsilon})$ time for $d\in\{2,3\}$ and $O(k\varepsilon^{-(\alpha+1)}\log\frac{1}{\varepsilon})$ time for $d\geq 4$ .
+
+###### Proof.
+
+Let $\delta^{*}=\min\{d_{F}(\tau,\sigma^{\prime}):|\sigma^{\prime}|\leq k\}$ . By Lemma 8, if we launch $\lfloor\log_{1+\varepsilon/10}(10/\varepsilon)\rfloor=O(\frac{1}{\varepsilon}\log\frac{1}{\varepsilon})$ runs of Reduce using $\varepsilon/10$ instead of $\varepsilon$ , there is a run that outputs a curve $\sigma$ such that $d_{F}(\tau,\sigma)\leq(1+\varepsilon/10)(1+8\varepsilon/10)\delta^{*}\leq(1+\varepsilon)\delta^{*}$ . Then, the working storage and processing time per vertex follow from Theorem 3. ∎
+
+## References
+
+- [1] M.A. Abam, M. de Berg, P. Hachenberger, and A. Zarei. Streaming algorithms for line simplification. In Proceedings of the Annual Symposium on Computational Geometry, pages 175–183, 2007.
+- [2] M.A. Abam, M. de Berg, P. Hachenberger, and A. Zarei. Streaming algorithms for line simplification. Discrete and Computational Geometry, 43:497––515, 2010.
+- [3] P.K. Agarwal, S. Har-Peled, N.H. Mustafa, and Y. Wang. Near-linear time approximation algorithms for curve simplification. Algorithmica, 42(3):203–219, 2005.
+- [4] S. Bereg, M. Jiang, W. Wang, B. Yang, and B. Zhu. Simplifying 3D polygonal chains under the discrete Fréchet distance. In Proceedings of the Latin American Symposium on Theoretical Informatics, pages 630–641, 2008.
+- [5] K. Bringmann and B.R. Chaudhury. Polyline simplification has cubic complexity. In Proceedings of the International Symposium on Computational Geometry, pages 18:1–18:16, 2019.
+- [6] H. Cao, O. Wolfson, and G. Trajcevski. Spatio-temporal data reduction with deterministic error bounds. The VLDB Journal, 15(3):211–228, 2006.
+- [7] B. Chazelle. An optimal convex hull algorithm in any fixed dimension. Discrete & Computational Geometry, 10:377–409, 1993.
+- [8] M. Chen, M. Xu, and P. Fränti. A fast $o(n)$ multiresolution polygonal approximation algorithm for gps trajectory simplification. IEEE Transactions on Image Processing, 21(5):2770–2785, 2012.
+- [9] S.-W. Cheng and H. Huang. Curve simplification and clustering under Fréchet distance. In Proceedings of the ACM-SIAM Symposium on Discrete Algorithms, pages 1414–1432, 2023.
+- [10] S.-W. Cheng and H. Huang. Solving Fréchet distance problems by algebraic geometric methods. In Proceedings of the ACM-SIAM Symposium on Discrete Algorithms, pages 4502–4513, 2024.
+- [11] A. Driemel, A. Krivošija, and C. Sohler. Clustering time series under the Fréchet distance. In Proceedings of the ACM-SIAM Symposium on Discrete Algorithms, pages 766–785, 2016.
+- [12] A. Driemel, I. Psarros, and M. Schmidt. Sublinear data structures for short Fréchet queries, 2019. arXiv:1907.04420.
+- [13] A. Filtser and O. Filtser. Static and streaming data structures for Fréchet distance queries. ACM Transactions on Algorithms, 19(4):39:1–39:36, 2023.
+- [14] Y. Gao, Z. Fang, J. Xu, S. Gong, C. Shen, and L. Chen. An efficient and distributed framework for real-time trajectory stream clustering. IEEE Transactions on Knowledge and Data Engineering, 36(5):1857–1873, 2024.
+- [15] M. Godau. A natural metric for curves - computing the distance for polygonal chains and approximation algorithms. In Proceedings of the Annual Symposium on Theoretical Aspects of Computer Science, pages 127–136, 1991.
+- [16] L.J. Guibas, J.E. Hershberger, J.S.B. Mitchell, and J.S. Snoeyink. Approximating polygons and subdivisions with minimum-link paths. International Journal of Computational Geometry & Applications, 3(4):383–415, 1993.
+- [17] X. Lin, J. Jiang, S. Ma, Y. Zuo, and C. Hu. One-pass trajectory simplification using the synchronous Euclidean distance. The VLDB Journal, 28:897–921, 2018.
+- [18] X. Lin, S. Ma, J. Jiang, Y. Hou, and T. Wo. Error bounded line simplification algorithms for trajectory compression: an experimental evaluation. ACM Transactions on Database Systems, 46(3):11:1–11:44, 2021.
+- [19] X. Lin, S. Ma, H. Zhang, T. Wo, and J. Huai. One-pass error bounded trajectory simplification. In Proceedings of the VLDB Endowment, volume 10, pages 841–852, 2017.
+- [20] J. Liu, K. Zhao, P. Sommer, S. Shang, B. Kusy, and R. Jurdak. Bounded quadrant system: error-bounded trajectory compression on the go. In Proceedings of the IEEE International Conference on Data Engineering, pages 987–998, 2015.
+- [21] J. Muckell, J.-H. Hwang, V. Patil, C.T. Lawson, F. Ping, and S. Ravi. SQUISH: an online approach for GPS trajectory compression. In Proceedings of the International Conference on Computing for Geospatial Research & Applications, pages 13:1–13:8, 2011.
+- [22] J. Muckell, P.W. Olsen, J.-H. Hwang, C.T. Lawson, and S. Ravi. Compression of trajectory data: a comprehensive evaluation and new approach. GeoInformatica, 18(3):435–460, 2014.
+- [23] S. Muthukrishnan. Data Streams: Algorithms and Applications. now Publishers Inc., 2005.
+- [24] M. Potamias, K. Patroumpas, and T. Sellis. Sampling trajectory streams with spatiotemporal criteria. In Proceedings of the IEEE International Conference on Scientific and Statistical Database Management, pages 275–284, 2006.
+- [25] M. van de Kerkhof, I. Kostitsyna, M. Löffler, M. Mirzanezhad, and C. Wenk. Global curve simplification. In Proceedings of the European Symposium on Algorithms, pages 67:1–67:14, 2019.
+- [26] T. van der Horst and T. Ophelders. Computing minimum complexity 1D curve simplifications under the Fréchet distance. In The 39th European Workshop on Computational Geometry, 2023.
+- [27] M. van Kreveld, M. Löffler, and L. Wiratma. On optimal polyline simplification using the Hausdorff and Fréchet distance. In Proceedings of the International Symposium on Computational Geometry, pages 56:1–56:14, 2018.
+- [28] Z. Wang, C. Long, G. Cong, and Q. Zhang. Error-bounded online trajectory simplification with multi-agent reinforcement learning. In Proceedings of the ACM SIGKDD Conference on Knowledge Discovery & Data Mining, pages 1758–1768, 2021.
+- [29] D. Zhang, M. Ding, D. Yang, Y. Liu, J. Fan, and H.T. Shen. Trajectory simplification: an experimental study and quality analysis. In Proceedings of the VLDB Endowment, volume 11, pages 934–946, 2018.
+
+◄ Feelinglucky?

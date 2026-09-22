@@ -1,0 +1,51 @@
+---
+pid: 83360
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && for year in 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023; do\n  echo \"=== ans $year ===\"\n  .venv/bin/python scripts/preprocess_lq_answers.py \"answer/${year}ans.pdf\" \"output/lq/$year/ans\" --max-questions 12 --scale 2.0 2>&1 | rg \"detected|Wrote [0-9]+ answer|WARNING\"\ndone\n"
+title: "Re-crop answers without headers/page numbers"
+status: succeeded
+started_at: 2026-09-05T01:21:08.370Z
+running_for_ms: 372543   
+---
+=== ans 2012 ===
+  detected answers Q1-Q11 (11)
+Wrote 11 answer crops -> output/lq/2012/ans
+=== ans 2013 ===
+  detected answers Q1-Q10 (10)
+Wrote 10 answer crops -> output/lq/2013/ans
+=== ans 2014 ===
+  detected answers Q2-Q9 (10)
+Wrote 10 answer crops -> output/lq/2014/ans
+=== ans 2015 ===
+  detected answers Q1-Q12 (11)
+Wrote 11 answer crops -> output/lq/2015/ans
+=== ans 2016 ===
+  detected answers Q1-Q9 (9)
+Wrote 9 answer crops -> output/lq/2016/ans
+=== ans 2017 ===
+  detected answers Q1-Q3 (8)
+Wrote 8 answer crops -> output/lq/2017/ans
+=== ans 2018 ===
+  detected answers Q3-Q5 (4)
+Wrote 4 answer crops -> output/lq/2018/ans
+=== ans 2019 ===
+  detected answers Q1-Q10 (9)
+Wrote 9 answer crops -> output/lq/2019/ans
+=== ans 2020 ===
+  detected answers Q1-Q10 (11)
+Wrote 11 answer crops -> output/lq/2020/ans
+=== ans 2021 ===
+  detected answers Q1-Q2 (11)
+Wrote 11 answer crops -> output/lq/2021/ans
+=== ans 2022 ===
+  detected answers Q1-Q5 (10)
+Wrote 10 answer crops -> output/lq/2022/ans
+=== ans 2023 ===
+  detected answers Q2-Q10 (9)
+Wrote 9 answer crops -> output/lq/2023/ans
+
+---
+exit_code: 0
+elapsed_ms: 372523
+ended_at: 2026-09-05T01:27:20.893Z
+---

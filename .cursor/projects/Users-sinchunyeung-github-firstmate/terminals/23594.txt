@@ -1,0 +1,15 @@
+---
+pid: 48382
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "export PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:$PATH\"\npython3 /tmp/fm-http-dual.py 8768 /Users/sinchunyeung/github/firstmate/data/p2db-501-502-review"
+title: "Start review hub server on 8768"
+status: failed   
+started_at: 2026-09-11T14:02:53.353Z
+running_for_ms: 364      
+---
+
+---
+exit_code: unknown
+elapsed_ms: 364
+ended_at: 2026-09-11T14:02:53.717Z
+---

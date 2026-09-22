@@ -1,0 +1,33 @@
+---
+pid: 52638
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "export PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:$PATH\"\nexport FM_HOME=/Users/sinchunyeung/github/firstmate\necho '======= EXCLUDE ======='\n/Users/sinchunyeung/github/firstmate/bin/fm-crew-state.sh p2db-exclude-lq-data-and-formulae-sheets-a6\ngrep -E '^(pr|mode|yolo)=' /Users/sinchunyeung/github/firstmate/state/p2db-exclude-lq-data-and-formulae-sheets-a6.meta\necho '======= NOTES ======='\n/Users/sinchunyeung/github/firstmate/bin/fm-crew-state.sh p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e\ntail -n 4 /Users/sinchunyeung/github/firstmate/state/p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e.status\necho '======= NOTES FINDINGS HEAD ======='\nhead -n 6 /Users/sinchunyeung/github/firstmate/data/p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e/nm-01M2B7YV0MTFD9FEWQ1YF0G59C-findings.txt 2>/dev/null\n"
+title: "Confirm exclude PR and notes current state"
+status: succeeded
+started_at: 2026-09-12T20:14:57.906Z
+running_for_ms: 262543   
+---
+======= EXCLUDE =======
+state: done · source: status-log · PR https://github.com/yeungsinchun/paper2db/pull/7 checks green
+mode=no-mistakes
+yolo=off
+pr=https://github.com/yeungsinchun/paper2db/pull/7
+======= NOTES =======
+state: working · source: run-step · validating (running)
+needs-decision [key=nm-01M2B7YV0MTFD9FEWQ1YF0G59C-review]: ask-user findings=ch2-26-1-define-hl-2012-35,ch2-26-1-determine-hl-given-t,ch1-25-3-count-rate-non-rate,ch2-26-1-exp-law-mcs file=/Users/sinchunyeung/github/firstmate/data/p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e/nm-01M2B7YV0MTFD9FEWQ1YF0G59C-findings.txt
+resolved [key=nm-01M2B7YV0MTFD9FEWQ1YF0G59C-review]: answered: Decision for key nm-01M2B7YV0MTFD9FEWQ1YF0G59C-review Step: review Action: fix Affected finding IDs: ch2-26-1-define-hl-2012-35,ch2-26-1-determin [truncated]
+needs-decision [key=nm-01M2B7YV0MTFD9FEWQ1YF0G59C-review]: ask-user findings=ch1-25-2-define-isotope-series file=/Users/sinchunyeung/github/firstmate/data/p2n-b5-lo-syllabus-learning-objectives-dse-embeds-8e/nm-01M2B7YV0MTFD9FEWQ1YF0G59C-findings.txt
+resolved [key=nm-01M2B7YV0MTFD9FEWQ1YF0G59C-review]: answered: Decision for key nm-01M2B7YV0MTFD9FEWQ1YF0G59C-review Step: review Action: fix Affected finding IDs: ch1-25-2-define-isotope-series Instructions: [truncated]
+======= NOTES FINDINGS HEAD =======
+id: ch1-25-2-define-isotope-series
+severity: warning
+file: notes/book5/ch01-radiation-and-radioactivity/25-2.html
+line: 426
+description: 25.2 'define isotope' labels 2014 MC Q31 and 2020 MC Q31. The page's own copy of 2014 MC Q31 (W --α--> X --β--> Y --β--> Z) asks which of three transmutation claims is true; one claim is 'W and Z are isotopes.' Chapter intake files 2020/31 as a branching series (two paths to T; proton/neutron comparison of R vs S). Those are transmutation/series papers, already chipped on 'represent radioactive transmutations'. A student who clicks the definition chips still lands on the wrong LO. Drop 2014 MC Q31 and 2020 MC Q31 from the define-isotope bullet only. Keep 2012 MC Q36 there. Keep both papers on transmutation and their other 25.2 homes.
+authority: ask-user
+
+---
+exit_code: 0
+elapsed_ms: 262537
+ended_at: 2026-09-12T20:19:20.443Z
+---

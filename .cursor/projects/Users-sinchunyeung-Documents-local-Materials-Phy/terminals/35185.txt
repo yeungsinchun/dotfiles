@@ -1,0 +1,1199 @@
+---
+pid: 18702
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy"
+command: "python3 << 'PYEOF'\nimport fitz, subprocess, tempfile, os, re\n\npdf_path = \"/Users/sinchunyeung/Documents-local/Materials/Phy/active-physics/Book 4.pdf\"\ndoc = fitz.open(pdf_path)\n\ndef ocr_page(i, dpi=180):\n    pix = doc[i].get_pixmap(dpi=dpi)\n    with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as tmp:\n        pix.save(tmp.name)\n        result = subprocess.run(['tesseract', tmp.name, 'stdout', '-l', 'eng'], capture_output=True, text=True)\n        os.unlink(tmp.name)\n    return result.stdout\n\n# Chapter 21 area - scan for section headers\nfor i in range(67, 200):\n    text = ocr_page(i, dpi=150)\n    # look for section numbers like 21.1, 21.2 or major headers\n    if re.search(r'21\\.\\d+|Internal resistance|Short circuit|Open circuit|Ammeter|Voltmeter|Power|Energy|Electric circuit|Resistor network|Resistance|Ohm', text, re.I):\n        lines = [l.strip() for l in text.split('\\n') if l.strip()]\n        # filter interesting lines\n        interesting = []\n        for l in lines:\n            if re.search(r'21\\.\\d+|^Section|Internal|Short|Open|Ammeter|Voltmeter|Power|Energy|Resistance|Ohm|Resistor network|Electric circuit|Checkpoint|Example 21', l, re.I):\n                interesting.append(l)\n        if interesting:\n            print(f\"\\n=== PAGE {i+1} ===\")\n            for l in interesting[:20]:\n                print(l)\nPYEOF"
+started_at: 2026-08-22T14:37:56.754Z
+running_for_ms: 280053   
+---
+
+=== PAGE 68 ===
+energy?
+
+=== PAGE 69 ===
+flowing is an electric circuit.
+Fig. 21.1 Movable charges inside a wire. Fig. 21.2 Charges are driven by the
+circuit diagram, like the one in Fig. 21.3.
+standard circuit symbols (Fig. 21.4). Fig. 21.3 Asimple circuit and its circuit diagram
+ammeter voltmeter galvanometer motor joined wires unjoined wires — earth connection
+Fig. 21.4 Circuit symbols for some common electrical components 263 A battery (ib iEl) is a group of cells (FRItb).
+
+=== PAGE 70 ===
+Open and closed circuits
+(or closed) circuit without a gap. Look at the circuit in Fig. 21.5:
+e If the switch is open, the circuit is broken \t oe” ©
+Fig. 21.5 Open and closed circuits
+Checkpoint @
+
+=== PAGE 71 ===
+af Circuit and Power
+Fig. 21.6 Current is the rate of charge flow.
+
+=== PAGE 72 ===
+L mp, Example 21.1 Y Current
+
+=== PAGE 73 ===
+af Circuit and Power
+
+=== PAGE 74 ===
+Checkpoint @
+Fig. 21.8 A steady flow in a closed loop
+Fig. 21.9 At any point, total current in = total current out
+
+=== PAGE 75 ===
+af Circuit and Power
+Electric currents can be measured with an ammeter or a current
+sensor (connected to a data logger) (Fig. 21.10).
+Fig. 21.10 Adc ammeter (left) and a current sensor (right)
+¢ Insert the ammeter into the circuit in series with the <4. Currents through components in series
+component (Fig. 21.11). are the same.
+e For adc ammeter, current should enter the positive terminal <4 Opposite to that in the cell
+Fig. 21.11 The proper way to connect an ammeter
+ammeter 2323+ — in series BR
+
+=== PAGE 76 ===
+Fig. 21.12 An ammeter with two working ranges: 0-5 A (Left) and 0-1 A (right)
+Checkpoint €&
+identical resistors. What are the ammeter readings following best shows the current flow?
+
+=== PAGE 77 ===
+af Circuit and Power
+circuits. Are the ammeters correctly connected?
+ammeter
+The resistance box (shaded) consists of two
+connected to the ammeter and the battery in
+ammeter
+circuit diagram to indicate how the ammeter
+
+=== PAGE 78 ===
+ammeters?
+
+=== PAGE 79 ===
+yas Voltage and energy
+Energy transfer in a circuit
+A circuit is an energy transfer system. It transfers electrical
+energy from one component to another. A typical circuit
+* power sources (which supply electrical energy)
+e loads (which dissipate electrical energy)
+A circuit transfers energy from a power source to a load. When
+we close the switch in Fig. 21.13, the bulb lights up immediately,
+Energy is transferred from the battery (the power source) to the
+Fig. 21.13 A simple circuit and its circuit diagram
+A battery is an electrical energy source, not a source of charge. The charges
+energy to start and maintain the flow.
+To understand how energy is transferred, let us draw an
+(Fig. 21.14).
+
+=== PAGE 80 ===
+energy)
+yo energy)
+Voltage and energy transfer
+Fig. 21.14 A spinning bicycle wheel
+Put it in another way, energy is supplied by the hand on the left
+and dissipated by your finger on the right. Energy is transferred
+energy) energy) 4
+Fig. 21.15 An analogy of energy transfer in a circuit.
+ty energy
+charges in the circuit and powers the light bulb, in analogous to
+Note that the cell supplies energy and moves the chargesin the = 4 =885x10" CN" m?
+whole circuit. Since energy is transferred by the whole circuit,
+describes the electrical energy transferred per unit charge. It
+may refer to the energy supply or the energy dissipation, as
+
+=== PAGE 81 ===
+af Circuit and Power
+Energy is required to maintain a steady flow of charge. The
+electrical energy supplied to the circuit per unit charge by a 2% Emfis short for electromotive force,
+power source is called the emf of the source. If a cell supplies Cepplta liens sobs meh a totce:
+energy W to a charge Q when the charge passes through the
+Fig.21.16 Emfofa1.5 V cell
+A 1.5 V cell supplies 1.5 J of energy to the circuit when 1 C of
+¢ acell does not store electrical energy. It stores chemical
+energy.
+The electrical energy dissipated (or consumed) per unit charge
+If a resistor dissipates energy W when a charge Q passes ® supply
+means 1 J of electrical energy is dissipated when 1 C of charge t Ah ee 5)
+Fig. 21.17 Voltage change in a circuit
+
+=== PAGE 82 ===
+track of the electrical energy transfer along the path. If C is earthed, the
+Voltage and energy transfer
+
+=== PAGE 83 ===
+af Circuit and Power
+Consuming energy
+Energy is conserved. It can neither be created nor destroyed. In other
+words, it cannot be actually used up. When we say electrical energy is
+internal energy (in heating elements) or mechanical energy (in motors).
+Checkpoint @)
+an electric circuit. Let us compare these two circuits. 1 V, and 6 V, respectively.
+i energy is gained by the circuit?
+energy is lost by the circuit?
+(b) The pump supplies energy for the flow Jt |
+(c) The wheel consumes energy while the
+(c) The electrical energy that the battery consumes
+(d) The electrical energy that the battery delivers
+
+=== PAGE 84 ===
+[e] Voltage and energy conservation
+Because of the conservation of energy, when a charge goes
+round a loop, the energy gained must be equal to the energy
+Fig. 21.18 shows a single loop circuit. Charges in this circuit
+Fig. 21.19 shows a slightly more complicated circuit. The path
+Fig. 21.19 A circuit with two branches
+Voltage and energy transfer
+Fig. 21.18 Asimple loop
+
+=== PAGE 85 ===
+af Circuit and Power
+L mp, Example 21.2 Y Two bulbs
+
+=== PAGE 86 ===
+Voltage can be measured with a voltmeter, or a voltage sensor
+Fig. 21.20 Dc voltmeter (Left) and voltage sensor (right)
+e Connect the voltmeter across the component (in parallel
+with it) (Fig. 21.21).
+e Fora dc voltmeter, the positive (red) terminal should have a
+Fig. 21.21 The proper way to connect a voltmeter
+Voltage and energy transfer
+voltmeter (k#it
+
+=== PAGE 87 ===
+af Circuit and Power
+o Checkpoint @
+following circuit. Y or Z, of the voltmeter and the ammeter should
+show how a voltmeter should be connected to the
+Y Z_ voltmeter
+(a) how much is the potential energy of the charge
+(b) how much energy is given off by the battery?
+
+=== PAGE 88 ===
+Voltage and energy transfer
+You are given a battery, a voltmeter, a light bulb & 9. Three resistors are connected to a battery as shown.
+and an ammeter. In order to measure the current The circuit is earthed at point G.
+Find the total electrical energy it supplies.
+(a) R, and R, consume equal amounts of energy.
+1.04 (b) R, consumes more energy than R;.
+
+=== PAGE 89 ===
+yavem Resistance
+my Resistance
+property is using the concept resistance.
+pd¥ = resistance R ——Tr>_ current |
+Fig. 21.23 Pd, resistance and current
+Resistance is defined as
+The SI unit of resistance is the ohm (2). A load has a resistance
+The resistance of a load can be read from a multimeter. We
+can also measure it with a voltmeter, an ammeter and a battery
+together. This method is called the voltmeter-ammeter method
+(see Example 21.3).
+resistance RAB ohm Ks multimeter MAMA
+resistance R, the smaller the current /.
+voltage and resistance
+resistance. Turn the big central dial to
+
+=== PAGE 90 ===
+Resistance
+WSS, Example 21.3 Y Voltmeter—ammeter method
+resistance of the resistor.
+(a) Sally measures the pd across the resistor with a voltmeter,
+and the current passing through it with an ammeter. The
+the resistance.
+(a) Voltmeter reading V = 4.4 V
+Ammeter reading I= 0.2. A
+Resistance R = PI =220
+(b) The positions of the voltmeter and E|
+ammeter are wrong.
+The polarity of the voltmeter is R ()
+and reverse the polarity of the voltmeter.
+
+=== PAGE 91 ===
+af Circuit and Power
+iu Checkpoint @
+1. The resistance of a torch bulb is 7.5 2 when it
+the resistance of a light bulb: a battery, an ammeter,
+a voltmeter, a switch, a variable resistor and the
+of the ammeter and voltmeter with + and
+(or I-V curve for short) of a load.
+resistance
+(a) Constant resistance (b) Constant resistance of different (c) Varying resistance
+Fig. 21.25 The relation between the /-V curve and the resistance R
+V go up in the same proportion (Fig. 21.25a). So R = V/I remains
+the same as V increases. Fig. 21.25b shows three straight I-V
+Fig. 21.25c shows an I-V curve which is not a straight line. The 4 In general, the slope of the curve Al/AV
+
+=== PAGE 92 ===
+Resistance
+Ohmic component
+2. How does the resistance vary with the pd?
+
+=== PAGE 93 ===
+af Circuit and Power
+fe} Ohm’s law
+We call this relation Ohm’s law.
+Fig. 21.26 Ohmic /-V curve
+Any material that obeys Ohms law is called an ohmic material.
+Most metals and alloys are ohmic.
+However, not all materials obey Ohm’s law. For example,
+thermistors and diodes are non-ohmic. Their J—V curves are not
+Checkpoint @
+1. True or false: 3. Which one has a higher resistance?
+(a) The resistance of an ohmic component is (a) V wire X (b) | wire X
+(b) An ohmic I-V curve is a straight line passing " :
+(c) Ohm’s law states that metals are ohmic. 9 I Qo Vv
+2. AConstantan wire is ohmic. How does the current
+Ohm's law RMSE @ = ohmic material BIBS = — non-ohmic material HRA
+
+=== PAGE 94 ===
+Resistance bans
+The resistance of a wire depends on its length and thickness. We
+© Experiment 21.2 resistance of Swine
+with an ammeter.
+and thickness on the resistance of a
+t | the resistance of a wire
+2. Vary the length L of the wire across which the voltage is measured. Use the lead from the voltmeter as a
+3. For each length L of the wire, record the ammeter and
+voltmeter readings and calculate the resistance R = V/I.
+1, Compare the resistances of different wires for the same length L.
+resistance of the wire?
+Georg Ohm Constantan wire
+Ohm's law is found by Georg Ohm (1787-1854). In A Constantan wire is also called a Eureka wire.
+1827, he published his famous finding after doing Constantan is a copper-nickel alloy. The resistance
+ohm for resistance is named after him. range of temperatures of the wire.
+
+=== PAGE 95 ===
+af Circuit and Power
+A short and thick wire has low LOA ee
+resistance; a long and thin wire has
+high resistance. Experiments show
+that the resistance R of a uniform wire shi
+short
+- inversely aeite aeaction Fig. 21.27 The I-V graphs of wires with different length and thickness
+Fig. 21.28 Factors determining the
+resistance
+The SI unit of resistivity is the ohm-metre (Q m):
+free electrons, is much lower than that of insulators (Table 21.1).
+Table 21.1 Resistivity of some common materials at 25 °C
+
+=== PAGE 96 ===
+thinner, so the resistance of the gauge increases. According to R = pL/A, the
+increase in resistance tells how much the bridge stretches.
+Analogy to resistance
+electrons, give rise to resistance, and hence produce a steady current.
+Resistance
+
+=== PAGE 97 ===
+af Circuit and Power
+KS Example 21.4 The resistance of a copper wire
+(a) Find the resistance of the wire (using the data in Table 21.1). 4 See p.100.
+(a) Resistance of ~ wire
+of resistance sia Its avolsianice can be adjusted by varying the Fig, 21:39 Cifciat syinbiol for 3 vatiablé
+internal structure
+resistance
+Fig. 21.30 Potentiometer: a rotary-type variable resistor
+Fig. 21.31 Rheostat: a linear-type variable resistor
+
+=== PAGE 98 ===
+Resistance
+WES Example 21.5 Variable resistor
+Judy connects an ammeter and a 0-40 Q rheostat to a 6 V battery
+as shown. The positive terminal of the ammeter is connected to
+where AY = 3YC. What is the ammeter reading?
+So, the resistance across AB is
+and the ammeter reading is
+What is the ammeter reading if the positive terminal of the Ans: 0.15A
+ammeter is connected to node C of the rheostat?
+fat by measuring the resistance of human
+gives the resistance of human body. & Body fat monitor
+
+=== PAGE 99 ===
+af Circuit and Power
+t} Experiment 21.3 Effect of temperature on resistance
+temperature on the resistance of a copper
+resistance of a copper wire and a
+1. Measure the resistance of the copper wire at room temperature
+ohmmeter.
+measure its resistance.
+measure its resistance.
+How do the resistance of a copper wire and that of a semiconductor
+temperature (Fig. 21.32).
+Fig. 21.32 Resistivity of a metal (left) and a semiconductor (right) with temperature
+
+=== PAGE 100 ===
+Resistance
+TJ Non-ohmic device
+As mentioned, the I-V curve of a non-ohmic device is not a
+straight line. Its resistance changes with the applied pd. Many
+devices used in our daily lives are non-ohmic. The following are
+Effect of temperature on resistance
+current. Like a metal wire, its resistance rises with temperature.
+Fig. 21.33 The J-V curve of a filament bulb
+Its resistance reduces when temperature rises. Its typical J-V
+Fig. 21.34 Circuit symbol for thermistor
+Fig. 21.35 The /-V curve of a thermistor
+
+=== PAGE 101 ===
+af Circuit and Power
+pairs appear. This greatly reduces the resistance and its I-V
+Fig. 21.36 The I-V curve of an electrolyte
+Fig. 21.37 The /-V curve of a diode Fig. 21.38 Circuit symbols for a diode
+Finding resistance from a characteristic curve
+The resistance R of a data paint P is given by Vp/Ip. In general, it is different
+
+=== PAGE 102 ===
+LK Example 21.6 Bulb resistance
+A student carries out an experiment to investigate the resistance
+(b) What is the resistance of the filament, when the voltage
+(c) Does the bulb obey Ohm’s law? Briefly explain your answer.
+Resistance bans
+(b) At 4 V, the resistance is
+At 12 V, the resistance is
+(c) The bulb does not obey Ohm's law
+we know that the resistance of the bulb has increased. So, the I-V
+
+=== PAGE 103 ===
+af Circuit and Power
+Checkpoint @
+resistivity of an ohmic material.
+ohmic beyond V,?
+(a) ashorter wire of the same material and equal
+are ohmic.
+resistance of the bulb filament would
+D. draw energy from
+
+=== PAGE 104 ===
+largest resistance?
+How does the resistance across the opposing faces
+Answer the following questions by using Ohm’s law.
+resistance across your fingers?
+A mini electric fan of resistance 15 2 needs a
+The calculator in your hand has resistance of
+resistance change? Briefly explain.
+Resistance bans
+Which one is an ohmic conductor? Briefly
+(b) Which one has its resistance increasing with its
+You are given a voltmeter, an ammeter, and a 1.5 V
+battery. Write the steps needed to find the resistance
+of a resistor using the voltmeter-ammeter method.
+(a) What is the resistance of the rheostat?
+
+=== PAGE 105 ===
+have no resistance, for simplicity.
+Fig. 21.39 Reducing a series combination into one equivalent resistor
+equivalent resistance R such that the overall pd
+Therefore, the equivalent resistance is
+The equivalent resistance R of resistors in series is higher than
+each individual one. The effect is the same as joining short
+resistance wires to make a longer wire.
+yaeS Resistor networks
+Fig. 21.40 Joining wires end to end gives
+a higher resistance.
+
+=== PAGE 106 ===
+Resistor networks bas
+Note that, in Fig. 21.41,
+Fig. 21.41 A larger resistance takes up a
+If R, > R,, then V, > V,. A larger resistance takes up a greater
+Fig. 21.42 Reducing a parallel combination into one equivalent resistor
+
+=== PAGE 107 ===
+af Circuit and Power
+equivalent resistance R such that the total current
+Therefore, the equivalent resistance R is given by
+The equivalent resistance R of resistors in parallel is lower
+resistance wires side by side to make a thicker wire.
+Fig. 21.43 Wires joined side by side will have
+Division of current a lower resistance.
+Note that, in Fig. 21.44, ,
+R R Fig. 21.44 A larger resistance takes up a
+If R, > R,, then I, < I,. A larger resistance takes up a smaller
+
+=== PAGE 108 ===
+Resistor networks
+resistance R=R, +R, ++ RR, + R, 4
+Table 21.2
+KS Example 21.7 Three resistors
+them to give a network of (a) maximum resistance, and
+(b) minimum resistance?
+Find the equivalent resistance for each network.
+(a) To build a network of maximum resistance, all resistors should 19 20 3Q
+be connected in series as the equivalent resistance is equal to
+the sum of the resistances of all resistors. The network should
+The equivalent resistance of the network =1+2+3=6.
+(b) To build a network of minimum resistance, all resistors should 10
+The equivalent resistance of the network | |
+affect the equivalent resistance.
+
+=== PAGE 109 ===
+af Circuit and Power
+i Checkpoint ©
+(b) The equivalent resistance of a series 3.
+resistance of each individual one.
+(c) The equivalent resistance of two wires
+the resistance of each individual one.
+2. Which pair of points should a voltmeter be
+fe] Reducing a resistor network
+(with the same resistance as the whole network). For most
+networks, this can be done step by step as shown in Fig. 21.45.
+Fig. 21.45 Reducing a network of resistors into one equivalent resistor
+
+=== PAGE 110 ===
+KS Example 21.8 Square network
+In the network shown, what is the equivalent resistance across
+The equivalent resistance of the lower three resistors in series
+the equivalent resistance of the network across A and B
+The equivalent resistance of the upper two resistors in series
+The equivalent resistance of the lower two resistors in series
+resistance of the network across A and C
+Resistor networks bas
+
+=== PAGE 111 ===
+af Circuit and Power
+L Example 21.9 Currents in a circuit
+The equivalent resistance across AC is
+
+=== PAGE 112 ===
+im Checkpoint Q)
+Resistor networks bas
+the missing value. Hence, find the equivalent resistance of the whole network.
+Find the equivalent resistance across AB in each 3.
+case. The resistors are identical, each of resistance R.
+equivalent resistance between the terminals is equal
+network. If R is 12 O, the ammeter reads 1 A. If R is
+changed to 24 Q, what is the new ammeter reading?
+
+=== PAGE 113 ===
+af Circuit and Power
+Look at Fig. 21.46. In circuit (a), the light bulb is connected to a
+Fig. 21.46 Controlling the pd across the bulb by varying the resistance of R
+Fig. 21.47 shows another potential divider, which is constructed — 4 _ Potential divider can also be constructed
+Fig. 21.47 Using a rheostat as a potential divider
+
+=== PAGE 114 ===
+Resistor networks bas
+A thermistor is a device whose resistance decreases as temperature
+graph shows how the resistance of the thermistor changes with
+(a) The reading of the voltmeter is 5 V. Find the temperature of the
+would the voltmeter reading change?
+(a) Let R be the resistance of the thermistor.
+(b) The voltmeter reading increases.
+
+=== PAGE 115 ===
+af Circuit and Power
+= Checkpoint @
+series. What do the ammeter and the voltmeter
+read, when the free end of the voltmeter is
+— G (a) the resistance between XZ?
+R, | (b) the ammeter reading?
+(c) the voltmeter reading?
+
+=== PAGE 116 ===
+Resistor networks
+2. All resistors in the initial networks have resistance
+the resistance of all resistors in each step.
+3. Five identical resistors of resistance R forma
+network as shown. Find the equivalent resistance
+
+=== PAGE 117 ===
+af Circuit and Power
+(a) How many resistor networks of different
+equivalent resistances can you construct out of
+(b) Find the equivalent resistance of each of the
+unknown component as shown. The ammeter reads
+0.04 A, and the voltmeter reads 2 V.
+resistive wire of resistance 3R as shown. Find the
+R R equivalent resistance of the circuit.
+7. Two ammeters are connected in a circuit as shown.
+When the switch is opened, how do their readings -
+source of 10 V as shown. Assume the resistance in
+8. Identical resistors of resistance R are used in this
+(a) Whatis the equivalent resistance of two
+(c) Whatis the equivalent resistance of n parallel
+
+=== PAGE 118 ===
+13. Four identical resistors, each of resistance R, are
+& 14. Anammeter and a switch are connected to four
+network is then connected to a power supply.
+(i) will the ammeter reading be zero?
+different resistors, each of different resistance.
+(i) musr the ammeter reading be zero?
+(c) Ifthe switch is open, must the pd across XY be
+multimeter. The multimeter acts as an ammeter
+A, and acts as a voltmeter when connected to
+used as an ammeter of 1 mA full scale reading ora
+voltmeter of 3 V full scale reading.
+Resistor networks
+(a) Find the resistance of the pointer unit.
+resistance decreases when the temperature T of the
+6V resistance
+ammeter reading | with T? Briefly explain.
+(b) Which graph shows how the voltmeter reading
+
+=== PAGE 119 ===
+af Circuit and Power
+circuit shifts to the right, how would the ammeter
+internal structure of the potential divider is shown
+ZXOZ = 225°, find the reading of the voltmeter.
+uniform resistance wire of length L and resistance
+900 2. Points A, B, C and D on the resistance wire
+The emf of the cell is 10 V, and the resistance of the
+bulb is 300 Q. Assume the resistance of the bulb
+(a) Show that the equivalent resistance across AP
+. An ideal wire has zero resistance and shares zero
+Using this trick, find the equivalent resistance of
+resistance R.
+
+=== PAGE 120 ===
+yam Electrical power
+Energy transformed per unit time
+A circuit (with non-zero resistance) will dissipate energy when
+electrical energy is converted into other forms of energy is
+called electrical power. Recall
+energy transformed E
+The SI unit of power is the watt (W):
+joulemeter Purpose: To determine the power of
+— = Determine the electrical power
+1. Connect the bulb to the power supply via a joulemeter. 4 Set the applied voltage at about 12 V.
+4. Switch off the power supply and record the final reading E, of Before switching off, record the
+the joulemeter. voltmeter and ammeter readings.
+5. Calculate the power using the formula P = ra
+1. How is the brightness of the bulb related to the power of the bulb?
+2. Compare the power obtained P with the product of the measured V x I.
+3. Only a small portion of the electrical power is transformed into light.
+§) Experiment 21.4 Determine the electrical power of a bulb
+
+=== PAGE 121 ===
+af Circuit and Power
+Experiment 21.5 Heating effect of electric current
+2. Fora constant applied voltage, how does the wire resistance
+through, the metal ions inside the wire are constantly collided by free ohmic heating (or joule heating).
+
+=== PAGE 122 ===
+In particular, the rate at which electrical energy is consumed
+(or supplied) is called the electrical power. The rate depends on
+1. The amount of energy consumed (or supplied) per unit
+now show that power is simply the product of these two factors:
+If the load has a resistance R, then
+The total power dissipated P,,,, by a network of loads is equal to
+the sum of power dissipated by each load:
+By conservation of energy, the total power dissipated P,,,,, is
+equal to the total power supplied P,,, by the source:
+1. What determines the brightness of a bulb is power, not just
+Electrical power bins
+Resistance of heating
+Amy: A high power heating
+resistance as P=’R,
+Bob: A high power heating
+resistance as P= \V7/R,
+
+=== PAGE 123 ===
+af Circuit and Power
+L pp, Example 21.11 Y Electric torch
+(a) the power supplied to the bulb.
+(b) the electrical energy consumed in 5.5 minutes.
+(a) Power P = VI = (3.0)(0.40) =1.2 W
+(b) Energy consumed E = Pt = (1.2)(5.5 x 60) = 396 J
+ies Example 21.12 Brightness of filament light bulbs Conceptual
+Identical bulbs (each of constant resistance R) are connected to a
+
+=== PAGE 124 ===
+Electrical power
+[J Short circuit
+will bypass the device via the wire. The device is shorted (or “4 Since the resistance of a wire is much
+short-circuited) smaller than a device.
+Fig. 21.48 Shorting a bulb (middle) and shorting a battery (right)
+A short circuit could be dangerous. If the battery is shorted (i.e.
+almost all energy is dissipated) and overheats. Ashorted mains —¢_ Anoverheated battery may burst or
+im Checkpoint @
+(For Questions 1 and 2) Electrical power can be 4, Describe what happens if (a) bulb A or bulb B is
+calculated using the following equations: shorted and if (b) both bulbs are shorted.
+5. Briefly explain why a shorted battery goes ‘flat’
+Find the power of each bulb and their total power if
+they are connected to a 12 V power supply (a) in
+short circuit 305%
+
+=== PAGE 125 ===
+af Circuit and Power
+Short circuit
+If the battery in a circuit is shorted, the current becomes very large.
+Amy: By P = /?R, the power dissipation P goes up greatly.
+power dissipated as heat in each resistor. Find also
+the equivalent resistance and the total power of the
+Equivalent resistance:
+Total power:
+(b) i ¥ resistance
+Equivalent resistance:
+Total power:
+Equivalent resistance:
+Total power:
+Ten light bulbs in series are connected to a power
+supply. When the power supply is turned on, how
+A light bulb lights up when it is powered, What
+(c) the power of the
+(a) the energy given out by the heater in 1 s.
+(c) the operating resistance of the heater.
+
+=== PAGE 126 ===
+power dissipated in
+What is the power dissipated in the 6 Q resistor
+when the switch is open?
+(b) Find the power of the bulb in (a).
+time ft is shown below. What is its average power in
+Electrical power
+the power delivered by the cell when the MP3
+The resistance R of the rheostat is now increased
+Sketch how the current I, voltage V and power P of
+power supply, and the acceleration due to gravity
+
+=== PAGE 127 ===
+21.6
+adding them into a circuit does not affect the resistance of the
+An ideal cell has no resistance, but a practical cell does (we call
+it internal resistance r). A typical new 1.5 V cell has an internal
+resistance of about 0.3 O. We may represent a practical cell with
+an ideal cell and a pure resistor (Fig. 21.49).
+drop across the internal resistance. So, the terminal voltage V (the
+resistance of the circuit is R + r, and thus
+Fig. 21.49 Two ways to
+emf ¢ and internal resistance r
+we A practical battery not only has internal
+resistance but also has a limit of output
+current (or power). That is why we can
+use a conducting wire to short a bulb,
+
+=== PAGE 128 ===
+I) Experiment 21.6 A homemade dry cell
+Purpose: To find the internal resistance of
+fa] The internal resistance of a
+maximum resistance.
+Record the ammeter reading J and voltmeter reading V.
+Plot a graph of V against I. Its slope is equal to the internal
+resistance of the cell in magnitude.
+2. Why is the slope equal to the internal resistance? (Hint: The
+\ Internal resistance of a battery
+reading of the voltmeter is 3 V. If one of the switches is closed, 50 (| 50 |
+Assume the voltmeter draws negligible current. Find ae wv)
+(b) the internal resistance of the battery. 4 $
+(c) the voltmeter reading after closing both switches.
+(a) When no current passes through the battery, the voltmeter
+.. internal resistance r= = = 05 =10 =
+
+=== PAGE 129 ===
+af Circuit and Power
+(c) When both switches are closed, the total resistance of the
+.. voltmeter reading V=é-—Ir=3-(0.8571)(1) = 2.14 V
+What is the voltmeter reading if one of the resistors is replaced Ans: shorted = zero
+i Checkpoint @
+(a) Apractical dc power supply has no internal
+resistance.
+A battery has an emf of 24 V and an internal
+resistance of 2 Q, When it is delivering a current
+Practical ammeters
+An ideal ammeter has no resistance, but a practical one does. An
+ammeter in proper use is in series with the load (Fig. 21.51). If
+the ammeter is ideal, the current is unaffected by the ammeter:
+resistance 3.0 Q.
+battery (i) is ideal, (ii) has an internal resistance
+(b) What are the answers to (a) if the resistance of
+In practice, an ammeter has a resistance R,. The total resistance
+
+=== PAGE 130 ===
+I full-scale reading typical resistance
+Fig. 21.51 In practice, R, # 0. Adding an ammeter Table 21,3 Typical resistance values of commen
+makes the current smaller. ammeters
+a good ammeter should have a low resistance. <4 The resistance is considered low as
+fe) Practical voltmeters
+An ideal voltmeter has infinite resistance, like a gap. When
+However, a practical voltmeter has a finite resistance Ry. A
+voltmeter in use is in parallel with the load, so the equivalent
+resistance R,, of this combination will be reduced. As this A Rw= — = Wayei
+equivalent resistance R,, makes the measured voltage smaller.
+Fig. 21.52 In practice, Ry # 2. Adding an voltmeter Table 21.4 Typical resistance values of common voltmeters
+Effect of internal resistance
+lf r= 0 in Fig. 21.52, will the
+voltmeter reading be smaller than
+a good voltmeter should have a high resistance.
+
+=== PAGE 131 ===
+af Circuit and Power
+|») Ammeter-voltmeter method in practice
+To determine the resistance R of a load, we measure the
+voltage V across its ends and the current J through it. Fig. 21.53
+shows two different ways to connect an ammeter and a
+voltmeter to the load. The result would be the same if both
+Fig. 21.53 Two circuits for finding resistance
+In circuit 1, the ammeter reads the current through the load
+correctly. However, the voltmeter gives a reading higher than
+resistance is higher than the actual value. If R is low, the error
+resistance.
+In circuit 2, the voltmeter correctly measures the voltage
+across the load, but the ammeter does not. The ammeter gives
+load. So the measured resistance is lower than the actual value.
+suitable for measuring high resistance. 4 High means R= Ry.
+Therefore, when you want to find the resistance R of a load,
+
+=== PAGE 132 ===
+Checkpoint @)
+for measuring the resistance of a resistor that is
+comparable to that of the ammeter?
+power supply power supply
+(a) An ideal ammeter should have no resistance.
+(b) An ideal voltmeter should have no resistance.
+accurate estimate of R? (The milliammeter has a
+(v) (A) resistance of 100 © resistance and the voltmeter has
+a resistance of 10 kQ.)
+power supply power supply 1.35 mA i i
+terminal voltage drops from 12 V to 10 V. Find its a switch as shown. Initially, the switch is open, and
+internal resistance r. the bulbs are of equal brightness. How would their
+two resistors. When a practical voltmeter is — E= | iT
+If the voltmeter is connected across the other one 100
+
+=== PAGE 133 ===
+af Circuit and Power
+A practical ammeter and a practical voltmeter are
+The ammeter reading gives the exact value of
+The voltmeter reading gives the exact value of
+(c) The ratio of the voltmeter to ammeter readings
+approximates the resistance of the resistor.
+resistance of a low resistance resistor.
+A cell of emf 10 V and internal 10V,20
+resistance 2 Q is connected to a it
+An ammeter of internal resistance 100 0 and a
+voltmeter of internal resistance 100 kQ are
+Find the ammeter and voltmeter readings.
+A cell of emf ¢ and internal resistance r is connected
+to a variable resistor as shown. The resistance R of
+corresponding ammeter reading I and voltmeter
+An ideal voltmeter is connected to a circuit as
+If 5; is clased and S, is open, the voltmeter reads 12 V.
+If S, is closed and S, is open, the voltmeter reads 16 V.
+What are the emf ¢ and internal resistance r of
+What will the voltmeter read after both
+
+=== PAGE 134 ===
+* Voltage V is the electrical energy transferred W per
+* Ifenergy is supplied, the voltage is called emf; if
+energy is consumed, it is called pd.
+Resistance
+* Resistance of a component is defined as:
+* Unit: ohm (Q)
+« An ohmic conductor obeys Ohm's law:
+¢ Resistance of a wire is given by:
+Power
+e Electrical power is the rate at which electrical energy
+* Power consumed by a load is:
+ohmic heating
+Energy conservation:
+
+=== PAGE 135 ===
+af Circuit and Power
+Equivalent resistance
+* Fora resistor network:
+ammeter 245 it
+equivalent resistance “7 E
+internal resistance (4 7i/f1
+Ammeter, voltmeter and battery
+* Ammeter is used to measure the current through a
+Voltmeter is used to measure the pd across a device.
+* Practical meters and battery have internal resistance.
+voltmeter
+ammeter
+non-ohmic material JF BK
+ohm fii}
+Ohm's law Buia #
+ohmic material BXi3#9 5
+resistance 7/11
+short circuit $F
+voltmeter {h##it
+
+=== PAGE 136 ===
+open the switch, open the switch,
+= ammeter reading t = ammeter reading:
+@ The resistance is obtained from the ratio “
+ia as Mol graph internal resistance and no limit of output current.)
+@ An ideal ammeter has no resistance (=a wire, in
+effect), so XY is shorted.
+if switch is open, if switch is open,
+voltmeter: 0 V voltmeter: 6 V
+WA gap (or a voltmeter) has R > «, thus taking up | circuit2 = reading exact reading
+
+=== PAGE 137 ===
+af Circuit and Power
+ideal ammeter and three
+ammeter reading is 0.6 A.
+(1) Both wires obey Ohm’s law.
+(2) The resistance of wire X is larger than that of
+identical and the internal resistance of the battery is
+(2) the total output power of the battery increases.
+(3) the power dissipated in the internal resistance of
+as shown in circuit A. The total output power of this
+shown in circuit B, the total output power will be
+resistance of a light bulb.
+ammeter
+
+=== PAGE 138 ===
+(2) The voltmeter should be connected across both
+the ammeter and the light bulb.
+Larry wants to build a battery-powered model car
+circuit below, voltmeters L
+resistance are connected
+What are the voltmeter readings when the switch
+is open?
+battery of emf 3.0 V and internal resistance 2.0 Q is
+connected to a light bulb of resistance 10.0 O. A
+voltmeter of internal resistance 10 kQ is connected in
+the voltmeter?
+constant emf and a fixed internal resistance. When S
+is closed, the ammeter reads 3.0 A. When S is open,
+ammeter?
+HKALE 2010 In the network below, the resistance
+of each resistor is 60 Q. Find the equivalent resistance
+
+=== PAGE 139 ===
+af Circuit and Power
+of energy is provided by the battery, and 1 x 10° C of
+(c) Ifthe energy dissipated in the 2 Q resistor
+3 V. The resistance of the variable resistor is set at 2 Q
+(i) What is its power? (4 marks)
+(b) How much energy is supplied to the explosive?
+(c) State the energy change during the ignition.
+(d) How would the resistance of the wire change
+resistance affect the energy supplied to the
+(i) Should the switch be open or closed?
+(ii) What is the power of the heater now?
+is no energy loss. (2 marks)
+dc power supply
+Briefly describe an experiment to measure the power
+
+=== PAGE 140 ===
+cells. She connects a bulb and an ammeter to each
+emf ¢ and internal resistance r of a cell. A few
+ammeters and voltmeters with different full-scale
+ammeter voltmeter
+is at least 10 Q. Which ammeter and voltmeter
+He varies the resistance of the rheostat and
+obtains a set of ammeter reading J and voltmeter
+resistance of resistor R, Resistors R and R, are
+resistance of which of them has/have to be
+known? How should its/their resistance be
+Briefly describe how the resistance of R could be
+(ii) What is the equivalent resistance of X
+
+=== PAGE 141 ===
+af Circuit and Power
+An ohmmeter is a device for measuring the resistance
+ohmmeter
+The galvanometer has a resistance of 50 2 and its
+deflection occurs when zero resistance is detected.
+resistance r across the probes.
+(a) Determine the resistance of R. (2 marks)
+(b) Find the resistance r of the unknown
+Why the ohmmeter cANNoT be used to measure
+the operating resistance of a glowing light
+resistance. (2 marks)
+resistance varies with
+resistance / Q
+ammeter and a battery. Its resistance varies with
+(a) What are the ammeter readings at the
+(d) Other than keeping track of the ammeter
+whose resistance decreases when its surrounding
+heating element, a switch, a 24 V power supply and
+an electric fan which operates at 24 V with a power
+connected to the power supply? Explain
+
+=== PAGE 142 ===
+(b) If the output power of the heating element is
+(i) the operating resistance of the heating
+(ii) the total current drawn from the power
+set at two levels of power output. Draw a
+coins could create a short circuit, causing large
+Internal resistance 170
+(a) Each coin has a resistance of 6.0 x 10 Q across
+(ii) Explain why most of the energy is
+dissipated in the internal resistance of the
+cell rather than in the resistance of the
+(c) (i) Calculate the total energy dissipated as the
+(ii) the kinetic energy of a fully loaded car at
+
+=== PAGE 143 ===
+af Circuit and Power
+energy of a fully loaded car during the
+car descends. Calculate the power the
+energy during the steepest part of the
+(i) Calculate the power supplied to the motor.
+(ii) Explain rwo reasons why the power input
+(iii) Suggest how the motor can vary its power
+28. HKCEE 201! Jane wants to find the resistance of a
+resistance wire by measuring the voltage across and
+current through the resistance wire.
+resistance wire in series with a battery, an
+ammeter, a switch and a variable resistor. Add a
+voltmeter @) in Fig. a to complete the
+resistance
+(i) The ammeter reading in a certain trial is
+the ammeter is 1 A. What is the reading
+trial voltmeter ammeter
+Plot a graph of voltmeter reading against
+ammeter reading in a graph paper. Use a
+resistance of the resistance wire. (2 marks)
+
+=== PAGE 144 ===
+two ideal batteries as shown. The ammeter reading is
+(c) Hence, determine the resistance of R. (2 marks)
+Because of energy conservation, the potential rise
+Below shows a resistor network constituted by
+identical resistors of resistance R. The current
+(b) Whatis the equivalent resistance across XY?
+
+=== PAGE 145 ===
+A lamp connected to a wall socket is powered by
+mains electricity. What we obtain from the socket is energy, 4) We consume energy, not current.
+Fig. 22.1 A lamp powered by mains electricity
+
+=== PAGE 146 ===
+power supply. Fig. 22.5 shows a poune supply with ac and de Fie: 12d Srobbcli five eS endian
+outputs. Note the labels of the terminals. ac (right) power supply.
+Fig. 22.5 A power supply with ac and de outputs
+
+=== PAGE 147 ===
+Mains electricity is produced at a power plant and transmitted
+label ‘220 V ac’ only means that the average power it supplies is
+
+=== PAGE 148 ===
+energy every second) when operating normally. We say that its
+rated power, or power rating, is 1000 W.
+Power rating of appliances
+Fig. 22.8 Power specification on an electric hair dryer
+Table 22.1 shows the typical power ratings of some common
+appliances. Heating devices are usually of a high power (over
+Fig. 22.9 Heating devices usually have a high power (over 1 kW).
+power rating He 3)=
+4s consume energy = convert energy into
+appliance power / W
+Table 22.1 Typical power ratings of
+resistance. But for simplicity, we often
+
+=== PAGE 149 ===
+L Sp Example 22.1 Y Power of a steam iron
+(a) what is its power ?
+(c) what is its resistance?
+(a) The power during normal operation is 1000 W.
+is operated there, what is its power during normal operation?
+(Assume the resistance stays the same.)
+Operating power 220V AR= he = 484.9
+The operating power depends on the _
+figure. Although the power rating of A is (Ry i 484 + 807
+larger, its operating power (= ’R,) is a 2 P,=17R, of Vie/Ra
+than 8. oe ha Wiad! 4 See Checkpoint 1 Q5 for more
+Checkpoint @
+
+=== PAGE 150 ===
+P: power rating V: operating voltage what is the current drawn from the mains supply?
+I: operating current R: operating resistance
+It is the electrical energy (not current) that you pay for. In daily
+life, electrical energy is measured in kilowatt-hours (kW h).
+One kilowatt-hour is the amount of energy supplied to a 1 kW
+The kW h is the billing unit (#£) used on an electricity bill. &® The kilowatt (kW) is a unit of power.
+1 billing unit of electrical energy =1 kWh energy. Note that E = Pt.
+— ~S_... Energy Charge:
+To measure the amount of energy supplied to an electrical
+
+=== PAGE 151 ===
+Fig. 22.11 A kilowatt-hour meter and a joulemeter Electrical energy supplied to a
+oo — Save energy, save money
+every night. If 1 kW h of electrical energy costs $0.9, estimate
+(a) Electrical energy consumed per month
+(b) Power is reduced to 1/5, and so does the energy consumed.
+* CLP Power Hong Kong Limited (CLP)
+They bill users monthly or bimonthly for the electrical energy consumed.
+
+=== PAGE 152 ===
+Checkpoint @
+(c) The cost of running a high power appliance
+power appliance.
+Is the energy consumed in the following situations
+(b) Lights on a Christmas tree with a total power
+ac voltage supply, its power varies over time.
+energy costs $0.90.
+consume 1 kW h of electrical energy?
+1 kW h of electrical energy costs $0.90.
+daily | energy
+For each appliance, find (i) its resistance, (ii) the
+current drawn and (iii) the energy (in kW h)
+
+=== PAGE 153 ===
+connected to an ac power supply. The ratings of the
+mains supply, what is the total power dissipated by
+The figure shows the energy efficiency label of an
+air conditioner. Find the energy consumed when it
+ENERGY LABEL
+consumes 0.2 kW h of energy. Only 90% of the
+energy input is used for heating up the water.
+(a) Find the energy supplied to the water.
+(a) how much energy does it consume?
+burnt out. Given the resistance of its coil is 5 QO.
+(a) Find the energy it consumed in 10 minutes
+shown. The power dissipated in the resistor is 10 W.
+Find the power dissipated in each light bulb.
+
+=== PAGE 154 ===
+parallel circuits for ceiling lamps, wall sockets, and high power
+
+=== PAGE 156 ===
+For high power appliances (e.g. air conditioners
+Fig. 22.16 High power appliances, e.g. an air conditioner,
+
+=== PAGE 157 ===
+Fig. 22.18 A power
+
+=== PAGE 159 ===
+(c) How can the shutters be opened when an
+(b) Should the resistance of the protective resistor
+
+=== PAGE 160 ===
+arranging the power circuit for the sockets
+
+=== PAGE 161 ===
+overloading or short circuit.
+overloading Af «= short circuit SE fuse (RAR AE
+
+=== PAGE 163 ===
+wire provides a low-resistance path to the ground. This protects =
+2. The low-resistance path yields a large current that blows the
+Powering a tram
+powered by one wire only.
+
+=== PAGE 165 ===
+The fuse will blow if there is a short circuit between
+
+=== PAGE 166 ===
+(b) Can the sockets be used for providing energy
+to power an appliance? Briefly explain.
+does not have an earth wire in its power cord.
+power cord,
+
+=== PAGE 167 ===
+higher the value of w, the faster it oscillates, and the shorter it
+Apply a sinusoidal voltage across a load of constant resistance
+
+=== PAGE 168 ===
+Instantaneous power
+At every instant, the power dissipated by the load is
+Fig. 22.35 Power varies over time as an <4 Power rises and falls twice during a
+
+=== PAGE 169 ===
+[J Average power
+The power P dissipated by a constant R varies with time. At any
+The time average of power is A, Precisely, the time average (x) ofa
+root mean square (rms) voltage, denoted as V,,,,.. 4) Root mean square is a short form for the
+
+=== PAGE 170 ===
+the same average power to a resistive load. In terms of the rms
+
+=== PAGE 172 ===
+Checkpoint @
+(a) The instantaneous power dissipated by a
+gives the same average power?
+power dissipated in it?
+power, I, or I,?
+before, will the average power increase?
+1. Aresistor is connected to a sinusoidal ac power
+An ac ammeter measures the rms value of the ac
+reading of an ac ammeter. What is the peak value of
+(a) Find the average power of the resistor.
+does the average power dissipated increase,
+and dissipates energy E in 10s, If instead, a
+through the resistor, the energy dissipated in the
+
+=== PAGE 173 ===
+(ii) Find the average power dissipated in the
+The power dissipated in the resistor is shown on
+why is the average power (P ) dissipated
+Two power sources are connected to a resistor in
+By considering the energy consumed in 1 cycle,
+
+=== PAGE 174 ===
+* Unit of electricity (energy): kilowatt-hour (kW h)
+power.
+* Average power dissipated by an ac:
+
+=== PAGE 175 ===
+double insulation @ iM a power rating #2 04
+kilowatt-hour meter TM Fiitt short circuit iF
+power than Y power than Y
+
+=== PAGE 176 ===
+(1) The resistance of the electric kettle doubles that
+(1) When the switch is opened, bulb C is the
+
+=== PAGE 177 ===
+the bulb is ‘6 V, 12 W’. Find the resistance of R so that
+which of the following points are short-circuited?
+voltage of 10 V, the power dissipated is P. If the
+heater is connected to a sinusoidal ac, the power
+this ac source? Assume that the resistance of the
+electrical power duration /
+energy used. At the beginning of the day, the
+
+=== PAGE 178 ===
+& 13. Below shows the power specification of a light bulb.
+ammeter and a 0-20 © rheostat, whose initial
+resistance is set at maximum. An ac voltage source of
+Power 15W
+Find the resistance of the light bulb. (1 mark)
+What is the reading of the ammeter? —_(2 marks)
+how should the resistance R of the rheostat be
+
+=== PAGE 179 ===
+power cord consists of two insulated wires only.
+resistance changes with the voltage. When the
+voltage is normal, its resistance is much larger
+pulse arrives, its resistance drops significantly.
+measures its length and resistance.
+Resistance = 0.11
+0.050 m. Show that the resistance of a 15 A
+(ii) Suggest why she measured the resistance
+measuring the resistance of the fuse length
+generates heat energy in this fuse. (2 marks)
+Calculate the energy required to raise the
+(iv) In fact, the resistance of the wire will be
+resistance to increase. (2 marks)
+
+=== PAGE 180 ===
+power supply by two methods. She is not allowed to
+use a voltmeter or ammeter.
+She first connects the power supply to the
+to power supply
+She now connects the power supply to a heating
+15 minutes later she disconnects the power
+(i) Calculate a figure for the energy supplied.
+(ii) Calculate the power supplied.
+output of the power supply. [The resistance
+voltage of 12 V. The energy consumed by the
+(i) Estimate the electrical power of the heater.
+(iii) A5 A fuse is installed in the power supply.
+power supply. The peak value of the voltage of
+the ac power supply is 15 V. How would the
+output power of the heater change? (2 marks)
+suitable resistor to replace X, such that the resistance of
+(a) Whatis the resistance of the resistor? How should it
+
+=== PAGE 188 ===
+¢ Hall probe (connected to a de voltmeter), mainly for 4 Itcan also measure slow varying fields.
+¢ Search coil (connected to an ac voltmeter), for measuring 4 We will discuss its working principle in
+Fig. 23.11 Hall probe connected to millivoltmeter via Fig. 23.12 Search coils (in two orientations)
+
+=== PAGE 192 ===
+wires. Switch on the power supply, and tap the board gently.
+Switch off the power supply, and observe the pattern of the
+Switch on the power supply again, and observe the
+We should switch off the power supply as soon as possible
+& Switch off the power supply as soon
+
+=== PAGE 198 ===
+dc power supply —_
+
+---
+exit_code: 0
+elapsed_ms: 281687
+ended_at: 2026-08-22T14:42:38.441Z
+---

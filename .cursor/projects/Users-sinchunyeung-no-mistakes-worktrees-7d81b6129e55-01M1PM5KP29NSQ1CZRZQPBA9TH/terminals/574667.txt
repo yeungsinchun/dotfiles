@@ -1,0 +1,29 @@
+---
+pid: 30412
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1PM5KP29NSQ1CZRZQPBA9TH"
+command: "cd /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1PM5KP29NSQ1CZRZQPBA9TH/web\nHOST=127.0.0.1 PORT=5055 /tmp/p1-test-venv/bin/python server.py"
+title: "Start Flask visualizer on port 5055"
+status: failed   
+started_at: 2026-09-04T16:41:10.570Z
+running_for_ms: 98088    
+---
+Repo root: /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1PM5KP29NSQ1CZRZQPBA9TH
+Binary: /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1PM5KP29NSQ1CZRZQPBA9TH/build/simplify
+Starting Flask server on http://127.0.0.1:5055
+ * Serving Flask app 'server'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5055
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [05/Sep/2026 00:42:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:42:08] "GET /viewer.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:42:08] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:42:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [05/Sep/2026 00:42:09] "GET /api/trace/8?epsilon=0.5&delta=200 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2026 00:42:15] "POST /api/frechet HTTP/1.1" 200 -
+
+---
+exit_code: unknown
+elapsed_ms: 98087
+ended_at: 2026-09-04T16:42:48.657Z
+---

@@ -1,0 +1,21 @@
+---
+pid: 44620
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && \\\n# refresh classification answer paths + json/csv without full OCR reclassify if possible\n.venv/bin/python - <<'PY'\nimport csv, json, shutil\nfrom pathlib import Path\nimport sys\nsys.path.insert(0,'scripts')\nfrom classify_mc_llm import SECTION_BY_NUM, BOOK_NAMES, SECTIONS\n\nROOT=Path('.')\nrows=list(csv.DictReader((ROOT/'classified/lq/classification.csv').open()))\n# update AnswerPNG existence\nfor r in rows:\n    y,q=r['Year'],r['Question']\n    ans=ROOT/f'output/lq/{y}/ans/q{q}.png'\n    r['AnswerPNG']=f'output/lq/{y}/ans/q{q}.png' if ans.is_file() else ''\n# rewrite csv\nfields=list(rows[0].keys())\nwith (ROOT/'classified/lq/classification.csv').open('w',newline='',encoding='utf-8') as fh:\n    w=csv.DictWriter(fh, fieldnames=fields); w.writeheader(); w.writerows(rows)\n\n# rewrite lq_classification.json/csv via keyword script helper path - quick copy of earlier logic\nperf={}\npp=ROOT/'classified/lq/candidate_performance.json'\nif pp.is_file():\n    perf=json.loads(pp.read_text())\nsec_name={n:name for n,_b,_f,name in SECTIONS}\ndetailed=[]\nfor r in rows:\n    year_raw=r['Year']; year=int(year_raw) if str(year_raw).isdigit() else year_raw\n    q=int(r['Question']); primary=int(r['Primary'])\n    all_secs=[int(x) for x in r['AllSections'].split(';') if x]\n    book,_,pname=SECTION_BY_NUM[primary]\n    detailed.append({\n        'Year':year,'Question':q,'PrimarySection':primary,'PrimaryName':pname,\n        'PrimaryBook':BOOK_NAMES.get(book,book),\n        'AllSections':';'.join(str(s) for s in all_secs),\n        'AllSectionNames':'; '.join(sec_name[s] for s in all_secs),\n        'Reason':r.get('Reason') or '','PNG':r.get('PNG') or '',\n        'AnswerPNG':r.get('AnswerPNG') or '',\n        'CandidatePerformance':(perf.get(str(year_raw)) or {}).get(str(q),''),\n    })\n(ROOT/'classified/lq_classification.json').write_text(json.dumps(detailed,indent=2,ensure_ascii=False)+'\\n')\nwith (ROOT/'classified/lq_classification.csv').open('w',newline='',encoding='utf-8') as fh:\n    w=csv.DictWriter(fh,fieldnames=list(detailed[0].keys())); w.writeheader(); w.writerows(detailed)\nprint('updated', len(rows), 'missing ans', sum(1 for r in rows if not r['AnswerPNG']))\nfor y in ('2018','2019','2020','2023'):\n    have=[r for r in rows if r['Year']==y and r['AnswerPNG']]\n    print(y, 'with ans', len(have))\nPY\n.venv/bin/python scripts/build_lq_lavish_review.py 2>&1 | tail -8\n"
+title: "Update ans paths, rebuild Lavish review"
+status: succeeded
+started_at: 2026-09-05T04:13:49.225Z
+running_for_ms: 57951    
+---
+updated 167 missing ans 35
+2018 with ans 10
+2019 with ans 10
+2020 with ans 10
+2023 with ans 9
+Wrote /Users/sinchunyeung/github/paper2db/.lavish/lq-classified-review/index.html (179 placements)
+
+---
+exit_code: 0
+elapsed_ms: 57947
+ended_at: 2026-09-05T04:14:47.172Z
+---

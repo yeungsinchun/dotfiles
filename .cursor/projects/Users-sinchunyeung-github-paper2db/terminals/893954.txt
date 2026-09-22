@@ -1,0 +1,87 @@
+---
+pid: 20621
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && for y in 2012 2014 2021; do\n  echo \"==== $y ====\"\n  .venv/bin/python scripts/preprocess_lq_answers.py \"answer/${y}ans.pdf\" \"output/lq/$y/ans\" 2>&1 | rg 'skip|include|detected|Wrote|stop|infer|WARNING|fallback'\ndone\n"
+title: "Re-crop 2012/2014/2021 answers"
+status: succeeded
+started_at: 2026-09-05T03:16:11.347Z
+running_for_ms: 63750    
+---
+==== 2012 ====
+  skip Section A page 1/11
+  include answer page 2/11 (1180x1674)
+  include answer page 3/11 (1180x1674)
+  include answer page 4/11 (1180x1674)
+  include answer page 5/11 (1180x1674)
+  include answer page 6/11 (1180x1674)
+  include answer page 7/11 (1180x1674)
+  stop at Paper 2 / late Section A page 8/11
+  infer missing Q7 at page_idx=3 y=133
+  detected answers Q1-Q11 (11)
+  Wrote q1.png (1153x374)
+  Wrote q2.png (1136x290)
+  Wrote q3.png (1065x702)
+  Wrote q4.png (1173x1409)
+  Wrote q5.png (1120x436)
+  Wrote q6.png (1129x995)
+  Wrote q7.png (1158x1406)
+  Wrote q8.png (1118x441)
+  Wrote q9.png (1126x992)
+  Wrote q10.png (1166x913)
+  Wrote q11.png (1180x522)
+Wrote output/lq/2012/ans/combined.pdf (11 pages)
+Wrote 11 answer crops -> output/lq/2012/ans
+==== 2014 ====
+  skip front-matter page 1/16
+  skip Section A page 2/16
+  include answer page 3/16 (1191x1684)
+  include answer page 4/16 (1191x1684)
+  include answer page 5/16 (1191x1684)
+  include answer page 6/16 (1191x1684)
+  include answer page 7/16 (1191x1684)
+  include answer page 8/16 (1191x1684)
+  include answer page 9/16 (1191x1684)
+  include answer page 10/16 (1191x1684)
+  include answer page 11/16 (1191x1684)
+  include answer page 12/16 (1191x1684)
+  stop at Paper 2 / late Section A page 13/16
+  infer missing Q5 at page_idx=4 y=134
+  detected answers Q1-Q10 (10)
+  Wrote q1.png (1191x1410)
+  Wrote q2.png (1172x1444)
+  Wrote q3.png (1191x1423)
+  Wrote q4.png (1191x1402)
+  Wrote q5.png (1191x1484)
+  Wrote q6.png (1191x1423)
+  Wrote q7.png (1191x1403)
+  Wrote q8.png (1191x1498)
+  Wrote q9.png (1191x1401)
+  Wrote q10.png (1191x1403)
+Wrote output/lq/2014/ans/combined.pdf (10 pages)
+Wrote 10 answer crops -> output/lq/2014/ans
+==== 2021 ====
+  skip Section A page 1/14
+  include answer page 2/14 (1201x1700)
+  include answer page 3/14 (1199x1773)
+  include answer page 4/14 (1203x1732)
+  include answer page 5/14 (1200x1756)
+  include answer page 6/14 (1202x1708)
+  include answer page 7/14 (1199x1748)
+  include answer page 8/14 (1201x1716)
+  include answer page 9/14 (1200x1782)
+  include answer page 10/14 (1202x1765)
+  include answer page 11/14 (1201x1773)
+  include answer page 12/14 (1198x1724)
+  include answer page 13/14 (1198x1782)
+  include answer page 14/14 (1203x1782)
+  detected answers Q1-Q4 (2)
+  Wrote q1.png (1203x3158)
+  Wrote q4.png (1203x1448)
+Wrote output/lq/2021/ans/combined.pdf (2 pages)
+Wrote 2 answer crops -> output/lq/2021/ans
+
+---
+exit_code: 0
+elapsed_ms: 63750
+ended_at: 2026-09-05T03:17:15.097Z
+---

@@ -1,0 +1,46 @@
+---
+pid: 38951
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QFP8420A822ZBG2J91VR74"
+command: "EVID=/Users/sinchunyeung/.no-mistakes/evidence/01M1QFP8420A822ZBG2J91VR74\nREPO=/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QFP8420A822ZBG2J91VR74\ncd \"$REPO\"\n\n# Local CI gate: Frechet + points + perf at e=299 d=1, IDs 1-10\npython3 scripts/local_ci_gate.py \\\n  --baseline \"$REPO/baseline-src/build-base/simplify\" \\\n  --new \"$REPO/build-new/simplify\" \\\n  --baseline-cwd \"$REPO/baseline-src\" \\\n  --new-cwd \"$REPO\" \\\n  --a 1 --b 10 \\\n  --bench-runs 3 \\\n  2>&1 | tee \"$EVID/local_ci_gate_e299_d1.txt\""
+title: "Run local CI Frechet/points/perf gate"
+status: succeeded
+started_at: 2026-09-05T00:58:27.051Z
+running_for_ms: 240447   
+---
+Gate params: e=299.0 d=1.0 dist_tol=0.01 points_tol=0 slowdown=1.5x min_ms=20.0
+baseline=/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QFP8420A822ZBG2J91VR74/baseline-src/build-base/simplify
+new     =/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QFP8420A822ZBG2J91VR74/build-new/simplify
+
+=== Correctness (Frechet + points) ===
+  id     orig_dist      new_dist      d_dist  orig_pts   new_pts   d_pts  status
+   1    299.000000    299.000000    0.000000        92        92       0  OK
+   2    299.002120    299.002120    0.000000       516       516       0  OK
+   3    299.002245    299.002245    0.000000       120       120       0  OK
+   4    299.000000    299.000000    0.000000        66        66       0  OK
+   5    299.002784    299.002784    0.000000       176       176       0  OK
+   6    299.000000    299.000000    0.000000        52        52       0  OK
+   7    299.000000    299.000000    0.000000       156       156       0  OK
+   8    299.000000    299.000000    0.000000         6         6       0  OK
+   9    299.001589    299.001589    0.000000       186       186       0  OK
+  10    299.000000    299.000000    0.000000       204       204       0  OK
+
+=== Benchmark (avg of 3, limit 1.5x) ===
+  id     prev_ms      new_ms     ratio  status
+   1      7.4513      6.2108     0.834  OK
+   2     20.3122     13.6313     0.671  OK
+   3     15.2178     10.9007     0.716  OK
+   4      9.7051      7.6533     0.789  OK
+   5      8.2170      5.5163     0.671  OK
+   6      6.8194      5.4031     0.792  OK
+   7      4.6499      3.5219     0.757  OK
+   8      0.1259      0.0932     0.740  OK
+   9      7.2251      4.4697     0.619  OK
+  10     61.6941     40.6867     0.659  OK
+
+✅ Local CI gate OK
+
+---
+exit_code: 0
+elapsed_ms: 240447
+ended_at: 2026-09-05T01:02:27.498Z
+---

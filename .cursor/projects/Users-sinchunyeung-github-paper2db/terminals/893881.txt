@@ -1,0 +1,128 @@
+---
+pid: 9687
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python <<'PY'\nimport json, re, shutil, time\nfrom pathlib import Path\nfrom collections import defaultdict\nfrom PIL import Image\n\n# --- classifier: 2012 Q5 only S6; rule sweep S7->S6 for simple 1-body force ---\ndata=json.loads(Path('classified/llm_classifications.json').read_text())\n\ndef ocr(year,q):\n    p=Path('classified/ocr_cache')/str(year)/f'q{q}.txt'\n    return p.read_text(errors='ignore').lower() if p.is_file() else ''\n\nchanged=[]\nfor it in data:\n    y,q=str(it['Year']), int(it['Question'])\n    secs=list(it['sections'])\n    if y=='2012' and q==5:\n        it['sections']=[6]\n        it['reason']='Resultant of two forces on one body (no system/moments) - Force.'\n        changed.append((y,q,'S6 only'))\n        continue\n    # If primary is S7 but text has no moment/torque/system/equilibrium of rigid body cues,\n    # and looks like simple F=ma / friction / single block -> S6\n    if secs and secs[0]==7:\n        blob=' '.join([(it.get('StatementPreview') or ''), it.get('reason') or '', ocr(y,q)]).lower()\n        s7_cues=any(k in blob for k in [\n            'moment', 'torque', 'couple', 'hinge', 'pivot', 'metre rule', 'meter rule',\n            'uniform rod', 'centre of gravity', 'center of gravity', 'cg', 'toppl',\n            'two blocks', 'system of', 'connected', 'pulley', 'string connecting',\n            'rigid body', 'see-saw', 'seesaw', 'ladder'\n        ])\n        s6_cues=any(k in blob for k in [\n            'resultant', 'friction', 'f=ma', 'newton', 'single block', 'a block',\n            'horizontal force', 'inclined plane', 'smooth incline'\n        ])\n        # only rehome clear false S7: no s7 cues\n        if not s7_cues and ('force' in blob or 'friction' in blob or 'resultant' in blob):\n            it['sections']=[6]+[s for s in secs if s not in (6,7)]\n            it['reason']=(it.get('reason') or '').split('-')[0].strip().rstrip('.') + ' - Force (single-body; not moments/systems).'\n            changed.append((y,q,'S7->S6'))\n\nPath('classified/llm_classifications.json').write_text(json.dumps(data, indent=2, ensure_ascii=False)+'\\n')\nprint('class changes', changed)\n\n# bump pad_top default in split_mc\ntext=Path('scripts/split_mc.py').read_text()\nold=\"default=4.0,\\n        help=\\\"Padding (PDF pts) between this question's bottom and the next anchor\\\",\"\nnew=\"default=12.0,\\n        help=\\\"Padding (PDF pts) between this question's bottom and the next anchor\\\",\"\nif old in text:\n    Path('scripts/split_mc.py').write_text(text.replace(old,new,1))\n    print('pad_top -> 12')\nelse:\n    print('pad_top already changed or missing', 'default=12.0' in text)\n\n# Re-split 2026 for bottom margin if intermediate exists\nimport subprocess\nif Path('output/2026-intermediate/anchor.meta.json').is_file():\n    subprocess.run(['./segment','paper/mc/2026p1a.pdf','output/2026','--type','mc','--step','split','--intermediate','output/2026-intermediate'], check=False)\n\n# Apply classifications\nsubprocess.run(['.venv/bin/python','scripts/classify_mc_llm.py','--skip-ocr','--from-json','classified/llm_classifications.json','--rebuild-pdfs'], check=False)\n\n# Rebuild lavish data with cache-busting query on images\nv=str(int(time.time()))\nSECTIONS = [\n    (1, \"Heat and Gases\", \"Temperature and Heat Transfer\"),\n    (2, \"Heat and Gases\", \"Heat Capacity\"),\n    (3, \"Heat and Gases\", \"Change of State\"),\n    (4, \"Heat and Gases\", \"Gas Law and Kinetic Theory\"),\n    (5, \"Force and Motion\", \"Motion\"),\n    (6, \"Force and Motion\", \"Force\"),\n    (7, \"Force and Motion\", \"More about Forces\"),\n    (8, \"Force and Motion\", \"Work, Energy and Power\"),\n    (9, \"Force and Motion\", \"Momentum\"),\n    (10, \"Force and Motion\", \"Projectile Motion\"),\n    (11, \"Force and Motion\", \"Uniform Circular Motion\"),\n    (12, \"Force and Motion\", \"Gravitation\"),\n    (13, \"Wave Motion\", \"Wave Motion\"),\n    (14, \"Wave Motion\", \"Reflection, Refraction and Diffraction\"),\n    (15, \"Wave Motion\", \"Interference and Stationary Wave\"),\n    (16, \"Wave Motion\", \"Light and Sound\"),\n    (17, \"Ray Optics\", \"Reflection of Light\"),\n    (18, \"Ray Optics\", \"Refraction of Light\"),\n    (19, \"Ray Optics\", \"Lenses\"),\n    (20, \"Electricity and Magnetism\", \"Electrostatics\"),\n    (21, \"Electricity and Magnetism\", \"Circuit and Power\"),\n    (22, \"Electricity and Magnetism\", \"AC and Domestic Electricity\"),\n    (23, \"Electricity and Magnetism\", \"Electromagnetism\"),\n    (24, \"Electricity and Magnetism\", \"Electromagnetic Induction\"),\n    (25, \"Radioactivity and Nuclear Energy\", \"Radiation and Radioactivity\"),\n    (26, \"Radioactivity and Nuclear Energy\", \"Rate of Decay and Uses of Radionuclides\"),\n    (27, \"Radioactivity and Nuclear Energy\", \"Nuclear Energy\"),\n]\nrows=json.loads(Path('classified/llm_classifications.json').read_text())\nby_sec=defaultdict(list)\nfor it in rows:\n    year=str(it['Year']); q=int(it['Question']); secs=list(it['sections']); primary=secs[0]\n    img=f\"img/{year}_q{q}.png?v={v}\"\n    for i,s in enumerate(secs):\n        by_sec[s].append({'year':year,'q':q,'primary':primary,'sections':';'.join(map(str,secs)),'is_primary':i==0,\n            'preview':(it.get('StatementPreview') or '')[:180],'reason':it.get('reason') or '','img':img})\nsections=[{'num':n,'name':name,'book':book,'count':len(by_sec[n]),'items':sorted(by_sec[n], key=lambda x:(str(x['year']),x['q']))} for n,book,name in SECTIONS]\nout={'sections':sections}\nPath('.lavish/classified-review/data.json').write_text(json.dumps(out, ensure_ascii=False, indent=2)+'\\n')\n\n# sync pngs\nfor year_dir in Path('output').iterdir():\n    if not year_dir.is_dir() or year_dir.name.endswith('-intermediate'): continue\n    for png in year_dir.glob('q*.png'):\n        dest=Path('.lavish/classified-review/img')/f'{year_dir.name}_q{png.stem[1:]}.png'\n        shutil.copy2(png, dest)\n        for p in Path('classified').rglob(f'{year_dir.name}_q{png.stem[1:]}.png'):\n            shutil.copy2(png, p)\n\nhtml=Path('.lavish/classified-review/index.html').read_text()\npayload=json.dumps(out, ensure_ascii=False).replace('<','\\\\u003c').replace('>','\\\\u003e')\nhtml=re.sub(r'(<script type=\"application/json\" id=\"payload\">).*?(</script>)', lambda m: m.group(1)+payload+m.group(2), html, count=1, flags=re.S)\nPath('.lavish/classified-review/index.html').write_text(html)\nprint('cache bust v=', v)\nprint('2016 q4', Image.open('.lavish/classified-review/img/2016_q4.png').size)\n# confirm 2012 q5 only in S6 in data\nfor sec in sections:\n    for it in sec['items']:\n        if it['year']=='2012' and it['q']==5:\n            print('placed in', sec['num'], 'primary', it['primary'])\nPY\nnpx -y lavish-axi /Users/sinchunyeung/github/paper2db/.lavish/classified-review/index.html --reopen 2>&1 | head -8\n"
+title: "Cache-bust images; fix S6/S7; tighten bottom pad"
+status: succeeded
+started_at: 2026-09-04T14:47:25.194Z
+running_for_ms: 30103    
+---
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q1.png (943x202)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q2.png (943x178)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q3.png (943x447)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q4.png (943x556)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q5.png (943x501)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q6.png (946x498)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q7.png (946x652)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q8.png (943x803)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q9.png (943x607)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q10.png (948x389)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q11.png (948x869)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q12.png (949x735)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q13.png (949x668)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q14.png (953x274)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q15.png (953x577)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q16.png (953x505)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q17.png (944x432)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q18.png (944x534)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q19.png (944x361)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q20.png (942x408)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q21.png (942x230)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q22.png (942x379)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q23.png (946x541)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q24.png (946x591)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q25.png (946x231)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q26.png (943x514)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q27.png (943x555)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q28.png (943x198)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q29.png (943x772)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q30.png (943x625)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q31.png (955x618)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q32.png (955x184)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/q33.png (955x514)
+Wrote 33 questions to /Users/sinchunyeung/github/paper2db/output/2026 (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/2026/combined.pdf (33 pages)
+Paper type: MC (2026p1a.pdf)
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2026
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2026/combined.pdf
+Loaded 462 keys (438 with correct %)
+Wrote 01_Heat_and_Gases/01_Temperature_and_Heat_Transfer/combined.pdf (14 pages, 8 with %)
+Wrote 01_Heat_and_Gases/02_Heat_Capacity/combined.pdf (12 pages, 9 with %)
+Wrote 01_Heat_and_Gases/03_Change_of_State/combined.pdf (16 pages, 14 with %)
+Wrote 01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/combined.pdf (21 pages, 16 with %)
+Wrote 02_Force_and_Motion/05_Motion/combined.pdf (29 pages, 23 with %)
+Wrote 02_Force_and_Motion/06_Force/combined.pdf (38 pages, 23 with %)
+Wrote 02_Force_and_Motion/07_More_about_Forces/combined.pdf (22 pages, 16 with %)
+Wrote 02_Force_and_Motion/08_Work_Energy_and_Power/combined.pdf (17 pages, 14 with %)
+Wrote 02_Force_and_Motion/09_Momentum/combined.pdf (21 pages, 15 with %)
+Wrote 02_Force_and_Motion/10_Projectile_Motion/combined.pdf (11 pages, 11 with %)
+Wrote 02_Force_and_Motion/11_Uniform_Circular_Motion/combined.pdf (9 pages, 6 with %)
+Wrote 02_Force_and_Motion/12_Gravitation/combined.pdf (14 pages, 11 with %)
+Wrote 03A_Wave_Motion/13_Wave_Motion/combined.pdf (28 pages, 23 with %)
+Wrote 03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/combined.pdf (27 pages, 21 with %)
+Wrote 03A_Wave_Motion/15_Interference_and_Stationary_Wave/combined.pdf (29 pages, 21 with %)
+Wrote 03A_Wave_Motion/16_Light_and_Sound/combined.pdf (26 pages, 21 with %)
+Wrote 03B_Ray_Optics/17_Reflection_of_Light/combined.pdf (5 pages, 4 with %)
+Wrote 03B_Ray_Optics/18_Refraction_of_Light/combined.pdf (13 pages, 12 with %)
+Wrote 03B_Ray_Optics/19_Lenses/combined.pdf (23 pages, 16 with %)
+Wrote 04_Electricity_and_Magnetism/20_Electrostatics/combined.pdf (31 pages, 26 with %)
+Wrote 04_Electricity_and_Magnetism/21_Circuit_and_Power/combined.pdf (45 pages, 34 with %)
+Wrote 04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/combined.pdf (27 pages, 20 with %)
+Wrote 04_Electricity_and_Magnetism/23_Electromagnetism/combined.pdf (29 pages, 22 with %)
+Wrote 04_Electricity_and_Magnetism/24_Electromagnetic_Induction/combined.pdf (26 pages, 20 with %)
+Wrote 05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/combined.pdf (18 pages, 15 with %)
+Wrote 05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/combined.pdf (17 pages, 15 with %)
+Wrote 05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/combined.pdf (13 pages, 10 with %)
+
+Done: 27 PDFs, 581 pages
+Examples without correct % (placed last): 2018_q1.png, 2026_q1.png, 2026_q2.png, pp_q1.png, pp_q4.png, sap_q1.png, 2026_q3.png, pp_q2.png, pp_q3.png, 2013_q1.png, sap_q2.png, 2013_q3.png
+Loaded 573 OCR records
+Loaded 573 LLM decisions from classified/llm_classifications.json
+Questions: 573
+  one section:   565
+  multi-section: 8
+  uncertain:     0
+S01 Temperature and Heat Transfer: 14
+S02 Heat Capacity: 12
+S03 Change of State: 16
+S04 Gas Law and Kinetic Theory: 21
+S05 Motion: 29
+S06 Force: 38
+S07 More about Forces: 22
+S08 Work, Energy and Power: 17
+S09 Momentum: 21
+S10 Projectile Motion: 11
+S11 Uniform Circular Motion: 9
+S12 Gravitation: 14
+S13 Wave Motion: 28
+S14 Reflection, Refraction and Diffraction: 27
+S15 Interference and Stationary Wave: 29
+S16 Light and Sound: 26
+S17 Reflection of Light: 5
+S18 Refraction of Light: 13
+S19 Lenses: 23
+S20 Electrostatics: 31
+S21 Circuit and Power: 45
+S22 AC and Domestic Electricity: 27
+S23 Electromagnetism: 29
+S24 Electromagnetic Induction: 26
+S25 Radiation and Radioactivity: 18
+S26 Rate of Decay and Uses of Radionuclides: 17
+S27 Nuclear Energy: 13
+class changes [('2012', 5, 'S6 only'), ('2013', 5, 'S7->S6'), ('2013', 6, 'S7->S6'), ('2014', 4, 'S7->S6'), ('2016', 6, 'S7->S6'), ('2019', 5, 'S7->S6'), ('2021', 5, 'S7->S6')]
+pad_top -> 12
+cache bust v= 1788533270
+2016 q4 (952, 301)
+placed in 6 primary 6
+session:
+  file: /Users/sinchunyeung/github/paper2db/.lavish/classified-review/index.html
+  url: "http://127.0.0.1:4387/session/b5bd5001e87d036d"
+  status: opened
+next_step: "Do not respond to the user just yet. Now you must run `lavish-axi poll /Users/sinchunyeung/github/paper2db/.lavish/classified-review/index.html`. This command long-polls until the user sends feedback or ends the session, and it stays silent the whole time - that is normal, never kill it. Layout issues the browser detects do not return this poll; they wait in the user's Layout issues inbox until the user queues them, then arrive as an ordinary tag \"layout-warnings\" prompt. Do not pass --timeout-ms during normal agent use. Keep the poll in the foreground by default and let it return the feedback directly to the agent. A background poll is allowed only through a harness-native tracked background-job facility whose completion result is guaranteed to resume or notify the same agent. Never use `nohup`, shell `&`, `disown`, redirected fire-and-forget processes, or a detached terminal without an explicit verified callback merely to keep polling alive. If the harness has no completion-aware background facility, use the foreground poll or first wire a verified wake callback into the surrounding supervisor. Do not tell the user the artifact is being monitored until that wake path is live. If the poll gets killed or times out before feedback arrives, re-run it - feedback remains queued until delivery. Poll delivery consumes the response, so read it completely. After applying feedback, run `lavish-axi poll /Users/sinchunyeung/github/paper2db/.lavish/classified-review/index.html --agent-reply \"<message for the user>\"` without --timeout-ms to show your response in Lavish Editor and wait for more feedback. If the user ends the session, stop polling and do not reopen it by re-running `lavish-axi /Users/sinchunyeung/github/paper2db/.lavish/classified-review/index.html` unless the user asks for further review or something genuinely important needs their visual attention - deliver routine updates directly in this conversation instead. When reopening is warranted, run `lavish-axi /Users/sinchunyeung/github/paper2db/.lavish/classified-review/index.html --reopen`."
+
+---
+exit_code: 0
+elapsed_ms: 30099
+ended_at: 2026-09-04T14:47:55.293Z
+---

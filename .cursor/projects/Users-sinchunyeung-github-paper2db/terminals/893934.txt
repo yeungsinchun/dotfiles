@@ -1,0 +1,173 @@
+---
+pid: 83353
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && PYTHONPATH=scripts PYTHONUNBUFFERED=1 .venv/bin/python -u scripts/crop_lq_from_pages.py 2>&1\n"
+title: "Crop full LQ questions from page PNGs"
+status: succeeded
+started_at: 2026-09-05T01:21:08.000Z
+running_for_ms: 205204   
+---
+=== 2012 ===
+  2012 q1.png 1750x4989
+  2012 q2.png 1750x2786
+  2012 q3.png 1746x2275
+  2012 q4.png 1750x5208
+  2012 q5.png 1755x5079
+  2012 q6.png 1755x5186
+  2012 q7.png 1755x5204
+  2012 q8.png 1752x5131
+  2012 q9.png 1749x1473
+  2012 q10.png 1750x6260
+  2012 q11.png 1750x2491
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2012/questions.pdf (11 pages)
+=== 2013 ===
+  2013 q1.png 1408x4015
+  2013 q2.png 1406x4108
+  2013 q3.png 1408x4098
+  2013 q4.png 1408x2058
+  2013 q5.png 1398x2058
+  2013 q6.png 1408x3010
+  2013 q7.png 1398x5220
+  2013 q8.png 1408x2058
+  2013 q9.png 1366x2058
+  2013 q10.png 1408x4150
+  2013 q11.png 1408x4080
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2013/questions.pdf (11 pages)
+=== 2014 ===
+  2014 q1.png 1767x4904
+  2014 q2.png 1767x5146
+  2014 q3.png 1767x5216
+  2014 q4.png 1767x5089
+  2014 q5.png 1766x2689
+  2014 q6.png 1763x2493
+  2014 q7.png 1767x5246
+  2014 q8.png 1767x5179
+  2014 q9.png 1767x5196
+  2014 q10.png 1767x5052
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2014/questions.pdf (10 pages)
+=== 2015 ===
+  2015 q1.png 1769x2761
+  2015 q2.png 1769x2213
+  2015 q3.png 1769x5304
+  2015 q4.png 1769x5183
+  2015 q5.png 1769x5186
+  2015 q6.png 1769x5187
+  2015 q7.png 1769x5185
+  2015 q8.png 1769x5172
+  2015 q9.png 1769x5206
+  2015 q10.png 1769x5067
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2015/questions.pdf (10 pages)
+=== 2016 ===
+  2016 q1.png 1767x5102
+  2016 q2.png 1767x5182
+  2016 q3.png 1767x5065
+  2016 q4.png 1767x5171
+  2016 q5.png 1767x5285
+  2016 q6.png 1767x5180
+  2016 q7.png 1767x5176
+  2016 q8.png 1767x5196
+  2016 q9.png 1767x5065
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2016/questions.pdf (9 pages)
+=== 2017 ===
+  2017 q1.png 1409x3965
+  2017 q2.png 1409x2402
+  2017 q3.png 1409x1712
+  2017 q4.png 1409x4116
+  2017 q5.png 1409x4248
+  2017 q6.png 1409x3982
+  2017 q7.png 1409x4116
+  2017 q8.png 1409x4116
+  2017 q9.png 1409x4116
+  2017 q10.png 1409x6174
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2017/questions.pdf (10 pages)
+=== 2018 ===
+  2018 q1.png 1746x2667
+  2018 q2.png 1746x2327
+  2018 q3.png 1746x5171
+  2018 q4.png 1746x5101
+  2018 q5.png 1746x5153
+  2018 q6.png 1746x5116
+  2018 q7.png 1746x5076
+  2018 q8.png 1746x5214
+  2018 q9.png 1746x5140
+  2018 q10.png 1746x5062
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2018/questions.pdf (10 pages)
+=== 2019 ===
+  2019 q1.png 1767x5032
+  2019 q2.png 1767x5159
+  2019 q3.png 1767x5204
+  2019 q4.png 1767x5177
+  2019 q5.png 1767x2593
+  2019 q6.png 1767x2484
+  2019 q7.png 1767x5184
+  2019 q8.png 1767x5310
+  2019 q9.png 1767x5136
+  2019 q10.png 1767x7694
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2019/questions.pdf (10 pages)
+=== 2020 ===
+  2020 q1.png 1767x5015
+  2020 q2.png 1767x5249
+  2020 q3.png 1767x5197
+  2020 q4.png 1767x5085
+  2020 q5.png 1767x2632
+  2020 q6.png 1767x2592
+  2020 q7.png 1767x5179
+  2020 q8.png 1767x5178
+  2020 q9.png 1767x5178
+  2020 q10.png 1767x5055
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2020/questions.pdf (10 pages)
+=== 2021 ===
+  2021 q1.png 1799x4958
+  2021 q2.png 1786x5153
+  2021 q3.png 1776x5159
+  2021 q4.png 1794x5158
+  2021 q5.png 1795x5282
+  2021 q6.png 1782x7718
+  2021 q7.png 1794x5161
+  2021 q8.png 1787x2670
+  2021 q9.png 1781x2493
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2021/questions.pdf (9 pages)
+=== 2022 ===
+  2022 q1.png 1767x5012
+  2022 q2.png 1767x5211
+  2022 q3.png 1767x5025
+  2022 q4.png 1767x5249
+  2022 q5.png 1767x5058
+  2022 q6.png 1767x5267
+  2022 q7.png 1767x5190
+  2022 q8.png 1767x5170
+  2022 q9.png 1768x2591
+  2022 q10.png 1768x3654
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2022/questions.pdf (10 pages)
+=== 2023 ===
+  2023 q1.png 1767x5047
+  2023 q2.png 1767x5193
+  2023 q3.png 1767x5173
+  2023 q4.png 1767x5188
+  2023 q5.png 1767x5154
+  2023 q6.png 1767x5183
+  2023 q7.png 1767x5099
+  2023 q8.png 1767x5283
+  2023 q9.png 1767x5029
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/2023/questions.pdf (9 pages)
+=== pp ===
+  pp q1.png 1759x2361
+  pp q2.png 1767x2701
+  pp q3.png 1767x2844
+  pp q4.png 1767x2230
+  pp q5.png 1767x2528
+  pp q6.png 1767x2702
+  pp q7.png 1766x2482
+  pp q8.png 1767x5186
+  pp q9.png 1767x5199
+  pp q10.png 1766x2623
+  pp q11.png 1766x5152
+  pp q12.png 1767x12886
+Wrote /Users/sinchunyeung/github/paper2db/output/lq/pp/questions.pdf (12 pages)
+Wrote 131 full-question crops
+
+---
+exit_code: 0
+elapsed_ms: 205173
+ended_at: 2026-09-05T01:24:33.173Z
+---

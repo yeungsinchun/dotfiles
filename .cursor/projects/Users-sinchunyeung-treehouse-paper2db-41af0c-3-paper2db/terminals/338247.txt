@@ -1,0 +1,22 @@
+---
+pid: 41042
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db"
+command: "cd /Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db && .venv/bin/python3 << 'PY'\nimport sqlite3\nconn=sqlite3.connect('paper2db.sqlite')\nconn.execute(\"UPDATE option_cell SET text_content='(2) and (3) only' WHERE option_row_id='2012:10:D'\")\nconn.commit()\nprint(conn.execute(\"SELECT letter, text_content FROM option_row r JOIN option_cell c ON c.option_row_id=r.id WHERE r.question_id='2012:10' ORDER BY letter\").fetchall())\n# also fix A if garbled\na=conn.execute(\"SELECT text_content FROM option_cell WHERE option_row_id='2012:10:A'\").fetchone()[0]\nprint('A', a)\nif a and 'only' not in a.lower():\n    conn.execute(\"UPDATE option_cell SET text_content='(1) only' WHERE option_row_id='2012:10:A'\")\n    conn.commit()\nconn.close()\nPY\n.venv/bin/python3 scripts/render_mc_from_db.py --years 2012 2>&1 | tail -1\n# refresh q8 q10 q11 thumbs\n.venv/bin/python3 << 'PY'\nimport pymupdf as fitz\ndoc=fitz.open('reconstructed/2012/combined.pdf')\n# page index = number-1 for 2012 sequential\nfor num in [1,5,8,10,11]:\n    doc[num-1].get_pixmap(matrix=fitz.Matrix(1.2,1.2),alpha=False).save(f'.lavish/samples/years/2012/q{num}.png')\ndoc.close()\nprint('thumbs ok')\nPY\nnpx -y lavish-axi poll .lavish/2012-stem-review.html --agent-reply \"$(cat <<'EOF'\nApplied more robust fixes for your annotations (and patterns that will help other years):\n\n- **Stem crops**: caption-safe refine (won’t swallow question text); Block X/Y labels kept on **2012:1**\n- **OCR**: white-out figure before stem OCR; strip leading Tess garbage; fix **C/D glued options** (`-D.`, `: D.`)\n- **2012:5 / 2012:10**: options A–D text restored\n- **2012:8**: math fractions → **option image crops** when Tess can’t read them; clean stem text restored\n- **2012:11**: graph options → **2×2 option figure crops**\n\nPlease re-check those cards (and anything else still off). Methods are meant to generalize beyond these ids.\nEOF\n)\" 2>&1\n"
+title: "Fix 2012:10 and poll Lavish"
+status: running  
+started_at: 2026-09-04T12:14:53.442Z
+running_for_ms: 2836882  
+---
+[('A', '(1) only'), ('B', '(3) only'), ('C', '(1) and (2) only'), ('D', '(2) and (3) only')]
+A (1) only
+Modes: {'structured': 27, 'provenance': 9, 'skipped': 0}
+thumbs ok
+[lavish-axi] Long-polling for user feedback on /Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db/.lavish/2012-stem-review.html. This stays silent until the user sends feedback or ends the session - leave it running. Detected layout issues do NOT return this poll: they wait in the user's Layout issues inbox until the user queues them as ordinary feedback. If it gets killed or times out before feedback arrives, re-run `lavish-axi poll /Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db/.lavish/2012-stem-review.html` - feedback remains queued until delivery. Poll delivery consumes the response, so read it completely.
+
+[lavish-axi] Poll interrupted before user feedback arrived. The user may still be reviewing - re-run `lavish-axi poll /Users/sinchunyeung/.treehouse/paper2db-41af0c/3/paper2db/.lavish/2012-stem-review.html` to keep waiting; feedback remains queued until delivery. Poll delivery consumes the response, so read it completely.
+
+---
+exit_code: unknown
+elapsed_ms: 2838125
+ended_at: 2026-09-04T13:02:11.567Z
+---

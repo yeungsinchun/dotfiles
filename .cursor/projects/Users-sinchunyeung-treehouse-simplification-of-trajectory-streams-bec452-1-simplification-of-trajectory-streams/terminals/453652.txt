@@ -1,0 +1,66 @@
+---
+pid: 50386
+cwd: "/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams"
+command: "# Full local CI vs P0 baseline (CI params)\npython3 scripts/local_ci_gate.py \\\n  --baseline /tmp/simplify-p0/simplify --baseline-cwd /tmp/simplify-p0 \\\n  --new /tmp/simplify-p1/simplify --new-cwd /tmp/simplify-p1 \\\n  --epsilon 299 --delta 1 --bench-runs 3 2>&1 | tee /tmp/p1_gate.log\necho EXIT:$?\n# Also vs main baseline to mirror GitHub CI\npython3 scripts/local_ci_gate.py \\\n  --baseline /tmp/simplify-baseline/build/simplify --baseline-cwd /tmp/simplify-baseline \\\n  --new /tmp/simplify-p1/simplify --new-cwd /tmp/simplify-p1 \\\n  --epsilon 299 --delta 1 --bench-runs 3 --skip-dist 2>&1 | tee /tmp/p1_vs_main_bench.log\necho EXIT2:$?"
+title: "Local CI gate P1 vs P0 and vs main"
+status: succeeded
+started_at: 2026-09-04T15:55:33.755Z
+running_for_ms: 201311   
+---
+Gate params: e=299.0 d=1.0 dist_tol=0.01 points_tol=0 slowdown=1.5x min_ms=20.0
+baseline=/tmp/simplify-p0/simplify
+new     =/tmp/simplify-p1/simplify
+
+=== Correctness (Frechet + points) ===
+  id     orig_dist      new_dist      d_dist  orig_pts   new_pts   d_pts  status
+   1    299.000000    299.000000    0.000000        92        92       0  OK
+   2    299.002120    299.002120    0.000000       516       516       0  OK
+   3    299.002245    299.002245    0.000000       120       120       0  OK
+   4    299.000000    299.000000    0.000000        66        66       0  OK
+   5    299.002784    299.002784    0.000000       176       176       0  OK
+   6    299.000000    299.000000    0.000000        52        52       0  OK
+   7    299.000000    299.000000    0.000000       156       156       0  OK
+   8    299.000000    299.000000    0.000000         6         6       0  OK
+   9    299.001589    299.001589    0.000000       186       186       0  OK
+  10    299.000000    299.000000    0.000000       204       204       0  OK
+
+=== Benchmark (avg of 3, limit 1.5x) ===
+  id     prev_ms      new_ms     ratio  status
+   1      4.0806      4.0143     0.984  OK
+   2      8.9665      8.5969     0.959  OK
+   3      7.8634      7.4577     0.948  OK
+   4      4.8444      4.5706     0.943  OK
+   5      4.3239      4.0931     0.947  OK
+   6      4.4343      4.1901     0.945  OK
+   7      2.4914      2.3991     0.963  OK
+   8      0.0544      0.0543     0.999  OK
+   9      3.6236      3.5816     0.988  OK
+  10     39.0953     36.0380     0.922  OK
+
+✅ Local CI gate OK
+EXIT:0
+Gate params: e=299.0 d=1.0 dist_tol=0.01 points_tol=0 slowdown=1.5x min_ms=20.0
+baseline=/tmp/simplify-baseline/build/simplify
+new     =/tmp/simplify-p1/simplify
+
+=== Benchmark (avg of 3, limit 1.5x) ===
+  id     prev_ms      new_ms     ratio  status
+   1      4.4561      3.8375     0.861  OK
+   2     10.2778      8.7309     0.849  OK
+   3      8.3999      7.5011     0.893  OK
+   4      5.2958      4.6364     0.875  OK
+   5      4.7955      4.2306     0.882  OK
+   6      4.6660      4.2291     0.906  OK
+   7      2.8788      2.4090     0.837  OK
+   8      0.0656      0.0548     0.834  OK
+   9      3.9877      3.4454     0.864  OK
+  10     39.4531     36.4287     0.923  OK
+
+✅ Local CI gate OK
+EXIT2:0
+
+---
+exit_code: 0
+elapsed_ms: 201308
+ended_at: 2026-09-04T15:58:55.063Z
+---

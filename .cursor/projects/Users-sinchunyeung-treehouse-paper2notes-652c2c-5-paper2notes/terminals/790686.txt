@@ -1,0 +1,16 @@
+---
+pid: 26252
+cwd: "/private/tmp/p2n-before"
+command: "cd /Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes/notes && (setsid python3 -m http.server 8790 --bind 127.0.0.1 > /tmp/p2n-b5-serve-8790.log 2>&1 < /dev/null & disown) ; sleep 1; lsof -nP -iTCP:8790 -sTCP:LISTEN | tail -1"
+title: "Start detached static server on 8790"
+status: succeeded
+started_at: 2026-09-15T01:43:13.940Z
+running_for_ms: 1217     
+---
+(eval):disown:1: no current job
+
+---
+exit_code: 0
+elapsed_ms: 1217
+ended_at: 2026-09-15T01:43:15.157Z
+---

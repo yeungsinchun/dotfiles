@@ -1,0 +1,22 @@
+---
+pid: 5270
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python scripts/preprocess_mc.py paper/2015p1a.pdf /tmp/t15.pdf --questions 36 2>&1 | tail -3 && ./segment paper/2015p1a.pdf output/2015 --type mc 2>&1 | tail -4"
+title: "Test 2015 with 33-question tail heuristic"
+status: succeeded
+started_at: 2026-09-01T09:20:39.607Z
+running_for_ms: 199684   
+---
+page 13: rail_x=62.7 left=42.7 right=517.7 top=62.4 bottom=771.0 footer=773.0 marker_x=54.7 questions=3
+Wrote /tmp/t15.meta.json
+Wrote /tmp/t15.pdf with 12 pages and 33 anchors.
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/Users/sinchunyeung/github/paper2db/.venv/bin/python3', '/Users/sinchunyeung/github/paper2db/scripts/split_mc.py', '/var/folders/f3/h4301l8d7hn_1612_5g5hpmw0000gn/T/segment-mc-23sfedxy/anchored.pdf', '/Users/sinchunyeung/github/paper2db/output/2015', '--source', '/Users/sinchunyeung/github/paper2db/paper/2015p1a.pdf', '--meta', '/var/folders/f3/h4301l8d7hn_1612_5g5hpmw0000gn/T/segment-mc-23sfedxy/anchored.meta.json', '--questions', '36']' returned non-zero exit status 1.
+
+---
+exit_code: 0
+elapsed_ms: 199684
+ended_at: 2026-09-01T09:23:59.291Z
+---

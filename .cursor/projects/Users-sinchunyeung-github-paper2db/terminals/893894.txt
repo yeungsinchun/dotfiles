@@ -1,0 +1,45 @@
+---
+pid: 16386
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && mkdir -p output/2025-intermediate && ./segment paper/mc/2025p1a.pdf output/2025 --type mc --step all --intermediate output/2025-intermediate 2>&1 | tee /tmp/2025-seg.log | tail -40\n"
+title: "Full resegment 2025 MC paper"
+status: succeeded
+started_at: 2026-09-04T15:36:49.148Z
+running_for_ms: 84566    
+---
+Could not locate question labels: [12, 19, 34, 35, 36]. Add them to --overrides.
+Paper type: MC (2025p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Traceback (most recent call last):
+  File "/Users/sinchunyeung/github/paper2db/./segment", line 362, in <module>
+    main()
+    ~~~~^^
+  File "/Users/sinchunyeung/github/paper2db/./segment", line 326, in main
+    count = segment_mc(
+        pdf,
+    ...<5 lines>...
+        overrides=overrides,
+    )
+  File "/Users/sinchunyeung/github/paper2db/./segment", line 243, in segment_mc
+    anchor_mc(
+    ~~~~~~~~~^
+        source,
+        ^^^^^^^
+    ...<3 lines>...
+        overrides=overrides,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/sinchunyeung/github/paper2db/./segment", line 166, in anchor_mc
+    subprocess.run(pre_cmd, check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/Users/sinchunyeung/github/paper2db/.venv/bin/python3', '/Users/sinchunyeung/github/paper2db/scripts/preprocess_mc.py', '/Users/sinchunyeung/github/paper2db/paper/mc/2025p1a.pdf', '/Users/sinchunyeung/github/paper2db/output/2025-intermediate/anchor.pdf', '--questions', '36', '--cover-pages', '1']' returned non-zero exit status 1.
+
+---
+exit_code: 0
+elapsed_ms: 84565
+ended_at: 2026-09-04T15:38:13.714Z
+---

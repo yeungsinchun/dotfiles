@@ -1,0 +1,15 @@
+---
+pid: 44709
+cwd: "/Users/sinchunyeung/github"
+command: "cursor --help 2>/dev/null | head -40; which cursor agent 2>/dev/null; cursor agent --help 2>/dev/null | head -50"
+title: "Check Cursor CLI agent help for newline info"
+status: failed   
+started_at: 2026-08-31T08:09:15.597Z
+running_for_ms: 269374   
+---
+
+---
+exit_code: unknown
+elapsed_ms: 269373
+ended_at: 2026-08-31T08:13:44.970Z
+---

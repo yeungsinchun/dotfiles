@@ -1,0 +1,25 @@
+---
+pid: 27670
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/dse"
+command: "cd \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse\" && python3 scripts/preprocess_mc.py \\\n  \"Year/MC/sapp1a.pdf\" \\\n  \"preprocessed/anchored_sapp1a.pdf\" \\\n  --questions 36 --cover-pages 1 --scale 5.0\n"
+started_at: 2026-08-21T22:29:58.612Z
+running_for_ms: 30035    
+---
+page 2: rail_x=73.1 left=59.1 right=528.1 top=118.4 bottom=780.4 footer=782.4 marker_x=65.1 questions=3
+page 3: rail_x=73.2 left=59.2 right=528.2 top=70.4 bottom=780.4 footer=782.4 marker_x=65.2 questions=4
+page 4: rail_x=72.7 left=58.7 right=527.7 top=70.4 bottom=780.4 footer=782.4 marker_x=64.7 questions=3
+page 5: rail_x=73.1 left=59.1 right=528.1 top=70.4 bottom=780.4 footer=782.4 marker_x=65.1 questions=4
+page 6: rail_x=72.9 left=58.9 right=505.9 top=70.4 bottom=780.4 footer=782.4 marker_x=64.9 questions=2
+page 7: rail_x=73.2 left=59.2 right=528.2 top=70.4 bottom=780.4 footer=782.4 marker_x=65.2 questions=3
+page 8: rail_x=72.2 left=58.2 right=527.2 top=70.4 bottom=780.4 footer=782.4 marker_x=64.2 questions=4
+page 9: rail_x=72.2 left=58.2 right=527.2 top=70.4 bottom=736.0 footer=738.0 marker_x=64.2 questions=4
+page 10: rail_x=71.9 left=57.9 right=526.9 top=70.4 bottom=780.0 footer=782.0 marker_x=63.9 questions=2
+page 11: rail_x=72.4 left=58.4 right=527.4 top=70.4 bottom=780.4 footer=782.4 marker_x=64.4 questions=3
+page 12: rail_x=72.6 left=58.6 right=517.6 top=70.2 bottom=780.4 footer=782.4 marker_x=64.6 questions=4
+Wrote preprocessed/anchored_sapp1a.pdf with 11 pages and 36 anchors.
+
+---
+exit_code: 0
+elapsed_ms: 30896
+ended_at: 2026-08-21T22:30:29.508Z
+---

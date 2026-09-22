@@ -1,0 +1,67 @@
+---
+pid: 62438
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ"
+command: "cd /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ\nEV=/Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ\n# Check if server still up\ncurl -sf -o /dev/null http://127.0.0.1:5051/ && echo UP || echo DOWN\n# Kill stale and restart\nif [ -f \"$EV/server.pid\" ]; then kill \"$(cat \"$EV/server.pid\")\" 2>/dev/null || true; fi\npkill -f 'web/server.py' 2>/dev/null || true\nsleep 0.5\n.venv/bin/python web/server.py > \"$EV/server-startup.log\" 2>&1 &\necho $! > \"$EV/server.pid\"\nfor i in $(seq 1 20); do curl -sf -o /dev/null http://127.0.0.1:5051/ && echo READY && break; sleep 0.3; done\n# Install chromium for playwright (ephemeral cache allowed)\n.venv/bin/playwright install chromium 2>&1 | tail -15\n.venv/bin/python - <<'PY'\nimport asyncio, re, json\nfrom pathlib import Path\nev = Path(\"/Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ\")\n\nasync def main():\n    from playwright.async_api import async_playwright\n    async with async_playwright() as p:\n        browser = await p.chromium.launch(headless=True)\n        page = await browser.new_page(viewport={\"width\": 1440, \"height\": 900})\n        await page.goto(\"http://127.0.0.1:5051/\", wait_until=\"domcontentloaded\", timeout=30000)\n        await page.wait_for_timeout(2000)\n        await page.screenshot(path=str(ev / \"ui-compare-pane-initial.png\"), full_page=True)\n\n        # Prefer clicking visible compare controls by text\n        clicked = None\n        for text in (\"DP\", \"DOTS\", \"SQUISH\"):\n            loc = page.get_by_role(\"button\", name=re.compile(rf\"^{text}$\", re.I))\n            if await loc.count() == 0:\n                loc = page.get_by_text(text, exact=True)\n            if await loc.count() > 0:\n                await loc.first.click()\n                clicked = text\n                break\n        await page.wait_for_timeout(400)\n        run = page.get_by_role(\"button\", name=re.compile(r\"Run\", re.I))\n        if await run.count() > 0:\n            await run.first.click()\n        else:\n            # fallback: any element with Run\n            await page.locator(\"text=Run\").first.click()\n        await page.wait_for_timeout(3000)\n        await page.screenshot(path=str(ev / \"ui-compare-pane-after-run.png\"), full_page=True)\n\n        # Also drive via API-backed metrics visible in page: capture metrics text\n        body_text = await page.inner_text(\"body\")\n        (ev / \"ui-body-text.txt\").write_text(body_text[:4000])\n        (ev / \"ui-click-info.json\").write_text(json.dumps({\"clicked\": clicked}))\n        await browser.close()\n        print(\"OK\", clicked)\n\nasyncio.run(main())\nPY\nls -la \"$EV\"/ui-*.png \"$EV\"/compare-api-summary.json \"$EV\"/baseline-binaries-smoke.log\n"
+title: "Restart server; Playwright UI screenshots"
+status: succeeded
+started_at: 2026-09-05T04:24:34.791Z
+running_for_ms: 40286    
+---
+DOWN
+READY
+Traceback (most recent call last):
+  File "<stdin>", line 41, in <module>
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py", line 205, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py", line 128, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "<stdin>", line 30, in main
+  File "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ/.venv/lib/python3.14/site-packages/playwright/async_api/_generated.py", line 17894, in click
+    await self._impl_obj.click(
+    ...<11 lines>...
+    )
+  File "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ/.venv/lib/python3.14/site-packages/playwright/_impl/_locator.py", line 165, in click
+    return await self._frame._click(self._selector, strict=True, **params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ/.venv/lib/python3.14/site-packages/playwright/_impl/_frame.py", line 593, in _click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+  File "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ/.venv/lib/python3.14/site-packages/playwright/_impl/_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ/.venv/lib/python3.14/site-packages/playwright/_impl/_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("text=Run").first
+    - locator resolved to <button disabled type="button" id="baselineRunBtn" class="baseline-run-btn">Run baseline</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 100ms
+    46 × waiting for element to be visible, enabled and stable
+       - element is not visible
+     - retrying click action
+       - waiting 500ms
+
+-rw-r--r--@ 1 sinchunyeung  staff    753 Sep  5 12:23 /Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ/baseline-binaries-smoke.log
+-rw-r--r--@ 1 sinchunyeung  staff    561 Sep  5 12:23 /Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ/compare-api-summary.json
+-rw-r--r--@ 1 sinchunyeung  staff  60591 Sep  5 12:24 /Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ/ui-compare-pane-initial.png
+
+---
+exit_code: 0
+elapsed_ms: 40286
+ended_at: 2026-09-05T04:25:15.077Z
+---

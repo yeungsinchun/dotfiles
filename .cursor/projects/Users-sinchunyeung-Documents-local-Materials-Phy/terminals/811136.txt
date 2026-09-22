@@ -1,0 +1,20 @@
+---
+pid: 11332
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy"
+command: "python3 - <<'PY'\nimport sys\nfrom pathlib import Path\nsys.path.insert(0, \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/scripts\")\nimport fitz\nfrom preprocess_lq import find_starts_on_image, expand_pdf_pages, native_scale\n\npdf = Path(\"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/Year/LQ/2019p1b.pdf\")\ndoc = fitz.open(pdf)\nscale = native_scale(doc[1], cap=9.0)\ndetect_scale = max(2.5, scale * 0.55)\npages = expand_pdf_pages(doc, detect_scale, cover_pages=1)\nprint(f\"{len(pages)} pages, size={pages[0].size}\")\n\n# show all OCR hits per page\nfor pi, page in enumerate(pages[:8]):\n    hits = find_starts_on_image(page, 12)\n    if hits:\n        print(f\"page {pi}: {hits}\")\ndoc.close()\nPY"
+started_at: 2026-08-28T09:40:37.275Z
+running_for_ms: 40042    
+---
+38 pages, size=(964, 2728)
+page 0: [(7, 607.562962962963)]
+page 2: [(7, 607.562962962963)]
+page 4: [(2, 360.99092783505154)]
+page 5: [(2, 377.34285714285716)]
+page 6: [(2, 360.99092783505154)]
+page 7: [(2, 377.34285714285716)]
+
+---
+exit_code: 0
+elapsed_ms: 41117
+ended_at: 2026-08-28T09:41:18.392Z
+---

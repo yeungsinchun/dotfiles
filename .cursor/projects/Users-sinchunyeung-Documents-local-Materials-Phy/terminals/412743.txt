@@ -1,0 +1,17 @@
+---
+pid: 88064
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/notes/Electricity and Magnetism/Electric circuits/notes"
+command: "python3 \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/scripts/preprocess_lq.py\" \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/Year/LQ/2016p1b.pdf\" \"/tmp/lq2016test\" --cover-pages 1 2>&1 | head -5"
+started_at: 2026-08-28T08:10:13.962Z
+running_for_ms: 60045    
+---
+  render scale=4.17 (detect 2.50)
+  jpeg scans detected — keeping greyscale (no bilevel snap)
+  detected Q1-Q9 (9 questions)
+Wrote 9 questions -> /tmp/lq2016test
+
+---
+exit_code: 0
+elapsed_ms: 63133
+ended_at: 2026-08-28T08:11:17.095Z
+---

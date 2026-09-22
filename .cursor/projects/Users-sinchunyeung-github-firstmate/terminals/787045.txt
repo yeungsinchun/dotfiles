@@ -1,0 +1,21 @@
+---
+pid: 65561
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "export FM_HOME=\"/Users/sinchunyeung/github/firstmate\"\nwhich treehouse 2>&1; type treehouse 2>&1\nls state/ci-tighten-bench.meta 2>&1\n# find treehouse binary\nls ~/bin/treehouse /opt/homebrew/bin/treehouse ~/.local/bin/treehouse 2>&1\ncommand -v treehouse || find /Users/sinchunyeung -name 'treehouse' -type f 2>/dev/null | head -10\nrg -n \"treehouse return|treehouse:\" bin/fm-teardown.sh | head -20\n"
+title: "Locate treehouse binary for teardown"
+status: failed   
+started_at: 2026-09-08T05:00:07.410Z
+running_for_ms: 38805    
+---
+treehouse not found
+treehouse not found
+state/ci-tighten-bench.meta
+ls: /opt/homebrew/bin/treehouse: No such file or directory
+ls: /Users/sinchunyeung/bin/treehouse: No such file or directory
+/Users/sinchunyeung/.local/bin/treehouse
+
+---
+exit_code: unknown
+elapsed_ms: 38801
+ended_at: 2026-09-08T05:00:46.211Z
+---

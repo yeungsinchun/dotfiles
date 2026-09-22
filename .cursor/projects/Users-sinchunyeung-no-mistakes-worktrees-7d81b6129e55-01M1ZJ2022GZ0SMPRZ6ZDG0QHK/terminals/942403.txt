@@ -1,0 +1,21 @@
+---
+pid: 13257
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1ZJ2022GZ0SMPRZ6ZDG0QHK"
+command: "cmake --version; brew list cgal 2>/dev/null | head -3; ls /opt/homebrew/include/CGAL 2>/dev/null | head -3; ruby -ryaml -e 'puts YAML.load_file(\".github/workflows/benchmark.yml\")[\"jobs\"][\"bench-vs-prev\"][\"strategy\"][\"matrix\"][\"include\"].inspect' 2>&1; which node"
+title: "Check CGAL and YAML parse options"
+status: failed   
+started_at: 2026-09-08T03:52:05.934Z
+running_for_ms: 57479    
+---
+cmake version 4.1.1
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+/opt/homebrew/Cellar/cgal/6.1/LICENSE.LGPL
+/opt/homebrew/Cellar/cgal/6.1/INSTALL_RECEIPT.json
+/opt/homebrew/Cellar/cgal/6.1/LICENSE
+
+---
+exit_code: unknown
+elapsed_ms: 57479
+ended_at: 2026-09-08T03:53:03.413Z
+---

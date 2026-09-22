@@ -1,0 +1,24 @@
+---
+pid: 46711
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "df -h /Users/sinchunyeung | tail -1\n# Confirm origin still at old tip for lease\ngit fetch origin classify 2>&1\ngit rev-parse origin/classify HEAD\n# Retry HTTPS push with room to spare\nGIT_TRACE_PACKET=0 git -c http.postBuffer=2147483648 -c http.version=HTTP/1.1 -c http.lowSpeedLimit=0 -c http.lowSpeedTime=999999 push --force-with-lease=refs/heads/classify:0e09810b6746ce415efb107837c71038d853d6b9 origin HEAD:refs/heads/classify 2>&1\n"
+title: "Retry large HTTPS push with disk headroom"
+status: failed   
+started_at: 2026-09-05T16:08:45.903Z
+running_for_ms: 201716   
+---
+/dev/disk3s5   460Gi   409Gi    13Gi    97%    6.4M  138M    4%   /System/Volumes/Data
+From https://github.com/yeungsinchun/paper2db
+ * branch            classify   -> FETCH_HEAD
+0e09810b6746ce415efb107837c71038d853d6b9
+7f549d07352407e1a87569666562663116f6417b
+error: RPC failed; HTTP 500 curl 22 The requested URL returned error: 500
+send-pack: unexpected disconnect while reading sideband packet
+fatal: the remote end hung up unexpectedly
+Everything up-to-date
+
+---
+exit_code: 1
+elapsed_ms: 201716
+ended_at: 2026-09-05T16:12:07.619Z
+---

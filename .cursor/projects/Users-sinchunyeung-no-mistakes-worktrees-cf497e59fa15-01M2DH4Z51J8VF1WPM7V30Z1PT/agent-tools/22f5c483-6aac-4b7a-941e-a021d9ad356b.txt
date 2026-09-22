@@ -1,0 +1,1285 @@
+diff --git a/scripts/classify_mc_llm.py b/scripts/classify_mc_llm.py
+index a4e27b6..38e8341 100644
+--- a/scripts/classify_mc_llm.py
++++ b/scripts/classify_mc_llm.py
+@@ -10,7 +10,7 @@ Pipeline:
+        classified/mc/uncertain.csv
+        classified/mc/summary.json
+        classified/mc_classification.csv|json  (top-level split naming)
+-  4. Optionally rebuild per-section combined.pdf (easiest -> hardest) + answer.pdf
++  4. Optionally rebuild per-section combined.pdf (year order) + answer.pdf
+ 
+ Partial --years/--limit runs merge into existing mc_ocr.* / classification.*
+ and only refresh touched section PNGs. A full apply aborts if decisions do not
+diff --git a/scripts/combine_lq_section_pdfs.py b/scripts/combine_lq_section_pdfs.py
+index 5d97947..5fc2b5e 100644
+--- a/scripts/combine_lq_section_pdfs.py
++++ b/scripts/combine_lq_section_pdfs.py
+@@ -2,8 +2,8 @@
+ """Build per-section LQ review PDFs under classified/lq/.
+ 
+ For each syllabus section that has at least one primary LQ:
+-  - questions.pdf  - question crops (year order)
+-  - answers.pdf    - marking-scheme answer crops (same order; skips missing)
++  - questions.pdf  - whole source Paper 1B pages (year then Q; A4)
++  - answers.pdf    - marking-scheme answer crops packed on A4 (same order; skips missing)
+   - performance.pdf - candidate-performance notes as text pages
+ 
+ Skips empty sections. Overwrites existing PDFs by default.
+@@ -20,7 +20,9 @@ from pathlib import Path
+ 
+ import pymupdf as fitz
+ 
+-from classify_mc_llm import BOOK_NAMES, SECTION_BY_NUM, SECTIONS, year_key
++from classify_mc_llm import SECTION_BY_NUM, SECTIONS, year_key
++from png_pdf import place_pngs_on_a4, section_heading_title
++from lq_pdf_review import write_section_questions_pdf
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+ CLASSIFIED_LQ = ROOT / "classified" / "lq"
+@@ -80,35 +82,12 @@ def resolve_answer_png(row: dict) -> Path | None:
+ 
+ 
+ def write_image_pdf(paths: list[Path], dest: Path, *, title: str | None = None) -> int:
+-    """One PDF page per image. Optional title page if title set."""
++    """Stack images on portrait A4. Optional chapter heading on the first page."""
+     if not paths:
+         return 0
+     doc = fitz.open()
+     try:
+-        if title:
+-            page = doc.new_page(width=595, height=842)
+-            page.insert_text((40, 60), title, fontsize=16, fontname="helv")
+-            page.insert_text(
+-                (40, 86),
+-                f"{len(paths)} item(s)",
+-                fontsize=11,
+-                fontname="helv",
+-            )
+-        for path in paths:
+-            image = fitz.open(path)
+-            try:
+-                rect = image[0].rect
+-                # Cap very tall crops so PDF viewers stay usable.
+-                max_h = 2000.0
+-                width, height = rect.width, rect.height
+-                if height > max_h:
+-                    scale = max_h / height
+-                    width *= scale
+-                    height *= scale
+-                page = doc.new_page(width=width, height=height)
+-                page.insert_image(page.rect, filename=str(path))
+-            finally:
+-                image.close()
++        place_pngs_on_a4(doc, paths, title=title)
+         dest.parent.mkdir(parents=True, exist_ok=True)
+         doc.save(dest, garbage=4, deflate=True)
+     finally:
+@@ -178,20 +157,17 @@ def main() -> None:
+     written = 0
+     for num, _book, _folder, name in SECTIONS:
+         items = by_primary.get(num) or []
++        out_dir = section_dir(num)
++        heading = section_heading_title(num, name)
+         if not items:
+             continue
+-        out_dir = section_dir(num)
+         out_dir.mkdir(parents=True, exist_ok=True)
+         label = f"S{num:02d} {name}"
+ 
+-        q_paths: list[Path] = []
+         a_paths: list[Path] = []
+         perf_items: list[tuple[str, int, str]] = []
+         for row in items:
+             year, qn = row["Year"], int(row["Question"])
+-            q_png = resolve_question_png(row)
+-            if q_png:
+-                q_paths.append(q_png)
+             a_png = resolve_answer_png(row)
+             if a_png:
+                 a_paths.append(a_png)
+@@ -210,7 +186,8 @@ def main() -> None:
+             print(f"Keeping {out_dir.relative_to(ROOT)}")
+             continue
+ 
+-        nq = write_image_pdf(q_paths, q_pdf)
++        pdf_items = [(row["Year"], int(row["Question"])) for row in items]
++        nq = write_section_questions_pdf(pdf_items, q_pdf, title=heading)
+         na = write_image_pdf(a_paths, a_pdf)
+         np_ = write_performance_pdf(perf_items, p_pdf, section_label=label)
+         written += 1
+diff --git a/scripts/combine_section_pdfs.py b/scripts/combine_section_pdfs.py
+index ded8706..6de29d8 100644
+--- a/scripts/combine_section_pdfs.py
++++ b/scripts/combine_section_pdfs.py
+@@ -2,9 +2,8 @@
+ """Write per-section question + answer PDFs under classified/mc/.
+ 
+ For each section folder:
+-  - combined.pdf: question PNGs sorted easiest -> hardest by Correct %
+-    (higher % first). Items without a known % (pp/sap/2022/2026, deleted,
+-    missing keys) are placed last.
++  - combined.pdf: question PNGs sorted by year, then question number
++    (pp/sap after numbered years).
+   - answer.pdf: same order, one page per question listing year, Q#, answer,
+     and correct percentage.
+ """
+@@ -17,6 +16,13 @@ from pathlib import Path
+ 
+ import pymupdf as fitz
+ 
++from png_pdf import (
++    A4_HEIGHT,
++    A4_WIDTH,
++    place_pngs_on_a4,
++    section_heading_title,
++)
++
+ ROOT = Path(__file__).resolve().parents[1]
+ CLASSIFIED = ROOT / "classified" / "mc"
+ DEFAULT_KEYS = ROOT / "classified" / "mc" / "answer_keys.json"
+@@ -80,48 +86,46 @@ def pngs_in_section(section: Path) -> list[Path]:
+     return sorted(p for p in section.glob("*.png") if PNG_RE.fullmatch(p.name))
+ 
+ 
+-def sort_key(
+-    path: Path,
+-    percentages: dict[tuple[str, int], int | None],
+-) -> tuple:
++def sort_key(path: Path) -> tuple:
+     match = PNG_RE.fullmatch(path.name)
+     assert match
+     year = match.group("year")
+     q = int(match.group("q"))
+-    pct = percentages.get((year, q))
+-    # Easiest first: higher % first. Missing % -> last.
+-    has_pct = 0 if pct is not None else 1
+-    neg_pct = -(pct if pct is not None else 0)
+-    return (has_pct, neg_pct, YEAR_RANK.get(year, 99), q)
++    return (YEAR_RANK.get(year, 99), q)
+ 
+ 
+-def write_combined(paths: list[Path], dest: Path) -> None:
++def write_combined(
++    paths: list[Path],
++    dest: Path,
++    *,
++    title: str | None = None,
++) -> None:
+     document = fitz.open()
+     try:
+-        for path in paths:
+-            image = fitz.open(path)
+-            try:
+-                rect = image[0].rect
+-                page = document.new_page(width=rect.width, height=rect.height)
+-                page.insert_image(page.rect, filename=str(path))
+-            finally:
+-                image.close()
++        place_pngs_on_a4(document, paths, title=title)
+         dest.parent.mkdir(parents=True, exist_ok=True)
+         document.save(dest, garbage=4, deflate=True)
+     finally:
+         document.close()
+ 
+ 
++def heading_for_section_dir(section: Path) -> str:
++    match = re.match(r"^(\d{2})_(.+)$", section.name)
++    assert match
++    name = match.group(2).replace("_", " ")
++    return section_heading_title(int(match.group(1)), name)
++
++
+ def write_answer_pdf(
+     paths: list[Path],
+     dest: Path,
+     keys: dict[tuple[str, int], dict],
+     section_label: str,
+ ) -> None:
+-    """One summary page listing every question in the same hard->easy order."""
++    """One summary page listing every question in year then Q order."""
+     document = fitz.open()
+     try:
+-        page_width, page_height = 595.0, 842.0  # A4
++        page_width, page_height = A4_WIDTH, A4_HEIGHT
+         margin = 40.0
+         y = margin
+         page = document.new_page(width=page_width, height=page_height)
+@@ -130,7 +134,7 @@ def write_answer_pdf(
+         y += 28
+         page.insert_text(
+             (margin, y + 11),
+-            "Order matches combined.pdf (easiest -> hardest by correct %).",
++            "Order matches combined.pdf (year, then question number).",
+             fontsize=9,
+             fontname="helv",
+         )
+@@ -184,13 +188,13 @@ def main() -> None:
+         pngs = pngs_in_section(section)
+         if not pngs:
+             continue
+-        ordered = sorted(pngs, key=lambda p: sort_key(p, percentages))
++        ordered = sorted(pngs, key=sort_key)
+         combined = section / "combined.pdf"
+         answers = section / "answer.pdf"
+         if combined.is_file() and answers.is_file() and not args.overwrite:
+             print(f"Keeping {combined.relative_to(args.classified)}")
+             continue
+-        write_combined(ordered, combined)
++        write_combined(ordered, combined, title=heading_for_section_dir(section))
+         section_label = section.name.replace("_", " ")
+         write_answer_pdf(ordered, answers, keys, section_label)
+         total_pdfs += 1
+@@ -213,7 +217,7 @@ def main() -> None:
+     print(f"\nDone: {total_pdfs} section pairs, {total_pages} question pages")
+     if missing_examples:
+         print(
+-            "Examples without correct % (placed last):",
++            "Examples without correct %:",
+             ", ".join(missing_examples),
+         )
+ 
+diff --git a/scripts/crop_lq_from_pages.py b/scripts/crop_lq_from_pages.py
+index ec300cd..06f0d62 100644
+--- a/scripts/crop_lq_from_pages.py
++++ b/scripts/crop_lq_from_pages.py
+@@ -3,7 +3,9 @@
+ 
+ Captain rule: long questions use full page_from..page_to pages only.
+ Answer ruling stays on the page; marking-scheme answer crops are separate
+-under ans/.
++under ans/. Trailing data/formulae sheets and blank insert pages are dropped
++from the stack. Existing qN.png files are always rewritten so a stale
++within-page y-crop cannot survive a range-unchanged rebuild.
+ """
+ from __future__ import annotations
+ 
+@@ -12,13 +14,23 @@ import json
+ import sys
+ from pathlib import Path
+ 
++import pymupdf as fitz
+ from PIL import Image
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+ sys.path.insert(0, str(ROOT / "scripts"))
+ 
+-from png_pdf import combine_pngs_to_pdf  # noqa: E402
+-from preprocess_lq import crisp_scan, load_page_pngs, stitch_vertical  # noqa: E402
++from formula_sheet import exported_index_to_pdf, refresh_starts_meta  # noqa: E402
++from lq_pdf_review import lq_source_pdf, write_year_review_pdfs  # noqa: E402
++from preprocess_lq import (  # noqa: E402
++    crisp_scan,
++    doc_has_jpeg_scans,
++    load_page_pngs,
++    native_scale,
++    render_display,
++    split_spread,
++    stitch_vertical,
++)
+ 
+ Image.MAX_IMAGE_PIXELS = 250_000_000
+ 
+@@ -32,46 +44,110 @@ def stack_question_pages(
+     return stitch_vertical(parts)
+ 
+ 
++def stack_question_from_pdf(
++    year: str, item: dict, meta: dict
++) -> Image.Image | None:
++    source = lq_source_pdf(year)
++    if source is None or not source.is_file():
++        return None
++    page_from = int(item["page_from"])
++    page_to = int(item["page_to"])
++    doc = fitz.open(source)
++    try:
++        if doc.needs_pass:
++            doc.authenticate("")
++        n_pdf = len(doc)
++        n_exported = int(meta.get("pages") or 0) or n_pdf
++        cover = 1 if n_exported in {n_pdf - 1, (n_pdf - 1) * 2} else 0
++        probe = doc[min(cover, n_pdf - 1)]
++        scale = native_scale(probe, cap=9.0)
++        jpeg = doc_has_jpeg_scans(doc)
++        parts: list[Image.Image] = []
++        for png_i in range(page_from, page_to + 1):
++            pdf_ids = exported_index_to_pdf(png_i, n_exported, n_pdf)
++            if not pdf_ids:
++                continue
++            image = render_display(doc[pdf_ids[0]], scale, doc=doc)
++            split = split_spread(image)
++            if len(split) == 2:
++                part = split[png_i % 2]
++            else:
++                part = split[0]
++            parts.append(crisp_scan(part, enabled=not jpeg))
++        if not parts:
++            return None
++        return stitch_vertical(parts)
++    finally:
++        doc.close()
++
++
+ def build_year(year_dir: Path) -> int:
+     meta_path = year_dir / "starts.json"
+-    pages_dir = year_dir / "pages"
+-    if not meta_path.is_file() or not pages_dir.is_dir():
+-        print(f"  skip {year_dir.name}: missing pages/starts")
++    if not meta_path.is_file():
++        print(f"  skip {year_dir.name}: missing starts")
+         return 0
+     meta = json.loads(meta_path.read_text(encoding="utf-8"))
+-    pages = load_page_pngs(pages_dir)
+-    if not pages:
+-        return 0
++    source = lq_source_pdf(year_dir.name)
++    doc = fitz.open(source) if source is not None and source.is_file() else None
++    try:
++        meta = refresh_starts_meta(meta, doc)
++    finally:
++        if doc is not None:
++            doc.close()
++    meta_path.write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")
++
+     questions = meta.get("questions") or []
+     if not questions:
+         return 0
+ 
+-    for old in year_dir.glob("q*.png"):
+-        old.unlink()
+-
++    pages_dir = year_dir / "pages"
++    pages = load_page_pngs(pages_dir) if pages_dir.is_dir() else []
+     written = 0
+-    for item in questions:
+-        question = int(item["q"])
+-        page_from = int(item["page_from"])
+-        page_to = int(item["page_to"])
+-        stacked = stack_question_pages(pages, page_from, page_to)
+-        if stacked is None:
++    if pages:
++        for old in year_dir.glob("q*.png"):
++            old.unlink()
++        for item in questions:
++            question = int(item["q"])
++            page_from = int(item["page_from"])
++            page_to = int(item["page_to"])
++            stacked = stack_question_pages(pages, page_from, page_to)
++            if stacked is None:
++                print(
++                    f"  skip {year_dir.name} q{question}: "
++                    f"bad page range {page_from}..{page_to} (n={len(pages)})"
++                )
++                continue
++            stacked = crisp_scan(stacked, enabled=True)
++            dest = year_dir / f"q{question}.png"
++            stacked.save(dest, format="PNG", optimize=False)
+             print(
+-                f"  skip {year_dir.name} q{question}: "
+-                f"bad page range {page_from}..{page_to} (n={len(pages)})"
++                f"  {year_dir.name} q{question}.png "
++                f"{stacked.size[0]}x{stacked.size[1]} "
++                f"(pages {page_from}..{page_to})"
+             )
+-            continue
+-        stacked = crisp_scan(stacked, enabled=True)
+-        dest = year_dir / f"q{question}.png"
+-        stacked.save(dest, format="PNG", optimize=False)
+-        print(
+-            f"  {year_dir.name} q{question}.png "
+-            f"{stacked.size[0]}x{stacked.size[1]} "
+-            f"(pages {page_from}..{page_to})"
+-        )
+-        written += 1
+-
+-    combine_pngs_to_pdf(year_dir, output=year_dir / "questions.pdf", overwrite=True)
++            written += 1
++    else:
++        for old in year_dir.glob("q*.png"):
++            old.unlink()
++        for item in questions:
++            question = int(item["q"])
++            dest = year_dir / f"q{question}.png"
++            stacked = stack_question_from_pdf(year_dir.name, item, meta)
++            if stacked is None:
++                print(
++                    f"  skip {year_dir.name} q{question}: "
++                    f"no pages/ and no source PDF stack"
++                )
++                continue
++            stacked.save(dest, format="PNG", optimize=False)
++            print(
++                f"  {year_dir.name} q{question}.png "
++                f"{stacked.size[0]}x{stacked.size[1]} "
++                f"(pages {int(item['page_from'])}..{int(item['page_to'])}, from source PDF)"
++            )
++            written += 1
++
++    write_year_review_pdfs(year_dir.name)
+     return written
+ 
+ 
+diff --git a/scripts/formula_sheet.py b/scripts/formula_sheet.py
+new file mode 100644
+index 0000000..e247a42
+--- /dev/null
++++ b/scripts/formula_sheet.py
+@@ -0,0 +1,242 @@
++"""Detect trailing Paper 1B inserts so they are not treated as exam questions.
++
++Matches the official data/formulae sheet title plus blank HKEAA insert pages
++("Do not write on this page"). Once such a page is found, every later page is
++treated as part of the same trailing insert (formula continuation pages often
++list constants without repeating the title).
++
++A one-line "Sources of materials..." acknowledgement on the last question page
++is not an insert page; that page stays with the question.
++"""
++from __future__ import annotations
++
++import io
++import re
++import subprocess
++from collections.abc import Sequence
++from typing import Any
++
++import pymupdf as fitz
++from PIL import Image
++
++FORMULA_SHEET_PHRASES = (
++    "formula sheet",
++    "data sheet",
++    "physical constants",
++    "list of data",
++    "formulae and relationships",
++)
++# Distinct from the per-question footer "Answers written in the margins...".
++INSERT_PAGE_PHRASES = (
++    "do not write on this page",
++    "answers written on this page will not be marked",
++)
++SCAN_WATERMARK_RE = re.compile(r"provided by|dse\.life", re.I)
++
++
++def is_formula_sheet_text(text: str) -> bool:
++    lowered = text.lower()
++    return any(phrase in lowered for phrase in FORMULA_SHEET_PHRASES)
++
++
++def is_trailing_insert_text(text: str) -> bool:
++    lowered = text.lower()
++    return is_formula_sheet_text(lowered) or any(
++        phrase in lowered for phrase in INSERT_PAGE_PHRASES
++    )
++
++
++def _ocr_png_bytes(data: bytes) -> str:
++    result = subprocess.run(
++        ["tesseract", "stdin", "stdout", "--psm", "6"],
++        input=data,
++        stdout=subprocess.PIPE,
++        stderr=subprocess.DEVNULL,
++        check=False,
++    )
++    return result.stdout.decode("utf-8", errors="ignore")
++
++
++def ocr_image_text(image: Image.Image) -> str:
++    buf = io.BytesIO()
++    image.convert("RGB").save(buf, format="PNG")
++    return _ocr_png_bytes(buf.getvalue())
++
++
++def ocr_pdf_page_text(page: fitz.Page, scale: float = 1.5) -> str:
++    pixmap = page.get_pixmap(matrix=fitz.Matrix(scale, scale), alpha=False)
++    image = Image.frombytes("RGB", (pixmap.width, pixmap.height), pixmap.samples)
++    try:
++        return ocr_image_text(image).lower()
++    finally:
++        del image, pixmap
++
++
++def is_formula_sheet_page(page: fitz.Page, *, ocr: bool = True) -> bool:
++    native = page.get_text("text")
++    if is_formula_sheet_text(native):
++        return True
++    if not ocr:
++        return False
++    stripped = native.strip()
++    # Born-digital question pages already have extractable text; skip OCR.
++    # Scanned papers usually only expose a short watermark.
++    if (
++        stripped
++        and not SCAN_WATERMARK_RE.search(stripped)
++        and len(stripped) >= 6
++    ):
++        return False
++    return is_formula_sheet_text(ocr_pdf_page_text(page))
++
++
++def is_trailing_insert_page(page: fitz.Page, *, ocr: bool = True) -> bool:
++    native = page.get_text("text")
++    if is_trailing_insert_text(native):
++        return True
++    if not ocr:
++        return False
++    stripped = native.strip()
++    if (
++        stripped
++        and not SCAN_WATERMARK_RE.search(stripped)
++        and len(stripped) >= 6
++    ):
++        return False
++    return is_trailing_insert_text(ocr_pdf_page_text(page))
++
++
++def is_formula_sheet_image(image: Image.Image) -> bool:
++    return is_formula_sheet_text(ocr_image_text(image))
++
++
++def extend_trailing_hits(flags: Sequence[bool]) -> set[int]:
++    """Include the first hit and every page after it (trailing sheet pages)."""
++    for index, hit in enumerate(flags):
++        if hit:
++            return set(range(index, len(flags)))
++    return set()
++
++
++def formula_pdf_indices(doc: fitz.Document, *, from_index: int = 0) -> set[int]:
++    flags = [False] * len(doc)
++    start = max(0, from_index)
++    for index in range(start, len(doc)):
++        flags[index] = is_trailing_insert_page(doc[index])
++    return extend_trailing_hits(flags)
++
++
++def exported_index_to_pdf(png_i: int, n_exported: int, n_pdf: int) -> list[int]:
++    """Map an exported page index (starts.json) onto source PDF page index(es)."""
++    if n_pdf <= 0 or png_i < 0:
++        return []
++    if n_exported == n_pdf:
++        return [png_i] if png_i < n_pdf else []
++    if n_exported == n_pdf - 1:
++        pdf_i = png_i + 1
++        return [pdf_i] if 0 <= pdf_i < n_pdf else []
++    if n_exported == (n_pdf - 1) * 2:
++        pdf_i = (png_i // 2) + 1
++        return [pdf_i] if 0 <= pdf_i < n_pdf else []
++    if n_exported == n_pdf * 2:
++        pdf_i = png_i // 2
++        return [pdf_i] if 0 <= pdf_i < n_pdf else []
++    return [png_i] if png_i < n_pdf else []
++
++
++def pdf_index_to_exported(pdf_i: int, n_exported: int, n_pdf: int) -> list[int]:
++    """Map a source PDF page onto exported page index(es)."""
++    if n_pdf <= 0 or pdf_i < 0:
++        return []
++    if n_exported == n_pdf:
++        return [pdf_i] if pdf_i < n_exported else []
++    if n_exported == n_pdf - 1:
++        png_i = pdf_i - 1
++        return [png_i] if 0 <= png_i < n_exported else []
++    if n_exported == (n_pdf - 1) * 2:
++        content = pdf_i - 1
++        if content < 0:
++            return []
++        return [i for i in (content * 2, content * 2 + 1) if 0 <= i < n_exported]
++    if n_exported == n_pdf * 2:
++        return [i for i in (pdf_i * 2, pdf_i * 2 + 1) if 0 <= i < n_exported]
++    return [pdf_i] if pdf_i < n_exported else []
++
++
++def exported_formula_indices(
++    pdf_indices: set[int], n_exported: int, n_pdf: int
++) -> set[int]:
++    found: set[int] = set()
++    for pdf_i in pdf_indices:
++        found.update(pdf_index_to_exported(pdf_i, n_exported, n_pdf))
++    if not found:
++        return set()
++    return set(range(min(found), n_exported))
++
++
++def exported_range_to_pdf_pages(
++    page_from: int, page_to: int, n_exported: int, n_pdf: int
++) -> list[int]:
++    pages: list[int] = []
++    seen: set[int] = set()
++    for png_i in range(page_from, page_to + 1):
++        for pdf_i in exported_index_to_pdf(png_i, n_exported, n_pdf):
++            if pdf_i not in seen:
++                seen.add(pdf_i)
++                pages.append(pdf_i)
++    return pages
++
++
++def clip_question_ranges(
++    questions: Sequence[dict[str, Any]], formula_exported: set[int]
++) -> list[dict[str, Any]]:
++    """Drop formula/data pages from each question's page_from..page_to."""
++    clipped: list[dict[str, Any]] = []
++    for item in questions:
++        page_from = int(item["page_from"])
++        page_to = int(item["page_to"])
++        if page_from in formula_exported:
++            continue
++        new_to = page_to
++        for page in range(page_from, page_to + 1):
++            if page in formula_exported:
++                new_to = page - 1
++                break
++        if new_to < page_from:
++            continue
++        updated = dict(item)
++        updated["page_to"] = new_to
++        clipped.append(updated)
++    return clipped
++
++
++def refresh_starts_meta(meta: dict[str, Any], doc: fitz.Document | None) -> dict[str, Any]:
++    """Clip starts.json ranges and record trailing formula/insert page indices."""
++    questions = [dict(item) for item in (meta.get("questions") or [])]
++    n_exported = int(meta.get("pages") or 0)
++    if not n_exported and questions:
++        n_exported = max(int(item["page_to"]) for item in questions) + 1
++    formula_pdf = {int(i) for i in (meta.get("formula_pdf_pages") or [])}
++    formula_png = {int(i) for i in (meta.get("formula_pages") or [])}
++    if doc is not None:
++        n_pdf = len(doc)
++        from_index = 0
++        if questions:
++            last_from = max(int(item["page_from"]) for item in questions)
++            mapped = exported_index_to_pdf(last_from, n_exported or n_pdf, n_pdf)
++            if mapped:
++                from_index = mapped[0]
++        formula_pdf = formula_pdf_indices(doc, from_index=from_index)
++        formula_png = exported_formula_indices(
++            formula_pdf, n_exported or n_pdf, n_pdf
++        )
++    elif formula_pdf and not formula_png:
++        formula_png = exported_formula_indices(formula_pdf, n_exported, n_exported)
++    questions = clip_question_ranges(questions, formula_png)
++    updated = dict(meta)
++    updated["questions"] = questions
++    updated["formula_pages"] = sorted(formula_png)
++    updated["formula_pdf_pages"] = sorted(formula_pdf)
++    if n_exported:
++        updated["pages"] = n_exported
++    return updated
+diff --git a/scripts/lq_pdf_review.py b/scripts/lq_pdf_review.py
+new file mode 100644
+index 0000000..4a9c6fc
+--- /dev/null
++++ b/scripts/lq_pdf_review.py
+@@ -0,0 +1,235 @@
++#!/usr/bin/env python3
++"""Build LQ review PDFs by splitting source Paper 1B PDFs onto A4 pages.
++
++No PNG raster and no within-page crop. page_from..page_to from starts.json
++are whole exam pages. Trailing data/formulae sheets and blank insert pages
++are omitted (see formula_sheet.py).
++"""
++from __future__ import annotations
++
++import argparse
++import json
++import re
++from pathlib import Path
++
++import pymupdf as fitz
++
++from formula_sheet import (
++    exported_index_to_pdf,
++    exported_range_to_pdf_pages,
++    formula_pdf_indices,
++)
++from png_pdf import append_pdf_page_a4
++
++ROOT = Path(__file__).resolve().parents[1]
++PAPER_LQ = ROOT / "paper" / "lq"
++OUTPUT_LQ = ROOT / "output" / "lq"
++
++
++def paper_year_label(stem: str) -> str:
++    name = stem.lower()
++    if name.startswith("sapp"):
++        return "sap"
++    if name.startswith("ppp"):
++        return "pp"
++    match = re.search(r"(20\d{2})", name)
++    if match:
++        return match.group(1)
++    raise SystemExit(f"Cannot derive year label from {stem!r}")
++
++
++def lq_source_pdf(year: str) -> Path | None:
++    for path in sorted(PAPER_LQ.glob("*.pdf")):
++        if paper_year_label(path.stem) == year:
++            return path
++    return None
++
++
++def load_starts_meta(year: str) -> dict:
++    path = OUTPUT_LQ / year / "starts.json"
++    if not path.is_file():
++        return {"questions": [], "pages": 0}
++    data = json.loads(path.read_text(encoding="utf-8"))
++    data.setdefault("questions", [])
++    return data
++
++
++def load_starts(year: str) -> list[dict]:
++    return list(load_starts_meta(year).get("questions") or [])
++
++
++def exported_page_count(meta: dict, questions: list[dict] | None = None) -> int:
++    questions = questions if questions is not None else list(meta.get("questions") or [])
++    stored = int(meta.get("pages") or 0)
++    if stored:
++        return stored
++    if not questions:
++        return 0
++    return max(int(item["page_to"]) for item in questions) + 1
++
++
++def question_range(year: str, qn: int) -> tuple[int, int] | None:
++    for item in load_starts(year):
++        if int(item["q"]) == qn:
++            return int(item["page_from"]), int(item["page_to"])
++    return None
++
++
++def skip_formula_pdf_pages(src: fitz.Document, meta: dict) -> set[int]:
++    if "formula_pdf_pages" in meta:
++        stored = {int(i) for i in (meta.get("formula_pdf_pages") or [])}
++        if stored:
++            first = min(stored)
++            return set(range(first, len(src))) if first < len(src) else stored
++        return set()
++    n_exported = exported_page_count(meta)
++    if "formula_pages" in meta:
++        exported = {int(i) for i in (meta.get("formula_pages") or [])}
++        if exported and n_exported:
++            found: set[int] = set()
++            for png_i in exported:
++                found.update(exported_index_to_pdf(png_i, n_exported, len(src)))
++            if found:
++                return set(range(min(found), len(src)))
++        return set()
++    from_index = 0
++    questions = list(meta.get("questions") or [])
++    if questions:
++        last_from = max(int(item["page_from"]) for item in questions)
++        mapped = exported_index_to_pdf(last_from, n_exported or len(src), len(src))
++        if mapped:
++            from_index = mapped[0]
++    return formula_pdf_indices(src, from_index=from_index)
++
++
++def write_year_review_pdfs(year: str) -> None:
++    source = lq_source_pdf(year)
++    if source is None or not source.is_file():
++        print(f"skip LQ PDF review {year}: missing paper/lq PDF")
++        return
++    meta = load_starts_meta(year)
++    questions = list(meta.get("questions") or [])
++    out_dir = OUTPUT_LQ / year
++    out_dir.mkdir(parents=True, exist_ok=True)
++    src = fitz.open(source)
++    try:
++        n_exported = exported_page_count(meta, questions)
++        formula_pdf = skip_formula_pdf_pages(src, meta)
++        combined = fitz.open()
++        first_q_pdf: dict[int, int] = {}
++        for item in questions:
++            qn = int(item["q"])
++            mapped = exported_range_to_pdf_pages(
++                int(item["page_from"]),
++                int(item["page_from"]),
++                n_exported or len(src),
++                len(src),
++            )
++            if mapped and mapped[0] not in first_q_pdf:
++                first_q_pdf[mapped[0]] = qn
++        try:
++            for pno in range(len(src)):
++                if pno in formula_pdf:
++                    continue
++                qn = first_q_pdf.get(pno)
++                label = f"{year} Q{qn}" if qn is not None else None
++                append_pdf_page_a4(combined, src, pno, label=label)
++            dest = out_dir / "combined.pdf"
++            combined.save(dest, garbage=4, deflate=True)
++            print(f"Wrote {dest} ({combined.page_count} A4 pages from {source.name})")
++        finally:
++            combined.close()
++
++        questions_pdf = fitz.open()
++        try:
++            for item in sorted(questions, key=lambda item: int(item["q"])):
++                qn = int(item["q"])
++                page_from = int(item["page_from"])
++                page_to = int(item["page_to"])
++                pdf_pages = exported_range_to_pdf_pages(
++                    page_from, page_to, n_exported or len(src), len(src)
++                )
++                first = True
++                for pno in pdf_pages:
++                    if pno in formula_pdf:
++                        continue
++                    label = f"{year} Q{qn}" if first else None
++                    append_pdf_page_a4(questions_pdf, src, pno, label=label)
++                    first = False
++            dest = out_dir / "questions.pdf"
++            questions_pdf.save(dest, garbage=4, deflate=True)
++            print(
++                f"Wrote {dest} ({questions_pdf.page_count} A4 pages, "
++                f"{len(questions)} questions)"
++            )
++        finally:
++            questions_pdf.close()
++    finally:
++        src.close()
++
++
++def write_section_questions_pdf(
++    items: list[tuple[str, int]],
++    dest: Path,
++    *,
++    title: str | None = None,
++) -> int:
++    """Concatenate whole LQ exam pages for (year, q) items, year then Q order."""
++    if not items:
++        return 0
++    dest.parent.mkdir(parents=True, exist_ok=True)
++    document = fitz.open()
++    written = 0
++    title_used = False
++    try:
++        for year, qn in items:
++            source = lq_source_pdf(year)
++            span = question_range(year, qn)
++            if source is None or span is None:
++                continue
++            page_from, page_to = span
++            src = fitz.open(source)
++            try:
++                meta = load_starts_meta(year)
++                n_exported = exported_page_count(meta)
++                formula_pdf = skip_formula_pdf_pages(src, meta)
++                pdf_pages = exported_range_to_pdf_pages(
++                    page_from, page_to, n_exported or len(src), len(src)
++                )
++                first = True
++                for pno in pdf_pages:
++                    if pno in formula_pdf:
++                        continue
++                    heading = title if (title and not title_used) else None
++                    label = f"{year} Q{qn}" if first else None
++                    append_pdf_page_a4(
++                        document, src, pno, title=heading, label=label
++                    )
++                    title_used = True
++                    first = False
++                    written += 1
++            finally:
++                src.close()
++        if written == 0:
++            return 0
++        document.save(dest, garbage=4, deflate=True)
++    finally:
++        document.close()
++    return written
++
++
++def main() -> None:
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("--years", nargs="*", default=None)
++    args = parser.parse_args()
++    years = args.years
++    if not years:
++        years = sorted(
++            path.name for path in OUTPUT_LQ.iterdir() if path.is_dir()
++        )
++    for year in years:
++        write_year_review_pdfs(year)
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/png_pdf.py b/scripts/png_pdf.py
+index 800d54c..04d2b2a 100644
+--- a/scripts/png_pdf.py
++++ b/scripts/png_pdf.py
+@@ -1,4 +1,4 @@
+-"""Combine generated page/question PNGs into one review PDF."""
++"""Combine generated page/question PNGs into one portrait-A4 review PDF."""
+ from __future__ import annotations
+ 
+ import re
+@@ -9,6 +9,179 @@ import pymupdf as fitz
+ QUESTION_PNG = re.compile(r"^q(\d+)\.png$", re.I)
+ PAGE_PNG = re.compile(r"^page(\d+)\.png$", re.I)
+ 
++A4_WIDTH = 595.0
++A4_HEIGHT = 842.0
++A4_MARGIN = 36.0
++YEAR_Q_PNG = re.compile(r"^(?P<year>\d{4}|pp|sap)[_-]q(?P<q>\d+)$", re.I)
++YEAR_DIR = re.compile(r"^(?P<year>\d{4}|pp|sap)$", re.I)
++BARE_Q_PNG = re.compile(r"^q(?P<q>\d+)$", re.I)
++LABEL_BAND = 16.0
++
++
++def png_item_label(path: Path) -> str | None:
++    """Year and question from a crop path: 2012_q36.png -> 2012 Q36.
++
++    Bare qN.png takes the year from an ancestor directory named {year}|pp|sap
++    (output/lq/2013/q2.png -> 2013 Q2; output/lq/2012/ans/q1.png -> 2012 Q1).
++    """
++    stem = path.stem
++    found = YEAR_Q_PNG.fullmatch(stem)
++    if found:
++        return f"{found.group('year')} Q{int(found.group('q'))}"
++    found = BARE_Q_PNG.fullmatch(stem)
++    if found:
++        q = int(found.group("q"))
++        for parent in path.parents:
++            year = YEAR_DIR.fullmatch(parent.name)
++            if year:
++                return f"{year.group('year')} Q{q}"
++        return f"Q{q}"
++    return None
++
++
++ITEM_GAP = 12.0
++
++
++def _png_size(path: Path) -> tuple[float, float]:
++    image = fitz.open(path)
++    try:
++        rect = image[0].rect
++        return rect.width, rect.height
++    finally:
++        image.close()
++
++
++def _scale_png(src_w: float, src_h: float, *, max_w: float, max_h: float) -> tuple[float, float]:
++    scale = min(max_w / src_w, max_h / src_h, 1.0)
++    return src_w * scale, src_h * scale
++
++
++class A4Flow:
++    """Stack crops top to bottom on portrait A4; start a new page when one does not fit."""
++
++    def __init__(self, document: fitz.Document, title: str | None = None) -> None:
++        self.document = document
++        self.title = title
++        self.page: fitz.Page | None = None
++        self.y = A4_MARGIN
++        self._wrote_title = False
++
++    def _new_page(self) -> None:
++        self.page = self.document.new_page(width=A4_WIDTH, height=A4_HEIGHT)
++        self.y = A4_MARGIN
++        if self.title and not self._wrote_title:
++            self.page.insert_text(
++                (A4_MARGIN, A4_MARGIN + 12),
++                self.title,
++                fontsize=16,
++                fontname="helv",
++            )
++            self.y = A4_MARGIN + 28
++            self._wrote_title = True
++
++    def _insert_label_top_right(self, label: str) -> None:
++        assert self.page is not None
++        width = fitz.get_text_length(label, fontname="helv", fontsize=11)
++        x = A4_WIDTH - A4_MARGIN - width
++        self.page.insert_text(
++            (x, self.y + 10),
++            label,
++            fontsize=11,
++            fontname="helv",
++        )
++
++    def add(self, path: Path) -> None:
++        label = png_item_label(path)
++        src_w, src_h = _png_size(path)
++        printable_w = A4_WIDTH - 2 * A4_MARGIN
++        full_h = A4_HEIGHT - 2 * A4_MARGIN
++        label_h = LABEL_BAND if label else 0.0
++        dest_w, dest_h = _scale_png(src_w, src_h, max_w=printable_w, max_h=full_h - label_h)
++        block_h = dest_h + label_h
++        remaining = A4_HEIGHT - A4_MARGIN - self.y
++        if self.page is None or block_h > remaining + 0.5:
++            self._new_page()
++            remaining = A4_HEIGHT - A4_MARGIN - self.y
++            dest_w, dest_h = _scale_png(
++                src_w, src_h, max_w=printable_w, max_h=remaining - label_h
++            )
++        assert self.page is not None
++        if label:
++            self._insert_label_top_right(label)
++            self.y += label_h
++        self.page.insert_image(
++            fitz.Rect(A4_MARGIN, self.y, A4_MARGIN + dest_w, self.y + dest_h),
++            filename=str(path),
++        )
++        self.y += dest_h + ITEM_GAP
++
++
++def place_pngs_on_a4(
++    document: fitz.Document,
++    paths: list[Path],
++    *,
++    title: str | None = None,
++) -> None:
++    """Place PNGs one after another on portrait A4 pages.
++
++    Optional chapter heading goes on the first page; crops flow immediately under it.
++    """
++    flow = A4Flow(document, title=title)
++    for path in paths:
++        flow.add(path)
++
++
++def append_pdf_page_a4(
++    document: fitz.Document,
++    src: fitz.Document,
++    pno: int,
++    *,
++    title: str | None = None,
++    label: str | None = None,
++) -> None:
++    """Copy one source PDF page onto a new portrait A4 page (no raster crop)."""
++    page = document.new_page(width=A4_WIDTH, height=A4_HEIGHT)
++    header = 0.0
++    if title:
++        page.insert_text(
++            (A4_MARGIN, A4_MARGIN + 12),
++            title,
++            fontsize=16,
++            fontname="helv",
++        )
++        header = 28.0
++    if label:
++        width = fitz.get_text_length(label, fontname="helv", fontsize=11)
++        page.insert_text(
++            (A4_WIDTH - A4_MARGIN - width, A4_MARGIN + 12),
++            label,
++            fontsize=11,
++            fontname="helv",
++        )
++        header = max(header, 28.0)
++    printable = fitz.Rect(
++        A4_MARGIN,
++        A4_MARGIN + header,
++        A4_WIDTH - A4_MARGIN,
++        A4_HEIGHT - A4_MARGIN,
++    )
++    src_page = src[pno]
++    src_w, src_h = src_page.rect.width, src_page.rect.height
++    scale = min(printable.width / src_w, printable.height / src_h)
++    dest_w, dest_h = src_w * scale, src_h * scale
++    target = fitz.Rect(
++        printable.x0,
++        printable.y0,
++        printable.x0 + dest_w,
++        printable.y0 + dest_h,
++    )
++    page.show_pdf_page(target, src, pno)
++
++
++def section_heading_title(section_num: int, section_name: str) -> str:
++    """Session heading for a classified section bank, e.g. ch25 Radiation and Radioactivity."""
++    return f"ch{section_num} {section_name}"
++
+ 
+ def _numeric_pngs(directory: Path, pattern: re.Pattern[str]) -> list[Path]:
+     matched: list[tuple[int, Path]] = []
+@@ -20,12 +193,25 @@ def _numeric_pngs(directory: Path, pattern: re.Pattern[str]) -> list[Path]:
+     return [path for _, path in matched]
+ 
+ 
+-def collect_review_pngs(directory: Path) -> list[Path]:
++def collect_review_pngs(
++    directory: Path,
++    *,
++    exclude_page_indices: set[int] | None = None,
++) -> list[Path]:
+     """Prefer qN.png; otherwise pageNN.png. Numeric order."""
+     questions = _numeric_pngs(directory, QUESTION_PNG)
+     if questions:
+         return questions
+-    return _numeric_pngs(directory, PAGE_PNG)
++    pages = _numeric_pngs(directory, PAGE_PNG)
++    if not exclude_page_indices:
++        return pages
++    kept: list[Path] = []
++    for path in pages:
++        found = PAGE_PNG.fullmatch(path.name)
++        if found and int(found.group(1)) in exclude_page_indices:
++            continue
++        kept.append(path)
++    return kept
+ 
+ 
+ def combine_pngs_to_pdf(
+@@ -33,9 +219,12 @@ def combine_pngs_to_pdf(
+     output: Path | None = None,
+     *,
+     overwrite: bool = False,
++    exclude_page_indices: set[int] | None = None,
+ ) -> Path | None:
+-    """Write a review PDF from PNGs. Skip if that PDF already exists unless overwrite."""
+-    paths = collect_review_pngs(directory)
++    """Write a portrait-A4 review PDF from PNGs. Skip if that PDF already exists unless overwrite."""
++    paths = collect_review_pngs(
++        directory, exclude_page_indices=exclude_page_indices
++    )
+     if not paths:
+         return None
+     dest = output or (directory / "combined.pdf")
+@@ -45,16 +234,10 @@ def combine_pngs_to_pdf(
+     dest.parent.mkdir(parents=True, exist_ok=True)
+     document = fitz.open()
+     try:
+-        for path in paths:
+-            image = fitz.open(path)
+-            try:
+-                rect = image[0].rect
+-                page = document.new_page(width=rect.width, height=rect.height)
+-                page.insert_image(page.rect, filename=str(path))
+-            finally:
+-                image.close()
++        place_pngs_on_a4(document, paths)
++        page_count = document.page_count
+         document.save(dest, garbage=4, deflate=True)
+     finally:
+         document.close()
+-    print(f"Wrote {dest} ({len(paths)} pages)")
++    print(f"Wrote {dest} ({page_count} pages, {len(paths)} questions)")
+     return dest
+diff --git a/scripts/preprocess_lq.py b/scripts/preprocess_lq.py
+index 8d6f11a..238e4b3 100644
+--- a/scripts/preprocess_lq.py
++++ b/scripts/preprocess_lq.py
+@@ -3,6 +3,8 @@
+ """Split HKDSE Physics Paper 1B (LQ) into upright full pages (+ optional crops).
+ 
+ Default: export exam pages and starts.json (no within-page question crops).
++starts.json ranges omit trailing data/formulae sheets and blank insert pages
++(see formula_sheet.py).
+ Answer crops stay in preprocess_lq_answers.py.
+ """
+ from __future__ import annotations
+@@ -19,6 +21,7 @@ import pymupdf as fitz
+ import numpy as np
+ from PIL import Image, ImageDraw, ImageOps
+ 
++from formula_sheet import refresh_starts_meta
+ from png_pdf import combine_pngs_to_pdf
+ 
+ # Hi-res Paper 1B crops can exceed Pillow's default ~89 MP limit.
+@@ -63,7 +66,7 @@ def parse_args() -> argparse.Namespace:
+         default=9.0,
+         help="Cap for auto native scale (memory / file size). ~8.3 ≈ 600 dpi.",
+     )
+-    parser.add_argument("--max-questions", type=int, default=12)
++    parser.add_argument("--max-questions", type=int, default=16)
+     return parser.parse_args()
+ 
+ 
+@@ -727,16 +730,27 @@ def process_one(
+                     "y": round(float(y), 1),
+                 }
+             )
++        meta = refresh_starts_meta(
++            {"questions": questions_meta, "pages": len(full_pages)},
++            doc,
++        )
++        questions_meta = list(meta["questions"])
++        formula_png = {int(i) for i in (meta.get("formula_pages") or [])}
+         meta_path = output_dir / "starts.json"
+-        meta_path.write_text(
+-            json.dumps({"questions": questions_meta, "pages": len(full_pages)}, indent=2)
+-            + "\n",
+-            encoding="utf-8",
++        meta_path.write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")
++        print(
++            f"  wrote {meta_path.name} ({len(questions_meta)} questions"
++            + (f", excluded formula pages {sorted(formula_png)}" if formula_png else "")
++            + ")"
+         )
+-        print(f"  wrote {meta_path.name} ({len(questions_meta)} questions)")
+ 
+-        # Review PDF = full exam pages (not question crops).
+-        combine_pngs_to_pdf(pages_out, output=output_dir / "combined.pdf", overwrite=True)
++        # Review PDF = exam pages without trailing data/formulae sheets.
++        combine_pngs_to_pdf(
++            pages_out,
++            output=output_dir / "combined.pdf",
++            overwrite=True,
++            exclude_page_indices=formula_png,
++        )
+ 
+         if not crop_questions_flag:
+             return len(questions_meta)
+diff --git a/scripts/preprocess_mc.py b/scripts/preprocess_mc.py
+index 587f698..f53cb2c 100644
+--- a/scripts/preprocess_mc.py
++++ b/scripts/preprocess_mc.py
+@@ -15,6 +15,8 @@ from pathlib import Path
+ import pymupdf as fitz
+ from PIL import Image, ImageDraw, ImageOps
+ 
++from formula_sheet import is_formula_sheet_page as is_formula_sheet
++
+ MARKER_RGB = (13, 77, 242)
+ STRIP_LEFT = 25.0
+ STRIP_RIGHT = 120.0
+@@ -125,11 +127,6 @@ def page_text(page: fitz.Page, scale: float = 1.5) -> str:
+     return text
+ 
+ 
+-def is_formula_sheet(page: fitz.Page) -> bool:
+-    text = page_text(page)
+-    return "formula sheet" in text or "data sheet" in text or "physical constants" in text
+-
+-
+ def _parse_conf(raw: str) -> float:
+     try:
+         value = float(raw)
+diff --git a/segment b/segment
+index 8979c3f..9b954ef 100755
+--- a/segment
++++ b/segment
+@@ -19,7 +19,7 @@ Page renders under output/**/pages/ are gitignored.
+ Usage:
+   ./segment paper.pdf output_dir/
+   ./segment paper.pdf output_dir/ --type mc
+-  ./segment paper.pdf output_dir/ --type lq --questions 12
++  ./segment paper.pdf output_dir/ --type lq --questions 16
+ """
+ from __future__ import annotations
+ 
+@@ -285,7 +285,7 @@ def parse_args() -> argparse.Namespace:
+         "--questions",
+         type=int,
+         default=None,
+-        help="Question count (default: 36 for MC, 12 for LQ)",
++        help="Question count (default: 36 for MC, 16 for LQ)",
+     )
+     parser.add_argument(
+         "--cover-pages",
+@@ -348,7 +348,7 @@ def main() -> None:
+     if args.step != "all":
+         raise SystemExit("--step anchors/split only applies to MC papers")
+ 
+-    max_questions = args.questions if args.questions is not None else 12
++    max_questions = args.questions if args.questions is not None else 16
+     print("=== LQ: split exam pages (no question crops) ===")
+     count = segment_lq(
+         pdf,

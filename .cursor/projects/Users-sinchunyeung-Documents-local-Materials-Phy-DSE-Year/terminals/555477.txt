@@ -1,0 +1,15 @@
+---
+pid: 80426
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/DSE/scripts"
+command: "python3 manifest.py && python3 segment_crop.py"
+started_at: 2026-07-31T19:38:58.144Z
+running_for_ms: 165116   
+---
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/DSE/work/manifest.json with 24 sources
+Created 91 crops/pages in /Users/sinchunyeung/Documents-local/Materials/Phy/DSE/work/crops
+
+---
+exit_code: 0
+elapsed_ms: 167788
+ended_at: 2026-07-31T19:41:45.932Z
+---

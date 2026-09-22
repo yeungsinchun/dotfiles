@@ -1,0 +1,93 @@
+---
+pid: 9772
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy"
+command: "cd \"/Users/sinchunyeung/Documents-local/Materials/Phy/DSE\" && python3 scripts/classify_by_topic.py 2>&1 | tee /tmp/classify_out.txt | tail -80"
+started_at: 2026-08-21T18:06:04.274Z
+running_for_ms: 40008    
+---
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Projectile motion/questions/2013_q13.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Projectile motion/questions/2014_q9.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Projectile motion/questions/2023_q13.png
+Force and Motion / Projectile motion: 12
+Force and Motion / Circular motion: 9
+Force and Motion / Gravitation: 16
+Force and Motion / Pressure and fluids: 6
+Force and Motion / Oscillations and SHM: 2
+Wave Motion / Wave properties and propagation: 52
+Wave Motion / Reflection refraction diffraction interference: 34
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Newtons laws and forces/questions/2014_q8.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Newtons laws and forces/questions/2019_q8.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Newtons laws and forces/questions/2019_q12.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Newtons laws and forces/questions/2023_q9.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Newtons laws and forces/questions/2024_q8.png
+Wave Motion / Sound: 60
+Wave Motion / Light reflection and refraction: 16
+Wave Motion / Lenses and optical instruments: 23
+Wave Motion / Wave nature of light: 9
+Wave Motion / Electromagnetic spectrum: 2
+Electricity and Magnetism / Electrostatics: 31
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Work energy and power/questions/2012_q9.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Projectile motion/questions/2012_q12.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Kinematics/questions/2013_q8.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Work energy and power/questions/2013_q12.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Projectile motion/questions/2013_q13.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Work energy and power/questions/2014_q6.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Newtons laws and forces/questions/2014_q8.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Projectile motion/questions/2014_q9.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Newtons laws and forces/questions/2015_q6.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Kinematics/questions/2015_q7.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Projectile motion/questions/2019_q6.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Newtons laws and forces/questions/2019_q8.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Newtons laws and forces/questions/2019_q12.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Projectile motion/questions/2020_q6.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Newtons laws and forces/questions/2021_q5.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Work energy and power/questions/2022_q11.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Newtons laws and forces/questions/2023_q8.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Newtons laws and forces/questions/2023_q9.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Projectile motion/questions/2023_q13.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Work energy and power/questions/2024_q7.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Newtons laws and forces/questions/2024_q8.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Kinematics/questions/2025_q4.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Newtons laws and forces/questions/2026_q5.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Newtons laws and forces/questions/2026_q6.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Kinematics/questions/2026_q9.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Newtons laws and forces/questions/2026_q10.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Newtons laws and forces/questions/2026_q12.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Kinematics/questions/ppp_q7.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Projectile motion/questions/ppp_q11.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Kinematics/questions/sapp_q12.png
+Electricity and Magnetism / Electric circuits: 91
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Electricity and Magnetism/Electrical energy and domestic electricity/questions/sapp_q25.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Electricity and Magnetism/Electrical energy and domestic electricity/questions/sapp_q26.png
+Electricity and Magnetism / Electrical energy and domestic electricity: 9
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/Work energy and power/questions/2012_q9.png
+Electricity and Magnetism / Magnetic fields and motors: 40
+Electricity and Magnetism / Electromagnetic induction: 11
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Electricity and Magnetism/Electrical energy and domestic electricity/questions/sapp_q25.png
+missing png: /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Electricity and Magnetism/Electrical energy and domestic electricity/questions/sapp_q26.png
+Electricity and Magnetism / Alternating current and transformers: 26
+Radiation / Atomic models: 2
+Radiation / Radioactivity and nuclear radiation: 25
+Radiation / Nuclear reactions and binding energy: 12
+Radiation / X-rays and radiation applications: 4
+Radiation / Photoelectric effect and photons: 0
+Chapter PDF Heat and Gases: 55 pages -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Heat and Gases/all.pdf
+Chapter PDF Force and Motion: 206 pages -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Force and Motion/all.pdf
+Chapter PDF Wave Motion: 158 pages -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Wave Motion/all.pdf
+Chapter PDF Electricity and Magnetism: 178 pages -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Electricity and Magnetism/all.pdf
+Chapter PDF Radiation: 42 pages -> /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/Radiation/all.pdf
+Updated /Users/sinchunyeung/Documents-local/Materials/Phy/dse/processed/mc_questions.json
+Wrote /Users/sinchunyeung/Documents-local/Materials/Phy/dse/by-topic/classification.json
+Questions: 573
+  one topic:  339
+  two topics: 234
+  fallback (no keyword hit → Kinematics): 41
+  unassigned: 0
+  total placements in notes MC banks: 759
+Each topic has notes/mc-bank.tex with ALL its assigned questions.
+
+---
+exit_code: 0
+elapsed_ms: 44783
+ended_at: 2026-08-21T18:06:49.057Z
+---

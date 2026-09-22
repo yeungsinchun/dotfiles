@@ -1,0 +1,109 @@
+---
+pid: 61690
+cwd: "/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/web"
+command: "/tmp/simp-viewer-venv/bin/python server.py"
+title: "Start Flask viewer on port 5051"
+status: failed   
+started_at: 2026-09-07T07:54:46.274Z
+running_for_ms: 5615122  
+---
+Warning: dots binary not found at /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/build/dots
+  Compare pane for dots will fail until you build it:
+  cmake -B build && cmake --build build --target dots
+Warning: dp binary not found at /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/build/dp
+  Compare pane for dp will fail until you build it:
+  cmake -B build && cmake --build build --target dp
+Warning: squish binary not found at /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/build/squish
+  Compare pane for squish will fail until you build it:
+  cmake -B build && cmake --build build --target squish
+Repo root: /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams
+Binary: /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/build/simplify
+Baselines: dots=False dp=False squish=False
+Starting Flask server on http://0.0.0.0:5051
+ * Serving Flask app 'server'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5051
+ * Running on http://192.168.31.91:5051
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [07/Sep/2026 15:54:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 15:54:54] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 15:54:54] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 15:58:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 15:58:17] "GET /viewer.js?v=compare-method-glosses-1 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 15:58:18] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 15:59:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:03:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:03:17] "GET /viewer.js?v=tour-choose-preloaded-1 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:03:17] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:03:22] "GET /api/trace/1?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:03:23] "GET /api/trace/1/compare?algorithm=none HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:03:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:03:24] "[36mGET /viewer.js?v=tour-choose-preloaded-1 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [07/Sep/2026 16:03:24] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:03:24] "GET /viewer.js?v=tour-choose-preloaded-1 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:03:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:03:24] "[36mGET /viewer.js?v=tour-choose-preloaded-1 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [07/Sep/2026 16:03:24] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:03:30] "POST /api/frechet HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:03:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:07:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:07:56] "GET /viewer.js?v=tour-back-eps-delta-1 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:08:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:08:23] "GET /viewer.js?v=tour-back-eps-delta-1 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:08:23] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:08:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:49:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:49:04] "[36mGET /viewer.js?v=tour-back-eps-delta-1 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [07/Sep/2026 16:49:04] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:49:25] "[33mGET /apple-touch-icon-precomposed.png HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 16:49:25] "[33mGET /apple-touch-icon.png HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 16:49:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 16:50:17] "GET /api/trace/1?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:50:18] "GET /api/trace/1/compare?algorithm=none HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:50:25] "POST /api/frechet HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:52:09] "GET /api/trace/1/compare?algorithm=dots&run=1&lssd=1000000 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:52:09] "GET /api/trace/1/compare?algorithm=dp&run=1&epsilon=0.9 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:52:10] "GET /api/trace/1/compare?algorithm=squish&run=1&ratio=0.2 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:52:12] "GET /api/trace/1/compare?algorithm=dots&run=1&lssd=1000000 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:52:12] "GET /api/trace/1/compare?algorithm=dp&run=1&epsilon=0.9 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:52:12] "GET /api/trace/1/compare?algorithm=squish&run=1&ratio=0.2 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:52:13] "GET /api/trace/1/compare?algorithm=dots&run=1&lssd=1000000 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:52:13] "GET /api/trace/1/compare?algorithm=dp&run=1&epsilon=0.9 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:52:13] "GET /api/trace/1/compare?algorithm=squish&run=1&ratio=0.2 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:52:13] "GET /api/trace/1/compare?algorithm=dots&run=1&lssd=1000000 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:52:13] "GET /api/trace/1/compare?algorithm=dp&run=1&epsilon=0.9 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:52:13] "GET /api/trace/1/compare?algorithm=squish&run=1&ratio=0.2 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 16:53:29] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 17:11:04] "[33mGET /api/baselines HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 17:11:38] "[31m[1mPOST /api/trace/1/compare?algorithm=dots&run=1&lssd=1000 HTTP/1.1[0m" 405 -
+127.0.0.1 - - [07/Sep/2026 17:11:48] "GET /api/trace/1/compare?algorithm=dots&run=1&lssd=1000000 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 17:11:51] "GET /?nocache=1788761342 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 17:11:51] "[36mGET /viewer.js?v=tour-back-eps-delta-1 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [07/Sep/2026 17:11:51] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 17:11:55] "GET /?nocache=1788761326 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 17:11:55] "[36mGET /viewer.js?v=tour-back-eps-delta-1 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [07/Sep/2026 17:11:55] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 17:11:55] "GET /api/trace/1/compare?algorithm=dots&run=1&lssd=1000000 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 17:11:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 17:11:59] "[36mGET /viewer.js?v=tour-back-eps-delta-1 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [07/Sep/2026 17:11:59] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 17:12:01] "GET /api/trace/1?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 17:12:02] "GET /api/trace/1/compare?algorithm=none HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 17:12:09] "POST /api/frechet HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 17:12:15] "GET /api/trace/1/compare?algorithm=dots&run=1&lssd=1000000 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 17:12:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 17:14:29] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 17:19:12] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 17:19:12] "[36mGET /viewer.js?v=tour-back-eps-delta-1 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [07/Sep/2026 17:19:12] "GET /api/traces HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 17:19:15] "GET /api/trace/1?epsilon=0.9&delta=500 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 17:19:15] "GET /api/trace/1/compare?algorithm=none HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 17:19:21] "POST /api/frechet HTTP/1.1" 200 -
+
+---
+exit_code: 143
+elapsed_ms: 5615122
+ended_at: 2026-09-07T09:28:21.396Z
+---

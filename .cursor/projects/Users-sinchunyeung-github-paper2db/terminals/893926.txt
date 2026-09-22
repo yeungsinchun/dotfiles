@@ -1,0 +1,27 @@
+---
+pid: 35350
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && PYTHONPATH=scripts PYTHONUNBUFFERED=1 .venv/bin/python -u scripts/classify_lq_llm.py 2>&1\n"
+title: "Run full LQ LLM classification"
+status: failed   
+started_at: 2026-09-04T18:08:30.429Z
+running_for_ms: 38843    
+---
+OCR 117 LQ questions...
+  ocr 20/117
+  ocr 40/117
+  ocr 60/117
+  ocr 80/117
+  ocr 100/117
+  ocr 117/117
+LLM meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo @ https://api.together.xyz/v1 (117 questions)
+  FAIL 2012 Q1: LLM call failed after 3 retries: HTTP Error 403: Forbidden
+  FAIL 2012 Q2: LLM call failed after 3 retries: HTTP Error 403: Forbidden
+  FAIL 2012 Q3: LLM call failed after 3 retries: HTTP Error 403: Forbidden
+  FAIL 2012 Q4: LLM call failed after 3 retries: HTTP Error 403: Forbidden
+
+---
+exit_code: unknown
+elapsed_ms: 38843
+ended_at: 2026-09-04T18:09:09.272Z
+---

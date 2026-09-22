@@ -1,0 +1,29 @@
+---
+pid: 7248
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "export PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:$PATH\"\nexport FM_HOME=/Users/sinchunyeung/github/firstmate\n/Users/sinchunyeung/github/firstmate/bin/fm-fleet-sync.sh paper2db\necho '---TEARDOWN---'\n/Users/sinchunyeung/github/firstmate/bin/fm-teardown.sh p2db-fix-2017-lq-q10-wrong-cropped-pages-and-44\necho '---HOLD AFTER---'\n/Users/sinchunyeung/github/firstmate/bin/fm-captain-hold.sh open p2db-fix-2017-lq-q10-wrong-cropped-pages-and-44; echo \"open_exit=$?\"\n"
+title: "Refresh paper2db clone and teardown landed PR #8"
+status: succeeded
+started_at: 2026-09-14T02:17:26.884Z
+running_for_ms: 49711    
+---
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+paper2db: synced 485280b..2a9f98f
+---TEARDOWN---
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+teardown: reaping leaked worktree process(es) for p2db-fix-2017-lq-q10-wrong-cropped-pages-and-44: 32227 37797
+teardown: force-killing leaked worktree process(es) for p2db-fix-2017-lq-q10-wrong-cropped-pages-and-44: 32227
+teardown: reaping leaked worktree process(es) for p2db-fix-2017-lq-q10-wrong-cropped-pages-and-44: 8530
+🌳 Worktree returned to pool.
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+paper2db: already current
+teardown p2db-fix-2017-lq-q10-wrong-cropped-pages-and-44 complete (window 0:fm-p2db-fix-2017-lq-q10-wrong-cropped-pages-and-44, worktree /Users/sinchunyeung/.treehouse/paper2db-41af0c/7/paper2db)
+Backlog: p2db-fix-2017-lq-q10-wrong-cropped-pages-and-44 stays open in /Users/sinchunyeung/github/firstmate/data/backlog.md, still held for the captain with its deliverable recorded. Relay the question and close it only with bin/fm-captain-hold.sh answer.
+---HOLD AFTER---
+open_exit=0
+
+---
+exit_code: 0
+elapsed_ms: 49707
+ended_at: 2026-09-14T02:18:16.591Z
+---

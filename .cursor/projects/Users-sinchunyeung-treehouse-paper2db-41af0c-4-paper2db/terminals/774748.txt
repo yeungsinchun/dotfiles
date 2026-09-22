@@ -1,0 +1,73 @@
+---
+pid: 46214
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db"
+command: "# regenerate anchors for one year to capture intermediate for review (gitignore'd - copy into .lavish)\nls paper/mc/ | head -20; which tesseract; ./pipeline --only mc-anchors --years 2024 --force --yes 2>&1 | tail -40"
+title: "Regenerate 2024 MC anchors for evidence"
+status: succeeded
+started_at: 2026-09-07T04:25:29.305Z
+running_for_ms: 112090   
+---
+2012p1a.pdf
+2013p1a.pdf
+2014p1a.pdf
+2015p1a.pdf
+2016p1a.pdf
+2017p1a.pdf
+2018p1a.pdf
+2019p1a.pdf
+2020p1a.pdf
+2021p1a.pdf
+2022p1a.pdf
+2023p1a.pdf
+2024p1a.pdf
+2025p1a.pdf
+2026p1a.pdf
+ppp1a.pdf
+sapp1a.pdf
+/opt/homebrew/bin/tesseract
+page 11: rail_x=68.0 left=32.0 right=548.5 top=56.9 bottom=781.3 footer=783.3 marker_x=52.0 questions=2 first_pad=20.0
+page 12: rail_x=73.6 left=37.6 right=593.2 top=58.1 bottom=781.7 footer=783.7 marker_x=57.6 questions=2 first_pad=20.0
+page 13: rail_x=67.2 left=31.2 right=546.2 top=53.5 bottom=778.5 footer=780.5 marker_x=51.2 questions=3 first_pad=20.0
+page 14: rail_x=74.8 left=38.8 right=553.8 top=54.7 bottom=778.1 footer=780.1 marker_x=58.8 questions=3 first_pad=20.0
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/output/2024-intermediate/anchor.meta.json
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/output/2024-intermediate/anchor.pdf with 13 pages and 33 anchors.
+Paper type: MC (2024p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/output/2024-intermediate/anchor.pdf
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/output/2024-intermediate/anchor.meta.json
+Wrote 13 preview PNGs (page01.png, ...) in /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/output/2024-intermediate
+Review anchor.pdf (blue dots next to each question number), then run step 2.
+Anchor review PDF -> /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/output/2024-intermediate/anchor.pdf
+paper2db pipeline
+  stages: mc-anchors
+  years:  2024
+  force=True yes=True
+
+######## stage: mc-anchors ########
+
+=== MC anchors: 2024 (2024p1a.pdf) ===
+$ /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/.venv/bin/python3 /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/segment /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/paper/mc/2024p1a.pdf /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/output/2024-intermediate --type mc --step anchors --intermediate /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/output/2024-intermediate
+
+========================================================================
+MC ANCHOR REVIEW (required for quality)
+
+Open each anchor.pdf below. Every blue dot must sit beside the
+question number with a clear gap - not on digits, *, #, options,
+diagrams, or empty margin. Fix overrides_YYYY.json or re-run a
+year with --force if a dot is wrong. Do not continue until all pass.
+
+  /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/output/2024-intermediate/anchor.pdf
+========================================================================
+(continuing without prompt because --yes)
+
+Done.
+Review PDFs:
+  MC sections: classified/mc/<book>/<section>/combined.pdf
+  LQ sections: classified/lq/<book>/<section>/questions.pdf
+  LQ lavish:   .lavish/lq-classified-review/ (if lavish stage ran)
+
+---
+exit_code: 0
+elapsed_ms: 112090
+ended_at: 2026-09-07T04:27:21.395Z
+---

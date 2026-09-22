@@ -1,0 +1,39 @@
+---
+pid: 41255
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python - <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nfrom preprocess_lq_answers import *\nfrom PIL import Image\nimport pymupdf as fitz\n\n# 2018: try L/R split on portrait 2-up\ndoc=fitz.open('paper/ans/2018ans.pdf')\nfor i in range(len(doc)):\n    im=render_page(doc[i], 2.0)\n    w,h=im.size\n    L=im.crop((0,0,w//2,h)); R=im.crop((w//2,0,w,h))\n    print(f'p{i+1} full ys={find_main_question_ys(im,12)}')\n    print(f'  L A={is_section_a_keys(L)} B={looks_like_section_b(L)} front={is_front_matter(L)} ys={find_main_question_ys(L,12)} hdr={header_text(L)[:80]!r}')\n    print(f'  R A={is_section_a_keys(R)} B={looks_like_section_b(R)} front={is_front_matter(R)} ys={find_main_question_ys(R,12)} hdr={header_text(R)[:80]!r}')\ndoc.close()\n\nprint('\\n==== 2020 hi-res label OCR with downscale ====')\ndoc=fitz.open('paper/ans/2020ans.pdf')\nfor i in [2,3,4,5]:\n    im=render_page(doc[i], 2.0)\n    # downscale for OCR\n    small=im.resize((im.width//3, im.height//3))\n    ys_full=find_main_question_ys(im,12)\n    ys_small=find_main_question_ys(small,12)\n    # scale ys back\n    ys_scaled=[(q,y*3) for q,y in ys_small]\n    print(f'p{i+1} full={ys_full} small*3={ys_scaled} hdr={header_text(small)[:90]!r}')\ndoc.close()\nPY\n"
+title: "Test 2018 L/R split and 2020 downscale OCR"
+status: succeeded
+started_at: 2026-09-05T04:04:59.680Z
+running_for_ms: 40100    
+---
+p1 full ys=[]
+  L A=False B=False front=False ys=[] hdr=''
+  R A=False B=False front=False ys=[] hdr='rr\ngEgete2\nzfs jas\ne728 823\n'
+p2 full ys=[]
+  L A=False B=False front=False ys=[] hdr="5 gS\n32 es &\n4 e502 Gu\nE aubé .23\n2 Sig ge\nese = g@a9'9\n"
+  R A=False B=False front=False ys=[] hdr='%\n\n&\n\nt ana ee\nbe af es] ¢\n& Es S gles\n& *| ale\n3 ° Ss $8\na ts 3 32\n'
+p3 full ys=[]
+  L A=False B=False front=False ys=[] hdr='————\nBe gigas g\nBea Fes a]\nsa, bse2 E od\nol,382 HL & o3\nalfred eases & Pe :\nBe=%'
+  R A=False B=False front=False ys=[] hdr='4\ni\nSPREE eee eee peepee S\n'
+p4 full ys=[]
+  L A=False B=False front=False ys=[] hdr='2\nBy\n'
+  R A=False B=False front=False ys=[] hdr='ot a\n'
+p5 full ys=[]
+  L A=False B=False front=False ys=[] hdr=') z\n: 5\n'
+  R A=False B=False front=False ys=[] hdr=''
+p6 full ys=[]
+  L A=False B=False front=False ys=[] hdr='& r\né “ °\niy\n'
+  R A=False B=False front=False ys=[] hdr='Jen\n'
+
+==== 2020 hi-res label OCR with downscale ====
+p3 full=[] small*3=[(1, 597)] hdr='Paper 1 Section B\n1. (a) Let Tbe the final temperature of the mixture.\n(5 x0.02) x3300 x(7'
+p4 full=[] small*3=[(2, 648), (3, 4194)] hdr='2. (a) (i) cprcccncccccacecccceceececeeces, Piston 1A Fp correctly marked\n'
+p5 full=[] small*3=[(4, 495), (2, 1386)] hdr='4. (a) vB>vce>vp>va\n;\n(b) 4\nws\n'
+p6 full=[] small*3=[(5, 510)] hdr='5. (a) (i)\nnormal\n\\ean R ott\nee 1A Forces R(or N) and W(or Mg)\nDp 1A correctly indicated a'
+
+---
+exit_code: 0
+elapsed_ms: 40099
+ended_at: 2026-09-05T04:05:39.779Z
+---

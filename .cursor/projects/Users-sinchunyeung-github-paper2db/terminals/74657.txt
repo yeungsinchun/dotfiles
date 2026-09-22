@@ -1,0 +1,27 @@
+---
+pid: 17507
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "git status -sb | head -5\necho \"staged: $(git diff --cached --name-only | wc -l)\"\necho \"unstaged remaining: $(git status --porcelain | awk '\\$1!~/^[MADRC]/' | wc -l)\"\ngit status --porcelain | awk '$1!~/^[MADRC]/' | head -30\necho '===='\ngit diff --cached --stat | tail -25\n"
+title: "Verify staging complete before commit"
+status: failed   
+started_at: 2026-09-05T15:03:15.836Z
+running_for_ms: 180397   
+---
+## classify...origin/classify [ahead 1]
+M  .gitignore
+M  .lavish/lq-classified-review/data.json
+M  .lavish/lq-classified-review/img/2012-q1-ans.png
+M  .lavish/lq-classified-review/img/2012-q1.png
+staged:     1454
+awk: syntax error at source line 1
+ context is
+	 >>> \ <<< $1!~/^[MADRC]/
+awk: bailing out at source line 1
+unstaged remaining:        0
+====
+
+---
+exit_code: unknown
+elapsed_ms: 180397
+ended_at: 2026-09-05T15:06:16.233Z
+---

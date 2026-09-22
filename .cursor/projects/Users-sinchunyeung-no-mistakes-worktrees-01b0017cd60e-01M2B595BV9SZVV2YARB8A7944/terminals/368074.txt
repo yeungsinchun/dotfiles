@@ -1,0 +1,27 @@
+---
+pid: 86065
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/01b0017cd60e/01M2B595BV9SZVV2YARB8A7944"
+command: "# Find DSE paper images without writing anything\nls -la /Users/sinchunyeung/.no-mistakes/worktrees/01b0017cd60e/01M2B595BV9SZVV2YARB8A7944/notes/book5/_local 2>&1\necho \"==== main-ish checkouts ====\"\n# common locations\nfor p in \\\n  \"/Users/sinchunyeung/paper2notes/notes/book5/_local/dse/mc/25/2021_q33.png\" \\\n  \"/Users/sinchunyeung/src/paper2notes/notes/book5/_local/dse/mc/25/2021_q33.png\" \\\n  \"/Users/sinchunyeung/.no-mistakes/worktrees/01b0017cd60e/notes/book5/_local/dse/mc/25/2021_q33.png\" \\\n  \"/Users/sinchunyeung/Projects/paper2notes/notes/book5/_local/dse/mc/25/2021_q33.png\"; do\n  if [ -f \"$p\" ]; then echo \"FOUND $p\"; else echo \"missing $p\"; fi\ndone\necho \"==== mdfind ====\"\nmdfind -name '2021_q33.png' 2>/dev/null | head -20\necho \"==== find limited ====\"\nfind /Users/sinchunyeung -name '2021_q33.png' -not -path '*/Library/*' 2>/dev/null | head -20\n"
+title: "Locate 2021/33 DSE PNG on disk"
+status: failed   
+started_at: 2026-09-12T16:08:56.551Z
+running_for_ms: 88072    
+---
+ls: /Users/sinchunyeung/.no-mistakes/worktrees/01b0017cd60e/01M2B595BV9SZVV2YARB8A7944/notes/book5/_local: No such file or directory
+==== main-ish checkouts ====
+missing /Users/sinchunyeung/paper2notes/notes/book5/_local/dse/mc/25/2021_q33.png
+missing /Users/sinchunyeung/src/paper2notes/notes/book5/_local/dse/mc/25/2021_q33.png
+missing /Users/sinchunyeung/.no-mistakes/worktrees/01b0017cd60e/notes/book5/_local/dse/mc/25/2021_q33.png
+missing /Users/sinchunyeung/Projects/paper2notes/notes/book5/_local/dse/mc/25/2021_q33.png
+==== mdfind ====
+/Users/sinchunyeung/github/paper2notes/dse-classified/mc/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/2021_q33.png
+/Users/sinchunyeung/github/firstmate/projects/paper2db/classified/mc/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/2021_q33.png
+/Users/sinchunyeung/Library/Mobile Documents/com~apple~CloudDocs/Documents/DSE-materials/Phys/notes/Force and Motion/Kinematics/questions/2021_q33.png
+/Users/sinchunyeung/github/paper2db/classified/mc/05_Radioactivity_and_Nuclear_Energy/25_Radiation_and_Radioactivity/2021_q33.png
+==== find limited ====
+
+---
+exit_code: unknown
+elapsed_ms: 88072
+ended_at: 2026-09-12T16:10:24.623Z
+---

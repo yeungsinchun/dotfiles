@@ -1,0 +1,38 @@
+---
+pid: 73365
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy"
+command: "python3 \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/scripts/build_lq_pdfs.py\" --root \"/Users/sinchunyeung/Documents-local/Materials/Phy/notes\" 2>&1"
+started_at: 2026-08-28T07:10:30.779Z
+running_for_ms: 35044    
+---
+ 8  Electricity and Magnetism/Alternating current and transformers/lq.pdf
+ 5  Electricity and Magnetism/Electric circuits/lq.pdf
+ 1  Electricity and Magnetism/Electrical energy and domestic electricity/lq.pdf
+ 3  Electricity and Magnetism/Electromagnetic induction/lq.pdf
+ 8  Electricity and Magnetism/Magnetic fields and motors/lq.pdf
+ 4  Force and Motion/Circular motion/lq.pdf
+ 5  Force and Motion/Gravitation/lq.pdf
+18  Force and Motion/Kinematics/lq.pdf
+ 1  Force and Motion/Moments and statics/lq.pdf
+ 2  Force and Motion/Momentum and collisions/lq.pdf
+ 1  Force and Motion/Newtons laws and forces/lq.pdf
+ 6  Force and Motion/Pressure and fluids/lq.pdf
+ 1  Force and Motion/Projectile motion/lq.pdf
+ 5  Force and Motion/Work energy and power/lq.pdf
+ 1  Heat and Gases/Heat transfer processes/lq.pdf
+ 1  Heat and Gases/Kinetic theory of gases/lq.pdf
+ 1  Heat and Gases/Specific heat capacity/lq.pdf
+ 4  Heat and Gases/Temperature and thermal equilibrium/lq.pdf
+ 3  Radiation/Nuclear reactions and binding energy/lq.pdf
+ 4  Radiation/Radioactivity and nuclear radiation/lq.pdf
+ 1  Wave Motion/Electromagnetic spectrum/lq.pdf
+ 5  Wave Motion/Lenses and optical instruments/lq.pdf
+ 2  Wave Motion/Reflection refraction diffraction interference/lq.pdf
+ 2  Wave Motion/Sound/lq.pdf
+Wrote 24 lq.pdf files under /Users/sinchunyeung/Documents-local/Materials/Phy/notes
+
+---
+exit_code: 0
+elapsed_ms: 36803
+ended_at: 2026-08-28T07:11:07.582Z
+---

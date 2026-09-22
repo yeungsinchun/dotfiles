@@ -1,0 +1,70 @@
+---
+pid: 16030
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/6238f6fd4f32/01M1S29GJEZ8SANWD71T5AHB9M"
+command: "cd /Users/sinchunyeung/.no-mistakes/worktrees/6238f6fd4f32/01M1S29GJEZ8SANWD71T5AHB9M && echo '=== refs to classification paths ===' && rg -n 'classification\\.(csv|json)|mc_classification|lq_classification|classified/classification' scripts/ --glob '*.py' && echo '=== 2023q1b ===' && git ls-tree -r --name-only 25c86db | grep -iE '2023q1b|2023p1b' ; git ls-tree -r --name-only 665252d | grep -iE '2023q1b|2023p1b' ; echo '=== pages deleted in cleanup? ===' && git show --name-status --diff-filter=D 25c86db | grep 'pages/' | head -20; echo count deleted pages:; git show --name-status --diff-filter=D 25c86db | grep 'pages/' | wc -l; echo '=== paper/lq rename status ===' && git show --name-status 25c86db | grep 'paper/lq/'"
+title: "Check path refs and paper rename"
+status: succeeded
+started_at: 2026-09-05T15:21:14.915Z
+running_for_ms: 112186   
+---
+=== refs to classification paths ===
+scripts/classify_mc_llm.py:428:    with (CLASSIFIED / "classification.csv").open("w", newline="", encoding="utf-8") as fh:
+scripts/classify_mc_llm.py:436:    (CLASSIFIED / "mc_classification.json").write_text(
+scripts/classify_mc_llm.py:440:    (CLASSIFIED / "classification.json").write_text(
+scripts/classify_mc_llm.py:443:    with (CLASSIFIED / "mc_classification.csv").open("w", newline="", encoding="utf-8") as fh:
+scripts/combine_lq_section_pdfs.py:27:CSV_PATH = CLASSIFIED_LQ / "classification.csv"
+scripts/classify_lq_by_topic.py:198:    index_path = OUT_ROOT / "lq_classification.json"
+scripts/classify_lq_keywords.py:338:    csv_path = CLASSIFIED_LQ / "classification.csv"
+scripts/classify_lq_keywords.py:351:    # Detailed review file at repo classified/lq_classification.json
+scripts/classify_lq_keywords.py:380:    lq_json = ROOT / "classified" / "lq_classification.json"
+scripts/classify_lq_keywords.py:382:    lq_csv = ROOT / "classified" / "lq_classification.csv"
+scripts/classify_by_topic.py:519:    index_path = OUT_ROOT / "classification.json"
+scripts/classify_lq_llm.py:7:  classified/lq/classification.csv
+scripts/classify_lq_llm.py:156:    csv_path = CLASSIFIED_LQ / "classification.csv"
+scripts/classify_mc_sections.py:7:  classified/classification.csv
+scripts/classify_mc_sections.py:9:  classified/mc_classification.json
+scripts/classify_mc_sections.py:10:  classified/classification.json  (legacy copy)
+scripts/classify_mc_sections.py:598:    csv_path = CLASSIFIED / "classification.csv"
+scripts/classify_mc_sections.py:618:    (CLASSIFIED / "mc_classification.json").write_text(
+scripts/classify_mc_sections.py:621:    (CLASSIFIED / "classification.json").write_text(
+scripts/classify_mc_sections.py:625:    # Flat spreadsheet copy (same columns as classification.csv)
+scripts/classify_mc_sections.py:626:    mc_csv = CLASSIFIED / "mc_classification.csv"
+scripts/classify_mc_sections.py:641:    print(f"JSON: {CLASSIFIED / 'mc_classification.json'}")
+scripts/build_lq_lavish_review.py:81:    csv_path = CLASSIFIED / "classification.csv"
+=== 2023q1b ===
+paper/lq/2023p1b.pdf
+paper/lq/2023q1b.pdf
+=== pages deleted in cleanup? ===
+D	output/lq/2012/pages/page000.png
+D	output/lq/2012/pages/page001.png
+D	output/lq/2012/pages/page002.png
+D	output/lq/2012/pages/page003.png
+D	output/lq/2012/pages/page004.png
+D	output/lq/2012/pages/page005.png
+D	output/lq/2012/pages/page006.png
+D	output/lq/2012/pages/page007.png
+D	output/lq/2012/pages/page008.png
+D	output/lq/2012/pages/page009.png
+D	output/lq/2012/pages/page010.png
+D	output/lq/2012/pages/page011.png
+D	output/lq/2012/pages/page012.png
+D	output/lq/2012/pages/page013.png
+D	output/lq/2012/pages/page014.png
+D	output/lq/2012/pages/page015.png
+D	output/lq/2012/pages/page016.png
+D	output/lq/2012/pages/page017.png
+D	output/lq/2013/pages/page000.png
+D	output/lq/2013/pages/page001.png
+count deleted pages:
+     243
+=== paper/lq rename status ===
+R100	paper/lq/2023q1b.pdf	paper/lq/2023p1b.pdf
+A	paper/lq/2024p1b.pdf
+A	paper/lq/2025p1b.pdf
+A	paper/lq/2026p1b.pdf
+
+---
+exit_code: 0
+elapsed_ms: 112185
+ended_at: 2026-09-05T15:23:07.100Z
+---

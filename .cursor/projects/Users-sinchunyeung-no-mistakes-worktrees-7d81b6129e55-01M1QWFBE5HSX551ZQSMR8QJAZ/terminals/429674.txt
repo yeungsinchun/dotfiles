@@ -1,0 +1,65 @@
+---
+pid: 84446
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ"
+command: "EVID=/Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ\ncd /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ\n.venv-test/bin/pip install -q playwright\n.venv-test/bin/playwright install chromium 2>&1 | tail -20\n.venv-test/bin/python - <<'PY'\nfrom pathlib import Path\nfrom playwright.sync_api import sync_playwright\nEVID = Path(\"/Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ\")\nbase = \"http://127.0.0.1:5055\"\nwith sync_playwright() as p:\n    browser = p.chromium.launch()\n    page = browser.new_page(viewport={\"width\": 1440, \"height\": 900})\n    page.goto(base + \"/\", wait_until=\"networkidle\", timeout=60000)\n    page.screenshot(path=str(EVID / \"ui-compare-pane-initial.png\"), full_page=True)\n    # Select first preloaded trace\n    page.select_option(\"#traceSelect\", index=1)\n    page.wait_for_timeout(200)\n    # Select DP baseline if present\n    for label in [\"DP\", \"DOTS\", \"SQUISH\"]:\n        loc = page.locator(f\"button:has-text('{label}'), label:has-text('{label}')\").first\n        if loc.count():\n            try:\n                loc.click(timeout=2000)\n            except Exception:\n                pass\n    # Click Load Trace\n    load = page.locator(\"button:has-text('Load Trace')\")\n    load.click()\n    page.wait_for_timeout(4000)\n    page.screenshot(path=str(EVID / \"ui-after-load-trace.png\"), full_page=True)\n    # Ensure DP selected and Run baseline\n    page.locator(\"button:has-text('DP')\").first.click()\n    page.wait_for_timeout(200)\n    run = page.locator(\"button:has-text('Run baseline')\")\n    if run.count():\n        run.first.click()\n        page.wait_for_timeout(3000)\n    page.screenshot(path=str(EVID / \"ui-compare-pane-after-dp-run.png\"), full_page=True)\n    # Collect metrics text\n    metrics = page.locator(\"#compareMetricsBody, .compare-metrics, #resultsPanel\").inner_text(timeout=5000)\n    (EVID / \"ui-metrics-dp.txt\").write_text(metrics)\n    # SQUISH\n    page.locator(\"button:has-text('SQUISH')\").first.click()\n    page.wait_for_timeout(200)\n    if run.count():\n        run.first.click()\n        page.wait_for_timeout(3000)\n    page.screenshot(path=str(EVID / \"ui-compare-pane-after-squish-run.png\"), full_page=True)\n    (EVID / \"ui-metrics-squish.txt\").write_text(page.locator(\"#compareMetricsBody, .compare-metrics, #resultsPanel\").inner_text())\n    # DOTS\n    page.locator(\"button:has-text('DOTS')\").first.click()\n    page.wait_for_timeout(200)\n    if run.count():\n        run.first.click()\n        page.wait_for_timeout(3000)\n    page.screenshot(path=str(EVID / \"ui-compare-pane-after-dots-run.png\"), full_page=True)\n    (EVID / \"ui-metrics-dots.txt\").write_text(page.locator(\"#compareMetricsBody, .compare-metrics, #resultsPanel\").inner_text())\n    # Dump all metrics JSON-ish from page state if available\n    state = page.evaluate(\"\"\"() => {\n      const body = document.querySelector('#compareMetricsBody');\n      return {\n        metricsHtml: body ? body.innerHTML : null,\n        metricsText: body ? body.innerText : null,\n        canvas: !!document.querySelector('canvas'),\n      };\n    }\"\"\")\n    import json\n    (EVID / \"ui-metrics-all.json\").write_text(json.dumps(state, indent=2))\n    print(\"screenshots_ok\")\n    print(state)\n    browser.close()\nPY\n"
+title: "Playwright UI screenshots after baseline runs"
+status: failed   
+started_at: 2026-09-05T14:51:48.455Z
+running_for_ms: 38012    
+---
+
+[notice] A new release of pip is available: 26.1.2 -> 26.2.1
+[notice] To update, run: /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ/.venv-test/bin/python3.14 -m pip install --upgrade pip
+Traceback (most recent call last):
+  File "<stdin>", line 11, in <module>
+  File "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ/.venv-test/lib/python3.14/site-packages/playwright/sync_api/_generated.py", line 12285, in select_option
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.select_option(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+        )
+        ^
+    )
+    ^
+  File "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ/.venv-test/lib/python3.14/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ/.venv-test/lib/python3.14/site-packages/playwright/_impl/_page.py", line 1073, in select_option
+    return await self._main_frame.select_option(**params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ/.venv-test/lib/python3.14/site-packages/playwright/_impl/_frame.py", line 814, in select_option
+    return await self._channel.send("selectOption", self._timeout, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ/.venv-test/lib/python3.14/site-packages/playwright/_impl/_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ/.venv-test/lib/python3.14/site-packages/playwright/_impl/_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Page.select_option: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("#traceSelect")
+    - locator resolved to <select id="traceSelect" class="visually-hidden">…</select>
+  - attempting select option action
+    2 × waiting for element to be visible and enabled
+      - option being selected is not enabled
+    - retrying select option action
+    - waiting 20ms
+    2 × waiting for element to be visible and enabled
+      - option being selected is not enabled
+    - retrying select option action
+      - waiting 100ms
+    54 × waiting for element to be visible and enabled
+       - option being selected is not enabled
+     - retrying select option action
+       - waiting 500ms
+
+
+---
+exit_code: 1
+elapsed_ms: 38012
+ended_at: 2026-09-05T14:52:26.467Z
+---

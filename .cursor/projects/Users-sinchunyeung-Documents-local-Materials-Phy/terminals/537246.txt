@@ -1,0 +1,27 @@
+---
+pid: 17516
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/dse"
+command: "cd \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse\" && python3 scripts/preprocess_mc.py \\\n  \"Year/MC/2012p1a.pdf\" \\\n  \"preprocessed/anchored_2012p1a.pdf\" \\\n  --questions 36 \\\n  --cover-pages 1 \\\n  --scale 5.0\n"
+started_at: 2026-08-21T18:41:34.681Z
+running_for_ms: 50154    
+---
+page 2: rail_x=50.2 left=36.2 right=505.2 top=119.3 bottom=797.0 footer=799.0 marker_x=42.2 questions=3
+page 3: rail_x=53.4 left=39.4 right=508.4 top=81.4 bottom=795.0 footer=797.0 marker_x=45.4 questions=3
+page 4: rail_x=41.5 left=27.5 right=496.5 top=78.4 bottom=793.0 footer=795.0 marker_x=33.5 questions=3
+page 5: rail_x=53.5 left=39.5 right=508.5 top=75.8 bottom=791.0 footer=793.0 marker_x=45.5 questions=3
+page 6: rail_x=47.1 left=33.1 right=502.1 top=76.2 bottom=790.6 footer=792.6 marker_x=39.1 questions=2
+page 7: rail_x=60.6 left=46.6 right=515.6 top=75.4 bottom=789.0 footer=791.0 marker_x=52.6 questions=2
+page 8: rail_x=45.3 left=31.3 right=500.3 top=74.0 bottom=787.8 footer=789.8 marker_x=37.3 questions=3
+page 9: rail_x=57.1 left=43.1 right=512.1 top=77.0 bottom=793.0 footer=795.0 marker_x=49.1 questions=3
+page 10: rail_x=45.6 left=31.6 right=500.6 top=78.0 bottom=793.0 footer=795.0 marker_x=37.6 questions=4
+page 11: rail_x=57.4 left=43.4 right=512.4 top=77.6 bottom=791.4 footer=793.4 marker_x=49.4 questions=3
+page 12: rail_x=41.8 left=27.8 right=496.8 top=74.6 bottom=789.4 footer=791.4 marker_x=33.8 questions=2
+page 13: rail_x=55.5 left=41.5 right=510.5 top=72.0 bottom=785.8 footer=787.8 marker_x=47.5 questions=2
+page 14: rail_x=41.6 left=27.6 right=496.6 top=74.0 bottom=788.2 footer=790.2 marker_x=33.6 questions=3
+Wrote preprocessed/anchored_2012p1a.pdf with 13 pages and 36 anchors.
+
+---
+exit_code: 0
+elapsed_ms: 52925
+ended_at: 2026-08-21T18:42:27.606Z
+---

@@ -1,0 +1,17 @@
+---
+pid: 57841
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/2/paper2notes"
+command: "CLOUDSDK_AUTH_IMPERSONATE_SERVICE_ACCOUNT=paper2notes-deployer@paper2notes-site.iam.gserviceaccount.com deploy/gcp/deploy.sh 2>&1 | grep -vE \"^(WARNING|To increase|please see|$)\" | tail -25"
+title: "Test deploy as impersonated deployer SA"
+status: succeeded
+started_at: 2026-09-15T14:30:46.056Z
+running_for_ms: 321562   
+---
+deploy: release 20260915T143047Z-989d54f (1.4M) -> paper2notes-web (us-west1-b, paper2notes-site)
+mkdir: cannot create directory ‘/srv/paper2notes/releases/20260915T143047Z-989d54f’: Permission denied
+
+---
+exit_code: 0
+elapsed_ms: 321559
+ended_at: 2026-09-15T14:36:07.615Z
+---

@@ -1,0 +1,13 @@
+---
+pid: 66585
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/DSE/by-topic/Electricity and Magnetism/Electric circuits/notes"
+command: "cd \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse\" && python3 << 'PY'\n\"\"\"Re-run problematic years: try a few detect scales if Q-count looks too low.\"\"\"\nimport sys\nfrom pathlib import Path\nsys.path.insert(0, \"scripts\")\nfrom preprocess_lq import process_one, render_display, find_question_starts, native_scale\nimport fitz\n\nROOT = Path('.')\nyears = {\n  \"2013\": ROOT/\"Year/LQ/2013p1b.pdf\",\n  \"2014\": ROOT/\"Year/LQ/2014p1b.pdf\",\n  \"2015\": ROOT/\"Year/LQ/2015p1b.pdf\",\n  \"2017\": ROOT/\"Year/LQ/2017p1b.pdf\",\n}\nfor year, pdf in years.items():\n  doc = fitz.open(pdf); doc.authenticate(\"\")\n  best = []\n  for ds in (1.2, 1.5, 1.8, 2.2, 2.5):\n    pages = [render_display(doc[i], ds) for i in range(len(doc))]\n    starts = find_question_starts(pages, 1, 12)\n    print(f\"{year} detect_scale={ds}: {len(starts)} qs\", [s[0] for s in starts])\n    if len(starts) > len(best):\n      best = starts\n  doc.close()\n  print(f\"  -> best count {len(best)}\")\nPY\n"
+started_at: 2026-08-23T02:34:58.688Z
+running_for_ms: 180113   
+---
+
+---
+exit_code: unknown
+elapsed_ms: 180321
+ended_at: 2026-08-23T02:37:59.009Z
+---

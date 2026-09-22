@@ -1,0 +1,28 @@
+---
+pid: 62697
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "# Kill slow debug; rewrite starts.json for all years from existing pages\npkill -f \"893931\\|Debug 2012\" 2>/dev/null; kill 60347 2>/dev/null\ncd /Users/sinchunyeung/github/paper2db && .venv/bin/python -u <<'PY'\nimport sys, json\nsys.path.insert(0,'scripts')\nimport preprocess_lq as p\nfrom pathlib import Path\n\nroot = Path('output/lq')\nfor year_dir in sorted(root.iterdir()):\n    pages_dir = year_dir / 'pages'\n    if not pages_dir.is_dir():\n        continue\n    pages = p.load_page_pngs(pages_dir)\n    if not pages:\n        continue\n    # Detect on ~0.55 scale of stored pages for speed\n    det = p.downscale_pages(pages, 0.55)\n    starts = p.find_question_starts(det, 0, 12)\n    # scale y back to full page coords\n    meta = []\n    for i, (qn, page_i, y) in enumerate(starts):\n        y_full = y / 0.55\n        if i + 1 < len(starts):\n            end_page = starts[i+1][1]\n        else:\n            end_page = len(pages) - 1\n        meta.append({\n            'q': qn,\n            'page_from': page_i,\n            'page_to': max(page_i, end_page),\n            'y': round(float(y_full), 1),\n        })\n    out = year_dir / 'starts.json'\n    out.write_text(json.dumps({'questions': meta, 'pages': len(pages)}, indent=2) + '\\n')\n    qs = [m['q'] for m in meta]\n    print(f'{year_dir.name}: Q{qs[0] if qs else \"-\"}-{qs[-1] if qs else \"-\"} ({len(qs)})')\nPY\n"
+title: "Rebuild starts.json from page PNGs for all years"
+status: succeeded
+started_at: 2026-09-05T01:04:57.477Z
+running_for_ms: 754631   
+---
+2012: Q1-11 (11)
+2013: Q1-11 (11)
+2014: Q1-10 (10)
+2015: Q1-10 (10)
+2016: Q1-9 (9)
+2017: Q1-10 (10)
+2018: Q1-10 (10)
+2019: Q1-10 (10)
+2020: Q1-10 (10)
+2021: Q1-9 (9)
+2022: Q1-10 (10)
+2023: Q1-9 (9)
+pp: Q1-12 (12)
+
+---
+exit_code: 0
+elapsed_ms: 754627
+ended_at: 2026-09-05T01:17:32.104Z
+---

@@ -1,0 +1,44 @@
+---
+pid: 11407
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes"
+command: "node --test --test-name-pattern='3d scenes magnify, label the tube, keep β drift, and pulse radially' notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs"
+title: "Run focused Ch1 3D scene test"
+status: failed   
+started_at: 2026-09-15T04:47:30.667Z
+running_for_ms: 30346    
+---
+▶ Book 5 Ch.1 notes interactives
+  ✖ 3d scenes magnify, label the tube, keep β drift, and pulse radially (28893.666917ms)
+✖ Book 5 Ch.1 notes interactives (29583.322958ms)
+ℹ tests 1
+ℹ suites 1
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 29898.358125
+
+✖ failing tests:
+
+test at notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:242:3
+✖ 3d scenes magnify, label the tube, keep β drift, and pulse radially (28893.666917ms)
+  AssertionError [ERR_ASSERTION]: electron should start away from the anode wire, y=0.07999999999999996
+      at TestContext.<anonymous> (file:///Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes/notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs:1155:10)
+      at async Test.run (node:internal/test_runner/test:1404:7)
+      at async Promise.all (index 10)
+      at async Suite.run (node:internal/test_runner/test:1889:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+---
+exit_code: 1
+elapsed_ms: 30346
+ended_at: 2026-09-15T04:48:01.013Z
+---

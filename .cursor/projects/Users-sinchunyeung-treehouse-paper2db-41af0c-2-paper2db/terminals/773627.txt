@@ -1,0 +1,101 @@
+---
+pid: 92604
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db"
+command: "cd /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db && .venv/bin/python radiation/build_radiation_pack.py && echo '---' && ls radiation && echo '---' && cat radiation/README.md && echo '---' && du -sh radiation radiation/all*.pdf && find radiation -name 'combined.pdf' | sort"
+title: "Final rebuild and show pack layout"
+status: succeeded
+started_at: 2026-09-03T06:16:49.558Z
+running_for_ms: 39179    
+---
+25.1 Ionizing radiation: MC=0 LQ=0 (no past-paper hits)
+25.2A Atomic model: MC=0 LQ=0 (no past-paper hits)
+25.2B Radioactive decay: MC=7 LQ=1
+25.2C Sources of nuclear radiation: MC=2 LQ=1
+25.3A Ionising power: MC=1 LQ=0
+25.3B Detection of nuclear radiation: MC=1 LQ=1
+25.3C Range in air and penetrating power: MC=3 LQ=0
+25.3D Deflection in electric and magnetic fields: MC=1 LQ=0
+25.4 Rates of radioactive decay half-life and activity: MC=13 LQ=0
+25.5A Archaeological use: MC=1 LQ=1
+25.5B Radiation safety and dose: MC=2 LQ=0
+27.1A Common units on the atomic scale: MC=0 LQ=0 (no past-paper hits)
+27.1B Mass-energy relation: MC=4 LQ=0
+27.1C Nuclear fission: MC=4 LQ=0
+27.1D Nuclear fusion: MC=5 LQ=2
+27.1E Nuclear power debate: MC=0 LQ=0 (no past-paper hits)
+Totals: MC=44 LQ=6
+---
+25.2B Radioactive decay
+25.2C Sources of nuclear radiation
+25.3A Ionising power
+25.3B Detection of nuclear radiation
+25.3C Range in air and penetrating power
+25.3D Deflection in electric and magnetic fields
+25.4 Rates of radioactive decay half-life and activity
+25.5A Archaeological use
+25.5B Radiation safety and dose
+27.1B Mass-energy relation
+27.1C Nuclear fission
+27.1D Nuclear fusion
+all_lq.pdf
+all_mc.pdf
+all.pdf
+build_radiation_pack.py
+classification.json
+README.md
+summary.json
+---
+# Radiation tutorial pack
+
+Past-paper MC and long questions for Ch.25 / Ch.27 subtopics.
+
+Open each subtopic's `combined.pdf`, or root `all.pdf` / `all_mc.pdf` / `all_lq.pdf`.
+
+| Subtopic | MC | LQ | Review |
+|---|---:|---:|---|
+| 25.1 Ionizing radiation | 0 | 0 | - |
+| 25.2A Atomic model | 0 | 0 | - |
+| 25.2B Radioactive decay | 7 | 1 | `25.2B Radioactive decay/combined.pdf` |
+| 25.2C Sources of nuclear radiation | 2 | 1 | `25.2C Sources of nuclear radiation/combined.pdf` |
+| 25.3A Ionising power | 1 | 0 | `25.3A Ionising power/combined.pdf` |
+| 25.3B Detection of nuclear radiation | 1 | 1 | `25.3B Detection of nuclear radiation/combined.pdf` |
+| 25.3C Range in air and penetrating power | 3 | 0 | `25.3C Range in air and penetrating power/combined.pdf` |
+| 25.3D Deflection in electric and magnetic fields | 1 | 0 | `25.3D Deflection in electric and magnetic fields/combined.pdf` |
+| 25.4 Rates of radioactive decay half-life and activity | 13 | 0 | `25.4 Rates of radioactive decay half-life and activity/combined.pdf` |
+| 25.5A Archaeological use | 1 | 1 | `25.5A Archaeological use/combined.pdf` |
+| 25.5B Radiation safety and dose | 2 | 0 | `25.5B Radiation safety and dose/combined.pdf` |
+| 27.1A Common units on the atomic scale | 0 | 0 | - |
+| 27.1B Mass-energy relation | 4 | 0 | `27.1B Mass-energy relation/combined.pdf` |
+| 27.1C Nuclear fission | 4 | 0 | `27.1C Nuclear fission/combined.pdf` |
+| 27.1D Nuclear fusion | 5 | 2 | `27.1D Nuclear fusion/combined.pdf` |
+| 27.1E Nuclear power debate | 0 | 0 | - |
+
+**Totals:** 44 MC, 6 LQ.
+
+Empty rows mean no clean past-paper hit in the bank for that slot.
+Photoelectric / heat / wave false positives are excluded.
+
+LQ coverage is limited to years with cropped Paper 1B in the processed bank.
+---
+139M	radiation
+ 25M	radiation/all_lq.pdf
+3.0M	radiation/all_mc.pdf
+ 28M	radiation/all.pdf
+radiation/25.2B Radioactive decay/combined.pdf
+radiation/25.2C Sources of nuclear radiation/combined.pdf
+radiation/25.3A Ionising power/combined.pdf
+radiation/25.3B Detection of nuclear radiation/combined.pdf
+radiation/25.3C Range in air and penetrating power/combined.pdf
+radiation/25.3D Deflection in electric and magnetic fields/combined.pdf
+radiation/25.4 Rates of radioactive decay half-life and activity/combined.pdf
+radiation/25.5A Archaeological use/combined.pdf
+radiation/25.5B Radiation safety and dose/combined.pdf
+radiation/27.1B Mass-energy relation/combined.pdf
+radiation/27.1C Nuclear fission/combined.pdf
+radiation/27.1D Nuclear fusion/combined.pdf
+
+---
+exit_code: 0
+elapsed_ms: 39179
+ended_at: 2026-09-03T06:17:28.737Z
+---

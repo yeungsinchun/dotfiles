@@ -1,0 +1,1463 @@
+diff --git a/tests/fixtures/lq_ocr/2012-q11.txt b/tests/fixtures/lq_ocr/2012-q11.txt
+new file mode 100644
+index 0000000..124730e
+--- /dev/null
++++ b/tests/fixtures/lq_ocr/2012-q11.txt
+@@ -0,0 +1,23 @@
++11.  Radium-226 (728 Ra ) undergoes a-decay into radon (Rn).
++(a) Write a nuclear equation for the decay. (2 marks)
++*(b) Given: mass of a radium nucleus = 226.0254 u
++mass of a radon nucleus = 222.0176 u
++mass of an a-particle = 4.0026 u
++Calculate the energy released in the decay in MeV. (2 marks)
++od J
++5 SI
++Fs &
++2g bee ee ee ee ee eee ene een eee ee eee eee eee ne ee eee eee eee eee eee eee 8
++=z (c) 1 curie (Ci) is defined as the activity of 1 g of radium. The activity of a radium source used in =
++= ’  jaboratories is about 5 4Ci. Estimate the number of radium atoms in this source and hence find its =
++a activity expressed in disintegrations per second. The half-life of radium—226 is 1600 years and take g
++4 the mass of one mole of radium as 226 g. (1 pCi = 1x10™ Ci) (3 marks) | ‘6p
++: E
++g 5
++4 aq
++< | <
++END OF PAPER
++Sources of materials used in this paper will be acknowledged in the Examination Report and Question Papers
++published by the Hong Kong Examinations and Assessment Authority at a later stage.
++Answers written in the margins will not be marked.
++2012-DSE-PHY 1B-19 38
+diff --git a/tests/fixtures/lq_ocr/2013-q6.txt b/tests/fixtures/lq_ocr/2013-q6.txt
+new file mode 100644
+index 0000000..23105ea
+--- /dev/null
++++ b/tests/fixtures/lq_ocr/2013-q6.txt
+@@ -0,0 +1,44 @@
++, 6. Read the following description about ‘Bungee jumping’ and answer the questions that follow.
++
++Bungee jumping is an activity that involves jumping from a tall structure while the person is
++
++connected to it via a thick elastic cord. When the bungee jumper jumps, the cord stretches after
++
++falling a certain distance. The bungee jumper is momentarily at rest at the lowest point but then
++
++bounces back up into the air. The bungee jumper continues to oscillate up and down a few times
++
++before he comes to a complete stop.
++
++ankle pa ee ja
++attachment = }
++ake
++a
++
++A simple ‘ankle attachment’ (as shown in the above photo) can be used to secure the player to the
++
++cord. However, due to accidents where the ankle attachment became detached from the bungee
++
++jumper, many operators now use a ‘full body harness’.
++
++OS full body
++ss 4g) harness oJ
++x yt ow! &
++: th :
++3 oO
++ra ( y 2
++a Teas | a
++5 3
++3 f &
++2 FS
++i=}
++2 When answering the following questions, neglect the effects of air resistance. ia
++Q
++=| o
++5 (a) (i) Describe the acceleration of the bungee jumper during the first downward fall to the lowest ES
++2 point. (3 marks) | &
++2 3
++2 B
++< <
++Answers written in the margins will not be marked.
++2013-DSE-PHY 1B-10 29 .
+diff --git a/tests/fixtures/lq_ocr/2013-q9.txt b/tests/fixtures/lq_ocr/2013-q9.txt
+new file mode 100644
+index 0000000..d1db48a
+--- /dev/null
++++ b/tests/fixtures/lq_ocr/2013-q9.txt
+@@ -0,0 +1,22 @@
++a
++9. Carbon-14 dating can be used to identify the age of some objects which have the '4C isotope, as it is
++radioactive and decays by emitting a f-particle. A piece of wood sample is ‘examined using carbon-14
++dating and its activity is 0.2 Bq. The half-life of '*C is 5730 years. Given: 1 year =3.16 x 10’s
++*(a) Calculate the decay constant of '“C in s'. Hence find the number of '“C nuclei in this wood sample.
++(3 marks)
++od Assume that living organisms contain a constant proportion of carbon-14 in the ratio of 3
++RY 4c /!2¢ = 1.3 x 10°” during its life time via intake of carbon dioxide (CO;) from the atmosphere. <
++5 (b) The carbon content of this wood sample is found to contain a total of 1 x 10” carbon nuclei. Estimate 5
++3 the number of '“C nuclei in the sample originally when it died. (1 mark) | ©
++g E
++BY ceecssccccccsseeeceeeeeeeneneeeeeeeceeeccesensnnnnnnnnnnnnnnsausnssnnsssnsnnnnrssneneeeeeceneeescocecceccesreccereesersseesasasasasaaaasaaasassasscnnncnseccees, | BH
++a
++: 5
++3 a
++a q
++z 2
++g *(c) Estimate the age of this wood sample in years using the results found in (a) and (b). (2 marks) 3
++A a
++Se
++Answers written in the margins will not be marked.
++2013-DSE-PHY 1B-15 34
+diff --git a/tests/fixtures/lq_ocr/2014-q10.txt b/tests/fixtures/lq_ocr/2014-q10.txt
+new file mode 100644
+index 0000000..75b99d8
+--- /dev/null
++++ b/tests/fixtures/lq_ocr/2014-q10.txt
+@@ -0,0 +1,52 @@
++mma aaa ot
++)
++| 10. Voyager Iis a space probe designed by NASA to operate for over ten years in space. It was equipped with a
++radioisotope thermoelectric generator (RTG) which can convert the energy released from the decay of a
++radioactive source into electrical power. Voyager I operates with a plutonium-238 radioactive source that
++| undergoes a-decay.
++(a) The plutonium-238 source is sealed inside a thin metallic casing of the RTG. The photo shows a
++NASA staff handling the RTG with his bare hands. Explain why it is fine for it to be handled by the
++staff in this way. (i mark)
++E oS ae 4 ad
++| . all | ‘eae
++/ Figure 10.1 c..DUlrti<“(a “él
++| BY
++L 3s oe cece enn ween ne cen cee eee eee ene ene een nrc enema nme en ee me ee ee RE ERLE STATI T ETS SETS TSS TTT TESST TTT
++F
++; 2
++i] O ee nec entree ence ne eee eee eee een ewan ce ene ne nena nner nen eR RRR ETSI S
++- = When Voyager I was launched, the number of plutonium-238 atoms in the source was 3.2 x 10”. =
++: a Given: half-life of plutonium-238 = 87.74 years. a
++= Take 1 year = 3.16 x 10’s. =
++| : :
++5 (b) *(i) Find the activity, in Bg, of the plutonium source at the time of launch. (3 marks) | 2
++r= - |
++sal
++5 ; S
++b <
++: < eee eeceeceaeansatanenpaienaesnnecsecsenssseneecenseceseccsnasnuenecseenceseeneenenne ene ent een pe eee e eT ee gee
++iL seeseecceeneeeceeececee cena eeet neta nn TETAS
++' Answers written in the margins will not be marked.
++2014-DSE-PHY 1B-18 18 |
++i i
++(b) (iy wren a pintoniun-238 atom decays, it releases 5.5 MeV of energy. Estimate the power, in kW,
++y the source at the time of launch. (2 marks)
++(iti) oo RTG of Voyager I is still in operation as Voyager J just left the solar system in September
++3 after it was launched 36 years ago. Estimate the corresponding power delivered by the
++plutonium source, expressed in percentage of the power delivered at the time of launch.
++(2 marks)
++3 :
++Oo fe ee ee en ee eee eee en eee - 8
++2 were ee eee en eee tenet renee: oO
++3 .
++2 ae °
++| ‘= =
++; 2
++=I
++< <
++END OF PAPER
++Sources of materials used in this paper will be acknowled i inati i
++ged in the Examination Report and Question Papers
++published by the Hong Kong Examinations and Assessment Authority at a later stage. "
++Answers written in the margins will not be marked.
++2014-DSE-PHY 1B-19 19
+diff --git a/tests/fixtures/lq_ocr/2015-q10.txt b/tests/fixtures/lq_ocr/2015-q10.txt
+new file mode 100644
+index 0000000..5c260d7
+--- /dev/null
++++ b/tests/fixtures/lq_ocr/2015-q10.txt
+@@ -0,0 +1,53 @@
++10. Scientists had been experimenting controlled fusion in a nuclear reactor in which deuterium (4 H ) and tritium
++(4 H ) undergo the following nuclear fusion:
++7H +3H > 3 He + jn + energy released
++Given: mass of a deuterium nucleus = 2.014102 u
++mass of a tritium nucleus = 3.016049 u
++mass of a helium nucleus = 4.002602 u
++mass of a neutron = 1.008665 u
++*(a) Calculate the energy released, in MeV, in the above nuclear fusion. (2 marks)
++al Be ee ew ew ww oo wo ee en ee ee ee eee en a sn ee ee ee ee ec cee eee ee eee cee eee e eee ene: ss
++o
++2 “
++BI er ee Tin ener es a ete ee tne) ety: oe beer eet Ge Oates ancien 5
++& o
++2 2
++as (b) A deuterium nucleus and a tritium nucleus have to be within 10°’ m for nuclear fusion to occur and that a A
++a large amount of work done (about 0.4 MeV) is needed to bring two well separated nuclei to such a close 5
++5 distance. Ks
++<j s
++5 (i) Explain why a large amount of work done is needed and state the kind of energy this work done has eS
++5 become. (2 marks) | 2
++$b —_
++oo i)
++é
++g SCO CHORD SECURE OGRE HEE OH OR DEES SCE OEE EE SE SR SEA iS lg a ae ae CS Ey gi I Rig NE ey RO UR ROC PARE AY Eel RAND 5
++Es e
++wn
++ro PSSA Sieh ie ee by ea cea ecreme nina nine eH Oca TeR a toh A Gaui e ie coat Heat AM RA Met natin A Pesci Sieber Waa Laan Maeas eal intial rem ei NE SCAMS < estienn) atin cab thse ove Si Gey hore =|
++< <x
++Answers written in the margins will not be marked.
++2015-DSE-PHY 1B~18 18
++In the nuclear reactor, deuterium and tritium exist as plasma, which is a mixture of ions at a very high
++temperature.
++(ii) Explain why a very high temperature is needed for nuclear fusion to occur. (1 mark)
++*(iii)Estimate the order of magnitude of the minimum temperature at which fusion of deuterium and
++tritium nuclei would be possible if the plasma can be regarded as an ideal gas. (Hint: For an ideal gas,
++the gas molecules each is assumed to have an average kinetic energy Ex = — ) (2 marks)
++A
++J 3
++5 E
++0 o
++ae) =
++f= re
++2 :
++ba fern nn nner er eee ne re en ee ee ee ee ne ee ee ee ee eee eee ne eee e ewe e eee e cece eee eee eee
++5 :
++Sal
++oO
++<x
++END OF PAPER
++Sources of materials used in this paper will be acknowledged in the Examination Report and Question Papers
++published by the Hong Kong Examinations and Assessment Authority at a later stage.
++Answers written in the margins will not be marked.
++2015-DSE-PHY 1B-19 19
+diff --git a/tests/fixtures/lq_ocr/2016-q9.txt b/tests/fixtures/lq_ocr/2016-q9.txt
+new file mode 100644
+index 0000000..9ae8d3c
+--- /dev/null
++++ b/tests/fixtures/lq_ocr/2016-q9.txt
+@@ -0,0 +1,57 @@
++9. Part of the decay series of uranium-238 (U-238) is shown below. The end product lead-206 (Pb-206) is stable.
++238 > Th 6 __s pa 5. 52% pp
++4.5x10° years 21 days
++(a) When a U-238 nucleus decays to a Pb-206 nucleus, how many a-particle(s) and -particle(s) are emitted ?
++(2 marks)
++(b) As the first decay in the above chain from U to Th has a half-life much longer than those of subsequent
++decays, the decay from U-238 to Pb-206 can be simplified to a single decay with half-life 4.5 x 10° years:
++ao}
++; o
++E 238 206 E
++I Ux, Pb
++E 2 4.5x10° years * 3
++an ie}
++3 S
++a =
++a Suppose that a uranium-bearing rock contains only U-238 and no Pb-206 at the time when it was formed 3
++. long ago by solidification of molten material. In a particular sample of the rock, it is found that the |
++= .. number of Pb-206atoms . 2 hey
++2 ratio. ———_—_—___—_——— is — at present. &
++= number of U-238atoms 3 -
++2 |
++= (i) Estimate the age of the rock. Assume that all Pb-206 atoms come from the decay of U-238 originally |.
++2 present in the sample and ignore the small number of U-238 atoms which have decayed but have not | §
++FS yet become Pb-206. (2 marks) 5
++Sa pee eb a eee eee eee eee beet ee ee een we deem ee mew m ee resend ee mena a eee ee een nee eee eie newman rene neem meee ne eee serene ters er seer rer sneer errs recor ereenns
++a a fe
++Answers written in the margins will not be marked.
++2016-DSE-PHY 1B-18 18
++(ii) State, with a reason, whether the answer in (b)(i) is an overestimate or an underestimate of the age of
++the rock if some Pb-206 atoms have actually been lost. (2 marks)
++(iii) The graph in Figure 9.1 shows how the number of U-238 atoms in the sample varies with time ¢
++subsequently while t=0 denotes the present time. On Figure 9.1, sketch a graph to show the
++variation of the number of Pb-206 atoms in the sample with time. (2 marks)
++no. of atoms
++© Figure 9.1 5
++& i oO
++28 — U-238 | r
++~ ; t S
++ie) 0 =
++is i , =
++= n
++a= &
++5) I
++ios]
++f °
++2 s
++= &
++a= 5
++S £
++= END OF PAPER 5
++3 a
++5 :
++<
++Sources of materials used in this paper will be acknowledged in the Examination Report and Question Papers
++published by the Hong Kong Examinations and Assessment Authority at a later stage.
++Answers written in the margins will not be marked.
++2016-DSE-PHY 1B-19 19
+diff --git a/tests/fixtures/lq_ocr/2017-q10.txt b/tests/fixtures/lq_ocr/2017-q10.txt
+new file mode 100644
+index 0000000..1d5237d
+--- /dev/null
++++ b/tests/fixtures/lq_ocr/2017-q10.txt
+@@ -0,0 +1,30 @@
++10. Dust may adhere to the surfaces of photos and films due to electrostatic attraction. To remove the dust
++effectively, a special brush with a thin slice of polonium-210 CR Po ) fixed near the brush hair as shown in
++Figure 10.1 may be used. Polonium-210 undergoes @ decay and the daughter nucleus lead (Pb) is stable.
++Figure 10.1 "i aS ee
++brush hair thin slice of polonium-210
++(a) Write a nuclear equation for the decay of polonium-210. (2 marks)
++(b) Briefly explain how the @ particles help clean the charged dust. (2 marks)
++3 3
++av
++Fl a
++o oO
++eo) 2
++Ig of sect rere oremseenrnrnesenenticzmnnrone snettn ean prone nnarnncn na atARTREA No aS AIRONET I eA RES SSIS EARS ME OA AOS
++= S
++| a
++a a
++oD nanan ee te enn e enna nnn nnn e nee ee ee tee eee eee etna e ene eee e een nne renee nen een n ree e nn ene eee e eee ne ene a nena nnnn enn en eee neem ene renee een naneen anna seenee eee
++: 2
++: (c) Briefly explain why the polonium-210 slice must be fixed near to the brush hair. (1 mark) E
++s c=)
++| |
++g g
++2 *(d)The manufacturer recommends that the brush should be returned to the factory for replacement of the | 2
++3 polonium-210 slice every year. Taking the activity of a newly replaced polonium-210 slice as 1 unit, find g
++its activity after one year (365 days). Given: half-life of polonium-210 is 138 days. (2 marks)
++END OF PAPER
++Sources of materials used in this paper will be acknowledged in the booklet HKDSE Question Papers published by
++the Hong Kong Examinations and Assessment Authority at a later stage.
++Answers written in the margins will not be marked.
++2017-DSE-PHY 1B-18 18
+diff --git a/tests/fixtures/lq_ocr/2018-q10.txt b/tests/fixtures/lq_ocr/2018-q10.txt
+new file mode 100644
+index 0000000..a72159a
+--- /dev/null
++++ b/tests/fixtures/lq_ocr/2018-q10.txt
+@@ -0,0 +1,54 @@
++10. (a) Part of the decay series of radium-226 (Ra-226) is shown below. Ra-226 decays to radon (Rn) by emitting
++an @ particle with half-life 1600 years. The end product in the series is lead (Pb), which is stable.
++226 pepe Oe Rg tiie Ph
++(i) 8Pb, 727 Pb and *3>Pb are three stable isotopes of lead. State, with a reason, which isotope can be
++the end product in this series. (2 marks)
++*(1i) In a certain laboratory, a Ra-226 source has been used for 50 years. Estimate the percentage of
++undecayed Ra-226 left after this period. (2 marks)
++oO oO
++xd
++} E =
++g g
++on for)
++a I
++FE FS
++g (b) Spark counters can show the ionizing power of radiations. Figure 10.1 indicates the main features of a s
++I type of spark counters in school laboratories. a
++2 =
++5 Ra-226 5
++oO o
++2 setien | ae metal gauze
++< | Figure 10.1 _ is er ee eee <
++:
++a : fine metal wire
++A spark counter consists of a fine metal wire mounted a few mm beneath an earthed metal gauze. The
++wire is connected to the positive terminal of an E.H.T. (Extra High Tension) supply so that a very intense
++electric field is set up between the wire and the metal gauze. When a Ra-226 source is brought near the
++gauze, sparks giving out flashes of light and crackling sound are produced at irregular intervals.
++(i) Explain why the sparks occur at irregular intervals. (1 mark)
++Answers written in the margins will not be marked.
++2018-DSE-PHY 1B-18 37
++A Ra-226 source used in school laboratories is usually said to emit a, fas well as radiations.
++(ii) Explain why / radiation is also emitted even though the source is primarily an a-emitter. (1 mark)
++(iii) Why is the Sparking mainly caused by a radiation rather than f or yradiation ? Suggest a simple way
++to verify this. (2 marks)
++¥ =
++a ee ee iso}
++e 5
++Be) Os a eee
++= I
++: Se a a a a eg ee eS ee Se ee =
++& 2
++po Sg i ee ee ee "bo
++g 3
++oO EDR ES eRe SS Serie eee ess eke a cicee nic Sew is wie eeewier ew awcwbevew ecules ouictwceseu B
++= 5
++5
++© g
++z =
++q END OF PAPER a
++= <
++Sources of materials used in this paper will be acknowledged in the booklet HKDSE Question Papers published by
++the Hong Kong Examinations and Assessment Authority at a later stage.
++Answers written in the margins will not be marked.
++2018-DSE-PHY 1B-19 38
+diff --git a/tests/fixtures/lq_ocr/2019-q10.txt b/tests/fixtures/lq_ocr/2019-q10.txt
+new file mode 100644
+index 0000000..687fd5c
+--- /dev/null
++++ b/tests/fixtures/lq_ocr/2019-q10.txt
+@@ -0,0 +1,45 @@
++>
++10. (a) The equation below represents nuclear fission of uranium-235 (U-235).
++UU + on > WeBa+ 3, Kr+x,n +200 MeV
++(i) What is the value of x ? (1 mark)
++(ii) State a necessary condition for chain reaction of fission to occur. (1 mark)
++Scientists found evidence in Oklo, Africa that natural nuclear fission occurred two billion (2 x 10°) years ago.
++The uranium mineral ore mined from Oklo at present is found to have 0.6% concentration by mass of U-235
++(see the table below), which is much lower than usual.
++(b) The table gives the information of U-235 and U-238 in a sample of uranium mineral ore found in Oklo.
++Given: half-life of U-235 = 7.04 x 10° years
++3 U-235 0.060 kg (i.e. 0.6% concentration by mass) 2
++E U-238 13.556 kg 9.940 kg (i.e. 99.4% concentration by mass) 5
++3 3
++8 *(i) Estimate the amount my (in kg) of U-235 in the sample 2 x 10° years ago. (2 marks) 8 |
++oa |
++& &
++o o
++R= R=
++5 5
++< 4
++(ii) Hence determine whether natural nuclear fission of U-235 was possible 2 x 10° years ago. For
++fission of U-235 to happen, its concentration by mass in the uranium mineral ore has to be at
++least 3%. (1 mark)
++Answers written in the margins will not be marked.
++2019-DSE-PHY 1B-18 18
++There must be underground water in the vicinity of this uranium-rich mineral deposit for natural nuclear
++fission to be possible. Since water can slow down the fast neutrons from fission, these neutrons can easily be
++captured by U-235.
++(c) In fact the chain reaction stopped even before the concentration by mass of U-235 dropped to 3%.
++Explain why this occurred. (2 marks)
++g END OF PAPER E
++& | Sources of materials used in this paper will be acknowledged in the HKDSE Question Papers booklet published by &
++5 | the Hong Kong Examinations and Assessment Authority at a later stage. 38
++E g
++g f=
++oD
++: 5
++& =
++& =
++| R= |
++5 5
++4 g
++Answers written in the margins will not be marked.
++2019-DSE-PHY 1B-19 19 ;
++». |
+diff --git a/tests/fixtures/lq_ocr/2020-q10.txt b/tests/fixtures/lq_ocr/2020-q10.txt
+new file mode 100644
+index 0000000..e21a81f
+--- /dev/null
++++ b/tests/fixtures/lq_ocr/2020-q10.txt
+@@ -0,0 +1,35 @@
++10. Given: mass of proton = 1.0073 u
++mass ofa particle =4.0015u
++mass of '4N nucleus = 13.9993 u
++mass of '3O nucleus = 16.9947 u
++When a stationary '4N nucleus is bombarded by an a particle, the following nuclear reaction can be triggered
++with products '3O and_X fly off:
++a+ 4N— 30 +x
++(a) What is X ? (1 mark)
++*(b)Based on energy consideration, estimate the minimum kinetic energy, in MeV, of the a particle required
++for such a nuclear reaction to occur. (2 marks)
++Rv} &
++& =|
++o o
++oO Oo
++[RS RISES ns tnt eneeenennn rmmermmmnemnenrnn ace ER SEED AN OIE aa RCC | EY
++Ss = «
++= MESS RSS SES SS ES SESS SESE SiS SSR SSS See Snes oso en wweeecemem ewes rere ae cress weininiewewemesweecen secceewesereuewesewecoetetecuseseceucceucEsseseusescceSeseccce-cej eee =
++n n
++=| B=
++on Wee eS Se SSCS CSC CSO SRS SSS SSSR SSeS Reese cs en cee eee eet n meee rte tee tee rer en reece ace em eenaw es ecewe See Sees SSS Sees SSE SSE Sees ee eeee bee SeSUeeSSeeSeee cece ewe eee e wee 5D .
++ios] is]
++5 (c) However, when conservation of momentum is also taken into account, the a particle must possess a E
++c=] kinetic energy greater than that found in (b) to bring about such a reaction. Explain. (2 marks) | 4
++& =
++S a
++oO oO
++= Es
++5 g
++Sg Patna tee enn ee ne ne ee nn ne ee ee ee ee ee eee ee ence ne ee eee cece eee a
++<< <
++END OF PAPER
++Sources of materials used in this paper will be acknowledged in the HKDSE Question Papers booklet published by
++the Hong Kong Examinations and Assessment Authority at a later stage.
++Answers written in the margins will not be marked.
++2020-DSE-PHY 1B-18 18 -
+diff --git a/tests/fixtures/lq_ocr/2021-q9.txt b/tests/fixtures/lq_ocr/2021-q9.txt
+new file mode 100644
+index 0000000..081f3d7
+--- /dev/null
++++ b/tests/fixtures/lq_ocr/2021-q9.txt
+@@ -0,0 +1,29 @@
++,
++9. Potassium-40 ({9K) is a natural radioisotope of potassium.
++(a) (i) What kind of decay does 4K undergo if it decays to 43Ca ? (1 mark)
++Gi) As banana is rich in potassium, a student claims that the radiation emitted by 49K after eating a few
++bananas can be detected outside the human body. Explain whether this claim is justified. (1 mark)
++*(b) A banana typically contains 0.45 g potassium in which 0.012% by mass is {gK while the rest is 33K.
++Given: half-life of #9K = 1.25 x 109 years
++1 year = 3.16 = 107 seconds
++; molar mass of {$K = 40.0 g
++ae! . .
++¥ 3
++& (i) Estimate the number of moles of eK in a banana. (1 mark) ¥
++E E
++£ E
++4 "
++— c
++Ss
++5 (ii) Deduce the activity, in Bq, of a banana. (2 marks) | &
++s g
++5 ,
++£ x
++a}
++< ee ee be <<
++END OF PAPER
++Sources of materials used in this paper will be acknowledged in the HKDSE Question Papers booklet published by
++the Hong Kong Examinations and Assessment Authority at a later stage.
++Answers written in the margins will not be marked.
++2021-DSE-PHY 1B~19 19
++'
+diff --git a/tests/fixtures/lq_ocr/2022-q10.txt b/tests/fixtures/lq_ocr/2022-q10.txt
+new file mode 100644
+index 0000000..565ac06
+--- /dev/null
++++ b/tests/fixtures/lq_ocr/2022-q10.txt
+@@ -0,0 +1,27 @@
++10. Deuterium (7H) and tritium (3H) are isotopes of hydrogen. The fusion of two deuterium nuclides can be
++represented by the following equation:
++7H + 7H—> 3He + jn
++Given: mass of 2H = 2.014102 u
++mass of 3He = 3.016029 u
++mass of §n = 1.008665 u
++*(a) 1 in 6420 atoms of hydrogen in nature is a deuterium. Estimate the maximum energy, in MeV, that could
++be produced from this fusion reaction with 1 mole of hydrogen nuclides. (3 marks)
++F :
++o
++a (b) If conditions are altered, the fusion of two deuterium nuclides may not produce a helium (He) nucleus. |
++2 Complete the equation below for such a possible fusion reaction. (1 mark) a
++eS I
++=|
++a| o
++- B=
++2 5
++— (c) Both fission and fusion produce energy. State TWO advantages of using fusion as an energy source over =
++4 fission. (2 marks) | =
++S 5
++< 4
++END OF PAPER
++Sources of materials used in this paper will be acknowledged in the HKDSE Question Papers booklet published by
++the Hong Kong Examinations and Assessment Authority at a later stage.
++Answers written in the margins will not be marked.
++2022-DSE-PHY 1B-19 19
++) a
+diff --git a/tests/fixtures/lq_ocr/2023-q9.txt b/tests/fixtures/lq_ocr/2023-q9.txt
+new file mode 100644
+index 0000000..a6887cc
+--- /dev/null
++++ b/tests/fixtures/lq_ocr/2023-q9.txt
+@@ -0,0 +1,44 @@
++9, Part of the decay series of thorium-232 (Th-232) is shown below. Th-232 decays to radium-228 (Ra-228) with a
++half-life of 1.41 x 10! years. The end product lead-208 (Pb-208) is stable.
++232 Th_——> 728Ra Fes no. >708pp
++(a) (i) State the kind of radiation emitted by Th-232. (1 mark)
++(ii) How many a- and f- decay(s) has occurred before a Th-232 nucleus becomes a Pb-208 nucleus ?
++(2 marks)
++o oO
++wa
++=| q
++2 *(b) Estimate the proportion of Th-232 decaying in 10 years. Give your answer correct to 2 significant figures. | 8
++8 (2 marks) 3
++3
++= =|
++a R=
++5 5
++; 2
++Answers written in the margins will not be marked.
++2023-DSE-PHY 1B-18 18
++(c) By adding thorium oxide (a compound containing Th-232) to glass, thoriated glass having a higher refractive
++index is produced. Camera lenses manufactured before 1970 are often made from thoriated glass.
++rm 2 camera with
++' ee, aluminium body
++Figure 9.1
++camera lens
++made from
++thoriated glass —
++(i) Although thoriated glass is radioactive, practically it is safe to use a camera with such lenses like the
++one shown in Figure 9.1. Why ? (1 mark)
++g a
++6 3
++I Be)
++‘bb 5
++& (ii) According to the decay series of thorium-232, thorium oxide would end up as lead oxide which is | §
++o black in colour. Why is there no need to worry that a thoriated glass lens would turn black when used 5
++F for several years ? (1 mark) |
++a R=
++= 5
++4 5
++SPSS SOP SOS OS SER ASS ees Oe Cen Reem en cere He R ERE REE EROS EN EH ESE SE DOES ESSE NUE N EH CEN SETSE OSES SS SSS SESE RK SES eee sc ba ten ce ene ee eseseeoUReeebeeelsddsesennceccceencewccece q
++<I <
++END OF PAPER
++Sources of materials used in this paper will be acknowledged in the HKDSE Question Papers booklet published by
++the Hong Kong Examinations and Assessment Authority at a later stage.
++2023-DSE-PHY 1B-19 19
+diff --git a/tests/fixtures/lq_ocr/2024-q13.txt b/tests/fixtures/lq_ocr/2024-q13.txt
+new file mode 100644
+index 0000000..746534c
+--- /dev/null
++++ b/tests/fixtures/lq_ocr/2024-q13.txt
+@@ -0,0 +1,58 @@
++C
++13. Radon (Rn-222) is a radioactive gas with no colour, no smell and no taste. It is released from bedrock material
++underground or from concrete composed of granite. Rn-222 decays with a half-life of 3.82 days by giving out
++@ particles.
++(a) *(i) Find the decay constant (unit: s~') of Rn-222. (2 marks)
++(ii) Inside buildings, the average activity due to radon in 1 m? of air is about 48 Bq. Estimate the average
++number of radon atoms in 1 m? of air inside buildings. (2 marks)
++oO oO
++Sl ccceseccnnntnttnnsinntntaetnenesentneetanneneneietetnenentitiseistettenntittntetintnnctntnenennmenne | Y
++=| =|
++3 a
++E 2
++H (iii) Why is indoor radon considered harmful to human although @ particles have limited penetrating 5
++a power ? (2 marks) |
++| e-|
++q a
++= =
++: :
++ee
++Answers written in the margins will not be marked.
++2024-DSE-PHY 1B-18 18
++G
++(b) Rn-222 belongs to a decay series starting from uranium-238 (U-238). It is known that U-238 undergoes
++decay in the sequence a-f-f- a to become thorium-230 (Th-230). Complete the decay series below from
++U-238 to Th-230 using arrows. (2 marks)
++mass number
++242
++oT TTT TTT
++oe
++Bt
++ma ttt et
++amt ttt tt
++20 {+1 |}
++os |. | Yim |
++oot | et | | tt
++va |_ Vt | | |
++myme{lttLiil,
++86 87 88 89 90 91 92 93 94 MOmCnUmver
++: E
++5 q
++2 END OF PAPER 3
++3 3
++R a
++E “tc ced in ti . . E
++g Sources of materials used in this paper will be acknowledged in the HKDSE Question Papers booklet published by g
++E) the Hong Kong Examinations and Assessment Authority at a later stage. Ey
++=I : . =|
++o
++5 s
++a] B=
++8 g
++2 FI
++5 5
++E E
++& q
++<
++Answers written in the margins will not be marked.
++2024-DSE-PHY 1B-19 19
+diff --git a/tests/fixtures/lq_ocr/2025-q12.txt b/tests/fixtures/lq_ocr/2025-q12.txt
+new file mode 100644
+index 0000000..49b833c
+--- /dev/null
++++ b/tests/fixtures/lq_ocr/2025-q12.txt
+@@ -0,0 +1,50 @@
++12. Carbon-14 ce C) nuclide decays into stable nitrogen-14 c% N) nuclide with a half-life of 5730 years. Assume
++that the concentration of carbon-14 in the atmosphere remains unchanged over time.
++(a) (i) | Write an equation to represent the decay of carbon-14. (1 mark)
++*(ii) Find the decay constant (in yr~') of carbon-14. (2 marks)
++J *qii) 1 g of an ancient wood sample has a carbon-14 activity that gives a count rate of 6.0 counts per minute. .
++Rv, Estimate the age of this sample in years. Given that the carbon-14 activity in 1 g of fresh wood gives 2
++5 a count rate of 13.6 counts per minute. (2 marks) 5
++2 2
++» ao)
++ale aaa eae eae ee ee ee eae 2 s
++r=] ie}
++fom | 5
++f SSNS eeeseEeeusEewesesSswsseusresseeseeusewsTesssuseres eereesuseuesueseseesecssstEensesseveueseesEseseusepessaueESxEsEsssSsseeeeuGuESceunosereusesescoewseceuwesss
++a ceveeeneeeeeaeneeenueseeeeensiensesieeeneiseneeeieisseeisssesieinsinstseneitenesneiesesseesneensecaeseesesesaeenseeetseeeneeeeeeeseeneeeeeeeeeee | “BY
++& 5]
++i |
++Fn (aa o
++E =
++f=] Kee seRE SECT SSHSRON NS He MeE RENE SEE eEEES EN eRe Re ESOS ER EEN SEW eEUNE MCN UuSSSEEO EN eoCasRTeenseRemmEeS EHRs SEESES ES SSTESSESeesssmeweEeSseseeeMESeseeDesoeseseSeeeTs .
++oO =|
++Rel o
++sf £
++< <
++Answers written in the margins will not be marked.
++(b) A more advanced method involves directly measuring the number of carbon-14 atoms relative to that of the
++carbon-12 atoms. Carbon atoms from the wood sample are ionized to form a beam which is directed into a
++magnetic field as shown in Figure 12.1. Each of the positive carbon-14 and carbon-12 ions possesses one
++electronic charge in magnitude. |
++'2C*! and 4C*! ions
++travelling with the same speed poranoreatenvaernamsencneacataaran
++path of '2C*! ions |
++Figure 12.1
++uniform magnetic field
++| © e4e ° — pointing out of the paper
++detector || woe oe
++(i) Both carbon-14 and carbon-12 are isotopes of carbon. What is meant by ‘isotopes’ ? (1 mark)
++J :
++& a
++6 R
++a f:
++s *(ii) Sketch the path of C*! ions on Figure 12.1. (1 mark) ep
++=
++g (iii) Explain why the speed of the ions remains unchanged after passing through the magnetic field. 3
++a= (2 marks) g
++- :
++E E
++END OF PAPER
++Sources of materials used in this paper will be acknowledged in the HKDSE Question Papers booklet published by
++the Hong Kong Examinations and Assessment Authority at a later stage.
++Answers written in the margins will not be marked.
+diff --git a/tests/fixtures/lq_ocr/2026-q12.txt b/tests/fixtures/lq_ocr/2026-q12.txt
+new file mode 100644
+index 0000000..a39c073
+--- /dev/null
++++ b/tests/fixtures/lq_ocr/2026-q12.txt
+@@ -0,0 +1,54 @@
++12. (a) Bismuth-213 (Bi-213) is a radionuclide currently undergoing clinical trials for cancer treatment. It is
++prepared in liquid and injected into the human body, where it targets and destroys cancer cells. Figure 12.1
++shows a decay series of Bi-213.
++mass number
++215
++213 P  prctsp _
++Figure 12.1 a
++ew EL
++09 | aaa
++b+209
++ror OL_| | tt | enum
++81 82 83 84 85 86 87 88 gg omc number
++(i) | Write the nuclear equations corresponding to each of these two decay processes. (2 marks)
++% *(ii) The half-life of Bi-213 is 46 minutes. At time ¢=0 s, its number of undecayed nuclei is 8.0 x 10! |
++= Find its activity (in Bq) at t= 0s. (2 marks) | §
++8 3
++=| wrt rrr rt nt rt tt rt rn tr nr rt rr re rn tee nn tener errr errr re re rrr teeter en ene eeeenee ky
++E s
++a
++= B=
++*(iii) Find the percentage decrease in the activity after 200 minutes. (2 marks) <
++Answers written in the margins will not be marked.
++2026-DSE-PHY 1B-18 18
++(b) In hospital, technicians wear protective gloves to handle liquid radioactive materials, such as those
++containing Bi-213. To monitor radiation exposure, they wear a specialised ring on their finger, as shown in
++Figure 12.2(a). Each ring contains a small chip in a plastic enclosure (Figure 12.2(b)), which detects and
++records radiation doses. The rings are collected every three months to monitor the radiation exposure of the
++technicians.
++(GP aD oS GB Oe, OO
++‘ os (< . chip plastic enclosure
++Figure 12.2(a) Figure 12.2(b)
++(i) Compared to placing it in a badge worn on the chest, what is the advantage of placing the chip in the
++ring wom on the hand ? (1 mark)
++Le] od
++oO oO
++= =
++o woe o
++a Sais risis Sen SSIS TES URRY Ne HES ERERSE Sepa Re TE SAS <a eee ene See neko eee RS SSSR NN EERE Re Sen San RNR RR RNR NRE TRS RRR RRR es vr LO
++° °
++& (ii) The ring should be wom under the gloves. Explain briefly. (1 mark) | ©
++3 3
++I I
++o o
++3 S
++a =I
++oO oO
++5 5
++is (iii) Which type(s) of radiation (a, f or 7) can reach the chip of the ring ? (1 mark) | &
++S 3
++END OF PAPER
++Sources of materials used in this paper will be acknowledged in the HKDSE Question Papers booklet published by
++the Hong Kong Examinations and Assessment Authority at a later stage.
++Answers written in the margins will not be marked.
++2026-DSE-PHY 1B-19 19
+diff --git a/tests/fixtures/lq_ocr/pp-q14.txt b/tests/fixtures/lq_ocr/pp-q14.txt
+new file mode 100644
+index 0000000..1fbe59b
+--- /dev/null
++++ b/tests/fixtures/lq_ocr/pp-q14.txt
+@@ -0,0 +1,29 @@
++14. In April 1986, a disastrous nuclear accident happened at the Chernobyl Nuclear Power Station. A large
++quantity of various radioactive substances was released and spread to neighbouring countries. The
++radiation levels recorded in these countries were much higher than the normal background count rate.
++
++(a) State ONE source of background radiation. (1 mark)
++(b) One of the radioactive isotopes released in the accident was caesium-137 (Cs-137). The
++following equation shows how Cs-137 is produced :
++a U+ pn BCs + 2Rb+ xhn
++Given: mass of one nuclide of 3s U = 235.0439 u
++2’Cs = 136.9071 u
++2 Rb = 94.9399 u
++pn == 1.0087 u
++1 u is equivalent to 931 MeV
++(i) What is the value of x ? (1 mark)
++E z
++2 *(ii) Find the energy release in the fission of one U-235 nuclide in MeV. (2 marks) 2
++g g
++bo a3)
++=) g
++2 2
++: :
++*@ii) The half-life of Cs-137 is 30 years. A soil sample contaminated by Cs-137 has an
++activity of 1.2 x 10° Bq (disintegrations per second). A physicist comments that the
++contaminated sample will affect the environment for more than 350 years. Justify the
++physicist’s claim with calculations. It is known that the activity of an uncontaminated
++soil sample is 200 Bq. (2 marks)
++END OF PAPER
++Answers written in the margins will not be marked.
++HKDSE-PHY 1B-—20 (Sample Paper) 94
+diff --git a/tests/test_classify_cleanup_intent.py b/tests/test_classify_cleanup_intent.py
+index 4c8e5cd..cff098d 100644
+--- a/tests/test_classify_cleanup_intent.py
++++ b/tests/test_classify_cleanup_intent.py
+@@ -17,38 +17,27 @@ sys.path.insert(0, str(SCRIPTS))
+ 
+ 
+ class TestGitignorePages(unittest.TestCase):
+-    """gitignore must ignore LQ page-render caches (git is the consumer)."""
+-
+-    def test_pages_paths_are_ignored(self) -> None:
+-        probe = "output/lq/2099/pages/page01.png"
+-        result = subprocess.run(
+-            ["git", "check-ignore", "-v", probe],
+-            cwd=ROOT,
+-            check=False,
+-            capture_output=True,
+-            text=True,
+-        )
+-        self.assertEqual(result.returncode, 0, result.stderr)
+-        self.assertIn("output/**/pages/", result.stdout)
+-
+-    def test_question_crops_and_combined_not_ignored(self) -> None:
+-        for path in (
+-            "output/lq/2024/q1.png",
+-            "output/lq/2024/combined.pdf",
+-            "output/lq/2026/q1.png",
++    """Generated trees are gitignored (git is the consumer): regenerate, never commit."""
++
++    def test_generated_trees_are_ignored(self) -> None:
++        for probe, rule in (
++            ("reconstructed/lq/2099/pages/page01.png", "reconstructed/"),
++            ("reconstructed/lq/2024/q1.png", "reconstructed/"),
++            ("reconstructed/mc/combined.pdf", "reconstructed/"),
++            ("reconstructed/lq/combined.pdf", "reconstructed/"),
++            ("classified/lq/classification.csv", "classified/"),
++            ("output/lq/2024/combined.pdf", "output/"),
+         ):
++            # --no-index: the rule must hold even while old builds are still tracked.
+             result = subprocess.run(
+-                ["git", "check-ignore", "-v", path],
++                ["git", "check-ignore", "-v", "--no-index", probe],
+                 cwd=ROOT,
+                 check=False,
+                 capture_output=True,
+                 text=True,
+             )
+-            self.assertNotEqual(
+-                result.returncode,
+-                0,
+-                f"{path} should not be gitignored: {result.stdout}",
+-            )
++            self.assertEqual(result.returncode, 0, f"{probe}: {result.stderr}")
++            self.assertIn(rule, result.stdout)
+ 
+ 
+ class TestClassificationSplitArtifacts(unittest.TestCase):
+@@ -460,15 +449,15 @@ class TestLqLlmAbortOnPartialFailure(unittest.TestCase):
+                 "Year": "2012",
+                 "Question": 1,
+                 "Statement": "ok",
+-                "PNG": "output/lq/2012/q1.png",
+-                "AnswerPNG": "output/lq/2012/ans/q1.png",
++                "PNG": "reconstructed/lq/2012/q1.png",
++                "AnswerPNG": "reconstructed/lq/2012/ans/q1.png",
+             },
+             {
+                 "Year": "2012",
+                 "Question": 2,
+                 "Statement": "bad",
+-                "PNG": "output/lq/2012/q2.png",
+-                "AnswerPNG": "output/lq/2012/ans/q2.png",
++                "PNG": "reconstructed/lq/2012/q2.png",
++                "AnswerPNG": "reconstructed/lq/2012/ans/q2.png",
+             },
+         ]
+ 
+@@ -508,7 +497,7 @@ class TestLqKeywordsYearsMerge(unittest.TestCase):
+ 
+         with tempfile.TemporaryDirectory() as tmp:
+             root = Path(tmp)
+-            output_lq = root / "output" / "lq"
++            output_lq = root / "reconstructed" / "lq"
+             classified_lq = root / "classified" / "lq"
+             classified = root / "classified"
+             classified.mkdir()
+@@ -534,8 +523,8 @@ class TestLqKeywordsYearsMerge(unittest.TestCase):
+                     "Primary": "5",
+                     "AllSections": "5",
+                     "Reason": "old-2013",
+-                    "PNG": "output/lq/2013/q1.png",
+-                    "AnswerPNG": "output/lq/2013/ans/q1.png",
++                    "PNG": "reconstructed/lq/2013/q1.png",
++                    "AnswerPNG": "reconstructed/lq/2013/ans/q1.png",
+                 },
+                 {
+                     "Year": "2024",
+@@ -543,8 +532,8 @@ class TestLqKeywordsYearsMerge(unittest.TestCase):
+                     "Primary": "8",
+                     "AllSections": "8",
+                     "Reason": "old-2024",
+-                    "PNG": "output/lq/2024/q1.png",
+-                    "AnswerPNG": "output/lq/2024/ans/q1.png",
++                    "PNG": "reconstructed/lq/2024/q1.png",
++                    "AnswerPNG": "reconstructed/lq/2024/ans/q1.png",
+                 },
+             ]
+             with (classified_lq / "classification.csv").open("w", newline="", encoding="utf-8") as fh:
+diff --git a/tests/test_combine_reconstructed.py b/tests/test_combine_reconstructed.py
+new file mode 100644
+index 0000000..163bccb
+--- /dev/null
++++ b/tests/test_combine_reconstructed.py
+@@ -0,0 +1,89 @@
++"""reconstructed/{mc,lq}/combined.pdf join every year's paper in syllabus order."""
++from __future__ import annotations
++
++import importlib.machinery
++import importlib.util
++import sys
++import tempfile
++import unittest
++from pathlib import Path
++from unittest import mock
++
++import pymupdf as fitz
++
++ROOT = Path(__file__).resolve().parents[1]
++SCRIPTS = ROOT / "scripts"
++if str(SCRIPTS) not in sys.path:
++    sys.path.insert(0, str(SCRIPTS))
++
++
++def load_module(name: str, path: Path):
++    loader = importlib.machinery.SourceFileLoader(name, str(path))
++    spec = importlib.util.spec_from_loader(loader.name, loader)
++    assert spec and spec.loader
++    module = importlib.util.module_from_spec(spec)
++    spec.loader.exec_module(module)
++    return module
++
++
++def _year_pdf(path: Path, label: str, pages: int) -> None:
++    path.parent.mkdir(parents=True, exist_ok=True)
++    doc = fitz.open()
++    try:
++        for index in range(pages):
++            page = doc.new_page(width=595, height=842)
++            page.insert_text((40, 60), f"{label} page {index}", fontsize=12)
++        doc.save(path)
++    finally:
++        doc.close()
++
++
++class TestCombineReconstructed(unittest.TestCase):
++    def test_joins_years_in_order_and_skips_intermediates(self) -> None:
++        combine = load_module("combine_reconstructed", SCRIPTS / "combine_reconstructed.py")
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            mc = root / "reconstructed" / "mc"
++            _year_pdf(mc / "pp" / "combined.pdf", "pp", 1)
++            _year_pdf(mc / "2013" / "combined.pdf", "2013", 2)
++            _year_pdf(mc / "2012" / "combined.pdf", "2012", 3)
++            _year_pdf(mc / "2012-intermediate" / "combined.pdf", "anchors", 9)
++            (mc / "2014").mkdir()  # year without a per-year PDF -> skipped
++            lq = root / "reconstructed" / "lq"
++            _year_pdf(lq / "2012" / "combined.pdf", "lq2012", 4)
++            with (
++                mock.patch.object(combine, "ROOT", root),
++                mock.patch.object(combine, "RECONSTRUCTED", root / "reconstructed"),
++                mock.patch.object(combine, "parse_args", return_value=mock.Mock(kind=["mc", "lq"])),
++            ):
++                combine.main()
++            document = fitz.open(mc / "combined.pdf")
++            try:
++                self.assertEqual(len(document), 6)
++                texts = [page.get_text() for page in document]
++                self.assertIn("2012 page 0", texts[0])
++                self.assertIn("2013 page 0", texts[3])
++                self.assertIn("pp page 0", texts[5])
++                self.assertNotIn("anchors", "\n".join(texts))
++            finally:
++                document.close()
++            self.assertEqual(len(fitz.open(lq / "combined.pdf")), 4)
++
++    def test_lq_crops_stage_rebuilds_top_level_combined_even_when_years_are_ready(self) -> None:
++        pipe = load_module("paper2db_pipeline", ROOT / "pipeline")
++        calls: list[tuple[str, tuple[str, ...]]] = []
++
++        def fake_run(script_name: str, *args: str) -> None:
++            calls.append((script_name, args))
++
++        with tempfile.TemporaryDirectory() as tmp:
++            tmp_path = Path(tmp)
++            (tmp_path / "paper" / "lq").mkdir(parents=True)
++            (tmp_path / "paper" / "lq" / "2099p1b.pdf").write_bytes(b"%PDF-1.4")
++            with (
++                mock.patch.object(pipe, "ROOT", tmp_path),
++                mock.patch.object(pipe, "lq_crops_ready", return_value=True),
++                mock.patch.object(pipe, "run_script", side_effect=fake_run),
++            ):
++                pipe.stage_lq_crops(["2099"], force=False, yes=True)
++        self.assertEqual(calls, [("combine_reconstructed.py", ("--kind", "lq"))])
+diff --git a/tests/test_lq_book5_sections.py b/tests/test_lq_book5_sections.py
+new file mode 100644
+index 0000000..1a51eaf
+--- /dev/null
++++ b/tests/test_lq_book5_sections.py
+@@ -0,0 +1,313 @@
++"""Regression: Book 5 LQs land in every radioactivity section they test.
++
++Chapter 25 (Radiation and Radioactivity) used to hold no primary LQ at all:
++the keyword scorer only kept the latest-scoring section, so an alpha-penetration
++part beside a half-life part was filed under ch26 only, and combine_lq_section_pdfs
++only built questions.pdf for primary rows, leaving ch25's PDF stale (rotated,
++cut off). Fixtures are the tesseract text of the real Paper 1B stacks.
++"""
++from __future__ import annotations
++
++import csv
++import importlib.machinery
++import importlib.util
++import json
++import sys
++import tempfile
++import unittest
++from pathlib import Path
++from unittest import mock
++
++import pymupdf as fitz
++
++ROOT = Path(__file__).resolve().parents[1]
++FIXTURES = ROOT / "tests" / "fixtures" / "lq_ocr"
++SCRIPTS = ROOT / "scripts"
++if str(SCRIPTS) not in sys.path:
++    sys.path.insert(0, str(SCRIPTS))
++
++# Sections each Book 5 LQ tests, primary (latest) first. Read off the source
++# papers: e.g. 2014 Q10 (a) alpha source handled bare-handed -> ch25,
++# (b) activity from half-life -> ch26.
++EXPECTED_BOOK5: dict[tuple[str, int], list[int]] = {
++    ("2012", 11): [27, 26, 25],
++    ("2013", 9): [26],
++    ("2014", 10): [26, 25],
++    ("2015", 10): [27],
++    ("2016", 9): [26, 25],
++    ("2017", 10): [26, 25],
++    ("2018", 10): [26, 25],
++    ("2019", 10): [27, 26],
++    ("2020", 10): [27],
++    ("2021", 9): [26, 25],
++    ("2022", 10): [27],
++    ("2023", 9): [26, 25],
++    ("2024", 13): [26, 25],
++    ("2025", 12): [26, 25],
++    ("2026", 12): [26, 25],
++    ("pp", 14): [27, 26, 25],
++}
++EXPECTED_CH25 = sorted(key for key, secs in EXPECTED_BOOK5.items() if 25 in secs)
++
++
++def load_module(name: str, path: Path):
++    loader = importlib.machinery.SourceFileLoader(name, str(path))
++    spec = importlib.util.spec_from_loader(loader.name, loader)
++    assert spec and spec.loader
++    module = importlib.util.module_from_spec(spec)
++    spec.loader.exec_module(module)
++    return module
++
++
++def fixture_text(year: str, qn: int) -> str:
++    return (FIXTURES / f"{year}-q{qn}.txt").read_text(encoding="utf-8")
++
++
++class TestBook5Classifier(unittest.TestCase):
++    @classmethod
++    def setUpClass(cls) -> None:
++        import classify_lq_keywords as kw
++
++        cls.kw = kw
++
++    def test_every_book5_lq_lists_each_section_it_tests(self) -> None:
++        for (year, qn), expected in EXPECTED_BOOK5.items():
++            with self.subTest(year=year, q=qn):
++                sections, reason = self.kw.classify_text(fixture_text(year, qn))
++                self.assertEqual(sections, expected, reason)
++
++    def test_ch25_problem_list_matches_source_papers(self) -> None:
++        listed = sorted(
++            key
++            for key in EXPECTED_BOOK5
++            if 25 in self.kw.classify_text(fixture_text(*key))[0]
++        )
++        self.assertEqual(listed, EXPECTED_CH25)
++        self.assertIn(("2014", 10), listed)
++
++    def test_bungee_activity_is_not_radioactivity(self) -> None:
++        # 2013 Q6 says "an activity that involves jumping" - no Book 5 context.
++        text = fixture_text("2013", 6)
++        self.assertFalse(self.kw.is_book5(text.lower()))
++        sections, _reason = self.kw.classify_text(text)
++        self.assertTrue(all(sec < 25 for sec in sections), sections)
++
++    def test_latent_heat_fusion_is_not_book5(self) -> None:
++        text = "Calculate the energy needed to melt the ice. Latent heat of fusion of ice = 3.34 x 10^5 J/kg."
++        self.assertFalse(self.kw.is_book5(text.lower()))
++        self.assertEqual(self.kw.classify_text(text)[0], [3])
++
++    def test_ocr_cache_is_keyed_by_png_geometry(self) -> None:
++        from PIL import Image
++
++        with tempfile.TemporaryDirectory() as tmp:
++            png = Path(tmp) / "q10.png"
++            Image.new("RGB", (30, 40), "white").save(png)
++            with mock.patch.object(self.kw, "OCR_CACHE", Path(tmp) / "ocr_cache"):
++                cache = self.kw.ocr_cache_path(png, "2014", 10)
++                self.assertEqual(cache.name, "q10.30x40.txt")
++                # A stale cache from an older crop is dropped when the new one is written.
++                cache.parent.mkdir(parents=True)
++                stale = cache.parent / "q10.txt"
++                stale.write_text("old band text", encoding="utf-8")
++                fake = mock.Mock(stdout=b"fresh text")
++                with mock.patch.object(self.kw.subprocess, "run", return_value=fake):
++                    self.assertEqual(self.kw.ocr_png(png, cache), "fresh text")
++                self.assertFalse(stale.exists())
++                self.assertEqual(cache.read_text(encoding="utf-8"), "fresh text")
++                # Cached text is reused without another tesseract call.
++                with mock.patch.object(self.kw.subprocess, "run") as run:
++                    self.assertEqual(self.kw.ocr_png(png, cache), "fresh text")
++                    run.assert_not_called()
++
++
++def _write_paper(path: Path, pages: int, *, landscape_rotated: bool = False) -> None:
++    """Fake Paper 1B: page 0 is a cover, then exam pages with a page mark."""
++    doc = fitz.open()
++    try:
++        for index in range(pages):
++            if landscape_rotated:
++                page = doc.new_page(width=700, height=500)
++                page.set_rotation(270)
++            else:
++                page = doc.new_page(width=500, height=700)
++            page.insert_text((40, 80), f"PAGE-{index}", fontsize=14)
++        doc.save(path)
++    finally:
++        doc.close()
++
++
++class TestSectionPdfsIncludeEveryListedSection(unittest.TestCase):
++    def test_non_primary_section_gets_questions_pdf_and_stale_pdf_is_removed(self) -> None:
++        combine = load_module("combine_lq_section_pdfs", SCRIPTS / "combine_lq_section_pdfs.py")
++        review = load_module("lq_pdf_review", SCRIPTS / "lq_pdf_review.py")
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            paper = root / "paper" / "lq"
++            paper.mkdir(parents=True)
++            _write_paper(paper / "2014p1b.pdf", 4)
++            lq = root / "reconstructed" / "lq" / "2014"
++            lq.mkdir(parents=True)
++            (lq / "starts.json").write_text(
++                json.dumps(
++                    {
++                        "pages": 3,
++                        "questions": [{"q": 10, "page_from": 1, "page_to": 2}],
++                    }
++                ),
++                encoding="utf-8",
++            )
++            classified = root / "classified" / "lq"
++            classified.mkdir(parents=True)
++            with (classified / "classification.csv").open("w", newline="", encoding="utf-8") as fh:
++                writer = csv.DictWriter(
++                    fh,
++                    fieldnames=["Year", "Question", "Primary", "AllSections", "Reason", "PNG", "AnswerPNG"],
++                )
++                writer.writeheader()
++                writer.writerow(
++                    {
++                        "Year": "2014",
++                        "Question": 10,
++                        "Primary": 26,
++                        "AllSections": "26;25",
++                        "Reason": "test",
++                        "PNG": "reconstructed/lq/2014/q10.png",
++                        "AnswerPNG": "reconstructed/lq/2014/ans/q10.png",
++                    }
++                )
++            ch27 = classified / "05_Radioactivity_and_Nuclear_Energy" / "27_Nuclear_Energy"
++            ch27.mkdir(parents=True)
++            (ch27 / "questions.pdf").write_bytes(b"%PDF-1.4 stale")
++
++            review.PAPER_LQ = paper
++            review.OUTPUT_LQ = root / "reconstructed" / "lq"
++            with (
++                mock.patch.object(combine, "ROOT", root),
++                mock.patch.object(combine, "CLASSIFIED_LQ", classified),
++                mock.patch.object(combine, "CSV_PATH", classified / "classification.csv"),
++                mock.patch.object(combine, "PERF_PATH", classified / "candidate_performance.json"),
++                mock.patch.object(combine, "write_section_questions_pdf", review.write_section_questions_pdf),
++                mock.patch.object(combine, "parse_args", return_value=mock.Mock(overwrite=True)),
++            ):
++                combine.main()
++
++            ch25 = classified / "05_Radioactivity_and_Nuclear_Energy" / "25_Radiation_and_Radioactivity"
++            ch26 = classified / "05_Radioactivity_and_Nuclear_Energy" / "26_Rate_of_Decay_and_Uses_of_Radionuclides"
++            for folder in (ch25, ch26):
++                with self.subTest(folder=folder.name):
++                    document = fitz.open(folder / "questions.pdf")
++                    try:
++                        self.assertEqual(len(document), 2)
++                        self.assertIn("2014 Q10", document[0].get_text())
++                        self.assertIn("PAGE-2", document[0].get_text())
++                        self.assertIn("PAGE-3", document[1].get_text())
++                    finally:
++                        document.close()
++            self.assertIn("ch25 Radiation and Radioactivity", fitz.open(ch25 / "questions.pdf")[0].get_text())
++            self.assertFalse((ch27 / "questions.pdf").exists(), "stale PDF of an empty section must go")
++
++    def test_rotated_scan_is_packed_upright_and_complete(self) -> None:
++        review = load_module("lq_pdf_review", SCRIPTS / "lq_pdf_review.py")
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            paper = root / "paper" / "lq"
++            paper.mkdir(parents=True)
++            _write_paper(paper / "2026p1b.pdf", 4, landscape_rotated=True)
++            lq = root / "reconstructed" / "lq" / "2026"
++            lq.mkdir(parents=True)
++            (lq / "starts.json").write_text(
++                json.dumps({"pages": 3, "questions": [{"q": 12, "page_from": 1, "page_to": 2}]}),
++                encoding="utf-8",
++            )
++            review.PAPER_LQ = paper
++            review.OUTPUT_LQ = root / "reconstructed" / "lq"
++            dest = root / "questions.pdf"
++            written = review.write_section_questions_pdf([("2026", 12)], dest, title="ch25 test")
++            self.assertEqual(written, 2)
++            document = fitz.open(dest)
++            try:
++                self.assertEqual(len(document), 2)
++                for page in document:
++                    self.assertEqual((page.rect.width, page.rect.height), (595.0, 842.0))
++                    # The placed page keeps its on-screen (portrait) orientation
++                    # and its whole height fits inside the A4 printable area.
++                    drawn = page.get_text("dict")
++                    blocks = [b for b in drawn["blocks"] if b.get("type") == 0]
++                    self.assertTrue(blocks)
++                    for block in blocks:
++                        x0, y0, x1, y1 = block["bbox"]
++                        self.assertLess(y1, page.rect.height - 30)
++                        self.assertGreaterEqual(x0, 30)
++                texts = [page.get_text() for page in document]
++                self.assertIn("PAGE-2", texts[0])
++                self.assertIn("PAGE-3", texts[1])
++            finally:
++                document.close()
++
++
++def _generated_bank_is_current() -> bool:
++    """True when classified/ was produced from the reconstructed/ layout.
++
++    classification.csv is generated output whose PNG column names the crop it
++    was built from; rows still pointing at output/ come from an older build.
++    """
++    csv_path = ROOT / "classified" / "lq" / "classification.csv"
++    if not csv_path.is_file() or not (ROOT / "reconstructed" / "lq" / "2026" / "starts.json").is_file():
++        return False
++    with csv_path.open(encoding="utf-8") as fh:
++        rows = list(csv.DictReader(fh))
++    return bool(rows) and all(row["PNG"].startswith("reconstructed/") for row in rows)
++
++
++@unittest.skipUnless(
++    _generated_bank_is_current(),
++    "classified/ and reconstructed/ are generated (gitignored); run ./pipeline first",
++)
++class TestGeneratedCh25Bank(unittest.TestCase):
++    """Checks the real classify-lq + section-pdfs output when it has been built."""
++
++    CH25 = (
++        ROOT
++        / "classified"
++        / "lq"
++        / "05_Radioactivity_and_Nuclear_Energy"
++        / "25_Radiation_and_Radioactivity"
++    )
++
++    def _rows(self) -> dict[tuple[str, int], dict]:
++        with (ROOT / "classified" / "lq" / "classification.csv").open(encoding="utf-8") as fh:
++            return {(r["Year"], int(r["Question"])): r for r in csv.DictReader(fh)}
++
++    def test_classification_lists_ch25_for_every_expected_problem(self) -> None:
++        rows = self._rows()
++        for key in EXPECTED_CH25:
++            with self.subTest(key=key):
++                self.assertIn("25", rows[key]["AllSections"].split(";"))
++        for key, expected in EXPECTED_BOOK5.items():
++            with self.subTest(key=key):
++                self.assertEqual(int(rows[key]["Primary"]), expected[0])
++
++    def test_ch25_folder_and_questions_pdf_cover_every_expected_problem(self) -> None:
++        review = load_module("lq_pdf_review", SCRIPTS / "lq_pdf_review.py")
++        expected_pages = 0
++        for year, qn in EXPECTED_CH25:
++            self.assertTrue((self.CH25 / f"{year}-q{qn}.png").is_file(), (year, qn))
++            span = review.question_range(year, qn)
++            assert span is not None
++            expected_pages += span[1] - span[0] + 1
++        document = fitz.open(self.CH25 / "questions.pdf")
++        try:
++            self.assertEqual(len(document), expected_pages)
++            joined = "\n".join(page.get_text() for page in document)
++            for year, qn in EXPECTED_CH25:
++                self.assertIn(f"{year} Q{qn}", joined)
++            for index, page in enumerate(document):
++                self.assertEqual((page.rect.width, page.rect.height), (595.0, 842.0))
++                for info in page.get_image_info():
++                    # 2-up scans (2015/2023/2025) place the whole spread and clip
++                    # one half, so judge the part that is visible on the page.
++                    visible = fitz.Rect(info["bbox"]) & page.rect
++                    self.assertGreater(visible.height, visible.width, f"page {index} is sideways")
++        finally:
++            document.close()
+diff --git a/tests/test_lq_whole_pages.py b/tests/test_lq_whole_pages.py
+index 1ed7854..0ca204e 100644
+--- a/tests/test_lq_whole_pages.py
++++ b/tests/test_lq_whole_pages.py
+@@ -618,7 +618,7 @@ class TestLqWholePages(unittest.TestCase):
+         crop = load_module("crop_lq_from_pages", ROOT / "scripts" / "crop_lq_from_pages.py")
+         with tempfile.TemporaryDirectory() as tmp:
+             root = Path(tmp)
+-            src_dir = root / "output" / "lq" / "2099"
++            src_dir = root / "reconstructed" / "lq" / "2099"
+             src_dir.mkdir(parents=True)
+             Image.new("RGB", (50, 80), (255, 255, 255)).save(src_dir / "q1.png")
+             classified = (
+@@ -633,7 +633,7 @@ class TestLqWholePages(unittest.TestCase):
+             csv_path = root / "classified" / "lq" / "classification.csv"
+             csv_path.write_text(
+                 "Year,Question,Primary,AllSections,Reason,PNG,AnswerPNG\n"
+-                "2099,1,3,3,test,output/lq/2099/q1.png,output/lq/2099/ans/q1.png\n",
++                "2099,1,3,3,test,reconstructed/lq/2099/q1.png,reconstructed/lq/2099/ans/q1.png\n",
+                 encoding="utf-8",
+             )
+             crop.ROOT = root
+@@ -645,7 +645,11 @@ class TestLqWholePages(unittest.TestCase):
+                 self.assertEqual(answer.size, (20, 10))
+ 
+ 
+-class TestCommittedLqWholePages(unittest.TestCase):
++@unittest.skipUnless(
++    (ROOT / "reconstructed" / "lq" / "2026" / "combined.pdf").is_file(),
++    "reconstructed/ is generated (gitignored); run ./pipeline first",
++)
++class TestGeneratedLqWholePages(unittest.TestCase):
+     def test_2026_pdf_offset_skips_cover(self) -> None:
+         review = load_module("lq_pdf_review", ROOT / "scripts" / "lq_pdf_review.py")
+         source = review.lq_source_pdf("2026")
+@@ -683,7 +687,7 @@ class TestCommittedLqWholePages(unittest.TestCase):
+             document.close()
+ 
+     def test_2026_q1_is_full_exam_page_not_part_a_ycrop(self) -> None:
+-        path = ROOT / "output" / "lq" / "2026" / "q1.png"
++        path = ROOT / "reconstructed" / "lq" / "2026" / "q1.png"
+         self.assertTrue(path.is_file())
+         image = Image.open(path)
+         width, height = image.size
+@@ -694,7 +698,7 @@ class TestCommittedLqWholePages(unittest.TestCase):
+ 
+     def test_2012_q9_includes_continuation_page(self) -> None:
+         Image.MAX_IMAGE_PIXELS = 250_000_000
+-        path = ROOT / "output" / "lq" / "2012" / "q9.png"
++        path = ROOT / "reconstructed" / "lq" / "2012" / "q9.png"
+         self.assertTrue(path.is_file())
+         with Image.open(path) as image:
+             width, height = image.size
+@@ -702,7 +706,7 @@ class TestCommittedLqWholePages(unittest.TestCase):
+         self.assertGreater(height / width, 2.0)
+ 
+     def test_2026_combined_does_not_label_cover_as_q1(self) -> None:
+-        path = ROOT / "output" / "lq" / "2026" / "combined.pdf"
++        path = ROOT / "reconstructed" / "lq" / "2026" / "combined.pdf"
+         self.assertTrue(path.is_file())
+         document = fitz.open(path)
+         try:
+@@ -712,7 +716,7 @@ class TestCommittedLqWholePages(unittest.TestCase):
+             document.close()
+ 
+     def test_2012_questions_pdf_q9_starts_on_exam_page_not_previous(self) -> None:
+-        questions = fitz.open(ROOT / "output" / "lq" / "2012" / "questions.pdf")
++        questions = fitz.open(ROOT / "reconstructed" / "lq" / "2012" / "questions.pdf")
+         try:
+             texts = [page.get_text() for page in questions]
+             q9 = next(i for i, text in enumerate(texts) if "2012 Q9" in text)
+@@ -723,7 +727,7 @@ class TestCommittedLqWholePages(unittest.TestCase):
+             questions.close()
+ 
+     def test_2015_combined_does_not_label_cover_as_q1(self) -> None:
+-        path = ROOT / "output" / "lq" / "2015" / "combined.pdf"
++        path = ROOT / "reconstructed" / "lq" / "2015" / "combined.pdf"
+         self.assertTrue(path.is_file())
+         document = fitz.open(path)
+         try:
+@@ -738,7 +742,7 @@ class TestCommittedLqWholePages(unittest.TestCase):
+             document.close()
+ 
+     def test_2015_questions_pdf_includes_q7_to_q10(self) -> None:
+-        questions = fitz.open(ROOT / "output" / "lq" / "2015" / "questions.pdf")
++        questions = fitz.open(ROOT / "reconstructed" / "lq" / "2015" / "questions.pdf")
+         try:
+             texts = [page.get_text() for page in questions]
+             self.assertGreaterEqual(len(texts), 18)
+diff --git a/tests/test_pipeline.py b/tests/test_pipeline.py
+index 6994744..2e69a23 100644
+--- a/tests/test_pipeline.py
++++ b/tests/test_pipeline.py
+@@ -119,7 +119,7 @@ class TestPipelineHelpers(unittest.TestCase):
+             paper = tmp_path / "paper" / "mc"
+             paper.mkdir(parents=True)
+             (paper / "2099p1a.pdf").write_bytes(b"%PDF-1.4")
+-            year_dir = tmp_path / "output" / "2099"
++            year_dir = tmp_path / "reconstructed" / "mc" / "2099"
+             year_dir.mkdir(parents=True)
+             from PIL import Image
+ 
+@@ -155,7 +155,7 @@ class TestPipelineHelpers(unittest.TestCase):
+ 
+         with tempfile.TemporaryDirectory() as tmp:
+             tmp_path = Path(tmp)
+-            year_dir = tmp_path / "output" / "lq" / "2099"
++            year_dir = tmp_path / "reconstructed" / "lq" / "2099"
+             pages = year_dir / "pages"
+             pages.mkdir(parents=True)
+             Image.new("RGB", (100, 200), (255, 255, 255)).save(pages / "page000.png")
+@@ -186,7 +186,7 @@ class TestPipelineHelpers(unittest.TestCase):
+             paper = tmp_path / "paper" / "lq"
+             paper.mkdir(parents=True)
+             (paper / "2099p1b.pdf").write_bytes(b"%PDF-1.4")
+-            year_dir = tmp_path / "output" / "lq" / "2099"
++            year_dir = tmp_path / "reconstructed" / "lq" / "2099"
+             year_dir.mkdir(parents=True)
+             starts = year_dir / "starts.json"
+             original = '{"questions":[],"pages":1}\n'
+diff --git a/tests/test_quality_audit.py b/tests/test_quality_audit.py
+index e12b1d1..a1a0241 100644
+--- a/tests/test_quality_audit.py
++++ b/tests/test_quality_audit.py
+@@ -131,7 +131,7 @@ class TestQualityAudit(unittest.TestCase):
+         audit = load_module("quality_audit", ROOT / "scripts" / "quality_audit.py")
+         with tempfile.TemporaryDirectory() as tmp:
+             tmp_path = Path(tmp)
+-            year_dir = tmp_path / "output" / "2099"
++            year_dir = tmp_path / "reconstructed" / "mc" / "2099"
+             year_dir.mkdir(parents=True)
+             from PIL import Image
+ 

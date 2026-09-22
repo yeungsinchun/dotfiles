@@ -1,0 +1,23 @@
+---
+pid: 22348
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nimport importlib, preprocess_lq as p\nimportlib.reload(p)\nimport pymupdf as fitz\n\ndef probe(label, pdf):\n    doc=fitz.open(pdf)\n    scale=min(p.native_scale(doc[min(1,len(doc)-1)], cap=3.0), 3.0)\n    pages=p.expand_pdf_pages(doc, scale, cover_pages=1)\n    starts=p.find_question_starts(pages, 0, 12)\n    print(label, [(q,pg,round(y)) for q,pg,y in starts])\n    doc.close()\n\nfor y,f in [('2013','paper/lq/2013p1b.pdf'),('2014','paper/lq/2014p1b.pdf'),('2015','paper/lq/2015p1b.pdf'),('2016','paper/lq/2016p1b.pdf'),('2017','paper/lq/2017p1b.pdf'),('2020','paper/lq/2020p1b.pdf'),('2021','paper/lq/2021p1b.pdf'),('2022','paper/lq/2022p1b.pdf')]:\n    probe(y,f)\nPY\n"
+title: "Retest detection after dual-strip + figure fallback"
+status: succeeded
+started_at: 2026-09-04T17:19:01.921Z
+running_for_ms: 468009   
+---
+2013 [(1, 0, 194), (2, 2, 81), (3, 4, 81), (4, 6, 81), (5, 7, 81), (6, 8, 81), (7, 10, 81), (8, 12, 81), (9, 13, 81), (10, 14, 81), (11, 16, 81)]
+2014 [(1, 0, 320), (2, 2, 88), (3, 4, 88), (4, 6, 209), (5, 8, 88), (6, 9, 219), (7, 10, 88), (8, 12, 234), (9, 14, 232), (10, 16, 243)]
+2015 [(1, 0, 488), (2, 1, 460), (3, 2, 88), (4, 4, 234), (5, 6, 232), (6, 8, 232), (7, 10, 233), (8, 12, 233), (9, 14, 220), (10, 16, 237)]
+2016 [(1, 0, 278), (2, 2, 88), (3, 4, 234), (4, 6, 88), (5, 8, 88), (6, 10, 224), (7, 12, 223), (8, 14, 220), (9, 16, 234)]
+2017 [(1, 0, 197), (2, 2, 81), (3, 3, 470), (4, 4, 81), (5, 6, 81), (6, 8, 81), (7, 10, 266), (8, 12, 81), (9, 14, 81), (10, 16, 81)]
+2020 [(1, 0, 274), (2, 2, 88), (3, 4, 202), (4, 6, 217), (5, 8, 88), (6, 9, 208), (7, 10, 210), (8, 12, 210), (9, 14, 208), (10, 16, 206)]
+2021 [(1, 0, 298), (2, 2, 89), (3, 4, 89), (4, 6, 88), (5, 8, 89), (6, 11, 244), (7, 14, 89), (8, 16, 89), (9, 17, 239)]
+2022 [(1, 0, 383), (2, 2, 239), (3, 2, 371), (4, 6, 88), (5, 8, 88), (6, 10, 88), (7, 12, 232), (8, 14, 240), (9, 16, 233), (10, 17, 234)]
+
+---
+exit_code: 0
+elapsed_ms: 468004
+ended_at: 2026-09-04T17:26:49.925Z
+---

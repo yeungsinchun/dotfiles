@@ -1,0 +1,14 @@
+---
+pid: 84709
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/DSE/scripts"
+command: "cd /Users/sinchunyeung/Documents-local/Materials/Phy/DSE/scripts && python3 segment_crop.py"
+started_at: 2026-08-02T07:19:52.173Z
+running_for_ms: 290128   
+---
+Created 967 crops/pages in /Users/sinchunyeung/Documents-local/Materials/Phy/DSE/work/crops
+
+---
+exit_code: 0
+elapsed_ms: 295082
+ended_at: 2026-08-02T07:24:47.255Z
+---

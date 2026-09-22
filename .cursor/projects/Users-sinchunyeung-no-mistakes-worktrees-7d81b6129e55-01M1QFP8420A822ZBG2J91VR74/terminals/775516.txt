@@ -1,0 +1,48 @@
+---
+pid: 56877
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QFP8420A822ZBG2J91VR74"
+command: "WT=/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QFP8420A822ZBG2J91VR74\nEVID=/Users/sinchunyeung/.no-mistakes/evidence/01M1QFP8420A822ZBG2J91VR74\ncd \"$WT\"\n\n# Replace symlink with a real copy so outputs don't clobber\nrm -f baseline-src/data\nmkdir -p baseline-src/data\nfor id in 1 2 3 4 5 6 7 8 9 10; do\n  mkdir -p \"baseline-src/data/$id\"\n  cp \"data/$id/original.txt\" \"baseline-src/data/$id/original.txt\"\ndone\n\n# Also need scripts/frechet.jl accessible from baseline repo root\n# frechet is looked up at repo_root/scripts/frechet.jl - baseline-src should have scripts from checkout\nls baseline-src/scripts/frechet.jl\n\n# Run local CI gate (correctness + bench)\npython3 scripts/local_ci_gate.py \\\n  --baseline \"$WT/baseline-src/build-base/simplify\" \\\n  --new \"$WT/build-new/simplify\" \\\n  --baseline-cwd \"$WT/baseline-src\" \\\n  --new-cwd \"$WT\" \\\n  --a 1 --b 10 --epsilon 299 --delta 1 \\\n  2>&1 | tee \"$EVID/local_ci_gate_e299_d1.txt\"\n"
+title: "Isolate data and run local CI gate"
+status: succeeded
+started_at: 2026-09-05T15:31:27.245Z
+running_for_ms: 126097   
+---
+rm: baseline-src/data: is a directory
+baseline-src/scripts/frechet.jl
+Gate params: e=299.0 d=1.0 dist_tol=0.01 points_tol=0 slowdown=1.5x min_ms=20.0
+baseline=/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QFP8420A822ZBG2J91VR74/baseline-src/build-base/simplify
+new     =/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QFP8420A822ZBG2J91VR74/build-new/simplify
+
+=== Correctness (Frechet + points) ===
+  id     orig_dist      new_dist      d_dist  orig_pts   new_pts   d_pts  status
+   1    299.000000    299.000000    0.000000        92        92       0  OK
+   2    299.002120    299.002120    0.000000       516       516       0  OK
+   3    299.002245    299.002245    0.000000       120       120       0  OK
+   4    299.000000    299.000000    0.000000        66        66       0  OK
+   5    299.002784    299.002784    0.000000       176       176       0  OK
+   6    299.000000    299.000000    0.000000        52        52       0  OK
+   7    299.000000    299.000000    0.000000       156       156       0  OK
+   8    299.000000    299.000000    0.000000         6         6       0  OK
+   9    299.001589    299.001589    0.000000       186       186       0  OK
+  10    299.000000    299.000000    0.000000       204       204       0  OK
+
+=== Benchmark (avg of 3, limit 1.5x) ===
+  id     prev_ms      new_ms     ratio  status
+   1      2.8381      2.2664     0.799  OK
+   2      7.2305      5.4662     0.756  OK
+   3      6.9420      4.6667     0.672  OK
+   4      3.3164      2.6103     0.787  OK
+   5      3.0132      2.4039     0.798  OK
+   6      2.9707      2.3823     0.802  OK
+   7      1.8139      1.4230     0.785  OK
+   8      0.0430      0.0423     0.985  OK
+   9      2.5010      2.1464     0.858  OK
+  10     24.8423     21.6277     0.871  OK
+
+✅ Local CI gate OK
+
+---
+exit_code: 0
+elapsed_ms: 126097
+ended_at: 2026-09-05T15:33:33.342Z
+---

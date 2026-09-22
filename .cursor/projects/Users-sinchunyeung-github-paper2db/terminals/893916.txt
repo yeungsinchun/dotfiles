@@ -1,0 +1,62 @@
+---
+pid: 19633
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python <<'PY'\nimport sys, io, subprocess, re\nsys.path.insert(0,'scripts')\nimport importlib, preprocess_lq as p\nimportlib.reload(p)\nimport pymupdf as fitz\n\ndef dump(pdf, pages_n=4):\n    doc=fitz.open(pdf)\n    scale=min(p.native_scale(doc[1], cap=3.0), 3.0)\n    pages=p.expand_pdf_pages(doc, scale, cover_pages=1)\n    print('pages', len(pages), pages[0].size)\n    for i in range(min(pages_n, len(pages))):\n        hits=p.find_starts_on_image(pages[i], 12)\n        w,h=pages[i].size\n        strip=pages[i].crop((int(w*0.035), int(h*0.035), int(w*0.32), int(h*0.96)))\n        strip=strip.resize((strip.width*2, strip.height*2))\n        buf=io.BytesIO(); strip.save(buf, format='PNG')\n        r=subprocess.run(['tesseract','stdin','stdout','--psm','6'], input=buf.getvalue(), stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)\n        lines=r.stdout.decode().splitlines()\n        line_q_re = re.compile(r\"^[|\\[\\]Il\\\"'*#\\s]*\\*?\\s*(\\d{1,2})\\s*[.)]\\s*(?:\\(|[A-Z*\\\"'Ff]|$)\")\n        matched=[]\n        for j,line in enumerate(lines[:40]):\n            m=line_q_re.match(line.strip())\n            if m or (j<15 and re.search(r'\\d', line)):\n                matched.append((j, repr(line), bool(m), m.group(1) if m else None))\n        print(f'-- p{i} hits={hits}')\n        for row in matched[:12]:\n            print('   ', row)\n    print('SEQ', p.find_question_starts(pages,0,12))\n    doc.close()\n\nprint('==== 2014 ====')\ndump('paper/lq/2014p1b.pdf', 5)\nprint('==== 2021 ====')\ndump('paper/lq/2021p1b.pdf', 6)\nPY\n"
+title: "Debug OCR lines for 2014 and 2021"
+status: succeeded
+started_at: 2026-09-04T17:16:25.489Z
+running_for_ms: 106008   
+---
+==== 2014 ====
+pages 19 (1785, 2525)
+-- p0 hits=[]
+    (3, "'Figure 1.1'", False, None)
+    (4, "'Figure 1.1 shows an e»'", False, None)
+    (9, "'; 5'", False, None)
+-- p1 hits=[]
+    (2, "'(c) Given: mass 0!'", False, None)
+    (10, "'3'", False, None)
+-- p2 hits=[(2, 205.0)]
+    (0, "'#2. Figure 2.1 shows a b'", True, '2')
+    (8, "'Figure 2.1 -'", False, None)
+    (10, "'6'", False, None)
+    (14, "'pressure 100 kPa. 14'", False, None)
+-- p3 hits=[]
+    (10, "'3'", False, None)
+-- p4 hits=[(3, 223.0)]
+    (0, "'3, Two cars A and B ini'", False, None)
+    (3, "'25 }'", False, None)
+    (4, "'20 f'", False, None)
+    (5, "'15 |'", False, None)
+    (6, "'10 }'", False, None)
+    (7, "'5 |'", False, None)
+    (8, "'0'", False, None)
+    (12, "'“ $0 8 eee we dames eb etweeseneceneanecncansesseasus'", False, None)
+SEQ []
+==== 2021 ====
+pages 19 (1819, 2550)
+-- p0 hits=[(1, 297.5333333333333)]
+    (4, "'1. A 150 W immersion'", True, '1')
+    (6, "'pressure. In 5 minute:'", False, None)
+-- p1 hits=[]
+-- p2 hits=[(2, 237.0)]
+    (0, "'2. A diver makes a sound'", True, '2')
+    (2, "'to the seabed 30 m bel'", False, None)
+    (10, "'Figure 2.1] (0.012'", False, None)
+-- p3 hits=[]
+    (10, "'Figure 2.2'", False, None)
+-- p4 hits=[]
+    (0, "'3. <A volleyball player ser'", False, None)
+    (5, "'Figure 3.1'", False, None)
+    (7, "'13.'", True, '13')
+-- p5 hits=[]
+    (7, "'2 initial speed but at a sm'", False, None)
+    (8, "'8 any calculation, explain'", False, None)
+    (11, "'3 Trt Trt'", False, None)
+SEQ [(1, 0, 297.5333333333333), (2, 2, 237.0)]
+
+---
+exit_code: 0
+elapsed_ms: 106007
+ended_at: 2026-09-04T17:18:11.496Z
+---

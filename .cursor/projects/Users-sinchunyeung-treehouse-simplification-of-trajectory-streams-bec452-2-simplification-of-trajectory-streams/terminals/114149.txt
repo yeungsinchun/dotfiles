@@ -1,0 +1,27 @@
+---
+pid: 12367
+cwd: "/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/web"
+command: "/tmp/simp-viewer-venv/bin/python server.py"
+title: "Restart Flask viewer on 5051"
+status: failed   
+started_at: 2026-09-07T09:28:49.335Z
+running_for_ms: 18495    
+---
+Repo root: /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams
+Binary: /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/2/simplification-of-trajectory-streams/build/simplify
+Baselines: dots=True dp=True squish=True
+Starting Flask server on http://0.0.0.0:5051
+ * Serving Flask app 'server'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5051
+ * Running on http://192.168.31.91:5051
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [07/Sep/2026 17:29:01] "GET / HTTP/1.1" 200 -
+
+---
+exit_code: 143
+elapsed_ms: 18495
+ended_at: 2026-09-07T09:29:07.830Z
+---

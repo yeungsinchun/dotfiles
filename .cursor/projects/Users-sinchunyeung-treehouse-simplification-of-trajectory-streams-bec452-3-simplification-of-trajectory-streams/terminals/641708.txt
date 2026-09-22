@@ -1,0 +1,23 @@
+---
+pid: 12438
+cwd: "/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams"
+command: "cd /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/web && /opt/anaconda3/bin/python server.py"
+title: "Start viewer with conda Python"
+status: failed   
+started_at: 2026-09-07T09:28:50.204Z
+running_for_ms: 297      
+---
+Repo root: /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams
+Binary: /Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams/build/simplify
+Baselines: dots=True dp=True squish=True
+Starting Flask server on http://0.0.0.0:5051
+ * Serving Flask app 'server'
+ * Debug mode: off
+Address already in use
+Port 5051 is in use by another program. Either identify and stop that program, or start the server with a different port.
+
+---
+exit_code: 1
+elapsed_ms: 297
+ended_at: 2026-09-07T09:28:50.501Z
+---

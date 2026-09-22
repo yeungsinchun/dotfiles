@@ -1,0 +1,638 @@
+=== Does data/ appear in an enumeration of the directory? ===
+total 296
+drwxr-xr-x@    32 sinchunyeung  staff    1024 Aug 19 00:21 .
+drwxr-x---+   137 sinchunyeung  staff    4384 Aug 19 02:28 ..
+-rw-r--r--@     1 sinchunyeung  staff   10244 Aug 18 00:46 .DS_Store
+drwxr-x---@     3 sinchunyeung  staff      96 Aug 10 14:55 .cache
+-rw-r--r--@     1 sinchunyeung  staff      14 Jun 10 00:18 .clang-format
+-rw-r--r--@     1 sinchunyeung  staff     296 Aug 18 10:44 .dockerignore
+drwxr-xr-x@    18 sinchunyeung  staff     576 Aug 19 00:21 .git
+drwxr-xr-x@     3 sinchunyeung  staff      96 Aug 17 22:28 .github
+-rw-r--r--@     1 sinchunyeung  staff    2091 Aug 18 23:52 .gitignore
+-rw-r--r--@     1 sinchunyeung  staff     116 Aug 11 00:20 .gitmodules
+-rw-r--r--@     1 sinchunyeung  staff    1460 Aug 19 00:19 CMakeLists.txt
+-rw-r--r--@     1 sinchunyeung  staff    1989 Aug 18 10:44 DEPLOYMENT.md
+-rw-r--r--@     1 sinchunyeung  staff    2725 Aug 19 02:03 Dockerfile
+-rw-r--r--@     1 sinchunyeung  staff    1071 Aug 10 18:05 LICENSE
+-rw-r--r--@     1 sinchunyeung  staff    4655 Aug 18 23:31 README.md
+drwxr-xr-x@    26 sinchunyeung  staff     832 Aug 18 23:34 build
+drwxr-xr-x@   206 sinchunyeung  staff    6592 Aug 19 01:02 data
+-rwxr-xr-x@     1 sinchunyeung  staff     810 Aug 19 02:03 deploy.sh
+-rw-r--r--@     1 sinchunyeung  staff   15625 Jun 21 17:58 drawing.cpp
+-rw-r--r--@     1 sinchunyeung  staff    3614 Aug 10 18:05 drawing.h
+drwxr-xr-x@     6 sinchunyeung  staff     192 Jun 20 01:31 papers
+drwxr-xr-x@     9 sinchunyeung  staff     288 Jul 11 03:07 report
+drwxr-xr-x@     7 sinchunyeung  staff     224 Aug 10 18:05 results
+drwxr-xr-x@    10 sinchunyeung  staff     320 Aug 10 18:05 scripts
+-rw-r--r--@     1 sinchunyeung  staff   12731 Aug 18 23:26 simplify.cpp
+-rw-r--r--@     1 sinchunyeung  staff   26732 Aug 18 23:02 simplify_geometry.h
+-rw-r--r--@     1 sinchunyeung  staff    7716 Aug 18 23:34 simplify_io.h
+-rw-r--r--@     1 sinchunyeung  staff   11766 Aug 18 23:31 simplify_with_gui.cpp
+drwxr-xr-x@ 10359 sinchunyeung  staff  331488 Jun 13 21:27 taxi_log_2008_by_id
+-rw-r--r--@     1 sinchunyeung  staff    7104 Aug 10 18:05 timer.h
+drwxr-xr-x@     9 sinchunyeung  staff     288 Aug 10 18:28 traj-compression
+drwxr-xr-x@     7 sinchunyeung  staff     224 Aug 11 18:43 web
+
+=== Stat the data directory ===
+16777233 267099970 drwxr-xr-x 206 sinchunyeung staff 0 6592 "Aug 19 01:43:51 2026" "Aug 19 01:02:11 2026" "Aug 19 01:02:11 2026" "Aug 10 15:06:23 2026" 4096 0 0 data
+
+=== Try to enumerate it directly ===
+0000000    d   a   t   a  \n                                            
+0000005
+
+=== What's the inode of data/? ===
+267099970 data
+
+=== Is there a symlink shim? ===
+data: directory
+
+=== Can tar even SEE data from this exact cwd? ===
+tar: Error opening archive: Unrecognized archive format
+=== Test: list with absolute path ===
+total 136
+drwxr-xr-x@ 206 sinchunyeung  staff   6592 Aug 19 01:02 .
+drwxr-xr-x@  32 sinchunyeung  staff   1024 Aug 19 00:21 ..
+-rw-r--r--@   1 sinchunyeung  staff  65540 Aug 18 00:45 .DS_Store
+drwxr-xr-x@   5 sinchunyeung  staff    160 Aug 10 18:02 1
+
+=== Look in data/ for the entry we tried earlier (1.txt) ===
+ls: /Users/sinchunyeung/Simplification-of-Trajectory-Streams/data/1.txt: No such file or directory
+
+=== Just tar data/ alone to confirm it works ===
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+tar: Could not open extended attribute file: No such file or directory
+data/
+data/frechet_42d31075-96d2-4265-ae42-677e2fab06fc/
+data/frechet_a73ad3bf-e378-4b09-8c3a-cc81e2052413/
+data/frechet_c3225894-a4d7-4884-9400-a51a5ad8ff4f/
+data/50/

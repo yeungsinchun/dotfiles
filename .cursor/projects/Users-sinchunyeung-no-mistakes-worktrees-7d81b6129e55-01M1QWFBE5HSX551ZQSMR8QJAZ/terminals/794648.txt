@@ -1,0 +1,36 @@
+---
+pid: 52999
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ"
+command: "git submodule update --init --recursive 2>&1 | tail -20; ls traj-compression/online/DOTS/ 2>/dev/null | head; ls traj-compression/batch/DP/ 2>/dev/null | head; docker info >/dev/null 2>&1 && echo DOCKER_OK || echo DOCKER_FAIL; brew list qt@6 2>/dev/null | head -3; ls /opt/homebrew/opt/qt*/lib/cmake/Qt6 2>/dev/null | head -3; pkg-config --exists Qt6Core && echo QT6_OK || echo QT6_MISSING"
+title: "Init submodule; check Docker and Qt6"
+status: failed   
+started_at: 2026-09-05T04:21:10.501Z
+running_for_ms: 110546   
+---
+Submodule 'traj-compression' (https://github.com/yeungsinchun/traj-compression.git) registered for path 'traj-compression'
+Cloning into '/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ/traj-compression'...
+Submodule path 'traj-compression': checked out 'ce40df79a77db8eb4bb31d7316a187c07b2ad921'
+CMakeLists.txt
+DotsException.cpp
+DotsException.h
+DotsSimplifier.cpp
+DotsSimplifier.h
+Helper.cpp
+Helper.h
+dots.cpp
+20081023025304-0.csv
+20081023025304-0.plt
+DP
+DP.cpp
+DP.sh
+DP_adapted.cpp
+DOCKER_FAIL
+/opt/homebrew/Cellar/qt/6.9.2/INSTALL_RECEIPT.json
+/opt/homebrew/Cellar/qt/6.9.2/bin/qt-configure-module
+/opt/homebrew/Cellar/qt/6.9.2/bin/Assistant
+
+---
+exit_code: unknown
+elapsed_ms: 110546
+ended_at: 2026-09-05T04:23:01.047Z
+---

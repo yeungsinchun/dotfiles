@@ -1,0 +1,16 @@
+---
+pid: 87403
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db"
+command: "npx -y lavish-axi poll /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/.lavish/pr6-lq-review/index.html"
+title: "Single Lavish poll for captain feedback"
+status: failed   
+started_at: 2026-09-15T12:50:18.082Z
+running_for_ms: 1913733  
+---
+[lavish-axi] Long-polling for user feedback on /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/.lavish/pr6-lq-review/index.html. This stays silent until the user sends feedback or ends the session - leave it running. Detected layout issues do NOT return this poll: they wait in the user's Layout issues inbox until the user queues them as ordinary feedback. If it gets killed or times out before feedback arrives, re-run `lavish-axi poll /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/.lavish/pr6-lq-review/index.html` - feedback remains queued until delivery. Poll delivery consumes the response, so read it completely.
+
+---
+exit_code: unknown
+elapsed_ms: 1913732
+ended_at: 2026-09-15T13:22:11.814Z
+---

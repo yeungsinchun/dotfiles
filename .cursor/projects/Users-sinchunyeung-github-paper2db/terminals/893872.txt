@@ -1,0 +1,56 @@
+---
+pid: 44045
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python - <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nimport pymupdf as fitz\nfrom preprocess_mc import detect_labels, merge_page_hits, collect_labels, enforce_label_order\n\nfor year, pdfp, nq in [(2018,'paper/mc/2018p1a.pdf',33),(2026,'paper/mc/2026p1a.pdf',33)]:\n    doc=fitz.open(pdfp)\n    # content pages typically skip cover\n    content=list(range(1,len(doc)))\n    print(f'\\n==== {year} raw detect_labels scale=5 page1 ====')\n    hits=detect_labels(doc[1], 5.0, nq)\n    for h in hits:\n        print(' ', h)\n    print('merged multi-scale page1:')\n    merged=merge_page_hits(doc, [1], nq)\n    for h in sorted(merged[1], key=lambda t:t[2]):\n        print(' ', h)\n    labels=collect_labels(doc, content, 5.0, nq)\n    labels=enforce_label_order(labels, nq)\n    print('final labels 1-8:')\n    for n in range(1,9):\n        print(f'  Q{n}: {labels.get(n)}')\nPY\n"
+title: "Dump raw OCR label hits for 2018/2026"
+status: succeeded
+started_at: 2026-09-04T12:22:52.612Z
+running_for_ms: 90422    
+---
+
+==== 2018 raw detect_labels scale=5 page1 ====
+  (1, 73.675, 123.8)
+  (2, 73.675, 380.125)
+  (3, 73.675, 610.8)
+merged multi-scale page1:
+  (1, 73.675, 123.8)
+  (2, 73.675, 380.125)
+  (5, 73.47222222222221, 610.6249999999999)
+  (3, 73.675, 610.8)
+final labels 1-8:
+  Q1: (1, 73.675, 123.8)
+  Q2: (1, 73.675, 380.125)
+  Q3: (1, 73.675, 610.8)
+  Q4: (2, 44.475, 63.625)
+  Q5: (2, 44.475, 357.8)
+  Q6: (3, 78.30833333333334, 70.8)
+  Q7: (3, 78.30833333333334, 335.0)
+  Q8: (3, 78.30833333333334, 555.375)
+
+==== 2026 raw detect_labels scale=5 page1 ====
+  (1, 56.42, 139.4)
+  (2, 56.42, 255.4)
+  (3, 56.42, 359.8)
+  (4, 56.42, 255.375)
+  (5, 56.42, 359.75)
+merged multi-scale page1:
+  (1, 56.42, 139.4)
+  (4, 56.42, 255.375)
+  (2, 56.42, 255.4)
+  (5, 56.42, 359.75)
+  (3, 56.42, 359.8)
+final labels 1-8:
+  Q1: (1, 56.42, 139.4)
+  Q2: (1, 56.42, 197.3875)
+  Q3: (1, 56.42, 226.38125)
+  Q4: (1, 56.42, 255.375)
+  Q5: (1, 56.42, 359.75)
+  Q6: (3, 60.3, 84.0)
+  Q7: (3, 60.3, 345.4)
+  Q8: (4, 72.75, 78.875)
+
+---
+exit_code: 0
+elapsed_ms: 90420
+ended_at: 2026-09-04T12:24:23.032Z
+---

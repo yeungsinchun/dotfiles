@@ -1,0 +1,79 @@
+---
+pid: 86883
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "kill 85286 2>/dev/null || true\ncd /Users/sinchunyeung/github/paper2db && ./segment paper/mc/ppp1a.pdf output/pp --type mc --step all --intermediate output/pp-intermediate 2>&1 | tee /tmp/paper2db-resegment/pp.log | tail -80\n"
+title: "Run PP segment foreground to capture errors"
+status: succeeded
+started_at: 2026-09-04T14:12:55.041Z
+running_for_ms: 195866   
+---
+page 2: rail_x=65.5 left=29.5 right=553.5 top=105.0 bottom=765.5 footer=767.5 marker_x=49.0 questions=2 first_pad=20.0
+page 3: rail_x=64.0 left=28.0 right=553.0 top=46.9 bottom=766.4 footer=768.4 marker_x=48.0 questions=3 first_pad=20.0
+page 4: rail_x=64.9 left=28.9 right=554.4 top=47.0 bottom=766.4 footer=768.4 marker_x=48.9 questions=3 first_pad=20.0
+page 5: rail_x=65.6 left=29.6 right=560.1 top=47.0 bottom=766.4 footer=768.4 marker_x=49.3 questions=2 first_pad=20.0
+page 6: rail_x=66.2 left=30.2 right=544.2 top=47.4 bottom=766.0 footer=768.0 marker_x=50.2 questions=2 first_pad=20.0
+page 7: rail_x=65.7 left=29.7 right=553.2 top=47.0 bottom=766.4 footer=768.4 marker_x=49.7 questions=2 first_pad=20.0
+page 8: rail_x=65.7 left=29.7 right=551.2 top=46.9 bottom=766.4 footer=768.4 marker_x=49.7 questions=2 first_pad=20.0
+page 9: rail_x=66.4 left=30.4 right=554.4 top=46.9 bottom=766.4 footer=768.4 marker_x=50.4 questions=2 first_pad=20.0
+page 10: rail_x=65.6 left=29.6 right=549.1 top=47.0 bottom=766.4 footer=768.4 marker_x=49.6 questions=2 first_pad=20.0
+page 11: rail_x=65.2 left=29.2 right=554.2 top=46.9 bottom=766.4 footer=768.4 marker_x=49.2 questions=1 first_pad=20.0
+page 12: rail_x=65.2 left=29.2 right=551.7 top=46.9 bottom=766.4 footer=768.4 marker_x=49.2 questions=3 first_pad=20.0
+page 13: rail_x=64.7 left=28.7 right=554.2 top=47.0 bottom=766.4 footer=768.4 marker_x=48.7 questions=3 first_pad=20.0
+page 14: rail_x=64.8 left=28.8 right=553.8 top=46.4 bottom=766.4 footer=768.4 marker_x=48.8 questions=3 first_pad=20.0
+page 15: rail_x=65.0 left=29.0 right=554.5 top=46.9 bottom=766.4 footer=768.4 marker_x=49.0 questions=3 first_pad=20.0
+page 16: rail_x=64.8 left=28.8 right=548.8 top=46.9 bottom=765.6 footer=767.6 marker_x=48.8 questions=3 first_pad=20.0
+Wrote /Users/sinchunyeung/github/paper2db/output/pp-intermediate/anchor.meta.json
+Wrote /Users/sinchunyeung/github/paper2db/output/pp-intermediate/anchor.pdf with 15 pages and 36 anchors.
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q1.png (971x675)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q2.png (971x549)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q3.png (924x218)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q4.png (973x500)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q5.png (969x439)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q6.png (972x369)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q7.png (973x172)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q8.png (973x424)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q9.png (972x444)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q10.png (985x884)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q11.png (969x441)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q12.png (956x523)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q13.png (969x725)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q14.png (969x490)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q15.png (970x520)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q16.png (851x151)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q17.png (971x612)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q18.png (961x682)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q19.png (965x400)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q20.png (962x426)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q21.png (972x1019)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q22.png (972x424)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q23.png (970x178)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q24.png (957x383)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q25.png (973x424)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q26.png (974x195)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q27.png (973x426)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q28.png (973x455)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q29.png (971x413)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q30.png (972x414)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q31.png (973x514)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q32.png (974x223)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q33.png (973x557)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q34.png (734x251)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q35.png (973x407)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q36.png (871x578)
+Wrote 36 questions to /Users/sinchunyeung/github/paper2db/output/pp (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/combined.pdf (36 pages)
+Paper type: MC (ppp1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Wrote /Users/sinchunyeung/github/paper2db/output/pp-intermediate/anchor.pdf
+Wrote /Users/sinchunyeung/github/paper2db/output/pp-intermediate/anchor.meta.json
+Wrote 15 preview PNGs (page01.png, ...) in /Users/sinchunyeung/github/paper2db/output/pp-intermediate
+Review anchor.pdf (blue dots next to each question number), then run step 2.
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 36 questions -> /Users/sinchunyeung/github/paper2db/output/pp
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/pp/combined.pdf
+
+---
+exit_code: 0
+elapsed_ms: 195854
+ended_at: 2026-09-04T14:16:10.895Z
+---

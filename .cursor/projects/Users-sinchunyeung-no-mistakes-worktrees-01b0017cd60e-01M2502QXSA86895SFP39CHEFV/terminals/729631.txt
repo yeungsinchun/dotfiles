@@ -1,0 +1,28 @@
+---
+pid: 26899
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/01b0017cd60e/01M2502QXSA86895SFP39CHEFV"
+command: "node --test --test-name-pattern '3d scenes magnify|decay labels sit' notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs"
+title: "Run focused HUD and tracks tests"
+status: succeeded
+started_at: 2026-09-10T06:43:12.758Z
+running_for_ms: 187357   
+---
+compdef:153: _comps: assignment to invalid subscript range
+▶ Book 5 Ch.1 notes interactives
+  ✔ 25.2 decay labels sit on the parent and outgoing particle (95205.558875ms)
+  ✔ 3d scenes magnify, label the tube, keep β drift, and pulse radially (84442.801ms)
+✔ Book 5 Ch.1 notes interactives (183402.118167ms)
+ℹ tests 2
+ℹ suites 1
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 184135.477875
+
+---
+exit_code: 0
+elapsed_ms: 187357
+ended_at: 2026-09-10T06:46:20.115Z
+---

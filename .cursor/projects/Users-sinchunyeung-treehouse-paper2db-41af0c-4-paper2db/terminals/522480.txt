@@ -1,0 +1,85 @@
+---
+pid: 31348
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db"
+command: "git log --oneline -- .lavish/pipeline-review/ | head -10; echo '---'; git show a7a31c5 --stat | head -30; echo '---'; git show c9ae775 --stat | head -40; echo '---'; rg -n 'DaisyUI|hero|verdict-pill|whole exam' .lavish/pipeline-review/index.html | head -20; ls /tmp/*evidence* 2>/dev/null; ls .lavish/pr-evidence 2>/dev/null; find . -name '*pipeline-review-index*' 2>/dev/null | head; find /Users/sinchunyeung -name 'pipeline-review-index.png' 2>/dev/null | head -5"
+title: "Trace lavish updates and evidence paths"
+status: failed   
+started_at: 2026-09-07T10:49:19.366Z
+running_for_ms: 51209    
+---
+c9ae775 fix: use whole exam pages for LQ (no within-page crop)
+a7a31c5 fix: stop DaisyUI class collisions overlapping pipeline review header
+0c45f97 no-mistakes(review): Count overrides in 5% bar; clean pipeline
+2989feb Prove ./pipeline quality and ship step-by-step Lavish evidence.
+---
+commit a7a31c5da08196c1298c8af168b2d985ffc4da94
+Author: TYeung <scyeungaf@connect.ust.hk>
+Date:   Mon Sep 7 13:49:35 2026 +0800
+
+    fix: stop DaisyUI class collisions overlapping pipeline review header
+    
+    Rename hero/status/stats away from DaisyUI components and drop the CDN
+    so the verdict pill and rate cards stack cleanly again.
+
+ .lavish/pipeline-review/index.html      | 67 ++++++++++++++++++---------------
+ scripts/build_pipeline_lavish_review.py | 67 ++++++++++++++++++---------------
+ 2 files changed, 72 insertions(+), 62 deletions(-)
+---
+commit c9ae775eccc06446e21c2de1e0661bb2daa36a84
+Author: TYeung <scyeungaf@connect.ust.hk>
+Date:   Mon Sep 7 17:41:22 2026 +0800
+
+    fix: use whole exam pages for LQ (no within-page crop)
+    
+    Captain feedback: long questions should not be cropped. Stack
+    page_from..page_to into qN.png, update docs/review samples, and cover
+    the behavior with a unit test.
+
+ .lavish/pipeline-review/data.json                  |   8 +-
+ .../pipeline-review/img/classified-lq-2012-q1.png  | Bin 1625631 -> 799596 bytes
+ .../pipeline-review/img/classified-lq-2012-q4.png  | Bin 1212532 -> 581191 bytes
+ .lavish/pipeline-review/img/lq-2012-q1.png         | Bin 1625631 -> 799596 bytes
+ .lavish/pipeline-review/img/lq-2012-q2.png         | Bin 491525 -> 247919 bytes
+ .lavish/pipeline-review/img/lq-2024-q1.png         | Bin 44732 -> 66157 bytes
+ .lavish/pipeline-review/img/lq-2025-q1.png         | Bin 1963306 -> 2489493 bytes
+ .lavish/pipeline-review/index.html                 |  38 +++++---
+ AGENTS.md                                          |   2 +-
+ README.md                                          |   4 +-
+ .../01_Heat_and_Gases/02_Heat_Capacity/2012-q1.png | Bin 1625631 -> 799596 bytes
+ .../01_Heat_and_Gases/02_Heat_Capacity/2025-q1.png | Bin 1963306 -> 2489493 bytes
+ .../03_Change_of_State/2012-q1.png                 | Bin 1625631 -> 799596 bytes
+ .../03_Change_of_State/2024-q1.png                 | Bin 44732 -> 66157 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/2012-q2.png      | Bin 491525 -> 247919 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/2024-q2.png      | Bin 42263 -> 56476 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/2024-q5.png      | Bin 48279 -> 62494 bytes
+ .../04_Gas_Law_and_Kinetic_Theory/2025-q9.png      | Bin 1851627 -> 2141939 bytes
+ .../lq/02_Force_and_Motion/05_Motion/2024-q9.png   | Bin 51091 -> 64142 bytes
+ .../lq/02_Force_and_Motion/05_Motion/2025-q3.png   | Bin 3051360 -> 5628865 bytes
+ .../lq/02_Force_and_Motion/06_Force/2024-q3.png    | Bin 47781 -> 60418 bytes
+ .../lq/02_Force_and_Motion/06_Force/2025-q4.png    | Bin 2356390 -> 2668897 bytes
+ .../lq/02_Force_and_Motion/09_Momentum/2012-q4.png | Bin 1212532 -> 581191 bytes
+ .../02_Force_and_Motion/09_Momentum/2024-q10.png   | Bin 97381 -> 121978 bytes
+ .../lq/02_Force_and_Motion/09_Momentum/2025-q5.png | Bin 2310672 -> 3585834 bytes
+ .../10_Projectile_Motion/2012-q5.png               | Bin 1229341 -> 604552 bytes
+ .../11_Uniform_Circular_Motion/2012-q3.png         | Bin 680327 -> 310341 bytes
+ .../11_Uniform_Circular_Motion/2024-q4.png         | Bin 80174 -> 94277 bytes
+ .../2012-q6.png                                    | Bin 1330346 -> 344650 bytes
+ .../2024-q6.png                                    | Bin 65276 -> 76195 bytes
+---
+9:    :where(.rate-grid, .two-col, .gallery, .review-hero) > * { min-width: 0; }
+23:    .review-hero {
+29:    .review-hero h1 {
+34:    .review-hero p { margin: 0; color: #b7acc6; line-height: 1.5; max-width: 62ch; }
+35:    .verdict-pill {
+39:    .verdict-pill.ok { background: rgba(125,207,154,0.16); color: #9ee0b4; border: 1px solid rgba(125,207,154,0.35); }
+40:    .verdict-pill.bad { background: rgba(232,139,139,0.16); color: #f0b0b0; border: 1px solid rgba(232,139,139,0.35); }
+120:    <header class="review-hero">
+121:      <div class="verdict-pill bad">FAIL (above 5%)</div>
+288:      <p class="lede">Long questions are whole exam page(s) only (<code>page_from</code>..<code>page_to</code>) - no within-page crop. Scroll inside each card. Review PDF: <code>output/lq/&lt;year&gt;/questions.pdf</code>.</p>
+/tmp/nm-test-ui-evidence.py
+
+---
+exit_code: unknown
+elapsed_ms: 51206
+ended_at: 2026-09-07T10:50:10.572Z
+---

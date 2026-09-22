@@ -1,0 +1,31 @@
+---
+pid: 25943
+cwd: "/Users/sinchunyeung/.config/nvim"
+command: "NVIM=/opt/homebrew/bin/nvim; env -i HOME=\"$HOME\" USER=\"$USER\" PATH=\"/usr/bin:/bin:/usr/sbin:/sbin\" \"$NVIM\" --headless +\"lua require('config'); print('exepath:', vim.fn.exepath('pyright-langserver')); vim.lsp.enable('pyright'); vim.cmd('edit /tmp/t.py'); vim.api.nvim_buf_set_lines(0,0,-1,false,{'x: int = \\\"bad\\\"'}); vim.defer_fn(function() print('clients:', #vim.lsp.get_clients({bufnr=0})); vim.cmd('qa!') end, 4000)\" 2>&1"
+title: "Test pyright with minimal PATH via full nvim path"
+status: aborted  
+started_at: 2026-08-31T14:42:22.732Z
+running_for_ms: 91387654 
+---
+Error in /Users/sinchunyeung/.config/nvim/init.lua:
+E5113: Lua chunk: vim/_core/shared:137: s: expected string, got table
+stack traceback:
+	[C]: in function 'error'
+	vim/_core/shared:1315: in function 'validate'
+	vim/_core/shared:137: in function 'gsplit'
+	vim/_core/shared:229: in function 'split'
+	/Users/sinchunyeung/.config/nvim/lua/config.lua:11: in main chunk
+	[C]: in function 'require'
+	/Users/sinchunyeung/.config/nvim/init.lua:23: in main chunk
+Error in command line:
+E5108: Lua: [string ":lua"]:1: loop or previous error loading module 'config'
+stack traceback:
+	[C]: in function 'require'
+	[string ":lua"]:1: in main chunkNvim: Caught deadly signal 'SIGTERM'
+Nvim: Finished.
+
+---
+exit_code: unknown
+elapsed_ms: 91387654
+ended_at: 2026-09-01T16:05:30.386Z
+---

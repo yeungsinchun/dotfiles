@@ -1,0 +1,15 @@
+---
+pid: 27975
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && PYTHONPATH=scripts .venv/bin/python scripts/classify_lq_llm.py 2>&1\n"
+title: "Classify all LQ questions with LLM"
+status: failed   
+started_at: 2026-09-04T18:05:06.486Z
+running_for_ms: 164856   
+---
+
+---
+exit_code: unknown
+elapsed_ms: 164855
+ended_at: 2026-09-04T18:07:51.341Z
+---

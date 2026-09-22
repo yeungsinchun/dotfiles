@@ -1,0 +1,19 @@
+---
+pid: 38946
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/dse"
+command: "cd \"/Users/sinchunyeung/Documents-local/Materials/Phy/DSE\" && python3 scripts/preprocess_lq.py \"Year/LQ/2012p1b.pdf\" \"processed/LQ/2012\" 2>&1\nls processed/LQ/2012/ | wc -l\npython3 scripts/preprocess_lq.py \"Year/LQ/2013p1b.pdf\" \"processed/LQ/2013\" 2>&1\nls processed/LQ/2013/ | wc -l\n"
+started_at: 2026-08-22T02:52:20.808Z
+running_for_ms: 55038    
+---
+  WARNING: no questions detected in 2012p1b.pdf
+Wrote 0 questions -> processed/LQ/2012
+       1
+  detected Q1-Q1 (1 questions)
+Wrote 1 questions -> processed/LQ/2013
+       1
+
+---
+exit_code: 0
+elapsed_ms: 59337
+ended_at: 2026-08-22T02:53:20.145Z
+---

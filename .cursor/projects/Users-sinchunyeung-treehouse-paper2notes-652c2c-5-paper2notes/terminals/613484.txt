@@ -1,0 +1,72 @@
+---
+pid: 75827
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes"
+command: "PROFILE_DIR=$(mktemp -d /tmp/book5-shot.XXXXXX) && \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-first-run --no-default-browser-check --user-data-dir=\"$PROFILE_DIR\" --window-size=1280,900 --screenshot=.lavish/evidence/26-1-dse-panel.png 'http://127.0.0.1:4173/notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html#dse-practice-heading' && rm -rf \"$PROFILE_DIR\""
+title: "Capture 26.1 DSE panel screenshot"
+status: failed   
+started_at: 2026-09-15T04:57:03.748Z
+running_for_ms: 24107    
+---
+[76198:46822648:0915/125707.807163:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[76198:46822648:0915/125707.808208:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[76198:46822648:0915/125707.808466:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[76198:46822648:0915/125707.808713:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[76198:46822648:0915/125707.808904:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[76198:46822648:0915/125707.817450:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[76198:46822648:0915/125707.827757:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+Trying to load the allocator multiple times. This is *not* supported.
+[76198:46822648:0915/125710.304715:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:395] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.
+5293 bytes written to file .lavish/evidence/26-1-dse-panel.png
+[76198:46822648:0915/125711.253106:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[76198:46822648:0915/125711.575391:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[76198:46822648:0915/125711.695972:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[76198:46822648:0915/125712.011400:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[76198:46822648:0915/125712.141601:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[76198:46822648:0915/125712.424898:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[76198:46822648:0915/125712.589013:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[76067:46822551:0915/125712.944715:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[76198:46822648:0915/125718.099754:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[77999:46825944:0915/125726.167225:VERBOSE1:chrome/updater/updater.cc:374] Version: 152.0.7933.0, opt, ARM_64, command line: /Users/sinchunyeung/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake-all --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[77999:46825944:0915/125726.169564:VERBOSE1:chrome/updater/updater.cc:377] OS version: 26.6.2, arch: arm64, System uptime (seconds): 199948, parent pid: 76067
+[77999:46825944:0915/125726.178030:VERBOSE1:chrome/updater/updater.cc:382] Available disk space in install directory (/Users/sinchunyeung/Library/Application Support/Google/GoogleUpdater): 1269526528B (1.182GiB) / 494384795648B (460.432GiB)
+[77999:46825944:0915/125726.178076:VERBOSE1:chrome/updater/updater.cc:386] Available disk space in temporary directory (/var/folders/f3/h4301l8d7hn_1612_5g5hpmw0000gn/T/): 1269526528B (1.182GiB) / 494384795648B (460.432GiB)
+[77999:46825944:0915/125726.178356:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log
+[78001:46825948:0915/125726.214461:VERBOSE1:chrome/updater/updater.cc:374] Version: 152.0.7933.0, opt, ARM_64, command line: /Users/sinchunyeung/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --crash-handler --database=/Users/sinchunyeung/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/Crashpad --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=152.0.7933.0 --handshake-fd=6 --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[78001:46825948:0915/125726.217262:VERBOSE1:chrome/updater/updater.cc:377] OS version: 26.6.2, arch: arm64, System uptime (seconds): 199948, parent pid: 1
+[78001:46825948:0915/125726.224295:VERBOSE1:chrome/updater/updater.cc:382] Available disk space in install directory (/Users/sinchunyeung/Library/Application Support/Google/GoogleUpdater): 1269510144B (1.182GiB) / 494384795648B (460.432GiB)
+[78001:46825948:0915/125726.225288:VERBOSE1:chrome/updater/updater.cc:386] Available disk space in temporary directory (/var/folders/f3/h4301l8d7hn_1612_5g5hpmw0000gn/T/): 1269510144B (1.182GiB) / 494384795648B (460.432GiB)
+[78001:46825948:0915/125726.225794:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log
+[77999:46825944:0915/125726.228527:VERBOSE1:chrome/updater/crash_reporter.cc:124] Crash handler launched and ready.
+[77999:46825944:0915/125726.230922:VERBOSE1:chrome/updater/crash_client.cc:108] Found 0 completed crash reports
+[77999:46825944:0915/125726.231244:VERBOSE1:chrome/updater/crash_client.cc:132] Found 0 pending crash reports
+[77999:46825944:0915/125726.231893:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/sinchunyeung/Library/Application Support/Google/RLZ/Crashpad/settings.dat: No such file or directory (2)
+[77999:46825944:0915/125726.231987:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/sinchunyeung/Library/Application Support/Google/consentOptions/Crashpad/settings.dat: No such file or directory (2)
+[77999:46825944:0915/125726.232104:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/sinchunyeung/Library/Application Support/Google/AndroidStudio2024.3.2/Crashpad/settings.dat: No such file or directory (2)
+[77999:46825944:0915/125726.232219:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/sinchunyeung/Library/Application Support/Google/FIRApp/Crashpad/settings.dat: No such file or directory (2)
+[77999:46825944:0915/125726.232681:VERBOSE1:chrome/updater/updater.cc:105] Crash reporting initialized.
+[77999:46825956:0915/125726.233503:VERBOSE1:chrome/updater/app/app_wakeall.cc:58] Launching `/Users/sinchunyeung/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake`
+[78002:46825960:0915/125726.284266:VERBOSE1:chrome/updater/updater.cc:374] Version: 152.0.7933.0, opt, ARM_64, command line: /Users/sinchunyeung/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[78002:46825960:0915/125726.288008:VERBOSE1:chrome/updater/updater.cc:377] OS version: 26.6.2, arch: arm64, System uptime (seconds): 199948, parent pid: 77999
+[78002:46825960:0915/125726.294523:VERBOSE1:chrome/updater/updater.cc:382] Available disk space in install directory (/Users/sinchunyeung/Library/Application Support/Google/GoogleUpdater): 1269506048B (1.182GiB) / 494384795648B (460.432GiB)
+[78002:46825960:0915/125726.294566:VERBOSE1:chrome/updater/updater.cc:386] Available disk space in temporary directory (/var/folders/f3/h4301l8d7hn_1612_5g5hpmw0000gn/T/): 1269506048B (1.182GiB) / 494384795648B (460.432GiB)
+[78002:46825960:0915/125726.294745:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log
+[78004:46825964:0915/125726.327575:VERBOSE1:chrome/updater/updater.cc:374] Version: 152.0.7933.0, opt, ARM_64, command line: /Users/sinchunyeung/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --crash-handler --database=/Users/sinchunyeung/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/Crashpad --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=152.0.7933.0 --handshake-fd=6 --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[78004:46825964:0915/125726.329308:VERBOSE1:chrome/updater/updater.cc:377] OS version: 26.6.2, arch: arm64, System uptime (seconds): 199948, parent pid: 1
+[78004:46825964:0915/125726.342222:VERBOSE1:chrome/updater/updater.cc:382] Available disk space in install directory (/Users/sinchunyeung/Library/Application Support/Google/GoogleUpdater): 1269501952B (1.182GiB) / 494384795648B (460.432GiB)
+[78004:46825964:0915/125726.342280:VERBOSE1:chrome/updater/updater.cc:386] Available disk space in temporary directory (/var/folders/f3/h4301l8d7hn_1612_5g5hpmw0000gn/T/): 1269501952B (1.182GiB) / 494384795648B (460.432GiB)
+[78004:46825964:0915/125726.342531:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log
+[78002:46825960:0915/125726.343780:VERBOSE1:chrome/updater/crash_reporter.cc:124] Crash handler launched and ready.
+[78002:46825960:0915/125726.346304:VERBOSE1:chrome/updater/crash_client.cc:108] Found 0 completed crash reports
+[78002:46825960:0915/125726.346601:VERBOSE1:chrome/updater/crash_client.cc:132] Found 0 pending crash reports
+[78002:46825960:0915/125726.346999:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/sinchunyeung/Library/Application Support/Google/RLZ/Crashpad/settings.dat: No such file or directory (2)
+[78002:46825960:0915/125726.347122:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/sinchunyeung/Library/Application Support/Google/consentOptions/Crashpad/settings.dat: No such file or directory (2)
+[78002:46825960:0915/125726.347246:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/sinchunyeung/Library/Application Support/Google/AndroidStudio2024.3.2/Crashpad/settings.dat: No such file or directory (2)
+[78002:46825960:0915/125726.347460:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/sinchunyeung/Library/Application Support/Google/FIRApp/Crashpad/settings.dat: No such file or directory (2)
+[78002:46825960:0915/125726.347983:VERBOSE1:chrome/updater/updater.cc:105] Crash reporting initialized.
+[78002:46825960:0915/125726.348484:VERBOSE1:chrome/updater/ipc/update_service_internal_proxy_mojo.cc:61] Run
+
+---
+exit_code: unknown
+elapsed_ms: 24009
+ended_at: 2026-09-15T04:57:27.757Z
+---

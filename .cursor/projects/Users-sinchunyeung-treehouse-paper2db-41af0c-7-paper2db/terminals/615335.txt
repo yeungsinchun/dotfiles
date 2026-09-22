@@ -1,0 +1,19 @@
+---
+pid: 88831
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/7/paper2db"
+command: "echo \"working: browseable .lavish/lq-classified-review/index.html\" >> '/Users/sinchunyeung/github/firstmate/state/p2db-fix-2017-lq-q10-wrong-cropped-pages-and-44.status'\ngit add -u\ngit add \\\n  .lavish/lq-classified-review/img/2024-q13.png \\\n  .lavish/lq-classified-review/img/pp-q13.png \\\n  .lavish/lq-classified-review/img/pp-q14.png \\\n  classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/pp-q13.png \\\n  classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2024-q13.png \\\n  classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/pp-q14.png \\\n  classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/pp-q14.png \\\n  classified/lq/ocr_cache/2024/q13.txt \\\n  classified/lq/ocr_cache/pp/q13.txt \\\n  classified/lq/ocr_cache/pp/q14.txt \\\n  output/lq/2024/q13.png \\\n  output/lq/pp/q13.png \\\n  output/lq/pp/q14.png\ngit status --short | rg -v '^(M|A|D) ' | head\necho '---staged count---'\ngit diff --cached --name-only | wc -l"
+title: "Stage rebuild files and new last-question assets"
+status: succeeded
+started_at: 2026-09-13T13:56:39.973Z
+running_for_ms: 39307    
+---
+warning: in the working copy of 'classified/lq/classification.csv', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'classified/lq_classification.csv', CRLF will be replaced by LF the next time Git touches it
+---staged count---
+     551
+
+---
+exit_code: 0
+elapsed_ms: 39306
+ended_at: 2026-09-13T13:57:19.279Z
+---

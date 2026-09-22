@@ -1,0 +1,58 @@
+---
+pid: 59362
+cwd: "/Users/sinchunyeung/github/personal-page"
+command: "./scripts/dev.sh"
+title: "Start personal page with random card ports"
+status: failed   
+started_at: 2026-09-02T10:11:13.655Z
+running_for_ms: 18764414 
+---
+Personal page: http://127.0.0.1:8765
+SOTS visualizer: http://127.0.0.1:58595
+Repo root: /Users/sinchunyeung/github/simplification-of-trajectory-streams
+Binary: /Users/sinchunyeung/github/simplification-of-trajectory-streams/build/simplify
+Starting Flask server on http://127.0.0.1:58595
+ * Serving Flask app 'server'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:58595
+[33mPress CTRL+C to quit[0m
+::ffff:127.0.0.1 - - [02/Sep/2026 18:11:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:11:21] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:11:22] "GET /dev-config.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:34:03] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:34:03] "GET /styles.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:34:03] "GET /main.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:34:05] "GET /projects/sots.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:34:05] "GET /dev-config.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:34:06] "GET /assets/projects/sots-preview.svg HTTP/1.1" 200 -
+127.0.0.1 - - [02/Sep/2026 18:34:58] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:36:57] "GET /assets/projects/sots-preview.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:36:57] "GET /projects/sots.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:38:30] "GET /projects/paper2qb.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:38:31] "GET /assets/projects/paper2qb-preview.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:39:38] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:39:38] "GET /main.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:39:38] "GET /projects/paper2qb.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:39:38] "GET /dev-config.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:39:38] "GET /projects/sots.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:39:40] "GET /assets/projects/paper2qb-preview.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:39:44] "GET /assets/projects/sots-preview.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:45:22] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:45:22] "GET /main.js HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:45:22] "GET /dev-config.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:45:22] "GET /projects/paper2qb.json HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:45:22] "GET /projects/sots.json HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:46:53] "GET /assets/projects/sots-preview.png HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:50:41] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:50:41] "GET /main.js HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:50:41] "GET /projects/sots.json HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:50:41] "GET /projects/paper2qb.json HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:50:41] "GET /dev-config.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [02/Sep/2026 18:50:42] "GET /assets/projects/sots-preview.png HTTP/1.1" 304 -
+
+---
+exit_code: unknown
+elapsed_ms: 18764414
+ended_at: 2026-09-02T15:23:58.069Z
+---

@@ -1,0 +1,54 @@
+---
+pid: 40089
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/dse"
+command: "cd \"/Users/sinchunyeung/Documents-local/Materials/Phy/DSE\" && python3 scripts/batch_preprocess_lq.py 2>&1"
+started_at: 2026-08-22T02:56:54.953Z
+running_for_ms: 510150   
+---
+
+=== 2012p1b.pdf -> 2012 ===
+  detected Q1-Q10 (10 questions)
+
+=== 2013p1b.pdf -> 2013 ===
+  detected Q1-Q1 (1 questions)
+
+=== 2014p1b.pdf -> 2014 ===
+  WARNING: no questions detected in 2014p1b.pdf
+
+=== 2015p1b.pdf -> 2015 ===
+  detected Q1-Q1 (1 questions)
+
+=== 2016p1b.pdf -> 2016 ===
+  detected Q1-Q9 (9 questions)
+
+=== 2017p1b.pdf -> 2017 ===
+  detected Q1-Q2 (2 questions)
+
+=== 2018p1b.pdf -> 2018 ===
+  detected Q1-Q10 (10 questions)
+
+=== 2019p1b.pdf -> 2019 ===
+  detected Q1-Q10 (10 questions)
+
+=== 2020p1b.pdf -> 2020 ===
+  detected Q1-Q10 (10 questions)
+
+=== 2021p1b.pdf -> 2021 ===
+  detected Q1-Q9 (9 questions)
+
+=== 2022p1b.pdf -> 2022 ===
+  detected Q1-Q10 (10 questions)
+
+=== 2023q1b.pdf -> 2023 ===
+  detected Q1-Q9 (9 questions)
+
+=== ppp1b.pdf -> ppp ===
+  detected Q1-Q10 (10 questions)
+
+Done. 91 LQ PNGs across 13 papers.
+
+---
+exit_code: 0
+elapsed_ms: 515079
+ended_at: 2026-08-22T03:05:30.032Z
+---

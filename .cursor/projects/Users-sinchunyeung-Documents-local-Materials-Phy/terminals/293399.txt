@@ -1,0 +1,30 @@
+---
+pid: 69901
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy"
+command: "python3 << 'PY'\nimport sys\nsys.path.insert(0, '/Users/sinchunyeung/Documents-local/Materials/Phy/dse/scripts')\nfrom preprocess_lq import expand_pdf_pages, find_starts_on_image, find_question_starts, native_scale\nimport fitz\n\npdf = fitz.open('/Users/sinchunyeung/Documents-local/Materials/Phy/dse/Year/LQ/2020p1b.pdf')\ndetect = expand_pdf_pages(pdf, 1.5, cover_pages=1, use_native=False)\nfull = expand_pdf_pages(pdf, native_scale(pdf[2], cap=9.0), cover_pages=1, use_native=True)\nprint('virtual pages', len(detect))\nstarts = find_question_starts(detect, 0, 12)\nprint('starts', starts)\nfor pi in range(len(detect)):\n    hits = find_starts_on_image(detect[pi], 12)\n    if hits:\n        print(f'vpage {pi} ({full[pi].size}): {hits}')\n# Save virtual pages containing 8\nfor pi in range(len(full)):\n    hits = find_starts_on_image(detect[pi], 12)\n    if any(q==8 for q,_ in hits):\n        full[pi].save(f'/tmp/vpage{pi}_q8start.png')\n        print('saved vpage', pi)\npdf.close()\nPY"
+started_at: 2026-08-28T06:55:42.236Z
+running_for_ms: 50041    
+---
+virtual pages 19
+starts [(1, 0, 188.99384615384616), (2, 2, 75.0), (3, 4, 101.0), (4, 6, 109.0), (5, 8, 75.0), (6, 9, 104.0), (7, 10, 105.5), (8, 12, 105.0), (9, 14, 104.0), (10, 16, 103.5)]
+vpage 0 ((1753, 4960)): [(1, 188.99384615384616)]
+vpage 2 ((1753, 4960)): [(2, 75.0)]
+vpage 4 ((1753, 4960)): [(3, 101.0)]
+vpage 6 ((1753, 4960)): [(4, 109.0)]
+vpage 8 ((1753, 4960)): [(5, 75.0)]
+vpage 9 ((1754, 4960)): [(6, 104.0), (3, 713.4868085106384)]
+vpage 10 ((1753, 4960)): [(7, 105.5)]
+vpage 12 ((1753, 4960)): [(8, 105.0)]
+vpage 14 ((1753, 4960)): [(9, 104.0)]
+vpage 15 ((1754, 4960)): [(2, 841.5)]
+vpage 16 ((1753, 4960)): [(10, 103.5)]
+saved vpage 12
+Traceback (most recent call last):
+  File "<stdin>", line 18, in <module>
+IndexError: list index out of range
+
+---
+exit_code: 1
+elapsed_ms: 52769
+ended_at: 2026-08-28T06:56:35.005Z
+---

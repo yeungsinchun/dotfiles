@@ -1,0 +1,1876 @@
+0d24267 Simplify loaded sidebar to key legend only.
+2c4aa06 Merge pull request #16 from yeungsinchun/fm/boundary-lr-fix
+6defabb no-mistakes(document): Refresh stale USABILITY and boundary docs
+965df98 no-mistakes(review): Restore match-limit chip; refresh status-gloss PNG
+9221ad0 fix(web): drop overlay gloss parens and shorten Instructions
+96a2163 fix: P boundary is L/R per row plus full top/bottom rows
+43948cf fix: L/R P anchors per y-row and restore tour UX on GNHF tip
+aeb1382 fix(web): restore paper ε/δ labels and polish compare UI
+4daf0c5 gnhf 87: Merged PR #12 after green CI, Deploy published simplify-viewer-00012-mkv with novice copy live (HTTP 200), and marked the Cloud Run refresh resolved in USABILITY.md.
+ CMakeLists.txt                               |  10 ++
+ simplify_geometry.h                          |   5 +-
+ tests/check_boundary_lr.cpp                  |  54 ++++++
+ web/USABILITY.md                             |  37 +++-
+ web/index.html                               | 257 +++++++++++++--------------
+ web/usability/first-visit-tour.html          |   6 +-
+ web/usability/instructions-shortened.html    | 100 +++++++++++
+ web/usability/layers-tour.html               |   2 +-
+ web/usability/overlay-parens-removed.html    | 109 ++++++++++++
+ web/usability/right-pane-keys-only.html      | 148 +++++++++++++++
+ web/usability/saved-match-chip-removed.html  | 114 ++++++++++++
+ web/usability/status-gloss-map-playback.html |  36 ++--
+ web/usability/status-gloss-map-playback.png  | Bin 83390 -> 74263 bytes
+ web/viewer.js                                | 210 ++++++++++++++--------
+ 14 files changed, 840 insertions(+), 248 deletions(-)
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ea5eb43..35ba951 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -23,6 +23,16 @@ target_link_libraries(simplify
+   CGAL::CGAL
+ )
+ 
++# Focused geometry check: P boundary is the discrete convex outline
++# (leftmost/rightmost per y-row, plus full topmost and bottommost rows).
++add_executable(check_boundary_lr
++  tests/check_boundary_lr.cpp
++)
++target_include_directories(check_boundary_lr PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
++target_link_libraries(check_boundary_lr
++  CGAL::CGAL
++)
++
+ # Baseline binaries used by the web compare pane and benchmark.py.
+ # dp / squish need no Qt. dots needs Qt6 Core only (see its CMakeLists).
+ set(DP_SRC "${CMAKE_CURRENT_SOURCE_DIR}/traj-compression/batch/DP/DP_adapted.cpp")
+diff --git a/simplify_geometry.h b/simplify_geometry.h
+index 902484c..6522728 100644
+--- a/simplify_geometry.h
++++ b/simplify_geometry.h
+@@ -534,8 +534,9 @@ inline std::vector<Point> get_conv_from_grid(const Point& p, double EPSILON, dou
+     return conv;
+ }
+ 
+-// Boundary anchors for P: leftmost and rightmost grid sample on every y-row,
+-// plus every sample on the topmost and bottommost rows.
++// Boundary anchors for P: discrete convex outline of the grid samples -
++// leftmost and rightmost on every y-row, plus every sample on the topmost
++// and bottommost rows.
+ inline std::vector<Point> get_boundary_points_from_grid(const Point& p, double EPSILON, double DELTA, int multiplier = 1) {
+     thread_local double cached_eps   = std::numeric_limits<double>::quiet_NaN();
+     thread_local double cached_delta = std::numeric_limits<double>::quiet_NaN();
+diff --git a/tests/check_boundary_lr.cpp b/tests/check_boundary_lr.cpp
+new file mode 100644
+index 0000000..63bf6c3
+--- /dev/null
++++ b/tests/check_boundary_lr.cpp
+@@ -0,0 +1,54 @@
++// Assert get_boundary_points_from_grid forms the discrete convex outline:
++// leftmost/rightmost on every y-row, and every sample on topmost/bottommost rows.
++#include <cassert>
++#include <cmath>
++#include <cstdlib>
++#include <iostream>
++#include <map>
++#include <set>
++#include <vector>
++
++#include "simplify_geometry.h"
++
++static void check_hull_outline(double epsilon, double delta) {
++    const Point origin(0, 0);
++    const auto all = get_points_from_grid(origin, epsilon, delta);
++    const auto boundary = get_boundary_points_from_grid(origin, epsilon, delta);
++
++    std::map<double, std::set<double>> xs_by_y;
++    for (const auto& q : all) {
++        xs_by_y[CGAL::to_double(q.y())].insert(CGAL::to_double(q.x()));
++    }
++
++    std::map<double, std::set<double>> boundary_xs_by_y;
++    for (const auto& q : boundary) {
++        boundary_xs_by_y[CGAL::to_double(q.y())].insert(CGAL::to_double(q.x()));
++    }
++
++    assert(!xs_by_y.empty());
++    assert(boundary_xs_by_y.size() == xs_by_y.size());
++
++    const double y_top = xs_by_y.rbegin()->first;  // highest y
++    const double y_bot = xs_by_y.begin()->first;   // lowest y
++
++    for (const auto& [y, xs] : xs_by_y) {
++        const auto& bx = boundary_xs_by_y.at(y);
++        assert(bx.count(*xs.begin()) == 1);
++        assert(bx.count(*xs.rbegin()) == 1);
++        if (y == y_top || y == y_bot) {
++            assert(bx == xs);
++        } else {
++            // Middle rows: leftmost and rightmost only (one when singleton).
++            assert(bx.size() == (xs.size() == 1 ? 1u : 2u));
++            assert(bx.size() < xs.size() || xs.size() <= 2);
++        }
++    }
++}
++
++int main() {
++    check_hull_outline(0.5, 1.0);
++    check_hull_outline(1.0, 2.0);
++    check_hull_outline(0.25, 0.5);
++    std::cout << "check_boundary_lr: ok\n";
++    return 0;
++}
+diff --git a/web/USABILITY.md b/web/USABILITY.md
+index 5fe4570..d5e338f 100644
+--- a/web/USABILITY.md
++++ b/web/USABILITY.md
+@@ -519,13 +519,20 @@ The Fréchet metric was also omitted until simplification finished, so the whole
+ 
+ ## Still open
+ 
+-### Live Cloud Run still serves pre–PR #12 novice copy
++No open usability layout, novice-copy, or Cloud Run CI/CD gaps remain in this pass. Live site: https://simplify-viewer-522405269791.asia-east2.run.app (revision `simplify-viewer-00012-mkv` after merge of PR #12).
+ 
+-**Where:** https://simplify-viewer-522405269791.asia-east2.run.app (last Deploy from merge of PR #11).
++### Live Cloud Run refreshed after PR #12 (resolved)
+ 
+-**Problem:** Local usability work after PR #11 (Load / Match-Grid-first labels, green path / Gray path / Option / Map overlays vocabulary, Compare method glosses, smaller/outcome tips) was branch-only. The live site still shows older copy such as `Load Trace`, `algorithms`, and `Smaller keeps more detail`.
++**Where:** https://simplify-viewer-522405269791.asia-east2.run.app (Deploy on merge of PR #12).
+ 
+-**Next step:** Merge https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/pull/12 so Deploy publishes a new revision. No layout or CI/CD wiring gaps remain in this pass.
++**Problem:** After PR #11, local novice-copy work (Load / Match-Grid-first labels, green path / Gray path / Option / Map overlays vocabulary, Compare method glosses, smaller/outcome tips) stayed branch-only, so live Cloud Run still showed older copy such as `Load Trace`, `algorithms`, and `Smaller keeps more detail`.
++
++**Fix:** Merged https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/pull/12 after green Benchmark/Correctness. Main Deploy published revision `simplify-viewer-00012-mkv`. Live HTML now has `Load`, Match/Grid, `as-you-go`, Map overlays, and `A smaller Match keeps a more detailed green path`, with zero `Load Trace` / `algorithms` / `Smaller keeps more detail`.
++
++**Evidence:**
++
++- Deploy run: https://github.com/yeungsinchun/Simplification-of-Trajectory-Streams/actions/runs/33993716783
++- Live HTTP 200 check: `Load Trace` count 0, `algorithms` count 0, `Smaller keeps more detail` count 0; Match/Grid, as-you-go, Map overlays, green-path tips present
+ 
+ ### match limit chip tip lagged Match’s smaller/outcome guidance (resolved)
+ 
+@@ -533,7 +540,7 @@ The Fréchet metric was also omitted until simplification finished, so the whole
+ 
+ **Problem:** After Match and DP tips said `A smaller Match/match keeps a more detailed green path`, the `match limit` chip still led with `Upper Match limit` and had no smaller/outcome sentence. Skip-tour users long-pressing that chip could not map it to the same Match vocabulary.
+ 
+-**Fix:** Tip says `Match limit for this run (same idea as the Match field)` plus `A smaller match limit keeps a more detailed green path`. Fixture `scrollWidth` stays within 900.
++**Fix:** Tip says `Match limit for this run (same idea as ε)` plus `A smaller match limit keeps a more detailed green path`. Fixture `scrollWidth` stays within 900.
+ 
+ **Evidence:**
+ 
+@@ -962,7 +969,7 @@ The Fréchet metric was also omitted until simplification finished, so the whole
+ 
+ **Problem:** After Match / Grid / match limit landed, chips still said `cell size` and `file match`. Skip-tour users could not tell that the first is a Grid-derived length, or that the second is a saved Match error (distinct from the live Match error chip).
+ 
+-**Fix:** Chips read `grid cell` and `saved Match` with Grid- and Match-aligned tooltips. Fixture `scrollWidth` stays within 900.
++**Fix:** Chips read `grid cell` and `saved Match` with Grid- and Match-aligned tooltips. Fixture `scrollWidth` stays within 900. The `saved Match` chip (and its tooltip) was later removed entirely; the separate `match limit` chip stays.
+ 
+ **Evidence:**
+ 
+@@ -1101,11 +1108,11 @@ The Fréchet metric was also omitted until simplification finished, so the whole
+ 
+ ### Status lacked a map/playback gloss; empty Load said upload (resolved)
+ 
+-**Where:** sidebar `#statusGloss`; empty `#loadBtn` status in `viewer.js`; default `#baselineLayerHint` (preloaded path).
++**Where:** sidebar Status indices/grid (formerly `#statusGloss`); empty `#loadBtn` status in `viewer.js`; default `#baselineLayerHint` (preloaded path).
+ 
+ **Problem:** Skip-tour users opening Status first saw bare start point / current point / Segment numbers with no link to the colored map markers or the playback bar. Pressing Load with nothing chosen said “select or upload”, which is unreachable on phones where Upload is `display: none`. The preloaded Compare map-overlay hint still ended with an Upload aside even when Compare was already available.
+ 
+-**Fix:** Status leads with a plain gloss mapping start/current to map markers and Segment/Step/Candidate to playback. Empty Load says “Please choose a trajectory first”. The default Compare hint keeps Results → Run compare and drops the Upload aside (upload-blocked copy still explains uploads when needed). Fixture `scrollWidth` stays within 900.
++**Fix:** Empty Load says “Please choose a trajectory first”. The default Compare hint keeps Results → Run compare and drops the Upload aside (upload-blocked copy still explains uploads when needed). The Status sidebar description paragraph (`#statusGloss`) was later removed; Status keeps the indices/grid only. Fixture `scrollWidth` stays within 900.
+ 
+ **Evidence:**
+ 
+@@ -1261,7 +1268,7 @@ The Fréchet metric was also omitted until simplification finished, so the whole
+ 
+ **Problem:** After Load, Instructions listed only keyboard / dock shortcuts. Novices who skipped the playback tour still saw Step / Segment / Candidate with no meaning. View also said `Fit to data`, which reads like a data action rather than resetting the map.
+ 
+-**Fix:** Instructions lead with a plain gloss for Step / Segment / Candidate / Play / Speed / Fit view (same ideas as the playback tour). Shortcut tables keep the keys underneath. The View button reads `Fit view`.
++**Fix:** Instructions lead with a short gloss that Step / Segment / Option replay the run and Play auto-advances. Shortcut tables keep the keys underneath. The View button reads `Fit view`. Start-screen Instructions were shortened the same way (pick / εδ / Load; Results / Compare; pan / zoom).
+ 
+ **Evidence:**
+ 
+@@ -1385,6 +1392,18 @@ The Fréchet metric was also omitted until simplification finished, so the whole
+ - Before/after fixture: `web/usability/compare-upload-preloaded-only.html`
+ - Fixture screenshot (900px): `web/usability/compare-upload-preloaded-only.png`
+ 
++### Post-load right pane dropped View and Instructions chrome (resolved)
++
++**Where:** loaded `#sidebar` after a trace is ready (not the empty-canvas start Instructions).
++
++**Problem:** The right pane stacked a View / Fit view control and an Instructions heading plus gloss above the shortcut legend, which duplicated playback tour / dock wording and buried the keys.
++
++**Fix:** Remove the View section and the Instructions heading / gloss. Keep only the desktop and mobile shortcut tables (key → what it does). Drop the unused `#fitBtn` click handler and Fit-view mention from the Map overlays tour step. Status and Map overlays stay.
++
++**Evidence:**
++
++- Before/after fixture: `web/usability/right-pane-keys-only.html`
++
+ ### Cloud Run Deploy landed on main (resolved)
+ 
+ **Where:** `.github/workflows/deploy.yml` on `main`, GitHub Actions Deploy workflow, Cloud Run service `simplify-viewer`.
+diff --git a/web/index.html b/web/index.html
+index d85fa78..d93dbb6 100644
+--- a/web/index.html
++++ b/web/index.html
+@@ -96,15 +96,13 @@
+     gap: 4px;
+     white-space: nowrap;
+   }
+-  /* Prefer plain Match / Grid on every viewport; ε / δ stay in titles/aria. */
++  /* Form shows ε / δ; gloss spans are unused but kept for markup stability. */
+   .upload-form .param-symbol {
+-    display: none;
+-  }
+-  .upload-form .param-gloss {
+     color: var(--text);
+     font-weight: 600;
+-    letter-spacing: 0.01em;
+-    text-transform: capitalize;
++  }
++  .upload-form .param-gloss {
++    display: none;
+   }
+   .params {
+     display: flex;
+@@ -478,6 +476,41 @@
+     font-size: 12px;
+   }
+   .baseline-param-fields { display: flex; flex-direction: column; gap: 8px; }
++  /* Results panel: method pills only (no gloss), params in a compact row under them. */
++  #resultsPanel .baseline-algo-pill {
++    flex-direction: row;
++    gap: 0;
++    padding: 8px 14px;
++  }
++  #resultsPanel .baseline-algo-pill .pill-gloss {
++    display: none;
++  }
++  #resultsPanel .baseline-param-fields {
++    display: none;
++    flex-direction: row;
++    flex-wrap: wrap;
++    align-items: flex-end;
++    gap: 10px;
++  }
++  #resultsPanel .baseline-param-fields.has-fields {
++    display: flex;
++  }
++  #resultsPanel .baseline-field {
++    flex: 1 1 118px;
++    min-width: 110px;
++    max-width: 168px;
++  }
++  #resultsPanel .baseline-field input {
++    width: 100%;
++    min-width: 0;
++    padding: 7px 9px;
++  }
++  #resultsPanel .baseline-field-input-row {
++    width: 100%;
++  }
++  #resultsPanel .baseline-field-input-row input {
++    flex: 1 1 auto;
++  }
+   #baselineLssdField[hidden],
+   #headerBaselineLssdField[hidden],
+   #baselineDpEpsField[hidden],
+@@ -832,21 +865,6 @@
+   #dropHint .dropHint-icon svg { width: 44px; height: 44px; }
+   #dropHint .dropHint-sub { font-size: 13px; line-height: 1.5; color: var(--text-dim); }
+   #dropHint .dropHint-sub b { color: var(--text); font-weight: 500; }
+-  #dropHint .dropHint-format {
+-    margin-top: 12px;
+-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+-    font-size: 12px;
+-    color: #c7cdd8;
+-    background: rgba(255,255,255,0.03);
+-    border: 1px solid var(--panel-border);
+-    border-radius: 4px;
+-    padding: 6px 10px;
+-    display: inline-block;
+-  }
+-  #dropHint .dropHint-format code {
+-    color: var(--accent);
+-    background: transparent;
+-  }
+   #dropHint .desktop-instructions {
+     margin-top: 18px;
+     padding: 12px 14px;
+@@ -1049,10 +1067,14 @@
+     border-left: 1px solid var(--panel-border);
+   }
+   .status-idx-block .idx-label {
+-    font-size: 10px;
+-    letter-spacing: 0.05em;
++    font-size: 12px;
++    letter-spacing: 0.02em;
+     color: var(--text-dim);
+     white-space: nowrap;
++    min-height: 1.2em;
++  }
++  .status-idx-block .idx-label mjx-container {
++    font-size: 110% !important;
+   }
+   .status-idx-block .idx-num {
+     font-size: 26px;
+@@ -1085,18 +1107,6 @@
+     font-size: 11px;
+     line-height: 1.5;
+   }
+-  .instructions-gloss,
+-  .status-gloss {
+-    margin: 0 0 10px;
+-    font-size: 12px;
+-    line-height: 1.45;
+-    color: var(--text-dim);
+-  }
+-  .instructions-gloss b,
+-  .status-gloss b {
+-    color: var(--text);
+-    font-weight: 600;
+-  }
+   .shortcuts-table {
+     width: 100%;
+     border-collapse: collapse;
+@@ -1826,7 +1836,7 @@
+       min-height: 76px;
+     }
+     /* Narrower number fields so Load stays on the same control row
+-       (Match / Grid labels are the default on every viewport). */
++       (ε / δ labels are the default on every viewport). */
+     .upload-form label input[type="number"] {
+       width: 50px;
+     }
+@@ -2020,7 +2030,9 @@
+     }
+     #traceSelect {
+       position: static !important;
+-      width: max-content;
++      /* Beat .visually-hidden { width/height: 1px !important } so the control
++         lays out at its real size (needed for tour spotlight centering too). */
++      width: max-content !important;
+       height: auto !important;
+       padding: 3px 6px !important;
+       margin: 0 !important;
+@@ -2029,10 +2041,11 @@
+       white-space: nowrap !important;
+       background: #1e2330;
+       color: var(--text);
+-      border: 1px solid var(--panel-border);
++      /* Beat .visually-hidden { border: 0 !important } so the picker reads as a box. */
++      border: 1px solid var(--panel-border) !important;
+       border-radius: 5px;
+       font-size: 12px;
+-      max-width: none;
++      max-width: none !important;
+       flex: 0 0 auto;
+       field-sizing: content;
+     }
+@@ -2054,6 +2067,8 @@
+   }
+   #uiTour.has-spotlight .ui-tour-backdrop {
+     background: transparent;
++    /* Let spotlighted controls (e.g. trajectory dropdown) receive clicks. */
++    pointer-events: none;
+   }
+   .ui-tour-spotlight {
+     position: absolute;
+@@ -2097,10 +2112,14 @@
+   .ui-tour-card p b { color: var(--text); font-weight: 600; }
+   .ui-tour-actions {
+     display: flex;
++    align-items: center;
+     justify-content: flex-end;
+     gap: 8px;
+     margin-top: 14px;
+   }
++  .ui-tour-actions #uiTourSkip {
++    margin-right: auto;
++  }
+   .ui-tour-actions button {
+     min-height: 34px;
+     padding: 6px 12px;
+@@ -2193,13 +2212,13 @@
+           <span class="or-divider" style="color: var(--text-dim); font-size: 12px; margin: 0 8px;">or</span>
+           <button id="uploadBtn" class="primary" title="Upload a plain-text trajectory: first line is the point count N, then N lines of x y coordinates.">Upload trajectory</button>
+           <input type="file" id="trajectoryInput" accept=".txt,text/plain" />
+-          <label title="Match (ε): how closely the green path must match the Gray path. A smaller Match keeps a more detailed green path.">
+-            <span class="param-label"><span class="param-symbol">&epsilon;</span> <span class="param-gloss">match</span></span>
+-            <input type="number" id="epsilonInput" value="0.9" step="0.1" min="0.001" aria-label="Match" />
++          <label title="Epsilon (ε): how closely the green path must match the Gray path. A smaller epsilon keeps a more detailed green path.">
++            <span class="param-label"><span class="param-symbol">&epsilon;</span> <span class="param-gloss">epsilon</span></span>
++            <input type="number" id="epsilonInput" value="0.9" step="0.1" min="0.001" aria-label="Epsilon" />
+           </label>
+-          <label title="Grid spacing (δ) used while finding the green path. A smaller Grid uses finer spacing; defaults are usually fine.">
+-            <span class="param-label"><span class="param-symbol">&delta;</span> <span class="param-gloss">grid</span></span>
+-            <input type="number" id="deltaInput" value="500" step="10" min="1" aria-label="Grid spacing" />
++          <label title="Delta (δ): spacing used while finding the green path. A smaller delta uses finer spacing; defaults are usually fine.">
++            <span class="param-label"><span class="param-symbol">&delta;</span> <span class="param-gloss">delta</span></span>
++            <input type="number" id="deltaInput" value="500" step="10" min="1" aria-label="Delta" />
+           </label>
+           <button id="loadBtn" class="primary" title="Load trajectory and build the green path" aria-label="Load trajectory and build the green path">
+             <span class="button-spinner" aria-hidden="true"></span>
+@@ -2210,21 +2229,21 @@
+             <span class="header-baseline-label" title="Optional. Pick other methods to score against after Load. Skip for a first run.">Compare:</span>
+             <div class="baseline-algo-row" id="headerBaselineAlgoRow" role="group" aria-label="Compare methods">
+               <button type="button" class="baseline-algo-pill" data-algo="dots" aria-pressed="false" aria-label="DOTS as-you-go" title="DOTS: builds a shorter green path as Gray path points arrive (as-you-go). Needs a preloaded trajectory.">DOTS<span class="pill-gloss">as-you-go</span></button>
+-              <button type="button" class="baseline-algo-pill" data-algo="dp" aria-pressed="false" aria-label="DP all-at-once" title="DP: builds a shorter green path from the whole Gray path in one pass (all-at-once), while staying within a match limit. Needs a preloaded trajectory.">DP<span class="pill-gloss">all-at-once</span></button>
++              <button type="button" class="baseline-algo-pill" data-algo="dp" aria-pressed="false" aria-label="DP all-at-once" title="DP: builds a shorter green path from the whole Gray path in one pass (all-at-once), while staying within PED. Needs a preloaded trajectory.">DP<span class="pill-gloss">all-at-once</span></button>
+               <button type="button" class="baseline-algo-pill" data-algo="squish" aria-pressed="false" aria-label="SQUISH keep percent" title="SQUISH: builds a shorter green path by keeping about this percent of the original points. Needs a preloaded trajectory.">SQUISH<span class="pill-gloss">keep %</span></button>
+             </div>
+-            <label class="baseline-field baseline-field--inline" id="headerBaselineLssdField" hidden title="DOTS budget. Entered in thousands (1000 means 1,000,000). A larger budget builds a shorter green path (keeps fewer points).">
+-              <span><span class="baseline-param-owner owner-dots">DOTS</span> budget</span>
+-              <input type="number" id="headerBaselineLssdInput" value="1000" step="1" min="0.000001" aria-label="DOTS budget in thousands" />
+-              <span class="baseline-field-unit" title="Entered in thousands (×1,000)">×1k</span>
++            <label class="baseline-field baseline-field--inline" id="headerBaselineLssdField" hidden title="DOTS LSSD. Entered in thousands (1000 means 1,000,000). A larger LSSD builds a shorter green path (keeps fewer points).">
++              <span><span class="baseline-param-owner owner-dots">DOTS</span> LSSD</span>
++              <input type="number" id="headerBaselineLssdInput" value="1000" step="1" min="0.000001" aria-label="DOTS LSSD in thousands" />
++              <span class="baseline-field-unit" title="Thousand">K</span>
+             </label>
+-            <label class="baseline-field baseline-field--inline" id="headerBaselineDpEpsField" hidden title="DP match limit (same idea as the Match field). A smaller match keeps a more detailed green path.">
+-              <span><span class="baseline-param-owner owner-dp">DP</span> match</span>
+-              <input type="number" id="headerBaselineDpEpsInput" value="0.9" step="0.1" min="0.000000001" aria-label="DP match limit" />
++            <label class="baseline-field baseline-field--inline" id="headerBaselineDpEpsField" hidden title="DP PED (same idea as the ε field). A smaller PED keeps a more detailed green path.">
++              <span><span class="baseline-param-owner owner-dp">DP</span> PED</span>
++              <input type="number" id="headerBaselineDpEpsInput" value="0.9" step="0.1" min="0.000000001" aria-label="DP PED" />
+             </label>
+-            <label class="baseline-field baseline-field--inline" id="headerBaselineSquishRatioField" hidden title="SQUISH keep percent: percent of original points to keep on the green path.">
+-              <span><span class="baseline-param-owner owner-squish">SQUISH</span> keep</span>
+-              <input type="number" id="headerBaselineSquishRatioInput" value="20" step="1" min="0.01" max="100" aria-label="SQUISH keep percent" />
++            <label class="baseline-field baseline-field--inline" id="headerBaselineSquishRatioField" hidden title="SQUISH Ratio: percent of original points to keep on the green path.">
++              <span><span class="baseline-param-owner owner-squish">SQUISH</span> Ratio</span>
++              <input type="number" id="headerBaselineSquishRatioInput" value="20" step="1" min="0.01" max="100" aria-label="SQUISH Ratio percent" />
+               <span class="baseline-field-unit" title="Percent">%</span>
+             </label>
+             <button type="button" id="headerBaselineRunBtn" class="baseline-run-btn" hidden disabled title="Run the selected Compare methods and open scores in Results">Run</button>
+@@ -2235,12 +2254,9 @@
+       <div class="mobile-start-help">
+         <h2>Instructions</h2>
+         <ul>
+-          <li>Select a preloaded trajectory.</li>
+-          <li>Optionally adjust <b>Match</b> (accuracy) and <b>Grid</b> (spacing), then tap <b>Load</b>.</li>
+-          <li>Optionally pick <b>Compare</b>: DOTS (as-you-go) / DP (all-at-once) / SQUISH (keep %). After <b>Load</b>, open <b>Results</b> for scores and tap <b>Run compare</b>.</li>
+-          <li>Drag the visualization to pan and pinch to zoom.</li>
+-          <li>Use <b>Controls</b> for status and map overlays.</li>
+-          <li>Tap <b>Back</b> to choose another trajectory.</li>
++          <li>Pick a trajectory, set <b>ε</b>/<b>δ</b> if needed, then <b>Load</b>.</li>
++          <li><b>Results</b> for scores; optional <b>Compare</b>.</li>
++          <li>Drag to pan, pinch to zoom.</li>
+         </ul>
+       </div>
+     </div>
+@@ -2260,26 +2276,28 @@
+             <p class="results-section-label" title="Optional methods to compare against this run">Compare methods</p>
+             <div class="baseline-controls">
+               <div class="baseline-algo-row" id="baselineAlgoRow" role="group" aria-label="Compare methods">
+-                <button type="button" class="baseline-algo-pill" data-algo="dots" aria-pressed="false" aria-label="DOTS as-you-go" title="DOTS: builds a shorter green path as Gray path points arrive (as-you-go). Needs a preloaded trajectory.">DOTS<span class="pill-gloss">as-you-go</span></button>
+-                <button type="button" class="baseline-algo-pill" data-algo="dp" aria-pressed="false" aria-label="DP all-at-once" title="DP: builds a shorter green path from the whole Gray path in one pass (all-at-once), while staying within a match limit. Needs a preloaded trajectory.">DP<span class="pill-gloss">all-at-once</span></button>
+-                <button type="button" class="baseline-algo-pill" data-algo="squish" aria-pressed="false" aria-label="SQUISH keep percent" title="SQUISH: builds a shorter green path by keeping about this percent of the original points. Needs a preloaded trajectory.">SQUISH<span class="pill-gloss">keep %</span></button>
++                <button type="button" class="baseline-algo-pill" data-algo="dots" aria-pressed="false" aria-label="DOTS" title="DOTS: builds a shorter green path as Gray path points arrive. Needs a preloaded trajectory.">DOTS</button>
++                <button type="button" class="baseline-algo-pill" data-algo="dp" aria-pressed="false" aria-label="DP" title="DP: builds a shorter green path from the whole Gray path in one pass, while staying within PED. Needs a preloaded trajectory.">DP</button>
++                <button type="button" class="baseline-algo-pill" data-algo="squish" aria-pressed="false" aria-label="SQUISH" title="SQUISH: builds a shorter green path by keeping about this percent of the original points. Needs a preloaded trajectory.">SQUISH</button>
+               </div>
+               <div id="baselineParamFields" class="baseline-param-fields">
+-                <label class="baseline-field" id="baselineLssdField" hidden title="DOTS budget. Entered in thousands (1000 means 1,000,000). A larger budget builds a shorter green path (keeps fewer points).">
+-                  <span><span class="baseline-param-owner owner-dots">DOTS</span> budget</span>
++                <label class="baseline-field" id="baselineLssdField" hidden title="DOTS LSSD. Entered in thousands (1000 means 1,000,000). A larger LSSD builds a shorter green path (keeps fewer points).">
++                  <span><span class="baseline-param-owner owner-dots">DOTS</span> LSSD</span>
+                   <div class="baseline-field-input-row">
+-                    <input type="number" id="baselineLssdInput" value="1000" step="1" min="0.000001" aria-label="DOTS budget in thousands" />
+-                    <span class="baseline-field-unit" title="Entered in thousands (×1,000)">×1k</span>
++                    <input type="number" id="baselineLssdInput" value="1000" step="1" min="0.000001" aria-label="DOTS LSSD in thousands" />
++                    <span class="baseline-field-unit" title="Thousand">K</span>
+                   </div>
+                 </label>
+-                <label class="baseline-field" id="baselineDpEpsField" hidden title="DP match limit (same idea as the Match field). A smaller match keeps a more detailed green path.">
+-                  <span><span class="baseline-param-owner owner-dp">DP</span> match</span>
+-                  <input type="number" id="baselineDpEpsInput" value="0.9" step="0.1" min="0.000000001" aria-label="DP match limit" />
++                <label class="baseline-field" id="baselineDpEpsField" hidden title="DP PED (same idea as the ε field). A smaller PED keeps a more detailed green path.">
++                  <span><span class="baseline-param-owner owner-dp">DP</span> PED</span>
++                  <div class="baseline-field-input-row">
++                    <input type="number" id="baselineDpEpsInput" value="0.9" step="0.1" min="0.000000001" aria-label="DP PED" />
++                  </div>
+                 </label>
+-                <label class="baseline-field" id="baselineSquishRatioField" hidden title="SQUISH keep percent: percent of original points to keep on the green path.">
+-                  <span><span class="baseline-param-owner owner-squish">SQUISH</span> keep</span>
++                <label class="baseline-field" id="baselineSquishRatioField" hidden title="SQUISH Ratio: percent of original points to keep on the green path.">
++                  <span><span class="baseline-param-owner owner-squish">SQUISH</span> Ratio</span>
+                   <div class="baseline-field-input-row">
+-                    <input type="number" id="baselineSquishRatioInput" value="20" step="1" min="0.01" max="100" aria-label="SQUISH keep percent" />
++                    <input type="number" id="baselineSquishRatioInput" value="20" step="1" min="0.01" max="100" aria-label="SQUISH Ratio percent" />
+                     <span class="baseline-field-unit" title="Percent">%</span>
+                   </div>
+                 </label>
+@@ -2300,14 +2318,13 @@
+                 </tr>
+               </thead>
+               <tbody id="compareMetricsBody">
+-                <tr><td colspan="2" class="compare-metrics-empty">Load a trajectory to see scores. Optional: run Compare above (preloaded trajectories).</td></tr>
++                <tr><td colspan="2" class="compare-metrics-empty">Load a trajectory to see scores.</td></tr>
+               </tbody>
+             </table>
+             </div>
+             <p class="compare-metrics-footer">
+-              Match error is how far each path drifts from the Gray path. Lower is better.
+-              Optional reading:
+-              <a href="https://en.wikipedia.org/wiki/Fr%C3%A9chet_distance" target="_blank" rel="noopener noreferrer">Fréchet distance (technical)</a>.
++              Fréchet distance: green path vs input (lower is better).
++              <a href="https://en.wikipedia.org/wiki/Fr%C3%A9chet_distance" target="_blank" rel="noopener noreferrer">Fréchet distance</a>.
+             </p>
+             <p id="compareFrechetNote" class="compare-frechet-note" hidden></p>
+           </div>
+@@ -2337,20 +2354,16 @@
+                 <circle cx="44" cy="32" r="2.5" fill="currentColor"/>
+               </svg>
+             </div>
+-            <div class="big">Choose a trajectory to get started</div>
++            <div class="big">Choose a trajectory</div>
+             <div class="dropHint-sub">
+-              Select a <b>preloaded trajectory</b> or click <b>Upload trajectory</b>, optionally pick <b>Compare</b>: DOTS (as-you-go) / DP (all-at-once) / SQUISH (keep %) (preloaded only), leave <b>Match</b> / <b>Grid</b> at defaults (or tweak them), then <b>Load</b>
+-            </div>
+-            <div class="dropHint-format">
+-              Format: first line <code>N</code> (point count), then <code>N</code> lines of <code>x y</code>
++              Select or <b>Upload</b>, optionally pick <b>Compare</b> (preloaded), then <b>Load</b>
+             </div>
+             <div class="desktop-instructions">
+               <h2>Instructions</h2>
+               <ul>
+-                <li>Select a <b>preloaded trajectory</b> or click <b>Upload trajectory</b>.</li>
+-                <li>Optionally adjust <b>Match</b> (accuracy) and <b>Grid</b> (spacing), then press <b>Load</b>.</li>
+-                <li>After load, open <b>Results</b> for scores. With a preloaded trajectory you can pick optional <b>Compare</b>: DOTS (as-you-go) / DP (all-at-once) / SQUISH (keep %) and press <b>Run</b> (or <b>Run compare</b> in Results). Uploads show scores only.</li>
+-                <li><b>Drag</b> to pan and <b>scroll</b> to zoom. Keyboard shortcuts for Step / Segment / Option live in the right-side Instructions after load.</li>
++                <li>Select or <b>Upload</b>, set <b>ε</b>/<b>δ</b> if needed, then <b>Load</b>.</li>
++                <li><b>Results</b> for scores; optional <b>Compare</b> (preloaded).</li>
++                <li><b>Drag</b> to pan, <b>scroll</b> to zoom.</li>
+               </ul>
+             </div>
+           </div>
+@@ -2435,10 +2448,6 @@
+ 
+       <div class="section">
+         <h2>Status</h2>
+-        <p class="status-gloss" id="statusGloss">
+-          <b>Start point</b> and <b>current point</b> match the colored markers on the map.
+-          <b>Segment</b>, <b>Step</b>, and <b>Option</b> match the playback controls.
+-        </p>
+         <div id="statusIndices" class="status-indices"></div>
+         <div class="status-grid" id="statusGrid"></div>
+       </div>
+@@ -2454,37 +2463,37 @@
+             <summary title="Overlays for this run (the green path and next-point options). Same This run as in Results scores.">This run</summary>
+             <div class="layer-acc-body">
+               <div class="toggle-row">
+-                <label title="Gray path: the full input trajectory shown in gray before the green path. Contrast with Green path so far / Full green path."><input type="checkbox" id="toggle-stream" checked /><span class="swatch" style="background:#5a6272"></span>Gray path</label>
++                <label title="The full input trajectory before simplification."><input type="checkbox" id="toggle-stream" checked /><span class="swatch" style="background:#5a6272"></span>Full stream</label>
+               </div>
+               <div class="toggle-row">
+-                <label title="Green path built so far as you Step or Play through the run. Same green path as Full green path and Segment."><input type="checkbox" id="toggle-simplified" checked /><span class="swatch" style="background:#3ddc97"></span>Green path so far</label>
++                <label title="Simplified path built so far during playback."><input type="checkbox" id="toggle-simplified" checked /><span class="swatch" style="background:#3ddc97"></span>Simplified so far</label>
+               </div>
+               <div class="toggle-row">
+-                <label title="Full green path for the whole trajectory. Turn on to see the finished path anytime, even mid-playback. Same green path as Green path so far and Segment."><input type="checkbox" id="toggle-final-simplify" /><span class="swatch" style="background:#3ddc97"></span>Full green path</label>
++                <label title="Final simplified path for the whole trajectory."><input type="checkbox" id="toggle-final-simplify" /><span class="swatch" style="background:#3ddc97"></span>Final simplified</label>
+               </div>
+               <div class="toggle-row">
+-                <label title="Purple Start-point circle around the start point of the current Segment. Size matches the circle radius chip. Same start point as in Status."><input type="checkbox" id="toggle-ball-p0" checked /><span class="swatch" style="background:#c47aff"></span>Start-point circle</label>
++                <label title="δ-ball around the start vertex p of the current segment."><input type="checkbox" id="toggle-ball-p0" checked /><span class="swatch" style="background:#c47aff"></span>\(B_p\)</label>
+               </div>
+               <div class="toggle-row">
+-                <label title="Pink Current-point circle around the current point on the Gray path. Size matches the circle radius chip. Same current point as in Status."><input type="checkbox" id="toggle-ball-pi" checked /><span class="swatch" style="background:#ff7ae8"></span>Current-point circle</label>
++                <label title="δ-ball around the current stream vertex v_i."><input type="checkbox" id="toggle-ball-pi" checked /><span class="swatch" style="background:#ff7ae8"></span>\(B_{v_i}\)</label>
+               </div>
+               <div class="toggle-row">
+-                <label title="Yellow area covering next-point options still open near the current point. Same current point as in Status."><input type="checkbox" id="toggle-Gi" checked /><span class="swatch" style="background:#e8c547"></span>Options near current</label>
++                <label title="Convex hull of the δ-disk grid around the current vertex."><input type="checkbox" id="toggle-Gi" checked /><span class="swatch" style="background:#e8c547"></span>\(\mathrm{conv}(G_{v_i})\)</label>
+               </div>
+               <div class="toggle-row">
+-                <label title="Blue Match-safe area after previous Segments (within the Match limit). Next-point zone is cut from this area."><input type="checkbox" id="toggle-F" checked /><span class="swatch" style="background:#4f9dff"></span>Match-safe area</label>
++                <label title="Feasible region after previous simplified pieces."><input type="checkbox" id="toggle-F" checked /><span class="swatch" style="background:#4f9dff"></span>\(F(S_{i-1}[p], p)\)</label>
+               </div>
+               <div class="toggle-row">
+-                <label title="Cyan preview of the Match-safe area if this option (the selected Option on the playback bar) becomes the next green-path point."><input type="checkbox" id="toggle-F-Si" /><span class="swatch" style="background:#22d3ee"></span>Match-safe (this option)</label>
++                <label title="Feasible region if the selected candidate becomes the next simplified point."><input type="checkbox" id="toggle-F-Si" /><span class="swatch" style="background:#22d3ee"></span>\(F(S_i[p], p)\)</label>
+               </div>
+               <div class="toggle-row">
+-                <label title="Purple zone where the next green-path point can go (overlap of Options near current and the Match-safe area). Same next-point idea as Option on the playback bar."><input type="checkbox" id="toggle-S" checked /><span class="swatch" style="background:#a78bfa"></span>Next-point zone</label>
++                <label title="Current search region: conv(G_vi) ∩ F(S_{i-1}[p], p)."><input type="checkbox" id="toggle-S" checked /><span class="swatch" style="background:#a78bfa"></span>\(S_i[p]\)</label>
+               </div>
+               <div class="toggle-row">
+-                <label title="Orange markers for next-point options still open (same options as Options near current; cycle them with Option on the playback bar). Pairs with Rejected options."><input type="checkbox" id="toggle-P" checked /><span class="swatch" style="background:#ff9f43"></span>Option markers</label>
++                <label title="Candidate anchors on the search boundary."><input type="checkbox" id="toggle-P" checked /><span class="swatch" style="background:#ff9f43"></span>\(P\)</label>
+               </div>
+               <div class="toggle-row">
+-                <label title="Next-point options already rejected (shown in red). Pairs with Option markers; contrast with Options near current."><input type="checkbox" id="toggle-dead-candidates" checked /><span class="swatch" style="background:#ff3c3c"></span>Rejected options</label>
++                <label title="Candidates already ruled out (shown in red)."><input type="checkbox" id="toggle-dead-candidates" checked /><span class="swatch" style="background:#ff3c3c"></span>Dead candidates</label>
+               </div>
+             </div>
+           </details>
+@@ -2492,48 +2501,29 @@
+             <summary id="accordionBaselineSummary">Compare</summary>
+             <div class="layer-acc-body">
+               <div id="baselineLayerToggles"></div>
+-              <p id="baselineLayerHint" class="baseline-layer-hint">Compare works with preloaded trajectories. Open Results, pick DOTS (as-you-go) / DP (all-at-once) / SQUISH (keep %), then press Run compare (on wider screens, Run beside Compare also works).</p>
++              <p id="baselineLayerHint" class="baseline-layer-hint">Pick DOTS / DP / SQUISH in Results, then Run compare.</p>
+             </div>
+           </details>
+         </div>
+       </div>
+ 
+       <div class="section">
+-        <h2>View</h2>
+-        <div class="stepper">
+-          <button id="fitBtn" title="Reset pan and zoom so the whole trajectory fits in the canvas">Fit view</button>
+-        </div>
+-      </div>
+-
+-      <div class="section">
+-        <h2>Instructions</h2>
+-        <p class="instructions-gloss" id="playbackInstructionsGloss">
+-          <b>Step</b> walks along Gray path points within the current Segment.
+-          <b>Segment</b> jumps between pieces of the green path.
+-          <b>Option</b> cycles next-point options near the current point (same options as Options near current).
+-          <b>Play</b> auto-advances; use <b>Speed</b> to go faster or slower.
+-          <b>Fit view</b> resets pan and zoom.
+-        </p>
+         <table class="shortcuts-table desktop-shortcuts">
+           <tbody>
+-            <tr><td><kbd>←</kbd> / <kbd>→</kbd></td><td>Previous / next Step</td></tr>
+-            <tr><td><kbd>Shift</kbd>+<kbd>←</kbd>/<kbd>→</kbd></td><td>Previous / next Segment</td></tr>
++            <tr><td><kbd>←</kbd> / <kbd>→</kbd></td><td>Step</td></tr>
++            <tr><td><kbd>Shift</kbd>+<kbd>←</kbd>/<kbd>→</kbd></td><td>Segment</td></tr>
+             <tr><td><kbd>Space</kbd></td><td>Play / pause</td></tr>
+-            <tr><td><kbd>C</kbd> / <kbd>X</kbd></td><td>Next / previous Option</td></tr>
+-            <tr><td>Drag</td><td>Pan the view</td></tr>
+-            <tr><td>Scroll / pinch</td><td>Zoom in / out</td></tr>
++            <tr><td><kbd>C</kbd> / <kbd>X</kbd></td><td>Option</td></tr>
++            <tr><td>Drag</td><td>Pan</td></tr>
++            <tr><td>Scroll</td><td>Zoom</td></tr>
+           </tbody>
+         </table>
+         <table class="shortcuts-table mobile-shortcuts">
+           <tbody>
+-            <tr><td>Step ← / →</td><td>Previous / next step on the bottom bar</td></tr>
+-            <tr><td>Segment « / »</td><td>Previous / next Segment</td></tr>
+-            <tr><td>Option ‹ / ›</td><td>Previous / next Option</td></tr>
+-            <tr><td>Play</td><td>Play / pause</td></tr>
+-            <tr><td>Speed 0.25×-4×</td><td>Playback speed on the bottom bar</td></tr>
+-            <tr><td>Drag</td><td>Pan the view</td></tr>
+-            <tr><td>Pinch</td><td>Zoom in / out</td></tr>
+-            <tr><td>Hide / Controls</td><td>Hide or show Status and Map overlays</td></tr>
++            <tr><td>Step / Segment / Option</td><td>Bottom bar</td></tr>
++            <tr><td>Play / Speed</td><td>Bottom bar</td></tr>
++            <tr><td>Drag / Pinch</td><td>Pan / zoom</td></tr>
++            <tr><td>Hide / Controls</td><td>Toggle sidebar</td></tr>
+           </tbody>
+         </table>
+       </div>
+@@ -2615,11 +2605,12 @@
+     <p id="uiTourBody"></p>
+     <div class="ui-tour-actions">
+       <button type="button" id="uiTourSkip">Skip</button>
++      <button type="button" id="uiTourPrev" hidden>Back</button>
+       <button type="button" id="uiTourNext" class="primary">Next</button>
+     </div>
+   </div>
+ </div>
+ 
+-<script src="viewer.js?v=compare-method-glosses-1"></script>
++<script src="viewer.js?v=ui-polish-1"></script>
+ </body>
+ </html>
+diff --git a/web/usability/first-visit-tour.html b/web/usability/first-visit-tour.html
+index 0e1ac5e..b11469d 100644
+--- a/web/usability/first-visit-tour.html
++++ b/web/usability/first-visit-tour.html
+@@ -201,8 +201,8 @@
+     <div class="tour-spotlight" style="top:52px;left:268px;width:168px;height:34px;"></div>
+     <div class="tour-card" style="top:100px;left:268px;">
+       <p class="step">3 / 4</p>
+-      <h3>Accuracy controls</h3>
+-      <p><b>ε</b> is how closely the simplified path must match the original (smaller keeps more detail). <b>δ</b> is the search-grid spacing. Defaults are fine for a first run.</p>
++      <h3>ε and δ</h3>
++      <p>Smaller <b>ε</b> costs more time: per-point complexity is <b>O(ε<sup>-4</sup> log(1/ε))</b>. Fréchet distance stays within <b>(1+ε)δ</b>.</p>
+       <div class="tour-actions">
+         <button>Skip</button>
+         <button class="primary">Next</button>
+@@ -230,7 +230,7 @@
+     <div class="tour-card" style="top:120px;left:20px;width:min(340px, calc(100% - 40px));">
+       <p class="step">2 / 4</p>
+       <h3>Choose a trajectory</h3>
+-      <p>Pick a <b>preloaded trace</b>. Preloaded samples already include sensible settings.</p>
++      <p>Pick a <b>preloaded trajectory</b>.</p>
+       <div class="tour-actions">
+         <button>Skip</button>
+         <button class="primary">Next</button>
+diff --git a/web/usability/instructions-shortened.html b/web/usability/instructions-shortened.html
+new file mode 100644
+index 0000000..da85684
+--- /dev/null
++++ b/web/usability/instructions-shortened.html
+@@ -0,0 +1,100 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++<meta charset="UTF-8" />
++<meta name="viewport" content="width=device-width, initial-scale=1.0" />
++<title>Shorter Instructions copy</title>
++<style>
++  :root {
++    --bg: #0f1115;
++    --panel: #161a22;
++    --panel-border: #262b36;
++    --text: #e6e8ec;
++    --text-dim: #8b93a3;
++    --accent: #3ddc97;
++  }
++  * { box-sizing: border-box; }
++  html, body { max-width: 900px; overflow-x: hidden; }
++  body {
++    margin: 0;
++    background: var(--bg);
++    color: var(--text);
++    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
++    font-size: 13px;
++    padding: 16px;
++  }
++  h1 { font-size: 15px; margin: 0 0 6px; }
++  p { margin: 0 0 12px; color: var(--text-dim); font-size: 12px; max-width: 720px; }
++  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
++  .frame {
++    background: var(--panel);
++    border: 1px solid var(--panel-border);
++    border-radius: 8px;
++    padding: 12px;
++  }
++  .label {
++    font-size: 10px;
++    letter-spacing: 0.04em;
++    text-transform: uppercase;
++    color: var(--text-dim);
++    margin-bottom: 8px;
++  }
++  h2 { margin: 0 0 8px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
++  ul { margin: 0; padding-left: 18px; color: var(--text-dim); line-height: 1.45; }
++  ul b { color: var(--text); font-weight: 500; }
++  .instructions-gloss { color: var(--text-dim); font-size: 12px; line-height: 1.45; }
++  .instructions-gloss b { color: var(--text); font-weight: 600; }
++  .ok { color: var(--accent); margin-top: 12px; font-size: 12px; }
++</style>
++</head>
++<body>
++  <h1>Shorter Instructions copy</h1>
++  <p>Start-screen and sidebar Instructions are tightened to fewer, denser lines.</p>
++  <div class="grid">
++    <div class="frame" id="before">
++      <div class="label">Before</div>
++      <h2>Desktop start</h2>
++      <ul>
++        <li>Select or <b>Upload</b> a trajectory.</li>
++        <li>Set <b>ε</b> / <b>δ</b> if needed, then <b>Load</b>.</li>
++        <li>Open <b>Results</b> for scores; optional <b>Compare</b> (preloaded).</li>
++        <li><b>Drag</b> to pan, <b>scroll</b> to zoom.</li>
++      </ul>
++      <h2 style="margin-top:12px">Sidebar</h2>
++      <p class="instructions-gloss">
++        <b>Step</b>: along the stream.
++        <b>Segment</b>: green-path pieces.
++        <b>Option</b>: candidates.
++        <b>Play</b> / <b>Speed</b> / <b>Fit view</b>.
++      </p>
++    </div>
++    <div class="frame" id="after">
++      <div class="label">After</div>
++      <h2>Desktop start</h2>
++      <ul id="desktopList">
++        <li>Select or <b>Upload</b>, set <b>ε</b>/<b>δ</b> if needed, then <b>Load</b>.</li>
++        <li><b>Results</b> for scores; optional <b>Compare</b> (preloaded).</li>
++        <li><b>Drag</b> to pan, <b>scroll</b> to zoom.</li>
++      </ul>
++      <h2 style="margin-top:12px">Sidebar</h2>
++      <p class="instructions-gloss" id="sidebarGloss">
++        <b>Step</b> / <b>Segment</b> / <b>Option</b> replay the run; <b>Play</b> auto-advances.
++      </p>
++    </div>
++  </div>
++  <p class="ok" id="check">Measuring…</p>
++<script>
++  const beforeCount = document.querySelectorAll("#before li").length;
++  const afterCount = document.querySelectorAll("#desktopList li").length;
++  const gloss = document.getElementById("sidebarGloss").textContent.replace(/\s+/g, " ").trim();
++  const shorter = afterCount < beforeCount
++    && gloss.includes("replay the run")
++    && gloss.includes("auto-advances")
++    && !gloss.includes("along the stream");
++  const scroll = document.documentElement.scrollWidth;
++  const ok = shorter && scroll <= 900;
++  document.getElementById("check").textContent =
++    `beforeLi=${beforeCount} afterLi=${afterCount} shorter=${shorter} scrollWidth=${scroll} ok=${ok}`;
++</script>
++</body>
++</html>
+diff --git a/web/usability/layers-tour.html b/web/usability/layers-tour.html
+index c7aa24d..bf9dd56 100644
+--- a/web/usability/layers-tour.html
++++ b/web/usability/layers-tour.html
+@@ -159,7 +159,7 @@
+           <h2>Layers</h2>
+           <div class="toggle"><span class="swatch" style="background:#3ddc97"></span>Simplified so far</div>
+           <div class="toggle"><span class="swatch" style="background:#4f9dff"></span>F(...) (reachability so far)</div>
+-          <div class="toggle"><span class="swatch" style="background:#c47aff"></span>B_p (δ-ball at start vertex)</div>
++          <div class="toggle"><span class="swatch" style="background:#c47aff"></span>B_p</div>
+           <div class="callout">Novices finished playback + Results guidance without learning Layer toggles or Fit to data.</div>
+         </div>
+         <div class="bar"><span class="chip">Step</span><span class="chip">Segment</span><span class="chip">Candidate</span><span class="chip">Play</span></div>
+diff --git a/web/usability/overlay-parens-removed.html b/web/usability/overlay-parens-removed.html
+new file mode 100644
+index 0000000..9af2410
+--- /dev/null
++++ b/web/usability/overlay-parens-removed.html
+@@ -0,0 +1,109 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++<meta charset="UTF-8" />
++<meta name="viewport" content="width=device-width, initial-scale=1.0" />
++<title>Map overlays without English parentheses</title>
++<style>
++  :root {
++    --bg: #0f1115;
++    --panel: #161a22;
++    --panel-border: #262b36;
++    --text: #e6e8ec;
++    --text-dim: #8b93a3;
++    --accent: #3ddc97;
++    --danger: #ff5f6d;
++  }
++  * { box-sizing: border-box; }
++  html, body { max-width: 900px; overflow-x: hidden; }
++  body {
++    margin: 0;
++    background: var(--bg);
++    color: var(--text);
++    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
++    font-size: 13px;
++    padding: 16px;
++  }
++  h1 { font-size: 15px; margin: 0 0 6px; }
++  p { margin: 0 0 12px; color: var(--text-dim); font-size: 12px; max-width: 720px; }
++  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 900px; }
++  .frame {
++    background: var(--panel);
++    border: 1px solid var(--panel-border);
++    border-radius: 8px;
++    padding: 12px;
++  }
++  .label {
++    font-size: 10px;
++    letter-spacing: 0.04em;
++    text-transform: uppercase;
++    color: var(--text-dim);
++    margin-bottom: 8px;
++  }
++  h2 {
++    margin: 0 0 8px;
++    font-size: 12px;
++    letter-spacing: 0.04em;
++    text-transform: uppercase;
++  }
++  .toggle-row { padding: 4px 0; font-size: 12.5px; }
++  .toggle-row label {
++    display: flex;
++    align-items: center;
++    gap: 8px;
++  }
++  .swatch {
++    width: 12px; height: 12px;
++    border-radius: 3px;
++    display: inline-block;
++  }
++  .math {
++    font-family: "Times New Roman", Times, serif;
++    font-style: italic;
++  }
++  .bad { color: var(--danger); }
++  .ok { color: var(--accent); margin-top: 12px; font-size: 12px; }
++</style>
++</head>
++<body>
++  <h1>Map overlays without English parentheses</h1>
++  <p>
++    Overlay row labels keep paper math only. Trailing English glosses in parentheses
++    are removed from the visible label (tooltips still explain).
++  </p>
++  <div class="grid">
++    <div class="frame" id="before">
++      <div class="label">Before</div>
++      <h2>Map overlays</h2>
++      <div class="toggle-row"><label><input type="checkbox" checked /><span class="swatch" style="background:#c47aff"></span><span class="math">B<sub>p</sub></span> <span class="bad">(δ-ball at start vertex)</span></label></div>
++      <div class="toggle-row"><label><input type="checkbox" checked /><span class="swatch" style="background:#ff7ae8"></span><span class="math">B<sub>v<sub>i</sub></sub></span> <span class="bad">(δ-ball at current vertex)</span></label></div>
++      <div class="toggle-row"><label><input type="checkbox" checked /><span class="swatch" style="background:#ff9f43"></span><span class="math">P</span> <span class="bad">(candidate anchors)</span></label></div>
++    </div>
++    <div class="frame" id="after">
++      <div class="label">After</div>
++      <h2>Map overlays</h2>
++      <div class="toggle-row" id="bpRow"><label title="δ-ball around the start vertex p of the current segment."><input type="checkbox" checked /><span class="swatch" style="background:#c47aff"></span><span class="math">B<sub>p</sub></span></label></div>
++      <div class="toggle-row" id="bviRow"><label title="δ-ball around the current stream vertex v_i."><input type="checkbox" checked /><span class="swatch" style="background:#ff7ae8"></span><span class="math">B<sub>v<sub>i</sub></sub></span></label></div>
++      <div class="toggle-row" id="pRow"><label title="Candidate anchors on the search boundary."><input type="checkbox" checked /><span class="swatch" style="background:#ff9f43"></span><span class="math">P</span></label></div>
++    </div>
++  </div>
++  <p class="ok" id="check">Measuring…</p>
++<script>
++  function labelText(id) {
++    const label = document.querySelector("#" + id + " label");
++    return (label ? label.textContent : "").replace(/\s+/g, " ").trim();
++  }
++  const after = document.getElementById("after").textContent;
++  const bp = labelText("bpRow");
++  const bvi = labelText("bviRow");
++  const p = labelText("pRow");
++  const noParens = !bp.includes("(") && !bvi.includes("(") && !p.includes("(")
++    && !after.includes("δ-ball at") && !after.includes("candidate anchors");
++  const hasSymbols = bp.includes("B") && bvi.includes("B") && p === "P";
++  const scroll = document.documentElement.scrollWidth;
++  const ok = noParens && hasSymbols && scroll <= 900;
++  document.getElementById("check").textContent =
++    `noParens=${noParens} hasSymbols=${hasSymbols} scrollWidth=${scroll} ok=${ok}`;
++</script>
++</body>
++</html>
+diff --git a/web/usability/right-pane-keys-only.html b/web/usability/right-pane-keys-only.html
+new file mode 100644
+index 0000000..1b3a9fa
+--- /dev/null
++++ b/web/usability/right-pane-keys-only.html
+@@ -0,0 +1,148 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++<meta charset="UTF-8" />
++<meta name="viewport" content="width=device-width, initial-scale=1.0" />
++<title>Right pane keys only</title>
++<style>
++  html, body { max-width: 900px; margin: 0 auto; }
++  :root {
++    --bg: #0f1115;
++    --panel: #161a22;
++    --panel-border: #262b36;
++    --text: #e6e8ec;
++    --text-dim: #8b93a3;
++    --accent: #3ddc97;
++  }
++  * { box-sizing: border-box; }
++  body {
++    margin: 0;
++    background: var(--bg);
++    color: var(--text);
++    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
++    font-size: 13px;
++    padding: 16px;
++  }
++  h1 { font-size: 15px; margin: 0 0 6px; }
++  p { margin: 0 0 12px; color: var(--text-dim); font-size: 12px; max-width: 720px; }
++  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 900px; }
++  .frame {
++    background: var(--panel);
++    border: 1px solid var(--panel-border);
++    border-radius: 8px;
++    padding: 12px;
++  }
++  .label {
++    font-size: 10px;
++    letter-spacing: 0.04em;
++    text-transform: uppercase;
++    color: var(--text-dim);
++    margin-bottom: 8px;
++  }
++  h2 {
++    margin: 0 0 8px;
++    font-size: 12px;
++    font-weight: 600;
++    text-transform: uppercase;
++    letter-spacing: 0.06em;
++  }
++  .instructions-gloss {
++    margin: 0 0 10px;
++    font-size: 12px;
++    line-height: 1.45;
++    color: var(--text-dim);
++  }
++  .instructions-gloss b { color: var(--text); font-weight: 600; }
++  .shortcuts-table {
++    width: 100%;
++    border-collapse: collapse;
++    font-size: 12.5px;
++    color: var(--text-dim);
++  }
++  .shortcuts-table td { padding: 5px 4px; vertical-align: top; }
++  .shortcuts-table td:first-child {
++    white-space: nowrap;
++    padding-right: 10px;
++    color: var(--text);
++  }
++  kbd {
++    background: #1e2330;
++    border: 1px solid var(--panel-border);
++    border-radius: 4px;
++    padding: 2px 6px;
++    font-size: 11.5px;
++    font-family: inherit;
++  }
++  .stepper button {
++    background: #1e2330;
++    border: 1px solid var(--panel-border);
++    color: var(--text);
++    border-radius: 6px;
++    padding: 6px 10px;
++    font-size: 12px;
++  }
++  .section + .section { margin-top: 14px; }
++  .ok { color: var(--accent); margin-top: 12px; font-size: 12px; }
++  .bad { color: #ff8a94; }
++</style>
++</head>
++<body>
++  <h1>Post-load right pane keeps keys only</h1>
++  <p>
++    After Load, the sidebar had a <b>View</b> block (Fit view) and an
++    <b>Instructions</b> heading plus gloss above the shortcut tables. Keep only
++    the key / action tables.
++  </p>
++  <div class="grid">
++    <div class="frame" id="before">
++      <div class="label">Before</div>
++      <div class="section">
++        <h2>View</h2>
++        <div class="stepper">
++          <button type="button">Fit view</button>
++        </div>
++      </div>
++      <div class="section">
++        <h2>Instructions</h2>
++        <p class="instructions-gloss">
++          <b>Step</b> / <b>Segment</b> / <b>Option</b> replay the run; <b>Play</b> auto-advances.
++        </p>
++        <table class="shortcuts-table">
++          <tbody>
++            <tr><td><kbd>←</kbd> / <kbd>→</kbd></td><td>Step</td></tr>
++            <tr><td><kbd>Space</kbd></td><td>Play / pause</td></tr>
++          </tbody>
++        </table>
++      </div>
++    </div>
++    <div class="frame" id="after">
++      <div class="label">After</div>
++      <div class="section">
++        <table class="shortcuts-table" id="keysTable">
++          <tbody>
++            <tr><td><kbd>←</kbd> / <kbd>→</kbd></td><td>Step</td></tr>
++            <tr><td><kbd>Space</kbd></td><td>Play / pause</td></tr>
++          </tbody>
++        </table>
++      </div>
++    </div>
++  </div>
++  <p class="ok" id="result">Checking…</p>
++  <script>
++    const before = document.getElementById("before").innerText;
++    const after = document.getElementById("after");
++    const hasView = /View/.test(before) && /Fit view/.test(before);
++    const hasInstructions = /Instructions/.test(before) && /auto-advances/.test(before);
++    const afterText = after.innerText;
++    const noView = !/View/.test(afterText) && !/Fit view/.test(afterText);
++    const noInstructions = !/Instructions/.test(afterText) && !/auto-advances/.test(afterText);
++    const hasKeys = /Step/.test(document.getElementById("keysTable").innerText);
++    const ok = hasView && hasInstructions && noView && noInstructions && hasKeys;
++    const el = document.getElementById("result");
++    el.className = ok ? "ok" : "bad";
++    el.textContent = ok
++      ? "After pane has no View / Instructions chrome; shortcut keys remain."
++      : "Fixture expectation failed.";
++  </script>
++</body>
++</html>
+diff --git a/web/usability/saved-match-chip-removed.html b/web/usability/saved-match-chip-removed.html
+new file mode 100644
+index 0000000..b34f608
+--- /dev/null
++++ b/web/usability/saved-match-chip-removed.html
+@@ -0,0 +1,114 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++<meta charset="UTF-8" />
++<meta name="viewport" content="width=device-width, initial-scale=1.0" />
++<title>saved Match chip removed; match limit kept</title>
++<style>
++  :root {
++    --bg: #0f1115;
++    --panel: #161a22;
++    --panel-border: #262b36;
++    --text: #e6e8ec;
++    --text-dim: #8b93a3;
++    --accent: #3ddc97;
++    --danger: #ff5f6d;
++  }
++  * { box-sizing: border-box; }
++  html, body { max-width: 900px; overflow-x: hidden; }
++  body {
++    margin: 0;
++    background: var(--bg);
++    color: var(--text);
++    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
++    font-size: 13px;
++    padding: 16px;
++  }
++  h1 { font-size: 15px; margin: 0 0 6px; }
++  p { margin: 0 0 12px; color: var(--text-dim); font-size: 12px; max-width: 760px; }
++  .grid { display: grid; grid-template-columns: 1fr; gap: 12px; max-width: 900px; }
++  .frame {
++    background: var(--panel);
++    border: 1px solid var(--panel-border);
++    border-radius: 8px;
++    padding: 12px;
++  }
++  .label {
++    font-size: 10px;
++    letter-spacing: 0.04em;
++    text-transform: uppercase;
++    color: var(--text-dim);
++    margin-bottom: 8px;
++  }
++  .params {
++    display: flex;
++    flex-wrap: wrap;
++    gap: 6px;
++  }
++  .chip {
++    display: inline-flex;
++    gap: 6px;
++    align-items: baseline;
++    padding: 4px 8px;
++    border: 1px solid var(--panel-border);
++    border-radius: 6px;
++    font-size: 12px;
++    color: var(--text-dim);
++  }
++  .chip b { color: var(--text); font-weight: 600; }
++  .chip.saved { border-color: #3a4558; }
++  .bad { color: var(--danger); }
++  .ok { color: var(--accent); margin-top: 12px; font-size: 12px; }
++</style>
++</head>
++<body>
++  <h1>saved Match chip removed; match limit kept</h1>
++  <p>
++    The params bar drops the <b class="bad">saved Match</b> chip entirely (no blank slot).
++    The separate <b>match limit</b> chip (expected Frechet) stays.
++  </p>
++  <div class="grid">
++    <div class="frame" id="before">
++      <div class="label">Before</div>
++      <div class="params">
++        <span class="chip">ε <b>0.9</b></span>
++        <span class="chip">δ <b>1.8</b></span>
++        <span class="chip">grid cell length <b>1.2728</b></span>
++        <span class="chip">ball radius <b>1.8</b></span>
++        <span class="chip">match limit <b>0.9</b></span>
++        <span class="chip saved" title="Match error saved with this preloaded trajectory.">saved Match <b>0.41</b></span>
++        <span class="chip">original points <b>120</b></span>
++        <span class="chip">kept points <b>18</b></span>
++        <span class="chip">kept % <b>15.0%</b></span>
++      </div>
++    </div>
++    <div class="frame" id="after">
++      <div class="label">After</div>
++      <div class="params" id="afterParams">
++        <span class="chip">ε <b>0.9</b></span>
++        <span class="chip">δ <b>1.8</b></span>
++        <span class="chip">grid cell length <b>1.2728</b></span>
++        <span class="chip">ball radius <b>1.8</b></span>
++        <span class="chip" id="matchLimitChip" title="Match limit for this run (same idea as ε): how far the green path may drift from the input. A smaller match limit keeps a more detailed green path.">match limit <b>0.9</b></span>
++        <span class="chip">original points <b>120</b></span>
++        <span class="chip">kept points <b>18</b></span>
++        <span class="chip">kept % <b>15.0%</b></span>
++      </div>
++    </div>
++  </div>
++  <p class="ok" id="check">Measuring…</p>
++<script>
++  const afterText = document.getElementById("after").textContent;
++  const chipLabels = Array.from(document.querySelectorAll("#afterParams .chip"))
++    .map((c) => c.textContent.replace(/\s+/g, " ").trim());
++  const hasMatchLimit = chipLabels.some((t) => t.startsWith("match limit"));
++  const hasSavedMatch = /saved\s+Match/i.test(afterText);
++  const blankChip = Array.from(document.querySelectorAll("#afterParams .chip"))
++    .some((c) => !c.textContent.trim());
++  const scroll = document.documentElement.scrollWidth;
++  const ok = hasMatchLimit && !hasSavedMatch && !blankChip && scroll <= 900;
++  document.getElementById("check").textContent =
++    `matchLimit=${hasMatchLimit} savedMatchGone=${!hasSavedMatch} noBlank=${!blankChip} chips=${chipLabels.length} scrollWidth=${scroll} ok=${ok}`;
++</script>
++</body>
++</html>
+diff --git a/web/usability/status-gloss-map-playback.html b/web/usability/status-gloss-map-playback.html
+index 71c309a..a3af969 100644
+--- a/web/usability/status-gloss-map-playback.html
++++ b/web/usability/status-gloss-map-playback.html
+@@ -3,7 +3,7 @@
+ <head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+-<title>Status gloss maps to map and playback</title>
++<title>Status without gloss; choose-trajectory Load error</title>
+ <style>
+   html, body { max-width: 900px; margin: 0 auto; }
+   :root {
+@@ -46,13 +46,6 @@
+     text-transform: uppercase;
+     letter-spacing: 0.06em;
+   }
+-  .status-gloss {
+-    margin: 0 0 10px;
+-    font-size: 12px;
+-    line-height: 1.45;
+-    color: var(--text-dim);
+-  }
+-  .status-gloss b { color: var(--text); font-weight: 600; }
+   .status-indices {
+     display: flex;
+     gap: 10px;
+@@ -103,17 +96,19 @@
+ </style>
+ </head>
+ <body>
+-  <h1>Status gloss + choose-trajectory Load error</h1>
++  <h1>Status without gloss; choose-trajectory Load error</h1>
+   <p>
+-    Skip-tour users opening Status first saw bare start / current / Segment numbers with no
+-    link to the map or playback bar. Empty Load also said <b>select or upload</b>, which is
+-    unreachable on phones where Upload is hidden. Status now leads with a plain gloss;
+-    empty Load says <b>choose a trajectory</b>; the preloaded Compare hint drops Upload aside.
++    Status keeps start / current / Segment indices only (no sidebar description paragraph).
++    Empty Load says <b>choose a trajectory</b>; the preloaded Compare hint drops Upload aside.
+   </p>
+   <div class="grid">
+     <div class="frame">
+       <div class="label">Before</div>
+       <h2>Status</h2>
++      <p class="status-gloss" id="beforeGloss">
++        <b>Start point</b> and <b>current point</b> match the colored markers on the map.
++        <b>Segment</b>, <b>Step</b>, and <b>Candidate</b> match the playback controls.
++      </p>
+       <div class="status-indices">
+         <div class="status-idx-block">
+           <span class="idx-label" style="color:#ff9f43">start point</span>
+@@ -135,10 +130,6 @@
+     <div class="frame" id="after">
+       <div class="label">After</div>
+       <h2>Status</h2>
+-      <p class="status-gloss" id="statusGloss">
+-        <b>Start point</b> and <b>current point</b> match the colored markers on the map.
+-        <b>Segment</b>, <b>Step</b>, and <b>Candidate</b> match the playback controls.
+-      </p>
+       <div class="status-indices">
+         <div class="status-idx-block">
+           <span class="idx-label" style="color:#ff9f43">start point</span>
+@@ -160,21 +151,18 @@
+   </div>
+   <p class="ok" id="check">Measuring…</p>
+ <script>
+-  const gloss = document.getElementById("statusGloss").textContent;
++  const glossGone = document.getElementById("statusGloss") === null
++    && document.querySelector("#after .status-gloss") === null;
+   const afterLoad = document.getElementById("afterLoad").textContent;
+   const afterHint = document.getElementById("afterHint").textContent;
+   const scroll = document.documentElement.scrollWidth;
+-  const hasGloss = gloss.includes("colored markers")
+-    && gloss.includes("playback controls")
+-    && gloss.includes("Start point")
+-    && gloss.includes("Segment");
+   const loadOk = afterLoad === "Please choose a trajectory first"
+     && !afterLoad.toLowerCase().includes("upload");
+   const hintOk = afterHint.includes("Run compare")
+     && !afterHint.toLowerCase().includes("upload");
+-  const ok = hasGloss && loadOk && hintOk && scroll <= 900;
++  const ok = glossGone && loadOk && hintOk && scroll <= 900;
+   document.getElementById("check").textContent =
+-    `gloss=${hasGloss} loadOk=${loadOk} hintOk=${hintOk} scrollWidth=${scroll} ok=${ok}`;
++    `glossGone=${glossGone} loadOk=${loadOk} hintOk=${hintOk} scrollWidth=${scroll} ok=${ok}`;
+ </script>
+ </body>
+ </html>
+diff --git a/web/usability/status-gloss-map-playback.png b/web/usability/status-gloss-map-playback.png
+index f8cf5ff..0404b66 100644
+Binary files a/web/usability/status-gloss-map-playback.png and b/web/usability/status-gloss-map-playback.png differ
+diff --git a/web/viewer.js b/web/viewer.js
+index 0ff5ecb..3e2a513 100644
+--- a/web/viewer.js
++++ b/web/viewer.js
+@@ -145,6 +145,7 @@
+   const baselineSquishRatioInput = el("baselineSquishRatioInput");
+   const headerBaselineSquishRatioField = el("headerBaselineSquishRatioField");
+   const headerBaselineSquishRatioInput = el("headerBaselineSquishRatioInput");
++  const baselineParamFields = el("baselineParamFields");
+   const baselineRunBtn = el("baselineRunBtn");
+   const headerBaselineRunBtn = el("headerBaselineRunBtn");
+   const baselineStatus = el("baselineStatus");
+@@ -256,11 +257,11 @@
+ 
+   const COMPARE_PILL_TITLES = {
+     dots: "DOTS: builds a shorter green path as Gray path points arrive (as-you-go). Needs a preloaded trajectory.",
+-    dp: "DP: builds a shorter green path from the whole Gray path in one pass (all-at-once), while staying within a match limit. Needs a preloaded trajectory.",
++    dp: "DP: builds a shorter green path from the whole Gray path in one pass (all-at-once), while staying within PED. Needs a preloaded trajectory.",
+     squish: "SQUISH: builds a shorter green path by keeping about this percent of the original points. Needs a preloaded trajectory.",
+   };
+   const COMPARE_PILL_UPLOAD_TITLE =
+-    "Compare needs a preloaded trajectory. Uploaded files show scores only in Results.";
++    "Compare needs a preloaded trajectory.";
+ 
+   function selectedBaselineAlgos() {
+     return BASELINE_ORDER.filter((a) => state.baselineAlgos.includes(a));
+@@ -293,23 +294,23 @@
+   function compareSelectionStatus(labels) {
+     if (!labels.length) {
+       return compareBlockedByUpload()
+-        ? "Compare needs a preloaded trajectory. Uploaded files show scores only."
++        ? "Compare needs a preloaded trajectory."
+         : "";
+     }
+     if (compareBlockedByUpload()) {
+-      return `Selected ${labels.join(", ")}. Compare needs a preloaded trajectory - choose one and press Load. Uploaded files show scores only.`;
++      return `Selected ${labels.join(", ")}. Compare needs a preloaded trajectory.`;
+     }
+     if (currentTraceId) {
+-      return `Selected ${labels.join(", ")}. Press Run compare (on wider screens, Run beside Compare also works).`;
++      return `Selected ${labels.join(", ")}. Press Run compare.`;
+     }
+-    return `Selected ${labels.join(", ")}. Load a preloaded trajectory to run the compare.`;
++    return `Selected ${labels.join(", ")}. Load to run.`;
+   }
+ 
+   function updateCompareAvailabilityCopy() {
+     if (baselineLayerHint && !baselineLayerHint.hidden) {
+       baselineLayerHint.textContent = compareBlockedByUpload()
+-        ? "Compare needs a preloaded trajectory. Your upload still shows scores in Results; pick a preloaded trajectory to enable DOTS (as-you-go) / DP (all-at-once) / SQUISH (keep %)."
+-        : "Compare works with preloaded trajectories. Open Results, pick DOTS (as-you-go) / DP (all-at-once) / SQUISH (keep %), then press Run compare (on wider screens, Run beside Compare also works).";
++        ? "Compare needs a preloaded trajectory."
++        : "Pick DOTS / DP / SQUISH in Results, then Run compare.";
+     }
+   }
+ 
+@@ -317,7 +318,7 @@
+     if (!BASELINE_ORDER.includes(algo)) return;
+     if (compareBlockedByUpload()) {
+       setBaselineStatus(
+-        "Compare needs a preloaded trajectory. Uploaded files show scores only.",
++        "Compare needs a preloaded trajectory.",
+         "error"
+       );
+       syncBaselinePills();
+@@ -418,6 +419,9 @@
+     if (headerBaselineDpEpsField) headerBaselineDpEpsField.hidden = !selected.has("dp");
+     if (baselineSquishRatioField) baselineSquishRatioField.hidden = !selected.has("squish");
+     if (headerBaselineSquishRatioField) headerBaselineSquishRatioField.hidden = !selected.has("squish");
++    if (baselineParamFields) {
++      baselineParamFields.classList.toggle("has-fields", selected.size > 0);
++    }
+     syncBaselineLssdInputs();
+     syncPairedNumberInputs(baselineDpEpsInput, headerBaselineDpEpsInput, state.baselineDpEps);
+     syncPairedNumberInputs(
+@@ -612,7 +616,7 @@
+       if (tiny) {
+         compareFrechetNote.hidden = false;
+         compareFrechetNote.textContent =
+-          "A Compare Match error value is tiny but not exact zero; that can happen when the Compare path keeps most of the original points.";
++          "A Compare Fréchet distance value is tiny but not exact zero; that can happen when the Compare path keeps most of the original points.";
+       } else {
+         compareFrechetNote.hidden = true;
+         compareFrechetNote.textContent = "";
+@@ -620,7 +624,7 @@
+     }
+ 
+     const matchErrorLabel =
+-      '<td title="How far each path drifts from the Gray path. Lower is better.">Match error</td>';
++      '<td title="Fréchet distance of each path vs the input. Lower is better.">Fréchet distance</td>';
+     const keptPointsLabel =
+       '<td title="Number of points kept on each path. Same idea as kept points in the header.">Kept points</td>';
+     const keptPctLabel =
+@@ -721,7 +725,7 @@
+       if (state.trace) showResultsPanel(false);
+       if (compareBlockedByUpload()) {
+         setBaselineStatus(
+-          "Compare needs a preloaded trajectory. Uploaded files show scores only.",
++          "Compare needs a preloaded trajectory.",
+         );
+       }
+       syncBaselineParamFields();
+@@ -752,7 +756,7 @@
+     if (!currentTraceId) {
+       setBaselineStatus(
+         compareBlockedByUpload()
+-          ? "Compare needs a preloaded trajectory. Uploaded files show scores only."
++          ? "Compare needs a preloaded trajectory."
+           : "Load a preloaded trajectory first.",
+         "error"
+       );
+@@ -770,14 +774,14 @@
+     if (algos.includes("dots")) {
+       lssd = readBaselineLssdFromInputs();
+       if (!Number.isFinite(lssd) || lssd <= 0) {
+-        setBaselineStatus("DOTS budget must be a positive number.", "error");
++        setBaselineStatus("LSSD must be a positive number.", "error");
+         return;
+       }
+     }
+     if (algos.includes("dp")) {
+       dpEps = readPairedNumber(baselineDpEpsInput, headerBaselineDpEpsInput, state.baselineDpEps);
+       if (!Number.isFinite(dpEps) || dpEps <= 0) {
+-        setBaselineStatus("DP match limit must be a positive number.", "error");
++        setBaselineStatus("DP PED must be a positive number.", "error");
+         return;
+       }
+       state.baselineDpEps = dpEps;
+@@ -790,7 +794,7 @@
+         squishDisplayFromRaw(state.baselineSquishRatio)
+       );
+       if (!Number.isFinite(pct) || pct <= 0 || pct > 100) {
+-        setBaselineStatus("SQUISH keep percent must be greater than 0 and at most 100.", "error");
++        setBaselineStatus("SQUISH Ratio must be greater than 0 and at most 100.", "error");
+         return;
+       }
+       squishRatio = squishRawFromDisplay(pct);
+@@ -969,10 +973,10 @@
+       return raw.replace(/\b[Tt]race\b/g, "Trajectory").replace(/ not found/i, " was not found.");
+     }
+     if (lower.includes("invalid epsilon") || lower.includes("invalid delta")) {
+-      return "Match and Grid must be valid numbers.";
++      return "Epsilon and delta must be valid numbers.";
+     }
+     if (lower.includes("unknown curve") || lower.includes("unknown algorithm") || lower.includes("unknown compare method")) {
+-      return "That Compare or Match error option is not available.";
++      return "That Compare or Fréchet distance option is not available.";
+     }
+     if (
+       lower.includes("simplified path")
+@@ -1098,15 +1102,22 @@
+   }
+ 
+   function statusIndexLabels() {
+-    return { p: "start point", vi: "current point" };
++    return { p: "\\(p\\)", vi: "\\(v_i\\)" };
++  }
++
++  function typesetStatus(node) {
++    if (!window.MathJax || !node) return;
++    MathJax.typesetPromise([node]).catch(() => {});
+   }
+ 
+-  function typesetStatus(_el) {
+-    // Status uses plain labels only; no MathJax typesetting needed.
++  function typesetSidebarMath() {
++    const sidebarEl = el("sidebar");
++    if (!window.MathJax || !sidebarEl) return;
++    MathJax.typesetPromise([sidebarEl]).catch(() => {});
+   }
+ 
+   function pointIndexTitle() {
+-    return "Point number on the Gray path (0 = first point)";
++    return "Point index on the input stream (0 = first point)";
+   }
+ 
+   // Same pool as the Option playback control: still-open + just-rejected options.
+@@ -1128,7 +1139,7 @@
+     const openBit = Number.isFinite(stillOpen)
+       ? ` ${stillOpen} still open.`
+       : "";
+-    return `Cycles next-point options near the current point (same options as Options near current).${openBit} Same idea as Option on the playback bar.`;
++    return `Cycles candidates near the current vertex (same pool as P markers).${openBit} Same idea as Option on the playback bar.`;
+   }
+ 
+   function renderBootstrapStatus(trace) {
+@@ -1141,17 +1152,17 @@
+     statusIndices.innerHTML = `
+       <div class="status-idx-block">
+         <span class="idx-label" style="color:#ff9f43">${labels.p}</span>
+-        <span class="idx-num" style="color:#ff9f43" title="${idxTip}">0</span>
++        <span class="idx-num" style="color:#ff9f43" title="${idxTip}">#0</span>
+         <span class="idx-coord">${startPoint ? ptStr(startPoint) : ""}</span>
+       </div>
+       <div class="status-idx-block">
+         <span class="idx-label" style="color:#ff7ae8">${labels.vi}</span>
+-        <span class="idx-num" style="color:#ff7ae8" title="${idxTip}">1</span>
++        <span class="idx-num" style="color:#ff7ae8" title="${idxTip}">#1</span>
+         <span class="idx-coord">${viPoint ? ptStr(viPoint) : ""}</span>
+       </div>`;
+     statusGrid.innerHTML = `
+       <span title="Jumps between pieces of the green path">Segment</span><span class="mono"><b>1 / …</b></span>
+-      <span title="Walks along Gray path points within the current Segment">Step</span><span class="mono"><b>1 / …</b></span>
++      <span title="Walks along stream points within the current Segment">Step</span><span class="mono"><b>1 / …</b></span>
+       <span title="${candidateStatusTitle()}">Option</span><span class="mono"><b>… / …</b></span>`;
+     typesetStatus(statusIndices);
+     typesetStatus(statusGrid);
+@@ -1188,9 +1199,6 @@
+     const expectedFrechet = trace && trace.expected_frechet != null
+       ? formatTraceNumber(trace.expected_frechet)
+       : "…";
+-    const actualFrechet = trace && trace.frechet_distance != null
+-      ? formatTraceNumber(trace.frechet_distance)
+-      : "…";
+     const streamLen = trace && trace.stream ? trace.stream.length : "…";
+     const simplifiedLen = trace && trace.simplified ? trace.simplified.length : null;
+     const ratio = simplifiedLen != null
+@@ -1199,17 +1207,11 @@
+     const pendingStyle = simplifiedLen == null ? "color:var(--text-dim)" : "";
+ 
+     return [
+-      paramChip("Match", epsilonValue, "Match (ε): how closely the green path must match the Gray path. A smaller Match keeps a more detailed green path."),
+-      paramChip("Grid", deltaValue, "Grid spacing (δ) used while finding the green path. A smaller Grid uses finer spacing."),
+-      paramChip("grid cell", gridLength, "Length of one Grid cell used while finding the green path."),
+-      paramChip("circle radius", diskRadius, "Radius of the Start-point circle and Current-point circle overlays while finding the next green-path point."),
+-      paramChip("match limit", expectedFrechet, "Match limit for this run (same idea as the Match field): how far the green path may drift from the Gray path. A smaller match limit keeps a more detailed green path."),
+-      paramChip(
+-        "saved Match",
+-        actualFrechet,
+-        "Match error saved with this preloaded trajectory (may differ slightly from the live Match error above).",
+-        "color:#C4612F;font-weight:600",
+-      ),
++      paramChip("ε", epsilonValue, "Epsilon (ε): match tolerance. Smaller keeps more detail."),
++      paramChip("δ", deltaValue, "Delta (δ): grid spacing. Smaller uses finer spacing."),
++      paramChip("grid cell length", gridLength, "Length of one grid cell."),
++      paramChip("ball radius", diskRadius, "Radius of the B_p / B_vi δ-balls."),
++      paramChip("match limit", expectedFrechet, "Match limit for this run (same idea as ε): how far the green path may drift from the input. A smaller match limit keeps a more detailed green path."),
+       paramChip("original points", streamLen, "Number of points on the original trajectory."),
+       paramChip("kept points", simplifiedLen != null ? simplifiedLen : "…", "Number of points kept on the green path.", pendingStyle),
+       paramChip("kept %", ratio, "Kept points as a percent of original points.", pendingStyle),
+@@ -1224,7 +1226,7 @@
+ 
+   function renderParamsBarPreview() {
+     const loadingMetrics = `
+-      ${paramsBlueMetric("Match error", "", true, "frechet", "How far the green path drifts from the Gray path. Lower is better.")}
++      ${paramsBlueMetric("Fréchet distance", "", true, "frechet", "Fréchet distance of the green path vs the input. Lower is better.")}
+       ${paramsBlueMetric("Time", "", true, "time", "How long this run took.")}`;
+     if (isMobileUI()) {
+       paramsBar.innerHTML = loadingMetrics;
+@@ -1317,6 +1319,7 @@
+     setPlaybackChromeVisible(true);
+     renderParamsBar();
+     setupSliders();
++    typesetSidebarMath();
+   }
+ 
+   function finalizeTraceLoad() {
+@@ -1535,7 +1538,7 @@
+     state.baselineAlgos = [];
+     clearCompare();
+     setBaselineStatus(
+-      "Compare needs a preloaded trajectory. Uploaded files show scores only."
++      "Compare needs a preloaded trajectory."
+     );
+     syncBaselineParamFields();
+     traceSelect.value = "";
+@@ -1548,7 +1551,7 @@
+     const eps = parseFloat(epsilonInput.value);
+     const delta = parseFloat(deltaInput.value);
+     if (isNaN(eps) || eps <= 0 || isNaN(delta) || delta <= 0) {
+-      alert("Please enter positive numbers for Match (accuracy) and Grid (spacing).");
++      alert("Please enter positive numbers for ε and δ.");
+       return;
+     }
+ 
+@@ -1729,7 +1732,7 @@
+     if (!traceSelect) return;
+     // Mobile uses the full-width trigger; only size the desktop native select.
+     if (window.matchMedia && window.matchMedia("(max-width: 720px)").matches) {
+-      traceSelect.style.width = "";
++      traceSelect.style.removeProperty("width");
+       return;
+     }
+     const probe = document.createElement("span");
+@@ -1751,7 +1754,8 @@
+     }
+     probe.remove();
+     // Native select needs room for padding + dropdown arrow.
+-    traceSelect.style.width = `${Math.ceil(max + 28)}px`;
++    // important: desktop #traceSelect width must beat .visually-hidden !important.
++    traceSelect.style.setProperty("width", `${Math.ceil(max + 28)}px`, "important");
+     traceSelect.style.maxWidth = "none";
+   }
+ 
+@@ -1814,6 +1818,7 @@
+     mobileLayersToggle.addEventListener("click", () => {
+       const isOpen = layersSection.classList.toggle("layers-open");
+       mobileLayersToggle.setAttribute("aria-expanded", String(isOpen));
++      if (isOpen) typesetSidebarMath();
+     });
+   }
+   if (mobilePanelClose) {
+@@ -1989,10 +1994,10 @@
+       ? formatTraceNumber(state.computedFrechet)
+       : (frechetUnavailable ? "unavailable" : "");
+     const frechetTitle = frechetUnavailable
+-      ? "Match error could not be computed for this run."
+-      : "How far the green path drifts from the Gray path. Lower is better.";
++      ? "Fréchet distance could not be computed for this run."
++      : "Fréchet distance of the green path vs the input. Lower is better.";
+     const computedFrechetDisplay = paramsBlueMetric(
+-      "Match error",
++      "Fréchet distance",
+       computedFrechetValue,
+       frechetLoading,
+       "frechet",
+@@ -2056,16 +2061,16 @@
+     const viIdx = curIdx;
+     const idxTip = pointIndexTitle();
+ 
+-    // Big index numbers (plain point numbers - no "#" code-style prefix)
++    // Big index numbers (paper indices p / v_i)
+     statusIndices.innerHTML = `
+       <div class="status-idx-block">
+         <span class="idx-label" style="color:#ff9f43">${labels.p}</span>
+-        <span class="idx-num" style="color:#ff9f43" title="${idxTip}">${startIdx}</span>
++        <span class="idx-num" style="color:#ff9f43" title="${idxTip}">#${startIdx}</span>
+         <span class="idx-coord">${ptStr(startPoint)}</span>
+       </div>
+       <div class="status-idx-block">
+         <span class="idx-label" style="color:#ff7ae8">${labels.vi}</span>
+-        <span class="idx-num" style="color:#ff7ae8" title="${idxTip}">${viIdx}</span>
++        <span class="idx-num" style="color:#ff7ae8" title="${idxTip}">#${viIdx}</span>
+         <span class="idx-coord">${ptStr(viPoint)}</span>
+       </div>`;
+     typesetStatus(statusIndices);
+@@ -2156,8 +2161,6 @@
+     fitToBBox(state.trace.bbox);
+   }
+ 
+-  el("fitBtn").addEventListener("click", () => { fitToData(); render(); });
+-
+   // Pan (drag).
+   canvas.addEventListener("mousedown", (e) => {
+     if (!state.trace) return;
+@@ -3202,21 +3205,31 @@
+         }
+       }
+ 
+-      // 9. Small canvas labels — match Status "start point" / "current point" colors.
++      // 9. Small canvas labels — "Start" / "Current" centered inside each δ-ball.
+       if (state.currentStartPoint) {
+         const [pax, pay] = worldToScreen(state.currentStartPoint[0], state.currentStartPoint[1]);
+         ctx.save();
+         ctx.font = "bold 11px -apple-system, BlinkMacSystemFont, sans-serif";
++        ctx.textAlign = "center";
++        ctx.textBaseline = "middle";
++        ctx.lineWidth = 3;
++        ctx.strokeStyle = "rgba(15,17,21,0.7)";
++        ctx.strokeText("Start", pax, pay);
+         ctx.fillStyle = "#ff9f43";
+-        ctx.fillText("start", pax + 7, pay - 6);
++        ctx.fillText("Start", pax, pay);
+         ctx.restore();
+       }
+       if (step) {
+         const [pix, piy] = worldToScreen(step.pi[0], step.pi[1]);
+         ctx.save();
+         ctx.font = "bold 11px -apple-system, BlinkMacSystemFont, sans-serif";
++        ctx.textAlign = "center";
++        ctx.textBaseline = "middle";
++        ctx.lineWidth = 3;
++        ctx.strokeStyle = "rgba(15,17,21,0.7)";
++        ctx.strokeText("Current", pix, piy);
+         ctx.fillStyle = "#ff7ae8";
+-        ctx.fillText("current", pix + 7, piy - 6);
++        ctx.fillText("Current", pix, piy);
+         ctx.restore();
+       }
+     }
+@@ -3264,57 +3277,58 @@
+   const uiTourTitle = el("uiTourTitle");
+   const uiTourBody = el("uiTourBody");
+   const uiTourSkip = el("uiTourSkip");
++  const uiTourPrev = el("uiTourPrev");
+   const uiTourNext = el("uiTourNext");
+   const uiTourRelaunch = el("uiTourRelaunch");
+ 
+   const startTourSteps = [
+     {
+       title: "Welcome",
+-      body: "This visualizer builds a shorter green path from a GPS-style Gray path while keeping its shape. A short tour shows the controls you need to load your first trajectory.",
++      body: 'This tool simplifies a trajectory while keeping its shape. See <a href="https://arxiv.org/abs/2503.23025" target="_blank" rel="noopener">Simplification of Trajectory Streams</a>.',
+       targets: [],
+     },
+     {
+       title: "Choose a trajectory",
+-      body: "Pick a <b>preloaded trajectory</b>, or on desktop tap <b>Upload trajectory</b> for your own file (plain text: first line N, then N lines of x y). Preloaded samples already include sensible settings.",
+-      targets: [".preloaded-row", "#preloadedTrigger", "#traceSelect", "#uploadBtn"],
++      body: "Pick a <b>preloaded trajectory</b>.",
++      targets: [".preloaded-row", "#preloadedTrigger", "#traceSelect"],
+     },
+     {
+-      title: "Accuracy controls",
+-      body: "<b>Match</b> is how closely the green path must match the Gray path (a smaller Match keeps a more detailed green path). <b>Grid</b> is spacing used while finding the green path (a smaller Grid uses finer spacing). Defaults are fine for a first run.",
++      title: "ε and δ",
++      body: "Smaller <b>ε</b> costs more time: per-point complexity is <b>O(ε<sup>-4</sup> log(1/ε))</b>. Fréchet distance stays within <b>(1+ε)δ</b>.",
+       targets: ["#epsilonInput", "#deltaInput"],
+     },
+     {
+       title: "Load the trajectory",
+-      body: "Optional: with a <b>preloaded</b> trajectory, tap <b>Compare</b>: DOTS (as-you-go) / DP (all-at-once) / SQUISH (keep %) to score other methods later - or skip. Press <b>Load</b> to run. After it finishes, a short follow-up explains Play / Step / Segment / Option, Map overlays, and Results.",
++      body: "Optionally pick <b>Compare</b>, then press <b>Load</b>. A short follow-up explains playback after it finishes.",
+       targets: ["#loadBtn", ".header-baseline"],
+     },
+   ];
+ 
+   const playbackTourSteps = [
+     {
+-      title: "Replay how it was built",
+-      body: "The green path is shorter than the Gray path. These controls walk through how the green path was built so you can see each choice over time.",
++      title: "Playback",
++      body: "Replay how the green path was built.",
+       targets: ["#playbackBar", "#mobileTransport"],
+     },
+     {
+       title: "Step",
+-      body: "<b>Step</b> moves along Gray path points within the current Segment. Use ← / → (or the Step buttons) to advance one at a time.",
++      body: "<b>Step</b> advances along the stream (← / →).",
+       targets: ["#stepInput", "#mobileStepForwardBtn", "#mobileStepBackBtn"],
+     },
+     {
+       title: "Segment and Option",
+-      body: "<b>Segment</b> jumps between pieces of the green path. <b>Option</b> cycles next-point options near the current point (same options as Options near current). Press <b>Play</b> to auto-advance; pick a speed if you want it faster or slower.",
++      body: "<b>Segment</b>: next green-path piece. <b>Option</b>: cycle candidates. <b>Play</b> auto-advances.",
+       targets: ["#segmentInput", "#candidateInput", "#playBtn", "#mobileSegmentForwardBtn", "#mobileCandidateForwardBtn", "#mobilePlayBtn"],
+     },
+     {
+       title: "Map overlays",
+-      body: "In the sidebar, <b>Map overlays</b> toggles what the map draws (gray path, green path so far, start-point / current-point circles, options near current, next-point zone). Open <b>This run</b> for those toggles (same name as the Scores column), or <b>Compare</b> for other methods. Use <b>Fit view</b> in View if you pan or zoom away.",
++      body: "Toggle what the map draws.",
+       targets: ["#layersSection > h2", "#mobileLayersToggle", "#toggle-stream", "#toggle-simplified"],
+       prepare: prepareLayersTourStep,
+     },
+     {
+-      title: "Results and Compare",
+-      body: "Open the left-edge <b>Results</b> tab to see scores. With a <b>preloaded</b> trajectory, pick DOTS (as-you-go) / DP (all-at-once) / SQUISH (keep %) and press <b>Run compare</b> inside Results (on wider screens you can also use <b>Run</b> beside Compare in the header). Skip Compare if scores for this run are enough.",
++      title: "Results",
++      body: "Open <b>Results</b> for scores. Optional <b>Compare</b> (preloaded only).",
+       targets: ["#resultsPanelOpen"],
+     },
+   ];
+@@ -3340,13 +3354,14 @@
+ 
+   function isTourTargetVisible(node) {
+     if (!node || !(node instanceof Element)) return false;
+-    if (node.classList.contains("visually-hidden")) return false;
+     const style = window.getComputedStyle(node);
+     if (style.display === "none" || style.visibility === "hidden" || style.opacity === "0") {
+       return false;
+     }
+     const rect = node.getBoundingClientRect();
+-    return rect.width > 1 && rect.height > 1;
++    // Desktop restores #traceSelect from .visually-hidden via CSS overrides; trust
++    // the laid-out box instead of the class name alone.
++    return rect.width > 2 && rect.height > 2;
+   }
+ 
+   function resolveTourTargets(selectors) {
+@@ -3356,6 +3371,13 @@
+       if (!raw) continue;
+       const target = raw.closest("label") || raw;
+       if (!isTourTargetVisible(target)) continue;
++      // Prefer leaf controls over a parent that already contains them (avoids a
++      // taller/wider union that leaves the visible control off-center).
++      const contained = nodes.some((existing) => existing.contains(target));
++      if (contained) continue;
++      for (let i = nodes.length - 1; i >= 0; i -= 1) {
++        if (target.contains(nodes[i])) nodes.splice(i, 1);
++      }
+       if (!nodes.includes(target)) nodes.push(target);
+     }
+     return nodes;
+@@ -3374,12 +3396,33 @@
+       bottom = Math.max(bottom, rect.bottom);
+     }
+     if (!Number.isFinite(top)) return null;
+-    const pad = 6;
++    // Spotlight uses border-box with a 2px border. Keep equal *inner* pad on
++    // opposite sides so controls stay centered with visible top/bottom margin
++    // inside the circled box. Measure room to the viewport edge (not an extra
++    // inset) so header controls near the top still get pad.
++    const borderWidth = 2;
++    const desiredPad = 10;
++    const spaceAbove = Math.max(0, top);
++    const spaceBelow = Math.max(0, window.innerHeight - bottom);
++    const spaceLeft = Math.max(0, left);
++    const spaceRight = Math.max(0, window.innerWidth - right);
++    const padY = Math.min(
++      desiredPad,
++      Math.max(0, spaceAbove - borderWidth),
++      Math.max(0, spaceBelow - borderWidth)
++    );
++    const padX = Math.min(
++      desiredPad,
++      Math.max(0, spaceLeft - borderWidth),
++      Math.max(0, spaceRight - borderWidth)
++    );
++    const insetY = padY + borderWidth;
++    const insetX = padX + borderWidth;
+     return {
+-      top: Math.max(8, top - pad),
+-      left: Math.max(8, left - pad),
+-      width: Math.min(window.innerWidth - 16, right - left + pad * 2),
+-      height: Math.min(window.innerHeight - 16, bottom - top + pad * 2),
++      top: top - insetY,
++      left: left - insetX,
++      width: right - left + insetX * 2,
++      height: bottom - top + insetY * 2,
+     };
+   }
+ 
+@@ -3460,6 +3503,10 @@
+     if (uiTourNext) {
+       uiTourNext.textContent = tourIndex === total - 1 ? "Done" : "Next";
+     }
++    if (uiTourPrev) {
++      uiTourPrev.hidden = tourIndex === 0;
++      uiTourPrev.disabled = tourIndex === 0;
++    }
+ 
+     const targets = resolveTourTargets(step.targets || []);
+     const rect = targets.length ? unionTourRect(targets) : null;
+@@ -3521,6 +3568,12 @@
+     renderTourStep();
+   }
+ 
++  function retreatTour() {
++    if (tourIndex <= 0) return;
++    tourIndex -= 1;
++    renderTourStep();
++  }
++
+   function playbackTourSeen() {
+     try {
+       return localStorage.getItem(PLAYBACK_TOUR_STORAGE_KEY) === "1";
+@@ -3548,6 +3601,7 @@
+   }
+ 
+   if (uiTourSkip) uiTourSkip.addEventListener("click", finishTour);
++  if (uiTourPrev) uiTourPrev.addEventListener("click", retreatTour);
+   if (uiTourNext) uiTourNext.addEventListener("click", advanceTour);
+   if (uiTourRelaunch) {
+     uiTourRelaunch.addEventListener("click", () => {
+@@ -3568,6 +3622,9 @@
+     } else if (event.key === "Enter" || event.key === "ArrowRight") {
+       event.preventDefault();
+       advanceTour();
++    } else if (event.key === "ArrowLeft") {
++      event.preventDefault();
++      retreatTour();
+     }
+   });
+ 
+@@ -3581,6 +3638,7 @@
+ 
+   resizeCanvas();
+   render();
++  typesetSidebarMath();
+ 
+   let shouldStartTour = false;
+   try {

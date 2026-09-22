@@ -1,0 +1,2 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<timestamp>Monday, Sep 14, 2026, 10:51 PM (UTC+8)</timestamp>\n<user_query>\nhi\n</user_query>"}]}}
+{"type":"turn_ended","status":"error","error":"Review Data Policy You must acknowledge Claude Fable 5's data retention policy to use the model."}

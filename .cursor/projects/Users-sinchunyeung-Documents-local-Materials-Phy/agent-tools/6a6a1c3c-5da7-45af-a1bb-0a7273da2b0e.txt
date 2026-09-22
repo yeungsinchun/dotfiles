@@ -1,0 +1,895 @@
+Cursor Rules Guide - AI Configuration | design.dev
+
+Website feedback made easy Built for agencies & devs 20% off Start Free Trial ?
+
+# Cursor Rules Guide
+
+Complete guide to configuring AI rules for Cursor IDE using the modern`.cursor/rules/` system. Learn how to create`.mdc` files with YAML frontmatter, choose the right activation mode, and establish consistent AI-powered workflows across your projects.
+
+## What Are Cursor Rules?
+
+Cursor Rules are configuration files that provide persistent, reusable instructions to Cursor's AI agent. They tell the AI how to write code, follow conventions, and behave in your projects. Rules are included at the start of the model context, giving the AI consistent guidance for every interaction.
+
+Quick Start: Want to skip the manual setup? Use the Cursor Rules Generator to create`.mdc` rule files instantly with a visual editor and curated templates.
+
+### Why Use Rules?
+
+Large language models don't retain memory between conversations. Without rules, you'd need to repeat your project conventions, architecture decisions, and coding standards every time. Rules solve this by providing persistent context that's automatically included when relevant.
+
+```
+Without Rules:
+  "Use TypeScript strict mode, prefer interfaces,
+   use tabs, follow our API pattern..." (every time)
+
+With Rules:
+  Your conventions are automatically loaded.
+  The AI already knows your project's standards.
+```
+
+### The Modern Rules System
+
+Cursor has transitioned from a single`.cursorrules` file (legacy) to the modern`.cursor/rules/` directory system. The new system supports multiple rule files, YAML frontmatter for controlling activation, glob patterns for file matching, and version control.
+
+```
+# Legacy (single file, limited control)
+.cursorrules
+
+# Modern (multiple files, fine-grained control)
+.cursor/rules/
+??? typescript-standards.mdc
+??? react-patterns.mdc
+??? api-guidelines.mdc
+??? testing-conventions.mdc
+```
+
+### Rules vs. Claude Skills
+
+While rules define project-wide conventions and standards, Claude Skills are task-specific instruction files that teach the AI specialized workflows. They complement each other:
+
+```
+Cursor Rules (project conventions):
+- Use TypeScript strict mode
+- Follow the repository pattern
+- Use CSS Modules for styling
+
+Claude Skills (task-specific workflows):
+- How to scaffold a React component in THIS project
+- How to create an API route with YOUR patterns
+- How to write tests with YOUR test framework
+```
+
+## Rules Hierarchy
+
+Cursor applies rules from multiple sources. When rules are active, their contents are merged into the model context. When guidance conflicts, earlier sources in the hierarchy take precedence.
+
+### Precedence Order
+
+```
+1. Team Rules      (highest priority — Team/Enterprise plans)
+2. Project Rules   (.cursor/rules/*.mdc — version-controlled)
+3. User Rules      (Cursor Settings > Rules — global preferences)
+4. Legacy Rules    (.cursorrules file — deprecated, still supported)
+5. AGENTS.md       (simple markdown alternative in project root)
+```
+
+### Where Rules Live
+
+```
+# User Rules (global — all projects)
+# Set in: Cursor Settings > General > Rules for AI
+# Applies to every project you open in Cursor
+
+# Team Rules (organization-wide — Team/Enterprise)
+# Managed from: Cursor Dashboard > Team Content
+# Applies to all team members automatically
+
+# Project Rules (per-project — version-controlled)
+your-project/
+??? .cursor/
+?   ??? rules/
+?       ??? typescript-standards.mdc
+?       ??? react-patterns.mdc
+?       ??? frontend/
+?           ??? components.mdc
+??? AGENTS.md          # Simple markdown alternative
+??? .cursorrules       # Legacy (deprecated)
+??? src/
+```
+
+### AGENTS.md Alternative
+
+For simpler projects, you can use an`AGENTS.md` file in your project root (or subdirectories) instead of`.cursor/rules/`. It's a plain markdown file without frontmatter metadata — perfect for straightforward instructions that don't need activation controls.
+
+Tip: Use`.cursor/rules/` with`.mdc` files when you need fine-grained control over when rules activate. Use`AGENTS.md` when you want simple, always-on instructions in plain markdown.
+
+## The .mdc File Format
+
+Project rules are markdown files stored in`.cursor/rules/`. Cursor supports both`.md` and`.mdc` extensions. Use`.mdc` files with YAML frontmatter for more control over when and how rules are applied.
+
+### Anatomy of an .mdc File
+
+Each`.mdc` file has two parts: YAML frontmatter (metadata) and the rule body (markdown content).
+
+```
+---
+description: "Standards for TypeScript code in this project"
+globs: "*.ts,*.tsx"
+alwaysApply: false
+---
+```
+
+Below the frontmatter, write your rule instructions in standard Markdown:
+
+```
+# TypeScript Standards
+
+- Use strict TypeScript with no `any` types
+- Prefer `interface` over `type` for object shapes
+- Use explicit return types on all exported functions
+- Enable strict null checks
+- Use `const` assertions where appropriate
+```
+
+### Complete Example
+
+Here's a full`.mdc` file combining frontmatter and rule body:
+
+```
+---
+description: "React component patterns and conventions"
+globs: "src/components/**/*.tsx"
+alwaysApply: false
+---
+# React Component Standards
+
+## Structure
+- Use functional components with arrow function syntax
+- Define a TypeScript interface for props named `{Name}Props`
+- Destructure props in the function signature
+- Use CSS Modules for styling (import as `styles`)
+
+## Naming
+- PascalCase for component files and directories
+- camelCase for utility functions and hooks
+- Prefix custom hooks with `use`
+
+## Exports
+- Use named exports for components
+- Create an index.ts barrel file in each component directory
+```
+
+### File Naming
+
+Use kebab-case for`.mdc` filenames. The filename (without extension) becomes the rule's identifier for`@`-mentions in chat.
+
+```
+.cursor/rules/
+??? typescript-standards.mdc    # @typescript-standards
+??? react-patterns.mdc          # @react-patterns
+??? api-guidelines.mdc          # @api-guidelines
+??? testing-conventions.mdc     # @testing-conventions
+??? frontend/
+    ??? components.mdc          # Organized in subdirectories
+```
+
+## Rule Activation Modes
+
+Rules can be activated in four ways. The activation mode is controlled by the frontmatter fields`alwaysApply`,`globs`, and`description`. Choose the right mode based on how broadly the rule should apply.
+
+### Always Apply
+
+The rule is included in every AI conversation, regardless of context. Use for universal project standards.
+
+```
+---
+description: ""
+globs: ""
+alwaysApply: true
+---
+# Project-Wide Standards
+
+- Use TypeScript strict mode for all files
+- Use tabs for indentation (width: 4)
+- Maximum line length: 100 characters
+- Always add JSDoc comments to exported functions
+```
+
+### Auto Attached (Glob Patterns)
+
+The rule is automatically included when files matching the glob pattern are referenced in conversation. Ideal for language-specific or directory-specific rules.
+
+```
+---
+description: "CSS and styling conventions"
+globs: "*.css,*.scss,*.module.css"
+alwaysApply: false
+---
+# Styling Conventions
+
+- Use CSS custom properties for theming values
+- Follow BEM naming for class selectors
+- Mobile-first media queries
+- Avoid !important except for utility classes
+```
+
+Glob patterns support standard syntax:
+
+```
+# Single extension
+globs: "*.ts"
+
+# Multiple extensions (comma-separated)
+globs: "*.ts,*.tsx"
+
+# Directory-scoped
+globs: "src/components/**/*.tsx"
+
+# Multiple patterns
+globs: "src/api/**/*.ts,src/services/**/*.ts"
+
+# Array syntax (also supported)
+globs:
+  - "*.test.ts"
+  - "*.spec.ts"
+```
+
+### Agent Requested (AI Auto-Detect)
+
+The AI reads the rule's`description` and decides whether to include it based on the current conversation context. Use for rules that apply in specific situations the AI can recognize.
+
+```
+---
+description: "Database migration patterns and conventions. Apply when creating or modifying database schemas, migrations, or seed files."
+globs: ""
+alwaysApply: false
+---
+# Database Migration Standards
+
+- Always create both `up` and `down` operations
+- Add appropriate indexes for new columns
+- Use descriptive migration names with timestamps
+- Test migrations in both directions before committing
+```
+
+### Manual (@-Mention)
+
+The rule is only included when you explicitly reference it in chat using`@rule-name`. Use for rules you want available on demand but not automatically applied.
+
+```
+---
+description: ""
+globs: ""
+alwaysApply: false
+---
+# Deployment Checklist
+
+- Run the full test suite before deploying
+- Verify environment variables are set
+- Check database migration status
+- Update the changelog
+- Tag the release in git
+```
+
+Reference it in chat:`@deployment-checklist Deploy the latest changes to staging`
+
+### Choosing the Right Mode
+
+```
+Question: Should this rule ALWAYS apply?
+  Yes ? alwaysApply: true (Always Apply)
+
+Question: Does this rule apply to SPECIFIC file types?
+  Yes ? Set globs pattern (Auto Attached)
+
+Question: Can the AI figure out WHEN this rule is relevant?
+  Yes ? Write a clear description (Agent Requested)
+
+Question: Do I only need this rule OCCASIONALLY?
+  Yes ? Leave all fields empty/false (Manual @-mention)
+```
+
+## Creating Your First Rule
+
+Let's walk through creating a project rule from scratch. We'll build a TypeScript coding standards rule.
+
+### Method 1: Command Palette
+
+The easiest way to create a rule is through Cursor's built-in command:
+
+```
+# Open the Command Palette
+Cmd+Shift+P (macOS) / Ctrl+Shift+P (Windows/Linux)
+
+# Search for and run:
+"New Cursor Rule"
+
+# This creates a new .mdc file in .cursor/rules/
+# and opens it for editing
+```
+
+### Method 2: Cursor Settings
+
+Go to Cursor Settings > Rules, Commands to see all rules and their status. Click the + Add Rule button next to Project Rules to create a new rule file.
+
+### Method 3: Manual Creation
+
+Create the directory structure and file manually:
+
+```
+# Step 1: Create the rules directory (if it doesn't exist)
+mkdir -p .cursor/rules
+
+# Step 2: Create the rule file
+touch .cursor/rules/typescript-standards.mdc
+```
+
+### Step 3: Write the Rule
+
+Add the frontmatter and rule content. This rule auto-attaches to TypeScript files:
+
+```
+---
+description: "TypeScript coding standards and conventions"
+globs: "*.ts,*.tsx"
+alwaysApply: false
+---
+# TypeScript Standards
+
+## Type Safety
+- Enable strict mode in tsconfig.json
+- Never use `any` — use `unknown` and narrow with type guards
+- Prefer `interface` over `type` for object shapes
+- Use explicit return types on exported functions
+
+## Naming Conventions
+- PascalCase for types, interfaces, enums, and classes
+- camelCase for variables, functions, and methods
+- UPPER_SNAKE_CASE for constants and enum values
+- Prefix interfaces with descriptive names (not `I` prefix)
+
+## Imports
+- Use path aliases (@/ prefix) instead of relative paths
+- Group imports: external libs, then internal modules, then types
+- Use `import type` for type-only imports
+```
+
+### Step 4: Verify It Works
+
+Open a`.ts` or`.tsx` file in your project and start a chat with Cursor. The rule will be automatically included in context because of the glob pattern. You can verify by checking the "Rules" indicator in the chat panel.
+
+Faster approach: Use the Cursor Rules Generator to create rules visually. Pick from curated templates, configure frontmatter options, and export ready-to-use`.mdc` files in seconds.
+
+## Frontmatter Reference
+
+The YAML frontmatter block at the top of`.mdc` files controls how and when rules are applied. Here's a complete reference of available fields.
+
+### description
+
+Type:`string` Default:`""`
+
+A human-readable description of what the rule covers and when it should apply. The AI agent reads this to decide whether to include the rule (Agent Requested mode). Write it clearly so the AI can make good decisions.
+
+```
+# Good — specific and actionable
+description: "Frontend component patterns for React. Apply when creating or modifying React components, hooks, or pages in the src/components/ directory."
+
+# Bad — too vague
+description: "Code stuff"
+
+# Empty — disables Agent Requested mode
+description: ""
+```
+
+### globs
+
+Type:`string` or`string[]` Default:`""`
+
+File glob patterns that trigger the rule automatically when matching files are referenced in conversation. Supports standard glob syntax.
+
+```
+# Single pattern (string)
+globs: "*.ts"
+
+# Multiple patterns (comma-separated string)
+globs: "*.ts,*.tsx,*.js,*.jsx"
+
+# Directory scope
+globs: "src/api/**/*.ts"
+
+# Array syntax
+globs:
+  - "*.test.ts"
+  - "*.test.tsx"
+  - "*.spec.ts"
+
+# Empty — disables Auto Attached mode
+globs: ""
+```
+
+### alwaysApply
+
+Type:`boolean` Default:`false`
+
+When`true`, the rule is included in every AI conversation regardless of context, file types, or description matching.
+
+```
+# Always included in context
+alwaysApply: true
+
+# Only included based on globs, description, or @-mention
+alwaysApply: false
+```
+
+### Activation Mode Summary
+
+```
+# Always Apply — included in every conversation
+---
+alwaysApply: true
+---
+
+# Auto Attached — when matching files are referenced
+---
+globs: "*.tsx,*.jsx"
+alwaysApply: false
+---
+
+# Agent Requested — AI decides based on description
+---
+description: "Migration patterns for database schemas"
+alwaysApply: false
+---
+
+# Manual — only when @-mentioned by the user
+---
+description: ""
+globs: ""
+alwaysApply: false
+---
+```
+
+## Common Rule Patterns
+
+Ready-to-use rule templates for common development scenarios. Adapt these for your own projects.
+
+### Coding Standards Rule
+
+Enforces consistent code style across the project. Set as Always Apply for universal standards.
+
+```
+---
+description: "Core coding standards for the project"
+globs: ""
+alwaysApply: true
+---
+# Coding Standards
+
+## General
+- Write concise, readable code with clear variable names
+- Keep functions under 30 lines; extract helpers when larger
+- Use early returns to reduce nesting
+- Add JSDoc comments to all exported functions
+
+## Error Handling
+- Always handle errors explicitly — never swallow exceptions
+- Use custom error classes for domain-specific errors
+- Log errors with sufficient context for debugging
+
+## Git
+- Write descriptive commit messages (imperative mood)
+- Keep commits focused on a single logical change
+```
+
+### Framework-Specific Rule (React + Next.js)
+
+Auto-attaches when working with React component files:
+
+```
+---
+description: "React and Next.js patterns for the frontend"
+globs: "src/**/*.tsx,src/**/*.jsx"
+alwaysApply: false
+---
+# React & Next.js Patterns
+
+## Components
+- Use functional components with arrow function syntax
+- Define props with TypeScript interfaces (not inline types)
+- Prefer named exports over default exports
+- Co-locate styles, tests, and types with components
+
+## State Management
+- Use React Server Components where possible
+- Minimize client-side state — prefer server-fetched data
+- Use `useActionState` for form handling in Next.js
+- Avoid prop drilling — use Context for deeply shared state
+
+## Performance
+- Wrap expensive components in React.memo when needed
+- Use `useCallback` and `useMemo` only for measurable gains
+- Lazy-load heavy components with `dynamic()` imports
+```
+
+### Testing Conventions Rule
+
+Auto-attaches when test files are referenced:
+
+```
+---
+description: "Testing conventions and patterns"
+globs: "*.test.ts,*.test.tsx,*.spec.ts,*.spec.tsx"
+alwaysApply: false
+---
+# Testing Conventions
+
+## Structure
+- Use `describe` blocks to group related tests
+- Write test names that describe the expected behavior
+- Follow Arrange-Act-Assert (AAA) pattern
+- One assertion per test when practical
+
+## Coverage
+- Test the happy path first
+- Cover edge cases: empty input, null, boundaries
+- Cover error cases: invalid input, network failures
+- Aim for meaningful coverage, not 100% line coverage
+
+## Mocking
+- Mock external dependencies, not internal modules
+- Use test fixtures for complex data structures
+- Reset mocks between tests to avoid leakage
+- Prefer dependency injection over module mocking
+```
+
+### Documentation Rule
+
+AI-triggered when the agent detects documentation-related tasks:
+
+```
+---
+description: "Documentation standards. Apply when writing or updating documentation, README files, JSDoc comments, or API docs."
+globs: ""
+alwaysApply: false
+---
+# Documentation Standards
+
+## Code Comments
+- Use JSDoc for all exported functions and types
+- Include @param, @returns, and @example tags
+- Keep inline comments brief — explain "why", not "what"
+
+## Markdown Files
+- Use ATX-style headings (# not underlines)
+- Include a table of contents for files over 100 lines
+- Use code blocks with language identifiers
+- Keep line length under 80 characters for readability
+
+## API Documentation
+- Document all endpoints with method, path, and parameters
+- Include request/response examples
+- Note authentication requirements and rate limits
+```
+
+More templates: The Cursor Rules Generator includes a curated library of rule templates for various frameworks and workflows that you can customize and export.
+
+## Migration from .cursorrules
+
+The legacy`.cursorrules` file is still supported but will be deprecated. Migrating to the modern`.cursor/rules/` system gives you multiple files, activation controls, glob patterns, and better organization.
+
+### What Was .cursorrules?
+
+The legacy system used a single`.cursorrules` file in the project root. All instructions lived in one monolithic file that was always applied to every conversation.
+
+```
+# .cursorrules (legacy — single file, always applied)
+
+You are an expert TypeScript developer.
+Use functional components in React.
+Follow the repository pattern for data access.
+Write tests for all new features.
+Use CSS Modules for styling.
+Deploy with Vercel.
+...
+```
+
+### Migration Steps
+
+```
+# Step 1: Create the new rules directory
+mkdir -p .cursor/rules
+
+# Step 2: Review your .cursorrules file and identify
+# distinct topics (coding style, framework patterns,
+# testing, deployment, etc.)
+
+# Step 3: Create separate .mdc files for each topic
+touch .cursor/rules/coding-standards.mdc
+touch .cursor/rules/react-patterns.mdc
+touch .cursor/rules/testing-conventions.mdc
+touch .cursor/rules/deployment.mdc
+
+# Step 4: Move relevant content into each .mdc file
+# with appropriate frontmatter
+
+# Step 5: Test that rules are working correctly
+
+# Step 6: Delete the legacy .cursorrules file
+rm .cursorrules
+
+# Step 7: Commit the new rules to version control
+git add .cursor/rules/
+git commit -m "Migrate from .cursorrules to .cursor/rules/"
+```
+
+### Before and After
+
+Before — everything in one file, always applied:
+
+```
+# .cursorrules
+Use TypeScript strict mode.
+Use React functional components.
+Write tests with Vitest.
+Use Tailwind CSS for styling.
+Follow REST API conventions.
+```
+
+After — split into focused files with activation controls:
+
+```
+.cursor/rules/
+??? typescript-standards.mdc   # globs: "*.ts,*.tsx"
+??? react-patterns.mdc         # globs: "src/**/*.tsx"
+??? testing-conventions.mdc    # globs: "*.test.ts,*.spec.ts"
+??? tailwind-patterns.mdc      # globs: "*.tsx,*.css"
+??? api-guidelines.mdc         # globs: "src/api/**/*.ts"
+```
+
+### Benefits of Migrating
+
+```
+1. Smaller context    ? Only relevant rules are loaded,
+                        saving valuable token budget
+
+2. Better organization ? Each rule file covers one topic,
+                          easier to maintain and update
+
+3. Activation control  ? Rules apply only when relevant
+                          (glob patterns, AI detection)
+
+4. Team collaboration  ? Different team members can own
+                          and update specific rule files
+
+5. Version control     ? Track changes to individual rules
+                          with meaningful git history
+```
+
+## Best Practices
+
+Guidelines for writing effective, maintainable Cursor Rules based on the official Cursor documentation and community experience.
+
+### Keep Rules Focused
+
+Each rule file should cover one topic. Split large rules into multiple, composable files.
+
+```
+# Bad — one massive file covering everything
+coding-standards.mdc (500+ lines covering TypeScript,
+  React, testing, CSS, API design, deployment, ...)
+
+# Good — focused files under 500 lines each
+typescript-standards.mdc
+react-patterns.mdc
+testing-conventions.mdc
+styling-patterns.mdc
+api-guidelines.mdc
+```
+
+### Be Specific and Actionable
+
+Write rules like clear internal documentation. Avoid vague guidance — provide concrete examples and specific patterns.
+
+```
+# Bad — vague
+Write good code with proper error handling.
+
+# Good — specific and actionable
+- Wrap async operations in try/catch blocks
+- Return typed Result objects instead of throwing
+- Log errors with: timestamp, error code, and context
+- Use custom AppError class for domain-specific errors
+```
+
+### Reference Files Instead of Copying
+
+Point to canonical examples in your codebase instead of duplicating code in rules. This keeps rules short and prevents them from becoming stale as code changes.
+
+```
+# Bad — copied code that will become stale
+When creating a service, use this exact template:
+[100 lines of code...]
+
+# Good — reference the canonical example
+When creating a new service, follow the pattern
+established in `src/services/user-service.ts`.
+Use `@user-service.ts` as your reference implementation.
+```
+
+### Version Control Your Rules
+
+Commit`.cursor/rules/` to git so your entire team benefits from the same AI context. When someone notices the AI making repeated mistakes, update the relevant rule.
+
+```
+# Add rules to version control
+git add .cursor/rules/
+git commit -m "Add project rules for AI coding assistant"
+
+# Update rules when patterns change
+git add .cursor/rules/react-patterns.mdc
+git commit -m "Update React patterns for Server Components"
+```
+
+### Choose the Right Activation Mode
+
+```
+Always Apply:
+  ? Project-wide standards that apply universally
+  ? Keep these minimal to conserve context tokens
+
+Auto Attached (globs):
+  ? Language-specific or directory-specific rules
+  ? Best for most rules — precise and automatic
+
+Agent Requested:
+  ? Situational rules the AI can identify from context
+  ? Write clear descriptions so the AI triggers correctly
+
+Manual (@-mention):
+  ? Infrequently used rules or checklists
+  ? On-demand workflows and templates
+```
+
+### What to Avoid
+
+```
+Don't:
+- Copy entire style guides (use a linter instead)
+- Document every possible command (AI knows npm, git, etc.)
+- Add instructions for rare edge cases
+- Duplicate what's already in your codebase
+
+Do:
+- Start simple — add rules only when you see repeated mistakes
+- Write rules like concise internal docs
+- Provide concrete examples and file references
+- Review and update rules regularly
+```
+
+## Troubleshooting
+
+Common issues when working with Cursor Rules and how to resolve them.
+
+### Rule Not Being Applied
+
+```
+Problem: Your rule isn't being included in AI conversations
+
+Solutions:
+1. Check the file location — rules must be in .cursor/rules/
+2. Verify the file extension is .mdc or .md
+3. Check frontmatter syntax — YAML must be valid
+   (correct indentation, proper quoting)
+4. For glob rules: verify the pattern matches the files
+   you're referencing in chat
+5. For agent-requested rules: make the description more
+   specific so the AI can identify when to apply it
+6. Check Cursor Settings > Rules to see rule status
+7. Try @-mentioning the rule directly to confirm it loads
+```
+
+### Rule Conflicts
+
+```
+Problem: Multiple rules provide contradictory guidance
+
+Solutions:
+1. Review overlapping rules — search for conflicting
+   instructions across your .mdc files
+2. Consolidate related guidance into a single rule
+3. Use more specific glob patterns to prevent overlap
+4. Remember precedence: Team > Project > User > Legacy
+5. For critical standards, use a single Always Apply rule
+   that takes clear priority
+```
+
+### Glob Patterns Not Matching
+
+```
+# Common glob pattern mistakes:
+
+# Wrong — missing recursive wildcard
+globs: "src/*.ts"          # Only matches src/file.ts
+                            # NOT src/utils/file.ts
+
+# Right — recursive matching
+globs: "src/**/*.ts"       # Matches all .ts in src/
+
+# Wrong — space after comma
+globs: "*.ts, *.tsx"       # Space may cause issues
+
+# Right — no spaces
+globs: "*.ts,*.tsx"        # Correct comma separation
+
+# Wrong — missing quotes around patterns with special chars
+globs: src/**/*.test.ts    # May not parse correctly
+
+# Right — quoted patterns
+globs: "src/**/*.test.ts"  # Properly quoted
+```
+
+### Rules Using Too Many Tokens
+
+```
+Problem: Too many rules active, consuming context window
+
+Solutions:
+1. Avoid Always Apply for rules that don't apply universally
+2. Use specific glob patterns instead of broad ones
+3. Keep individual rules under 500 lines
+4. Reference files instead of copying code into rules
+5. Split large rules into smaller, targeted files
+6. Move rarely-used rules to Manual (@-mention) mode
+```
+
+### Invalid Frontmatter
+
+```
+# Wrong — missing closing delimiter
+---
+description: "My rule"
+globs: "*.ts"
+
+# Right — proper frontmatter with both delimiters
+---
+description: "My rule"
+globs: "*.ts"
+alwaysApply: false
+---
+
+# Wrong — indentation issues
+---
+  description: "My rule"
+    globs: "*.ts"
+---
+
+# Right — consistent indentation (no indent needed)
+---
+description: "My rule"
+globs: "*.ts"
+alwaysApply: false
+---
+```
+
+## Related Resources
+
+- Cursor Rules Generator— Create`.mdc` rule files visually with templates and a builder UI
+- Claude Skills Guide— Learn to create SKILL.md files for task-specific AI workflows
+- VS Code & Cursor Shortcuts— Keyboard shortcuts and productivity tips for Cursor IDE
+- Official Cursor Rules Docs— The official documentation for Cursor Rules
+- Cursor Skills Documentation— Official docs on Agent Skills integration
+
+### Related Tools
+
+#### Cursor Rules Generator
+
+Create .mdc rule files instantly with templates and a visual builder
+
+#### Claude Skills Guide
+
+Learn to create SKILL.md files for specialized AI agent workflows
+
+## Get the Weekly Drop
+
+Weekly front-end tools, tips, and resources.Plus a free icon pack to get you started.
+
+No spam. Unsubscribe anytime.

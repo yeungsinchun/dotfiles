@@ -1,0 +1,39 @@
+---
+pid: 33878
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python <<'PY'\nimport sys\nsys.path.insert(0,'scripts')\nimport preprocess_mc as p\nimport pymupdf as fitz\ndoc=fitz.open('paper/mc/2025p1a.pdf')\ncontent=list(range(1,doc.page_count))\nprint('pages', doc.page_count)\nhits=p.merge_page_hits(doc, content, 36)\nlabels=p.collect_labels(doc, content, 2.0, 36, page_hits=hits)\nprint('with merge', len(labels), 'missing', sorted(set(range(1,37))-labels.keys()))\nlabels2=p.collect_labels(doc, content, 2.0, 36)\nprint('no merge', len(labels2), 'missing', sorted(set(range(1,37))-labels2.keys())[:20])\n# try 33\nlabels3=p.collect_labels(doc, content, 2.0, 33, page_hits=hits)\nprint('merge q33', len(labels3), 'missing', sorted(set(range(1,34))-labels3.keys()))\nPY\n# also check existing q12 - maybe we can fix by re-rendering from old meta if any elsewhere\nls output/2025/ | wc -l\n# find any 2025 meta\nfind . -name '*2025*meta*' 2>/dev/null | head\ncat /tmp/2025-seg.log | head -20\n"
+status: succeeded
+started_at: 2026-09-04T15:38:42.334Z
+running_for_ms: 88038    
+---
+pages 15
+with merge 31 missing [12, 19, 34, 35, 36]
+no merge 31 missing [12, 19, 34, 35, 36]
+merge q33 31 missing [12, 19]
+      34
+Could not locate question labels: [12, 19, 34, 35, 36]. Add them to --overrides.
+Paper type: MC (2025p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Traceback (most recent call last):
+  File "/Users/sinchunyeung/github/paper2db/./segment", line 362, in <module>
+    main()
+    ~~~~^^
+  File "/Users/sinchunyeung/github/paper2db/./segment", line 326, in main
+    count = segment_mc(
+        pdf,
+    ...<5 lines>...
+        overrides=overrides,
+    )
+  File "/Users/sinchunyeung/github/paper2db/./segment", line 243, in segment_mc
+    anchor_mc(
+    ~~~~~~~~~^
+        source,
+        ^^^^^^^
+    ...<3 lines>...
+        overrides=overrides,
+
+---
+exit_code: 0
+elapsed_ms: 88037
+ended_at: 2026-09-04T15:40:10.371Z
+---

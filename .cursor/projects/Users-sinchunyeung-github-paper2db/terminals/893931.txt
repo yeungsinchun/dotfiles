@@ -1,0 +1,26 @@
+---
+pid: 60347
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "pkill -f \"Fix 2012\\|find_question_starts\\|output/lq/2012\" 2>/dev/null; kill 49997 2>/dev/null; sleep 1\ncd /Users/sinchunyeung/github/paper2db && .venv/bin/python -u <<'PY'\nimport sys, json, io, subprocess\nsys.path.insert(0,'scripts')\nimport preprocess_lq as p\nfrom pathlib import Path\nfrom PIL import Image\n\npages = p.load_page_pngs(Path('output/lq/2012/pages'))\nprint('n', len(pages), 'size', pages[0].size)\n# OCR top-left of first few pages\nfor i in [0,1,2,3,4]:\n    im=pages[i]\n    w,h=im.size\n    strip=im.crop((int(w*0.03), int(h*0.03), int(w*0.25), int(h*0.35)))\n    buf=io.BytesIO(); strip.save(buf, format='PNG')\n    r=subprocess.run(['tesseract','stdin','stdout','--psm','6'], input=buf.getvalue(), stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)\n    print(f'p{i}', repr(r.stdout.decode()[:100].replace('\\n',' | ')))\n    print('  hits', p.find_starts_on_image(im, 12)[:5])\nPY\n"
+title: "Debug 2012 page OCR and question hits"
+status: succeeded
+started_at: 2026-09-05T01:04:10.084Z
+running_for_ms: 36347    
+---
+n 18 size (2063, 2928)
+p0 'Section B: Answer ALL | your answers in the space: | 1. Cappuccino is an I | Frothy milk is mac | ejected fr'
+  hits [(1, 205.60615384615386)]
+p1 '(b) 20g of st | result in ( | '
+  hits []
+p2 '*2. A gas bubble rise: | 1.0 cm. |  | (a) If the gas p |  | bubble whe: |  | remains con: | '
+  hits [(2, 245.0)]
+p3 '*3, | Figure 3.1 | Figure 3.1 sho | with constant s | (a) Gi) Na | fot | '
+  hits [(3, 456.0)]
+p4 '4. Train A initially | | travels ahead of | at 20 ms” (Figui | At time ¢ = 0, / | decelerates at 4 n | air res'
+  hits [(4, 102.0), (2, 684.4345945945947)]
+
+---
+exit_code: 0
+elapsed_ms: 36327
+ended_at: 2026-09-05T01:04:46.411Z
+---

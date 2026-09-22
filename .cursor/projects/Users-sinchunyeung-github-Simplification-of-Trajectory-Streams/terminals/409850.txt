@@ -1,0 +1,84 @@
+---
+pid: 89071
+cwd: "/Users/sinchunyeung/.config/nvim"
+command: "cd /Users/sinchunyeung/.config/nvim && no-mistakes axi run --intent \"$(cat <<'EOF'\nAdd convenient Neovim shortcuts for clangd/LSP navigation: gd for go-to-definition, gD for go-to-declaration, with the existing Ctrl-o jump list for returning to the original location. Implement these as buffer-local LspAttach keymaps in lua/config.lua (where clangd and pyright are already enabled). Use fzf-lua's lsp_definitions/lsp_declarations with jump1=true so a single result jumps immediately and multiple results open a picker (fzf-lua is already a dependency used for other pickers). Do not change unrelated config. Create a PR on the nvim-config GitHub repo (yeungsinchun/nvim-config) through the no-mistakes pipeline.\nEOF\n)\""
+title: "Start no-mistakes validation pipeline"
+status: succeeded
+started_at: 2026-09-04T08:37:57.022Z
+running_for_ms: 16959064 
+---
+[33mA new version of no-mistakes is available: v1.60.2 -> v1.64.0
+Run "no-mistakes update" to update[0m
+run: running
+  intent: completed
+  rebase: running
+  rebase: completed
+  review: running
+  review: completed
+  test: running
+  test: completed
+  document: running
+  document: completed
+  lint: running
+  lint: completed
+  push: running
+  push: completed
+  pr: running
+  pr: completed
+  ci: running
+run: completed
+  ci: completed
+run:
+  id: "01M1NS2HQBXE33N3Y5AV0ZE41P"
+  branch: feat/lsp-gd-gD-keymaps
+  status: completed
+  head: 413fa442
+  pr: "https://github.com/yeungsinchun/nvim-config/pull/2"
+  findings: none
+  steps[9]{step,status,findings,duration_ms}:
+    intent,completed,0,0
+    rebase,completed,0,2312
+    review,completed,0,120612
+    test,completed,0,230882
+    document,completed,0,46427
+    lint,completed,0,40
+    push,completed,0,3909
+    pr,completed,0,34822
+    ci,completed,0,16406750
+branch_sync:
+  state: merged_remote_retained
+  changed: false
+  local:
+    branch: feat/lsp-gd-gD-keymaps
+    head: 413fa442e163771da49f489e88a7b99f89d57d01
+    clean: false
+    reason: dirty
+  pipeline:
+    run: "01M1NS2HQBXE33N3Y5AV0ZE41P"
+    status: completed
+    phase: ""
+    submitted_head: 413fa442e163771da49f489e88a7b99f89d57d01
+    current_head: 413fa442e163771da49f489e88a7b99f89d57d01
+    pushed_head: 413fa442e163771da49f489e88a7b99f89d57d01
+    pushed_at: 1788511483
+    push_generation: 1
+  target:
+    kind: upstream
+    remote: origin
+    url: "https://github.com/yeungsinchun/nvim-config.git"
+    ref: refs/heads/feat/lsp-gd-gD-keymaps
+  remote:
+    observed_head: 413fa442e163771da49f489e88a7b99f89d57d01
+    freshness: pipeline_push
+    observed_at: 1788511483
+  relation: unknown
+  safety: blocked_merged
+  pr_state: merged
+outcome: passed
+help[4]: "Open the PR: https://github.com/yeungsinchun/nvim-config/pull/2","Summarize this pipeline run for the user in a concise, easily readable format: what was validated and what was found.","Commit post-pipeline follow-up work on top of the existing branch so every pipeline fix commit remains present. Never abort-and-restart, reset, or replace the branch in a way that drops prior gate-fix commits.","Before a post-pipeline local commit or fresh run, follow the structured `branch_sync.next_action`. Run `no-mistakes axi sync` only when its code is `sync`; that guarded sync may be a strict fast-forward or a content-equivalent diverged advance that anchors the pre-sync head before moving the branch with reset semantics. Run `no-mistakes axi sync --recover` only when its code is `recover_custody` (a terminal run left unpublished pipeline commits preserved in the local gate). A `user_owned` state means cancellation released the branch before changing the submitted head: the exact branch and head are yours, immediately usable, and no sync action is needed. Process blocked or pipeline-owned states instead of improvising reset, stash, merge, rebase, force, or branch replacement."
+
+---
+exit_code: 0
+elapsed_ms: 16959064
+ended_at: 2026-09-04T13:20:36.086Z
+---

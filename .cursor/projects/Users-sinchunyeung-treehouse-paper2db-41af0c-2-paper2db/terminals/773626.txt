@@ -1,0 +1,32 @@
+---
+pid: 89159
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db"
+command: "cd /Users/sinchunyeung/.treehouse/paper2db-41af0c/2/paper2db && .venv/bin/python radiation/build_radiation_pack.py"
+title: "Rebuild radiation pack with stricter rules"
+status: succeeded
+started_at: 2026-09-03T06:13:17.440Z
+running_for_ms: 30243    
+---
+25.1 Ionizing radiation: MC=16 LQ=0
+25.2A Atomic model: MC=0 LQ=0
+25.2B Radioactive decay: MC=7 LQ=1
+25.2C Sources of nuclear radiation: MC=2 LQ=1
+25.3A Ionising power: MC=1 LQ=0
+25.3B Detection of nuclear radiation: MC=3 LQ=1
+25.3C Range in air and penetrating power: MC=1 LQ=0
+25.3D Deflection in electric and magnetic fields: MC=1 LQ=0
+25.4 Rates of radioactive decay half-life and activity: MC=13 LQ=0
+25.5A Archaeological use: MC=1 LQ=1
+25.5B Radiation safety and dose: MC=2 LQ=0
+27.1A Common units on the atomic scale: MC=0 LQ=0
+27.1B Mass-energy relation: MC=6 LQ=0
+27.1C Nuclear fission: MC=5 LQ=0
+27.1D Nuclear fusion: MC=2 LQ=2
+27.1E Nuclear power debate: MC=0 LQ=0
+Totals: MC=60 LQ=6
+
+---
+exit_code: 0
+elapsed_ms: 30240
+ended_at: 2026-09-03T06:13:47.680Z
+---

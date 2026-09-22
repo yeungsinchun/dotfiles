@@ -1,0 +1,24 @@
+---
+pid: 22608
+cwd: "/Users/sinchunyeung/github/simplification-of-trajectory-streams"
+command: "which chromium google-chrome \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" 2>/dev/null; ls ~/Library/Caches/ms-playwright 2>/dev/null | head; find /Users/sinchunyeung -path '*playwright*' -name 'chromium*' 2>/dev/null | head -5; ls web/usability/*.png | tail -3; file web/usability/green-path-not-simplified.png 2>/dev/null; rg -l \"screenshot|playwright|puppeteer\" .gnhf/runs/fix-any-usability-pr-5460d8/ 2>/dev/null | head -5; ls /tmp/*shot* /tmp/*play* 2>/dev/null | head"
+title: "Find browser/screenshot tooling"
+status: failed   
+started_at: 2026-09-05T20:44:29.383Z
+running_for_ms: 38542    
+---
+chromium not found
+google-chrome not found
+/Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+chromium_headless_shell-1148
+chromium_headless_shell-1243
+chromium-1148
+chromium-1243
+ffmpeg-1010
+ffmpeg-1011
+
+---
+exit_code: unknown
+elapsed_ms: 38542
+ended_at: 2026-09-05T20:45:07.925Z
+---

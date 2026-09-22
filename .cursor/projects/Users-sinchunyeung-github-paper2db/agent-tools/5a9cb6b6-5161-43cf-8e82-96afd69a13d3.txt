@@ -1,0 +1,1323 @@
+2019 HKDSE Physics Paper 1 Marking Scheme | PDF | Wavelength | Force
+
+Skip to main content
+
+Open navigation menu
+
+Close suggestionsSearchSearch
+
+Change Language, English
+
+Sign in
+
+Sign in
+
+0% found this document useful (0 votes)
+
+271 views21 pages
+
+# 2019 HKDSE Physics Paper 1 Marking Scheme
+
+## Uploaded by
+
+AI-enhanced title
+
+Copyright
+
+© © All Rights Reserved
+
+We take content rights seriously. If you suspect this is your content, claim it here.
+
+Available Formats
+
+Download as PDF, TXT or read online on Scribd
+
+Download
+
+SaveSave Ans For Later
+
+Share
+
+0%0% found this document useful, undefined
+
+0%, undefined
+
+Print
+
+Embed
+
+Report
+
+0% found this document useful (0 votes)
+
+271 views21 pages
+
+# 2019 HKDSE Physics Paper 1 Marking Scheme
+
+## Uploaded by
+
+AI-enhanced title
+
+Copyright
+
+© © All Rights Reserved
+
+We take content rights seriously. If you suspect this is your content, claim it here.
+
+Available Formats
+
+Download as PDF, TXT or read online on Scribd
+
+Go to previous items
+
+Download
+
+SaveSave Ans For Later
+
+Share
+
+0%0% found this document useful, undefined
+
+0%, undefined
+
+Print
+
+Embed
+
+Report
+
+Go to next items
+
+Download
+
+Save Ans For Later
+
+Search
+
+Fullscreen
+
+# 2019/12/3
+
+中學文憑試 卷一甲部DSE Paper 1 Section A
+
+題號 答案 題號 答案 Question No. Key Question No. Key
+
+1. D 26. C 2. B 27. D 3. A 28. D 4. D 29. C 5. A 30. B
+
+6. C 31. D 7. B 32. B 8. D 33. C 9. B 10. A
+
+11. B 12. A 13. C 14. C 15. A
+
+16. C 17. B 18. A 19. D 20. A
+
+21. D 22. A 23. A 24. C 25. B
+
+註： 括號內數字為答對百分率。Note: Figures in brackets indicate the percentages of candidates choosing the correct answers.
+
+148
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY April 12, 2019
+
+香港考試及評核局 HONG KONG EXAMINATIONS AND ASSESSMENT AUTHORITY
+
+2019 年香港中學文憑考試 HONG KONG DIPLOMA OF SECONDARY EDUCATION EXAMINATION 2019
+
+物理 香港中學文憑考試 試卷一乙 PHYSICS HKDSE PAPER 1B
+
+本評卷參考乃香港考試及評核局專為今年本科考試而編寫，供閱卷員參考之用。本評卷 參考 之 使用 ， 均受 制 於閱 卷員 有 關之 服 務合 約 條款 及閱 卷 員指 引 。特 別 是：
+
+- 本局擁有並保留本評卷參考的所有財產權利(包括知識產權)。在未獲本局之書面批 准下，閱卷員均不得複製、發表、透露、提供、使用或經營本評卷參考之全部或其部 份。 在 遵守 上 述條 款 之情 況下 ， 本局 有 限 地 容 許 閱 卷 員 可 在 應 屆 香 港 中 學 文 憑 考 試 的 考試 成 績公 布 後， 將 本評 卷參 考 提供 任 教本 科 的教 師參 閱 。
+
+- 在任何情況下，均不得容許本評卷參考之全部或其部份落入學生手中。本局籲請各 閱卷 員/ 教師 通 力合 作 ， 堅守 上 述原 則 。
+
+This marking scheme has been prepared by the Hong Kong Examinations and Assessment Authority for the reference of markers. The use of this marking scheme is subject to the relevant service agreement terms and Instructions to Markers. In particular:
+
+- The Authority retains all proprietary rights (including intellectual property rights) in this marking scheme. This marking scheme, whether in whole or in part, must not be copied, published, disclosed, made available, used or dealt in without the prior written approval of the Authority. Subject to compliance with the foregoing, a limited permission is granted to markers to share this marking scheme, after release of examination results of the current HKDSE examination, with teachers who are teaching the same subject.
+
+- Under no circumstances should students be given access to this marking scheme or any part of it. The Authority is counting on the co-operation of markers/teachers in this regard.
+
+ 香港考 試 及評 核 局 保留 版 權Hong Kong Examinations and Assessment AuthorityAll Rights Reserved 2019 
+
+2019-DSE-PHY 1B–1
+
+## 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY April 12, 2019
+
+HKDSE Physics General Marking Instruction
+
+1. It is very important that all markers should adhere as closely as possible to the marking scheme. In many cases, however, candidates may have obtained a correct answer by an alternative method not specified in the marking scheme. In general, a correct answer merits the answer mark allocated to that part, unless a particular method has been specified in the question. Markers should be patient in marking alternative solutions not specified in the marking scheme.
+
+2. In the marking scheme, answer marks or ‘A’ marks are awarded for a correct numerical answer with a unit. In case the same unit involved is given incorrectly for more than once in the same question, the ‘A’ marks thereafter can be awarded even for correct numerical answers without units. If the answer should be in km, then cm and m are considered to be wrong units.
+
+3. In a question consisting of several parts each depending on the previous parts, marks for correct method or substitution are awarded to steps or methods correctly deduced from previous answers, even if these answers are erroneous or for inserting values of appropriate physical quantities into an algebraic expression irrespective of their order of magnitudes. However, ‘A’ marks for the corresponding answers should NOT be awarded (unless otherwise specified).
+
+4. For the convenience of markers, the marking scheme is written as detailed as possible. However, it is still likely that candidates would not present their solution in the same explicit manner, e.g. some steps would either be omitted or stated implicitly. In such cases, markers should exercise their discretion in marking candidates’ work. In general, marks for a certain step should be awarded if candidates’ solution indicated that the relevant concept/technique had been used.
+
+5. In cases where a candidate answers more questions than required, the answers to all questions should be marked. However, the excess answer(s) receiving the lowest score(s) will be disregarded in the calculation of the final mark.
+
+## 6. OSM (On-screen marking) marking symbols:
+
+ correct point × wrong point  point to highlight 〈_ _ _ incomplete answer ∧ missing point 文 entering text/comment
+
+2019-DSE-PHY 1B–2
+
+## 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY April 12, 2019
+
+## Solution Marks Remarks
+
+1. (a) (i) (1.5)(4200)(60 – 10) = m(3.34 × 105) + m(4200)(10 – 0) 1M+1M All 3 terms correct 2M m = 0.837766 kg ≈ 0.838 kg 1A Any 2 terms correct 1M (Accept: m = 0.83 ~ 0.84 kg) ∆T must be correct 3 Reason More ice Less ice (ii) More ice is needed 1A  2 0 to cool the container as it will release heat/thermal energy 1A  0 0 as well. incomplete 1 0 2 Key word: heat / energy (b) (i) Conduction: - Foam is a poor conductor (of heat) and it 1A One feature + corresponding reason minimizes the transfer of heat/thermal energy from the surroundings to the cool contents/ice OR Any cream (inside the bag). ONE Radiation: OR - The shiny surface inside the bag Convection: reduces the transfer of heat/thermal - The zipper prevents convection between the hot energy from the surroundings to the air outside and the cool contents/ice cream cool contents/ice cream (inside the (inside the bag). bag) through emission of radiation 1 The answer must be related to the (ii) (Radiation) Make the outer surface (of the bag) shiny. 1A modification of the bag like ‘thickening the bag’ 1 Adding ice to the bag is NOT accepted
+
+2. (a) pV = nRT (100 × 103)(0.52) = n (8.31)(273+15) 1M n = 21.727504 (mol) ≈ 21.7 (mol) 1A Accept: n = 21 ~ 22 mol 2
+
+## (b) (i) nRT
+
+Since pV = nRT ⇒ V = / volume V of the balloon 1A Accept: volume V decreases as p temperature T decreases would be depends on both T and p, true only if pressure p is constant, the (fractional) decrease in pressure p (with height) is 1A however, p decreases with height. greater/faster than the (fractional) decrease in temperature T. 2
+
+(ii) (1) pV = constant T (100)(0.52) p (8) = 1M (273 + 15) 216 Note: p(8) = 21.7×8.31×216 p = 4.875 kPa or 4875 Pa 1A p = 4869 Pa 2
+
+(2) p = p0e−kx 4.875 = 100 e −0.138 x 1M e.c.f. from (b)(ii)(1) x = 21.89166726 (km) ≈ 21.9 (km) 1A Accept 21.8 km to 22.0 km 2
+
+2019-DSE-PHY 1B–3
+
+## 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY April 12, 2019
+
+## Solution Marks Remarks
+
+3. (a) (i) (1) 1 mv 2 = mgh 1M 2 v 2 = 2(9.81)(12) v = 15.344054 m s−1 ≈ 15.3 m s−1 1A (v =15.491933 m s−1 ≈ 15.5 m s−1 for g = 10 m s−2) Accept: v = 15 ~ 15.5 m s−1
+
+(2) 1 2 s= gt 1M 2 1 12 = (9.81)t 2 2 t = 1.564124 s ≈ 1.56 s 1A Accept: t = 1.5 ~ 1.6 s (t = 1.5491933 s ≈ 1.55 s for g = 10 m s−2) 2
+
+(ii) F − mg = ma 1M+1M F = ma 1M 70 × (15.3 - 0) F = ma + mg 2M F= + 70 × 9.81 0.3 = 4266.9793 N ≈ 4270 N 1A (F = 4314.7845 N ≈ 4310 N for g = 10 m s−2) Accept: F = 4180 ~ 4320 N 3
+
+## (iii) Elastic potential energy 1A MUST have the word: ‘Elastic’
+
+1 Accept: Elastic energy
+
+(b) (i) (Velocity is too high, hence the force for deceleration 1A The answer is related to the is too large.) consequence due to limitation of any - The life net may be torn. one of the following: - The falling person may be injured. Any (1) the net, (2) the falling person ONE - The firemen may not be able to hold the life net (3) the firemen tight. NOT accept: - The force is too large which exceed the limit of the life net - The life net is not strong enough to withstand the force - The force is too large that the man cannot withstand 1 1st mark: horizontal velocity / (ii) There exists a horizontal velocity when a person jumps and 1A projectile motion the horizontal displacement is very difficult to estimate as 2nd mark: difficult to estimate the it depends on the time of fall, which is usually long. 1A horizontal displacement / 2 horizontal direction
+
+2019-DSE-PHY 1B–4
+
+## 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY April 12, 2019
+
+## Solution Marks Remarks
+
+4. (a) (i) ω 5.0 Rotation rate = = 1M/1A 2π 2π = 0.795775 (rev s−1) ≈ 0.80 (rev s−1) Accept: 0.79 ~ 0.80 (rev s−1) 1
+
+(ii) O 23.1° 1 m long inextensible string
+
+FC centripetal force pendulum bob (tension component) of mass 30 g FC correctly indicated. 1A
+
+FC = mr ω2 OR = (0.03)(1 × cos 23.1°)(5.0)2 1M Tcosθ = FC and Tsinθ = mg 1M = 0.689866 N ≈ 0.690 N 1A mg FC = cosθ = 0.689866 N 1A (FC = 0.7033402 N ≈ 0.703 N for g = 10 m s−2) sin θ Accept: FC = 0.70 N 3
+
+## (iii) Horizontal component of tension provides the centripetal 1M Tsinθ = mg 1M
+
+force, thus tension is larger than the centripetal force. 1A T = 0.750 N OR Tcosθ = FC ⇒ T > FC T > FC 1A 2
+
+## (b) (i) The gravitational force is perpendicular to the moon’s
+
+1A motion/displacement/velocity, thus no work is done on the moon by this force (k.e. 1A unchanged) 2
+
+(ii) (The claim is incorrect) as, by Newton’s third law of 1A Accept: action and reaction pairs motion, gravitational force of the same magnitude (but in opposite direction) is acting on the Earth by the moon. 1A 2
+
+2019-DSE-PHY 1B–5
+
+## 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY April 12, 2019 Solution Marks Remarks5. (a) (i) 0.06 wavelength λ = 7 −1 = 0.01 m (= 1 cm) 1A 1
+
+## (ii) speed v = fλ = 10 × 0.01
+
+= 0.1 m s−1 (= 10 cm s−1) 1M/1A e.c.f. from (a)(i) 1
+
+## (b) (i) frequency = 10 Hz 1A ‘remain unchanged’ is NOT accepted
+
+1
+
+(ii) shallow region P deep region Q 6 cm 1A Straight wavefronts bend away from the normal of the shallow- deep boundary. 1A All correct with double (longer) wavelength having wavefronts continuous at boundary
+
+## (iii) Refraction. 1A Correct spelling
+
+It is due to the change in wavelengths/wave speeds in 1A different media/depth. 2
+
+2019-DSE-PHY 1B–6
+
+## 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY April 12, 2019
+
+## Solution Marks Remarks
+
+6. (a) L is diverging/concave. 1A Only diverging/concave lens forms diminished, virtual 1A This is the only accepted answer image. 2
+
+(b) L
+
+## (1) observer 1 cm representing 5 cm
+
+(2)
+
+F B F principal axis
+
+## Correct position and height of object 2A Correct position 1st mark
+
+2 All correct: 2 marks
+
+(c) Correct ray to locate F and focus F correctly marked. 2M 1st M mark: Ray (1) or (2) e.c.f. from (b) Focal length = 16.5 cm (Accept 15.5 cm – 17.5 cm) 1A 2nd M mark: locate F 3 1st A mark: Diverging ray from the tip of the object, and (d) Correct ray p from tip of object 2A can reach the observer 2 2nd A mark: The ray entering the eye comes virtually from the tip of the image
+
+2019-DSE-PHY 1B–7
+
+## 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY April 12, 2019
+
+## Solution Marks Remarks
+
+. (a)
+
+## 1A Correct circuit with correct symbol
+
++ − 1A Correct polarity V Alternative circuit
+
++ − V Close the switch and record corresponding V and R readings 1A Adjust the resistance R to lower/other value(s) and repeat the 1A experiment
+
+Precaution: - First set the variable resistor to its maximum / a large NOT accept value Any 1A Change of apparatus ONE e.g. - Open the switch after each measurement Using thicker connecting wires etc. - Any reasonable answer
+
+## (b) Terminal voltage V delivered increases with increasing (loading) 1A Accept
+
+resistance R (or graphical representation) R ξ V V =ξ V =ξ - r 1A R+r OR R+r ξ 2
+
+0 R NOT accept V is directly proportional to R V varies linearly with R
+
+2019-DSE-PHY 1B–8
+
+## 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY April 12, 2019
+
+## Solution Marks Remarks
+
+8. (a) Earth N L
+
+X (Earth)
+
+mains socket 1A Z (L)
+
+Y (N) X Y Z 1
+
+## (b) (i) - If one of the lighting sets/circuits fails, the other 1A
+
+(in parallel) can still operate, i.e. both work Any independently. ONE - Both can work at the rated power. - Any reasonable answer 1
+
+(ii) P = IV (300 + 450) = I (220) 1M 1M for substitution I = 3.409091 A ≈ 3.41 A 1A The unit of current can be omitted
+
+## Thus 5 A fuse should be used. 1A Correct deduction
+
+3
+
+## (c) Electrical energy used per day
+
+= 0.500 kW × 8 h + 2 kW × 0.5 h + 3 kW × 2 h 1M = 11 kW h Cost = $0.9 / kW h × 11 kW h 1M = $9.9 1A 3
+
+2019-DSE-PHY 1B–9
+
+## 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY April 12, 2019
+
+## Solution Marks Remarks
+
+9. (a) (i) By Lenz’s law, an e.m.f. would be induced such that it opposes the change, i.e. decrease of magnetic flux (into the 1A 1A for induced e.m.f. paper) by driving an induced current (clockwise) in the 1A 1A for the change of magnetic flux coil/circuit (complete).
+
+## (ii) N∆Φ = NBA
+
+= (20)(0.3)(0.005) Accept equivalent unit : = 0.03 Wb 1M/1A T m2, V s N∆Φ 0.03 ξ= = 1M ∆t 0.5 = 0.06 V (or 60 mV) 1A
+
+(b) (i) The change of (magnetic) flux linkage is double that in 1M e.c.f. from (a)(ii) (a)(ii), i.e. 0.06 Wb.
+
+## (ii) Direction of current : PQRS 1A NOT accept
+
+clockwise/anticlockwise
+
+(c) (i)
+
+## aluminium plate × × × 1A Correct position (accept just within
+
+1A the magnetic field) × × × Correct direction (clockwise) with × × × complete circular path inside the × × × aluminium plate
+
+× × × 2
+
+## (ii) Move/swing to the right initially/momentarily/briefly. 1A
+
+1
+
+Attachment of 9 (c)(i)
+
+## Correct position (accept just within the magnetic field) 1A
+
+× × × Correct direction (clockwise) with complete circular path inside aluminium plate the aluminium plate 1A × × × × × × × × × × × ×
+
+2019-DSE-PHY 1B–10
+
+## 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY April 12, 2019
+
+Examples: 1A 1A
+
+× × × 1A × × × 1A × × × × × × × × × × × × × × × × × × × × × × × ×
+
+0 0
+
+× × × 1A × × × 0 × × × × × × × × × × × × × × × × × × × × × × × ×
+
+1A 0
+
+× × × 0 × × × 0 × × × × × × × × × × × × × × × × × × × × × × × ×
+
+0 0
+
+× × × 1A × × × 0 × × × × × × × × × × × × × × × × × × × × × × × ×
+
+0 × × × 1A × × × 0 × × × 0 × × × × × × × × × × × × × × × × × × × × ×
+
+2019-DSE-PHY 1B–10
+
+## 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY April 12, 2019
+
+2019-DSE-PHY 1B–10
+
+## 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY April 12, 2019
+
+## Solution Marks Remarks
+
+10. (a) (i) x=3 1A 1
+
+(ii) More neutrons are produced in each fission for triggering 1A Accept: exceed critical mass, suitable further fissions, i.e. x > 1. concentration of U-235 1
+
+## (b) (i) m = m0e–kt
+
+ln 2 k= = 9.846×10−10 yr−1 t1 2 2×109  2 ×109  1 7.04×108 −ln 2 ×   OR 0.06 = m0 ( ) 8 1M 2 0.06 = m0 e  7.04 ×10  m0 = 0.429882832 (kg) ≈ 0.430 (kg) 1A 2
+
+(ii) 0.430 = 0.03073691 ≈ 3.1 % > 3% e.c.f. from (b)(i) 13.556 + 0.430 Thus natural nuclear fission was possible. 1M/1A 1
+
+## (c) Underground water might run dry.
+
+OR Energy released by fission drys up the underground water. 1A
+
+## Therefore, fission might stop without slow neutrons. 1A
+
+2
+
+2019-DSE-PHY 1B–11
+
+## 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY April 23, 2019
+
+香港考試及評核局 HONG KONG EXAMINATIONS AND ASSESSMENT AUTHORITY
+
+2019 年香港中學文憑考試 HONG KONG DIPLOMA OF SECONDARY EDUCATION EXAMINATION 2019
+
+物理 香港中學文憑考試 試卷二 PHYSICS HKDSE PAPER 2
+
+本評卷參考乃香港考試及評核局專為今年本科考試而編寫，供閱卷員參考之用。本評卷 參考 之 使用 ， 均受 制 於閱 卷員 有 關之 服 務合 約 條款 及閱 卷 員指 引 。特 別 是：
+
+- 本局擁有並保留本評卷參考的所有財產權利(包括知識產權)。在未獲本局之書面批 准下，閱卷員均不得複製、發表、透露、提供、使用或經營本評卷參考之全部或其部 份。 在 遵守 上 述條 款 之情 況下 ， 本局 有 限 地 容 許 閱 卷 員 可 在 應 屆 香 港 中 學 文 憑 考 試 的 考試 成 績公 布 後， 將 本評 卷參 考 提供 任 教本 科 的教 師參 閱 。
+
+- 在任何情況下，均不得容許本評卷參考之全部或其部份落入學生手中。本局籲請各 閱卷 員/ 教師 通 力合 作 ， 堅守 上 述原 則 。
+
+This marking scheme has been prepared by the Hong Kong Examinations and Assessment Authority for the reference of markers. The use of this marking scheme is subject to the relevant service agreement terms and Instructions to Markers. In particular:
+
+- The Authority retains all proprietary rights (including intellectual property rights) in this marking scheme. This marking scheme, whether in whole or in part, must not be copied, published, disclosed, made available, used or dealt in without the prior written approval of the Authority. Subject to compliance with the foregoing, a limited permission is granted to markers to share this marking scheme, after release of examination results of the current HKDSE examination, with teachers who are teaching the same subject.
+
+- Under no circumstances should students be given access to this marking scheme or any part of it. The Authority is counting on the co-operation of markers/teachers in this regard.
+
+ 香港考 試 及評 核 局 保留 版 權Hong Kong Examinations and Assessment AuthorityAll Rights Reserved 2019 
+
+2019-DSE-PHY 2–1
+
+## 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+HKDSE Physics General Marking Instruction
+
+1. It is very important that all markers should adhere as closely as possible to the marking scheme. In many cases, however, candidates may have obtained a correct answer by an alternative method not specified in the marking scheme. In general, a correct answer merits the answer mark allocated to that part, unless a particular method has been specified in the question. Markers should be patient in marking alternative solutions not specified in the marking scheme.
+
+2. In the marking scheme, answer marks or ‘A’ marks are awarded for a correct numerical answer with a unit. In case the same unit involved is given incorrectly for more than once in answering the same question, the ‘A’ marks thereafter can be awarded even for correct numerical answers without units. If the answer should be in km, then cm and m are considered to be wrong units.
+
+3. In a question consisting of several parts each depending on the previous parts, method marks or ‘M’ marks are awarded to substitutions or methods correctly deduced from previous numerical answers, even if these answers are erroneous or appropriate physical quantities of incorrect order of magnitudes are inserted into an algebraic expression. However, ‘A’ marks for the corresponding answers should NOT be awarded (unless otherwise specified).
+
+4. For the convenience of markers, the marking scheme is written as detailed as possible. However, it is still likely that candidates would not present their solution in the same explicit manner, e.g. some steps would either be omitted or stated implicitly. In such cases, markers should exercise their discretion in marking candidates’ work. In general, marks for a certain step should be awarded if candidates’ solution indicated that the relevant concept/technique had been used.
+
+5. In cases where a candidate answers more questions than required, the answers to all questions should be marked. However, the excess answer(s) receiving the lowest score(s) will be disregarded in the calculation of the final mark.
+
+## 6. OSM (On-screen marking) marking symbols:
+
+ correct point × wrong point  point to highlight 〈_ _ _ incomplete answer ∧ missing point 文 entering text/comment
+
+2019-DSE-PHY 2–2
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+## Section A : Astronomy and Space Science
+
+1. D ( %) 2. B ( %) 3. B ( %) 4. A ( %) 5. D ( %) 6. A ( %) 7. C ( %) 8. C ( %)
+
+## Solution Marks Remarks
+
+1. (a) (i) 1 1 1 m (vB2 − vA2 ) = GMm( − ) 2 rB rA 1 1 1M vB2 − 8.02 2 = 2(4 × 105 )( − ) Correct sub. for 𝑣𝑣A , 𝑟𝑟A and 𝑟𝑟B 6400 + 400 6400 vB = 7.547679036 km s−1 ≈ 7.55 km s−1 1A 2
+
+## (ii) 2πa GMm mv 2
+
+T= and = v a2 a Correct expression/derivation for 4𝜋𝜋 2 𝑎𝑎3 1M Kepler’s 3rd law ∴𝑇𝑇 2 = 𝐺𝐺𝐺𝐺 𝑎𝑎3 𝑟𝑟𝐴𝐴 +𝑟𝑟𝐵𝐵 𝑇𝑇 = 2𝜋𝜋 � where 𝑎𝑎 = for elliptical orbit 𝐺𝐺𝐺𝐺 2
+
+## 𝑟𝑟𝐴𝐴 + 𝑟𝑟𝐵𝐵 (6400) + (400 + 6400)
+
+𝑎𝑎 = = = 6600 km 1M Correct semi-major axis 2 2 𝑇𝑇 1 66003 𝑇𝑇𝐴𝐴𝐴𝐴 = = �2𝜋𝜋 � � = 2663.3962 s ≈ 2663 s 2 2 4×105
+
+## (iii) - The gravitational force acting on the astronaut is 1A
+
+(all) used for accelerating the astronaut. NOT accept: - The astronaut and the spacecraft are under the Any -They have the same acceleration same acceleration due to gravity, i.e. free falling. ONE - The acceleration of gravity is - The gravitational force (weight) acting on the used for centripetal force astronaut is (all) used for centripetal force. - No normal reaction to the 1 astronaut in the spacecraft
+
+## (b) (i) 5570 2663 180° − θ
+
+− 2663 OR = 𝜃𝜃 = 2 × 360° 1M 5570 360° 5570 = 7.8850987° ≈ 7.89° 1A 2π(6800) 180° − θ OR × = 2663 Accept : 7.8° ~ 7.9° 7.67 360° 2π 5570 OR θ = ω∆t = ( − 2663) 5570 2 = (1.128×10−3 rad s−1)(122 s) 2 Accept: (ii) If the launching speed at A is slightly higher (or lower), 1A The shape of the spacecraft’s orbit the length of the elliptical orbit’s major axis will be longer will be changed. Thus the two (or shorter), i.e. the orbit changed. orbits cannot meet at B. Thus the two orbits will no longer touch at B. 1A 2 E.c.f. from a(i),. if it is greater than 7.67 km s−1, then the (iii) The spacecraft has to fire its rocket briefly at B spacecraft should be slowed down so as to boost up its speed to the required speed. by reverse firing of rocket. (i.e. from 7.55 km s−1 to 7.67 km s−1) 1A 1
+
+2019-DSE-PHY 2–3
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+## Section B : Atomic World
+
+1. C ( %) 2. D ( %) 3. A ( %) 4. B ( %) 5. A ( %) 6. D ( %) 7. B ( %) 8. A ( %)
+
+## Solution Marks Remarks
+
+2. (a) (i) Most alpha particles passed (straight) through the foil, 1A If the candidate does not show a some were only slightly deflected. difference in quantity of the particles in these two cases, at most 1A is A small number of alpha particles were scattered at large 1A awarded. angles and a few even rebounded backward. 2
+
+(ii) Since the charge and mass of an atom in Thomson’s atomic Accept explanation for the expt. 1A model are evenly distributed, the alpha particles should not result supporting Rutherford model be deflected (by large angles). (Mass and charge concentrated at a small nucleus so that alpha particles can be deflected / deflected by large angles.) 1
+
+(b) (i) The electron is bounded by the nucleus, 1A NOT accept using PE instead of the i.e. energy/work must be supplied in order to remove the total energy. electron from the atom/ionize the atom. (either) NOT accept En is lower than E∞ and E∞ = 0 so En < 0.
+
+An electron at E∞ is not bounded by the attractive force 1A Accept the electron is free / is not from the nucleus, i.e. free. bounded / escapes / is infinite from the atom / nucleus / ionized. NOT accept: the electron is delocalized. 2
+
+(ii) ∆E = E7 – E1 1 1 1 1 Accept ±13.6� 2 − 2� 8 2 = −13.6� 2 − 2 � 1M 1 1 8 2 NOT accept 13.6 � 2 + 2�. = 3.1875eV≈ 3.1875 × (1.60 × 10−19) J 8 2 Need to check substitution of h, c and ℎ𝑐𝑐 (6.63×10−34 )(3×108 ) 1M ∆E for 1M. λ= = ∆𝐸𝐸 3.1875 × (1.60 × 10−19 ) 1.60 × 10−19 C not required for 1M. Accept using de Broglie formula to = 3.9 × 10−7 m ≈ 390 nm 1A find the wavelength: ∆E = mc2 and λ = h/p = h/mc ∴ λ = hc/∆E … 3
+
+## (iii) 13.6 13.6
+
+E3 = − 2 = −0.85eV 1M Accept E3 = + for 1M. 4 42 I.E. = E3 = 0.85 eV ⇒ 1M only Energy required = 0 – (–0.85) 13.6 1A I.E. = 2 = 0.85 eV ⇒ 1M + 1A = 0.85eV or 1.36 × 10−19J 4 13.6 NOT accept I.E. = − 2 for 1M. 3 NOT accept I.E. = –0.85 eV for 1A. 2
+
+2019-DSE-PHY 2–4
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+## Section C : Energy and Use of Energy
+
+1. B ( %) 2. B ( %) 3. A ( %) 4. D ( %) 5. D ( %) 6. A ( %) 7. C ( %) 8. C ( %)
+
+## Solution Marks Remarks
+
+3. (a) (i) The radiant power coming from the Sun on unit area is Note: The total (spherical) area given by irradiated at the Earth’s orbit is PS 3.86 × 10 26 W 4πR02 = 2.8274334 × 1023 m2 P0 = = 1M Correct sub. of PS and R0 4 πR02 4 π(1.50 × 1011 ) 2 m 2 Accept: 1360 – 1370 W m−2 = 1.365195734 × 103 W m−2 ≈ 1365 W m−2 1A 2 Accept: absorption / reflection / (ii) Loss due to absorption by the atmosphere. 1A scattering by ozone layer OR 1 some are blocked by the atmosphere
+
+## (b) (i) Solar energy → electrical energy → chemical energy 1A Accept:
+
+1A light energy → electric energy 1A only for solar energy → chemical energy 2 NOT accept: (ii) power output light and heat energy → electrical energy η= × 100% light → electricity solar power input 300 1M Correct sub. of input & output powers = × 100% 1000 × 1.65 Accept: 18.0 – 18.2 % = 18.1818 % ≈ 18.2 % 1A 2
+
+## (iii) total energy stored
+
+t= 100 Ah × 12 V power input 1M for 300 W 100 Ah × 12 V 1A for 5 h / 300 min / 18000 s = 1M 300 W × 0.8 = 5 hours 1A
+
+## The sun rays are (always) normal to the panel 1A
+
+Or Clear sky / not cloudy. 3
+
+2019-DSE-PHY 2–5
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+## Section D : Medical Physics
+
+1. C ( %) 2. B ( %) 3. A ( %) 4. D ( %) 5. A ( %) 6. C ( %) 7. D ( %) 8. B ( %)
+
+## Solution Marks Remarks
+
+4. (a) (i) 1.45 sin c = 1.5 1A c = 75.2° 1
+
+(ii) For α larger than αmax, subsequently the light ray incident 1A When α > αmax, incident angle at angle at the core-cladding boundary would be less than c, core-cladding boundary < c, no total thus total internal reflection fails to occur. 1A internal reflection occurs. For α less than αmax, subsequently the light ray incident 1A When α < αmax, incident angle at angle at the core-cladding boundary would be greater core-cladding boundary > c, total than c, thus total internal reflection occurs. 1A internal reflection occurs. Correct description, but without mentioning core-cladding 1A Note: αmax = 22.6° boundary 2
+
+## (iii) When comparing to X-rays radiographic imaging: NOT accept:
+
+Advantage: 1A Endoscope does not ‘radioactive’ / is - direct view of the stomach lining / inside / wall clear / has higher resolution / produce - perform biopsy (getting a tissue) during examination Any real-time image / produce colour if necessary ONE image. - without exposure to ionizing radiation by X-rays Disadvantage: Barium meal enables visualization of - requires fasting (for a few hours) prior to examination. 1A soft tissue using X-ray imaging. In - endoscopy is an invasive procedure or having a risk such case, soft tissue has low contrast of causing patient internal bleeding or discomfort / Any in X-rays radiographic image is not unwell ONE accepted as a correct answer. - anesthetic may be needed - X-rays imaging is non-invasive 2
+
+## (b) (i) ZB = ρc Accept:
+
+7.15 × 106 = ρ (3780) ρ = 1890 ~ 1900 kg m−3 ρ = 1891.534392 kg m−3 ≈ 1890 kg m−3 1M/1A 1
+
+(ii) ( Z 2 − Z1 ) 2 αb = ( Z 2 + Z1 ) 2 (7.15 − 1.65) 2 1M Correct sub., the powers of Z’s can be = 2 omitted. (7.15 + 1.65) 5.5 2 25 I Accept: 𝛼𝛼b = � � = 1A 8.8 64 αb = = 0.390625 ≈ 0.391 = 39.1% Accept: 0.39 ~ 0.391 I0 2
+
+## (iii) The difference in acoustic impedances of a muscle-bone 1A Accept:
+
+boundary is greater than that of a muscle-fat boundary (or 𝛼𝛼(muscle-fat) = 0.00859 = 0.86% as a vice versa), therefore giving a larger intensity reflection 1A supporting statement that coefficient αb (~39%) / larger intensity reflection ratio (or 𝛼𝛼(muscle-fat) is less than 𝛼𝛼(muscle-bone) vice versa), The underlined statement repeats the so more clear / easier to be distinguished. question stem, hence NOT accepted.2019-DSE-PHY 2–6
+
+Provided by [Link] 只限閱卷員參閱 FOR MARKERS’ USE ONLY
+
+2019-DSE-PHY 2–6
+
+Provided by [Link]
+
+## Common questions
+
+Powered by AI
+
+## Discuss the roles of centripetal and gravitational forces in maintaining orbital stability.
+
+Centripetal forces, provided by the tension or gravitational pull, keep an object moving in a circular path, maintaining orbital stability. The tension's horizontal component provides centripetal force necessary for curved motion, while gravity's perpendicular nature relative to displacement ensures no work is done, preserving kinetic energy .
+
+## What are the conceptual implications of Newton's third law in action-reaction force pairs in gravitational interactions?
+
+Newton's third law states that every action has an equal and opposite reaction. In gravitational interactions, this means that while one body exerts a force on another, the second body exerts an equal force in the opposite direction. This mutual force pair doesn't result in a net force, maintaining stable interactions between celestial objects .
+
+## How does temperature and pressure impact the volume of a balloon as it rises in altitude?
+
+As a balloon rises in altitude, the pressure decreases faster than the temperature decreases, leading to a decrease in the balloon's volume. This is due to the greater fractional decrease in pressure compared to temperature, causing the balloon to contract despite the cooling effect .
+
+## How does power rating and circuit configuration affect electrical energy consumption in household circuits?
+
+Electrical energy consumption depends on the power rating and duration of appliance use. In parallel circuits, failure in one set doesn't affect others, allowing independent operation. Both elements draw rated power throughout, affecting energy use. Consumption calculations involve power ratings and duration multipliers to determine total energy use and cost .
+
+## Evaluate the importance of unit consistency and error checking in solving physics problems involving calculations.
+
+Unit consistency is crucial for correct physical interpretations, as errors in units can lead to incorrect magnitudes or dimensions, affecting overall accuracy. Error checking through recalculations and consistent unit application ensures correctness and reliability of solutions in physics, especially when involving multi-step calculations .
+
+## What are the implications for forces and motion when a net fails to decelerate a falling object effectively?
+
+When a net fails to decelerate a falling object effectively due to high velocity, the force required to decelerate the object exceeds the net's capacity to withstand it, potentially tearing the net, injuring the falling person, or preventing the firemen from holding the net tightly. These consequences illustrate the limitations of the net, the object, and the deceleration method .
+
+## Analyze the effects of lens type on image formation and characteristics in optics.
+
+A diverging or concave lens forms a diminished, virtual image. This result occurs because diverging lenses cause parallel rays to spread out as if they originated from a focal point on the same side of the lens as the light source, producing an upright and reduced image when the object is placed between the focus and the lens .
+
+## Explain the interpretative challenges associated with projectile motion and displacement predictions.
+
+Predicting projectile motion involves complexities due to varying initial conditions and external variables like air resistance. Horizontal displacement estimation is difficult as it relies on precise timing and velocity measurements, with extended falls exacerbating uncertainties. Interpretation challenges arise from balancing theoretical models against practical deviations .
+
+## How do measurement techniques and conditions influence experimental results in physics assessments?
+
+Measurement techniques and conditions, such as adjusting the resistance to large values initially and recording voltages with appropriate configurations, ensure experimental precision and accuracy, affecting the outcomes. Proper precautions, like opening the switch after measurements, prevent errors from equipment limitations, influencing results' validity significantly .
+
+## Explain how gravitational forces affect the motion and energy of celestial bodies in space.
+
+Gravitational forces act perpendicular to the motion of celestial bodies, such as the moon, preventing any work being done on them by this force and maintaining their kinetic energy constant. Additionally, according to Newton's third law, an equal and opposite gravitational force acts on another body, maintaining mutual gravitational influences without energy change through work .
+
+## You might also like
+
+2019 DSE Physics Paper 1B Marking Scheme
+
+No ratings yet
+
+2019 DSE Physics Paper 1B Marking Scheme
+
+13 pages
+
+2019 Dse Phy 1b Ms(e)
+
+No ratings yet
+
+2019 Dse Phy 1b Ms(e)
+
+12 pages
+
+2019 DSE Physics Paper 1B Marking Scheme
+
+No ratings yet
+
+2019 DSE Physics Paper 1B Marking Scheme
+
+11 pages
+
+2016 DSE Physics Marking Scheme
+
+No ratings yet
+
+2016 DSE Physics Marking Scheme
+
+12 pages
+
+2017 HKDSE Physics Paper 1B Marking Scheme
+
+100% (1)
+
+2017 HKDSE Physics Paper 1B Marking Scheme
+
+10 pages
+
+2023 HKDSE Physics Marking Scheme
+
+0% (1)
+
+2023 HKDSE Physics Marking Scheme
+
+12 pages
+
+2024 HKDSE Physics Paper 1B Marking Guide
+
+40% (5)
+
+2024 HKDSE Physics Paper 1B Marking Guide
+
+11 pages
+
+Hong Kong DSE Physics Practice Paper Marking Scheme
+
+No ratings yet
+
+Hong Kong DSE Physics Practice Paper Marking Scheme
+
+17 pages
+
+2015 DSE Physics Paper 1B Marking Scheme
+
+No ratings yet
+
+2015 DSE Physics Paper 1B Marking Scheme
+
+12 pages
+
+2018 DSE Physics Paper 1B Marking Scheme
+
+100% (1)
+
+2018 DSE Physics Paper 1B Marking Scheme
+
+10 pages
+
+2020 HKDSE Physics Marking Scheme
+
+No ratings yet
+
+2020 HKDSE Physics Marking Scheme
+
+18 pages
+
+2020 HKDSE Physics Marking Scheme
+
+No ratings yet
+
+2020 HKDSE Physics Marking Scheme
+
+18 pages
+
+DSE Physics Practice Paper Marking Scheme
+
+No ratings yet
+
+DSE Physics Practice Paper Marking Scheme
+
+17 pages
+
+Provisional Physics Marking Scheme
+
+No ratings yet
+
+Provisional Physics Marking Scheme
+
+17 pages
+
+2015 DSE Physics Paper 2 Marking Scheme
+
+No ratings yet
+
+2015 DSE Physics Paper 2 Marking Scheme
+
+8 pages
+
+2012 HKDSE physics Paper 1 Section B Marking Scheme_Decrypted
+
+No ratings yet
+
+2012 HKDSE physics Paper 1 Section B Marking Scheme_Decrypted
+
+8 pages
+
+2019 Hong Kong DSE Physics Paper 1B
+
+No ratings yet
+
+2019 Hong Kong DSE Physics Paper 1B
+
+20 pages
+
+DSE Physics Practice Paper Marking Scheme
+
+No ratings yet
+
+DSE Physics Practice Paper Marking Scheme
+
+17 pages
+
+Circuit Analysis and Physics Concepts
+
+No ratings yet
+
+Circuit Analysis and Physics Concepts
+
+44 pages
+
+2019 Dse Phy 2-Ms(e)
+
+No ratings yet
+
+2019 Dse Phy 2-Ms(e)
+
+7 pages
+
+2017 HKDSE Physics Marking Scheme
+
+No ratings yet
+
+2017 HKDSE Physics Marking Scheme
+
+7 pages
+
+2021 DSE Physics Paper 1B
+
+No ratings yet
+
+2021 DSE Physics Paper 1B
+
+20 pages
+
+2021 DSE Physics Paper 1 Answers
+
+No ratings yet
+
+2021 DSE Physics Paper 1 Answers
+
+20 pages
+
+Edexcel GCE Physics Mark Scheme 2006
+
+No ratings yet
+
+Edexcel GCE Physics Mark Scheme 2006
+
+14 pages
+
+Hkdse 2019 Briefing Ppt
+
+No ratings yet
+
+Hkdse 2019 Briefing Ppt
+
+55 pages
+
+2021 Hong Kong Physics Paper 1
+
+No ratings yet
+
+2021 Hong Kong Physics Paper 1
+
+20 pages
+
+KALA PHY P1 2026 T1
+
+No ratings yet
+
+KALA PHY P1 2026 T1
+
+11 pages
+
+HKDSE 2023 Physics Marking Scheme
+
+No ratings yet
+
+HKDSE 2023 Physics Marking Scheme
+
+12 pages
+
+UACE Physics Paper 1 2025 Overview
+
+No ratings yet
+
+UACE Physics Paper 1 2025 Overview
+
+7 pages
+
+British Physics Olympiad Bpho Round 1 - Section 1 - Mark Scheme November 2024 Instructions
+
+No ratings yet
+
+British Physics Olympiad Bpho Round 1 - Section 1 - Mark Scheme November 2024 Instructions
+
+12 pages
+
+British Physics Olympiad Bpho Round 1 - Section 1 - Mark Scheme November 2024 Instructions
+
+No ratings yet
+
+British Physics Olympiad Bpho Round 1 - Section 1 - Mark Scheme November 2024 Instructions
+
+12 pages
+
+4PH1 2P MSC 20210211
+
+No ratings yet
+
+4PH1 2P MSC 20210211
+
+12 pages
+
+Uganda A-Level Physics Exam Paper 2025
+
+No ratings yet
+
+Uganda A-Level Physics Exam Paper 2025
+
+7 pages
+
+2024 HKDSE Physics Sample Paper 1B
+
+No ratings yet
+
+2024 HKDSE Physics Sample Paper 1B
+
+20 pages
+
+Caribbean Examinations Council: 02138020/CAPE/KMS 2018
+
+No ratings yet
+
+Caribbean Examinations Council: 02138020/CAPE/KMS 2018
+
+11 pages
+
+K.C.S.E Physics Paper 1 July 2025
+
+No ratings yet
+
+K.C.S.E Physics Paper 1 July 2025
+
+13 pages
+
+KALA PHY P1 2026 MARKING SCHEME
+
+No ratings yet
+
+KALA PHY P1 2026 MARKING SCHEME
+
+10 pages
+
+2022 DSE Physics Paper 1B Instructions
+
+No ratings yet
+
+2022 DSE Physics Paper 1B Instructions
+
+20 pages
+
+Central Province Physics Marking Scheme 2025
+
+No ratings yet
+
+Central Province Physics Marking Scheme 2025
+
+15 pages
+
+2024 HKDSE Physics Sample Paper 1
+
+No ratings yet
+
+2024 HKDSE Physics Sample Paper 1
+
+20 pages
+
+Form Three Physics Exam Paper 2020
+
+No ratings yet
+
+Form Three Physics Exam Paper 2020
+
+8 pages
+
+KCSE Physics Paper 1 Exam 2019
+
+No ratings yet
+
+KCSE Physics Paper 1 Exam 2019
+
+15 pages
+
+678257df5398946697d6fd36 - ## - AIR - V.P - Class-11 - JEE Adv Paper-2 - (2025) - (11-01-2025) - Q
+
+No ratings yet
+
+678257df5398946697d6fd36 - ## - AIR - V.P - Class-11 - JEE Adv Paper-2 - (2025) - (11-01-2025) - Q
+
+10 pages
+
+Jee Mock Test Adv. Paper - 1 (Test - 04) - Question
+
+No ratings yet
+
+Jee Mock Test Adv. Paper - 1 (Test - 04) - Question
+
+10 pages
+
+Physics Paper 2 SL Markscheme
+
+No ratings yet
+
+Physics Paper 2 SL Markscheme
+
+12 pages
+
+Pangani Girls School Physics Mock Exam 2024
+
+No ratings yet
+
+Pangani Girls School Physics Mock Exam 2024
+
+11 pages
+
+Form 4 Physics Exam Paper 2025
+
+100% (1)
+
+Form 4 Physics Exam Paper 2025
+
+9 pages
+
+Advanced Physics Exam Preparation Guide
+
+No ratings yet
+
+Advanced Physics Exam Preparation Guide
+
+5 pages
+
+Uganda Physics Assessment 2024 Guide
+
+No ratings yet
+
+Uganda Physics Assessment 2024 Guide
+
+13 pages
+
+Weekly Test 35 (Advanced) (Paper 02) - Test Paper - Lakshya JEE AIR Advanced (2025) Recorded
+
+No ratings yet
+
+Weekly Test 35 (Advanced) (Paper 02) - Test Paper - Lakshya JEE AIR Advanced (2025) Recorded
+
+10 pages
+
+Hwa Chong Physics Prelim Solutions 2020
+
+No ratings yet
+
+Hwa Chong Physics Prelim Solutions 2020
+
+16 pages
+
+Uganda Physics Assessment 2022
+
+No ratings yet
+
+Uganda Physics Assessment 2022
+
+13 pages
+
+Physics Exam: Forces and Thermodynamics
+
+100% (1)
+
+Physics Exam: Forces and Thermodynamics
+
+3 pages
+
+KCSE 2024 Physics Trial Paper 1
+
+No ratings yet
+
+KCSE 2024 Physics Trial Paper 1
+
+12 pages
+
+KCSE Physics Trial Exam Paper 1
+
+No ratings yet
+
+KCSE Physics Trial Exam Paper 1
+
+12 pages
+
+VP AIR Test-02 11th- JEE Advanced P1 (04!02!2026) Question
+
+No ratings yet
+
+VP AIR Test-02 11th- JEE Advanced P1 (04!02!2026) Question
+
+13 pages
+
+Ball Motion and Energy Analysis
+
+No ratings yet
+
+Ball Motion and Energy Analysis
+
+18 pages
+
+UACE Physics Mock Exam Paper 1 2025
+
+No ratings yet
+
+UACE Physics Mock Exam Paper 1 2025
+
+4 pages
+
+Mechanical Properties of Honeycomb Materials
+
+No ratings yet
+
+Mechanical Properties of Honeycomb Materials
+
+9 pages
+
+Hydrogen Atom Spectral Lines Analysis
+
+No ratings yet
+
+Hydrogen Atom Spectral Lines Analysis
+
+25 pages
+
+ISO 209:2024 Chemical Composition Standards
+
+0% (1)
+
+ISO 209:2024 Chemical Composition Standards
+
+10 pages
+
+Distillation Tray Design Insights
+
+No ratings yet
+
+Distillation Tray Design Insights
+
+1 page
+
+Manual multiEA5000 en PDF
+
+No ratings yet
+
+Manual multiEA5000 en PDF
+
+186 pages
+
+CO and NOx Detection Methods Explained
+
+No ratings yet
+
+CO and NOx Detection Methods Explained
+
+11 pages
+
+WAAM: Residual Stress Mitigation Review
+
+No ratings yet
+
+WAAM: Residual Stress Mitigation Review
+
+25 pages
+
+Properties and Structures of Enantiomers
+
+No ratings yet
+
+Properties and Structures of Enantiomers
+
+97 pages
+
+Specific Gravity of Mercury Explained
+
+No ratings yet
+
+Specific Gravity of Mercury Explained
+
+58 pages
+
+Understanding Quantum Physics Basics
+
+No ratings yet
+
+Understanding Quantum Physics Basics
+
+8 pages
+
+Making Soluble Salts: Methods & Procedures
+
+No ratings yet
+
+Making Soluble Salts: Methods & Procedures
+
+20 pages
+
+Ag+ Concentration in Ag2C2O4 Solution
+
+No ratings yet
+
+Ag+ Concentration in Ag2C2O4 Solution
+
+3 pages
+
+Futuristic Materials Processing Course
+
+No ratings yet
+
+Futuristic Materials Processing Course
+
+3 pages
+
+Understanding Bearing Stress in Fluids
+
+No ratings yet
+
+Understanding Bearing Stress in Fluids
+
+15 pages
+
+Weyl Geometry and Pioneer Anomaly Analysis
+
+100% (6)
+
+Weyl Geometry and Pioneer Anomaly Analysis
+
+12 pages
+
+M1 Mechanics Paper L Marking Guide
+
+No ratings yet
+
+M1 Mechanics Paper L Marking Guide
+
+4 pages
+
+No ratings yet
+
+Gr10 Ch13.5 TB
+
+4 pages
+
+Impurities Impact on Flemion Membrane
+
+No ratings yet
+
+Impurities Impact on Flemion Membrane
+
+59 pages
+
+Tobramycin Monograph - European Pharmacopoeia
+
+No ratings yet
+
+Tobramycin Monograph - European Pharmacopoeia
+
+2 pages
+
+Essential Elements and Water Properties
+
+No ratings yet
+
+Essential Elements and Water Properties
+
+15 pages
+
+Sulfuric Acid Corrosion in Boiler Tubes
+
+No ratings yet
+
+Sulfuric Acid Corrosion in Boiler Tubes
+
+14 pages
+
+Understanding Heat Radiation Principles
+
+No ratings yet
+
+Understanding Heat Radiation Principles
+
+12 pages
+
+Metal Casting Fundamentals Overview
+
+No ratings yet
+
+Metal Casting Fundamentals Overview
+
+43 pages
+
+Chemistry Module 3: Reactive Concepts
+
+No ratings yet
+
+Chemistry Module 3: Reactive Concepts
+
+60 pages
+
+No ratings yet
+
+Sika Precast Technologies-Compressed
+
+28 pages
+
+ISOFLEX White Waterproofing Membrane
+
+No ratings yet
+
+ISOFLEX White Waterproofing Membrane
+
+3 pages
+
+Promoted Alumina Adsorbents in Olefin Purification
+
+No ratings yet
+
+Promoted Alumina Adsorbents in Olefin Purification
+
+7 pages
+
+Common Acidic and Basic Radicals
+
+100% (1)
+
+Common Acidic and Basic Radicals
+
+1 page
+
+Understanding Redox Reactions and Oxidation Numbers
+
+No ratings yet
+
+Understanding Redox Reactions and Oxidation Numbers
+
+17 pages
+
+ZXA10 EC100 Outdoor Cabinet Datasheet - 20220505
+
+100% (1)
+
+ZXA10 EC100 Outdoor Cabinet Datasheet - 20220505
+
+1 page

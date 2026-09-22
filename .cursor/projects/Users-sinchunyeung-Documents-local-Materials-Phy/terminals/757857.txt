@@ -1,0 +1,23 @@
+---
+pid: 25739
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy/dse"
+command: "python3 << 'EOF'\nimport fitz, csv, io, re, subprocess, json\nfrom PIL import Image, ImageDraw\nfrom pathlib import Path\nimport sys\nsys.path.insert(0, \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/scripts\")\nfrom preprocess_mc import collect_labels, enforce_label_order, detect_labels\n\nsrc = fitz.open(\"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/Year/MC/2013p1a.pdf\")\npage = src[1]\nscale = 5.0\npix = page.get_pixmap(matrix=fitz.Matrix(scale, scale), alpha=False)\nimg = Image.frombytes(\"RGB\", (pix.width, pix.height), pix.samples)\n\n# Wide dump of left strip OCR\nstrip = img.crop((int(20*scale), 0, int(120*scale), img.height))\nbuf = io.BytesIO(); strip.save(buf, \"PNG\")\nfor psm in (\"11\", \"6\", \"4\"):\n    r = subprocess.run([\"tesseract\",\"stdin\",\"stdout\",\"--psm\",psm,\"tsv\"], input=buf.getvalue(), stdout=subprocess.PIPE, check=True)\n    rows = csv.DictReader(r.stdout.decode().splitlines(), delimiter=\"\\t\")\n    hits = []\n    for row in rows:\n        t = row[\"text\"].strip()\n        if not t: continue\n        x = float(row[\"left\"])/scale + 20\n        y = float(row[\"top\"])/scale\n        if re.search(r\"\\d\", t) and y < 250:\n            hits.append((t, round(x,1), round(y,1), row.get(\"conf\")))\n    print(f\"psm{psm}:\", hits[:20])\n\nlabels = collect_labels(src, list(range(1,len(src))), 5.0, 36, {})\nlabels = enforce_label_order(labels, 36)\nprint(\"\\nlabels sample:\", {k:labels[k] for k in sorted(labels)[:5]})\nprint(\"q2\", labels.get(2))\n\n# Visual: save top of page with q2 marked\nout = Path(\"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/_fix2013\")\nout.mkdir(exist_ok=True)\nvis = img.crop((0,0,int(200*scale), int(250*scale))).resize((400,500))\nvis.save(out/\"top.png\")\n\n# Also check old anchored page 0 for q1 y\nfrom preprocess_mc import find_marker_centres\nanch = fitz.open(\"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/anchored_2013p1a.pdf\")\nap = anch[0]\npix2 = ap.get_pixmap(matrix=fitz.Matrix(2,2), alpha=False)\naimg = Image.frombytes(\"RGB\",(pix2.width,pix2.height),pix2.samples)\nc = find_marker_centres(aimg, max_x=100)\nprint(\"anchored p0 markers y_pts\", [round(cy/2,1) for cx,cy in c], \"page top was cropped\")\n# Estimate: if first marker at y_out, and q2 is at labels[2], \n# from old preprocess top = first_q_y - 18. If q1 was first, top≈q1y-18, marker at q1y relative = 18\nif c:\n    q1_out = c[0][1]/2\n    print(\"q1 relative to crop top\", q1_out)\naimg.crop((0,0,min(200,aimg.width),200)).save(out/\"anch_top.png\")\nsrc.close(); anch.close()\nEOF\n"
+started_at: 2026-08-21T19:26:04.052Z
+running_for_ms: 1094128  
+---
+Estimating resolution as 435
+Estimating resolution as 435
+psm11: [('36', 96.4, 98.8, '96.755646'), ('(1)', 88.0, 151.2, '87.898293'), ('(2)', 88.0, 162.8, '86.900612'), ('(3)', 88.0, 174.2, '95.912552')]
+psm6: [('36', 96.4, 98.8, '96.755646'), ('(1)', 88.0, 151.2, '92.052513'), ('(2)', 88.0, 162.8, '91.347542'), ('(3)', 88.0, 174.2, '95.912552')]
+psm4: [('36', 96.4, 98.8, '96.755646'), ('1.', 53.4, 134.0, '45.280121'), ('(1)', 88.0, 151.2, '92.052513'), ('(2)', 88.0, 162.8, '94.281349'), ('(3)', 88.0, 174.2, '90.832092')]
+
+labels sample: {2: (1, 51.73333333333333, 266.8), 3: (1, 51.73333333333333, 381.8), 4: (1, 51.73333333333333, 525.6), 5: (2, 56.13333333333333, 82.8), 6: (2, 56.13333333333333, 324.6)}
+q2 (1, 51.73333333333333, 266.8)
+anchored p0 markers y_pts [17.8, 150.7, 265.6, 409.3] page top was cropped
+q1 relative to crop top 17.824675324675326
+
+---
+exit_code: 0
+elapsed_ms: 1095485
+ended_at: 2026-08-21T19:44:19.537Z
+---

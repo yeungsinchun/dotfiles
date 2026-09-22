@@ -1,0 +1,3 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<timestamp>Monday, Aug 10, 2026, 3:07 PM (UTC+8)</timestamp>\n<user_query>\ncan the taxi_log_2008_by_id not be generated when running \npython3 scripts/prepare_dataset.py --size 50??\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[当前模型暂不可用，请发送 继续 或新开对话 (1786345632852-396324d3)]"}]}}
+{"type":"turn_ended","status":"success"}

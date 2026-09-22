@@ -1,0 +1,84 @@
+---
+pid: 12580
+cwd: "/Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db"
+command: ".venv/bin/python scripts/build_pipeline_lavish_review.py 2>&1 | tail -8\ngit add \\\n  scripts/crop_lq_from_pages.py \\\n  scripts/build_pipeline_lavish_review.py \\\n  pipeline README.md AGENTS.md \\\n  tests/test_lq_whole_pages.py \\\n  .lavish/pipeline-review/ \\\n  classified/lq/ \\\n  classified/quality_audit.json \\\n  output/lq/2012/ output/lq/2024/ output/lq/2025/\n# don't add pages/ if somehow staged\ngit reset HEAD -- 'output/lq/*/pages' 2>/dev/null || true\ngit status --short | head -50\ngit commit -m \"$(cat <<'EOF'\nfix: use whole exam pages for LQ (no within-page crop)\n\nCaptain feedback: long questions should not be cropped. Stack\npage_from..page_to into qN.png, update docs/review samples, and cover\nthe behavior with a unit test.\nEOF\n)\" && git push origin HEAD 2>&1 | tail -15\necho \"working: LQ whole-page policy applied after captain Lavish note\" >> '/Users/sinchunyeung/github/firstmate/state/paper2db-pipeline.status'\n"
+title: "Commit and push LQ whole-page changes"
+status: succeeded
+started_at: 2026-09-07T09:41:14.631Z
+running_for_ms: 55601    
+---
+MC  failures=72/573 (12.57%)
+LQ  failures=0/167 (0.00%)
+All failures=72/740 (9.73%)
+LQ missing answer crops (not counted): 35
+Override-tuned qs (counted toward budget): 72
+Passes <=5% bar: False
+Wrote /Users/sinchunyeung/.treehouse/paper2db-41af0c/4/paper2db/.lavish/pipeline-review/index.html
+Quality: passes_5pct_bar=False
+Unstaged changes after reset:
+M	scripts/preprocess_lq.py
+M  .lavish/pipeline-review/data.json
+M  .lavish/pipeline-review/img/classified-lq-2012-q1.png
+M  .lavish/pipeline-review/img/classified-lq-2012-q4.png
+M  .lavish/pipeline-review/img/lq-2012-q1.png
+M  .lavish/pipeline-review/img/lq-2012-q2.png
+M  .lavish/pipeline-review/img/lq-2024-q1.png
+M  .lavish/pipeline-review/img/lq-2025-q1.png
+M  .lavish/pipeline-review/index.html
+M  AGENTS.md
+M  README.md
+M  classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2012-q1.png
+M  classified/lq/01_Heat_and_Gases/02_Heat_Capacity/2025-q1.png
+M  classified/lq/01_Heat_and_Gases/03_Change_of_State/2012-q1.png
+M  classified/lq/01_Heat_and_Gases/03_Change_of_State/2024-q1.png
+M  classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2012-q2.png
+M  classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2024-q2.png
+M  classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2024-q5.png
+M  classified/lq/01_Heat_and_Gases/04_Gas_Law_and_Kinetic_Theory/2025-q9.png
+M  classified/lq/02_Force_and_Motion/05_Motion/2024-q9.png
+M  classified/lq/02_Force_and_Motion/05_Motion/2025-q3.png
+M  classified/lq/02_Force_and_Motion/06_Force/2024-q3.png
+M  classified/lq/02_Force_and_Motion/06_Force/2025-q4.png
+M  classified/lq/02_Force_and_Motion/09_Momentum/2012-q4.png
+M  classified/lq/02_Force_and_Motion/09_Momentum/2024-q10.png
+M  classified/lq/02_Force_and_Motion/09_Momentum/2025-q5.png
+M  classified/lq/02_Force_and_Motion/10_Projectile_Motion/2012-q5.png
+M  classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/2012-q3.png
+M  classified/lq/02_Force_and_Motion/11_Uniform_Circular_Motion/2024-q4.png
+M  classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/2012-q6.png
+M  classified/lq/03A_Wave_Motion/14_Reflection_Refraction_and_Diffraction/2024-q6.png
+M  classified/lq/03A_Wave_Motion/15_Interference_and_Stationary_Wave/2025-q10.png
+M  classified/lq/03A_Wave_Motion/16_Light_and_Sound/2024-q7.png
+M  classified/lq/03B_Ray_Optics/18_Refraction_of_Light/2024-q8.png
+M  classified/lq/03B_Ray_Optics/19_Lenses/2012-q7.png
+M  classified/lq/03B_Ray_Optics/19_Lenses/2025-q6.png
+M  classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2024-q11.png
+M  classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2025-q11.png
+M  classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2025-q2.png
+M  classified/lq/04_Electricity_and_Magnetism/21_Circuit_and_Power/2025-q7.png
+M  classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2012-q8.png
+M  classified/lq/04_Electricity_and_Magnetism/22_AC_and_Domestic_Electricity/2012-q9.png
+M  classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2012-q10.png
+M  classified/lq/04_Electricity_and_Magnetism/23_Electromagnetism/2025-q8.png
+M  classified/lq/04_Electricity_and_Magnetism/24_Electromagnetic_Induction/2012-q9.png
+M  classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2024-q12.png
+M  classified/lq/05_Radioactivity_and_Nuclear_Energy/26_Rate_of_Decay_and_Uses_of_Radionuclides/2025-q12.png
+M  classified/lq/05_Radioactivity_and_Nuclear_Energy/27_Nuclear_Energy/2012-q11.png
+M  classified/quality_audit.json
+M  output/lq/2012/combined.pdf
+M  output/lq/2012/q1.png
+[fm/paper2db-pipeline c9ae775] fix: use whole exam pages for LQ (no within-page crop)
+ 94 files changed, 268 insertions(+), 89 deletions(-)
+ create mode 100644 tests/test_lq_whole_pages.py
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File output/lq/2025/questions.pdf is 56.69 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File output/lq/2025/combined.pdf is 56.69 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To https://github.com/yeungsinchun/paper2db.git
+   a7a31c5..c9ae775  HEAD -> fm/paper2db-pipeline
+
+---
+exit_code: 0
+elapsed_ms: 55601
+ended_at: 2026-09-07T09:42:10.232Z
+---

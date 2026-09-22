@@ -1,0 +1,25 @@
+---
+pid: 52799
+cwd: "/Users/sinchunyeung/github/firstmate"
+command: "export PATH=\"/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:$PATH\"\npython3 /tmp/fm-http-dual.py 8768 /Users/sinchunyeung/github/firstmate/data/p2db-501-502-review"
+title: "Restart hub page on 8768"
+status: aborted  
+started_at: 2026-09-11T14:03:21.634Z
+running_for_ms: 317091122
+---
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:29] "GET /hub.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:29] "GET /hub.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:29] code 404, message File not found
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:29] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:03:48] "GET /hub.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 22:04:08] "GET /hub.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 23:19:45] "GET /hub.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [11/Sep/2026 23:59:28] "GET /hub.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [12/Sep/2026 00:00:13] "GET /hub.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Sep/2026 10:18:42] "GET / HTTP/1.1" 200 -
+
+---
+exit_code: unknown
+elapsed_ms: 317091121
+ended_at: 2026-09-15T06:08:12.755Z
+---

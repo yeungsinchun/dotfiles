@@ -1,0 +1,76 @@
+---
+pid: 39439
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && for y in 2018 2019 2020; do\n  echo \"######## $y ########\"\n  .venv/bin/python scripts/preprocess_lq_answers.py \"paper/ans/${y}ans.pdf\" \"output/lq/${y}/ans\" --max-questions 12 --scale 2.0 2>&1 | tail -35\ndone\n"
+title: "Re-crop answers for 2018 2019 2020"
+status: succeeded
+started_at: 2026-09-05T04:00:19.888Z
+running_for_ms: 108201   
+---
+######## 2018 ########
+Answers: 2018ans.pdf
+  skip unmarked page 1/6
+  skip unmarked page 2/6
+  skip unmarked page 3/6
+  skip unmarked page 4/6
+  skip unmarked page 5/6
+  skip unmarked page 6/6
+  fallback: include all pages (Section B headers not OCR'd)
+  include answer page 1/6 (1191x1684)
+  include answer page 2/6 (1191x1684)
+  include answer page 3/6 (1191x1684)
+  include answer page 4/6 (1191x1684)
+  include answer page 5/6 (1191x1684)
+  include answer page 6/6 (1191x1684)
+  detected answers Q1-Q1 (1)
+  Wrote q1.png (1152x8518)
+Wrote output/lq/2018/ans/combined.pdf (1 pages)
+Wrote 1 answer crops -> output/lq/2018/ans
+######## 2019 ########
+Answers: 2019ans.pdf
+  skip Section A page 1/10
+  include answer page 2/10 (1123x1602)
+  include answer page 3/10 (1123x1602)
+  include answer page 4/10 (1123x1602)
+  include answer page 5/10 (1123x1602)
+  include answer page 6/10 (1123x1602)
+  include answer page 7/10 (1123x1602)
+  include answer page 8/10 (1123x1602)
+  include answer page 9/10 (1123x1602)
+  include answer page 10/10 (1123x1602)
+  detected answers Q1-Q10 (10)
+  Wrote q1.png (1022x662)
+  Wrote q2.png (1021x619)
+  Wrote q3.png (1034x977)
+  Wrote q4.png (1024x1153)
+  Wrote q5.png (1031x828)
+  Wrote q6.png (1021x1059)
+  Wrote q7.png (1033x683)
+  Wrote q8.png (1021x729)
+  Wrote q9.png (1032x854)
+  Wrote q10.png (1022x1031)
+Wrote output/lq/2019/ans/combined.pdf (10 pages)
+Wrote 10 answer crops -> output/lq/2019/ans
+######## 2020 ########
+Answers: 2020ans.pdf
+  skip front-matter page 1/19
+  skip Section A page 2/19
+  include answer page 3/19 (4641x6600)
+  include answer page 4/19 (4641x6600)
+  include answer page 5/19 (4641x6600)
+  include answer page 6/19 (4641x6600)
+  include answer page 7/19 (4641x6600)
+  include answer page 8/19 (4641x6600)
+  include answer page 9/19 (4641x6600)
+  include answer page 10/19 (4641x6600)
+  stop at Paper 2 page 11/19
+  detected answers Q1-Q1 (1)
+  Wrote q1.png (4278x44512)
+Wrote output/lq/2020/ans/combined.pdf (1 pages)
+Wrote 1 answer crops -> output/lq/2020/ans
+
+---
+exit_code: 0
+elapsed_ms: 108200
+ended_at: 2026-09-05T04:02:08.088Z
+---

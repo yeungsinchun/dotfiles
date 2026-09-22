@@ -1,0 +1,27 @@
+---
+pid: 70540
+cwd: "/Users/sinchunyeung/github/simplification-of-trajectory-streams"
+command: "cd /Users/sinchunyeung/github/simplification-of-trajectory-streams && (ls -d .venv venv web/.venv 2>/dev/null; which chromium google-chrome chrome npx node 2>/dev/null; ls ~/.cache/ms-playwright 2>/dev/null | head -5; find /Users/sinchunyeung -name 'playwright' -type d 2>/dev/null | head -10)"
+title: "Find playwright or browser for screenshots"
+status: failed   
+started_at: 2026-09-05T21:16:55.477Z
+running_for_ms: 38920    
+---
+web/.venv
+chromium not found
+google-chrome not found
+chrome not found
+npx () {
+	lazy_load_nvm
+	npx "$@"
+}
+node () {
+	lazy_load_nvm
+	node "$@"
+}
+
+---
+exit_code: unknown
+elapsed_ms: 38920
+ended_at: 2026-09-05T21:17:34.397Z
+---

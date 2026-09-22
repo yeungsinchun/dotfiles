@@ -1,0 +1,17 @@
+---
+pid: 9551
+cwd: "/Users/sinchunyeung/Documents-local/Materials/Phy"
+command: "python3 - <<'PY'\nimport sys\nfrom pathlib import Path\nsys.path.insert(0, \"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/scripts\")\nimport fitz\nfrom preprocess_lq import expand_pdf_pages, find_question_starts, load_page_pngs, native_scale\n\npdf = Path(\"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/Year/LQ/2019p1b.pdf\")\npages_dir = Path(\"/Users/sinchunyeung/Documents-local/Materials/Phy/dse/preprocessed/LQ/2019/pages\")\ndoc = fitz.open(pdf)\nscale = native_scale(doc[1], cap=9.0)\ndetect_scale = max(2.5, scale * 0.55)\nprint(f\"scale={scale:.2f} detect={detect_scale:.2f}\")\nfull = load_page_pngs(pages_dir)\nprint(f\"page PNGs: {len(full)}, first size={full[0].size if full else None}\")\ndetect = expand_pdf_pages(doc, detect_scale, cover_pages=1)\nprint(f\"detect pages: {len(detect)}, first size={detect[0].size if detect else None}\")\nstarts = find_question_starts(detect, cover_pages=0, max_questions=12)\nprint(\"starts:\", starts)\ndoc.close()\nPY"
+started_at: 2026-08-28T09:32:04.530Z
+running_for_ms: 95084    
+---
+scale=5.89 detect=3.24
+page PNGs: 38, first size=(1754, 4961)
+detect pages: 38, first size=(964, 2728)
+starts: [(7, 0, 607.562962962963), (2, 4, 360.99092783505154)]
+
+---
+exit_code: 0
+elapsed_ms: 99492
+ended_at: 2026-08-28T09:33:44.022Z
+---

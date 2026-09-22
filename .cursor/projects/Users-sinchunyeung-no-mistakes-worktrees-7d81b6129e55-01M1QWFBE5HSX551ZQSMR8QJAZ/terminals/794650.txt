@@ -1,0 +1,67 @@
+---
+pid: 63472
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ"
+command: "cd /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ\nEV=/Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ\ncurl -sf -o /dev/null http://127.0.0.1:5051/ || {\n  .venv/bin/python web/server.py > \"$EV/server-startup.log\" 2>&1 &\n  echo $! > \"$EV/server.pid\"\n  sleep 1\n}\n.venv/bin/python - <<'PY'\nimport asyncio, json, re\nfrom pathlib import Path\nev = Path(\"/Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ\")\n\nasync def main():\n    from playwright.async_api import async_playwright\n    async with async_playwright() as p:\n        browser = await p.chromium.launch(headless=True)\n        page = await browser.new_page(viewport={\"width\": 1440, \"height\": 900})\n        await page.goto(\"http://127.0.0.1:5051/\", wait_until=\"domcontentloaded\", timeout=30000)\n        await page.wait_for_timeout(1000)\n\n        # Select preloaded trace id 1\n        select = page.locator(\"#traceSelect, select\").first\n        await select.select_option(index=1)\n        await page.wait_for_timeout(200)\n\n        # Ensure DP is selected (toggle pills)\n        for algo in (\"DP\", \"DOTS\", \"SQUISH\"):\n            btn = page.locator(\"button\", has_text=re.compile(rf\"^{algo}$\"))\n            if await btn.count():\n                cls = await btn.first.get_attribute(\"class\") or \"\"\n                # click DP specifically for the run demo\n        dp = page.locator(\"button\", has_text=re.compile(r\"^DP$\")).first\n        await dp.click()\n        await page.wait_for_timeout(200)\n\n        # Load Trace\n        load = page.get_by_role(\"button\", name=re.compile(r\"Load Trace\", re.I))\n        await load.click()\n        await page.wait_for_timeout(4000)\n        await page.screenshot(path=str(ev / \"ui-after-load-trace.png\"), full_page=True)\n\n        # Run baseline - force enable if needed\n        run = page.locator(\"#baselineRunBtn\")\n        await run.wait_for(state=\"visible\", timeout=10000)\n        # scroll into view\n        await run.scroll_into_view_if_needed()\n        disabled = await run.is_disabled()\n        info = {\"run_disabled_before\": disabled}\n        if disabled:\n            # try selecting baseline again\n            await dp.click()\n            await page.wait_for_timeout(300)\n            disabled = await run.is_disabled()\n            info[\"run_disabled_after_reselect\"] = disabled\n        await run.click(force=True, timeout=10000)\n        await page.wait_for_timeout(5000)\n        await page.screenshot(path=str(ev / \"ui-compare-pane-after-run.png\"), full_page=True)\n\n        # Capture metrics table text\n        metrics = page.locator(\"#compareMetricsBody, .compare-metrics, table\").first\n        text = await page.inner_text(\"body\")\n        (ev / \"ui-body-after-run.txt\").write_text(text[:6000])\n        # Extract numbers near baseline/ms\n        hits = re.findall(r\"(DP|DOTS|SQUISH|time\\(ms\\)|points|Fr[eé]chet).{0,40}\", text, re.I)\n        info[\"snippets\"] = hits[:40]\n        (ev / \"ui-run-info.json\").write_text(json.dumps(info, indent=2))\n        print(json.dumps(info, indent=2)[:1000])\n        await browser.close()\n        print(\"SCREENSHOTS_OK\")\n\nasyncio.run(main())\nPY\nls -la \"$EV\"/ui-*.png\n"
+title: "UI flow: load trace, run baseline, screenshot"
+status: succeeded
+started_at: 2026-09-05T04:25:41.301Z
+running_for_ms: 39484    
+---
+Traceback (most recent call last):
+  File "<stdin>", line 63, in <module>
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py", line 205, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py", line 128, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "<stdin>", line 15, in main
+  File "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ/.venv/lib/python3.14/site-packages/playwright/async_api/_generated.py", line 20051, in select_option
+    await self._impl_obj.select_option(
+    ...<7 lines>...
+    )
+  File "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ/.venv/lib/python3.14/site-packages/playwright/_impl/_locator.py", line 633, in select_option
+    return await self._frame.select_option(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ/.venv/lib/python3.14/site-packages/playwright/_impl/_frame.py", line 814, in select_option
+    return await self._channel.send("selectOption", self._timeout, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ/.venv/lib/python3.14/site-packages/playwright/_impl/_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ/.venv/lib/python3.14/site-packages/playwright/_impl/_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Locator.select_option: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("#traceSelect, select").first
+    - locator resolved to <select id="traceSelect" class="visually-hidden">…</select>
+  - attempting select option action
+    2 × waiting for element to be visible and enabled
+      - option being selected is not enabled
+    - retrying select option action
+    - waiting 20ms
+    2 × waiting for element to be visible and enabled
+      - option being selected is not enabled
+    - retrying select option action
+      - waiting 100ms
+    47 × waiting for element to be visible and enabled
+       - option being selected is not enabled
+     - retrying select option action
+       - waiting 500ms
+
+-rw-r--r--@ 1 sinchunyeung  staff  60591 Sep  5 12:24 /Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ/ui-compare-pane-initial.png
+
+---
+exit_code: 0
+elapsed_ms: 39483
+ended_at: 2026-09-05T04:26:20.784Z
+---

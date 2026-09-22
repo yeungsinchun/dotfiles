@@ -1,0 +1,79 @@
+---
+pid: 54082
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && .venv/bin/python <<'PY'\nfrom PIL import Image\nimport numpy as np\n\ndef analyze(path, frac=0.015):\n    im=np.array(Image.open(path).convert('L'))\n    h,w=im.shape\n    row_limit=int(w*0.97)\n    content=[y for y in range(h) if (im[y,:row_limit]<235).mean()>=frac]\n    any_rows=np.where((im<200).any(1))[0]\n    print(path, 'h', h, 'last_dense', content[-1] if content else None, 'last_any', any_rows[-1], 'trim_would', (content[-1]+10 if content else None), 'gap_after_dense', h-1-(content[-1] if content else 0))\n    # bottom 30 rows ink\n    for y in range(h-1, max(h-40,0), -1):\n        s=int((im[y]<200).sum())\n        if s: print(' ', y, 'ink', s)\n\nanalyze('output/2016/q9.png')\nanalyze('output/2019/q6.png')\nanalyze('output/2019/q10.png')\n# check if 2016 D is clipped - look at last rows of text region left side\nim=np.array(Image.open('output/2016/q9.png').convert('L'))\n# find option D region - bottom 60 rows left half\nbot=im[-60:, :400]\nImage.fromarray(bot).save('/tmp/2016_q9_optD.png')\nPY\n# Resplit 2016 and 2019 with new trim; sync pp q8\n./segment paper/mc/2016p1a.pdf output/2016 --type mc --step split --intermediate output/2016-intermediate 2>&1 | tail -5\n./segment paper/mc/2019p1a.pdf output/2019 --type mc --step split --intermediate output/2019-intermediate 2>&1 | tail -5\n"
+status: succeeded
+started_at: 2026-09-04T15:23:30.171Z
+running_for_ms: 48685    
+---
+output/2016/q9.png h 412 last_dense 411 last_any 411 trim_would 421 gap_after_dense 0
+  411 ink 36
+  410 ink 36
+  409 ink 36
+  408 ink 37
+  407 ink 48
+  406 ink 47
+  405 ink 41
+  404 ink 21
+  403 ink 20
+  402 ink 24
+  401 ink 32
+  400 ink 12
+  392 ink 8
+  391 ink 22
+  390 ink 21
+  389 ink 14
+  388 ink 12
+  387 ink 14
+  386 ink 15
+  385 ink 17
+  384 ink 21
+  383 ink 21
+  382 ink 16
+  381 ink 14
+  380 ink 16
+  379 ink 18
+  378 ink 20
+  377 ink 9
+  373 ink 2
+output/2019/q6.png h 433 last_dense 308 last_any 425 trim_would 318 gap_after_dense 124
+  425 ink 5
+  424 ink 6
+  423 ink 6
+  422 ink 6
+  421 ink 6
+  420 ink 5
+  419 ink 6
+  418 ink 5
+  417 ink 4
+  416 ink 3
+  415 ink 2
+  414 ink 2
+output/2019/q10.png h 960 last_dense 780 last_any 953 trim_would 790 gap_after_dense 179
+  953 ink 5
+  952 ink 5
+  951 ink 5
+  950 ink 5
+  949 ink 5
+  948 ink 5
+  947 ink 5
+  946 ink 4
+  945 ink 3
+  944 ink 2
+  943 ink 1
+Paper type: MC (2016p1a.pdf)
+Using MC overrides: overrides_2016.json
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2016
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2016/combined.pdf
+Paper type: MC (2019p1a.pdf)
+Using MC overrides: overrides_2019.json
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2019
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2019/combined.pdf
+
+---
+exit_code: 0
+elapsed_ms: 48682
+ended_at: 2026-09-04T15:24:18.853Z
+---

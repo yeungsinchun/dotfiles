@@ -1,0 +1,845 @@
+---
+pid: 43552
+cwd: "/Users/sinchunyeung/github/paper2db"
+command: "cd /Users/sinchunyeung/github/paper2db && python3 << 'PY'\nfrom pathlib import Path\nimport subprocess, shutil, sys, time\n\nroot = Path(\"/Users/sinchunyeung/github/paper2db\")\nlog = Path(\"/tmp/paper2db-batch/run.log\")\nmapping = [\n    (\"2013p1a.pdf\", \"2013\"),\n    (\"2014p1a.pdf\", \"2014\"),\n    (\"2015p1a.pdf\", \"2015\"),\n    (\"2016p1a.pdf\", \"2016\"),\n    (\"2017p1a.pdf\", \"2017\"),\n    (\"2018p1a.pdf\", \"2018\"),\n    (\"2019p1a.pdf\", \"2019\"),\n    (\"2020p1a.pdf\", \"2020\"),\n    (\"2021p1a.pdf\", \"2021\"),\n    (\"2022p1a.pdf\", \"2022\"),\n    (\"2023p1a.pdf\", \"2023\"),\n    (\"2024p1a.pdf\", \"2024\"),\n    (\"2025p1a.pdf\", \"2025\"),\n    (\"2026p1a.pdf\", \"2026\"),\n    (\"ppp1a.pdf\", \"pp\"),\n    (\"sapp1a.pdf\", \"sap\"),\n]\n\ndef log_line(msg):\n    text = msg + \"\\n\"\n    sys.stdout.write(text)\n    sys.stdout.flush()\n    with log.open(\"a\") as f:\n        f.write(text)\n\nlog.write_text(\"jobs=\" + str(len(mapping)) + \"\\n\")\nfailed = []\nfor pdf_name, dest in mapping:\n    pdf = root / \"paper\" / pdf_name\n    out = root / \"output\" / dest\n    inter = Path(\"/tmp/paper2db-batch\") / f\"inter-{dest}\"\n    if inter.exists():\n        shutil.rmtree(inter)\n    log_line(f\"=== START {dest} ({pdf_name}) ===\")\n    t0 = time.time()\n    result = subprocess.run(\n        [str(root / \"segment\"), str(pdf), str(out), \"--type\", \"mc\", \"--step\", \"all\", \"--intermediate\", str(inter)],\n        cwd=root,\n    )\n    elapsed = time.time() - t0\n    shutil.rmtree(inter, ignore_errors=True)\n    leftover = out / \"intermediate\"\n    if leftover.exists():\n        shutil.rmtree(leftover, ignore_errors=True)\n    pngs = list(out.glob(\"q*.png\"))\n    combined = out / \"combined.pdf\"\n    status = \"OK\" if result.returncode == 0 and combined.is_file() else \"FAIL\"\n    if status != \"OK\":\n        failed.append(dest)\n    log_line(f\"=== {status} {dest} rc={result.returncode} pngs={len(pngs)} combined={combined.is_file()} {elapsed:.0f}s ===\")\n\nlog_line(\"FAILED: \" + (\", \".join(failed) if failed else \"(none)\"))\nlog_line(\"DONE\")\nPY"
+title: "Restart full-year MC segmentation batch"
+status: succeeded
+started_at: 2026-09-02T10:07:28.374Z
+running_for_ms: 1937266  
+---
+=== START 2013 (2013p1a.pdf) ===
+WARNING: could not confirm a number immediately beside the anchor for: Q1, Q2, Q11. Keeping the OCR position.
+page 2: rail_x=52.2 left=16.2 right=507.2 top=114.0 bottom=783.8 footer=785.8 marker_x=35.9 questions=4 first_pad=20.0
+page 3: rail_x=56.1 left=20.1 right=511.1 top=62.9 bottom=785.8 footer=787.8 marker_x=40.1 questions=3 first_pad=20.0
+page 4: rail_x=45.1 left=9.1 right=500.1 top=63.4 bottom=786.6 footer=788.6 marker_x=28.9 questions=3 first_pad=20.0
+page 5: rail_x=60.5 left=24.5 right=515.5 top=58.1 bottom=783.0 footer=785.0 marker_x=43.5 questions=3 first_pad=20.0
+page 6: rail_x=48.6 left=12.6 right=503.6 top=60.4 bottom=783.8 footer=785.8 marker_x=32.1 questions=3 first_pad=20.0
+page 7: rail_x=62.9 left=26.9 right=517.9 top=59.0 bottom=783.8 footer=785.8 marker_x=46.9 questions=3 first_pad=20.0
+page 8: rail_x=46.0 left=10.0 right=501.0 top=60.0 bottom=783.0 footer=785.0 marker_x=29.5 questions=3 first_pad=20.0
+page 9: rail_x=59.5 left=23.5 right=514.5 top=62.9 bottom=785.0 footer=787.0 marker_x=43.0 questions=3 first_pad=20.0
+page 10: rail_x=51.3 left=15.3 right=506.3 top=62.4 bottom=783.4 footer=785.4 marker_x=34.5 questions=2 first_pad=20.0
+page 11: rail_x=59.1 left=23.1 right=514.1 top=63.4 bottom=786.6 footer=788.6 marker_x=43.1 questions=2 first_pad=20.0
+page 12: rail_x=48.3 left=12.3 right=503.3 top=62.2 bottom=785.0 footer=787.0 marker_x=31.6 questions=3 first_pad=20.0
+page 13: rail_x=59.3 left=23.3 right=514.3 top=62.4 bottom=783.4 footer=785.4 marker_x=41.8 questions=4 first_pad=20.0
+Wrote /private/tmp/paper2db-batch/inter-2013/anchor.meta.json
+Wrote /private/tmp/paper2db-batch/inter-2013/anchor.pdf with 12 pages and 36 anchors.
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q1.png (915x233)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q2.png (943x198)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q3.png (939x256)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q4.png (939x441)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q5.png (942x438)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q6.png (939x468)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q7.png (939x379)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q8.png (943x380)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q9.png (941x470)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q10.png (941x475)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q11.png (923x338)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q12.png (941x431)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q13.png (940x632)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q14.png (942x648)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q15.png (940x217)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q16.png (939x432)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q17.png (942x518)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q18.png (940x451)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q19.png (940x408)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q20.png (943x578)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q21.png (944x270)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q22.png (940x497)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q23.png (942x461)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q24.png (941x472)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q25.png (941x221)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q26.png (944x646)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q27.png (939x764)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q28.png (943x843)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q29.png (940x451)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q30.png (944x383)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q31.png (941x464)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q32.png (940x471)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q33.png (946x173)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q34.png (946x227)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q35.png (946x199)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/q36.png (943x406)
+Wrote 36 questions to /Users/sinchunyeung/github/paper2db/output/2013 (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/2013/combined.pdf (36 pages)
+Paper type: MC (2013p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Wrote /private/tmp/paper2db-batch/inter-2013/anchor.pdf
+Wrote /private/tmp/paper2db-batch/inter-2013/anchor.meta.json
+Wrote 12 preview PNGs (page01.png, ...) in /private/tmp/paper2db-batch/inter-2013
+Review anchor.pdf (blue dots next to each question number), then run step 2.
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 36 questions -> /Users/sinchunyeung/github/paper2db/output/2013
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2013/combined.pdf
+=== OK 2013 rc=0 pngs=36 combined=True 198s ===
+=== START 2014 (2014p1a.pdf) ===
+Note: no Q34-Q36 in this PDF; segmenting 33 questions.
+WARNING: could not confirm a number immediately beside the anchor for: Q5, Q8, Q11, Q12, Q15. Keeping the OCR position.
+page 2: rail_x=77.3 left=41.3 right=532.3 top=108.2 bottom=782.3 footer=784.3 marker_x=60.3 questions=3 first_pad=20.0
+page 3: rail_x=71.9 left=35.9 right=526.9 top=54.0 bottom=783.1 footer=785.1 marker_x=55.9 questions=4 first_pad=20.0
+page 4: rail_x=76.3 left=40.3 right=531.3 top=52.2 bottom=781.5 footer=783.5 marker_x=60.0 questions=3 first_pad=20.0
+page 5: rail_x=72.2 left=36.2 right=527.2 top=48.4 bottom=778.7 footer=780.7 marker_x=56.2 questions=3 first_pad=20.0
+page 6: rail_x=76.0 left=40.0 right=531.0 top=49.8 bottom=780.3 footer=782.3 marker_x=60.0 questions=2 first_pad=20.0
+page 7: rail_x=69.8 left=33.8 right=524.8 top=52.5 bottom=782.3 footer=784.3 marker_x=53.8 questions=3 first_pad=20.0
+page 8: rail_x=73.0 left=37.0 right=528.0 top=50.0 bottom=779.5 footer=781.5 marker_x=54.2 questions=3 first_pad=20.0
+page 9: rail_x=67.8 left=31.8 right=522.8 top=50.4 bottom=780.3 footer=782.3 marker_x=50.8 questions=3 first_pad=20.0
+page 10: rail_x=75.8 left=39.8 right=530.8 top=52.8 bottom=782.3 footer=784.3 marker_x=59.8 questions=2 first_pad=20.0
+page 11: rail_x=71.2 left=35.2 right=526.2 top=50.4 bottom=779.9 footer=781.9 marker_x=54.7 questions=2 first_pad=20.0
+page 12: rail_x=73.8 left=37.8 right=528.8 top=49.2 bottom=778.3 footer=780.3 marker_x=56.8 questions=3 first_pad=20.0
+page 13: rail_x=71.2 left=35.2 right=526.2 top=52.2 bottom=780.7 footer=782.7 marker_x=54.7 questions=2 first_pad=20.0
+Wrote /private/tmp/paper2db-batch/inter-2014/anchor.meta.json
+Wrote /private/tmp/paper2db-batch/inter-2014/anchor.pdf with 12 pages and 33 anchors.
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q1.png (943x406)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q2.png (942x498)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q3.png (941x350)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q4.png (943x411)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q5.png (943x174)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q6.png (943x389)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q7.png (943x401)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q8.png (943x507)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q9.png (941x454)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q10.png (940x401)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q11.png (943x227)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q12.png (942x305)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q13.png (924x773)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q14.png (937x563)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q15.png (941x469)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q16.png (941x491)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q17.png (940x405)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q18.png (940x472)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q19.png (672x246)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q20.png (946x484)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q21.png (941x386)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q22.png (945x441)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q23.png (943x518)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q24.png (941x404)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q25.png (943x479)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q26.png (941x520)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q27.png (944x571)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q28.png (942x838)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q29.png (945x382)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q30.png (945x253)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q31.png (631x350)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q32.png (944x468)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/q33.png (941x477)
+Wrote 33 questions to /Users/sinchunyeung/github/paper2db/output/2014 (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/2014/combined.pdf (33 pages)
+Paper type: MC (2014p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Wrote /private/tmp/paper2db-batch/inter-2014/anchor.pdf
+Wrote /private/tmp/paper2db-batch/inter-2014/anchor.meta.json
+Wrote 12 preview PNGs (page01.png, ...) in /private/tmp/paper2db-batch/inter-2014
+Review anchor.pdf (blue dots next to each question number), then run step 2.
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2014
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2014/combined.pdf
+=== OK 2014 rc=0 pngs=33 combined=True 219s ===
+=== START 2015 (2015p1a.pdf) ===
+Note: no Q34-Q36 in this PDF; segmenting 33 questions.
+WARNING: could not confirm a number immediately beside the anchor for: Q1, Q4, Q8, Q11. Keeping the OCR position.
+page 2: rail_x=53.0 left=17.0 right=508.0 top=98.8 bottom=770.6 footer=772.6 marker_x=35.2 questions=4 first_pad=20.0
+page 3: rail_x=54.2 left=18.2 right=509.2 top=45.9 bottom=770.2 footer=772.2 marker_x=36.8 questions=3 first_pad=20.0
+page 4: rail_x=51.4 left=15.4 right=506.4 top=48.8 bottom=773.4 footer=775.4 marker_x=35.1 questions=2 first_pad=20.0
+page 5: rail_x=59.4 left=23.4 right=514.4 top=46.0 bottom=770.6 footer=772.6 marker_x=43.4 questions=3 first_pad=20.0
+page 6: rail_x=54.1 left=18.1 right=509.1 top=46.4 bottom=771.8 footer=773.8 marker_x=38.1 questions=2 first_pad=20.0
+page 7: rail_x=63.6 left=27.6 right=447.6 top=50.0 bottom=776.6 footer=778.6 marker_x=47.6 questions=1 first_pad=20.0
+page 8: rail_x=55.0 left=19.0 right=510.0 top=47.0 bottom=774.6 footer=776.6 marker_x=37.2 questions=2 first_pad=20.0
+page 9: rail_x=61.3 left=25.3 right=516.3 top=51.2 bottom=776.2 footer=778.2 marker_x=43.3 questions=4 first_pad=20.0
+page 10: rail_x=47.4 left=11.4 right=502.4 top=52.4 bottom=777.0 footer=779.0 marker_x=31.1 questions=3 first_pad=20.0
+page 11: rail_x=63.1 left=27.1 right=518.1 top=47.2 bottom=772.2 footer=774.2 marker_x=45.1 questions=3 first_pad=20.0
+page 12: rail_x=48.4 left=12.4 right=503.4 top=49.6 bottom=775.4 footer=777.4 marker_x=31.9 questions=3 first_pad=20.0
+page 13: rail_x=62.7 left=26.7 right=517.7 top=46.4 bottom=771.0 footer=773.0 marker_x=45.7 questions=3 first_pad=20.0
+Wrote /private/tmp/paper2db-batch/inter-2015/anchor.meta.json
+Wrote /private/tmp/paper2db-batch/inter-2015/anchor.pdf with 12 pages and 33 anchors.
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q1.png (946x177)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q2.png (943x493)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q3.png (913x245)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q4.png (941x179)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q5.png (946x310)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q6.png (943x449)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q7.png (943x452)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q8.png (939x540)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q9.png (937x586)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q10.png (940x460)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q11.png (938x174)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q12.png (936x666)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q13.png (937x565)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q14.png (933x472)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q15.png (774x886)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q16.png (946x826)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q17.png (941x566)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q18.png (947x638)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q19.png (911x230)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q20.png (943x213)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q21.png (943x177)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q22.png (940x310)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q23.png (941x366)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q24.png (936x655)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q25.png (947x547)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q26.png (877x428)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q27.png (942x182)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q28.png (943x250)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q29.png (941x177)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q30.png (938x752)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q31.png (702x287)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q32.png (944x197)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/q33.png (942x380)
+Wrote 33 questions to /Users/sinchunyeung/github/paper2db/output/2015 (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/2015/combined.pdf (33 pages)
+Paper type: MC (2015p1a.pdf)
+Using MC overrides: overrides_2015.json
+=== MC step 1/2: place anchors (blue dots) ===
+Wrote /private/tmp/paper2db-batch/inter-2015/anchor.pdf
+Wrote /private/tmp/paper2db-batch/inter-2015/anchor.meta.json
+Wrote 12 preview PNGs (page01.png, ...) in /private/tmp/paper2db-batch/inter-2015
+Review anchor.pdf (blue dots next to each question number), then run step 2.
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2015
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2015/combined.pdf
+=== OK 2015 rc=0 pngs=33 combined=True 200s ===
+=== START 2016 (2016p1a.pdf) ===
+Note: no Q34-Q36 in this PDF; segmenting 33 questions.
+WARNING: could not confirm a number immediately beside the anchor for: Q5, Q6, Q7, Q8, Q11, Q13, Q18. Keeping the OCR position.
+page 2: rail_x=57.5 left=21.5 right=511.1 top=96.8 bottom=778.2 footer=780.2 marker_x=41.5 questions=4 first_pad=20.0
+page 3: rail_x=63.0 left=27.0 right=518.0 top=58.2 bottom=781.4 footer=783.4 marker_x=46.2 questions=3 first_pad=20.0
+page 4: rail_x=69.6 left=33.6 right=524.6 top=57.0 bottom=779.8 footer=781.8 marker_x=52.9 questions=3 first_pad=20.0
+page 5: rail_x=64.5 left=28.5 right=519.5 top=58.2 bottom=783.0 footer=785.0 marker_x=47.5 questions=3 first_pad=20.0
+page 6: rail_x=63.8 left=27.8 right=518.8 top=58.0 bottom=781.4 footer=783.4 marker_x=47.3 questions=4 first_pad=20.0
+page 7: rail_x=62.8 left=26.8 right=517.8 top=57.1 bottom=781.4 footer=783.4 marker_x=45.3 questions=4 first_pad=20.0
+page 8: rail_x=57.0 left=21.0 right=512.0 top=60.4 bottom=784.2 footer=786.2 marker_x=41.0 questions=4 first_pad=20.0
+page 9: rail_x=64.8 left=28.8 right=519.8 top=52.1 bottom=777.0 footer=779.0 marker_x=48.3 questions=4 first_pad=20.0
+page 10: rail_x=57.0 left=21.0 right=512.0 top=52.8 bottom=777.4 footer=779.4 marker_x=40.8 questions=4 first_pad=20.0
+Wrote /private/tmp/paper2db-batch/inter-2016/anchor.meta.json
+Wrote /private/tmp/paper2db-batch/inter-2016/anchor.pdf with 9 pages and 33 anchors.
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q1.png (867x235)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q2.png (934x229)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q3.png (913x149)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q4.png (568x301)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q5.png (938x414)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q6.png (919x323)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q7.png (938x413)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q8.png (938x491)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q9.png (788x425)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q10.png (936x459)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q11.png (936x440)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q12.png (935x466)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q13.png (932x473)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q14.png (938x175)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q15.png (936x270)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q16.png (934x333)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q17.png (933x395)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q18.png (940x408)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q19.png (382x246)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q20.png (943x177)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q21.png (942x490)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q22.png (939x206)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q23.png (551x245)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q24.png (938x310)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q25.png (937x353)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q26.png (938x294)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q27.png (937x404)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q28.png (938x201)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q29.png (944x317)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q30.png (937x285)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q31.png (938x326)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q32.png (785x253)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/q33.png (937x312)
+Wrote 33 questions to /Users/sinchunyeung/github/paper2db/output/2016 (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/2016/combined.pdf (33 pages)
+Paper type: MC (2016p1a.pdf)
+Using MC overrides: overrides_2016.json
+=== MC step 1/2: place anchors (blue dots) ===
+Wrote /private/tmp/paper2db-batch/inter-2016/anchor.pdf
+Wrote /private/tmp/paper2db-batch/inter-2016/anchor.meta.json
+Wrote 9 preview PNGs (page01.png, ...) in /private/tmp/paper2db-batch/inter-2016
+Review anchor.pdf (blue dots next to each question number), then run step 2.
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2016
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2016/combined.pdf
+=== OK 2016 rc=0 pngs=33 combined=True 135s ===
+=== START 2017 (2017p1a.pdf) ===
+Note: no Q34-Q36 in this PDF; segmenting 33 questions.
+WARNING: could not confirm a number immediately beside the anchor for: Q1, Q2, Q4, Q6, Q8, Q11, Q21. Keeping the OCR position.
+page 2: rail_x=63.9 left=27.9 right=518.9 top=113.1 bottom=784.2 footer=786.2 marker_x=47.7 questions=2 first_pad=20.0
+page 3: rail_x=60.9 left=24.9 right=515.9 top=57.8 bottom=783.4 footer=785.4 marker_x=44.6 questions=4 first_pad=20.0
+page 4: rail_x=65.4 left=29.4 right=520.4 top=60.4 bottom=786.2 footer=788.2 marker_x=49.4 questions=2 first_pad=20.0
+page 5: rail_x=63.4 left=27.4 right=518.4 top=58.8 bottom=784.6 footer=786.6 marker_x=47.4 questions=2 first_pad=20.0
+page 6: rail_x=57.1 left=21.1 right=512.1 top=57.6 bottom=783.8 footer=785.8 marker_x=40.9 questions=2 first_pad=20.0
+page 7: rail_x=61.0 left=25.0 right=504.0 top=60.2 bottom=786.2 footer=788.2 marker_x=45.0 questions=1 first_pad=20.0
+page 8: rail_x=58.7 left=22.7 right=513.7 top=59.2 bottom=784.2 footer=786.2 marker_x=42.7 questions=2 first_pad=20.0
+page 9: rail_x=68.2 left=32.2 right=523.2 top=59.5 bottom=785.4 footer=787.4 marker_x=52.2 questions=3 first_pad=20.0
+page 10: rail_x=57.5 left=21.5 right=512.5 top=58.2 bottom=783.8 footer=785.8 marker_x=41.2 questions=3 first_pad=20.0
+page 11: rail_x=61.7 left=25.7 right=516.7 top=57.4 bottom=781.8 footer=783.8 marker_x=45.7 questions=2 first_pad=20.0
+page 12: rail_x=58.9 left=22.9 right=489.4 top=56.6 bottom=783.4 footer=785.4 marker_x=42.9 questions=3 first_pad=20.0
+page 13: rail_x=65.8 left=29.8 right=504.3 top=57.2 bottom=782.2 footer=784.2 marker_x=49.8 questions=1 first_pad=20.0
+page 14: rail_x=54.7 left=18.7 right=509.7 top=55.2 bottom=781.8 footer=783.8 marker_x=38.4 questions=3 first_pad=20.0
+page 15: rail_x=65.0 left=29.0 right=459.0 top=56.1 bottom=780.2 footer=782.2 marker_x=49.0 questions=3 first_pad=20.0
+Wrote /private/tmp/paper2db-batch/inter-2017/anchor.meta.json
+Wrote /private/tmp/paper2db-batch/inter-2017/anchor.pdf with 14 pages and 33 anchors.
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q1.png (942x228)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q2.png (940x666)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q3.png (942x280)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q4.png (942x204)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q5.png (942x203)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q6.png (940x422)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q7.png (941x576)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q8.png (941x566)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q9.png (941x425)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q10.png (941x519)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q11.png (944x620)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q12.png (937x692)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q13.png (924x1433)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q14.png (941x543)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q15.png (941x516)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q16.png (942x644)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q17.png (796x255)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q18.png (935x180)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q19.png (943x252)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q20.png (943x595)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q21.png (942x229)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q22.png (943x545)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q23.png (910x724)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q24.png (867x470)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q25.png (822x160)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q26.png (904x568)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q27.png (888x1046)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q28.png (943x681)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q29.png (941x304)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q30.png (940x228)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q31.png (821x538)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q32.png (709x160)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/q33.png (784x576)
+Wrote 33 questions to /Users/sinchunyeung/github/paper2db/output/2017 (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/2017/combined.pdf (33 pages)
+Paper type: MC (2017p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Wrote /private/tmp/paper2db-batch/inter-2017/anchor.pdf
+Wrote /private/tmp/paper2db-batch/inter-2017/anchor.meta.json
+Wrote 14 preview PNGs (page01.png, ...) in /private/tmp/paper2db-batch/inter-2017
+Review anchor.pdf (blue dots next to each question number), then run step 2.
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2017
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2017/combined.pdf
+=== OK 2017 rc=0 pngs=33 combined=True 117s ===
+=== START 2018 (2018p1a.pdf) ===
+Could not locate question labels: [3, 4, 34, 35, 36]. Add them to --overrides.
+Paper type: MC (2018p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Traceback (most recent call last):
+  File "/Users/sinchunyeung/github/paper2db/segment", line 362, in <module>
+    main()
+    ~~~~^^
+  File "/Users/sinchunyeung/github/paper2db/segment", line 326, in main
+    count = segment_mc(
+        pdf,
+    ...<5 lines>...
+        overrides=overrides,
+    )
+  File "/Users/sinchunyeung/github/paper2db/segment", line 243, in segment_mc
+    anchor_mc(
+    ~~~~~~~~~^
+        source,
+        ^^^^^^^
+    ...<3 lines>...
+        overrides=overrides,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/sinchunyeung/github/paper2db/segment", line 166, in anchor_mc
+    subprocess.run(pre_cmd, check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/Users/sinchunyeung/github/paper2db/.venv/bin/python3', '/Users/sinchunyeung/github/paper2db/scripts/preprocess_mc.py', '/Users/sinchunyeung/github/paper2db/paper/2018p1a.pdf', '/private/tmp/paper2db-batch/inter-2018/anchor.pdf', '--questions', '36', '--cover-pages', '1']' returned non-zero exit status 1.
+=== FAIL 2018 rc=1 pngs=36 combined=False 80s ===
+=== START 2019 (2019p1a.pdf) ===
+Could not locate question labels: [7, 34, 35, 36]. Add them to --overrides.
+Paper type: MC (2019p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Traceback (most recent call last):
+  File "/Users/sinchunyeung/github/paper2db/segment", line 362, in <module>
+    main()
+    ~~~~^^
+  File "/Users/sinchunyeung/github/paper2db/segment", line 326, in main
+    count = segment_mc(
+        pdf,
+    ...<5 lines>...
+        overrides=overrides,
+    )
+  File "/Users/sinchunyeung/github/paper2db/segment", line 243, in segment_mc
+    anchor_mc(
+    ~~~~~~~~~^
+        source,
+        ^^^^^^^
+    ...<3 lines>...
+        overrides=overrides,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/sinchunyeung/github/paper2db/segment", line 166, in anchor_mc
+    subprocess.run(pre_cmd, check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/Users/sinchunyeung/github/paper2db/.venv/bin/python3', '/Users/sinchunyeung/github/paper2db/scripts/preprocess_mc.py', '/Users/sinchunyeung/github/paper2db/paper/2019p1a.pdf', '/private/tmp/paper2db-batch/inter-2019/anchor.pdf', '--questions', '36', '--cover-pages', '1']' returned non-zero exit status 1.
+=== FAIL 2019 rc=1 pngs=36 combined=False 89s ===
+=== START 2020 (2020p1a.pdf) ===
+Note: no Q34-Q36 in this PDF; segmenting 33 questions.
+WARNING: could not confirm a number immediately beside the anchor for: Q1, Q6, Q7, Q8, Q9, Q29. Keeping the OCR position.
+Rejected out-of-order labels: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+Could not locate question labels after number-beside-anchor check: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33].
+Paper type: MC (2020p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Traceback (most recent call last):
+  File "/Users/sinchunyeung/github/paper2db/segment", line 362, in <module>
+    main()
+    ~~~~^^
+  File "/Users/sinchunyeung/github/paper2db/segment", line 326, in main
+    count = segment_mc(
+        pdf,
+    ...<5 lines>...
+        overrides=overrides,
+    )
+  File "/Users/sinchunyeung/github/paper2db/segment", line 243, in segment_mc
+    anchor_mc(
+    ~~~~~~~~~^
+        source,
+        ^^^^^^^
+    ...<3 lines>...
+        overrides=overrides,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/sinchunyeung/github/paper2db/segment", line 166, in anchor_mc
+    subprocess.run(pre_cmd, check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/Users/sinchunyeung/github/paper2db/.venv/bin/python3', '/Users/sinchunyeung/github/paper2db/scripts/preprocess_mc.py', '/Users/sinchunyeung/github/paper2db/paper/2020p1a.pdf', '/private/tmp/paper2db-batch/inter-2020/anchor.pdf', '--questions', '36', '--cover-pages', '1']' returned non-zero exit status 1.
+=== FAIL 2020 rc=1 pngs=36 combined=False 86s ===
+=== START 2021 (2021p1a.pdf) ===
+Note: no Q34-Q36 in this PDF; segmenting 33 questions.
+WARNING: could not confirm a number immediately beside the anchor for: Q1, Q5, Q7, Q9, Q12, Q14, Q16, Q24. Keeping the OCR position.
+page 2: rail_x=84.6 left=48.6 right=539.6 top=111.2 bottom=784.6 footer=786.6 marker_x=67.9 questions=3 first_pad=20.0
+page 3: rail_x=56.1 left=20.1 right=511.1 top=58.0 bottom=788.6 footer=790.6 marker_x=39.4 questions=3 first_pad=20.0
+page 4: rail_x=82.5 left=46.5 right=537.5 top=57.2 bottom=785.4 footer=787.4 marker_x=66.5 questions=3 first_pad=20.0
+page 5: rail_x=57.1 left=21.1 right=512.0 top=55.0 bottom=785.4 footer=787.4 marker_x=41.1 questions=3 first_pad=20.0
+page 6: rail_x=83.8 left=47.8 right=538.8 top=53.6 bottom=781.4 footer=783.4 marker_x=67.3 questions=2 first_pad=20.0
+page 7: rail_x=56.6 left=20.6 right=511.6 top=53.6 bottom=784.6 footer=786.6 marker_x=40.6 questions=2 first_pad=20.0
+page 8: rail_x=83.6 left=47.6 right=538.6 top=52.4 bottom=780.6 footer=782.6 marker_x=66.6 questions=4 first_pad=20.0
+page 9: rail_x=56.3 left=20.3 right=511.3 top=55.0 bottom=785.4 footer=787.4 marker_x=40.3 questions=3 first_pad=20.0
+page 10: rail_x=82.4 left=46.4 right=537.4 top=51.6 bottom=782.2 footer=784.2 marker_x=66.4 questions=3 first_pad=20.0
+page 11: rail_x=54.5 left=18.5 right=509.5 top=55.5 bottom=786.6 footer=788.6 marker_x=38.2 questions=2 first_pad=20.0
+page 12: rail_x=86.3 left=50.3 right=541.3 top=54.2 bottom=781.8 footer=783.8 marker_x=69.8 questions=2 first_pad=20.0
+page 13: rail_x=52.8 left=16.8 right=507.8 top=63.0 bottom=789.4 footer=791.4 marker_x=36.5 questions=3 first_pad=20.0
+Wrote /private/tmp/paper2db-batch/inter-2021/anchor.meta.json
+Wrote /private/tmp/paper2db-batch/inter-2021/anchor.pdf with 12 pages and 33 anchors.
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q1.png (945x540)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q2.png (945x305)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q3.png (945x237)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q4.png (921x505)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q5.png (945x458)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q6.png (945x352)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q7.png (943x508)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q8.png (943x336)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q9.png (943x514)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q10.png (943x271)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q11.png (943x429)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q12.png (944x244)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q13.png (944x474)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q14.png (944x579)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q15.png (943x528)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q16.png (932x571)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q17.png (945x446)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q18.png (945x536)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q19.png (884x153)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q20.png (921x150)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q21.png (943x243)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q22.png (943x485)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q23.png (943x451)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q24.png (943x368)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q25.png (943x401)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q26.png (943x490)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q27.png (943x530)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q28.png (931x880)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q29.png (944x434)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q30.png (944x493)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q31.png (943x180)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q32.png (943x150)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/q33.png (620x438)
+Wrote 33 questions to /Users/sinchunyeung/github/paper2db/output/2021 (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/2021/combined.pdf (33 pages)
+Paper type: MC (2021p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Wrote /private/tmp/paper2db-batch/inter-2021/anchor.pdf
+Wrote /private/tmp/paper2db-batch/inter-2021/anchor.meta.json
+Wrote 12 preview PNGs (page01.png, ...) in /private/tmp/paper2db-batch/inter-2021
+Review anchor.pdf (blue dots next to each question number), then run step 2.
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2021
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2021/combined.pdf
+=== OK 2021 rc=0 pngs=33 combined=True 110s ===
+=== START 2022 (2022p1a.pdf) ===
+Note: no Q34-Q36 in this PDF; segmenting 33 questions.
+WARNING: could not confirm a number immediately beside the anchor for: Q1, Q3, Q4, Q5, Q8, Q11, Q19, Q21. Keeping the OCR position.
+page 2: rail_x=74.3 left=38.3 right=529.3 top=114.1 bottom=782.5 footer=784.5 marker_x=57.5 questions=4 first_pad=20.0
+page 3: rail_x=66.4 left=30.4 right=521.4 top=59.5 bottom=782.9 footer=784.9 marker_x=50.4 questions=3 first_pad=20.0
+page 4: rail_x=73.6 left=37.6 right=528.6 top=61.0 bottom=782.9 footer=784.9 marker_x=56.3 questions=2 first_pad=20.0
+page 5: rail_x=66.7 left=30.7 right=521.7 top=61.0 bottom=784.5 footer=786.5 marker_x=50.5 questions=3 first_pad=20.0
+page 6: rail_x=72.6 left=36.6 right=527.6 top=57.5 bottom=780.1 footer=782.1 marker_x=56.1 questions=2 first_pad=20.0
+page 7: rail_x=65.4 left=29.4 right=520.4 top=59.0 bottom=782.1 footer=784.1 marker_x=49.4 questions=2 first_pad=20.0
+page 8: rail_x=71.0 left=35.0 right=526.0 top=56.8 bottom=780.1 footer=782.1 marker_x=53.8 questions=2 first_pad=20.0
+page 9: rail_x=63.7 left=27.7 right=518.7 top=59.2 bottom=782.1 footer=784.1 marker_x=46.4 questions=2 first_pad=20.0
+page 10: rail_x=72.1 left=36.1 right=527.1 top=59.4 bottom=782.1 footer=784.1 marker_x=56.1 questions=3 first_pad=20.0
+page 11: rail_x=65.7 left=29.7 right=520.7 top=59.6 bottom=782.5 footer=784.5 marker_x=49.2 questions=3 first_pad=20.0
+page 12: rail_x=69.2 left=33.2 right=524.2 top=59.6 bottom=782.9 footer=784.9 marker_x=52.9 questions=2 first_pad=20.0
+page 13: rail_x=68.5 left=32.5 right=523.5 top=60.0 bottom=783.7 footer=785.7 marker_x=50.7 questions=2 first_pad=20.0
+page 14: rail_x=70.4 left=34.4 right=525.4 top=62.5 bottom=782.9 footer=784.9 marker_x=54.1 questions=3 first_pad=20.0
+Wrote /private/tmp/paper2db-batch/inter-2022/anchor.meta.json
+Wrote /private/tmp/paper2db-batch/inter-2022/anchor.pdf with 13 pages and 33 anchors.
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q1.png (944x198)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q2.png (874x244)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q3.png (944x188)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q4.png (944x366)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q5.png (943x506)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q6.png (943x389)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q7.png (932x449)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q8.png (946x422)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q9.png (922x632)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q10.png (944x378)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q11.png (944x474)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q12.png (944x509)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q13.png (944x544)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q14.png (944x588)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q15.png (943x566)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q16.png (935x827)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q17.png (915x836)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q18.png (946x479)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q19.png (946x565)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q20.png (838x829)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q21.png (943x637)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q22.png (650x234)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q23.png (944x486)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q24.png (944x692)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q25.png (944x177)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q26.png (941x469)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q27.png (802x426)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q28.png (946x702)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q29.png (946x651)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q30.png (943x269)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q31.png (823x158)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q32.png (943x196)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/q33.png (620x339)
+Wrote 33 questions to /Users/sinchunyeung/github/paper2db/output/2022 (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/2022/combined.pdf (33 pages)
+Paper type: MC (2022p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Wrote /private/tmp/paper2db-batch/inter-2022/anchor.pdf
+Wrote /private/tmp/paper2db-batch/inter-2022/anchor.meta.json
+Wrote 13 preview PNGs (page01.png, ...) in /private/tmp/paper2db-batch/inter-2022
+Review anchor.pdf (blue dots next to each question number), then run step 2.
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2022
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2022/combined.pdf
+=== OK 2022 rc=0 pngs=33 combined=True 111s ===
+=== START 2023 (2023p1a.pdf) ===
+Note: no Q34-Q36 in this PDF; segmenting 33 questions.
+WARNING: could not confirm a number immediately beside the anchor for: Q3, Q5, Q6, Q8, Q9, Q27, Q32. Keeping the OCR position.
+page 2: rail_x=75.7 left=39.7 right=530.7 top=104.9 bottom=775.5 footer=777.5 marker_x=58.2 questions=3 first_pad=20.0
+page 3: rail_x=72.3 left=36.3 right=527.3 top=50.5 bottom=775.5 footer=777.5 marker_x=56.1 questions=3 first_pad=20.0
+page 4: rail_x=75.0 left=39.0 right=530.0 top=50.8 bottom=775.5 footer=777.5 marker_x=58.8 questions=2 first_pad=20.0
+page 5: rail_x=73.8 left=37.8 right=528.8 top=49.2 bottom=773.5 footer=775.5 marker_x=57.8 questions=2 first_pad=20.0
+page 6: rail_x=76.6 left=40.6 right=531.6 top=50.8 bottom=773.9 footer=775.9 marker_x=60.6 questions=2 first_pad=20.0
+page 7: rail_x=73.5 left=37.5 right=528.5 top=49.0 bottom=774.7 footer=776.7 marker_x=57.2 questions=2 first_pad=20.0
+page 8: rail_x=76.1 left=40.1 right=531.1 top=52.9 bottom=775.1 footer=777.1 marker_x=60.1 questions=2 first_pad=20.0
+page 9: rail_x=75.3 left=39.3 right=530.3 top=50.8 bottom=773.9 footer=775.9 marker_x=59.3 questions=3 first_pad=20.0
+page 10: rail_x=71.2 left=35.2 right=526.2 top=47.8 bottom=773.5 footer=775.5 marker_x=55.2 questions=3 first_pad=20.0
+page 11: rail_x=75.7 left=39.7 right=530.7 top=50.0 bottom=773.5 footer=775.5 marker_x=59.7 questions=2 first_pad=20.0
+page 12: rail_x=73.0 left=37.0 right=528.0 top=48.0 bottom=773.9 footer=775.9 marker_x=57.0 questions=3 first_pad=20.0
+page 13: rail_x=74.7 left=38.7 right=529.7 top=50.2 bottom=775.1 footer=777.1 marker_x=58.5 questions=3 first_pad=20.0
+page 14: rail_x=72.5 left=36.5 right=527.5 top=48.8 bottom=775.1 footer=777.1 marker_x=56.5 questions=3 first_pad=20.0
+Wrote /private/tmp/paper2db-batch/inter-2023/anchor.meta.json
+Wrote /private/tmp/paper2db-batch/inter-2023/anchor.pdf with 13 pages and 33 anchors.
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q1.png (946x270)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q2.png (946x460)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q3.png (945x507)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q4.png (483x244)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q5.png (943x530)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q6.png (943x478)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q7.png (943x481)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q8.png (943x415)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q9.png (943x528)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q10.png (943x880)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q11.png (943x528)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q12.png (943x425)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q13.png (943x591)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q14.png (921x404)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q15.png (943x529)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q16.png (942x496)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q17.png (943x330)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q18.png (943x504)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q19.png (942x483)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q20.png (615x248)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q21.png (943x610)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q22.png (943x475)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q23.png (943x521)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q24.png (943x874)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q25.png (771x461)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q26.png (943x390)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q27.png (944x503)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q28.png (944x316)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q29.png (944x461)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q30.png (944x500)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q31.png (943x293)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q32.png (869x341)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/q33.png (880x312)
+Wrote 33 questions to /Users/sinchunyeung/github/paper2db/output/2023 (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/2023/combined.pdf (33 pages)
+Paper type: MC (2023p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Wrote /private/tmp/paper2db-batch/inter-2023/anchor.pdf
+Wrote /private/tmp/paper2db-batch/inter-2023/anchor.meta.json
+Wrote 13 preview PNGs (page01.png, ...) in /private/tmp/paper2db-batch/inter-2023
+Review anchor.pdf (blue dots next to each question number), then run step 2.
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2023
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2023/combined.pdf
+=== OK 2023 rc=0 pngs=33 combined=True 127s ===
+=== START 2024 (2024p1a.pdf) ===
+Note: no Q34-Q36 in this PDF; segmenting 33 questions.
+WARNING: could not confirm a number immediately beside the anchor for: Q1, Q2, Q6, Q7, Q9, Q14, Q15, Q22, Q29, Q33. Keeping the OCR position.
+page 2: rail_x=66.5 left=30.5 right=521.5 top=117.6 bottom=777.7 footer=779.7 marker_x=49.5 questions=3 first_pad=20.0
+page 3: rail_x=76.7 left=40.7 right=531.7 top=51.2 bottom=774.1 footer=776.1 marker_x=60.5 questions=3 first_pad=20.0
+page 4: rail_x=67.7 left=31.7 right=522.7 top=54.0 bottom=779.3 footer=781.3 marker_x=51.7 questions=2 first_pad=20.0
+page 5: rail_x=76.7 left=40.7 right=531.7 top=55.0 bottom=778.1 footer=780.1 marker_x=60.7 questions=3 first_pad=20.0
+page 6: rail_x=71.4 left=35.4 right=526.4 top=56.2 bottom=781.7 footer=783.7 marker_x=52.4 questions=3 first_pad=20.0
+page 7: rail_x=77.4 left=41.4 right=532.4 top=54.8 bottom=778.1 footer=780.1 marker_x=61.4 questions=1 first_pad=20.0
+page 8: rail_x=68.3 left=32.3 right=523.3 top=57.2 bottom=782.5 footer=784.5 marker_x=52.3 questions=2 first_pad=20.0
+page 9: rail_x=66.5 left=30.5 right=521.5 top=56.6 bottom=782.1 footer=784.1 marker_x=49.5 questions=4 first_pad=20.0
+page 10: rail_x=72.6 left=36.6 right=527.6 top=59.0 bottom=782.1 footer=784.1 marker_x=56.6 questions=2 first_pad=20.0
+page 11: rail_x=68.0 left=32.0 right=523.0 top=56.8 bottom=781.3 footer=783.3 marker_x=52.0 questions=2 first_pad=20.0
+page 12: rail_x=76.5 left=40.5 right=531.5 top=58.0 bottom=781.7 footer=783.7 marker_x=57.5 questions=2 first_pad=20.0
+page 13: rail_x=67.4 left=31.4 right=522.4 top=52.6 bottom=778.5 footer=780.5 marker_x=51.4 questions=3 first_pad=20.0
+page 14: rail_x=74.7 left=38.7 right=529.7 top=54.4 bottom=778.1 footer=780.1 marker_x=58.7 questions=3 first_pad=20.0
+Wrote /private/tmp/paper2db-batch/inter-2024/anchor.meta.json
+Wrote /private/tmp/paper2db-batch/inter-2024/anchor.pdf with 13 pages and 33 anchors.
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q1.png (945x374)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q2.png (945x380)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q3.png (945x173)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q4.png (868x360)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q5.png (944x417)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q6.png (930x266)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q7.png (943x828)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q8.png (943x549)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q9.png (943x197)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q10.png (943x579)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q11.png (946x470)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q12.png (942x589)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q13.png (946x175)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q14.png (938x573)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q15.png (925x1428)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q16.png (943x564)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q17.png (943x509)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q18.png (945x435)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q19.png (945x397)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q20.png (945x176)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q21.png (937x153)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q22.png (943x610)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q23.png (943x411)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q24.png (943x471)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q25.png (942x439)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q26.png (949x576)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q27.png (949x599)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q28.png (931x413)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q29.png (943x432)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q30.png (943x523)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q31.png (926x245)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q32.png (943x179)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/q33.png (943x399)
+Wrote 33 questions to /Users/sinchunyeung/github/paper2db/output/2024 (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/2024/combined.pdf (33 pages)
+Paper type: MC (2024p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Wrote /private/tmp/paper2db-batch/inter-2024/anchor.pdf
+Wrote /private/tmp/paper2db-batch/inter-2024/anchor.meta.json
+Wrote 13 preview PNGs (page01.png, ...) in /private/tmp/paper2db-batch/inter-2024
+Review anchor.pdf (blue dots next to each question number), then run step 2.
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 33 questions -> /Users/sinchunyeung/github/paper2db/output/2024
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/2024/combined.pdf
+=== OK 2024 rc=0 pngs=33 combined=True 103s ===
+=== START 2025 (2025p1a.pdf) ===
+Could not locate question labels: [12, 34, 35, 36]. Add them to --overrides.
+Paper type: MC (2025p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Traceback (most recent call last):
+  File "/Users/sinchunyeung/github/paper2db/segment", line 362, in <module>
+    main()
+    ~~~~^^
+  File "/Users/sinchunyeung/github/paper2db/segment", line 326, in main
+    count = segment_mc(
+        pdf,
+    ...<5 lines>...
+        overrides=overrides,
+    )
+  File "/Users/sinchunyeung/github/paper2db/segment", line 243, in segment_mc
+    anchor_mc(
+    ~~~~~~~~~^
+        source,
+        ^^^^^^^
+    ...<3 lines>...
+        overrides=overrides,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/sinchunyeung/github/paper2db/segment", line 166, in anchor_mc
+    subprocess.run(pre_cmd, check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/Users/sinchunyeung/github/paper2db/.venv/bin/python3', '/Users/sinchunyeung/github/paper2db/scripts/preprocess_mc.py', '/Users/sinchunyeung/github/paper2db/paper/2025p1a.pdf', '/private/tmp/paper2db-batch/inter-2025/anchor.pdf', '--questions', '36', '--cover-pages', '1']' returned non-zero exit status 1.
+=== FAIL 2025 rc=1 pngs=36 combined=False 72s ===
+=== START 2026 (2026p1a.pdf) ===
+Could not locate question labels: [2, 3, 34, 35, 36]. Add them to --overrides.
+Paper type: MC (2026p1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Traceback (most recent call last):
+  File "/Users/sinchunyeung/github/paper2db/segment", line 362, in <module>
+    main()
+    ~~~~^^
+  File "/Users/sinchunyeung/github/paper2db/segment", line 326, in main
+    count = segment_mc(
+        pdf,
+    ...<5 lines>...
+        overrides=overrides,
+    )
+  File "/Users/sinchunyeung/github/paper2db/segment", line 243, in segment_mc
+    anchor_mc(
+    ~~~~~~~~~^
+        source,
+        ^^^^^^^
+    ...<3 lines>...
+        overrides=overrides,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/sinchunyeung/github/paper2db/segment", line 166, in anchor_mc
+    subprocess.run(pre_cmd, check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/Users/sinchunyeung/github/paper2db/.venv/bin/python3', '/Users/sinchunyeung/github/paper2db/scripts/preprocess_mc.py', '/Users/sinchunyeung/github/paper2db/paper/2026p1a.pdf', '/private/tmp/paper2db-batch/inter-2026/anchor.pdf', '--questions', '36', '--cover-pages', '1']' returned non-zero exit status 1.
+=== FAIL 2026 rc=1 pngs=36 combined=False 87s ===
+=== START pp (ppp1a.pdf) ===
+WARNING: could not confirm a number immediately beside the anchor for: Q1, Q2, Q5, Q7, Q9, Q31. Keeping the OCR position.
+page 2: rail_x=65.5 left=29.5 right=520.5 top=105.0 bottom=765.5 footer=767.5 marker_x=49.0 questions=2 first_pad=20.0
+page 3: rail_x=64.0 left=28.0 right=519.0 top=46.9 bottom=766.4 footer=768.4 marker_x=48.0 questions=3 first_pad=20.0
+page 4: rail_x=64.9 left=28.9 right=519.9 top=47.0 bottom=766.4 footer=768.4 marker_x=48.9 questions=3 first_pad=20.0
+page 5: rail_x=65.6 left=29.6 right=520.6 top=47.0 bottom=766.4 footer=768.4 marker_x=49.3 questions=2 first_pad=20.0
+page 6: rail_x=66.2 left=30.2 right=521.2 top=47.4 bottom=766.4 footer=768.4 marker_x=50.2 questions=2 first_pad=20.0
+page 7: rail_x=65.7 left=29.7 right=520.7 top=47.0 bottom=766.4 footer=768.4 marker_x=49.7 questions=2 first_pad=20.0
+page 8: rail_x=65.7 left=29.7 right=520.7 top=46.9 bottom=766.4 footer=768.4 marker_x=49.7 questions=2 first_pad=20.0
+page 9: rail_x=66.4 left=30.4 right=521.4 top=46.9 bottom=766.4 footer=768.4 marker_x=50.4 questions=2 first_pad=20.0
+page 10: rail_x=65.6 left=29.6 right=520.6 top=47.0 bottom=766.4 footer=768.4 marker_x=49.6 questions=2 first_pad=20.0
+page 11: rail_x=65.2 left=29.2 right=520.2 top=46.9 bottom=766.4 footer=768.4 marker_x=49.2 questions=1 first_pad=20.0
+page 12: rail_x=65.2 left=29.2 right=520.2 top=46.9 bottom=766.4 footer=768.4 marker_x=49.2 questions=3 first_pad=20.0
+page 13: rail_x=64.7 left=28.7 right=519.7 top=47.0 bottom=766.4 footer=768.4 marker_x=48.7 questions=3 first_pad=20.0
+page 14: rail_x=64.8 left=28.8 right=519.8 top=46.4 bottom=766.4 footer=768.4 marker_x=48.8 questions=3 first_pad=20.0
+page 15: rail_x=65.0 left=29.0 right=520.0 top=46.9 bottom=766.4 footer=768.4 marker_x=49.0 questions=3 first_pad=20.0
+page 16: rail_x=64.8 left=28.8 right=519.8 top=46.9 bottom=765.6 footer=767.6 marker_x=48.8 questions=3 first_pad=20.0
+Wrote /private/tmp/paper2db-batch/inter-pp/anchor.meta.json
+Wrote /private/tmp/paper2db-batch/inter-pp/anchor.pdf with 15 pages and 36 anchors.
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q1.png (944x675)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q2.png (944x549)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q3.png (924x218)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q4.png (943x500)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q5.png (943x439)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q6.png (943x391)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q7.png (943x172)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q8.png (944x442)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q9.png (944x444)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q10.png (944x891)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q11.png (943x441)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q12.png (943x523)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q13.png (943x725)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q14.png (943x490)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q15.png (943x521)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q16.png (851x151)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q17.png (943x613)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q18.png (943x682)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q19.png (943x400)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q20.png (943x426)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q21.png (943x1020)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q22.png (943x424)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q23.png (943x178)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q24.png (943x383)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q25.png (943x424)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q26.png (943x195)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q27.png (943x426)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q28.png (943x455)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q29.png (943x413)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q30.png (943x414)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q31.png (943x514)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q32.png (943x223)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q33.png (943x557)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q34.png (734x252)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q35.png (943x408)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/q36.png (871x578)
+Wrote 36 questions to /Users/sinchunyeung/github/paper2db/output/pp (from original PDF)
+Wrote /Users/sinchunyeung/github/paper2db/output/pp/combined.pdf (36 pages)
+Paper type: MC (ppp1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Wrote /private/tmp/paper2db-batch/inter-pp/anchor.pdf
+Wrote /private/tmp/paper2db-batch/inter-pp/anchor.meta.json
+Wrote 15 preview PNGs (page01.png, ...) in /private/tmp/paper2db-batch/inter-pp
+Review anchor.pdf (blue dots next to each question number), then run step 2.
+=== MC step 2/2: split into PNGs (no blue dots) ===
+Wrote 36 questions -> /Users/sinchunyeung/github/paper2db/output/pp
+Review PDF -> /Users/sinchunyeung/github/paper2db/output/pp/combined.pdf
+=== OK pp rc=0 pngs=36 combined=True 131s ===
+=== START sap (sapp1a.pdf) ===
+WARNING: could not confirm a number immediately beside the anchor for: Q9. Keeping the OCR position.
+Rejected out-of-order labels: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
+Could not locate question labels after number-beside-anchor check: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36].
+Paper type: MC (sapp1a.pdf)
+=== MC step 1/2: place anchors (blue dots) ===
+Traceback (most recent call last):
+  File "/Users/sinchunyeung/github/paper2db/segment", line 362, in <module>
+    main()
+    ~~~~^^
+  File "/Users/sinchunyeung/github/paper2db/segment", line 326, in main
+    count = segment_mc(
+        pdf,
+    ...<5 lines>...
+        overrides=overrides,
+    )
+  File "/Users/sinchunyeung/github/paper2db/segment", line 243, in segment_mc
+    anchor_mc(
+    ~~~~~~~~~^
+        source,
+        ^^^^^^^
+    ...<3 lines>...
+        overrides=overrides,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/sinchunyeung/github/paper2db/segment", line 166, in anchor_mc
+    subprocess.run(pre_cmd, check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/Users/sinchunyeung/github/paper2db/.venv/bin/python3', '/Users/sinchunyeung/github/paper2db/scripts/preprocess_mc.py', '/Users/sinchunyeung/github/paper2db/paper/sapp1a.pdf', '/private/tmp/paper2db-batch/inter-sap/anchor.pdf', '--questions', '36', '--cover-pages', '1']' returned non-zero exit status 1.
+=== FAIL sap rc=1 pngs=36 combined=False 71s ===
+FAILED: 2018, 2019, 2020, 2025, 2026, sap
+DONE
+
+---
+exit_code: 0
+elapsed_ms: 1937259
+ended_at: 2026-09-02T10:39:45.633Z
+---

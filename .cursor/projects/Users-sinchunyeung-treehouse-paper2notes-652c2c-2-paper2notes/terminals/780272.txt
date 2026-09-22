@@ -1,0 +1,36 @@
+---
+pid: 92534
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/2/paper2notes"
+command: "node --test notes/book5/ch01-radiation-and-radioactivity/js/notes.interactives.test.mjs"
+title: "Run notes interactive Chrome tests"
+status: succeeded
+started_at: 2026-09-09T07:53:50.919Z
+running_for_ms: 37774    
+---
+compdef:153: _comps: assignment to invalid subscript range
+▶ Book 5 Ch.1 notes interactives
+  ✔ 25.1 spectrum is static with the ionizing cut after UV (4189.563708ms)
+  ✔ 25.1 imaging is X-rays down onto bone beside flesh, white film under bone (3855.564833ms)
+  ✔ 25.2 pie wedge is 20% and Pu-239 bookkeeping is static n_α=8 (2478.793875ms)
+  ✔ 25.3 absorber presets follow paper/Al/Pb contribution rules (1208.096333ms)
+  ✔ 25.3 GM extra recomputes when the plastic grid toggles (3889.663167ms)
+  ✔ 25.3 identification graph keeps taken yes/no edges (1127.626375ms)
+  ✔ 25.1 knockout ejects the bound electron already on the atom (3844.547333ms)
+  ✔ 25.3 ion-pair capture, Flip B marks, and β/γ check (5057.546416ms)
+  ✔ chapter map, summary, and concept-check scoring are the public notes surface (867.256375ms)
+  ✔ 3d scenes magnify, label the tube, keep β drift, and pulse radially (9001.923792ms)
+✔ Book 5 Ch.1 notes interactives (36703.935584ms)
+ℹ tests 10
+ℹ suites 1
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 37032.680375
+
+---
+exit_code: 0
+elapsed_ms: 37774
+ended_at: 2026-09-09T07:54:28.693Z
+---

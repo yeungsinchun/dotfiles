@@ -1,0 +1,58 @@
+---
+pid: 39904
+cwd: "/Users/sinchunyeung/.treehouse/paper2notes-652c2c/5/paper2notes"
+command: "python3 -m http.server 4173 --bind 127.0.0.1"
+title: "Serve Book 5 static notes locally"
+status: running  
+started_at: 2026-09-15T03:11:24.730Z
+running_for_ms: 38645377 
+---
+127.0.0.1 - - [15/Sep/2026 11:11:34] "HEAD /notes/book5/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:54:31] "GET /notes/book5/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:54:31] "GET /notes/book5/ch01-radiation-and-radioactivity/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:54:31] "GET /notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:55:11] "GET /notes/book5/_local/dse/mc/26/2023_q31.png HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:55:11] "GET /notes/book5/_local/dse/mc/25/2019_q31.png HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:55:24] "GET /notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:55:24] "GET /notes/book5/css/notes.css HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:55:24] "GET /notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/css/notes.css HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:55:24] "GET /notes/book5/_local/dse/mc/26/2023_q31.png HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:55:24] "GET /notes/book5/vendor/katex/katex.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:55:24] "GET /notes/book5/vendor/katex/katex.min.css HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:55:24] "GET /notes/book5/vendor/katex/auto-render.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:55:24] "GET /notes/book5/js/checks.js HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:55:24] "GET /notes/book5/js/math.js HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:55:24] "GET /notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/lib/three.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:55:24] "GET /notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/diagrams3d.js HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:55:24] "GET /notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.js HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:55:25] "GET /notes/book5/vendor/katex/fonts/KaTeX_Math-Italic.woff2 HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:55:25] "GET /notes/book5/vendor/katex/fonts/KaTeX_Main-Regular.woff2 HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:55:25] "GET /notes/book5/vendor/katex/fonts/KaTeX_Size1-Regular.woff2 HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:55:25] code 404, message File not found
+127.0.0.1 - - [15/Sep/2026 12:55:25] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [15/Sep/2026 12:57:08] "GET /notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/26-1.html HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:57:08] "GET /notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/css/notes.css HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:57:08] "GET /notes/book5/vendor/katex/katex.min.css HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:57:08] "GET /notes/book5/css/notes.css HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:57:08] "GET /notes/book5/vendor/katex/katex.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:57:08] "GET /notes/book5/_local/dse/mc/26/2023_q31.png HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:57:08] "GET /notes/book5/vendor/katex/auto-render.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:57:08] "GET /notes/book5/js/checks.js HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:57:08] "GET /notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/lib/three.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:57:08] "GET /notes/book5/js/math.js HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:57:08] "GET /notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/diagrams3d.js HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:57:08] "GET /notes/book5/ch02-rate-of-decay-and-uses-of-radionuclides/js/notes.js HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:57:09] "GET /notes/book5/vendor/katex/fonts/KaTeX_Math-Italic.woff2 HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:57:09] "GET /notes/book5/vendor/katex/fonts/KaTeX_Main-Regular.woff2 HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:57:09] "GET /notes/book5/vendor/katex/fonts/KaTeX_Size1-Regular.woff2 HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 12:57:09] code 404, message File not found
+127.0.0.1 - - [15/Sep/2026 12:57:09] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [15/Sep/2026 13:15:31] "GET /notes/book5/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 13:16:54] "GET /notes/book5/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2026 13:17:18] "GET /notes/book5/ HTTP/1.1" 200 -
+
+---
+exit_code: unknown
+elapsed_ms: 38648307
+ended_at: 2026-09-15T13:55:33.037Z
+---

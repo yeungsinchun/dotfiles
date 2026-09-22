@@ -1,0 +1,57 @@
+---
+pid: 17986
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1PM5KP29NSQ1CZRZQPBA9TH"
+command: "WT=/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1PM5KP29NSQ1CZRZQPBA9TH\nEV=/Users/sinchunyeung/.no-mistakes/evidence/01M1PM5KP29NSQ1CZRZQPBA9TH\nP1=\"$WT/build/simplify\"\nP0=/tmp/p0-simplify-src/build/simplify\n{\n  echo '=== P1 Frechet ID 8 e=0.5 d=200 ==='\n  \"$P1\" 8 --dist -e 0.5 -d 200\n  echo '=== P0 Frechet ID 8 e=0.5 d=200 ==='\n  \"$P0\" 8 --dist -e 0.5 -d 200\n  echo '=== P1 Frechet ID 1 e=299 d=1 ==='\n  \"$P1\" 1 --dist -e 299 -d 1\n  echo '=== P0 Frechet ID 1 e=299 d=1 ==='\n  \"$P0\" 1 --dist -e 299 -d 1\n  echo '=== P1 Frechet ID 7 e=0.5 d=200 ==='\n  \"$P1\" 7 --dist -e 0.5 -d 200\n  echo '=== P0 Frechet ID 7 e=0.5 d=200 ==='\n  \"$P0\" 7 --dist -e 0.5 -d 200\n} > \"$EV/frechet_p0_p1.txt\" 2>&1\ncat \"$EV/frechet_p0_p1.txt\""
+title: "Run Frechet --dist on sampled IDs for P0 and P1"
+status: succeeded
+started_at: 2026-09-04T16:39:53.338Z
+running_for_ms: 42590    
+---
+=== P1 Frechet ID 8 e=0.5 d=200 ===
+Input file: /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1PM5KP29NSQ1CZRZQPBA9TH/data/8/original.txt
+Output file: /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1PM5KP29NSQ1CZRZQPBA9TH/data/8/simplify.txt
+Loaded 5 points.
+SIMPLIFY_CORE_MS: 0.6095
+Calculating Frechet distance...
+291.547594742265
+=== P0 Frechet ID 8 e=0.5 d=200 ===
+Input file: /private/tmp/p0-simplify-src/data/8/original.txt
+Output file: /private/tmp/p0-simplify-src/data/8/simplify.txt
+Loaded 5 points.
+SIMPLIFY_CORE_MS: 0.2157
+Calculating Frechet distance...
+291.547594742265
+=== P1 Frechet ID 1 e=299 d=1 ===
+Input file: /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1PM5KP29NSQ1CZRZQPBA9TH/data/1/original.txt
+Output file: /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1PM5KP29NSQ1CZRZQPBA9TH/data/1/simplify.txt
+Loaded 588 points.
+SIMPLIFY_CORE_MS: 4.0096
+Calculating Frechet distance...
+299.00000000000034
+=== P0 Frechet ID 1 e=299 d=1 ===
+Input file: /private/tmp/p0-simplify-src/data/1/original.txt
+Output file: /private/tmp/p0-simplify-src/data/1/simplify.txt
+Loaded 588 points.
+SIMPLIFY_CORE_MS: 4.0206
+Calculating Frechet distance...
+299.00000000000034
+=== P1 Frechet ID 7 e=0.5 d=200 ===
+Input file: /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1PM5KP29NSQ1CZRZQPBA9TH/data/7/original.txt
+Output file: /Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1PM5KP29NSQ1CZRZQPBA9TH/data/7/simplify.txt
+Loaded 454 points.
+SIMPLIFY_CORE_MS: 14.4328
+Calculating Frechet distance...
+300.00000000000017
+=== P0 Frechet ID 7 e=0.5 d=200 ===
+Input file: /private/tmp/p0-simplify-src/data/7/original.txt
+Output file: /private/tmp/p0-simplify-src/data/7/simplify.txt
+Loaded 454 points.
+SIMPLIFY_CORE_MS: 15.4129
+Calculating Frechet distance...
+300.00000000000017
+
+---
+exit_code: 0
+elapsed_ms: 42590
+ended_at: 2026-09-04T16:40:35.928Z
+---

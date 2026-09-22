@@ -1,0 +1,54 @@
+---
+pid: 16047
+cwd: "/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ"
+command: "EVIDENCE=/Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ\nWT=/Users/sinchunyeung/.no-mistakes/worktrees/7d81b6129e55/01M1QWFBE5HSX551ZQSMR8QJAZ\ncd \"$WT\"\nmkdir -p .tmp_pypath\npip3 install --target \"$WT/.tmp_pypath\" websocket-client -q\n\nPYTHONPATH=\"$WT/.tmp_pypath\" python3 - <<'PY'\nimport json, subprocess, time, urllib.request, base64\nfrom pathlib import Path\nimport websocket\n\nEVIDENCE = Path(\"/Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ\")\nCHROME = \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\"\nBASE = \"http://127.0.0.1:5055\"\nPORT = 9223\n\nsubprocess.run([\"pkill\", \"-f\", \"remote-debugging-port=922\"], stderr=subprocess.DEVNULL)\ntime.sleep(0.5)\n\nproc = subprocess.Popen([\n    CHROME, f\"--remote-debugging-port={PORT}\", \"--remote-allow-origins=*\",\n    \"--headless=new\", \"--disable-gpu\",\n    \"--user-data-dir=/tmp/chrome-dots-compare-e2e3\",\n    \"--window-size=1600,1000\", \"about:blank\"\n], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)\ntime.sleep(2.0)\n\nwith urllib.request.urlopen(f\"http://127.0.0.1:{PORT}/json/version\") as r:\n    browser_ws = json.loads(r.read())[\"webSocketDebuggerUrl\"]\n\nclass CDP:\n    def __init__(self, url):\n        self.ws = websocket.create_connection(url, timeout=120)\n        self.ws.settimeout(120)\n        self.id = 0\n    def call(self, method, params=None, timeout=120):\n        self.id += 1\n        msg = {\"id\": self.id, \"method\": method}\n        if params:\n            msg[\"params\"] = params\n        self.ws.send(json.dumps(msg))\n        deadline = time.time() + timeout\n        while time.time() < deadline:\n            try:\n                data = json.loads(self.ws.recv())\n            except Exception as e:\n                if time.time() > deadline:\n                    raise\n                time.sleep(0.05)\n                continue\n            if data.get(\"id\") == self.id:\n                if \"error\" in data:\n                    raise RuntimeError(data[\"error\"])\n                return data.get(\"result\", {})\n        raise TimeoutError(method)\n    def close(self):\n        try: self.ws.close()\n        except Exception: pass\n\nbrowser = CDP(browser_ws)\ntarget = browser.call(\"Target.createTarget\", {\"url\": \"about:blank\"})\ntarget_id = target[\"targetId\"]\nwith urllib.request.urlopen(f\"http://127.0.0.1:{PORT}/json/list\") as r:\n    pages = json.loads(r.read())\npage_ws = next(p[\"webSocketDebuggerUrl\"] for p in pages if p.get(\"id\") == target_id)\npage = CDP(page_ws)\npage.call(\"Page.enable\")\npage.call(\"Runtime.enable\")\n\ndef navigate(url):\n    page.call(\"Page.navigate\", {\"url\": url})\n    for _ in range(50):\n        state = page.call(\"Runtime.evaluate\", {\"expression\": \"document.readyState\", \"returnByValue\": True})\n        if state.get(\"result\", {}).get(\"value\") == \"complete\":\n            break\n        time.sleep(0.2)\n    time.sleep(1.0)\n\ndef eval_js(expr, await_promise=False, timeout=120):\n    r = page.call(\"Runtime.evaluate\", {\n        \"expression\": expr,\n        \"awaitPromise\": await_promise,\n        \"returnByValue\": True,\n    }, timeout=timeout)\n    if r.get(\"exceptionDetails\"):\n        raise RuntimeError(json.dumps(r[\"exceptionDetails\"]))\n    return r.get(\"result\", {}).get(\"value\")\n\ndef screenshot(path):\n    r = page.call(\"Page.captureScreenshot\", {\"format\": \"png\", \"fromSurface\": True})\n    Path(path).write_bytes(base64.b64decode(r[\"data\"]))\n    print(\"wrote\", path.name, Path(path).stat().st_size)\n\nnavigate(BASE + \"/\")\n\n# Load + wait for simplify stream to finish (status text)\nload = eval_js(\"\"\"\n(async () => {\n  document.getElementById('loadBtn').click();\n  for (let i=0;i<80;i++) {\n    await new Promise(r => setTimeout(r, 250));\n    const metrics = document.querySelector('.params')?.innerText || '';\n    if (/Simplification time/i.test(metrics) && /simplified/i.test(metrics)) return metrics.slice(0,200);\n  }\n  return 'timeout';\n})()\n\"\"\", await_promise=True)\nprint(\"load\", load)\ntime.sleep(1.5)\nscreenshot(EVIDENCE / \"ui-after-load-trace.png\")\n\nresults = {}\nfor algo, shot, metrics_file in [\n    (\"DOTS\", \"ui-compare-pane-after-dots-run.png\", \"ui-metrics-dots.txt\"),\n    (\"DP\", \"ui-compare-pane-after-dp-run.png\", \"ui-metrics-dp.txt\"),\n    (\"SQUISH\", \"ui-compare-pane-after-squish-run.png\", \"ui-metrics-squish.txt\"),\n]:\n    # Click algo + run as separate sync calls to avoid long await holding the socket idle poorly\n    clicked = eval_js(f\"\"\"\n(() => {{\n  const pills = [...document.querySelectorAll('#baselineAlgoRow button')];\n  const algoBtn = pills.find(b => b.textContent.trim().toUpperCase() === '{algo}');\n  if (!algoBtn) return 'missing';\n  algoBtn.click();\n  return 'clicked:' + algoBtn.textContent.trim();\n}})()\n\"\"\")\n    print(algo, clicked)\n    time.sleep(0.2)\n    eval_js(\"document.getElementById('baselineRunBtn').click()\")\n    # poll status with short sync evaluates\n    status = ''\n    for i in range(60):\n        time.sleep(0.35)\n        status = eval_js(\"document.getElementById('baselineStatus')?.textContent || ''\") or ''\n        if status and ('ready' in status.lower() or 'error' in status.lower() or 'fail' in status.lower() or 'not found' in status.lower()):\n            break\n    table = eval_js(\"document.getElementById('compareMetricsTable')?.innerText || ''\") or ''\n    print(algo, \"status=\", status)\n    print(algo, \"table=\", repr(table[:180]))\n    time.sleep(0.5)\n    screenshot(EVIDENCE / shot)\n    Path(EVIDENCE / metrics_file).write_text(table)\n    results[algo.lower()] = {\"status\": status, \"table\": table}\n\n# Full UI chrome after all three\nscreenshot(EVIDENCE / \"ui-compare-pane-chrome.png\")\n# Also keep an initial-ish by reloading? skip\nPath(EVIDENCE / \"ui-metrics-all.json\").write_text(json.dumps(results, indent=2))\nprint(json.dumps(results, indent=2))\n\npage.close(); browser.close(); proc.terminate()\nprint(\"DONE\")\nPY\n\n# cleanup\nrm -rf \"$WT/.tmp_pypath\"\npkill -f \"remote-debugging-port=922\" 2>/dev/null || true\nrm -rf /tmp/chrome-dots-compare-e2e3 2>/dev/null || true\nls -la \"$EVIDENCE\"/ui-*.png\n# verify screenshots look like real UI (size + read first)\nfile \"$EVIDENCE\"/ui-compare-pane-after-dots-run.png \"$EVIDENCE\"/ui-compare-pane-after-dp-run.png \"$EVIDENCE\"/ui-compare-pane-after-squish-run.png\n"
+title: "Fresh baseline UI screenshots with polling"
+status: succeeded
+started_at: 2026-09-05T15:02:57.209Z
+running_for_ms: 108525   
+---
+load timeout
+wrote ui-after-load-trace.png 64459
+DOTS clicked:DOTS
+DOTS status= Selected DOTS. Load a preloaded trace to run the benchmark.
+DOTS table= '\n              \n                MetricSimplifyDOTS\n              \n              Load a trace, then run a baseline.\n            '
+wrote ui-compare-pane-after-dots-run.png 66872
+DP clicked:DP
+DP status= Selected DOTS, DP. Load a preloaded trace to run the benchmark.
+DP table= '\n              \n                MetricSimplifyDOTSDP\n              \n              Load a trace, then run a baseline.\n            '
+wrote ui-compare-pane-after-dp-run.png 67715
+SQUISH clicked:SQUISH
+SQUISH status= Selected DOTS, DP, SQUISH. Load a preloaded trace to run the benchmark.
+SQUISH table= '\n              \n                MetricSimplifyDOTSDPSQUISH\n              \n              Load a trace, then run a baseline.\n            '
+wrote ui-compare-pane-after-squish-run.png 68252
+wrote ui-compare-pane-chrome.png 68252
+{
+  "dots": {
+    "status": "Selected DOTS. Load a preloaded trace to run the benchmark.",
+    "table": "\n              \n                MetricSimplifyDOTS\n              \n              Load a trace, then run a baseline.\n            "
+  },
+  "dp": {
+    "status": "Selected DOTS, DP. Load a preloaded trace to run the benchmark.",
+    "table": "\n              \n                MetricSimplifyDOTSDP\n              \n              Load a trace, then run a baseline.\n            "
+  },
+  "squish": {
+    "status": "Selected DOTS, DP, SQUISH. Load a preloaded trace to run the benchmark.",
+    "table": "\n              \n                MetricSimplifyDOTSDPSQUISH\n              \n              Load a trace, then run a baseline.\n            "
+  }
+}
+DONE
+-rw-r--r--@ 1 sinchunyeung  staff  64459 Sep  5 23:03 /Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ/ui-after-load-trace.png
+-rw-r--r--@ 1 sinchunyeung  staff  66872 Sep  5 23:03 /Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ/ui-compare-pane-after-dots-run.png
+-rw-r--r--@ 1 sinchunyeung  staff  67715 Sep  5 23:04 /Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ/ui-compare-pane-after-dp-run.png
+-rw-r--r--@ 1 sinchunyeung  staff  68252 Sep  5 23:04 /Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ/ui-compare-pane-after-squish-run.png
+-rw-r--r--@ 1 sinchunyeung  staff  68252 Sep  5 23:04 /Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ/ui-compare-pane-chrome.png
+-rw-r--r--@ 1 sinchunyeung  staff  59742 Sep  5 23:02 /Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ/ui-compare-pane-initial.png
+/Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ/ui-compare-pane-after-dots-run.png:   PNG image data, 1600 x 913, 8-bit/color RGB, non-interlaced
+/Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ/ui-compare-pane-after-dp-run.png:     PNG image data, 1600 x 913, 8-bit/color RGB, non-interlaced
+/Users/sinchunyeung/.no-mistakes/evidence/01M1QWFBE5HSX551ZQSMR8QJAZ/ui-compare-pane-after-squish-run.png: PNG image data, 1600 x 913, 8-bit/color RGB, non-interlaced
+
+---
+exit_code: 0
+elapsed_ms: 108525
+ended_at: 2026-09-05T15:04:45.734Z
+---

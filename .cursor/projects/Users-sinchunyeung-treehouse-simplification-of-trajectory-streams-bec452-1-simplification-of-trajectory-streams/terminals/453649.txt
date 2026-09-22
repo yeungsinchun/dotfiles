@@ -1,0 +1,47 @@
+---
+pid: 48053
+cwd: "/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/1/simplification-of-trajectory-streams"
+command: "# Isolate new runs into a copy so baseline/new data dirs don't collide\nrm -rf /tmp/simplify-new\nmkdir -p /tmp/simplify-new\n# new binary stays in repo build-release; run with cwd that has data + scripts\ncp -R data /tmp/simplify-new/data\nmkdir -p /tmp/simplify-new/scripts\ncp scripts/frechet.jl /tmp/simplify-new/scripts/\n# Binary resolves repo_root from argv[0]; put a wrapper or copy binary next to data\ncp build-release/simplify /tmp/simplify-new/simplify\n# Also need the binary to find data via argv[0] parent walk - put binary in /tmp/simplify-new/\n# get_repo_root walks from argv[0]; /tmp/simplify-new/simplify -> /tmp/simplify-new has data/\n\npython3 scripts/local_ci_gate.py \\\n  --baseline /tmp/simplify-baseline/build/simplify \\\n  --baseline-cwd /tmp/simplify-baseline \\\n  --new /tmp/simplify-new/simplify \\\n  --new-cwd /tmp/simplify-new \\\n  --epsilon 299 --delta 1 \\\n  --bench-runs 3 2>&1 | tee results/p0_ci_gate.log\necho EXIT:$?"
+title: "Run local CI gate for P0 vs baseline"
+status: succeeded
+started_at: 2026-09-04T15:21:45.053Z
+running_for_ms: 235911   
+---
+Gate params: e=299.0 d=1.0 dist_tol=0.01 points_tol=0 slowdown=1.5x min_ms=20.0
+baseline=/tmp/simplify-baseline/build/simplify
+new     =/tmp/simplify-new/simplify
+
+=== Correctness (Frechet + points) ===
+  id     orig_dist      new_dist      d_dist  orig_pts   new_pts   d_pts  status
+   1    299.000000    299.000000    0.000000        92        92       0  OK
+   2    299.002120    299.002120    0.000000       516       516       0  OK
+   3    299.002245    299.002245    0.000000       120       120       0  OK
+   4    299.000000    299.000000    0.000000        66        66       0  OK
+   5    299.002784    299.002784    0.000000       176       176       0  OK
+   6    299.000000    299.000000    0.000000        52        52       0  OK
+   7    299.000000    299.000000    0.000000       156       156       0  OK
+   8    299.000000    299.000000    0.000000         6         6       0  OK
+   9    299.001589    299.001589    0.000000       186       186       0  OK
+  10    299.000000    299.000000    0.000000       204       204       0  OK
+
+=== Benchmark (avg of 3, limit 1.5x) ===
+  id     prev_ms      new_ms     ratio  status
+   1      4.4449      5.4200     1.219  OK
+   2     10.2963     11.1947     1.087  OK
+   3      8.4096     10.4307     1.240  OK
+   4      5.2032      6.6129     1.271  OK
+   5      4.8141      5.5702     1.157  OK
+   6      4.5873      5.8471     1.275  OK
+   7      2.8761      3.1462     1.094  OK
+   8      0.0670      0.0587     0.876  OK
+   9      3.9477      4.5377     1.149  OK
+  10     39.3425     51.0650     1.298  OK
+
+✅ Local CI gate OK
+EXIT:0
+
+---
+exit_code: 0
+elapsed_ms: 235909
+ended_at: 2026-09-04T15:25:40.962Z
+---

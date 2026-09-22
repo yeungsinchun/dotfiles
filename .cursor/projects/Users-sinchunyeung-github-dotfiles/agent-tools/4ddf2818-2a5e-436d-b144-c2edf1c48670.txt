@@ -1,0 +1,799 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://mintlify.com/tmux/tmux/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Options Reference
+
+> Comprehensive reference for all tmux server, session, window, and pane options
+
+This page provides a comprehensive reference for all tmux options. Options control various aspects of tmux behavior and can be set at different scopes: server-wide, per-session, per-window, or per-pane.
+
+## Server Options
+
+Server options affect the entire tmux server and all sessions.
+
+### backspace
+
+**Type:** Key\
+**Default:** `^?` (ASCII 127)\
+**Description:** The key to send for backspace.
+
+### buffer-limit
+
+**Type:** Number\
+**Range:** 1 to INT\_MAX\
+**Default:** 50\
+**Description:** The maximum number of automatic buffers. When this is reached, the oldest buffer is deleted.
+
+### command-alias
+
+**Type:** Array of strings\
+**Default:** `split-pane=split-window,splitp=split-window,server-info=show-messages -JT,info=show-messages -JT,choose-window=choose-tree -w,choose-session=choose-tree -s`\
+**Description:** Array of command aliases. Each entry is an alias and a command separated by '='.
+
+### copy-command
+
+**Type:** String\
+**Default:** "" (empty)\
+**Description:** Shell command run when text is copied. If empty, no command is run.
+
+### default-client-command
+
+**Type:** Command\
+**Default:** `new-session`\
+**Description:** Default command to run when tmux is run without a command.
+
+### default-terminal
+
+**Type:** String\
+**Default:** `tmux-256color` (varies by build)\
+**Description:** Default for the 'TERM' environment variable.
+
+### editor
+
+**Type:** String\
+**Default:** `/usr/bin/vi`\
+**Description:** Editor run to edit files.
+
+### escape-time
+
+**Type:** Number\
+**Range:** 0 to INT\_MAX\
+**Default:** 10 milliseconds\
+**Description:** Time to wait before assuming a key is Escape.
+
+### exit-empty
+
+**Type:** Flag\
+**Default:** on\
+**Description:** Whether the server should exit if there are no sessions.
+
+### exit-unattached
+
+**Type:** Flag\
+**Default:** off\
+**Description:** Whether the server should exit if there are no attached clients.
+
+### extended-keys
+
+**Type:** Choice\
+**Choices:** off, on, always\
+**Default:** off\
+**Description:** Whether to request extended key sequences from terminals that support it.
+
+### extended-keys-format
+
+**Type:** Choice\
+**Choices:** csi-u, xterm\
+**Default:** xterm\
+**Description:** The format of emitted extended key sequences.
+
+### focus-events
+
+**Type:** Flag\
+**Default:** off\
+**Description:** Whether to send focus events to applications.
+
+### get-clipboard
+
+**Type:** Choice\
+**Choices:** off, buffer, request, both\
+**Default:** buffer\
+**Description:** When an application requests the clipboard, whether to ignore the request ('off'); respond with the newest buffer ('buffer'); request the clipboard from the most recently used terminal ('request'); or to request the clipboard, create a buffer, and send it to the application ('both').
+
+### history-file
+
+**Type:** String\
+**Default:** "" (empty)\
+**Description:** Location of the command prompt history file. Empty does not write a history file.
+
+### input-buffer-size
+
+**Type:** Number\
+**Default:** 65536 bytes\
+**Description:** Number of bytes accepted in a single input before dropping.
+
+### message-limit
+
+**Type:** Number\
+**Range:** 0 to INT\_MAX\
+**Default:** 1000\
+**Description:** Maximum number of server messages to keep.
+
+### prefix-timeout
+
+**Type:** Number\
+**Range:** 0 to INT\_MAX\
+**Default:** 0 milliseconds\
+**Description:** The timeout for the prefix key if no subsequent key is pressed. Zero means disabled.
+
+### prompt-history-limit
+
+**Type:** Number\
+**Range:** 0 to INT\_MAX\
+**Default:** 100\
+**Description:** Maximum number of commands to keep in history.
+
+### set-clipboard
+
+**Type:** Choice\
+**Choices:** off, external, on\
+**Default:** external\
+**Description:** Whether to attempt to set the system clipboard ('on' or 'external') and whether to allow applications to create paste buffers with an escape sequence ('on' only).
+
+### terminal-features
+
+**Type:** Array of strings\
+**Default:** `xterm*:clipboard:ccolour:cstyle:focus:title,screen*:title,rxvt*:ignorefkeys`\
+**Description:** List of terminal features, used if they cannot be automatically detected.
+
+### terminal-overrides
+
+**Type:** Array of strings\
+**Default:** `linux*:AX@`\
+**Description:** List of terminal capabilities overrides.
+
+### user-keys
+
+**Type:** Array of strings\
+**Default:** "" (empty)\
+**Description:** User key assignments. Each sequence in the list is translated into a key: 'User0', 'User1' and so on.
+
+### variation-selector-always-wide
+
+**Type:** Flag\
+**Default:** on\
+**Description:** If the Unicode VS16 codepoint should always be treated as a wide character.
+
+## Session Options
+
+Session options apply to individual sessions.
+
+### activity-action
+
+**Type:** Choice\
+**Choices:** none, any, current, other\
+**Default:** other\
+**Description:** Action to take on an activity alert.
+
+### assume-paste-time
+
+**Type:** Number\
+**Range:** 0 to INT\_MAX\
+**Default:** 1 millisecond\
+**Description:** Maximum time between input to assume it is pasting rather than typing.
+
+### base-index
+
+**Type:** Number\
+**Range:** 0 to INT\_MAX\
+**Default:** 0\
+**Description:** Default index of the first window in each session.
+
+### bell-action
+
+**Type:** Choice\
+**Choices:** none, any, current, other\
+**Default:** any\
+**Description:** Action to take on a bell alert.
+
+### default-command
+
+**Type:** String\
+**Default:** "" (empty)\
+**Description:** Default command to run in new panes. If empty, a shell is started.
+
+### default-shell
+
+**Type:** String\
+**Default:** `/bin/sh`\
+**Description:** Location of default shell.
+
+### default-size
+
+**Type:** String\
+**Pattern:** `[0-9]*x[0-9]*`\
+**Default:** `80x24`\
+**Description:** Initial size of new sessions.
+
+### destroy-unattached
+
+**Type:** Choice\
+**Choices:** off, on, keep-last, keep-group\
+**Default:** off\
+**Description:** Whether to destroy sessions when they have no attached clients, or keep the last session whether in the group.
+
+### detach-on-destroy
+
+**Type:** Choice\
+**Choices:** off, on, no-detached, previous, next\
+**Default:** on\
+**Description:** Whether to detach when a session is destroyed, or switch the client to another session if any exist.
+
+### display-panes-active-colour
+
+**Type:** Colour\
+**Default:** colour 1 (red)\
+**Description:** Colour of the active pane for 'display-panes'.
+
+### display-panes-colour
+
+**Type:** Colour\
+**Default:** colour 4 (blue)\
+**Description:** Colour of not active panes for 'display-panes'.
+
+### display-panes-time
+
+**Type:** Number\
+**Range:** 1 to INT\_MAX\
+**Default:** 1000 milliseconds\
+**Description:** Time for which 'display-panes' should show pane numbers.
+
+### display-time
+
+**Type:** Number\
+**Range:** 0 to INT\_MAX\
+**Default:** 750 milliseconds\
+**Description:** Time for which status line messages should appear.
+
+### focus-follows-mouse
+
+**Type:** Flag\
+**Default:** off\
+**Description:** Whether moving the mouse into a pane selects it.
+
+### history-limit
+
+**Type:** Number\
+**Range:** 0 to INT\_MAX\
+**Default:** 2000 lines\
+**Description:** Maximum number of lines to keep in the history for each pane. If changed, the new value applies only to new panes.
+
+### initial-repeat-time
+
+**Type:** Number\
+**Range:** 0 to 2000000\
+**Default:** 0 milliseconds\
+**Description:** Time to wait for a key binding to repeat the first time the key is pressed, if it is bound with the '-r' flag. Subsequent presses use the 'repeat-time' option.
+
+### key-table
+
+**Type:** String\
+**Default:** `root`\
+**Description:** Default key table. Key presses are first looked up in this table.
+
+### lock-after-time
+
+**Type:** Number\
+**Range:** 0 to INT\_MAX\
+**Default:** 0 seconds\
+**Description:** Time after which a client is locked if not used.
+
+### message-command-style
+
+**Type:** Style\
+**Default:** `bg=black,fg=yellow`\
+**Description:** Style of the command prompt when in command mode, if 'mode-keys' is set to 'vi'.
+
+### message-line
+
+**Type:** Choice\
+**Choices:** 0, 1, 2, 3, 4\
+**Default:** 0\
+**Description:** Position (line) of messages and the command prompt.
+
+### message-style
+
+**Type:** Style\
+**Default:** `bg=yellow,fg=black`\
+**Description:** Style of messages and the command prompt.
+
+### mouse
+
+**Type:** Flag\
+**Default:** off\
+**Description:** Whether the mouse is recognised and mouse key bindings are executed. Applications inside panes can use the mouse even when 'off'.
+
+### prefix
+
+**Type:** Key\
+**Default:** `C-b`\
+**Description:** The prefix key.
+
+### prefix2
+
+**Type:** Key\
+**Default:** None\
+**Description:** A second prefix key.
+
+### renumber-windows
+
+**Type:** Flag\
+**Default:** off\
+**Description:** Whether windows are automatically renumbered rather than leaving gaps.
+
+### repeat-time
+
+**Type:** Number\
+**Range:** 0 to 2000000\
+**Default:** 500 milliseconds\
+**Description:** Time to wait for a key binding to repeat, if it is bound with the '-r' flag.
+
+### set-titles
+
+**Type:** Flag\
+**Default:** off\
+**Description:** Whether to set the terminal title, if supported.
+
+### set-titles-string
+
+**Type:** String\
+**Default:** `#S:#I:#W - "#T" #{session_alerts}`\
+**Description:** Format of the terminal title to set.
+
+### silence-action
+
+**Type:** Choice\
+**Choices:** none, any, current, other\
+**Default:** other\
+**Description:** Action to take on a silence alert.
+
+### status
+
+**Type:** Choice\
+**Choices:** off, on, 2, 3, 4, 5\
+**Default:** on\
+**Description:** Number of lines in the status line.
+
+### status-interval
+
+**Type:** Number\
+**Range:** 0 to INT\_MAX\
+**Default:** 15 seconds\
+**Description:** Number of seconds between status line updates.
+
+### status-justify
+
+**Type:** Choice\
+**Choices:** left, centre, right, absolute-centre\
+**Default:** left\
+**Description:** Position of the window list in the status line.
+
+### status-keys
+
+**Type:** Choice\
+**Choices:** emacs, vi\
+**Default:** emacs\
+**Description:** Key set to use at the command prompt.
+
+### status-left
+
+**Type:** String\
+**Default:** `[#{session_name}] `\
+**Description:** Contents of the left side of the status line.
+
+### status-left-length
+
+**Type:** Number\
+**Range:** 0 to SHRT\_MAX\
+**Default:** 10\
+**Description:** Maximum width of the left side of the status line.
+
+### status-left-style
+
+**Type:** Style\
+**Default:** `default`\
+**Description:** Style of the left side of the status line.
+
+### status-position
+
+**Type:** Choice\
+**Choices:** top, bottom\
+**Default:** bottom\
+**Description:** Position of the status line.
+
+### status-right
+
+**Type:** String\
+**Default:** `#{?window_bigger,[#{window_offset_x}#,#{window_offset_y}] ,}"#{=21:pane_title}" %H:%M %d-%b-%y`\
+**Description:** Contents of the right side of the status line.
+
+### status-right-length
+
+**Type:** Number\
+**Range:** 0 to SHRT\_MAX\
+**Default:** 40\
+**Description:** Maximum width of the right side of the status line.
+
+### status-right-style
+
+**Type:** Style\
+**Default:** `default`\
+**Description:** Style of the right side of the status line.
+
+### status-style
+
+**Type:** Style\
+**Default:** `bg=green,fg=black`\
+**Description:** Style of the status line.
+
+### update-environment
+
+**Type:** Array of strings\
+**Default:** `DISPLAY KRB5CCNAME MSYSTEM SSH_ASKPASS SSH_AUTH_SOCK SSH_AGENT_PID SSH_CONNECTION WINDOWID XAUTHORITY`\
+**Description:** List of environment variables to update in the session environment when a client is attached.
+
+### visual-activity
+
+**Type:** Choice\
+**Choices:** off, on, both\
+**Default:** off\
+**Description:** How activity alerts should be shown: a message ('on'), a message and a bell ('both') or nothing ('off').
+
+### visual-bell
+
+**Type:** Choice\
+**Choices:** off, on, both\
+**Default:** off\
+**Description:** How bell alerts should be shown: a message ('on'), a message and a bell ('both') or nothing ('off').
+
+### visual-silence
+
+**Type:** Choice\
+**Choices:** off, on, both\
+**Default:** off\
+**Description:** How silence alerts should be shown: a message ('on'), a message and a bell ('both') or nothing ('off').
+
+### word-separators
+
+**Type:** String\
+**Default:** `!"#$%&'()*+,-./:;<=>?@[\\]^`\{|}\~\`\
+**Description:** Characters considered to separate words.
+
+## Window Options
+
+Window options apply to individual windows.
+
+### aggressive-resize
+
+**Type:** Flag\
+**Default:** off\
+**Description:** When 'window-size' is 'smallest', whether the maximum size of a window is the smallest attached session where it is the current window ('on') or the smallest session it is linked to ('off').
+
+### allow-rename
+
+**Type:** Flag\
+**Default:** off\
+**Scope:** Window or pane\
+**Description:** Whether applications are allowed to use the escape sequence to rename windows.
+
+### allow-set-title
+
+**Type:** Flag\
+**Default:** on\
+**Scope:** Window or pane\
+**Description:** Whether applications are allowed to use the escape sequence to set the pane title.
+
+### alternate-screen
+
+**Type:** Flag\
+**Default:** on\
+**Scope:** Window or pane\
+**Description:** Whether applications are allowed to use the alternate screen.
+
+### automatic-rename
+
+**Type:** Flag\
+**Default:** on\
+**Description:** Whether windows are automatically renamed.
+
+### automatic-rename-format
+
+**Type:** String\
+**Default:** `#{?pane_in_mode,[tmux],#{pane_current_command}}#{?pane_dead,[dead],}`\
+**Description:** Format used to automatically rename windows.
+
+### clock-mode-colour
+
+**Type:** Colour\
+**Default:** colour 4 (blue)\
+**Description:** Colour of the clock in clock mode.
+
+### clock-mode-style
+
+**Type:** Choice\
+**Choices:** 12, 24, 12-with-seconds, 24-with-seconds\
+**Default:** 24\
+**Description:** Time format of the clock in clock mode.
+
+### copy-mode-match-style
+
+**Type:** Style\
+**Default:** `bg=cyan,fg=black`\
+**Description:** Style of search matches in copy mode.
+
+### copy-mode-current-match-style
+
+**Type:** Style\
+**Default:** `bg=magenta,fg=black`\
+**Description:** Style of the current search match in copy mode.
+
+### copy-mode-mark-style
+
+**Type:** Style\
+**Default:** `bg=red,fg=black`\
+**Description:** Style of the marked line in copy mode.
+
+### main-pane-height
+
+**Type:** String\
+**Default:** `24`\
+**Description:** Height of the main pane in the 'main-horizontal' layout. This may be a percentage, for example '10%'.
+
+### main-pane-width
+
+**Type:** String\
+**Default:** `80`\
+**Description:** Width of the main pane in the 'main-vertical' layout. This may be a percentage, for example '10%'.
+
+### mode-keys
+
+**Type:** Choice\
+**Choices:** emacs, vi\
+**Default:** emacs\
+**Description:** Key set used in copy mode.
+
+### mode-style
+
+**Type:** Style\
+**Default:** `noattr,bg=yellow,fg=black`\
+**Description:** Style of indicators and highlighting in modes.
+
+### monitor-activity
+
+**Type:** Flag\
+**Default:** off\
+**Description:** Whether an alert is triggered by activity.
+
+### monitor-bell
+
+**Type:** Flag\
+**Default:** on\
+**Description:** Whether an alert is triggered by a bell.
+
+### monitor-silence
+
+**Type:** Number\
+**Range:** 0 to INT\_MAX\
+**Default:** 0\
+**Description:** Time after which an alert is triggered by silence. Zero means no alert.
+
+### pane-active-border-style
+
+**Type:** Style\
+**Default:** `#{?pane_in_mode,fg=yellow,#{?synchronize-panes,fg=red,fg=green}}`\
+**Description:** Style of the active pane border.
+
+### pane-base-index
+
+**Type:** Number\
+**Range:** 0 to USHRT\_MAX\
+**Default:** 0\
+**Description:** Index of the first pane in each window.
+
+### pane-border-format
+
+**Type:** String\
+**Default:** `#{?pane_active,#[reverse],}#{pane_index}#[default] "#{pane_title}"`\
+**Scope:** Window or pane\
+**Description:** Format of text in the pane status lines.
+
+### pane-border-indicators
+
+**Type:** Choice\
+**Choices:** off, colour, arrows, both\
+**Default:** colour\
+**Description:** Whether to indicate the active pane by colouring border or displaying arrow markers.
+
+### pane-border-lines
+
+**Type:** Choice\
+**Choices:** single, double, heavy, simple, number, spaces\
+**Default:** single\
+**Description:** Type of characters used to draw pane border lines. Some of these are only supported on terminals with UTF-8 support.
+
+### pane-border-status
+
+**Type:** Choice\
+**Choices:** off, top, bottom\
+**Default:** off\
+**Description:** Position of the pane status lines.
+
+### pane-border-style
+
+**Type:** Style\
+**Default:** `default`\
+**Description:** Style of the pane status lines.
+
+### pane-scrollbars
+
+**Type:** Choice\
+**Choices:** off, modal, on\
+**Default:** off\
+**Description:** Pane scrollbar state.
+
+### pane-scrollbars-position
+
+**Type:** Choice\
+**Choices:** right, left\
+**Default:** right\
+**Description:** Pane scrollbar position.
+
+### popup-border-lines
+
+**Type:** Choice\
+**Choices:** single, double, heavy, simple, rounded, padded, none\
+**Default:** single\
+**Description:** Type of characters used to draw popup border lines. Some of these are only supported on terminals with UTF-8 support.
+
+### remain-on-exit
+
+**Type:** Choice\
+**Choices:** off, on, failed\
+**Default:** off\
+**Scope:** Window or pane\
+**Description:** Whether panes should remain ('on') or be automatically killed ('off' or 'failed') when the program inside exits.
+
+### synchronize-panes
+
+**Type:** Flag\
+**Default:** off\
+**Scope:** Window or pane\
+**Description:** Whether typing should be sent to all panes simultaneously.
+
+### tiled-layout-max-columns
+
+**Type:** Number\
+**Range:** 0 to USHRT\_MAX\
+**Default:** 0\
+**Description:** Maximum number of columns in the 'tiled' layout. A value of 0 means no limit.
+
+### window-size
+
+**Type:** Choice\
+**Choices:** largest, smallest, manual, latest\
+**Default:** latest\
+**Description:** How window size is calculated. 'latest' uses the size of the most recently used client, 'largest' the largest client, 'smallest' the smallest client and 'manual' a size set by the 'resize-window' command.
+
+### window-status-activity-style
+
+**Type:** Style\
+**Default:** `reverse`\
+**Description:** Style of windows in the status line with an activity alert.
+
+### window-status-bell-style
+
+**Type:** Style\
+**Default:** `reverse`\
+**Description:** Style of windows in the status line with a bell alert.
+
+### window-status-current-format
+
+**Type:** String\
+**Default:** `#I:#W#{?window_flags,#{window_flags}, }`\
+**Description:** Format of the current window in the status line.
+
+### window-status-current-style
+
+**Type:** Style\
+**Default:** `default`\
+**Description:** Style of the current window in the status line.
+
+### window-status-format
+
+**Type:** String\
+**Default:** `#I:#W#{?window_flags,#{window_flags}, }`\
+**Description:** Format of windows in the status line, except the current window.
+
+### window-status-separator
+
+**Type:** String\
+**Default:** ` ` (single space)\
+**Description:** Separator between windows in the status line.
+
+### window-status-style
+
+**Type:** Style\
+**Default:** `default`\
+**Description:** Style of windows in the status line, except the current and last windows.
+
+### wrap-search
+
+**Type:** Flag\
+**Default:** on\
+**Description:** Whether searching in copy mode should wrap at the top or bottom.
+
+## Pane Options
+
+Pane options can be set on individual panes and inherit from window options.
+
+### allow-passthrough
+
+**Type:** Choice\
+**Choices:** off, on, all\
+**Default:** off\
+**Description:** Whether applications are allowed to use the escape sequence to bypass tmux. Can be 'off' (disallowed), 'on' (allowed if the pane is visible), or 'all' (allowed even if the pane is invisible).
+
+### cursor-colour
+
+**Type:** Colour\
+**Default:** -1 (terminal default)\
+**Description:** Colour of the cursor.
+
+### cursor-style
+
+**Type:** Choice\
+**Choices:** default, blinking-block, block, blinking-underline, underline, blinking-bar, bar\
+**Default:** default\
+**Description:** Style of the cursor.
+
+### pane-colours
+
+**Type:** Array of colours\
+**Default:** "" (empty)\
+**Description:** The default colour palette for colours zero to 255.
+
+### scroll-on-clear
+
+**Type:** Flag\
+**Default:** on\
+**Description:** Whether the contents of the screen should be scrolled into history when clearing the whole screen.
+
+### window-active-style
+
+**Type:** Style\
+**Default:** `default`\
+**Description:** Default style of the active pane.
+
+### window-style
+
+**Type:** Style\
+**Default:** `default`\
+**Description:** Default style of panes that are not the active pane.
+
+## Setting Options
+
+Use the `set-option` command to change options:
+
+```bash theme={null}
+# Set a session option
+tmux set-option -g status-position top
+
+# Set a window option
+tmux set-option -w mode-keys vi
+
+# Set a pane option
+tmux set-option -p remain-on-exit on
+```
+
+For more information on options, see the [tmux manual page](/docs/manual).

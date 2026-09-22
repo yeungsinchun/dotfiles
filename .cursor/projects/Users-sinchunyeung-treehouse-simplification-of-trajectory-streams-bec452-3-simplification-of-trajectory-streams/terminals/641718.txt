@@ -1,0 +1,34 @@
+---
+pid: 20044
+cwd: "/Users/sinchunyeung/.treehouse/simplification-of-trajectory-streams-bec452/3/simplification-of-trajectory-streams"
+command: "# Poll until gate or terminal; write compact progress\nfor i in $(seq 1 40); do\n  out=$(no-mistakes axi status 2>&1)\n  st=$(echo \"$out\" | rg '^  status:' | head -1)\n  echo \"poll $i: $st\"\n  if echo \"$out\" | rg -q 'awaiting_agent: parked|awaiting_approval'; then\n    echo \"$out\" > /tmp/nm-gate.txt\n    echo GATE\n    break\n  fi\n  if echo \"$out\" | rg -q '^outcome:|^  status: (failed|cancelled)'; then\n    # only if this is the current run id\n    echo \"$out\" > /tmp/nm-term.txt\n    echo TERMINAL\n    break\n  fi\n  if echo \"$out\" | rg -q 'checks-passed|outcome: passed'; then\n    echo \"$out\" > /tmp/nm-term.txt\n    echo DONE\n    break\n  fi\n  sleep 20\ndone\nls '/Users/sinchunyeung/github/firstmate/state/boundary-lr-fix.inbox'/*.msg 2>/dev/null || echo inbox-clear\n"
+title: "Poll until review gate or terminal outcome"
+status: succeeded
+started_at: 2026-09-07T09:52:12.883Z
+running_for_ms: 318211   
+---
+poll 1:   status: running
+poll 2:   status: running
+poll 3:   status: running
+poll 4:   status: running
+poll 5:   status: running
+poll 6:   status: running
+poll 7:   status: running
+poll 8:   status: running
+poll 9:   status: running
+poll 10:   status: running
+poll 11:   status: running
+poll 12:   status: running
+poll 13:   status: running
+poll 14:   status: running
+poll 15:   status: running
+poll 16:   status: running
+GATE
+(eval):24: no matches found: /Users/sinchunyeung/github/firstmate/state/boundary-lr-fix.inbox/*.msg
+inbox-clear
+
+---
+exit_code: 0
+elapsed_ms: 318209
+ended_at: 2026-09-07T09:57:31.092Z
+---

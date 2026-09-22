@@ -1,0 +1,24 @@
+---
+pid: 97976
+cwd: "/Users/sinchunyeung/.config/nvim"
+command: "nvim --headless \"+lua vim.cmd.edit('/tmp/ts-demo.lua')\" \"+lua vim.bo.filetype='lua'; vim.api.nvim_buf_set_lines(0,0,-1,false,{'local x = 1 + 2'})\" \"+lua local p = vim.treesitter.get_parser(0); local root = p:parse()[1]:root(); print('root:', root:type()); local c = root:named_child(0); print('first named child:', c and c:type() or 'none')\" +qa 2>&1"
+title: "Simple treesitter node demo on lua"
+status: aborted  
+started_at: 2026-08-31T13:11:21.311Z
+running_for_ms: 4442930  
+---
+W325: Ignoring swapfile from Nvim process 97758
+root: chunk
+first named child: variable_declaration
+Error in command line:
+E37: No write since last change
+E162: No write since last change for buffer "/tmp/ts-demo.lua"Nvim: Caught deadly signal 'SIGTERM'
+Nvim: preserving files...
+Nvim: Finished.
+E137: ShaDa file is not writable: /Users/sinchunyeung/.local/state/nvim/shada/main.shada
+E136: Do not forget to remove /Users/sinchunyeung/.local/state/nvim/shada/main.shada.tmp.h or rename it manually to /Users/sinchunyeung/.local/state/nvim/shada/main.shada.
+---
+exit_code: unknown
+elapsed_ms: 4442930
+ended_at: 2026-08-31T14:25:24.241Z
+---
