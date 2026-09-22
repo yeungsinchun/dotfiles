@@ -100,3 +100,5 @@ vim.diagnostic.config({
   update_in_insert = false,
 })
 
+vim.g.netrw_altv = 1  -- Open netrw vertical splits to the right
+vim.g.netrw_alto = 1  -- Open netrw horizontal splits to the bottom
