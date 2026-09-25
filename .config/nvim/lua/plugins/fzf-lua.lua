@@ -13,6 +13,13 @@ return {
 			color_icons = true,
 			git_icons = true,
 		},
+		keymap = {
+			builtin = {
+				["<S-j>"] = "preview-down",
+				["<S-k>"] = "preview-up",
+				[true] = true,
+			},
+		},
 	},
 	keys = {
 		{ '<C-p>', function() require('fzf-lua').files() end, desc = 'Fzf files' },
