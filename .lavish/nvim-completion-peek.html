@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="luxury">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neovim LSP — completion + definition/declaration peek: pick your combo</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5.5.19/daisyui.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5.5.19/themes.css">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.2.4/dist/index.global.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  :where(p, h1, h2, h3, h4, h5, h6, li, dd, blockquote, figcaption, td, th, .badge) { overflow-wrap: anywhere; }
+  :where(img, svg) { max-width: 100%; height: auto; }
+  /* Terminal mock windows, styled after the Catppuccin Mocha colorscheme in use */
+  .term { background:#1e1e2e; color:#cdd6f4; border-radius:.75rem; overflow:hidden;
+          font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+          font-size:12.5px; line-height:1.55; border:1px solid #45475a; min-width:0; }
+  .term-bar { display:flex; align-items:center; gap:.4rem; padding:.45rem .8rem;
+              background:#181825; border-bottom:1px solid #313244; color:#a6adc8; font-size:11px; }
+  .dot { width:10px; height:10px; border-radius:9999px; display:inline-block; }
+  .term-body { padding:.7rem .9rem; white-space:pre-wrap; }
+  .hl-def { color:#cba6f7; } .hl-fn { color:#89b4fa; } .hl-str { color:#a6e3a1; }
+  .hl-kw { color:#cba6f7; } .hl-cm { color:#6c7086; font-style:italic; }
+  .hl-num { color:#fab387; } .hl-type { color:#f9e2af; }
+  .popup { background:#313244; border:1px solid #585b70; border-radius:.4rem;
+            padding:.15rem 0; box-shadow:0 8px 24px rgba(0,0,0,.5); }
+  .popup .row { padding:.05rem .7rem; }
+  .popup .sel { background:#45475a; color:#cdd6f4; }
+  .cursorline { background:#313244; border-left:3px solid #cba6f7; }
+  kbd.k { background:#45475a; border:1px solid #585b70; border-bottom-width:2px;
+          border-radius:.3rem; padding:0 .4em; font-family:inherit; font-size:.92em;
+          color:#cdd6f4; white-space:nowrap; }
+  pre.cfg { background:#181825; border:1px solid #313244; border-radius:.5rem;
+            padding:.6rem .8rem; font-size:12px; line-height:1.6; overflow-x:auto;
+            color:#cdd6f4; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .opt-card { min-width:0; }
+</style>
+</head>
+<body class="bg-base-200 text-base-content">
+<main class="max-w-6xl mx-auto px-4 py-8 flex flex-col gap-8">
+
+  <header class="hero bg-base-100 rounded-2xl border border-base-300">
+    <div class="hero-content text-center py-8">
+      <div class="max-w-2xl">
+        <p class="badge badge-accent mb-3">Archived choices · A1 + B1 selected</p>
+        <h1 class="text-3xl font-bold">Neovim LSP: completion + peek</h1>
+        <p class="py-3 opacity-80">These options describe the setup before A1 + B1 were implemented. At the time:
+        <code>pyright</code> + <code>clangd</code> via native <code>vim.lsp.enable</code>,
+        <kbd class="k">gd</kbd>/<kbd class="k">gD</kbd> jump straight to the target, no completion
+        plugin, built-in completion off. Installed: catppuccin, fzf-lua, ultisnips (tex only), vimtex, airline.</p>
+        <p class="opacity-80 text-sm">The confirmed setup and current keymaps are in the <a class="link link-primary" href="nvim-setup-summary.html">setup summary</a>.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ A: COMPLETION ============ -->
+  <section>
+    <h2 class="text-2xl font-bold mb-1">A · Autocompletion <span class="text-sm font-normal opacity-70">works in pyright + clangd buffers</span></h2>
+    <div class="grid md:grid-cols-2 gap-4 mt-3">
+
+      <article class="opt-card card bg-base-100 border border-base-300 shadow">
+        <div class="card-body">
+          <div class="flex items-center gap-2 flex-wrap">
+            <h3 class="card-title">A1 · Built-in <code>vim.lsp.completion</code></h3>
+            <span class="badge badge-success">no new plugin</span>
+          </div>
+          <p class="opacity-80 text-sm">Neovim's own completion engine, enabled per-buffer on
+          <code>LspAttach</code> with <code>autotrigger = true</code>. Zero dependencies, ~10 lines of config.</p>
+          <div class="term mt-2" id="mock-a1">
+            <div class="term-bar"><span class="dot" style="background:#f38ba8">&#8203;</span><span class="dot" style="background:#f9e2af">&#8203;</span><span class="dot" style="background:#a6e3a1">&#8203;</span><span class="ml-2">main.py — typing “os.pa…”</span></div>
+            <div class="term-body"><span class="hl-cm">import os</span>
+os.pa<span style="background:#45475a">▍</span>
+<div class="popup" style="display:inline-block;min-width:16em">  <div class="row sel">path ▸ <span class="hl-cm">module</span></div>  <div class="row">pardir · getcwd · environ …</div></div></div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-2 text-sm mt-2">
+            <div class="bg-success/10 border border-success/30 rounded-lg p-2"><strong>Pros</strong><ul class="list-disc ml-4"><li>Nothing to install or update</li><li>Works for pyright + clangd alike</li><li>Stays out of the way; stock look</li></ul></div>
+            <div class="bg-warning/10 border border-warning/30 rounded-lg p-2"><strong>Cons</strong><ul class="list-disc ml-4"><li>Plain menu, no docs pane</li><li>No snippet integration (UltiSnips stays manual)</li><li>Weaker ranking than a dedicated engine</li></ul></div>
+          </div>
+          <p class="text-sm mt-2"><strong>Keymaps:</strong> none required — popup appears as you type.
+          The implemented setup maps <kbd class="k">&lt;C-Space&gt;</kbd> to force-trigger; <kbd class="k">&lt;C-e&gt;</kbd> dismisses and
+          <kbd class="k">&lt;C-y&gt;</kbd> accepts (insert-mode defaults).</p>
+          <pre class="cfg">-- on LspAttach:
+vim.lsp.completion.enable(true, ev.data.client_id, ev.buf,
+  { autotrigger = true })</pre>
+        </div>
+      </article>
+
+      <article class="opt-card card bg-base-100 border border-base-300 shadow">
+        <div class="card-body">
+          <div class="flex items-center gap-2 flex-wrap">
+            <h3 class="card-title">A2 · blink.cmp plugin</h3>
+            <span class="badge badge-info">new plugin</span>
+            <span class="badge badge-outline">sources UltiSnips</span>
+          </div>
+          <p class="opacity-80 text-sm">Modern completion engine (<code>saghen/blink.cmp</code>) with fuzzy
+          matching, a documentation pane, signature help — and it can offer your UltiSnips snippets inside the menu.</p>
+          <div class="term mt-2" id="mock-a2">
+            <div class="term-bar"><span class="dot" style="background:#f38ba8">&#8203;</span><span class="dot" style="background:#f9e2af">&#8203;</span><span class="dot" style="background:#a6e3a1">&#8203;</span><span class="ml-2">main.py — blink.cmp menu + docs</span></div>
+            <div class="term-body"><span class="hl-cm">import os</span>
+os.pa<span style="background:#45475a">▍</span>
+<div style="display:flex;gap:.4rem;flex-wrap:wrap"><div class="popup" style="min-width:13em">  <div class="row sel">ƒ path <span class="hl-cm">module</span></div>  <div class="row">ƒ pardir</div>  <div class="row">ⓢ for-loop <span class="hl-cm">snippet</span></div></div><div class="popup" style="min-width:12em">  <div class="row"><span class="hl-fn">os.path</span></div>  <div class="row hl-cm">Common pathname manipulations…</div></div></div></div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-2 text-sm mt-2">
+            <div class="bg-success/10 border border-success/30 rounded-lg p-2"><strong>Pros</strong><ul class="list-disc ml-4"><li>Fuzzy, well-ranked menu + docs pane</li><li>UltiSnips snippets appear in results</li><li>Signature help + cmdline completion</li></ul></div>
+            <div class="bg-warning/10 border border-warning/30 rounded-lg p-2"><strong>Cons</strong><ul class="list-disc ml-4"><li>New plugin in lazy-lock.json</li><li>Downloads a prebuilt fuzzy binary</li><li>Bigger change to insert-mode feel</li></ul></div>
+          </div>
+          <p class="text-sm mt-2"><strong>Keymaps:</strong> <kbd class="k">&lt;C-Space&gt;</kbd> show/hide,
+          <kbd class="k">&lt;C-n&gt;</kbd>/<kbd class="k">&lt;C-p&gt;</kbd> navigate,
+          <kbd class="k">&lt;C-y&gt;</kbd> accept, <kbd class="k">&lt;C-e&gt;</kbd> cancel
+          (blink defaults; snippet jumps keep working).</p>
+          <pre class="cfg">-- lua/plugins/blink.lua
+return { 'saghen/blink.cmp', version = '1.*',
+  opts = { keymap = { preset = 'default' },
+    sources = { default = { 'lsp', 'snippets', 'buffer', 'path' } } } }</pre>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ B: PEEK ============ -->
+  <section>
+    <h2 class="text-2xl font-bold mb-1">B · Peek at definition / declaration <span class="text-sm font-normal opacity-70">popup instead of jumping</span></h2>
+    <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-4 mt-3">
+
+      <article class="opt-card card bg-base-100 border border-base-300 shadow">
+        <div class="card-body">
+          <div class="flex items-center gap-2 flex-wrap">
+            <h3 class="card-title">B1 · fzf-lua pickers</h3>
+            <span class="badge badge-success">already installed</span>
+          </div>
+          <p class="opacity-80 text-sm">Reuse fzf-lua's <code>lsp_definitions</code> /
+          <code>lsp_declarations</code> pickers with <code>jump1 = false</code>, so even a single
+          result opens a selectable list with preview instead of jumping.</p>
+          <div class="term mt-2" id="mock-b1">
+            <div class="term-bar"><span class="dot" style="background:#f38ba8">&#8203;</span><span class="dot" style="background:#f9e2af">&#8203;</span><span class="dot" style="background:#a6e3a1">&#8203;</span><span class="ml-2">:FzfLua lsp_definitions</span></div>
+            <div class="term-body">&gt; <span style="background:#45475a">calc_&nbsp;</span>
+<div class="popup">  <div class="row sel">● calc_total · <span class="hl-cm">calc.py:42 def</span></div>  <div class="row">○ calc_total · <span class="hl-cm">calc.py:17 decl</span></div></div>
+<span class="hl-cm">42 │ def calc_total(items): …</span></div>
+          </div>
+          <div class="text-sm mt-2"><strong>Pros:</strong> zero new plugins; consistent with existing
+          <kbd class="k">&lt;C-p&gt;</kbd>/<kbd class="k">&lt;C-l&gt;</kbd> fzf habits; handles many results well.</div>
+          <div class="text-sm"><strong>Cons:</strong> full picker UI, not a small popup at the cursor; always two steps (pick, then jump).</div>
+          <p class="text-sm mt-1"><strong>Keymaps:</strong> <kbd class="k">&lt;leader&gt;gd</kbd> definitions picker,
+          <kbd class="k">&lt;leader&gt;gD</kbd> declarations picker (<code>jump1 = false</code>).</p>
+        </div>
+      </article>
+
+      <article class="opt-card card bg-base-100 border border-base-300 shadow">
+        <div class="card-body">
+          <div class="flex items-center gap-2 flex-wrap">
+            <h3 class="card-title">B2 · goto-preview</h3>
+            <span class="badge badge-info">new plugin</span>
+            <span class="badge badge-outline">true popup</span>
+          </div>
+          <p class="opacity-80 text-sm">Opens the definition/declaration in a small floating window
+          next to your cursor (<code>rmagatti/goto-preview</code>). Glance, then dismiss — you never leave your place.</p>
+          <div class="term mt-2" id="mock-b2">
+            <div class="term-bar"><span class="dot" style="background:#f38ba8">&#8203;</span><span class="dot" style="background:#f9e2af">&#8203;</span><span class="dot" style="background:#a6e3a1">&#8203;</span><span class="ml-2">main.py — floating peek</span></div>
+            <div class="term-body">total = calc_<span style="background:#45475a">total(items)</span>
+┌─ <span class="hl-fn">preview: calc.py:42</span> ──────────
+│ <span class="hl-kw">def</span> <span class="hl-fn">calc_total</span>(items):
+│     <span class="hl-kw">return</span> <span class="hl-fn">sum</span>(i.price <span class="hl-kw">for</span> i <span class="hl-kw">in</span> items)
+└─ <span class="hl-cm">&lt;leader&gt;pc to close</span> ───────</div>
+          </div>
+          <div class="text-sm mt-2"><strong>Pros:</strong> smallest interruption — a popup at the cursor;
+          <kbd class="k">gd</kbd>/<kbd class="k">gD</kbd> untouched; trivial to dismiss.</div>
+          <div class="text-sm"><strong>Cons:</strong> one more floating plugin to learn/close; less ideal when many candidate locations exist.</div>
+          <p class="text-sm mt-1"><strong>Keymaps:</strong> <kbd class="k">&lt;leader&gt;pd</kbd> peek definition,
+          <kbd class="k">&lt;leader&gt;pD</kbd> peek declaration, <kbd class="k">&lt;leader&gt;pc</kbd> close previews.</p>
+        </div>
+      </article>
+
+      <article class="opt-card card bg-base-100 border border-base-300 shadow">
+        <div class="card-body">
+          <div class="flex items-center gap-2 flex-wrap">
+            <h3 class="card-title">B3 · glance.nvim</h3>
+            <span class="badge badge-info">new plugin</span>
+            <span class="badge badge-outline">VS Code-style</span>
+          </div>
+          <p class="opacity-80 text-sm">A bottom/docked panel listing every candidate location with a
+          full preview pane (<code>dnlhc/glance.nvim</code>) — the closest thing to VS Code's peek.</p>
+          <div class="term mt-2" id="mock-b3">
+            <div class="term-bar"><span class="dot" style="background:#f38ba8">&#8203;</span><span class="dot" style="background:#f9e2af">&#8203;</span><span class="dot" style="background:#a6e3a1">&#8203;</span><span class="ml-2">Glance: definitions of calc_total</span></div>
+            <div class="term-body">total = calc_<span style="background:#45475a">total(items)</span>
+── Glance ──────────────────────
+<span class="cursorline">▸ calc.py:42  def calc_total(items):…</span>
+  calc.py:17  decl (header/impl)…
+<span class="hl-cm">[Enter] jump · [q] close</span></div>
+          </div>
+          <div class="text-sm mt-2"><strong>Pros:</strong> best when several definitions/declarations exist;
+          list + preview in one view; also covers references.</div>
+          <div class="text-sm"><strong>Cons:</strong> heaviest UI of the three — a panel takeover, not a light popup; own window keybindings.</div>
+          <p class="text-sm mt-1"><strong>Keymaps:</strong> <kbd class="k">&lt;leader&gt;gg</kbd> glance definitions,
+          <kbd class="k">&lt;leader&gt;gD</kbd> glance declarations (or keep <kbd class="k">gD</kbd> as jump — your call).</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ RECOMMENDATION ============ -->
+  <section class="alert alert-info block rounded-2xl">
+    <h2 class="text-xl font-bold">Original recommendation: A2 + B2</h2>
+    <p class="text-sm mt-1"><strong>blink.cmp</strong> for completion (fuzzy menu, docs, UltiSnips in results —
+    the built-in menu feels sparse by comparison) plus <strong>goto-preview</strong> for peeking (a genuine
+    cursor-adjacent popup; <kbd class="k">gd</kbd>/<kbd class="k">gD</kbd> keep jumping as today).
+    If you'd rather add <em>no</em> new plugins, the fallback is <strong>A1 + B1</strong> (built-in completion + fzf-lua pickers).</p>
+  </section>
+
+  <p class="text-sm opacity-70">A1 + B1 were selected. See the <a class="link link-primary" href="nvim-setup-summary.html">setup summary</a> for the implemented behavior.</p>
+
+</main>
+</body>
+</html>
