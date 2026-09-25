@@ -76,14 +76,14 @@
       <div>
         <h3 class="font-semibold text-sm mb-1">What it looks like</h3>
         <div class="term">
-          <div class="term-bar"><span class="dot" style="background:#f38ba8"></span><span class="dot" style="background:#f9e2af"></span><span class="dot" style="background:#a6e3a1"></span><span class="ml-2">main.py — pyright, typing “os.pa…”</span></div>
+          <div class="term-bar"><span class="dot" style="background:#f38ba8">&#8203;</span><span class="dot" style="background:#f9e2af">&#8203;</span><span class="dot" style="background:#a6e3a1">&#8203;</span><span class="ml-2">main.py — pyright, typing “os.pa…”</span></div>
           <div class="term-body"><span class="hl-cm">import os</span>
 os.pa<span style="background:#45475a">▍</span>
 <div class="popup" style="display:inline-block;min-width:16em">  <div class="row sel">path ▸ <span class="hl-cm">module</span></div>  <div class="row">pardir · getcwd · environ …</div></div>
 <span class="hl-cm text-[11px]">▸ menu from pyright · <kbd class="k">&lt;C-y&gt;</kbd> accept · <kbd class="k">&lt;C-e&gt;</kbd> dismiss</span></div>
         </div>
         <div class="term mt-3">
-          <div class="term-bar"><span class="dot" style="background:#f38ba8"></span><span class="dot" style="background:#f9e2af"></span><span class="dot" style="background:#a6e3a1"></span><span class="ml-2">main.cpp — clangd, typing “vec.pu…”</span></div>
+          <div class="term-bar"><span class="dot" style="background:#f38ba8">&#8203;</span><span class="dot" style="background:#f9e2af">&#8203;</span><span class="dot" style="background:#a6e3a1">&#8203;</span><span class="ml-2">main.cpp — clangd, typing “vec.pu…”</span></div>
           <div class="term-body"><span class="hl-kw">#include</span> <span class="hl-str">&lt;vector&gt;</span>
 vec.pu<span style="background:#45475a">▍</span>
 <div class="popup" style="display:inline-block;min-width:16em">  <div class="row sel">push_back <span class="hl-cm">method</span></div>  <div class="row">size · capacity · data …</div></div></div>
@@ -93,16 +93,7 @@ vec.pu<span style="background:#45475a">▍</span>
         </div>
       </div>
       <div>
-        <h3 class="font-semibold text-sm mb-1">Exact config added</h3>
-        <pre class="cfg">-- lua/plugins/lspconfig.lua — inside LspAttach callback
-local client = vim.lsp.get_client_by_id(ev.data.client_id)
-if client and client:supports_method('textDocument/completion') then
-  vim.lsp.completion.enable(true, ev.data.client_id, ev.buf,
-    { autotrigger = true })
-  vim.keymap.set('i', '&lt;C-Space&gt;', function()
-    vim.lsp.completion.get()
-  end, { buffer = ev.buf, silent = true, desc = 'Trigger LSP completion' })
-end</pre>
+        <h3 class="font-semibold text-sm mb-1">Completion keys</h3>
         <div class="overflow-x-auto mt-3">
           <table class="table table-sm">
             <thead><tr><th>Key</th><th>Action</th><th>Mode</th></tr></thead>
@@ -135,7 +126,7 @@ end</pre>
       <div>
         <h3 class="font-semibold text-sm mb-1">What it looks like (CLI fzf window)</h3>
         <div class="term">
-          <div class="term-bar"><span class="dot" style="background:#f38ba8"></span><span class="dot" style="background:#f9e2af"></span><span class="dot" style="background:#a6e3a1"></span><span class="ml-2">nvim main.py  —  &lt;leader&gt;gd on calc_total</span></div>
+          <div class="term-bar"><span class="dot" style="background:#f38ba8">&#8203;</span><span class="dot" style="background:#f9e2af">&#8203;</span><span class="dot" style="background:#a6e3a1">&#8203;</span><span class="ml-2">nvim main.py  —  &lt;leader&gt;gd on calc_total</span></div>
           <div class="term-body">total = calc_<span style="background:#45475a">total(items)</span>   <span class="hl-cm">— cursor on symbol, :lua FzfLua</span>
 
 <span class="hl-cm">fzf-lua: lsp_definitions  (jump1 = false)</span>
@@ -150,15 +141,7 @@ end</pre>
         </div>
       </div>
       <div>
-        <h3 class="font-semibold text-sm mb-1">Exact config added</h3>
-        <pre class="cfg">-- same LspAttach callback, buffer-local
-vim.keymap.set('n', '&lt;leader&gt;gd', function()
-  require('fzf-lua').lsp_definitions({ jump1 = false })
-end, { buffer = ev.buf, desc = 'Peek definitions (fzf-lua, no jump)' })
-
-vim.keymap.set('n', '&lt;leader&gt;gD', function()
-  require('fzf-lua').lsp_declarations({ jump1 = false })
-end, { buffer = ev.buf, desc = 'Peek declarations (fzf-lua, no jump)' })</pre>
+        <h3 class="font-semibold text-sm mb-1">Jump and peek keys</h3>
         <div class="overflow-x-auto mt-3">
           <table class="table table-sm">
             <thead><tr><th>Key</th><th>Action</th><th>Behavior</th></tr></thead>
@@ -180,32 +163,7 @@ end, { buffer = ev.buf, desc = 'Peek declarations (fzf-lua, no jump)' })</pre>
 <section class="card bg-base-100 border border-base-300 shadow">
   <div class="card-body">
     <h2 class="card-title">File changed</h2>
-    <p class="text-sm opacity-80"><code>.config/nvim/lua/plugins/lspconfig.lua</code> — one autocmd, ~15 lines. <code>lazy-lock.json</code> untouched (no new plugin). Theme / airline / ultisnips / vimtex untouched (out of scope).</p>
-    <pre class="cfg">-- LSP Keymaps + completion (A1) + peek (B1)
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspKeymaps', { clear = true }),
-  callback = function(ev)
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    if client and client:supports_method('textDocument/completion') then
-      vim.lsp.completion.enable(true, ev.data.client_id, ev.buf,
-        { autotrigger = true })
-      vim.keymap.set('i', '&lt;C-Space&gt;', function()
-        vim.lsp.completion.get()
-      end, { buffer = ev.buf, silent = true, desc = 'Trigger LSP completion' })
-    end
-    local opts = { buffer = ev.buf, silent = true }
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition,
-      vim.tbl_extend('force', opts, { desc = 'LSP go to definition' }))
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration,
-      vim.tbl_extend('force', opts, { desc = 'LSP go to declaration' }))
-    vim.keymap.set('n', '&lt;leader&gt;gd', function()
-      require('fzf-lua').lsp_definitions({ jump1 = false })
-    end, vim.tbl_extend('force', opts, { desc = 'Peek definitions (fzf-lua, no jump)' }))
-    vim.keymap.set('n', '&lt;leader&gt;gD', function()
-      require('fzf-lua').lsp_declarations({ jump1 = false })
-    end, vim.tbl_extend('force', opts, { desc = 'Peek declarations (fzf-lua, no jump)' }))
-  end,
-})</pre>
+    <p class="text-sm opacity-80">The <code>LspAttach</code> mapping and completion configuration are in <a class="link link-primary" href="../.config/nvim/lua/plugins/lspconfig.lua">.config/nvim/lua/plugins/lspconfig.lua</a>. <code>lazy-lock.json</code> is unchanged because this setup uses installed plugins.</p>
   </div>
 </section>
 
