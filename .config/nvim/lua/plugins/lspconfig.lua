@@ -32,6 +32,9 @@ return {
 				local client = vim.lsp.get_client_by_id(ev.data.client_id)
 				if client and client:supports_method('textDocument/completion') then
 					vim.lsp.completion.enable(true, ev.data.client_id, ev.buf, { autotrigger = true })
+					vim.keymap.set('i', '<C-Space>', function()
+						vim.lsp.completion.get()
+					end, { buffer = ev.buf, silent = true, desc = 'Trigger LSP completion' })
 				end
 				local opts = { buffer = ev.buf, silent = true }
 				vim.keymap.set('n', 'gd', vim.lsp.buf.definition,
