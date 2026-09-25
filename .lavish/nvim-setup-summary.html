@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="luxury">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neovim setup — completion + peek implemented (A1 + B1)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5.5.19/daisyui.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5.5.19/themes.css">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.2.4/dist/index.global.js"></script>
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :where(p,h1,h2,h3,h4,h5,h6,li,dd,blockquote,figcaption,td,th,.badge){overflow-wrap:anywhere}
+  :where(img,svg){max-width:100%;height:auto}
+  .term{background:#1e1e2e;color:#cdd6f4;border-radius:.75rem;overflow:hidden;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.55;border:1px solid #45475a;min-width:0}
+  .term-bar{display:flex;align-items:center;gap:.4rem;padding:.45rem .8rem;background:#181825;border-bottom:1px solid #313244;color:#a6adc8;font-size:11px}
+  .dot{width:10px;height:10px;border-radius:9999px;display:inline-block}
+  .term-body{padding:.7rem .9rem;white-space:pre-wrap}
+  .hl-def{color:#cba6f7}.hl-fn{color:#89b4fa}.hl-str{color:#a6e3a1}.hl-kw{color:#cba6f7}.hl-cm{color:#6c7086;font-style:italic}.hl-num{color:#fab387}.hl-type{color:#f9e2af}
+  .popup{background:#313244;border:1px solid #585b70;border-radius:.4rem;padding:.15rem 0;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+  .popup .row{padding:.05rem .7rem}.popup .sel{background:#45475a;color:#cdd6f4}
+  kbd.k{background:#45475a;border:1px solid #585b70;border-bottom-width:2px;border-radius:.3rem;padding:0 .4em;font-family:inherit;font-size:.92em;color:#cdd6f4;white-space:nowrap}
+  pre.cfg{background:#181825;border:1px solid #313244;border-radius:.5rem;padding:.6rem .8rem;font-size:12px;line-height:1.6;overflow-x:auto;color:#cdd6f4;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .opt-card{min-width:0}
+</style>
+</head>
+<body class="bg-base-200 text-base-content">
+<main class="max-w-6xl mx-auto px-4 py-8 flex flex-col gap-8">
+
+<header class="hero bg-base-100 rounded-2xl border border-success/30 shadow">
+  <div class="hero-content text-center py-8">
+    <div class="max-w-3xl">
+      <p class="badge badge-success mb-3">implemented · no new plugin · A1 + B1</p>
+      <h1 class="text-3xl font-bold">LSP completion + peek is live</h1>
+      <p class="py-3 opacity-80">Your picks from the choices board — <strong>A1</strong> built-in <code>vim.lsp.completion</code> + <strong>B1</strong> fzf-lua pickers with <code>jump1 = false</code> — are wired in <code>.config/nvim</code>. <kbd class="k">gd</kbd>/<kbd class="k">gD</kbd> still jump; <kbd class="k">&lt;leader&gt;gd</kbd>/<kbd class="k">&lt;leader&gt;gD</kbd> now peek with preview.</p>
+      <div class="flex flex-wrap justify-center gap-2 mt-2 text-sm">
+        <span class="badge badge-outline">pyright</span><span class="badge badge-outline">clangd</span><span class="badge badge-outline">Neovim 0.12.5</span><span class="badge badge-outline">fzf-lua already installed</span><span class="badge badge-outline">lazy-lock.json unchanged</span>
+      </div>
+      <p class="text-sm opacity-60 mt-3">Worktree: <code>fm/dotfiles-nvim-completion-peek-v2</code> · File: <code>lua/plugins/lspconfig.lua</code> (LspAttach)</p>
+    </div>
+  </div>
+</header>
+
+<!-- how to use at a glance -->
+<section class="grid lg:grid-cols-3 gap-4">
+  <div class="card bg-base-100 border border-base-300 shadow">
+    <div class="card-body">
+      <h3 class="font-bold">Keep jumping</h3>
+      <p class="text-sm opacity-80"><kbd class="k">gd</kbd> go to definition · <kbd class="k">gD</kbd> go to declaration — unchanged, buffer-local on LspAttach, jump immediately.</p>
+    </div>
+  </div>
+  <div class="card bg-success text-success-content shadow">
+    <div class="card-body">
+      <h3 class="font-bold">Completion — just type</h3>
+      <p class="text-sm">In any pyright (Python) or clangd (C/C++) buffer, the menu pops as you type trigger chars. No extra key — <kbd class="k">&lt;C-y&gt;</kbd> accept, <kbd class="k">&lt;C-e&gt;</kbd> dismiss, <kbd class="k">&lt;C-Space&gt;</kbd> force.</p>
+    </div>
+  </div>
+  <div class="card bg-info text-info-content shadow">
+    <div class="card-body">
+      <h3 class="font-bold">Peek — preview first</h3>
+      <p class="text-sm"><kbd class="k">&lt;leader&gt;gd</kbd> peek definitions · <kbd class="k">&lt;leader&gt;gD</kbd> peek declarations — fzf list with preview, <code>jump1 = false</code> so single results don't jump.</p>
+    </div>
+  </div>
+</section>
+
+<!-- A1 implemented -->
+<section class="card bg-base-100 border border-base-300 shadow">
+  <div class="card-body">
+    <div class="flex items-center gap-2 flex-wrap">
+      <h2 class="card-title">A1 · Built-in <code>vim.lsp.completion</code> — live</h2>
+      <span class="badge badge-success">no new plugin</span>
+      <span class="badge badge-outline">pyright + clangd</span>
+    </div>
+    <p class="opacity-80 text-sm">Enabled per-buffer on <code>LspAttach</code> only when the client advertises <code>textDocument/completion</code>. Autotrigger fires on the server's <code>triggerCharacters</code>. Works for both configured servers — <code>vim.lsp.enable('pyright')</code> and <code>vim.lsp.enable('clangd')</code> — with zero new dependencies.</p>
+
+    <div class="grid lg:grid-cols-2 gap-4 mt-3">
+      <div>
+        <h3 class="font-semibold text-sm mb-1">What it looks like</h3>
+        <div class="term">
+          <div class="term-bar"><span class="dot" style="background:#f38ba8"></span><span class="dot" style="background:#f9e2af"></span><span class="dot" style="background:#a6e3a1"></span><span class="ml-2">main.py — pyright, typing “os.pa…”</span></div>
+          <div class="term-body"><span class="hl-cm">import os</span>
+os.pa<span style="background:#45475a">▍</span>
+<div class="popup" style="display:inline-block;min-width:16em">  <div class="row sel">path ▸ <span class="hl-cm">module</span></div>  <div class="row">pardir · getcwd · environ …</div></div>
+<span class="hl-cm text-[11px]">▸ menu from pyright · <kbd class="k">&lt;C-y&gt;</kbd> accept · <kbd class="k">&lt;C-e&gt;</kbd> dismiss</span></div>
+        </div>
+        <div class="term mt-3">
+          <div class="term-bar"><span class="dot" style="background:#f38ba8"></span><span class="dot" style="background:#f9e2af"></span><span class="dot" style="background:#a6e3a1"></span><span class="ml-2">main.cpp — clangd, typing “vec.pu…”</span></div>
+          <div class="term-body"><span class="hl-kw">#include</span> <span class="hl-str">&lt;vector&gt;</span>
+vec.pu<span style="background:#45475a">▍</span>
+<div class="popup" style="display:inline-block;min-width:16em">  <div class="row sel">push_back <span class="hl-cm">method</span></div>  <div class="row">size · capacity · data …</div></div></div>
+        </div>
+        <div class="bg-base-200 rounded-lg p-3 text-sm mt-3">
+          <strong>Try it:</strong> open a <code>.py</code> or <code>.cpp</code> file → type <code>os.</code> or <code>vec.</code> → menu appears. <kbd class="k">&lt;C-n&gt;</kbd>/<kbd class="k">&lt;C-p&gt;</kbd> navigate, <kbd class="k">&lt;C-y&gt;</kbd> accept. Works in insert mode; no finder to open.
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-sm mb-1">Exact config added</h3>
+        <pre class="cfg">-- lua/plugins/lspconfig.lua — inside LspAttach callback
+local client = vim.lsp.get_client_by_id(ev.data.client_id)
+if client and client:supports_method('textDocument/completion') then
+  vim.lsp.completion.enable(true, ev.data.client_id, ev.buf,
+    { autotrigger = true })
+end</pre>
+        <div class="overflow-x-auto mt-3">
+          <table class="table table-sm">
+            <thead><tr><th>Key</th><th>Action</th><th>Mode</th></tr></thead>
+            <tbody>
+              <tr><td><kbd class="k">&lt;C-y&gt;</kbd></td><td>accept selected item</td><td>insert</td></tr>
+              <tr><td><kbd class="k">&lt;C-e&gt;</kbd></td><td>dismiss menu</td><td>insert</td></tr>
+              <tr><td><kbd class="k">&lt;C-Space&gt;</kbd></td><td>force trigger</td><td>insert</td></tr>
+              <tr><td><kbd class="k">&lt;C-n&gt;</kbd>/<kbd class="k">&lt;C-p&gt;</kbd></td><td>next/prev item</td><td>insert</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-xs opacity-70 mt-2">These are built-in insert-mode defaults — no extra maps added. Menu appears automatically via <code>autotrigger</code>; no floating docs pane (that's blink.cmp territory, not chosen).</p>
+        <div class="alert alert-warning py-2 text-xs mt-3">A1 is intentionally spare: plain vim menu, no docs, no snippet injection. Your UltiSnips stay manual via <kbd class="k">&lt;Tab&gt;</kbd> — unchanged.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- B1 implemented -->
+<section class="card bg-base-100 border border-base-300 shadow">
+  <div class="card-body">
+    <div class="flex items-center gap-2 flex-wrap">
+      <h2 class="card-title">B1 · fzf-lua pickers — live</h2>
+      <span class="badge badge-success">already installed</span>
+      <span class="badge badge-outline">jump1 = false</span>
+    </div>
+    <p class="opacity-80 text-sm">Reuses fzf-lua's <code>lsp_definitions</code> / <code>lsp_declarations</code> with <code>jump1 = false</code> so even a single location still opens a selectable list with preview instead of jumping away. You keep <kbd class="k">gd</kbd>/<kbd class="k">gD</kbd> as direct jumps; the new peek keys are additive.</p>
+
+    <div class="grid lg:grid-cols-2 gap-4 mt-3">
+      <div>
+        <h3 class="font-semibold text-sm mb-1">What it looks like (CLI fzf window)</h3>
+        <div class="term">
+          <div class="term-bar"><span class="dot" style="background:#f38ba8"></span><span class="dot" style="background:#f9e2af"></span><span class="dot" style="background:#a6e3a1"></span><span class="ml-2">nvim main.py  —  &lt;leader&gt;gd on calc_total</span></div>
+          <div class="term-body">total = calc_<span style="background:#45475a">total(items)</span>   <span class="hl-cm">— cursor on symbol, :lua FzfLua</span>
+
+<span class="hl-cm">fzf-lua: lsp_definitions  (jump1 = false)</span>
+&gt; <span style="background:#45475a">calc_ </span>
+<div class="popup">  <div class="row sel">● calc_total  <span class="hl-cm">calc.py:42  def calc_total(items): …</span></div>  <div class="row">○ calc_total  <span class="hl-cm">calc.py:17  declaration / header</span></div></div>
+<div style="margin-top:.6rem;border:1px solid #45475a;border-radius:.4rem;padding:.5rem .6rem;background:#181825"><span class="hl-cm">42 │</span> <span class="hl-kw">def</span> <span class="hl-fn">calc_total</span>(items):
+<span class="hl-cm">43 │</span>     <span class="hl-kw">return</span> <span class="hl-fn">sum</span>(i.price <span class="hl-kw">for</span> i <span class="hl-kw">in</span> items)
+<span class="hl-cm text-[11px]">preview pane — fzf-lua bat preview; &lt;Enter&gt; jump, &lt;Esc&gt; close, &lt;C-q&gt; send to quickfix</span></div></div>
+        </div>
+        <div class="bg-base-200 rounded-lg p-3 text-sm mt-3">
+          <strong>Try it:</strong> put cursor on a symbol → <kbd class="k">&lt;leader&gt;gd</kbd> (definitions) or <kbd class="k">&lt;leader&gt;gD</kbd> (declarations) → fuzzy filter, see preview → <kbd class="k">&lt;Enter&gt;</kbd> to jump. Unlike plain <kbd class="k">gd</kbd>, a single hit <em>doesn't</em> jump.
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-sm mb-1">Exact config added</h3>
+        <pre class="cfg">-- same LspAttach callback, buffer-local
+vim.keymap.set('n', '&lt;leader&gt;gd', function()
+  require('fzf-lua').lsp_definitions({ jump1 = false })
+end, { buffer = ev.buf, desc = 'Peek definitions (fzf-lua, no jump)' })
+
+vim.keymap.set('n', '&lt;leader&gt;gD', function()
+  require('fzf-lua').lsp_declarations({ jump1 = false })
+end, { buffer = ev.buf, desc = 'Peek declarations (fzf-lua, no jump)' })</pre>
+        <div class="overflow-x-auto mt-3">
+          <table class="table table-sm">
+            <thead><tr><th>Key</th><th>Action</th><th>Behavior</th></tr></thead>
+            <tbody>
+              <tr><td><kbd class="k">gd</kbd></td><td>go to definition</td><td>jumps immediately (kept)</td></tr>
+              <tr><td><kbd class="k">gD</kbd></td><td>go to declaration</td><td>jumps immediately (kept)</td></tr>
+              <tr class="bg-success/10"><td><kbd class="k">&lt;leader&gt;gd</kbd></td><td>peek definitions</td><td>fzf list + preview, jump1=false</td></tr>
+              <tr class="bg-success/10"><td><kbd class="k">&lt;leader&gt;gD</kbd></td><td>peek declarations</td><td>fzf list + preview, jump1=false</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-xs opacity-70 mt-2">Already installed: <code>ibhagwan/fzf-lua</code> + <code>nvim-web-devicons</code>. Consistent with <kbd class="k">&lt;C-p&gt;</kbd> files / <kbd class="k">&lt;C-l&gt;</kbd> grep habits; handles many results via fuzzy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- diff -->
+<section class="card bg-base-100 border border-base-300 shadow">
+  <div class="card-body">
+    <h2 class="card-title">File changed</h2>
+    <p class="text-sm opacity-80"><code>.config/nvim/lua/plugins/lspconfig.lua</code> — one autocmd, ~15 lines. <code>lazy-lock.json</code> untouched (no new plugin). Theme / airline / ultisnips / vimtex untouched (out of scope).</p>
+    <pre class="cfg">-- LSP Keymaps + completion (A1) + peek (B1)
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspKeymaps', { clear = true }),
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client and client:supports_method('textDocument/completion') then
+      vim.lsp.completion.enable(true, ev.data.client_id, ev.buf,
+        { autotrigger = true })
+    end
+    local opts = { buffer = ev.buf, silent = true }
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition,
+      vim.tbl_extend('force', opts, { desc = 'LSP go to definition' }))
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration,
+      vim.tbl_extend('force', opts, { desc = 'LSP go to declaration' }))
+    vim.keymap.set('n', '&lt;leader&gt;gd', function()
+      require('fzf-lua').lsp_definitions({ jump1 = false })
+    end, vim.tbl_extend('force', opts, { desc = 'Peek definitions (fzf-lua, no jump)' }))
+    vim.keymap.set('n', '&lt;leader&gt;gD', function()
+      require('fzf-lua').lsp_declarations({ jump1 = false })
+    end, vim.tbl_extend('force', opts, { desc = 'Peek declarations (fzf-lua, no jump)' }))
+  end,
+})</pre>
+  </div>
+</section>
+
+<!-- verification -->
+<section class="grid md:grid-cols-2 gap-4">
+  <div class="card bg-success/10 border border-success/30 shadow">
+    <div class="card-body">
+      <h3 class="card-title text-success">Verification — headless ✓</h3>
+      <ul class="text-sm list-disc ml-4 opacity-80">
+        <li><code>nvim --headless "+Lazy! sync" +qa</code> — exit 0, no errors (lazy fetched latest but kept pinned commits)</li>
+        <li><code>vim.lsp.completion.enable</code> resolves; <code>fzf-lua.lsp_definitions/declarations</code> resolve</li>
+        <li><code>UserLspKeymaps</code> autocmd registered, <code>completeopt</code> = menu,popup, <code>lspconfig</code> loads cleanly</li>
+        <li>pyright + clangd still via <code>vim.lsp.enable(...)</code>; diagnostics unchanged</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card bg-base-100 border border-base-300 shadow">
+    <div class="card-body">
+      <h3 class="card-title">Not chosen — what you skipped</h3>
+      <ul class="text-sm list-disc ml-4 opacity-80">
+        <li><strong>A2 blink.cmp</strong>: fuzzy menu + docs pane + UltiSnips in menu — heavier, binary, would add <code>lazy-lock.json</code> entry.</li>
+        <li><strong>B2 goto-preview</strong> / <strong>B3 glance.nvim</strong>: true floating popup vs VS Code-style panel — both need new plugins.</li>
+      </ul>
+      <p class="text-xs opacity-60 mt-2">You can revisit on the original choices board — same worktree, annotations still replayable.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="text-center text-sm opacity-60 py-4">
+  A1 + B1 is the minimal-change combo — built-in completion + fzf preview, no new lock entries.  Hosted from <code>.lavish/nvim-setup-summary.html</code>.
+</footer>
+
+</main>
+</body>
+</html>
